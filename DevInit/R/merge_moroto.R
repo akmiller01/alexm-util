@@ -11,16 +11,13 @@ actual.e <- read.csv("2017/Expenditure.csv")
 setnames(actual.e,"Year","year")
 actual.r <- read.csv("2017/Revenue.csv")
 
-proposed.e <- subset(proposed.e,year=="2014/15 Proposed Budget")
-proposed.e$year <- 2015
-proposed.r <- subset(proposed.r,year=="2014/15 Proposed Budget")
-proposed.r$year <- 2015
+# proposed.e <- subset(proposed.e,year=="2014/15 Proposed Budget")
+# proposed.r <- subset(proposed.r,year=="2014/15 Proposed Budget")
 actual.e <- subset(actual.e,year=="2015/16 Approved Budget")
-actual.e$year <- 2016
 actual.r <- subset(actual.r,year=="2015/16 Approved Budget")
-actual.r$year <- 2016
 
-moroto.exp <- rbind(proposed.e,actual.e)
+# moroto.exp <- rbind(proposed.e,actual.e)
+moroto.exp <- actual.e
 moroto.exp$id <- "d308"
 moroto.exp["budget-type"] <- "budget"
 moroto.exp$l1 <- "expenditure"
@@ -39,7 +36,8 @@ moroto.exp$value <- as.double(gsub(",","",moroto.exp$Value))
 keep <- c("id","year","budget-type","l1","l2","l3","l4","value")
 moroto.exp <- moroto.exp[keep]
 
-moroto.rev <- rbind(proposed.r,actual.r)
+# moroto.rev <- rbind(proposed.r,actual.r)
+moroto.rev <- actual.r
 moroto.rev$id <- "d308"
 moroto.rev["budget-type"] <- "budget"
 moroto.rev$l1 <- "revenue"
@@ -54,58 +52,59 @@ moroto <- rbind(moroto.rev,moroto.exp)
 moroto <- transform(moroto,l2=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l2))))
 moroto <- transform(moroto,l3=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l3))))
 moroto <- transform(moroto,l4=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l4))))
-moroto <- transform(moroto,l2.m=gsub(" ","",tolower(gsub("[^[:alnum:] ]", "", l2))))
-moroto <- transform(moroto,l3.m=gsub(" ","",tolower(gsub("[^[:alnum:] ]", "", l3))))
-moroto <- transform(moroto,l4.m=gsub(" ","",tolower(gsub("[^[:alnum:] ]", "", l4))))
 
-uf <- read.csv("C:/git/digital-platform/country-year/uganda-finance.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
-uf <- subset(uf,id=="d308" & (year==2015 | year==2016))
-uf <- unique(uf)
-uf <- transform(uf,l2.m=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l2))))
-uf <- transform(uf,l3.m=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l3))))
-uf <- transform(uf,l4.m=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l4))))
-uf <- merge(uf,moroto,by=c("id","budget.type","year","l1","l2.m","l3.m","l4.m"),all=TRUE)
+moroto$value <- moroto$value*1000
 
-uf$l2 <- NA
-uf$l3 <- NA
-uf$l4 <- NA
+uf <- read.csv("C:/git/alexm-util/DevInit/Uganda/Spotlight/uganda-finance.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+uf <- subset(uf,grepl("moroto",District,ignore.case=TRUE))
+
+###Testing####
+# uf$id <- "d308"
+# moroto$District <- "Moroto District (new scrape)"
+# dat <- rbind(uf,moroto)
+# write.csv(dat,"raw_unmerged.csv")
+###End testing####
+
+uf <- subset(uf,year=="2014/15 Proposed Budget" | year=="2015/16 Proposed Budget")
+uf$year[which(uf$year=="2015/16 Proposed Budget")] <- "2015/16 Approved Budget"
+uf.d <- subset(uf,District=="Moroto District")
+uf.d$District <- NULL
+uf.mc <- subset(uf,District=="Moroto Municipal Council")
+uf.mc$District <- NULL
+uf <- merge(uf.d,uf.mc,by=names(uf)[3:length(uf)-1],all=TRUE)
+uf$id <- "d308"
 uf$value <- NA
-
 for(i in 1:nrow(uf)){
   row <- uf[i,]
-  l2.x <- row[[8]]
-  l3.x <- row[[9]]
-  l4.x <- row[[10]]
-  value.x <- row[[11]]
-  l2.y <- row[[13]]
-  l3.y <- row[[14]]
-  l4.y <- row[[15]]
-  value.y <- row[[16]]
+  value.x <- row$value.x
+  value.y <- row$value.y
   value <- sum(value.x,value.y,na.rm=TRUE)
   if(is.na(value.x) & is.na(value.y)){
     value <- NA
-    l2 <- l2.x
-    l3 <- l3.x
-    l4 <- l4.x
-  } else if(!is.na(value.x) & is.na(value.y)){
-    l2 <- l2.x
-    l3 <- l3.x
-    l4 <- l4.x
-  } else if(is.na(value.x) & !is.na(value.y)){
-    l2 <- l2.y
-    l3 <- l3.y
-    l4 <- l4.y
-  } else if(!is.na(value.x) & !is.na(value.y)){
-    l2 <- l2.x
-    l3 <- l3.x
-    l4 <- l4.x
   }
   uf[i,]$value <- value
-  uf[i,]$l2 <- l2
-  uf[i,]$l3 <- l3
-  uf[i,]$l4 <- l4
 }
+uf$value.x <- NULL
+uf$value.y <- NULL
+uf <- merge(uf,moroto,by=c("id","budget.type","year","l1","l2","l3","l4"),all=TRUE)
+uf$value <- NA
+for(i in 1:nrow(uf)){
+  row <- uf[i,]
+  value.x <- row$value.x
+  value.y <- row$value.y
+  value <- sum(value.x,value.y,na.rm=TRUE)
+  if(is.na(value.x) & is.na(value.y)){
+    value <- NA
+  }
+  uf[i,]$value <- value
+}
+uf$value.x <- NULL
+uf$value.y <- NULL
+
 keep <- c("id","budget.type","year","l1","l2","l3","l4","value")
 uf <- uf[keep]
 
-write.csv(uf,"first_draft.csv")
+uf <- unique(uf)
+uf$year[which(uf$year=="2014/15 Proposed Budget")] <- 2015
+uf$year[which(uf$year=="2015/16 Approved Budget")] <- 2016
+write.csv(uf,"fourth_draft.csv",row.names=FALSE,na="")

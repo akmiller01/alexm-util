@@ -169,10 +169,18 @@ data.total$ageCategory <- factor(data.total$ageCategory,
 )
 
 setwd("D:/Documents/Data/MICSmeta")
-cm <- data.total
-save(cm,file="child.marriage.RData")
+# cm <- data.total
+# save(cm,file="child.marriage.RData")
+load("child.marriage.RData")
+
 
 cm$cm <- cm$cohab.age<18
+cm$cm.cat <- NA
+cm$cm.cat[which(is.na(cm$cohab.age))] <- "Unmarried"
+cm$cm.cat[which(cm$cohab.age<18)] <- "Married before age 18"
+cm$cm.cat[which(cm$cohab.age>=18)] <- "Married after age 18"
+cm$cm.cat <- factor(cm$cm.cat,levels=c("Unmarried","Married after age 18","Married before age 18"))
+
 cm$interval[which(cm$interval==996)] <- NA
 cm$small.interval <- cm$interval<=12
 
@@ -268,6 +276,17 @@ for(i in 1:length(filenames)){
         crossTabs[["over25.educcm"]]$low <- crossTabs[["over25.educcm"]]$low + conform(crossTabs[["over25.educcm"]]$low,confidence.tab$low)
         crossTabs[["over25.educcm"]]$estimate <- crossTabs[["over25.educcm"]]$estimate + conform(crossTabs[["over25.educcm"]]$estimate,confidence.tab$estimate)
         crossTabs[["over25.educcm"]]$high <- crossTabs[["over25.educcm"]]$high + conform(crossTabs[["over25.educcm"]]$high,confidence.tab$high)
+      }  
+    }
+    #Educ-cm.cat
+    if(length(over25$educ[which(!is.na(over25$educ))])!=0){
+      confidence.tab <- pop.confidence(over25$educ,over25$cm.cat,over25$weights,this.pop.over25)
+      if(is.null(crossTabs[["over25.educcm.cat"]])){
+        crossTabs[["over25.educcm.cat"]] <- confidence.tab
+      }else{
+        crossTabs[["over25.educcm.cat"]]$low <- crossTabs[["over25.educcm.cat"]]$low + conform(crossTabs[["over25.educcm.cat"]]$low,confidence.tab$low)
+        crossTabs[["over25.educcm.cat"]]$estimate <- crossTabs[["over25.educcm.cat"]]$estimate + conform(crossTabs[["over25.educcm.cat"]]$estimate,confidence.tab$estimate)
+        crossTabs[["over25.educcm.cat"]]$high <- crossTabs[["over25.educcm.cat"]]$high + conform(crossTabs[["over25.educcm.cat"]]$high,confidence.tab$high)
       }  
     }
     #Age-cm
