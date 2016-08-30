@@ -35,8 +35,10 @@ p#tooltiptext{
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<h1>Who contributes the most to the P20?</h1>
+<!--<h1>Who contributes the most to the P20?</h1>-->
+<h1>Which countries are the deepest in poverty?</h1>
 <h4>Red line represents the $2.38/day line. Countries are scaled to their populations and placed on the line in accordance to their poverty headcounts.</h4>
+<h4>The further to the right a country is, the deeper in poverty they are.</h4>
 <div id="tooltip"></div>
 <script>
 $('div#tooltip').hide()
@@ -67,7 +69,9 @@ d3.json("world.json", function(error, world) {
         .projection(projection);
     
     countries.features.sort(function(x,y){
-        return d3.descending(x.properties.hc*x.properties["pop total"],y.properties.hc*y.properties["pop total"]);
+        //return d3.descending(x.properties.hc*x.properties["pop total"],y.properties.hc*y.properties["pop total"]);
+        return d3.ascending(x.properties.hc,y.properties.hc);
+        //return d3.ascending(x.properties["pop total"],y.properties["pop total"]);
     });
     
     var countryRights = [];
