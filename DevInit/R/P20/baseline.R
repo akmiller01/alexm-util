@@ -1,5 +1,8 @@
 library(WDI)
 library(data.table)
+library(zoo)
+library(plyr)
+library(ggplot2)
 
 setwd("D:/Documents/Data/P20 baseline")
 
@@ -35,8 +38,25 @@ setwd("D:/Documents/Data/P20 baseline")
 # save(dat,file="wdi.RData")
 load("wdi.RData")
 
-#Stunting target is 40% global decrease
-keep <- c("country","iso3c","year","SH.STA.STNT.ZS")
+pop <- read.csv("undesa.pop.csv")
+cc <- read.csv("country-codes.csv")
+cc <- cc[c("ISO3166.1.Alpha.3","ISO3166.1.numeric")]
+names(cc) <- c("iso3c","LocID")
+pop <- subset(pop,Variant=="Medium" & Sex=="Both" & AgeGrp=="0-4")
+pop <- merge(pop,cc,by="LocID")
+pop$under5.pop <- pop$Value*1000
+setnames(pop,"Time","year")
+pop <- pop[c("iso3c","year","under5.pop")]
+
+dat <- merge(
+  dat
+  ,pop
+  ,by=c("iso3c","year")
+  )
+
+
+#Stunting target is 40% global decrease by 2025
+keep <- c("country","iso3c","year","SH.STA.STNT.ZS","under5.pop")
 stunting <- dat[keep]
 stunting <- stunting[order(stunting$iso3c,stunting$year),]
 stunting <- stunting[complete.cases(stunting),]
@@ -58,7 +78,7 @@ stunting.rate$annualized.rate = stunting.rate$rate/(stunting.rate$year.latest-st
 keep <- c("iso3c","year.penult","annualized.rate")
 stunting.rate <- data.frame(stunting.rate)
 stunting.rate <- stunting.rate[keep]
-stunting$years.to.target <- 2030-stunting$year
+stunting$years.to.target <- 2025-stunting$year
 stunting$target <- 0.6*stunting$SH.STA.STNT.ZS
 stunting$necessary.reduction <- stunting$SH.STA.STNT.ZS-stunting$target
 stunting$annual.reduction <- stunting$necessary.reduction/stunting$years.to.target
@@ -71,7 +91,7 @@ stunting <- merge(
 write.csv(stunting,"stunting-rates.csv",na="",row.names=FALSE)
 
 #CRVS target is 100%
-keep <- c("country","iso3c","year","SP.REG.BRTH.ZS")
+keep <- c("country","iso3c","year","SP.REG.BRTH.ZS","under5.pop")
 crvs <- dat[keep]
 crvs <- crvs[order(crvs$iso3c,crvs$year),]
 crvs <- crvs[complete.cases(crvs),]
@@ -106,7 +126,7 @@ crvs <- merge(
 write.csv(crvs,"crvs-rates.csv",na="",row.names=FALSE)
 
 #Income target is at least 7% GDP growth per annum in least developed
-keep <- c("country","iso3c","year","NY.GDP.PCAP.KD.ZG")
+keep <- c("country","iso3c","year","NY.GDP.PCAP.KD.ZG","under5.pop")
 gdp.growth <- dat[keep]
 gdp.growth <- gdp.growth[order(gdp.growth$iso3c,gdp.growth$year),]
 gdp.growth <- gdp.growth[complete.cases(gdp.growth),]
@@ -141,3 +161,86 @@ gdp.growth <- merge(
 write.csv(gdp.growth,"gdp.growth-rates.csv",na="",row.names=FALSE)
 
 write.csv(dat,"baseline_wdi.csv",na="",row.names=FALSE)
+
+#Stunting over time
+stunt.ot <- dat[order(dat$iso3c,dat$year),]
+stunt.ot <- stunt.ot[c("iso3c","year","SH.STA.STNT.ZS","under5.pop")]
+colname <- "SH.STA.STNT.ZS"
+stunt.ot <- ddply(stunt.ot,.(iso3c),function(x)
+{
+  naLen <- nrow(x[which(is.na(x[,colname])),])
+  allLen <- nrow(x)
+  valueLen <- allLen-naLen
+  ival <- x[,colname]
+  x[,paste("original",colname,sep="-")] <- ival 
+  if(valueLen>=2)
+  {
+    ival <- na.approx(x[,colname],rule=2)
+#     interpVals <- na.approx(x[,colname])
+#     xIndex = 1
+#     while(is.na(x[,colname][xIndex])){xIndex<-xIndex+1}
+#     for(i in 1:length(interpVals))
+#     {
+#       ival[xIndex] <- interpVals[i]
+#       xIndex<-xIndex+1
+#     }
+  }
+  else if(valueLen==1){
+    ival <- rep(sum(x[,colname],na.rm=TRUE),allLen)
+  }
+  x[,colname] <- ival 
+  return(x)
+})
+
+stunt.ot$stunted <- stunt.ot$under5.pop*(stunt.ot$SH.STA.STNT.ZS/100)
+stunt.ot <- data.table(stunt.ot)
+stunt.ot <- stunt.ot[,.(total.stunted = sum(stunted,na.rm=TRUE),total.under5 = sum(under5.pop,na.rm=TRUE)),by=.(year)]
+p <- ggplot(stunt.ot, aes(y=total.stunted,x=year)) + geom_line()
+p
+write.csv(stunt.ot,"stunting-over-time.csv",na="",row.names=FALSE)
+
+#CRVS over time
+birthreg.ot <- dat[order(dat$iso3c,dat$year),]
+birthreg.ot <- birthreg.ot[c("iso3c","year","SP.REG.BRTH.ZS","under5.pop")]
+colname <- "SP.REG.BRTH.ZS"
+birthreg.ot <- ddply(birthreg.ot,.(iso3c),function(x)
+{
+  naLen <- nrow(x[which(is.na(x[,colname])),])
+  allLen <- nrow(x)
+  valueLen <- allLen-naLen
+  ival <- x[,colname]
+  x[,paste("original",colname,sep="-")] <- ival 
+  if(valueLen>=2)
+  {
+    ival <- na.approx(x[,colname],rule=2)
+    #     interpVals <- na.approx(x[,colname])
+    #     xIndex = 1
+    #     while(is.na(x[,colname][xIndex])){xIndex<-xIndex+1}
+    #     for(i in 1:length(interpVals))
+    #     {
+    #       ival[xIndex] <- interpVals[i]
+    #       xIndex<-xIndex+1
+    #     }
+  }
+  else if(valueLen==1){
+    ival <- rep(sum(x[,colname],na.rm=TRUE),allLen)
+  }
+  x[,colname] <- ival 
+  return(x)
+})
+
+birthreg.ot$unreged <- birthreg.ot$under5.pop*(1-(birthreg.ot$SP.REG.BRTH.ZS/100))
+birthreg.ot <- data.table(birthreg.ot)
+birthreg.ot <- birthreg.ot[,.(total.unreged = sum(unreged,na.rm=TRUE)
+                              ,total.under5 = sum(under5.pop,na.rm=TRUE)
+                              ),by=.(year)]
+# p <- ggplot(birthreg.ot, aes(y=total.birthreged,x=year)) + geom_line()
+# p
+# plot(total.birthreged~year,data=birthreg.ot)
+write.csv(birthreg.ot,"birthreg-over-time.csv",na="",row.names=FALSE)
+
+world.pop <- data.table(pop)
+# world.pop <- data.table(subset(pop,year>2015))
+world.pop <- world.pop[order(world.pop$iso3c,world.pop$year),]
+world.pop <- world.pop[,.(under5.pop=sum(under5.pop)),by=.(year)]
+plot(under5.pop~year,data=world.pop,type="l")

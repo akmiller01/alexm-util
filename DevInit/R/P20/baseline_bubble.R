@@ -52,8 +52,10 @@ diColors <- c("#ba0c2f" #Red
               ,"#b7bf10" #Yellow
 )
 
+p20.income <- transform(p20.income,hc=(p20.pop/(p20.pop+p80.pop)))
 consumption <- subset(p20.income,type=="c")
 income <- subset(p20.income,type=="i")
+
 
 # p <- ggplot(consumption,aes(x=p20.income,y=gdp.pc,colour=region)) +
 #   geom_point(size=3) +
@@ -63,6 +65,16 @@ income <- subset(p20.income,type=="i")
 #   geom_point(size=3) +
 #   scale_colour_manual(values=diColors)
 # p2
+p3 <- ggplot(p20.income,aes(x=hc,y=p20.pop,colour=region)) +
+  geom_point(size=3) +
+  scale_colour_manual(values=diColors) +
+  scale_y_log10()
+p3
+# p4 <- ggplot(p20.income,aes(x=hc,y=p20.pop+p80.pop,colour=region)) +
+#   geom_point(size=3) +
+#   scale_colour_manual(values=diColors) +
+#   scale_y_log10()
+# p4
 
 setnames(
   consumption
