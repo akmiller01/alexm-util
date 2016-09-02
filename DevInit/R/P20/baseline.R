@@ -200,43 +200,52 @@ p
 write.csv(stunt.ot,"stunting-over-time.csv",na="",row.names=FALSE)
 
 #CRVS over time
+library(rCharts)
 birthreg.ot <- dat[order(dat$iso3c,dat$year),]
-birthreg.ot <- birthreg.ot[c("iso3c","year","SP.REG.BRTH.ZS","under5.pop")]
-colname <- "SP.REG.BRTH.ZS"
-birthreg.ot <- ddply(birthreg.ot,.(iso3c),function(x)
-{
-  naLen <- nrow(x[which(is.na(x[,colname])),])
-  allLen <- nrow(x)
-  valueLen <- allLen-naLen
-  ival <- x[,colname]
-  x[,paste("original",colname,sep="-")] <- ival 
-  if(valueLen>=2)
-  {
-    ival <- na.approx(x[,colname],rule=2)
-    #     interpVals <- na.approx(x[,colname])
-    #     xIndex = 1
-    #     while(is.na(x[,colname][xIndex])){xIndex<-xIndex+1}
-    #     for(i in 1:length(interpVals))
-    #     {
-    #       ival[xIndex] <- interpVals[i]
-    #       xIndex<-xIndex+1
-    #     }
-  }
-  else if(valueLen==1){
-    ival <- rep(sum(x[,colname],na.rm=TRUE),allLen)
-  }
-  x[,colname] <- ival 
-  return(x)
-})
-
+birthreg.ot <- birthreg.ot[c("country","iso3c","year","SP.REG.BRTH.ZS","under5.pop")]
 birthreg.ot$unreged <- birthreg.ot$under5.pop*(1-(birthreg.ot$SP.REG.BRTH.ZS/100))
-birthreg.ot <- data.table(birthreg.ot)
-birthreg.ot <- birthreg.ot[,.(total.unreged = sum(unreged,na.rm=TRUE)
-                              ,total.under5 = sum(under5.pop,na.rm=TRUE)
-                              ),by=.(year)]
-# p <- ggplot(birthreg.ot, aes(y=total.birthreged,x=year)) + geom_line()
+birthreg.ot <- birthreg.ot[complete.cases(birthreg.ot),]
+birthreg.ot <- birthreg.ot[order(birthreg.ot$year),]
+setnames(birthreg.ot,"SP.REG.BRTH.ZS","Percent registered")
+setnames(birthreg.ot,"unreged","Unregistered children")
+setnames(birthreg.ot,"year","Year")
+setnames(birthreg.ot,"country","Country")
+d <- dPlot(
+  y = "Percent registered",
+  x = "Year",
+  groups = c("Country"),
+  data = birthreg.ot,
+  type = "line",
+  bounds = list(x = 50, y = 50, height = 600, width = 700),
+  height = 750,
+  width = 800
+)
+d$xAxis( type = "addCategoryAxis")
+d$yAxis( type = "addMeasureAxis")
+d$setTemplate(afterScript = "
+              <script>
+              myChart.draw()
+              myChart.axes[0].titleShape.text('Year')
+              myChart.axes[1].titleShape.text('Percent registered')
+              myChart.svg.append('text')
+              .attr('x', 250)
+              .attr('y', 20)
+              .text('Birth registration over time')
+              .style('text-anchor','beginning')
+              .style('font-size', '100%')
+              .style('font-family','sans-serif')
+              </script>               
+              ")
+# d
+d$save('reg_line.html', cdn = TRUE)
+setnames(birthreg.ot,"Percent registered","Birth.registration")
+Year <- c(2000,2010,2030)
+Birth.registration <- c(58,65,100)
+world <- data.frame(Year,Birth.registration)
+p <- ggplot() +
+  stat_bin2d(data=birthreg.ot, aes(y=Birth.registration,x=Year)) +
+  geom_line(data=world, aes(y=Birth.registration,x=Year))
 # p
-# plot(total.birthreged~year,data=birthreg.ot)
 write.csv(birthreg.ot,"birthreg-over-time.csv",na="",row.names=FALSE)
 
 world.pop <- data.table(pop)

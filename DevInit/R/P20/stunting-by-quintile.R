@@ -92,7 +92,7 @@ require(zoo)
 # stunting$wealth[which(stunting$wealth==4)] <- "richer"
 # stunting$wealth[which(stunting$wealth==5)] <- "richest"
 # 
-# setwd("D:/Documents/Data/P20 baseline")
+setwd("D:/Documents/Data/P20 baseline")
 # 
 # save(stunting,file="stunting.micro.RData")
 load("stunting.micro.RData")

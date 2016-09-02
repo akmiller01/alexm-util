@@ -128,10 +128,10 @@ for(i in 2:length(dirs)){
     recode.educ <- function(x){
       if(is.na(x)){return(NA)}
       else if(tolower(x)=="dk" | tolower(x)=="don't know" | tolower(x)=="missing" | x==8 | x==9){return(NA)}
-      else if(x==0 | x==1 | tolower(x)=="no education, preschool" | tolower(x)=="no education" | tolower(x)=="incomplete primary"){return("No education, preschool")}
-      else if(x==2 | x==3 | tolower(x)=="complete primary" | tolower(x)=="incomplete secondary"){return("Primary")}
-      else if(x==4 | tolower(x)=="complete secondary"){return("Secondary")}
-      else if(x==5 | tolower(x)=="higher"){return("Higher")}
+      else if(x==0 | x==1 | tolower(x)=="no education, preschool" | tolower(x)=="no education" | tolower(x)=="incomplete primary"){return("Not completed secondary")}
+      else if(x==2 | x==3 | tolower(x)=="complete primary" | tolower(x)=="incomplete secondary"){return("Not completed secondary")}
+      else if(x==4 | tolower(x)=="complete secondary"){return("Completed secondary")}
+      else if(x==5 | tolower(x)=="higher"){return("Completed secondary")}
       else{return(NA)}
     }
     pr$educ <- sapply(pr$educ,recode.educ)

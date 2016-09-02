@@ -1,0 +1,21 @@
+Sub AddColumns()
+'
+' AddColumns Macro
+' Adds column charts to all tabs
+'
+
+'
+    Dim i As Integer
+    For i = 1 To Worksheets.Count
+        Worksheets(i).Select
+        ActiveSheet.Shapes.AddChart.Select
+        ActiveChart.SetSourceData Source:=Range("$A$1:$C$3")
+        ActiveChart.ChartType = xlColumnStacked100
+	If ActiveSheet.Name Like "*.low" Then
+            ActiveWindow.SelectedSheets.Visible = False
+    	End If
+	If ActiveSheet.Name Like "*.high" Then
+            ActiveWindow.SelectedSheets.Visible = False
+    	End If
+    Next i
+End Sub
