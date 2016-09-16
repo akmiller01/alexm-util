@@ -37,11 +37,19 @@ hist(df$Age,main="Histogram of respondent's age from Krishna Surveys",xlab="Age"
 gender <- ddply(df,.(SEX),summarize,count=length(S_NO))
 barplot(gender$count,main="Respondent's gender from Krishna Surveys",ylab="Count",col="#BA0C2F",names.arg=c("Female","Male"))
 
-# p1 <- ggplot(data=df,aes(x=Age,y=SG_D)) +
-#   stat_binhex(bins=15)+
-#   xlim(c(0,100)) +
-#   ylim(c(-10,10))
-# p1
+p1 <- ggplot(data=df,aes(x=Age,y=SG_D)) +
+  stat_binhex(bins=15)+
+  xlim(c(0,100)) +
+  ylim(c(-10,10))
+p1
+
+cats <- ddply(df,.(CAT),summarize,count=length(S_NO),before=mean(SG_B,na.rm=TRUE),after=mean(SG_A,na.rm=TRUE))
+cat.labels <- c("Remained poor","Escaped poverty","Entered poverty","Remained non-poor")
+barplot(cats$count,main="Respondent's category from Krishna Surveys",ylab="Count",col="#BA0C2F",names.arg=cat.labels)
+barplot(cats$before,main="Average starting Stage of progress",ylab="Count",col="#BA0C2F",names.arg=cat.labels)
+barplot(cats$after,main="Average ending Stage of progress",ylab="Count",col="#BA0C2F",names.arg=cat.labels)
+write.csv(cats,"D:/Documents/Data/P20 baseline/Krishna categories.csv")
+
 
 # Todo: Codification of whether a cause is negative or positive...
 # See if age or gender causes more or less pos/neg life experiences

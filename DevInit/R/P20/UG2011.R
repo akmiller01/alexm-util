@@ -1,4 +1,4 @@
-wd <- "D:/Documents/Data/DHS/UGIR60DT"
+wd <- "D:/Documents/Data/DHSauto/UGIR60DT"
 setwd(wd)
 library(foreign)
 library(Hmisc)
@@ -49,7 +49,7 @@ bvars <- df[,134:453]
 ch.long <- reshape(bvars)
 
 #Household level
-wd <- "D:/Documents/Data/DHS/UGHR60DT"
+wd <- "D:/Documents/Data/DHSauto/UGHR60DT"
 setwd(wd)
 hh <- read.dta("UGHR60FL.dta")
 hh <- transform(hh,left.out=hv009-(hv010+hv011))
@@ -104,7 +104,7 @@ sh20 <- c(
 )
 
 #Household member
-wd <- "D:/Documents/Data/DHS/UGPR60DT"
+wd <- "D:/Documents/Data/DHSauto/UGPR60DT"
 setwd(wd)
 hhm <- read.dta("UGPR60FL.dta")
 recodeAge <- function(x){

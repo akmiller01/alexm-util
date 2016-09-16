@@ -137,6 +137,18 @@ newNames <- c("p20.rural"
               ,"np80.stunted"
               ,"np20.notstunted"
               ,"np20.stunted"
+              ,"p20.male.stunted"
+              ,"p20.female.stunted"
+              ,"p20.male.notstunted"
+              ,"p20.female.notstunted"
+              ,"p80.male.stunted"
+              ,"p80.female.stunted"
+              ,"p80.male.notstunted"
+              ,"p80.female.notstunted"
+              ,"male.stunted"
+              ,"female.stunted"
+              ,"male.notstunted"
+              ,"female.notstunted"
               ,"surveyed.pop"
               ,"surveyed.households"
               ,"surveyed.men"
@@ -171,7 +183,9 @@ for(i in 1:length(filenames)){
   countryMeta$surveyed.women[which(countryMeta$filename==this.filename)] <- surveyed.women
   if(nrow(dat)>0){
     this.pop <- subset(countryMeta,filename==this.filename)$pop.total
-    this.pop.under5 <- subset(countryMeta,filename==this.filename)$female.under5 + subset(countryMeta,filename==this.filename)$male.under5
+    this.pop.under5.male <- subset(countryMeta,filename==this.filename)$male.under5
+    this.pop.under5.female <- subset(countryMeta,filename==this.filename)$female.under5
+    this.pop.under5 <- this.pop.under5.female + this.pop.under5.male
     this.pop.over5 <- this.pop - this.pop.under5
     this.pop.under15 <- this.pop.under5 + subset(countryMeta,filename==this.filename)$female.5.14 +
       subset(countryMeta,filename==this.filename)$male.5.14
@@ -287,7 +301,29 @@ for(i in 1:length(filenames)){
       countryMeta$np20.notstunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
       countryMeta$np20.stunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})  
     }
+    #Under5 nutrition by gender
+    under5.male <- subset(under5,sex=="Male")
+    under5.female <- subset(under5,sex=="Female")
+    if(length(under5.male$stunted[which(!is.na(under5.male$stunted))])!=0){
+      confidence.tab <- pop.confidence(under5.male$stunted,under5.male$p20,under5.male$weights,this.pop.under5.male)
+      countryMeta$p80.male.notstunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
+      countryMeta$p80.male.stunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
+      countryMeta$p20.male.notstunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
+      countryMeta$p20.male.stunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0}) 
+    }
+    if(length(under5.female$stunted[which(!is.na(under5.female$stunted))])!=0){
+      confidence.tab <- pop.confidence(under5.female$stunted,under5.female$p20,under5.female$weights,this.pop.under5.female)
+      countryMeta$p80.female.notstunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
+      countryMeta$p80.female.stunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
+      countryMeta$p20.female.notstunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
+      countryMeta$p20.female.stunted[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})  
+    }
   }
 }
+
+countryMeta$female.notstunted <- countryMeta$p80.female.notstunted+countryMeta$p20.female.notstunted
+countryMeta$female.stunted <- countryMeta$p80.female.stunted+countryMeta$p20.female.stunted
+countryMeta$male.notstunted <- countryMeta$p80.male.notstunted+countryMeta$p20.male.notstunted
+countryMeta$male.stunted <- countryMeta$p80.male.stunted+countryMeta$p20.male.stunted
 
 write.csv(countryMeta,"p20_np20_bycountry_tabs.csv",row.names=FALSE,na="")

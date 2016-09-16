@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.country {
+    fill:steelblue;
+}
+.bbox {
+    fill:white;
+    stroke-width:1px;
+    stroke:#708C98;
+    fill-opacity:0.01;
+}
+.povLine{
+    stroke:red;
+    stroke-width:3;
+}
+
+div#tooltip{
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 12px;
+    background-color:#FFFFFF;
+    border: 1px grey solid;
+    opacity: 0.8;
+    width:auto;
+}
+p#tooltiptext{
+    padding: 5px;
+    margin:0px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!--<h1>Who contributes the most to the P20?</h1>-->
+<h1>Which countries are the deepest in poverty?</h1>
+<h4>Red line represents the $2.38/day line. Countries are scaled to their populations and placed on the line in accordance to their poverty headcounts.</h4>
+<h4>The further to the right a country is, the deeper in poverty they are.</h4>
+<div id="tooltip"></div>
+<script>
+$('div#tooltip').hide()
+
+var width = 1000,
+    height = 600;
+
+var svg = d3.select("body").append("svg")
+    .attr("class","vis")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("world.json", function(error, world) {
+    if (error) return console.error(error);
+  
+    var countries = topojson.feature(world, world.objects.ne_110m_admin_0_countries);
+    
+    var minPop = d3.min(countries.features,function(d){return +d.properties["pop total"]});
+    var maxPop = d3.max(countries.features,function(d){return +d.properties["pop total"]});
+    var logScale = d3.scale.linear()
+        .domain([minPop,maxPop])
+        .range([1000,100000]);
+    var projection = d3.geo.mercator()
+        .scale(500)
+        .translate([width / 2, height / 2]);
+    
+    var path = d3.geo.path()
+        .projection(projection);
+    
+    countries.features.sort(function(x,y){
+        //return d3.descending(x.properties.hc*x.properties["pop total"],y.properties.hc*y.properties["pop total"]);
+        return d3.ascending(x.properties.hc,y.properties.hc);
+        //return d3.ascending(x.properties["pop total"],y.properties["pop total"]);
+    });
+    
+    var countryRights = [];
+    for(var i = 0; i < countries.features.length; i ++){
+        var d = countries.features[i];
+        //Calculate projected country height at the middle-longitude and vice versa
+        var countryHeight = d.properties.ymax-d.properties.ymin;
+        var countryWidth = d.properties.xmax-d.properties.xmin;
+        var heightMidpoint = (countryHeight/2)+d.properties.ymin;
+        var widthMidpoint = (countryWidth/2)+d.properties.xmin;
+        var middleHeightMin = projection([d.properties.xmin,heightMidpoint])[0];
+        var middleHeightMax = projection([d.properties.xmax,heightMidpoint])[0];
+        var middleWidthMin = projection([widthMidpoint,d.properties.ymin])[1];
+        var middleWidthMax = projection([widthMidpoint,d.properties.ymax])[1];
+        var countryWidthProjected = middleHeightMax-middleHeightMin;
+        var countryHeightProjected = middleWidthMin-middleWidthMax;
+        var s = Math.sqrt(logScale(d.properties["pop total"])/(countryWidthProjected*countryHeightProjected))
+        var countryWidthScaled = countryWidthProjected*s;
+        var countryHeightScaled = countryHeightProjected*s
+        //Use this to calculate right-side of country/left-side of next country
+        var spacer = 10;
+        var countryRight = countryWidthScaled + spacer;
+        if (i > 0) {
+            countryRight += countryRights[i - 1];
+        }
+        countryRights.push(countryRight);
+        if (i > 0) {
+            countries.features[i].properties.left = countryRights[i-1];
+        }else{
+            countries.features[i].properties.left = 0;
+        }
+        countries.features[i].properties.width = countryWidthScaled;
+        countries.features[i].properties.height = countryHeightScaled;
+        //Calculate offsets
+        var projPoints = projection([d.properties.xmin,d.properties.ymax]);
+        var xGeoOffset = (projPoints[0]*-1)
+        var yGeoOffset = (projPoints[1]*-1)
+        var HCoffset = ((1-d.properties.hc)*d.properties.height*-1)
+
+        countries.features[i].properties.s = s;
+        countries.features[i].properties.top = HCoffset+(height/2);
+        countries.features[i].properties.xGeoOffset = xGeoOffset;
+        countries.features[i].properties.yGeoOffset = yGeoOffset;
+        countries.features[i].properties.HCoffset = HCoffset;
+        
+        var centroid = projection([widthMidpoint,heightMidpoint]);
+    };
+    
+    width = countryRights[countryRights.length - 1];
+    
+    svg.attr("width",width);
+        
+    svg.append("g")
+        .attr("class","map")
+        .append("line")
+        .attr("class","povLine")
+        .attr("y1",height/2)
+        .attr("y2",height/2)
+        .attr("x1",0)
+        .attr("x2",width)
+    svg.select("g.map")
+        .selectAll(".country")
+        .data(countries.features)
+        .enter().append("path")
+        .attr("class",function(d){return "country "+d.id; })
+        .attr("d", path)
+        .attr("transform", function(d){
+            var s = d.properties.s
+            var x = d.properties.xGeoOffset*s+(d.properties.left);
+            var y = d.properties.yGeoOffset*s+d.properties.top;
+            return "translate("+x+","+y+") scale("+s+")"
+            });
+    svg.select("g.map")
+        .selectAll(".bbox")
+        .data(countries.features)
+        .enter().append("rect")
+        .attr("class",function(d){return "bbox "+d.id; })
+        .attr("x",function(d){return d.properties.left;})
+        .attr("y", function(d){return d.properties.top;})
+        .attr("width",function(d){return d.properties.width;})
+        .attr("height",function(d){return d.properties.height;})
+        .attr("stroke-dasharray","4,5");
+    svg.select("g.map")
+        .selectAll(".label")
+        .data(countries.features)
+        .enter().append("text")
+        
+    var readable = d3.format(",.0f");
+    var percent = d3.format(".1%");
+    $('rect.bbox').mouseover(function(){
+        var countryClass = $(this).attr("class").split(" ")[1]
+        $('div#tooltip').show()
+        var countryFilter = countries.features.filter(function(d){return d.id==countryClass})
+        $('div#tooltip').css("top",countryFilter[0].properties.top+countryFilter[0].properties.height+$("svg.vis").offset().top)
+        $('div#tooltip').css("left",countryFilter[0].properties.left+$("svg.vis").offset().left)
+        d3.select("div#tooltip").selectAll("p#tooltiptext")
+            .data(countryFilter)
+            .enter().append("p")
+            .attr("id","tooltiptext")
+            .style("width","auto")
+            .html(function (d){
+                return "<b>"+d.properties.name+"</b>"
+                    +"<br/>Poverty headcount: "+percent(d.properties.hc)
+                    +"<br/>Population: "+readable(d.properties["pop total"])
+                    +"<br/>Est. poor population: "+readable(d.properties["pop total"]*d.properties.hc)
+                    +"<br/>Data source year: "+d.properties.year
+            })
+    });
+    $('rect.bbox').mouseout(function(){
+        $('div#tooltip').hide()
+        d3.select("p#tooltiptext")
+        .remove()})
+        
+});
+</script>

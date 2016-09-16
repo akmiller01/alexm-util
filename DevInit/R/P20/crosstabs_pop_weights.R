@@ -286,6 +286,27 @@ for(i in 1:length(filenames)){
         crossTabs[["under5.female.reg.p20"]]$high <- crossTabs[["under5.female.reg.p20"]]$high + conform(crossTabs[["under5.female.reg.p20"]]$high,confidence.tab$high)
       }  
     }
+    #Under5 registration by gender
+    if(length(under5.male$stunting[which(!is.na(under5.male$stunting))])!=0){
+      confidence.tab <- pop.confidence(under5.male$stunting,under5.male$p20,under5.male$weights,this.pop.under5.male)
+      if(is.null(crossTabs[["u5male.stunt.p20"]])){
+        crossTabs[["u5male.stunt.p20"]] <- confidence.tab
+      }else{
+        crossTabs[["u5male.stunt.p20"]]$low <- crossTabs[["u5male.stunt.p20"]]$low + conform(crossTabs[["u5male.stunt.p20"]]$low,confidence.tab$low)
+        crossTabs[["u5male.stunt.p20"]]$estimate <- crossTabs[["u5male.stunt.p20"]]$estimate + conform(crossTabs[["u5male.stunt.p20"]]$estimate,confidence.tab$estimate)
+        crossTabs[["u5male.stunt.p20"]]$high <- crossTabs[["u5male.stunt.p20"]]$high + conform(crossTabs[["u5male.stunt.p20"]]$high,confidence.tab$high)
+      }  
+    }
+    if(length(under5.female$stunting[which(!is.na(under5.female$stunting))])!=0){
+      confidence.tab <- pop.confidence(under5.female$stunting,under5.female$p20,under5.female$weights,this.pop.under5.female)
+      if(is.null(crossTabs[["u5female.stunt.p20"]])){
+        crossTabs[["u5female.stunt.p20"]] <- confidence.tab
+      }else{
+        crossTabs[["u5female.stunt.p20"]]$low <- crossTabs[["u5female.stunt.p20"]]$low + conform(crossTabs[["u5female.stunt.p20"]]$low,confidence.tab$low)
+        crossTabs[["u5female.stunt.p20"]]$estimate <- crossTabs[["u5female.stunt.p20"]]$estimate + conform(crossTabs[["u5female.stunt.p20"]]$estimate,confidence.tab$estimate)
+        crossTabs[["u5female.stunt.p20"]]$high <- crossTabs[["u5female.stunt.p20"]]$high + conform(crossTabs[["u5female.stunt.p20"]]$high,confidence.tab$high)
+      }  
+    }
     #Educ-P20
     over25.male <- subset(over25,sex=="Male")
     over25.female <- subset(over25,sex=="Female")

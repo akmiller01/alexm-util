@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body{
+    background-color:black;
+}
+
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+.q0-9 { fill:rgb(247,251,255); background-color:rgb(247,251,255);}
+.q1-9 { fill:rgb(222,235,247); background-color:rgb(222,235,247);}
+.q2-9 { fill:rgb(198,219,239); background-color:rgb(198,219,239);}
+.q3-9 { fill:rgb(158,202,225); background-color:rgb(158,202,225);}
+.q4-9 { fill:rgb(107,174,214); background-color:rgb(107,174,214);}
+.q5-9 { fill:rgb(66,146,198); background-color:rgb(66,146,198);}
+.q6-9 { fill:rgb(33,113,181); background-color:rgb(33,113,181);}
+.q7-9 { fill:rgb(8,81,156); background-color:rgb(8,81,156);}
+.q8-9 { fill:rgb(8,48,107); background-color:rgb(8,48,107);}
+
+table.legend{
+    position:absolute;
+    color:white;
+}
+
+i.legendKeys{
+    height:20px;
+    width:20px;
+    float:left;
+    }
+
+.propertiesWrapper{
+    width:100%
+    }
+    
+svg.vis{position:absolute;}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v4.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+    
+var width = 800,
+    height = 600;
+
+var selector = d3.select("body").append("div")
+    .attr("class","propertiesWrapper")
+    .append("select")
+    .attr("class","properties");
+    
+$('.properties').change(function(){
+    var selectedOption = $("select.properties option:selected")[0].value;
+    console.log(selectedOption)
+    changeProperty(selectedOption)
+    });
+
+var legendData = d3.range(9).map(function(i) { return "q" + i + "-9"; });
+var legendRow = d3.select("body").append("table")
+    .attr("class","legend").selectAll(".legendKeys")
+    .data(legendData)
+    .enter().append("tr")
+var legendKeys = legendRow.append("td")
+    .append("i")
+    .attr("class",function(d) { return "legendKeys "+d; })
+
+var svg = d3.select("body").append("svg")
+    .attr("class","vis")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("india.json", function(error, india) {
+    if (error) return console.error(error);
+  
+    var states = topojson.feature(india, india.objects.india);
+    
+    var properties = states.features[0].properties;
+    var exclude = ["DHSREGEN","REGCODE","REGNOTES","region.l"];
+    var excludeLen = exclude.length;
+    var keys = Object.keys(properties);
+    for(var i = 0; i < excludeLen; i++){
+        var thisExclude = exclude[i];
+        var excludeIndex = keys.indexOf(thisExclude);
+        if (excludeIndex!=-1) {
+            keys.splice(excludeIndex,1);
+        };
+    };
+    
+    var options = selector.selectAll(".property")
+        .data(keys)
+        .enter().append("option")
+        .attr("class","property")
+        .html(function(d){return d});
+    
+    var projection = d3.geoMercator()
+        .center([78,23])
+        .scale(1000)
+        .translate([width / 2, height / 2]);
+    
+    var path = d3.geoPath()
+        .projection(projection);
+    
+    var map = svg.append("g")
+        .attr("class","map")
+        
+    var readableLarge = d3.format(",.0f");
+    var readableSmall = d3.format(",.2f");
+    var percent = d3.format(".1%");
+    var legendLabels = legendRow.append("td")
+        .append("span");
+        
+    var statePaths = map.selectAll(".state")
+        .data(states.features)
+        .enter().append("path")
+        .attr("d", path);
+        
+    changeProperty = function(colorProperty){
+        var minColor = d3.min(states.features,function(d){return +d.properties[colorProperty]});
+        var maxColor = d3.max(states.features,function(d){return +d.properties[colorProperty]});
+        var quantize = d3.scaleQuantize()
+            .domain([minColor,maxColor])
+            .range(d3.range(9).map(function(i) { return "q" + i + "-9"; }));
+        statePaths
+            .attr("class",function(d){return "state "+quantize(d.properties[colorProperty]); })
+        legendLabels
+            .text(function(d){
+                var extents = quantize.invertExtent(d);
+                if (extents[0]>=0 && extents[1]<=1) {
+                    return percent(extents[0])+" to "+percent(extents[1])
+                }else if (extents[1]<1000) {
+                    return readableSmall(extents[0])+" to "+readableSmall(extents[1])
+                }else{
+                    return readableLarge(extents[0])+" to "+readableLarge(extents[1])   
+                }
+            })
+    };
+    
+    changeProperty(keys[0]);
+        
+});
+</script>
