@@ -12,19 +12,24 @@
 
 require(data.table)
 
-wealth <- function(df,catvars,numvars,urbanvar=NA){
+wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
   
   #Function to name dummies nicely if only column numbers are provided
   name.i <- function(i,df){
     return(names(df)[i])
   }
-  #Turn catvars into variable names, if integer or double
-  if(typeof(catvars)=="double" |typeof(catvars)=="integer"){
-    catvars <- sapply(catvars,name.i,df=hh)
+  if(length(catvars)>0){
+    #Turn catvars into variable names, if integer or double
+    if(typeof(catvars)=="double" |typeof(catvars)=="integer"){
+      catvars <- sapply(catvars,name.i,df=dataf)
+    }
   }
+  
   #Turn numvars into variable names, if integer or double
-  if(typeof(numvars)=="double" |typeof(numvars)=="integer"){
-    numvars <- sapply(numvars,name.i,df=hh)
+  if(length(numvars)>0){
+    if(typeof(numvars)=="double" |typeof(numvars)=="integer"){
+      numvars <- sapply(numvars,name.i,df=dataf)
+    }
   }
   
   #Function to generate binary dummy-variables from categorical variables
@@ -43,7 +48,9 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     return(dummyList)
   }
   
-  dummyList <- generateDummies(df,catvars)
+  if(length(catvars)>0){
+    dummyList <- generateDummies(dataf,catvars) 
+  }
   
   #Function to bind a list by of dfs by rowname, make our dummies line up
   cbindlist <- function(list) {
@@ -56,42 +63,52 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     return(res)
   }
   
-  dummies <- cbindlist(dummyList)
+  if(length(catvars)>0){
+    dummies <- cbindlist(dummyList)
+  }
   
   ## In case there are categories you don't want generated, edit this and uncomment it
-  #   dummy.columns <- colnames(dummies)
-  #   deleted <- 0
-  #   
-  #   for(i in 1:length(dummy.columns)){
-  #     dummy.column <- dummy.columns[i]
-  #     if(
-  #       grepl("unknown",dummy.column,ignore.case=TRUE) |
-  #         grepl("NA",dummy.column) |
-  #         grepl("refuse",dummy.column,ignore.case=TRUE)
-  #     ){
-  #       index <- i-deleted
-  #       dummies <- dummies[,-index]
-  #       deleted <- deleted + 1
-  #     }
-  #   }
+    dummy.columns <- colnames(dummies)
+    deleted <- 0
+    
+    for(i in 1:length(dummy.columns)){
+      dummy.column <- dummy.columns[i]
+      if(
+        grepl("FALSE",dummy.column,ignore.case=TRUE) 
+#         | grepl("NA",dummy.column) |
+#           grepl("refuse",dummy.column,ignore.case=TRUE)
+      ){
+        index <- i-deleted
+        dummies <- dummies[,-index]
+        deleted <- deleted + 1
+      }
+    }
   
-  df <- cbindlist(list(df,dummies))
+  if(length(catvars)>0){
+    dataf <- cbindlist(list(dataf,dummies))
+  }
   
   #Make sure our catvars and numvars are in the df, and have some non-zero standard deviation
   good.keep <- c()
-  wealth.vars <- c(numvars,colnames(dummies))
+  if(length(catvars)>0 & length(numvars)>0){
+    wealth.vars <- c(numvars,colnames(dummies)) 
+  }else if(length(catvars)>0){
+    wealth.vars <- c(colnames(dummies)) 
+  }else if(length(numvars)>0){
+    wealth.vars <- c(numvars) 
+  }
   for(i in 1:length(wealth.vars)){
     varname <- wealth.vars[i];
-    if((varname %in% names(df))){
-      df[[varname]][!complete.cases(df[[varname]])] <- 0
-      var.sd <- sd(df[[varname]],na.rm=TRUE)
+    if((varname %in% names(dataf))){
+      dataf[[varname]][!complete.cases(dataf[[varname]])] <- 0
+      var.sd <- sd(dataf[[varname]],na.rm=TRUE)
       if(var.sd!=0){
         good.keep <- c(good.keep,varname) 
       } 
     }
   }
   
-  dat.asset.cap <- df[good.keep]
+  dat.asset.cap <- dataf[good.keep]
   
   #Common wealth index PCA
   
@@ -106,7 +123,7 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     pca.var <- pca.vars[i]
     message(paste(i,pca.var,sep=". "))
     component <- pca1[[pca.var]]
-    column <- df[[pca.var]]
+    column <- dataf[[pca.var]]
     var.mean <- mean(column,na.rm=TRUE)
     if(pca.var %in% numvars){var.mean <- 0}
     var.sd <- sd(column,na.rm=TRUE)
@@ -122,13 +139,13 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     }
   }
   
-  df <- cbind(df,c.wealth)
+  dataf <- cbind(dataf,c.wealth)
   
   if(!is.na(urbanvar)){
     #Urban wealth index PCA
-    urban <- df[which(df[,urbanvar]==1),]
+    urban <- dataf[which(dataf[,urbanvar]==1),]
     
-    dat.pca <- prcomp(dat.asset.cap[which(df[,urbanvar]==1),])
+    dat.pca <- prcomp(dat.asset.cap[which(dataf[,urbanvar]==1),])
     
     pca1 <- dat.pca$rotation[,1]
     
@@ -162,9 +179,9 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     u.beta <- urban.lm$coefficients[[2]]
     
     #Rural wealth index PCA
-    rural <- df[which(df[,urbanvar]==0),]
+    rural <- dataf[which(dataf[,urbanvar]==0),]
     
-    dat.pca <- prcomp(dat.asset.cap[which(df[,urbanvar]==0),])
+    dat.pca <- prcomp(dat.asset.cap[which(dataf[,urbanvar]==0),])
     
     pca1 <- dat.pca$rotation[,1]
     
@@ -202,9 +219,9 @@ wealth <- function(df,catvars,numvars,urbanvar=NA){
     urban$r.wealth <- NA
     urban$wealth <- u.alpha+(u.beta*u.wealth)
     rural$wealth <- r.alpha+(r.beta*r.wealth)
-    df <- rbind(urban,rural) 
+    dataf <- rbind(urban,rural) 
   }else{
-    df$wealth <- df$c.wealth
+    dataf$wealth <- dataf$c.wealth
   }
-  return(df)
+  return(dataf)
 }
