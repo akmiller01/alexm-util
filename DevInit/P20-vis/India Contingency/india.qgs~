@@ -86,7 +86,7 @@
         </spatialrefsys>
       </srs>
       <provider encoding="UTF-8">ogr</provider>
-      <previewExpression></previewExpression>
+      <previewExpression>COALESCE( "CNTRYNAMEE", '&lt;NULL>' )</previewExpression>
       <vectorjoins/>
       <layerDependencies/>
       <expressionfields/>
@@ -346,7 +346,75 @@
       <excludeAttributesWFS/>
       <attributeactions default="-1"/>
       <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="512936736">
-        <columns/>
+        <columns>
+          <column width="-1" hidden="0" type="field" name="ISO"/>
+          <column width="-1" hidden="0" type="field" name="FIPS"/>
+          <column width="-1" hidden="0" type="field" name="DHSCC"/>
+          <column width="-1" hidden="0" type="field" name="SVYTYPE"/>
+          <column width="-1" hidden="0" type="field" name="SVYYEAR"/>
+          <column width="-1" hidden="0" type="field" name="CNTRYNAMEE"/>
+          <column width="-1" hidden="0" type="field" name="CNTRYNAMEF"/>
+          <column width="-1" hidden="0" type="field" name="CNTRYNAMES"/>
+          <column width="-1" hidden="0" type="field" name="DHSREGEN"/>
+          <column width="-1" hidden="0" type="field" name="DHSREGFR"/>
+          <column width="-1" hidden="0" type="field" name="DHSREGSP"/>
+          <column width="-1" hidden="0" type="field" name="SVYID"/>
+          <column width="-1" hidden="0" type="field" name="REG_ID"/>
+          <column width="-1" hidden="0" type="field" name="Svy_Map"/>
+          <column width="-1" hidden="0" type="field" name="MULTLEVEL"/>
+          <column width="-1" hidden="0" type="field" name="LEVELRNK"/>
+          <column width="-1" hidden="0" type="field" name="REGVAR"/>
+          <column width="-1" hidden="0" type="field" name="REGCODE"/>
+          <column width="-1" hidden="0" type="field" name="REGNAME"/>
+          <column width="-1" hidden="0" type="field" name="OTHREGVAR"/>
+          <column width="-1" hidden="0" type="field" name="OTHREGCO"/>
+          <column width="-1" hidden="0" type="field" name="OTHREGNA"/>
+          <column width="-1" hidden="0" type="field" name="LEVELCO"/>
+          <column width="-1" hidden="0" type="field" name="LEVELNA"/>
+          <column width="-1" hidden="0" type="field" name="REPALLIND"/>
+          <column width="-1" hidden="0" type="field" name="REGNOTES"/>
+          <column width="-1" hidden="0" type="field" name="SVYNOTES"/>
+          <column width="-1" hidden="0" type="field" name="poor.pop"/>
+          <column width="-1" hidden="0" type="field" name="region.l"/>
+          <column width="-1" hidden="0" type="field" name="p20"/>
+          <column width="-1" hidden="0" type="field" name="np20"/>
+          <column width="-1" hidden="0" type="field" name="npl"/>
+          <column width="-1" hidden="0" type="field" name="age"/>
+          <column width="-1" hidden="0" type="field" name="female"/>
+          <column width="-1" hidden="0" type="field" name="head.female"/>
+          <column width="-1" hidden="0" type="field" name="urban"/>
+          <column width="-1" hidden="0" type="field" name="man.bmi"/>
+          <column width="-1" hidden="0" type="field" name="woman.bmi"/>
+          <column width="-1" hidden="0" type="field" name="child.height.age"/>
+          <column width="-1" hidden="0" type="field" name="no.caste"/>
+          <column width="-1" hidden="0" type="field" name="other.caste"/>
+          <column width="-1" hidden="0" type="field" name="obc"/>
+          <column width="-1" hidden="0" type="field" name="scheduled.cast"/>
+          <column width="-1" hidden="0" type="field" name="scheduled.tribe"/>
+          <column width="-1" hidden="0" type="field" name="hindu"/>
+          <column width="-1" hidden="0" type="field" name="muslim"/>
+          <column width="-1" hidden="0" type="field" name="christian"/>
+          <column width="-1" hidden="0" type="field" name="sikh"/>
+          <column width="-1" hidden="0" type="field" name="buddhist"/>
+          <column width="-1" hidden="0" type="field" name="jain"/>
+          <column width="-1" hidden="0" type="field" name="jewish"/>
+          <column width="-1" hidden="0" type="field" name="zoroastrian"/>
+          <column width="-1" hidden="0" type="field" name="athiest"/>
+          <column width="-1" hidden="0" type="field" name="donyi.polo"/>
+          <column width="-1" hidden="0" type="field" name="other.religion"/>
+          <column width="-1" hidden="0" type="field" name="higher.educ"/>
+          <column width="-1" hidden="0" type="field" name="secondary.educ"/>
+          <column width="-1" hidden="0" type="field" name="primary.educ"/>
+          <column width="-1" hidden="0" type="field" name="no.educ"/>
+          <column width="-1" hidden="0" type="field" name="no.cert.no.reg"/>
+          <column width="-1" hidden="0" type="field" name="certificate"/>
+          <column width="-1" hidden="0" type="field" name="registered"/>
+          <column width="-1" hidden="0" type="field" name="unknown.certificate"/>
+          <column width="-1" hidden="0" type="field" name="pop.2001"/>
+          <column width="-1" hidden="0" type="field" name="males.2001"/>
+          <column width="-1" hidden="0" type="field" name="females.2001"/>
+          <column width="-1" hidden="1" type="actions"/>
+        </columns>
       </attributetableconfig>
       <editform></editform>
       <editforminit/>

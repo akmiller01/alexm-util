@@ -23,19 +23,20 @@ function isNumber(n) {
 };
 
 function CBOEdate(string){
-    var monthStr = string.substr(0,3),
-    weekStr = string.split(" ")[0][3]?parseInt(string.split(" ")[0][3]):3,
-    yearStr = string.split(" ")[1],
-    fridays = ["",moment(monthStr+" "+yearStr,"MMM YY").day("Friday"),moment(monthStr+" "+yearStr,"MMM YY").day("Friday").add(1,'w'),moment(monthStr+" "+yearStr,"MMM YY").day("Friday").add(2,'w'),moment(monthStr+" "+yearStr,"MMM YY").day("Friday").add(3,'w'),moment(monthStr+" "+yearStr,"MMM YY").day("Friday").add(4,'w'),moment(monthStr+" "+yearStr,"MMM YY").day("Friday").add(5,'w')];
-    date = fridays[weekStr];
+    var strSplit = string.split(" "),
+    dayStr = strSplit[0]?parseInt(strSplit[0]):false,
+    monthStr = strSplit[1],
+    yearStr = strSplit[2]?parseInt(strSplit[2]):false,
+    date = moment(dayStr+" "+monthStr+" "+yearStr,"D MMM YY");
     return date;
 };
 
 function isCBOEdate(string){
-    var monthStr = string.substr(0,3),
-    weekStr = string.split(" ")[0][3]?parseInt(string.split(" ")[0][3]):3,
-    yearStr = string.split(" ")[1]?string.split(" ")[1]:false,
-    date = moment(monthStr+" "+yearStr,"MMM YY");
+    var strSplit = string.split(" "),
+    dayStr = strSplit[0]?parseInt(strSplit[0]):false,
+    monthStr = strSplit[1],
+    yearStr = strSplit[2]?parseInt(strSplit[2]):false,
+    date = moment(dayStr+" "+monthStr+" "+yearStr,"D MMM YY");
     return date.isValid();
 };
 console.log("Beginning import from "+csvFile+" and export to "+process.argv[4]+"...");
