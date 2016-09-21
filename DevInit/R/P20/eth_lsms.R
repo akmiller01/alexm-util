@@ -37,7 +37,7 @@ dat <- join(dat,assets.wide,by="household_id")
 dat <- join(dat,geo,by="household_id")
 
 dat <- data.table(dat)
-dat[,c("household_id","pw","ea_id","LAT_DD_MOD","LON_DD_MOD"):=NULL]
+dat[,c("household_id","ea_id","LAT_DD_MOD","LON_DD_MOD"):=NULL]
 dat <- data.frame(dat)
 
 dat$poverty[which(dat$poverty==TRUE)] <- 1
@@ -50,11 +50,76 @@ for(i in 1:length(dat)){
   }
 }
 
-dat <- dat[c(4,1:3,5:length(dat))]
+dat <- dat[c(5,3,1,2,4,6:length(dat))]
 
-write.csv(dat,"eth_dat.csv",row.names=FALSE,na="")
+# write.csv(dat,"eth_dat.csv",row.names=FALSE,na="")
 fit <- glm(poverty~.,data=dat,family="binomial")
 summary(fit)
 # install.packages("pscl")
 library("pscl")
 pR2(fit)
+
+keep <- c(3:45,1,2)
+nn <- dat[keep]
+nn <- nn[complete.cases(nn),]
+
+rural <- nn$rural
+hh_size <- (nn$hh_size)/max(nn$hh_size)
+pov <- nn$poverty
+logicals <- nn[c(4:38)] >= 1
+logicals <- logicals*1
+
+normalized.nn <- data.frame(rural,hh_size,logicals,pov)
+
+write.csv(normalized.nn,"C:/git/alexm-util/CUDA/LUA/eth_dat.csv",row.names=FALSE)
+
+source("C:/git/alexm-util/DevInit/R/P20/wealth_pca.R")
+
+catvars <- c(1,39)
+numvars <- c(3:38,40:43)
+nn$urban <- NA
+nn$urban[which(nn$rural==1)] <- 0
+nn$urban[which(nn$rural==0)] <- 1
+
+nn.wealth <- wealth(nn,catvars,numvars,"urban")
+
+weighted.percentile <- function(x,w,prob,na.rm=TRUE){
+  df <- data.frame(x,w)
+  if(na.rm){
+    df <- df[which(complete.cases(df)),]
+  }
+  #Sort
+  df <- df[order(df$x),]
+  sumw <- sum(df$w)
+  df$cumsumw <- cumsum(df$w)
+  #For each percentile
+  cutList <- c()
+  cutNames <-c()
+  for(i in 1:length(prob)){
+    p <- prob[i]
+    pStr <- paste0(round(p*100,digits=2),"%")
+    sumwp <- sumw*p
+    df$above.prob <- df$cumsumw>=sumwp
+    thisCut <- df$x[which(df$above.prob==TRUE)[1]]
+    cutList <- c(cutList,thisCut)
+    cutNames <- c(cutNames,pStr)
+  }
+  names(cutList) <- cutNames
+  return(cutList)
+}
+
+povcalcut <- weighted.mean(nn$poverty,nn$pw)
+povperc <- weighted.percentile(nn.wealth$wealth,nn.wealth$pw,prob=povcalcut)
+
+nn.wealth$p20 <- (nn.wealth$wealth < povperc[1])
+
+nn.wealth$accuracy <- nn.wealth$poverty==nn.wealth$p20
+mean(nn.wealth$accuracy)
+
+fit.normal <- lm(pov~.,data=normalized.nn)
+summary(fit.normal)
+yhat <- round(predict(fit.normal,normalized.nn))
+normalized.nn$yhat <- yhat
+
+normalized.nn$lm.accuracy <- normalized.nn$pov == normalized.nn$yhat
+mean(normalized.nn$lm.accuracy)
