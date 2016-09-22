@@ -75,8 +75,8 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
       dummy.column <- dummy.columns[i]
       if(
         grepl("FALSE",dummy.column,ignore.case=TRUE) 
-#         | grepl("NA",dummy.column) |
-#           grepl("refuse",dummy.column,ignore.case=TRUE)
+        | grepl("99",dummy.column)
+#         |  grepl("refuse",dummy.column,ignore.case=TRUE)
       ){
         index <- i-deleted
         dummies <- dummies[,-index]
@@ -125,7 +125,6 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
     component <- pca1[[pca.var]]
     column <- dataf[[pca.var]]
     var.mean <- mean(column,na.rm=TRUE)
-    if(pca.var %in% numvars){var.mean <- 0}
     var.sd <- sd(column,na.rm=TRUE)
     for(j in 1:length(column)){
       val <- column[j]
@@ -158,7 +157,6 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
       component <- pca1[[pca.var]]
       column <- urban[[pca.var]]
       var.mean <- mean(column,na.rm=TRUE)
-      if(pca.var %in% numvars){var.mean <- 0}
       var.sd <- sd(column,na.rm=TRUE)
       for(j in 1:length(column)){
         val <- column[j]
@@ -194,7 +192,6 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
       component <- pca1[[pca.var]]
       column <- rural[[pca.var]]
       var.mean <- mean(column,na.rm=TRUE)
-      if(pca.var %in% numvars){var.mean <- 0}
       var.sd <- sd(column,na.rm=TRUE)
       for(j in 1:length(column)){
         val <- column[j]
