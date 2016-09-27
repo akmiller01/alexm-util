@@ -41,6 +41,7 @@ dat <- merge(
 dat <- dat[order(dat$iso3,dat$l),]
 
 dat$p <- dat$pop*dat$headcount
+write.csv(dat,"lorenz.csv",row.names=FALSE)
 
 dat <- data.table(dat)
 
