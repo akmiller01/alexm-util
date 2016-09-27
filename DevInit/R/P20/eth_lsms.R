@@ -16,7 +16,7 @@ pov.line <- 72.3917
 
 dat <- transform(dat,pcexpppp=((total_cons_ann/hh_size)*ex.rate)/12)
 dat <- transform(dat,poverty=pcexpppp<pov.line)
-keep <- c("household_id","saq01","rural","pw","hh_size","poverty")
+keep <- c("household_id","saq01","rural","pw","hh_size","poverty","pcexpppp")
 dat <- dat[keep]
 
 geo <- read.dta("Pub_ETH_HouseholdGeovariables_Y1.dta")
@@ -50,7 +50,7 @@ for(i in 1:length(dat)){
   }
 }
 
-dat <- dat[c(5,3,1,2,4,6:length(dat))]
+dat <- dat[c(5,6,3,1,2,4,7:length(dat))]
 
 # write.csv(dat,"eth_dat.csv",row.names=FALSE,na="")
 fit <- glm(poverty~.,data=dat,family="binomial")
@@ -59,29 +59,30 @@ summary(fit)
 library("pscl")
 pR2(fit)
 
-keep <- c(3:45,1,2)
+keep <- c(5:45,1,3,2)
 nn <- dat[keep]
 nn <- nn[complete.cases(nn),]
 
 rural <- nn$rural
 hh_size <- (nn$hh_size)/max(nn$hh_size)
 pov <- nn$poverty
-logicals <- nn[c(4:38)] >= 1
+logicals <- nn[c(3:37)] >= 1
 logicals <- logicals*1
 
 normalized.nn <- data.frame(rural,hh_size,logicals,pov)
 
-write.csv(normalized.nn,"C:/git/alexm-util/CUDA/LUA/eth_dat.csv",row.names=FALSE)
+# write.csv(normalized.nn,"C:/git/alexm-util/CUDA/LUA/eth_dat.csv",row.names=FALSE)
 
 source("C:/git/alexm-util/DevInit/R/P20/wealth_pca.R")
 
-catvars <- c(1,39)
-numvars <- c(3:38,40:43)
+catvars <- c(1,38)
+numvars <- c(3:37,39:41)
 nn$urban <- NA
 nn$urban[which(nn$rural==1)] <- 0
 nn$urban[which(nn$rural==0)] <- 1
 
 nn.wealth <- wealth(nn,catvars,numvars,"urban")
+plot(log(pcexpppp)~wealth,data=nn.wealth)
 
 weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   df <- data.frame(x,w)

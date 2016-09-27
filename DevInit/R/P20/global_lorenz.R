@@ -1,0 +1,49 @@
+library(data.table)
+
+wd <- "C:/git/alexm-util/DevInit/PovCalNet/"
+setwd(wd)
+# 
+# dat <- read.csv("data.csv",as.is=TRUE,header=FALSE)
+# names(dat) <- c("iso3","type","ppp","year","pop")
+# 
+# dat <- dat[order(dat$iso3,dat$year),]
+# dat <- data.table(dat)
+# dat$latest <- rev(!duplicated(dat[,list(rev(dat$iso3))]))
+# dat <- subset(dat,latest)
+# 
+# dat <- data.frame(dat)
+# dat$latest <- NULL
+# 
+# write.csv(dat,"data_new.csv",row.names=FALSE)
+
+dat <- read.csv("D:/Documents/Data/lorenze.csv",header=FALSE)
+keep <- c("V1","V2","V3","V4","V7")
+dat <- dat[keep]
+names(dat) <- c("iso3","type","year","l","headcount")
+dat <- dat[order(dat$iso3,dat$l),]
+dat$year <- round(dat$year)
+
+pop <- read.csv("D:/Documents/Data/P20 baseline/undesa.pop.csv")
+cc <- read.csv("D:/Documents/Data/P20 baseline/country-codes.csv")
+cc <- cc[c("ISO3166.1.Alpha.3","ISO3166.1.numeric")]
+names(cc) <- c("iso3","LocID")
+pop <- subset(pop,Variant=="Medium" & Sex=="Both")
+pop <- merge(pop,cc,by="LocID")
+setnames(pop,"Time","year")
+pop <- data.table(pop)
+pop <- pop[,.(pop=sum(Value,na.rm=TRUE)*1000),by=.(year,iso3)]
+
+dat <- merge(
+  dat
+  ,pop
+  ,by=c("iso3","year")
+)
+dat <- dat[order(dat$iso3,dat$l),]
+
+dat$p <- dat$pop*dat$headcount
+
+dat <- data.table(dat)
+
+lorenz <- dat[,.(p=sum(p,na.rm=TRUE)),by=.(l)]
+lorenz <- lorenz[order(lorenz$l),]
+plot(l~p,data=lorenz)

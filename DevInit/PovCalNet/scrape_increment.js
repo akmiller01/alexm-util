@@ -2,8 +2,8 @@ var request = require('request');
 var cheerio = require('cheerio');
 var csv = require('csv');
 var fs = require('fs');
-var filePath = "D:/Documents/Data/PovCal_11/";
-var input = "data.csv";
+var filePath = "D:/Documents/Data/PovCal_lorenze/";
+var input = "data_new.csv";
 var csvData = fs.readFileSync(input);
 
 
@@ -116,14 +116,17 @@ function parseTextDetails(C01,C02,Y0,PL0,pop,text){
 csv.parse(csvData,
     function(err,data){
         for(var i = 0; i < data.length; i++){
-            var row = data[i];
-            var C01 = row[0];
-            var C02 = row[1];
-            var PPP0 = row[2];
-            var PL0 = 11;
-            var Y0 = row[3];
-            var pop = row[4];
-            requestDetail(C01,C02,PPP0,PL0,Y0,pop);
+            console.log(data[i][0]);
+            for (var j = 1; j <= 36; j++) {
+                var row = data[i];
+                var C01 = row[0];
+                var C02 = row[1];
+                var PPP0 = row[2];
+                var PL0 = j/2;
+                var Y0 = row[3];
+                var pop = row[4];
+                requestDetail(C01,C02,PPP0,PL0,Y0,pop);
+            }
         };
     }
 )
