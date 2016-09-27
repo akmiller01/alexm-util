@@ -21,6 +21,7 @@ keep <- c("V1","V2","V3","V4","V7")
 dat <- dat[keep]
 names(dat) <- c("iso3","type","year","l","headcount")
 dat <- dat[order(dat$iso3,dat$l),]
+dat$headcount[which(dat$headcount>1)] <- dat$headcount[which(dat$headcount>1)]/100
 dat$year <- round(dat$year)
 
 pop <- read.csv("D:/Documents/Data/P20 baseline/undesa.pop.csv")
