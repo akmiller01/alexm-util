@@ -71,3 +71,14 @@ logl <- NA
 p <- 7200000000*.2
 new.data <- data.frame(logl,p)
 exp(predict(fit,new.data))
+
+sans.err <- subset(lorenz,l>2.5 & l!=5.5)
+plot(l~p,data=sans.err)
+fit <- lm(logl~p,data=sans.err)
+summary(fit)
+plot(logl~p,data=sans.err)
+abline(fit)
+logl <- NA
+p <- 1400000000
+new.data <- data.frame(logl,p)
+exp(predict(fit,new.data))
