@@ -3,7 +3,7 @@ var cheerio = require('cheerio');
 var csv = require('csv');
 var fs = require('fs');
 var filePath = "D:/Documents/Data/PovCal_lorenze/";
-var input = "data_new.csv";
+var input = "data_missing.csv";
 var csvData = fs.readFileSync(input);
 
 

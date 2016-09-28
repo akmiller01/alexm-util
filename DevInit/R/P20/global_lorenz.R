@@ -16,7 +16,7 @@ setwd(wd)
 # 
 # write.csv(dat,"data_new.csv",row.names=FALSE)
 
-dat <- read.csv("D:/Documents/Data/lorenze.csv",header=FALSE)
+dat <- read.csv("D:/Documents/Data/lorenz.csv",header=FALSE)
 keep <- c("V1","V2","V3","V4","V7")
 dat <- dat[keep]
 names(dat) <- c("iso3","type","year","l","headcount")
@@ -49,3 +49,25 @@ dat <- data.table(dat)
 lorenz <- dat[,.(p=sum(p,na.rm=TRUE)),by=.(l)]
 lorenz <- lorenz[order(lorenz$l),]
 plot(l~p,data=lorenz)
+
+lorenz$logl <- log(lorenz$l)
+
+fit <- lm(logl~p,data=lorenz)
+summary(fit)
+plot(logl~p,data=lorenz)
+abline(fit)
+
+logl <- NA
+p <- 7200000000
+new.data <- data.frame(logl,p)
+exp(predict(fit,new.data))
+yhat <- predict(fit,new.data)
+new.data$logl <- yhat
+
+plot(logl~p,data=rbind(lorenz,new.data,fill=TRUE))
+abline(fit)
+
+logl <- NA
+p <- 7200000000*.2
+new.data <- data.frame(logl,p)
+exp(predict(fit,new.data))
