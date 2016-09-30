@@ -7,8 +7,7 @@ cmd:text()
 cmd:text('Options for my NN')
 cmd:option('-units',10,'units in the hidden layer')
 cmd:option('-learningRate',0.01,'learning rate')
-cmd:option('-trainingPerc',0.7,'training percentage')
-cmd:option('-csv',"eth_dat.csv",'csv file')
+cmd:option('-csv',"eth_dat_yhat.csv",'csv file')
 cmd:option('-header',true,'csv has header')
 -- etc...
 cmd:text()
@@ -25,38 +24,6 @@ function string:splitAtCommas()
     local pattern = string.format("([^%s]+)", sep)
     self:gsub(pattern, function(c) values[#values+1] = c end)
     return values
-end
-
-math.randomseed( os.time() )
-function shuffleTable( t )
-    assert( t, "shuffleTable() expected a table, got nil" )
-    local copy = {}
-    local iterations = #t
-    local shuffleIdx = torch.randperm(iterations)
-    local j
-    
-    for i = 1, iterations, 1 do
-        j = shuffleIdx[i]
-        copy[i] = t[j]
-    end
-    function copy:size() return t:size() end -- the requirement mentioned
-    function copy:length() return t:length() end
-    return copy
-end
-
-function subsetTable(t,startIndex,endIndex)
-    assert( t, "subsetTable() expected a table, got nil" )
-    local copy = {}
-    local iterations = #t
-    local j = 0
-    
-    for i = startIndex, endIndex, 1 do
-            j = j + 1
-        copy[j] = t[i]
-    end
-    function copy:size() return j end -- the requirement mentioned
-    function copy:length() return t:length() end
-    return copy
 end
 
 function loadData(dataFile,header)
@@ -83,30 +50,19 @@ function loadData(dataFile,header)
 end
 
 dataset = loadData(opt.csv,opt.header)
-randset = shuffleTable(dataset)
-trainingCut = math.floor(dataset:size()*opt.trainingPerc)
-trainingSet = subsetTable(randset,1,trainingCut)
-testingSet = subsetTable(randset,trainingCut+1,randset:size())
-print("Total obs: ",dataset:size())
-print("Total vars: ",dataset:length())
-print("Training obs: ",trainingSet:size())
-print("Testing obs: ",testingSet:size())
 
 -- Using tanh as transfer function for non-linearlity
-inputSize = trainingSet:length()
-hiddenLayer1Size = opt.units
-hiddenLayer2Size = opt.units
-hiddenLayer3Size = opt.units
+inputSize = dataset:length()
+hiddenLayer1Size = opt.units+inputSize
+hiddenLayer2Size = opt.units+inputSize
 
 mlp:add(nn.Linear(inputSize,hiddenLayer1Size))
-mlp:add(nn.HardTanh())
+mlp:add(nn.Tanh())
 mlp:add(nn.Linear(hiddenLayer1Size,hiddenLayer2Size))
-mlp:add(nn.HardTanh())
---mlp:add(nn.Linear(hiddenLayer2Size,hiddenLayer3Size))
---mlp:add(nn.HardTanh())
+mlp:add(nn.Tanh())
 
 -- outputs
-nclasses = 2
+nclasses = 101
 
 mlp:add(nn.Linear(hiddenLayer2Size,nclasses))
 mlp:add(nn.LogSoftMax())
@@ -123,7 +79,7 @@ trainer = nn.StochasticGradient(mlp,criterion)
 trainer.learningRate = opt.learningRate
 
 -- Training!
-trainer:train(trainingSet)
+trainer:train(dataset)
 
 -- Prediction
 -- x = torch.randn(43)
@@ -142,14 +98,22 @@ end
 
 tot = 0
 pos = 0
-for i = 1, testingSet:size(), 1 do
-    local x = testingSet[i][1]
-    local y = testingSet[i][2]
-    local prediction = argmax(mlp:forward(x))
-    if math.floor(prediction) == math.floor(y[1]) then
-        pos = pos + 1
+local header = opt.header
+for line in io.lines(opt.csv) do
+    if header == true then
+        header = false
+    else
+        values = line:splitAtCommas()
+        local y = torch.Tensor(1)
+        y[1] = values[#values] + 1
+        values[#values] = nil
+        local x = torch.Tensor(values)
+        local prediction = argmax(mlp:forward(x))
+        if math.abs(prediction-y[1]) < 5 then
+            pos = pos + 1
+        end
+        tot = tot + 1
     end
-    tot = tot + 1
 end
 print("Accuracy(%) is " .. pos/tot*100)
 
