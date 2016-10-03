@@ -43,7 +43,7 @@ browser = webdriver.Chrome("C://chromedriver//chromedriver") # Create a session 
 browser.implicitly_wait(30) # Configure the WebDriver to wait up to 30 seconds for each page to load
 
 # for i in range(1,2):
-for i in range(1,2001):
+for i in range(110,2001):
     povline = str(i/100.00)
     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
     browser.find_element_by_xpath('//*[@title="Add All"]').click()
