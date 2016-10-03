@@ -1,4 +1,4 @@
-povcal <- function(dhscc,year){
+povcal <- function(iso3,year=2013,urban="all"){
   library(curl)
   yearDict <- list(
     "1990"=1990
@@ -30,16 +30,19 @@ povcal <- function(dhscc,year){
     ,"2016"=2013
     ,"2017"=2013
   )
-  isos <- read.csv("D:/Documents/Data/DHS map/isos.csv",as.is=TRUE)
+  urbanDict = list(
+    "rural"=1,
+    "r"=1,
+    "1"=1,
+    "urban"=2,
+    "u"=2,
+    "2"=2,
+    "all"=3,
+    "a"=3,
+    "3"=3
+  )
   cuts <- read.csv("D:/Documents/Data/DHS map/cuts.full.csv",na.strings="",as.is=TRUE)
-  sub <- subset(isos,cc==dhscc)
-  #   subcuts <- subset(cuts,DHSYEAR==year)
   subcuts <- subset(cuts,DHSYEAR==yearDict[as.character(year)])
-  if(nrow(sub)>0){
-    iso3 <- sub$iso3[1]
-  }else{
-    iso3 <- readline(prompt=paste0("Enter ISO3 for ",dhscc,": "))
-  }
   data <- c()
   steps <- names(cuts)[2:6]
   for(step in steps){
@@ -47,7 +50,8 @@ povcal <- function(dhscc,year){
     url <- paste0(
       "http://iresearch.worldbank.org/PovcalNet/Detail.aspx?Format=Detail&C0="
       ,iso3
-      ,"_3"
+      ,"_"
+      ,urbanDict[as.character(urban)]
       ,"&PPP0=0&PL0="
       ,cut
       ,"&Y0="
