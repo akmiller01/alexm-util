@@ -43,7 +43,7 @@ browser = webdriver.Chrome("C://chromedriver//chromedriver") # Create a session 
 browser.implicitly_wait(30) # Configure the WebDriver to wait up to 30 seconds for each page to load
 
 # for i in range(1,2):
-for i in range(613,2001):
+for i in range(820,2001):
     povline = str(i/100.00)
     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
     browser.find_element_by_xpath('//*[@title="Add All"]').click()
@@ -65,7 +65,7 @@ for i in range(613,2001):
         yearOption.click()
     browser.find_element_by_xpath('//*[@title="Get result"]').click()
     browser.find_element_by_xpath('//*[@id="btnShowAllCountries"]').click()
-    browser.find_element_by_xpath('//*[@id="btnCopySmry"]').click()
-    textBox = browser.find_element_by_xpath('//*[@id="bufToClipboard"]')
-    df = pd.read_html(textBox.text)[0]
+    tableElement = browser.find_element_by_xpath('//*[@id="Smry"]')
+    tableSource = tableElement.get_attribute('outerHTML')
+    df = pd.read_html(tableSource)[0]
     df.to_csv(options.output+povline+".csv",index=False,header=False)
