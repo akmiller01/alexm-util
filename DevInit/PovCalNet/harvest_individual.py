@@ -8,7 +8,7 @@ import os
 import pandas as pd
 
 parser = OptionParser()
-parser.add_option("-o", "--output", dest="output", default="D:\\Documents\\Data\\PovCal_Increment\\aggregates\\",
+parser.add_option("-o", "--output", dest="output", default="D:\\Documents\\Data\\PovCal_Increment\\individual\\",
                         help="Output path. Default is wd",metavar="FOLDER")
 (options, args) = parser.parse_args()
 
@@ -43,7 +43,7 @@ browser = webdriver.Chrome("C://chromedriver//chromedriver") # Create a session 
 browser.implicitly_wait(30) # Configure the WebDriver to wait up to 30 seconds for each page to load
 
 # for i in range(1,2):
-for i in range(613,2001):
+for i in range(1,2001):
     povline = str(i/100.00)
     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
     browser.find_element_by_xpath('//*[@title="Add All"]').click()
@@ -51,21 +51,18 @@ for i in range(613,2001):
     alert.accept()
     alert = browser.switch_to_alert()
     alert.accept()
-    browser.find_element_by_xpath('//*[@id="chk_GroupUp"]').click()
     browser.find_element_by_xpath('//*[@id="btnSubmitCountries"]').click()
     queries = []
     plInput = {}
-    plInput["input_id"] = "NewPovertyLine"
+    plInput["input_id"] = "PL0"
     plInput["input_str"] = povline
     queries.append(plInput)
     input_text(browser, queries)
-    yearSelect = browser.find_element_by_xpath('//*[@name="Years"]')
-    yearOptions = yearSelect.find_elements_by_tag_name('option')
-    for yearOption in yearOptions:
-        yearOption.click()
+    browser.find_element_by_xpath('//*[@id="btnSetToAll"]').click()
+    browser.find_element_by_xpath('//*[@id="btnSelectAllYears"]').click()
+    browser.find_element_by_xpath('//*[@id="chkOutputFT"]').click()
     browser.find_element_by_xpath('//*[@title="Get result"]').click()
-    browser.find_element_by_xpath('//*[@id="btnShowAllCountries"]').click()
-    browser.find_element_by_xpath('//*[@id="btnCopySmry"]').click()
-    textBox = browser.find_element_by_xpath('//*[@id="bufToClipboard"]')
-    df = pd.read_html(textBox.text)[0]
+    tableElement = browser.find_element_by_xpath('//*[@class="oTbl"]')
+    tableSource = tableElement.get_attribute('outerHTML')
+    df = pd.read_html(tableSource)[0]
     df.to_csv(options.output+povline+".csv",index=False,header=False)
