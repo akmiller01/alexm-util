@@ -7,72 +7,101 @@ library(WDI)
 wd <- "D:/Documents/Data/PovCal_Increment"
 setwd(wd)
 
-# agg.header <- c(
-#   "country"
-#   ,"year"
-#   ,"type"
-#   ,"pl"
-#   ,"mean"
-#   ,"hc"
-#   ,"pg"
-#   ,"pg2"
-#   ,"watts"
-#   ,"pop"
-#   ,"svyYear"
-#   ,"detail"
-# )
-# 
-# agg <- fread(
-#   "aggregates.csv"
-#   ,colClasses = c(
-#     "character"
-#     ,"numeric"
-#     ,"character"
-#     ,rep("numeric",8)
-#     ,"character"
-#     )
-#   ,header=FALSE
-#   ,col.names=agg.header
-#   ,na.strings=c("NaN.00","n/a","Interpolated","Weighted sum","Weightedsum","Wght. interpolation")
-#   )
-# 
-# ind.header <- c(
-#   "country"
-#   ,"year"
-#   ,"type"
-#   ,"mean"
-#   ,"pl"
-#   ,"hc"
-#   ,"pg"
-#   ,"pg2"
-#   ,"watts"
-#   ,"gini"
-#   ,"median"
-#   ,"mld"
-#   ,"pop"
-#   ,"detail"
-# )
-# 
-# ind <- fread(
-#   "individual.csv"
-#   ,colClasses = c(
-#     "character"
-#     ,"numeric"
-#     ,"character"
-#     ,rep("numeric",10)
-#     ,"character"
-#   )
-#   ,header=FALSE
-#   ,col.names=ind.header
-#   ,na.strings=c("NaN.00","n/a","Interpolated","Weighted sum","Weightedsum","Wght. interpolation")
-# )
+agg.header <- c(
+  "country"
+  ,"year"
+  ,"type"
+  ,"pl"
+  ,"mean"
+  ,"hc"
+  ,"pg"
+  ,"pg2"
+  ,"watts"
+  ,"pop"
+  ,"svyYear"
+  ,"detail"
+)
 
-# save(agg,ind,file="total.RData")
+agg <- fread(
+  "aggregates.csv"
+  ,colClasses = c(
+    "character"
+    ,"numeric"
+    ,"character"
+    ,rep("numeric",7)
+    ,"character"
+    ,"character"
+    )
+  ,header=FALSE
+  ,col.names=agg.header
+  ,na.strings=c("NaN.00","n/a")
+  )
+
+ind.header <- c(
+  "country"
+  ,"year"
+  ,"type"
+  ,"mean"
+  ,"pl"
+  ,"hc"
+  ,"pg"
+  ,"pg2"
+  ,"watts"
+  ,"gini"
+  ,"median"
+  ,"mld"
+  ,"pop"
+  ,"detail"
+)
+
+ind <- fread(
+  "individual.csv"
+  ,colClasses = c(
+    "character"
+    ,"numeric"
+    ,"character"
+    ,rep("numeric",10)
+    ,"character"
+  )
+  ,header=FALSE
+  ,col.names=ind.header
+  ,na.strings=c("NaN.00","n/a","Interpolated","Weighted sum","Weightedsum","Wght. interpolation")
+)
+
+save(agg,ind,file="total.RData")
 
 load("total.RData")
 
 agg <- subset(agg,!grepl("--",country,fixed=TRUE))
 ind <- subset(ind,!grepl("--",country,fixed=TRUE))
+
+agg.dup <- agg[,.(count=sum(!is.na(type))),by=.(country,year,pl)]
+agg.dup <- subset(agg.dup,count>1)
+agg.dup$id <- paste(agg.dup$country,agg.dup$year,agg.dup$pl)
+agg$id <- paste(agg$country,agg$year,agg$pl)
+all.dups <- agg[which(agg$id %in% agg.dup$id),]
+good.dups <- subset(all.dups,svyYear=="Interpolated")
+agg <- agg[!(agg$id %in% agg.dup$id),]
+agg <- rbind(agg,good.dups)
+agg[,("id"):=NULL]
+
+#Load in pop and fix Romania
+indicator <- "SP.POP.TOTL"
+
+pop <- WDI(country = "all", 
+           indicator = indicator, 
+           start = 1981, 
+           end = 2013
+)
+
+rom <- agg[which(agg$country=="Romania"),]
+rom[is.na(rom)] <- 0
+agg <- agg[!(agg$country=="Romania"),]
+rom <- merge(rom,pop,by=c("year","country"))
+rom$pop <- rom$SP.POP.TOTL/1000000
+rom[,(c("SP.POP.TOTL","iso2c")):=NULL]
+agg <- rbind(agg,rom)
+agg <- agg[order(-agg$year,agg$pl,agg$country),]
 
 ctryDiff <- setdiff(unique(ind$country),unique(agg$country))
 ind <- subset(ind,country %in% ctryDiff)
@@ -91,14 +120,6 @@ ind.interp <- ind[,.(
   ,original.hc=hc
   ),by=.(country,pl)]
 
-indicator <- "SP.POP.TOTL"
-
-pop <- WDI(country = "all", 
-           indicator = indicator, 
-           start = 1981, 
-           end = 2013
-)
-
 ind.interp <- merge(ind.interp,pop,by=c("country","year"))
 ind.interp$pop <- ind.interp$SP.POP.TOTL/1000000
 remove <- c("original.hc","iso2c","SP.POP.TOTL")
@@ -110,3 +131,19 @@ agg[,(remove):=NULL]
 
 pcn <- rbind(agg,ind.interp)
 save(pcn,file="pcn.RData")
+
+differentSpellings <- setdiff(pcn$country,pop$country)
+missingCountries <- setdiff(pop$country,pcn$country)
+
+pcn$poorpop <- (pcn$hc/100)*pcn$pop
+write.csv(pcn,"pcn.csv",row.names=FALSE)
+write.csv(subset(pcn,country %in% ctryDiff),"lissy.csv",na="",row.names=FALSE)
+years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
+for(i in years){
+  filename <- paste("years/pcn",i,"csv",sep=".")
+  write.csv(subset(pcn,year==i),filename,row.names=FALSE,na="")
+  filename <- paste("lissy_years/lissy",i,"csv",sep=".")
+  write.csv(subset(pcn,year==i & country %in% ctryDiff),filename,row.names=FALSE,na="")
+}
+popbypl <- pcn[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(pl,year)]
+write.csv(popbypl,"popbypl.csv",row.names=FALSE)
