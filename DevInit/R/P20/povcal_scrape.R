@@ -134,6 +134,13 @@ save(pcn,file="pcn.RData")
 
 differentSpellings <- setdiff(pcn$country,pop$country)
 missingCountries <- setdiff(pop$country,pcn$country)
+missingCountries <- missingCountries[48:121]
+remove <- c(16,32,33,17,18,34,42,47,50,72)
+differentSpellings <- missingCountries[remove]
+missingCountries <- subset(missingCountries,! missingCountries %in% differentSpellings)
+mcPop <- subset(pop,year==2013 & country %in% missingCountries)
+sum(mcPop$SP.POP.TOTL,na.rm=TRUE)
+View(mcPop)[order(mcPop$SP.POP.TOTL),]
 
 pcn$poorpop <- (pcn$hc/100)*pcn$pop
 write.csv(pcn,"pcn.csv",row.names=FALSE)
