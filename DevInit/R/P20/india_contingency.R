@@ -155,7 +155,7 @@ if(typeof(pr$child.height.age)=="NULL"){
 }
 pr$child.weights <- pr$weights
 
-povcalcut <- 0.3395
+povcalcut <- 0.383
 np20cut <- 0.2
 nplcut <- subset(pov,year==2006)$pl.hc[[1]]
 cuts <- c(povcalcut,np20cut,nplcut)
