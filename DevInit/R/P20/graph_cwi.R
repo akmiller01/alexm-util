@@ -3,6 +3,7 @@ library(ggplot2)
 library(data.table)
 library(WDI)
 library(rCharts)
+library(plyr)
 
 setwd("D:/Documents/Data/DHSmeta")
 
@@ -109,7 +110,7 @@ d$setTemplate(afterScript = "
                myChart.svg.append('text')
                .attr('x', 250)
                .attr('y', 20)
-               .text('CWI vs. GNI per capita (DHS phase 6)')
+               .text('CWI vs. GNI per capita')
                .style('text-anchor','beginning')
                .style('font-size', '100%')
                .style('font-family','sans-serif')

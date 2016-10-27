@@ -76,7 +76,7 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
       if(
         grepl("FALSE",dummy.column,ignore.case=TRUE) 
         | grepl("99",dummy.column)
-#         |  grepl("refuse",dummy.column,ignore.case=TRUE)
+#         |  grepl("0",dummy.column,ignore.case=TRUE)
       ){
         index <- i-deleted
         dummies <- dummies[,-index]
