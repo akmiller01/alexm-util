@@ -84,6 +84,19 @@ nn$urban[which(nn$rural==0)] <- 1
 nn.wealth <- wealth(nn,catvars,numvars,"urban")
 plot(log(pcexpppp)~wealth,data=nn.wealth)
 
+library(ggplot2)
+
+p <- ggplot(nn.wealth,aes(x=wealth,y=log(pcexpppp))) + stat_binhex() +
+  labs(
+    title="Log of per capita expenditure vs. constructed wealth index (2011 Ethiopia LSMS)"
+    ,x="Wealth index"
+    ,y="Log of per capita expenditure (Constant 2011 $ PPP)"
+  ) + theme_bw()
+p
+
+fit <- lm(log(pcexpppp)~wealth,data=nn.wealth)
+summary(fit)
+
 weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   df <- data.frame(x,w)
   if(na.rm){

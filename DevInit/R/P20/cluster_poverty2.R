@@ -39,6 +39,7 @@ all.years$DHSYEAR[which(all.years$DHSCC=="MD" & all.years$DHSYEAR==2009)] <- 200
 dat <- read.dbf("aggregate_clusters/clusters.dbf")
 dat$filename <- NULL
 dat$p20 <- NULL
+dat$stunted <- NULL
 
 dat <- join(dat,all.years,by=c("DHSCC","DHSYEAR"))
 
@@ -148,6 +149,72 @@ weighted.percentile <- function(x,w,prob,na.rm=TRUE){
 dataList <- list()
 dataIndex <- 1
 
+###One worker assumption for households outside of IR
+stunted.children <- function(df){
+  stunted.column <- c()
+  for(i in 1:nrow(df)){
+    stunted = 0
+    for(j in 1:99){
+      stuntingVar <- paste0("hc5_",j)
+      if(typeof(df[[stuntingVar]])!="NULL"){
+        h4a <- df[[stuntingVar]][i]/100
+        if(!is.na(h4a)){
+          if(h4a<=-2){
+            stunted = stunted + 1 
+          }
+        }
+      }else{
+        break;
+      }
+    }
+    stunted.column = c(stunted.column,stunted)
+  }
+  return(stunted.column)
+}
+
+mean.h4a <- function(df){
+  stunted.column <- c()
+  for(i in 1:nrow(df)){
+    stunted.sum = 0
+    n <- 0
+    for(j in 1:99){
+      stuntingVar <- paste0("hc5_",j)
+      if(typeof(df[[stuntingVar]])!="NULL"){
+        h4a <- df[[stuntingVar]][i]/100
+        if(!is.na(h4a)){
+          if(h4a<90){
+            stunted.sum = stunted.sum + h4a
+            n <- n + 1 
+          }
+        }
+      }else{
+        break;
+      }
+    }
+    stunted.column = c(stunted.column,(stunted.sum/n))
+  }
+  return(stunted.column)
+}
+
+calc.stunting.perc <- function(stunted.c,measured.c){
+  result.c <- c()
+  for(i in 1:length(stunted.c)){
+    stunted = stunted.c[i]
+    measured = measured.c[i]
+    
+    if(is.na(measured)){
+      result.c <- c(result.c,NA)
+    }else if(is.na(stunted)){
+      result.c <- c(result.c,NA)
+    }else if(measured==0){
+      result.c <- c(result.c,0)
+    }else{
+      result.c <- c(result.c,stunted/measured)
+    }
+  }
+  return(result.c)
+}
+
 # cf <- read.csv("D:/Documents/Data/DHSauto/cfhr31dt/CFHR31FL.csv",as.is=TRUE)
 # cf.wealth <- read.csv("D:/Documents/Data/DHSauto/cfwi31dt/CFWI31FL.csv",as.is=TRUE)
 # names(cf.wealth)[which(names(cf.wealth)=="whhid")] <- "hhid"
@@ -181,10 +248,16 @@ for(i in 1:nrow(filenames)){
     ,".csv"
   )
   dhs <- read.csv(hrFile,as.is=TRUE)
-#   iso3 <- subset(isos,cc==dhscc)$iso3[1]
+  #   iso3 <- subset(isos,cc==dhscc)$iso3[1]
   
   names(dhs)[which(names(dhs)=="hv271")] <- "wealth"
   dhs$wealth <- dhs$wealth/100000
+  
+  names(dhs)[which(names(dhs)=="hv035")] <- "measured.children"
+  dhs$stunted.children <- stunted.children(dhs)
+  if(typeof(dhs$measured.children)=="NULL"){dhs$measured.children<-dhs$hv014}
+  dhs$percent.stunted = calc.stunting.perc(dhs$stunted.children,dhs$measured.children)
+  if(typeof(dhs$percent.stunted)=="NULL"){dhs$percent.stunted<-NA}
   
   #Rename sample.weights var
   names(dhs)[which(names(dhs)=="hv005")] <- "sample.weights"
@@ -203,44 +276,17 @@ for(i in 1:nrow(filenames)){
   povcalperc <- weighted.percentile(dhs$wealth,dhs$weights,prob=povcalcut)
   dhs$p20 <- (dhs$wealth < povcalperc)
   dhs.tab <- data.table(dhs)
-  cluster.tab <- dhs.tab[,.(p20=weighted.mean(p20,weights)),by=.(cluster)]
+  cluster.tab <- dhs.tab[,.(p20=weighted.mean(p20,weights),stunted=weighted.mean(percent.stunted,weights)),by=.(cluster)]
   cluster.tab$DHSCC <- cc
   dataList[[dataIndex]] <- cluster.tab
   dataIndex <- dataIndex + 1
 }
 
 metaClusters <- rbindlist(dataList)
-write.csv(metaClusters,"D:/Documents/Data/DHS map/all_clusters.csv",na="",row.names=FALSE)
-metaClusters <- read.csv("D:/Documents/Data/DHS map/all_clusters.csv",na.strings="",as.is=TRUE)
+write.csv(metaClusters,"D:/Documents/Data/DHS map/all_clusters2.csv",na="",row.names=FALSE)
+metaClusters <- read.csv("D:/Documents/Data/DHS map/all_clusters2.csv",na.strings="",as.is=TRUE)
 setnames(metaClusters,"cluster","DHSCLUST")
 dat <- join(dat,metaClusters,by=c("DHSCC","DHSCLUST"))
 dat$p20[which(is.na(dat$p20))] <- -1
+dat$stunted[which(is.na(dat$stunted))] <- -1
 write.dbf(dat,"aggregate_clusters/clusters.dbf")
-
-###No cluster long-lats for india, but we do have region names
-dhs <- read.csv("D:/Documents/Data/DHSauto/iahr52dt/IAHR52FL.csv",as.is=TRUE)
-names(dhs)[which(names(dhs)=="hv271")] <- "wealth"
-dhs$wealth <- dhs$wealth/100000
-
-#Rename sample.weights var
-names(dhs)[which(names(dhs)=="hv005")] <- "sample.weights"
-dhs$weights <- dhs$sample.weights/1000000
-
-#Rename cluster/hh var
-names(dhs)[which(names(dhs)=="hv001")] <- "cluster"
-names(dhs)[which(names(dhs)=="hv002")] <- "household"
-names(dhs)[which(names(dhs)=="hv023")] <- "REGNAME"
-
-dhscc <- "ia"
-year <- 2006
-povcalcut <- 0.3395
-povcalperc <- weighted.percentile(dhs$wealth,dhs$weights,prob=povcalcut)
-dhs$p20 <- (dhs$wealth < povcalperc)
-dhs.tab <- data.table(dhs)
-reg.tab <- dhs.tab[,.(p20=weighted.mean(p20,weights)),by=.(REGNAME)]
-reg.tab <- data.frame(reg.tab)
-reg.tab <- reg.tab[c("REGNAME","p20")]
-ia <- read.dbf("D:/Documents/Data/DHS shapefiles/IA 2006 DHS/shps/sdr_subnational_boundaries.dbf")
-ia$p20 <- NULL
-ia <- join(ia,reg.tab,by="REGNAME")
-write.dbf(ia,"D:/Documents/Data/DHS shapefiles/IA 2006 DHS/shps/sdr_subnational_boundaries.dbf")
