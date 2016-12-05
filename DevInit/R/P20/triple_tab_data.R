@@ -1202,12 +1202,29 @@ data.total <- rbind(china.data.total,data.total,fill=TRUE)
 setwd("D:/Documents/Data/MICSmeta/")
 load("child.maternal.RData")
 setnames(child.health,"skilled.attendant","ch.skilled.attendant")
-child.health <- data.frame(child.health)
-maternal.health <- data.frame(maternal.health)
-child.health <- child.health[c("filename","cluster","household","ch.skilled.attendant","any.vacc")]
-maternal.health <- maternal.health[c("filename","cluster","household","ceb","cdead","skilled.attendant","maternal.deaths")]
-data.total <- join(data.total,child.health,by=c("filename","cluster","household"))
-data.total <- join(data.total,maternal.health,by=c("filename","cluster","household"))
+valid.vacc <- c(TRUE,"TRUE","Yes","Oui","Sí")
+no.vacc <- c(FALSE,"FALSE","No","Non","No sabe")
+missing.vacc <- c("DK",NA,"Missing","NSP","Manquant")
+recode.vacc <- function(x){
+  if(is.na(x)){return(NA)}
+  else if(x %in% valid.vacc){return(1)}
+  else if(x %in% no.vacc){return(0)}
+  else if(x %in% missing.vacc){return(NA)}
+  return(NA)
+}
+child.health$vacc <- sapply(child.health$any.vacc,recode.vacc)
+child.health.tab <- child.health[,.(
+  ch.skilled.attendant=sum(ch.skilled.attendant==TRUE,na.rm=TRUE)>=1
+  ,any.vacc=sum(vacc,na.rm=TRUE)>=1
+),by=.(filename,cluster,household)]
+maternal.health.tab <- maternal.health[,.(
+  ceb=sum(ceb,na.rm=TRUE)
+  ,cdead=sum(cdead,na.rm=TRUE)
+  ,skilled.attendant=sum(skilled.attendant,na.rm=TRUE)>=1
+  ,maternal.deaths=sum(maternal.deaths,na.rm=TRUE)
+),by=.(filename,cluster,household)]
+data.total <- join(data.total,child.health.tab,by=c("filename","cluster","household"))
+data.total <- join(data.total,maternal.health.tab,by=c("filename","cluster","household"))
 save(data.total,file="total_triple.RData")
 
 # bra <- subset(data.total,filename=="Brazil")

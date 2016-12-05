@@ -78,14 +78,14 @@ povcal <- function(dhscc,year){
     ,"2010"=2012
     ,"2011"=2011
     ,"2012"=2012
-    ,"2013"=2012
-    ,"2014"=2012
-    ,"2015"=2012
-    ,"2016"=2012
-    ,"2017"=2012
+    ,"2013"=2013
+    ,"2014"=2013
+    ,"2015"=2013
+    ,"2016"=2013
+    ,"2017"=2013
   )
   isos <- read.csv("D:/Documents/Data/DHS map/isos.csv",as.is=TRUE)
-  cuts <- read.csv("D:/Documents/Data/DHS map/povcuts.csv",na.strings="",as.is=TRUE)
+  cuts <- read.csv("D:/Documents/Data/DHS map/cuts.full.csv",na.strings="",as.is=TRUE)
   sub <- subset(isos,cc==dhscc)
   #   subcuts <- subset(cuts,DHSYEAR==year)
   subcuts <- subset(cuts,DHSYEAR==yearDict[as.character(year)])
@@ -95,7 +95,7 @@ povcal <- function(dhscc,year){
     iso3 <- readline(prompt=paste0("Enter ISO3 for ",dhscc,": "))
   }
   if(nrow(subcuts)>0){
-    cut <- subcuts$cutpoint[1]
+    cut <- subcuts$p20[1]
   }else{
     cut <- as.numeric(readline(prompt=paste0("Enter cutpoint for ",year,": ")))
   }
@@ -155,7 +155,9 @@ dataIndex <- 1
 
 for(i in 1:nrow(filenames)){
   hrBase <- filenames$filename[i]
-  year <- filenames$DHSYEAR[i]
+  message(hrBase)
+#   year <- filenames$DHSYEAR[i]
+  year <- 2013
   cc <- toupper(substr(hrBase,1,2))
   dhscc <- tolower(cc)
   phase <- substr(hrBase,5,6)
@@ -185,9 +187,9 @@ for(i in 1:nrow(filenames)){
   
   povcalcut <- povcal(dhscc,year)
   if(is.na(povcalcut) & dhscc=="eg"){
-    povcalcut <- 0.0202
+    povcalcut <- 0.057445654
   }else if(is.na(povcalcut) & dhscc=="id"){
-    povcalcut <- 0.1590
+    povcalcut <- 0.27
   }
   povcalperc <- weighted.percentile(dhs$wealth,dhs$weights,prob=povcalcut)
   dhs$p20 <- (dhs$wealth < povcalperc)
@@ -202,5 +204,5 @@ for(i in 1:nrow(filenames)){
 }
 
 metaRegions <- rbindlist(dataList)
-metaRegions$p20[which(is.na(metaRegions$p20))] <- -1
+# metaRegions$p20[which(is.na(metaRegions$p20))] <- -1
 write.csv(metaRegions,"D:/Documents/Data/DHS map/all_regions.csv",na="",row.names=FALSE)

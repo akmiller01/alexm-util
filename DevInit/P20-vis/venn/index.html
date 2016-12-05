@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dynamic venn.js example</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<div style="float:left;padding:20px">
+    <table>
+    <tr>
+        <td>X</td>
+        <td>
+            <select id="Xselect" class="indicator">
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Y</td>
+        <td>
+            <select id="Yselect" class="indicator">
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Z</td>
+        <td>
+            <select id="Zselect" class="indicator">
+            </select>
+        </td>
+    </tr>
+    <tr>
+      <td>|X|</td>
+      <td>
+        <input class="input-mini venn_area" id="X" type="number" value="16">
+      </td>
+    </tr>
+    <tr>
+      <td>|Y|</td>
+      <td>
+        <input class="input-mini venn_area" id="Y" type="number" value="16">
+      </td>
+    </tr>
+    <tr>
+      <td>|Z|</td>
+      <td>
+        <input class="input-mini venn_area" id="Z" type="number" value="12">
+      </td>
+    </tr>
+    <tr>
+      <td>|X&#8745Y|</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Y" type="number" value="4">
+      </td>
+    </tr>
+    <tr>
+      <td>|X&#8745Z|</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Z" type="number" value="4">
+      </td>
+    </tr>
+    <tr>
+      <td>|Y&#8745Z|</td>
+      <td>
+        <input class="input-mini venn_area" id="Y,Z" type="number" value="3">
+      </td>
+    </tr>
+    <tr>
+      <td>|X&#8745Y&#8745Z|&nbsp</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Y,Z" type="number" value="2">
+      </td>
+    </tr>
+    <tr>
+        <td>Country</td>
+        <td>
+            <select id="isoSelect"></select>
+        </td>
+    </tr>
+    </table>
+</div>
+<div id="venn"></div>
+<div style="clear: both;"></div>
+
+</body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="venn.js"></script>
+<script>
+Array.prototype.compare = function(testArr) {
+    if (this.length != testArr.length) return false;
+    for (var i = 0; i < testArr.length; i++) {
+        if (this[i].compare) { //To test values in nested arrays
+            if (!this[i].compare(testArr[i])) return false;
+        }
+        else if (this[i] !== testArr[i]) return false;
+    }
+    return true;
+}
+
+var isoDict = {"AD":"Andorra"
+,"AE":"UAE"
+,"AF":"Afghanistan"
+,"AG":"Antigua & Barbuda"
+,"AI":"Anguilla"
+,"AL":"Albania"
+,"AM":"Armenia"
+,"AO":"Angola"
+,"AQ":"Antarctica"
+,"AR":"Argentina"
+,"AS":"American Samoa"
+,"AT":"Austria"
+,"AU":"Australia"
+,"AW":"Aruba"
+,"AX":"Aland Islands"
+,"AZ":"Azerbaijan"
+,"BA":"Bosnia & Herzegovina"
+,"BB":"Barbados"
+,"BD":"Bangladesh"
+,"BE":"Belgium"
+,"BF":"Burkina Faso"
+,"BG":"Bulgaria"
+,"BH":"Bahrain"
+,"BI":"Burundi"
+,"BJ":"Benin"
+,"BL":"Saint Barthelemy"
+,"BM":"Bermuda"
+,"BN":"Brunei"
+,"BO":"Bolivia "
+,"BQ":"BES Islands"
+,"BR":"Brazil"
+,"BS":"Bahamas"
+,"BT":"Bhutan"
+,"BV":"Bouvet Island"
+,"BW":"Botswana"
+,"BY":"Belarus"
+,"BZ":"Belize"
+,"CA":"Canada"
+,"CC":"Cocos (Keeling) Islands"
+,"CD":"DRC"
+,"CF":"CAR"
+,"CG":"Congo"
+,"CH":"Switzerland"
+,"CI":"Cote d'Ivoire"
+,"CK":"Cook Islands"
+,"CL":"Chile"
+,"CM":"Cameroon"
+,"CN":"China"
+,"CO":"Colombia"
+,"CR":"Costa Rica"
+,"CU":"Cuba"
+,"CV":"Cape Verde"
+,"CW":"Curacao"
+,"CX":"Christmas Island"
+,"CY":"Cyprus"
+,"CZ":"Czech Republic"
+,"DE":"Germany"
+,"DJ":"Djibouti"
+,"DK":"Denmark"
+,"DM":"Dominica"
+,"DO":"Dominican Republic"
+,"DZ":"Algeria"
+,"EC":"Ecuador"
+,"EE":"Estonia"
+,"EG":"Egypt"
+,"EH":"Western Sahara"
+,"ER":"Eritrea"
+,"ES":"Spain"
+,"ET":"Ethiopia"
+,"FI":"Finland"
+,"FJ":"Fiji"
+,"FK":"Falkland Islands "
+,"FM":"Micronesia"
+,"FO":"Faroe Islands"
+,"FR":"France"
+,"GA":"Gabon"
+,"GB":"UK"
+,"GD":"Grenada"
+,"GE":"Georgia"
+,"GF":"French Guiana"
+,"GG":"Guernsey"
+,"GH":"Ghana"
+,"GI":"Gibraltar"
+,"GL":"Greenland"
+,"GM":"Gambia"
+,"GN":"Guinea"
+,"GP":"Guadeloupe"
+,"GQ":"Equatorial Guinea"
+,"GR":"Greece"
+,"GS":"South Georgia & the South Sandwich Islands"
+,"GT":"Guatemala"
+,"GU":"Guam"
+,"GW":"Guinea-Bissau"
+,"GY":"Guyana"
+,"HK":"Hong Kong"
+,"HM":"Heard Island & McDonald Islands"
+,"HN":"Honduras"
+,"HR":"Croatia"
+,"HT":"Haiti"
+,"HU":"Hungary"
+,"ID":"Indonesia"
+,"IE":"Ireland"
+,"IL":"Israel"
+,"IM":"Isle of Man"
+,"IN":"India"
+,"IO":"British Indian Ocean Territory"
+,"IQ":"Iraq"
+,"IR":"Iran"
+,"IS":"Iceland"
+,"IT":"Italy"
+,"JE":"Jersey"
+,"JM":"Jamaica"
+,"JO":"Jordan"
+,"JP":"Japan"
+,"KE":"Kenya"
+,"KG":"Kyrgyzstan"
+,"KH":"Cambodia"
+,"KI":"Kiribati"
+,"KM":"Comoros"
+,"KN":"Saint Kitts and Nevis"
+,"KP":"North Korea"
+,"KR":"South Korea"
+,"KW":"Kuwait"
+,"KY":"Cayman Islands"
+,"KZ":"Kazakhstan"
+,"LA":"Lao"
+,"LB":"Lebanon"
+,"LC":"Saint Lucia"
+,"LI":"Liechtenstein"
+,"LK":"Sri Lanka"
+,"LR":"Liberia"
+,"LS":"Lesotho"
+,"LT":"Lithuania"
+,"LU":"Luxembourg"
+,"LV":"Latvia"
+,"LY":"Libya"
+,"MA":"Morocco"
+,"MC":"Monaco"
+,"MD":"Moldova"
+,"ME":"Montenegro"
+,"MF":"Saint Martin "
+,"MG":"Madagascar"
+,"MH":"Marshall Islands"
+,"MK":"Macedonia"
+,"ML":"Mali"
+,"MM":"Myanmar"
+,"MN":"Mongolia"
+,"MO":"Macao"
+,"MP":"Northern Mariana Islands"
+,"MQ":"Martinique"
+,"MR":"Mauritania"
+,"MS":"Montserrat"
+,"MT":"Malta"
+,"MU":"Mauritius"
+,"MV":"Maldives"
+,"MW":"Malawi"
+,"MX":"Mexico"
+,"MY":"Malaysia"
+,"MZ":"Mozambique"
+,"NA":"Namibia"
+,"NC":"New Caledonia"
+,"NE":"Niger"
+,"NF":"Norfolk Island"
+,"NG":"Nigeria"
+,"NI":"Nicaragua"
+,"NL":"Netherlands"
+,"NO":"Norway"
+,"NP":"Nepal"
+,"NR":"Nauru"
+,"NU":"Niue"
+,"NZ":"New Zealand"
+,"OM":"Oman"
+,"PA":"Panama"
+,"PE":"Peru"
+,"PF":"French Polynesia"
+,"PG":"Papua New Guinea"
+,"PH":"Philippines"
+,"PK":"Pakistan"
+,"PL":"Poland"
+,"PM":"Saint Pierre & Miquelon"
+,"PN":"Pitcairn"
+,"PR":"Puerto Rico"
+,"PS":"Palestine"
+,"PT":"Portugal"
+,"PW":"Palau"
+,"PY":"Paraguay"
+,"QA":"Qatar"
+,"RE":"Reunion"
+,"RO":"Romania"
+,"RS":"Serbia"
+,"RU":"Russian Federation"
+,"RW":"Rwanda"
+,"SA":"Saudi Arabia"
+,"SB":"Solomon Islands"
+,"SC":"Seychelles"
+,"SD":"Sudan"
+,"SE":"Sweden"
+,"SG":"Singapore"
+,"SH":"Saint Helena, Ascension & Tristan da Cunha"
+,"SI":"Slovenia"
+,"SJ":"Svalbard & Jan Mayen"
+,"SK":"Slovakia"
+,"SL":"Sierra Leone"
+,"SM":"San Marino"
+,"SN":"Senegal"
+,"SO":"Somalia"
+,"SR":"Suriname"
+,"SS":"South Sudan"
+,"ST":"Sao Tome & Principe"
+,"SV":"El Salvador"
+,"SX":"Sint Maarten (Dutch part)"
+,"SY":"Syria"
+,"SZ":"Swaziland"
+,"TC":"Turks & Caicos Islands"
+,"TD":"Chad"
+,"TF":"French Southern Territories"
+,"TG":"Togo"
+,"TH":"Thailand"
+,"TJ":"Tajikistan"
+,"TK":"Tokelau"
+,"TL":"Timor-Leste"
+,"TM":"Turkmenistan"
+,"TN":"Tunisia"
+,"TO":"Tonga"
+,"TR":"Turkey"
+,"TT":"Trinidad & Tobago"
+,"TV":"Tuvalu"
+,"TW":"Taiwan"
+,"TZ":"Tanzania"
+,"UA":"Ukraine"
+,"UG":"Uganda"
+,"UM":"United States Minor Outlying Islands"
+,"US":"USA"
+,"UY":"Uruguay"
+,"UZ":"Uzbekistan"
+,"VA":"Holy See (Vatican City State)"
+,"VC":"Saint Vincent & the Grenadines"
+,"VE":"Venezuela"
+,"VG":"Virgin Islands (GB)"
+,"VI":"Virgin Islands (US)"
+,"VN":"Viet Nam"
+,"VU":"Vanuatu"
+,"WF":"Wallis & Futuna"
+,"WS":"Samoa"
+,"XK":"Kosovo"
+,"YE":"Yemen"
+,"YT":"Mayotte"
+,"ZA":"South Africa"
+,"ZM":"Zambia"
+,"ZW":"Zimbabwe"
+,"EU":"European Union"};
+
+var indicatorDict = {
+ "birth.reg":"Birth registered"
+ ,"female":"Female"
+ ,"fifteento49":"Aged 15 to 49"
+ ,"fiveto14":"Aged 5 to 14"
+ ,"gt49":"Older than 49"
+ ,"higher":"Higher education"
+ ,"male":"Male"
+ ,"no.educ":"No education or preschool"
+ ,"p20":"P20"
+ ,"primary":"Primary education"
+ ,"rural":"Rural"
+ ,"secondary":"Secondary education"
+ ,"skilled.attendant":"Had skilled birth attendant"
+ ,"stunted":"Experiencing stunting"
+ ,"under5":"Younger than 5"
+ ,"urban":"Urban"
+};
+var indicators = Object.keys(indicatorDict);
+
+function ensureUnique() {
+    var $selects = $('select.indicator');
+    var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+    var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
+    while (uniqueLength!=3) {
+        if (values[0]==values[1]) {
+            var value1index = indicators.indexOf($selects[1].value);
+            if (value1index>=(indicators.length-1)) {
+                value1index = -1
+            };
+            value1index+=1;
+            $selects[1].options[value1index].selected = true;
+            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
+        };
+        if (values[1]==values[2]) {
+            var value2index = indicators.indexOf($selects[2].value);
+            if (value2index>=(indicators.length-1)) {
+                value2index = -1
+            };
+            value2index+=1;
+            $selects[2].options[value2index].selected = true;
+            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
+        };
+        if (values[2]==values[0]){
+            var value2index = indicators.indexOf($selects[2].value);
+            if (value2index>=(indicators.length-1)) {
+                value2index = -1
+            };
+            value2index+=1;
+            $selects[2].options[value2index].selected = true;
+            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
+        };
+    };
+    return(values)
+};
+
+d3.csv('all.venn.joined.csv',function(data){
+    var isos = d3.map(data,function(d){return d.iso2;}).keys();
+    var isoSelect = d3.select("#isoSelect");
+    
+    isoSelect.selectAll("option.iso").data(isos).enter().append("option")
+        .attr('class','iso')
+        .attr('value',function(d){return d})
+        .text(function(d){return isoDict[d];});
+    function changeVenn() {
+        var iso2 = $("#isoSelect").val();
+        var values = ensureUnique().sort();
+        var subset = data.filter(function(d){
+            var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
+            return(values.compare(indicatorSet) && d.iso2==iso2);
+        })[0];
+        var $selects = $('select.indicator');
+        var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+        var indicatorSet = [subset.indicator1,subset.indicator2,subset.indicator3];
+        var order = [indicatorSet.indexOf(values[0]),indicatorSet.indexOf(values[1]),indicatorSet.indexOf(values[2])];
+        //Sorry...
+        if ([0,1,2].compare(order)) {
+            $('#X').val(subset.X)
+            $('#Y').val(subset.Y)
+            $('#Z').val(subset.Z)
+            $('#X\\,Y').val(subset['X,Y'])
+            $('#X\\,Z').val(subset['X,Z'])
+            $('#Y\\,Z').val(subset['Y,Z'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        //X, Y, Z
+        //X, Z, Y
+        }else if ([0,2,1].compare(order)) {
+            $('#X').val(subset.X)
+            $('#Y').val(subset.Z)
+            $('#Z').val(subset.Y)
+            $('#X\\,Y').val(subset['X,Z'])
+            $('#X\\,Z').val(subset['X,Y'])
+            $('#Y\\,Z').val(subset['Y,Z'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        //X, Y, Z
+        //Y, X, Z
+        }else if ([1,0,2].compare(order)) {
+            $('#X').val(subset.Y)
+            $('#Y').val(subset.X)
+            $('#Z').val(subset.Z)
+            $('#X\\,Y').val(subset['X,Y'])
+            $('#X\\,Z').val(subset['Y,Z'])
+            $('#Y\\,Z').val(subset['X,Z'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        //X, Y, Z
+        //Y, Z, X
+        }else if ([1,2,0].compare(order)) {
+            $('#X').val(subset.Y)
+            $('#Y').val(subset.Z)
+            $('#Z').val(subset.X)
+            $('#X\\,Y').val(subset['Y,Z'])
+            $('#X\\,Z').val(subset['X,Y'])
+            $('#Y\\,Z').val(subset['X,Z'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        //X, Y, Z
+        //Z, X, Y
+        }else if ([2,0,1].compare(order)) {
+            $('#X').val(subset.Z)
+            $('#Y').val(subset.X)
+            $('#Z').val(subset.Y)
+            $('#X\\,Y').val(subset['X,Z'])
+            $('#X\\,Z').val(subset['Y,Z'])
+            $('#Y\\,Z').val(subset['X,Y'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        //X, Y, Z
+        //Z, Y, X
+        }else if ([2,1,0].compare(order)) {
+            $('#X').val(subset.Z)
+            $('#Y').val(subset.Y)
+            $('#Z').val(subset.X)
+            $('#X\\,Y').val(subset['Y,Z'])
+            $('#X\\,Z').val(subset['X,Z'])
+            $('#Y\\,Z').val(subset['X,Y'])
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+        }
+        if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
+            $('div#venn').hide()
+        }else{
+            $('div#venn').show()
+            d3.select("#venn").datum(getSetIntersections()).call(chart);
+        };
+        
+    };
+    var dropdowns = d3.selectAll('select');
+    dropdowns.on("change",changeVenn);
+    var indicatorDropdowns = d3.selectAll('select.indicator');
+    var options = indicatorDropdowns.selectAll('option.indicator').data(indicators);
+    options.enter().append("option")
+        .attr('value',function(d){return d})
+        .attr('class','indicator')
+        .text(function(d){return indicatorDict[d];});
+    changeVenn();
+});
+    
+function getSetIntersections() {
+    areas = d3.selectAll(".venn_area").nodes().map(
+        function (element) {
+            return { sets: element.id.split(","),
+                     size: element.value!=""?parseFloat(element.value):0};} );
+    return areas;
+}
+
+
+// draw the initial set
+var chart = venn.VennDiagram()
+                 .width(600)
+                 .height(500);
+
+d3.select("#venn").datum(getSetIntersections()).call(chart);
+
+// redraw the sets on any change in input
+d3.selectAll("input").on("change", function() {
+    d3.select("#venn").datum(getSetIntersections()).call(chart);
+});
+
+// tweak style
+var colours = ['black', 'red', 'blue'];
+d3.selectAll("#venn .venn-circle path")
+    .style("fill-opacity", 0)
+    .style("stroke-width", 10)
+    .style("stroke-opacity", .5)
+    .style("stroke", function(d,i) { return colours[i]; });
+
+d3.selectAll("#venn .venn-circle text")
+    .style("fill", function(d,i) { return colours[i]})
+    .style("font-size", "32px")
+    .style("font-weight", "100");
+</script>
+</html>

@@ -126,10 +126,10 @@ for(i in 2:length(dirs)){
     recode.educ <- function(x){
       if(is.na(x)){return(NA)}
       else if(tolower(x)=="dk" | tolower(x)=="don't know" | tolower(x)=="missing" | x==8 | x==9){return(NA)}
-      else if(x==0 | x==1 | tolower(x)=="no education, preschool" | tolower(x)=="no education" | tolower(x)=="incomplete primary"){return("Not completed secondary")}
-      else if(x==2 | x==3 | tolower(x)=="complete primary" | tolower(x)=="incomplete secondary"){return("Not completed secondary")}
-      else if(x==4 | tolower(x)=="complete secondary"){return("Completed secondary")}
-      else if(x==5 | tolower(x)=="higher"){return("Completed secondary")}
+      else if(x==0 | x==1 | tolower(x)=="no education, preschool" | tolower(x)=="no education" | tolower(x)=="incomplete primary"){return("No education, preschool")}
+      else if(x==2 | x==3 | tolower(x)=="complete primary" | tolower(x)=="incomplete secondary"){return("Primary")}
+      else if(x==4 | tolower(x)=="complete secondary"){return("Secondary")}
+      else if(x==5 | tolower(x)=="higher"){return("Higher")}
       else{return(NA)}
     }
     pr$educ <- sapply(pr$educ,recode.educ)
@@ -182,12 +182,14 @@ for(i in 2:length(dirs)){
     povcalcut <- subset(povcalcuts,filename==hrBase)$hc
     np20cut <- 0.2
     nplcut <- subset(povcalcuts,filename==hrBase)$pl.hc
-    cuts <- c(povcalcut,np20cut,nplcut)
+    extcut <- subset(povcalcuts,filename==hrBase)$extreme
+    cuts <- c(povcalcut,np20cut,nplcut,extcut)
     povperc <- weighted.percentile(pr$wealth,pr$weights,prob=cuts)
     
     pr$p20 <- (pr$wealth < povperc[1])
     pr$np20 <- (pr$wealth < povperc[2])
     pr$npl <- (pr$wealth < povperc[3])
+    pr$ext <- (pr$wealth < povperc[4])
     
     mothers <- unique(pr[c("cluster","household","line","woman.bmi")])
     mothers <- mothers[complete.cases(mothers),]
@@ -200,7 +202,7 @@ for(i in 2:length(dirs)){
     
     keep <- c("wealth","weights","urban.rural","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl","ext"
     )
     prNames <- names(pr)
     namesDiff <- setdiff(keep,prNames)
@@ -493,12 +495,14 @@ for(i in 2:length(dirs)){
     povcalcut <- subset(povcalcuts,filename==hrBase)$hc
     np20cut <- 0.2
     nplcut <- subset(povcalcuts,filename==hrBase)$pl.hc
-    cuts <- c(povcalcut,np20cut,nplcut)
+    extcut <- subset(povcalcuts,filename==hrBase)$extreme
+    cuts <- c(povcalcut,np20cut,nplcut,extcut)
     povperc <- weighted.percentile(hh$wealth,hh$weights,prob=cuts)
     
     hh$p20 <- (hh$wealth < povperc[1])
     hh$np20 <- (hh$wealth < povperc[2])
     hh$npl <- (hh$wealth < povperc[3])
+    hh$ext <- (hh$wealth < povperc[4])
     
     wmkeep <- c("household","cluster","line","woman.bmi")
     wmNames <- names(wm)
@@ -544,7 +548,7 @@ for(i in 2:length(dirs)){
     )
     
     
-    hhkeep <- c("wealth","weights","urban.rural","cluster","household","head.sex","head.age","p20","np20","npl")
+    hhkeep <- c("wealth","weights","urban.rural","cluster","household","head.sex","head.age","p20","np20","npl","ext")
     hhNames <- names(hh)
     namesDiff <- setdiff(hhkeep,hhNames)
     if(length(namesDiff)>0){
@@ -562,7 +566,7 @@ for(i in 2:length(dirs)){
     hl <- data.frame(hl,as.is=TRUE,check.names=FALSE)
     keep <- c("wealth","weights","urban.rural","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl","ext"
     )
     hlNames <- names(hl)
     namesDiff <- setdiff(keep,hlNames)
@@ -826,12 +830,14 @@ pr <- join(
 povcalcut <- subset(povcalcuts,filename=="Brazil")$hc
 np20cut <- 0.2
 nplcut <- subset(povcalcuts,filename=="Brazil")$pl.hc
-cuts <- c(povcalcut,np20cut,nplcut)
+extcut <- subset(povcalcuts,filename==hrBase)$extreme
+cuts <- c(povcalcut,np20cut,nplcut,extcut)
 povperc <- weighted.percentile(pr$wealth,pr$weights,prob=cuts)
 
 pr$p20 <- (pr$wealth < povperc[1])
 pr$np20 <- (pr$wealth < povperc[2])
 pr$npl <- (pr$wealth < povperc[3])
+pr$ext <- (pr$wealth < povperc[4])
 
 codeAgeCat <- function(x){
   startAge <- 0
@@ -924,7 +930,7 @@ pr$educ <- factor(pr$educ
 
 keep <- c("wealth","weights","urban.rural","urban","educ","age","sex","cluster","household","head.sex","head.age","p20"
           ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age","child.weight.age"
-          ,"woman.bmi","man.bmi","ageCategory","head.ageCategory","stunting","npl","np20"
+          ,"woman.bmi","man.bmi","ageCategory","head.ageCategory","stunting","npl","np20","ext"
 )
 prNames <- names(pr)
 namesDiff <- setdiff(keep,prNames)
@@ -1112,12 +1118,14 @@ ir <- join(
 povcalcut <- subset(povcalcuts,filename=="China")$hc
 np20cut <- 0.2
 nplcut <- subset(povcalcuts,filename=="China")$pl.hc
-cuts <- c(povcalcut,np20cut,nplcut)
+extcut <- subset(povcalcuts,filename=="China")$extreme
+cuts <- c(povcalcut,np20cut,nplcut,extcut)
 povperc <- weighted.percentile(ir$wealth,ir$weights,prob=cuts)
 
 ir$p20 <- (ir$wealth < povperc[1])
 ir$np20 <- (ir$wealth < povperc[2])
 ir$npl <- (ir$wealth < povperc[3])
+ir$ext <- (ir$wealth < povperc[4])
 
 ir <- join(
   ir
@@ -1127,7 +1135,7 @@ ir <- join(
 
 keep <- c("wealth","weights","urban","educ","age","sex","cluster","household","head.sex","head.age","p20"
           ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-          ,"woman.bmi","man.bmi","np20","npl"
+          ,"woman.bmi","man.bmi","np20","npl","ext"
 )
 irNames <- names(ir)
 namesDiff <- setdiff(keep,irNames)
@@ -1200,12 +1208,29 @@ data.total <- rbind(china.data.total,data.total,fill=TRUE)
 setwd("D:/Documents/Data/MICSmeta/")
 load("child.maternal.RData")
 setnames(child.health,"skilled.attendant","ch.skilled.attendant")
-child.health <- data.frame(child.health)
-maternal.health <- data.frame(maternal.health)
-child.health <- child.health[c("filename","cluster","household","ch.skilled.attendant","any.vacc")]
-maternal.health <- maternal.health[c("filename","cluster","household","ceb","cdead","skilled.attendant","maternal.deaths")]
-data.total <- join(data.total,child.health,by=c("filename","cluster","household"))
-data.total <- join(data.total,maternal.health,by=c("filename","cluster","household"))
+valid.vacc <- c(TRUE,"TRUE","Yes","Oui","Sí")
+no.vacc <- c(FALSE,"FALSE","No","Non","No sabe")
+missing.vacc <- c("DK",NA,"Missing","NSP","Manquant")
+recode.vacc <- function(x){
+  if(is.na(x)){return(NA)}
+  else if(x %in% valid.vacc){return(1)}
+  else if(x %in% no.vacc){return(0)}
+  else if(x %in% missing.vacc){return(NA)}
+  return(NA)
+}
+child.health$vacc <- sapply(child.health$any.vacc,recode.vacc)
+child.health.tab <- child.health[,.(
+  ch.skilled.attendant=sum(ch.skilled.attendant==TRUE,na.rm=TRUE)>=1
+  ,any.vacc=sum(vacc,na.rm=TRUE)>=1
+),by=.(filename,cluster,household)]
+maternal.health.tab <- maternal.health[,.(
+  ceb=sum(ceb,na.rm=TRUE)
+  ,cdead=sum(cdead,na.rm=TRUE)
+  ,skilled.attendant=sum(skilled.attendant,na.rm=TRUE)>=1
+  ,maternal.deaths=sum(maternal.deaths,na.rm=TRUE)
+),by=.(filename,cluster,household)]
+data.total <- join(data.total,child.health.tab,by=c("filename","cluster","household"))
+data.total <- join(data.total,maternal.health.tab,by=c("filename","cluster","household"))
 
 wd <- "D:/Documents/Data/P20_2013/meta"
 setwd(wd)

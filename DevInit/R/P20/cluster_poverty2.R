@@ -38,7 +38,10 @@ all.years$DHSYEAR[which(all.years$DHSCC=="MD" & all.years$DHSYEAR==2009)] <- 200
 
 dat <- read.dbf("aggregate_clusters/clusters.dbf")
 dat$filename <- NULL
+dat$year <- NULL
 dat$p20 <- NULL
+dat$stunted.children <- NULL
+dat$measured.children <- NULL
 dat$stunted <- NULL
 
 dat <- join(dat,all.years,by=c("DHSCC","DHSYEAR"))
@@ -156,9 +159,10 @@ stunted.children <- function(df){
     stunted = 0
     for(j in 1:99){
       stuntingVar <- paste0("hc5_",j)
-      if(typeof(df[[stuntingVar]])!="NULL"){
-        h4a <- df[[stuntingVar]][i]/100
+      if(typeof(df[[stuntingVar]])!="NULL" & typeof(df[[stuntingVar]])!="character"){
+        h4a <- df[[stuntingVar]][i]
         if(!is.na(h4a)){
+          h4a <- h4a/100
           if(h4a<=-2){
             stunted = stunted + 1 
           }
@@ -179,9 +183,10 @@ mean.h4a <- function(df){
     n <- 0
     for(j in 1:99){
       stuntingVar <- paste0("hc5_",j)
-      if(typeof(df[[stuntingVar]])!="NULL"){
-        h4a <- df[[stuntingVar]][i]/100
+      if(typeof(df[[stuntingVar]])!="NULL" & typeof(df[[stuntingVar]])!="character"){
+        h4a <- df[[stuntingVar]][i]
         if(!is.na(h4a)){
+          h4a <- h4a/100
           if(h4a<90){
             stunted.sum = stunted.sum + h4a
             n <- n + 1 
@@ -233,6 +238,7 @@ calc.stunting.perc <- function(stunted.c,measured.c){
 
 for(i in 1:nrow(filenames)){
   hrBase <- filenames$filename[i]
+  message(hrBase)
   year <- filenames$DHSYEAR[i]
   cc <- toupper(substr(hrBase,1,2))
   dhscc <- tolower(cc)
@@ -255,9 +261,7 @@ for(i in 1:nrow(filenames)){
   
   names(dhs)[which(names(dhs)=="hv035")] <- "measured.children"
   dhs$stunted.children <- stunted.children(dhs)
-  if(typeof(dhs$measured.children)=="NULL"){dhs$measured.children<-dhs$hv014}
-  dhs$percent.stunted = calc.stunting.perc(dhs$stunted.children,dhs$measured.children)
-  if(typeof(dhs$percent.stunted)=="NULL"){dhs$percent.stunted<-NA}
+  if(typeof(dhs$measured.children)=="NULL" | length(unique(dhs$measured.children))<=2){dhs$measured.children<-dhs$hv014}
   
   #Rename sample.weights var
   names(dhs)[which(names(dhs)=="hv005")] <- "sample.weights"
@@ -276,13 +280,17 @@ for(i in 1:nrow(filenames)){
   povcalperc <- weighted.percentile(dhs$wealth,dhs$weights,prob=povcalcut)
   dhs$p20 <- (dhs$wealth < povcalperc)
   dhs.tab <- data.table(dhs)
-  cluster.tab <- dhs.tab[,.(p20=weighted.mean(p20,weights),stunted=weighted.mean(percent.stunted,weights)),by=.(cluster)]
+  cluster.tab <- dhs.tab[,.(p20=weighted.mean(p20,weights),stunted.children=(sum(stunted.children*weights,na.rm=TRUE)/sum(weights,na.rm=TRUE)),measured.children=(sum(measured.children*weights,na.rm=TRUE)/sum(weights,na.rm=TRUE))),by=.(cluster)]
   cluster.tab$DHSCC <- cc
+  cluster.tab$year <- year
   dataList[[dataIndex]] <- cluster.tab
   dataIndex <- dataIndex + 1
 }
 
 metaClusters <- rbindlist(dataList)
+metaClusters$stunted = calc.stunting.perc(metaClusters$stunted.children,metaClusters$measured.children)
+metaClusters$stunted.children <- NULL
+metaClusters$measured.children <- NULL
 write.csv(metaClusters,"D:/Documents/Data/DHS map/all_clusters2.csv",na="",row.names=FALSE)
 metaClusters <- read.csv("D:/Documents/Data/DHS map/all_clusters2.csv",na.strings="",as.is=TRUE)
 setnames(metaClusters,"cluster","DHSCLUST")

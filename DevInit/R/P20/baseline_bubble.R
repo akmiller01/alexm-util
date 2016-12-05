@@ -102,10 +102,12 @@ setnames(
   ,"Population in the P20"
 )
 
+consumption["P20 headcount"] <- consumption$hc*100
+
 d <- dPlot(
   y = "GDP per capita (2011 PPP)",
   x = "Average consumption of P20 (2011 PPP)",
-  z = "Population in the P20",
+  z = "P20 headcount",
   groups = c("Country","Region"),
   data = consumption,
   type = "bubble",
@@ -116,7 +118,7 @@ d <- dPlot(
 d$defaultColors(diColors)
 d$xAxis( type = "addMeasureAxis")
 d$yAxis( type = "addMeasureAxis")
-d$zAxis( type = "addMeasureAxis")
+d$zAxis( type = "addMeasureAxis",overrideMax=500)
 d$set(legend = list(x=60,y=40,height=100,width=100))
 d$setTemplate(afterScript = "
               <script>
