@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.axis--x path {
+  display: none;
+}
+
+</style>
+<body>
+    <h1>Zimbabwe
+    <select id="indicator">
+        <option value="p20">P20 status</option>
+        <option value="reg">Birth registration</option>
+        <option value="stunt">Stunting status</option>
+    </select>
+    by Wealth Distribution</h1>
+    <svg width="960" height="500" id="p20"></svg>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var svg = d3.select("svg"),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height") - margin.top - margin.bottom;
+
+var x = d3.scaleLinear().rangeRound([0, width]),
+    y = d3.scaleLinear().rangeRound([height, 0]),
+    z = d3.scaleLinear().range(["rgb(0,149,200)","rgb(186,12,47)"]);
+
+var g = svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("all.dist.joined.csv", function(error, data) {
+  if (error) throw error;
+  
+  subset = data.filter(function(d){return d.iso2=="ZW"})
+
+  x.domain([0,25]);
+  y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
+  z.domain([0,1])
+
+  g.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  g.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(y).ticks(10, "%"))
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Frequency");
+
+  var bars = g.selectAll(".bar")
+    .data(subset)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.stops); })
+      .attr("y", function(d) { return y(d.counts); })
+      .attr("width", (width/25)-1)
+      .attr("height", function(d) { return height - y(d.counts); })
+      .style("fill",function(d) {return z(d.p20s);});
+  $('#indicator').change(function(){
+    var val = $('#indicator').val()
+    if (val=="p20") {
+        bars.style("fill",function(d) {return z(d.p20s);});
+    }else if (val=="reg") {
+        bars.style("fill",function(d) {return z(d.regs);});
+    }else if (val=="stunt") {
+        bars.style("fill",function(d) {return z(d.stunts);});
+    };
+  });
+});
+
+</script>
