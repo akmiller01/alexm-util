@@ -304,7 +304,7 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
 
   x.domain([0,1]);
   y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
-  z.domain([0,1])
+  z.domain([0, d3.max(subset, function(d) { return Number(d.p20s); })]);
 
   g.append("g")
       .attr("class", "axis axis--x")
@@ -338,21 +338,21 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
     y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
     yaxis.call(d3.axisLeft(y).ticks(10, "%"))
     if (val=="p20") {
-        z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        z.domain([0, d3.max(subset, function(d) { return Number(d.p20s); })]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.p20s==""?"grey":z(d.p20s);});
     }else if (val=="reg") {
-        z.range(["rgb(186,12,47)","rgb(0,149,200)"]);
+        z.domain([0, d3.max(subset, function(d) { return Number(d.regs); })]).range(["rgb(186,12,47)","rgb(0,149,200)"]);
         bars
         .data(subset)
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.regs==""?"grey":z(d.regs);});
     }else if (val=="stunt") {
-        z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        z.domain([0, d3.max(subset, function(d) { return Number(d.stunts); })]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
         .attr("y", function(d) { return y(d.counts); })
