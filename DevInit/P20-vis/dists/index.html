@@ -326,7 +326,7 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
     .data(subset)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.stops); })
+      .attr("x", function(d) { return x(d.stops)-(width/25)+2; })
       .attr("y", function(d) { return y(d.counts); })
       .attr("width", (width/25)-1)
       .attr("height", function(d) { return height - y(d.counts); })
