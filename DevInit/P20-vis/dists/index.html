@@ -8,7 +8,9 @@
 
 </style>
 <body>
-    <h1>Zimbabwe
+    <h1>
+    <select id="country">
+    </select>
     <select id="indicator">
         <option value="p20">P20 status</option>
         <option value="reg">Birth registration</option>
@@ -20,6 +22,258 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
+    
+var isoDict = {"AD":"Andorra"
+,"AE":"UAE"
+,"AF":"Afghanistan"
+,"AG":"Antigua & Barbuda"
+,"AI":"Anguilla"
+,"AL":"Albania"
+,"AM":"Armenia"
+,"AO":"Angola"
+,"AQ":"Antarctica"
+,"AR":"Argentina"
+,"AS":"American Samoa"
+,"AT":"Austria"
+,"AU":"Australia"
+,"AW":"Aruba"
+,"AX":"Aland Islands"
+,"AZ":"Azerbaijan"
+,"BA":"Bosnia & Herzegovina"
+,"BB":"Barbados"
+,"BD":"Bangladesh"
+,"BE":"Belgium"
+,"BF":"Burkina Faso"
+,"BG":"Bulgaria"
+,"BH":"Bahrain"
+,"BI":"Burundi"
+,"BJ":"Benin"
+,"BL":"Saint Barthelemy"
+,"BM":"Bermuda"
+,"BN":"Brunei"
+,"BO":"Bolivia "
+,"BQ":"BES Islands"
+,"BR":"Brazil"
+,"BS":"Bahamas"
+,"BT":"Bhutan"
+,"BV":"Bouvet Island"
+,"BW":"Botswana"
+,"BY":"Belarus"
+,"BZ":"Belize"
+,"CA":"Canada"
+,"CC":"Cocos (Keeling) Islands"
+,"CD":"DRC"
+,"CF":"CAR"
+,"CG":"Congo"
+,"CH":"Switzerland"
+,"CI":"Cote d'Ivoire"
+,"CK":"Cook Islands"
+,"CL":"Chile"
+,"CM":"Cameroon"
+,"CN":"China"
+,"CO":"Colombia"
+,"CR":"Costa Rica"
+,"CU":"Cuba"
+,"CV":"Cape Verde"
+,"CW":"Curacao"
+,"CX":"Christmas Island"
+,"CY":"Cyprus"
+,"CZ":"Czech Republic"
+,"DE":"Germany"
+,"DJ":"Djibouti"
+,"DK":"Denmark"
+,"DM":"Dominica"
+,"DO":"Dominican Republic"
+,"DZ":"Algeria"
+,"EC":"Ecuador"
+,"EE":"Estonia"
+,"EG":"Egypt"
+,"EH":"Western Sahara"
+,"ER":"Eritrea"
+,"ES":"Spain"
+,"ET":"Ethiopia"
+,"FI":"Finland"
+,"FJ":"Fiji"
+,"FK":"Falkland Islands "
+,"FM":"Micronesia"
+,"FO":"Faroe Islands"
+,"FR":"France"
+,"GA":"Gabon"
+,"GB":"UK"
+,"GD":"Grenada"
+,"GE":"Georgia"
+,"GF":"French Guiana"
+,"GG":"Guernsey"
+,"GH":"Ghana"
+,"GI":"Gibraltar"
+,"GL":"Greenland"
+,"GM":"Gambia"
+,"GN":"Guinea"
+,"GP":"Guadeloupe"
+,"GQ":"Equatorial Guinea"
+,"GR":"Greece"
+,"GS":"South Georgia & the South Sandwich Islands"
+,"GT":"Guatemala"
+,"GU":"Guam"
+,"GW":"Guinea-Bissau"
+,"GY":"Guyana"
+,"HK":"Hong Kong"
+,"HM":"Heard Island & McDonald Islands"
+,"HN":"Honduras"
+,"HR":"Croatia"
+,"HT":"Haiti"
+,"HU":"Hungary"
+,"ID":"Indonesia"
+,"IE":"Ireland"
+,"IL":"Israel"
+,"IM":"Isle of Man"
+,"IN":"India"
+,"IO":"British Indian Ocean Territory"
+,"IQ":"Iraq"
+,"IR":"Iran"
+,"IS":"Iceland"
+,"IT":"Italy"
+,"JE":"Jersey"
+,"JM":"Jamaica"
+,"JO":"Jordan"
+,"JP":"Japan"
+,"KE":"Kenya"
+,"KG":"Kyrgyzstan"
+,"KH":"Cambodia"
+,"KI":"Kiribati"
+,"KM":"Comoros"
+,"KN":"Saint Kitts and Nevis"
+,"KP":"North Korea"
+,"KR":"South Korea"
+,"KW":"Kuwait"
+,"KY":"Cayman Islands"
+,"KZ":"Kazakhstan"
+,"LA":"Lao"
+,"LB":"Lebanon"
+,"LC":"Saint Lucia"
+,"LI":"Liechtenstein"
+,"LK":"Sri Lanka"
+,"LR":"Liberia"
+,"LS":"Lesotho"
+,"LT":"Lithuania"
+,"LU":"Luxembourg"
+,"LV":"Latvia"
+,"LY":"Libya"
+,"MA":"Morocco"
+,"MC":"Monaco"
+,"MD":"Moldova"
+,"ME":"Montenegro"
+,"MF":"Saint Martin "
+,"MG":"Madagascar"
+,"MH":"Marshall Islands"
+,"MK":"Macedonia"
+,"ML":"Mali"
+,"MM":"Myanmar"
+,"MN":"Mongolia"
+,"MO":"Macao"
+,"MP":"Northern Mariana Islands"
+,"MQ":"Martinique"
+,"MR":"Mauritania"
+,"MS":"Montserrat"
+,"MT":"Malta"
+,"MU":"Mauritius"
+,"MV":"Maldives"
+,"MW":"Malawi"
+,"MX":"Mexico"
+,"MY":"Malaysia"
+,"MZ":"Mozambique"
+,"NA":"Namibia"
+,"NC":"New Caledonia"
+,"NE":"Niger"
+,"NF":"Norfolk Island"
+,"NG":"Nigeria"
+,"NI":"Nicaragua"
+,"NL":"Netherlands"
+,"NO":"Norway"
+,"NP":"Nepal"
+,"NR":"Nauru"
+,"NU":"Niue"
+,"NZ":"New Zealand"
+,"OM":"Oman"
+,"PA":"Panama"
+,"PE":"Peru"
+,"PF":"French Polynesia"
+,"PG":"Papua New Guinea"
+,"PH":"Philippines"
+,"PK":"Pakistan"
+,"PL":"Poland"
+,"PM":"Saint Pierre & Miquelon"
+,"PN":"Pitcairn"
+,"PR":"Puerto Rico"
+,"PS":"Palestine"
+,"PT":"Portugal"
+,"PW":"Palau"
+,"PY":"Paraguay"
+,"QA":"Qatar"
+,"RE":"Reunion"
+,"RO":"Romania"
+,"RS":"Serbia"
+,"RU":"Russian Federation"
+,"RW":"Rwanda"
+,"SA":"Saudi Arabia"
+,"SB":"Solomon Islands"
+,"SC":"Seychelles"
+,"SD":"Sudan"
+,"SE":"Sweden"
+,"SG":"Singapore"
+,"SH":"Saint Helena, Ascension & Tristan da Cunha"
+,"SI":"Slovenia"
+,"SJ":"Svalbard & Jan Mayen"
+,"SK":"Slovakia"
+,"SL":"Sierra Leone"
+,"SM":"San Marino"
+,"SN":"Senegal"
+,"SO":"Somalia"
+,"SR":"Suriname"
+,"SS":"South Sudan"
+,"ST":"Sao Tome & Principe"
+,"SV":"El Salvador"
+,"SX":"Sint Maarten (Dutch part)"
+,"SY":"Syria"
+,"SZ":"Swaziland"
+,"TC":"Turks & Caicos Islands"
+,"TD":"Chad"
+,"TF":"French Southern Territories"
+,"TG":"Togo"
+,"TH":"Thailand"
+,"TJ":"Tajikistan"
+,"TK":"Tokelau"
+,"TL":"Timor-Leste"
+,"TM":"Turkmenistan"
+,"TN":"Tunisia"
+,"TO":"Tonga"
+,"TR":"Turkey"
+,"TT":"Trinidad & Tobago"
+,"TV":"Tuvalu"
+,"TW":"Taiwan"
+,"TZ":"Tanzania"
+,"UA":"Ukraine"
+,"UG":"Uganda"
+,"UM":"United States Minor Outlying Islands"
+,"US":"USA"
+,"UY":"Uruguay"
+,"UZ":"Uzbekistan"
+,"VA":"Holy See (Vatican City State)"
+,"VC":"Saint Vincent & the Grenadines"
+,"VE":"Venezuela"
+,"VG":"Virgin Islands (GB)"
+,"VI":"Virgin Islands (US)"
+,"VN":"Viet Nam"
+,"VU":"Vanuatu"
+,"WF":"Wallis & Futuna"
+,"WS":"Samoa"
+,"XK":"Kosovo"
+,"YE":"Yemen"
+,"YT":"Mayotte"
+,"ZA":"South Africa"
+,"ZM":"Zambia"
+,"ZW":"Zimbabwe"
+,"EU":"European Union"};
 
 var svg = d3.select("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 40},
@@ -33,24 +287,35 @@ var x = d3.scaleLinear().rangeRound([0, width]),
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("all.dist.joined.csv", function(error, data) {
+d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, function(error, data) {
   if (error) throw error;
   
-  subset = data.filter(function(d){return d.iso2=="ZW"})
+  var isos = d3.map(data,function(d){return d.iso2;}).keys();
+  var isoSelect = d3.select("#country");
+    
+  isoSelect.selectAll("option.iso").data(isos).enter().append("option")
+        .attr('class','iso')
+        .attr('value',function(d){return d})
+        .text(function(d){return isoDict[d];});
+    
+  var iso2 = $("#country").val()
+  
+  var subset = data.filter(function(d){return d.iso2==iso2})
 
-  x.domain([0,25]);
+  x.domain([0,1]);
   y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
   z.domain([0,1])
 
   g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).ticks(10, "%"));
 
-  g.append("g")
+  var yaxis = g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).ticks(10, "%"))
-    .append("text")
+      
+    yaxis.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", "0.71em")
@@ -66,14 +331,36 @@ d3.csv("all.dist.joined.csv", function(error, data) {
       .attr("width", (width/25)-1)
       .attr("height", function(d) { return height - y(d.counts); })
       .style("fill",function(d) {return z(d.p20s);});
-  $('#indicator').change(function(){
+  $('select').change(function(){
     var val = $('#indicator').val()
+    var iso2 = $('#country').val()
+    var subset = data.filter(function(d){return d.iso2==iso2})
+    y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
+    yaxis.call(d3.axisLeft(y).ticks(10, "%"))
     if (val=="p20") {
-        bars.style("fill",function(d) {return z(d.p20s);});
+        z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        bars
+        .data(subset)
+        .attr("x", function(d) { return x(d.stops); })
+        .attr("y", function(d) { return y(d.counts); })
+        .attr("height", function(d) { return height - y(d.counts); })
+        .style("fill",function(d) {return z(d.p20s);});
     }else if (val=="reg") {
-        bars.style("fill",function(d) {return z(d.regs);});
+        z.range(["rgb(186,12,47)","rgb(0,149,200)"]);
+        bars
+        .data(subset)
+        .attr("x", function(d) { return x(d.stops); })
+        .attr("y", function(d) { return y(d.counts); })
+        .attr("height", function(d) { return height - y(d.counts); })
+        .style("fill",function(d) {return z(d.regs);});
     }else if (val=="stunt") {
-        bars.style("fill",function(d) {return z(d.stunts);});
+        z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        bars
+        .data(subset)
+        .attr("x", function(d) { return x(d.stops); })
+        .attr("y", function(d) { return y(d.counts); })
+        .attr("height", function(d) { return height - y(d.counts); })
+        .style("fill",function(d) {return z(d.stunts);});
     };
   });
 });
