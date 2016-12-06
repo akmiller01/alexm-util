@@ -341,7 +341,6 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
-        .attr("x", function(d) { return x(d.stops); })
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.p20s==""?"grey":z(d.p20s);});
@@ -349,7 +348,6 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         z.range(["rgb(186,12,47)","rgb(0,149,200)"]);
         bars
         .data(subset)
-        .attr("x", function(d) { return x(d.stops); })
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.regs==""?"grey":z(d.regs);});
@@ -357,7 +355,6 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         z.range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
-        .attr("x", function(d) { return x(d.stops); })
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.stunts==""?"grey":z(d.stunts);});
