@@ -2,90 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dynamic venn.js example</title>
+    <title>Dynamic P20 Venn</title>
     <style>
         body {
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
             font-size: 14px;
         }
+        
+        th {
+            text-align:left;
+        }
+        select#isoSelect {
+            font-size: 1em;
+            margin:0.67em;
+            -webkit-margin-before: 0.67em;
+            -webkit-margin-after: 0.67em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+        }
+        
+        h1 {
+          font-family: Arial;
+          font-weight: normal;
+        }
+        
+        table {float:left;}
     </style>
 </head>
 
 <body>
-<div style="float:left;padding:20px">
+    <h1>Venn diagram comparing demographics in
+    <select id="isoSelect"></select>
+    </h1>
+<div style="float:left;padding:20px;width:100%">
     <table>
     <tr>
-        <td>X</td>
+        <th>Indicator 1</th>
+        <th>Indicator 2</th>
+        <th>Indicator 3</th>
+    </tr>
+    <tr>
         <td>
             <select id="Xselect" class="indicator">
             </select>
         </td>
-    </tr>
-    <tr>
-        <td>Y</td>
         <td>
             <select id="Yselect" class="indicator">
             </select>
         </td>
-    </tr>
-    <tr>
-        <td>Z</td>
         <td>
             <select id="Zselect" class="indicator">
             </select>
         </td>
     </tr>
-    <tr>
-      <td>|X|</td>
-      <td>
-        <input class="input-mini venn_area" id="X" type="number" value="16">
-      </td>
-    </tr>
-    <tr>
-      <td>|Y|</td>
-      <td>
-        <input class="input-mini venn_area" id="Y" type="number" value="16">
-      </td>
-    </tr>
-    <tr>
-      <td>|Z|</td>
-      <td>
-        <input class="input-mini venn_area" id="Z" type="number" value="12">
-      </td>
-    </tr>
-    <tr>
-      <td>|X&#8745Y|</td>
-      <td>
-        <input class="input-mini venn_area" id="X,Y" type="number" value="4">
-      </td>
-    </tr>
-    <tr>
-      <td>|X&#8745Z|</td>
-      <td>
-        <input class="input-mini venn_area" id="X,Z" type="number" value="4">
-      </td>
-    </tr>
-    <tr>
-      <td>|Y&#8745Z|</td>
-      <td>
-        <input class="input-mini venn_area" id="Y,Z" type="number" value="3">
-      </td>
-    </tr>
-    <tr>
-      <td>|X&#8745Y&#8745Z|&nbsp</td>
-      <td>
-        <input class="input-mini venn_area" id="X,Y,Z" type="number" value="2">
-      </td>
-    </tr>
-    <tr>
-        <td>Country</td>
-        <td>
-            <select id="isoSelect"></select>
-        </td>
-    </tr>
     </table>
 </div>
 <div id="venn"></div>
+<div id="err" style="height:500px;width:600px;text-align:center;display:none;">
+    <b>Cannot display the combination of these variables.</b>
+</div>
+<div style="float:left;padding:20px;width:100%">
+    <table>
+    <tr>
+      <td id="Xlabel">X</td>
+      <td>
+        <input class="input-mini venn_area" id="X" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="Ylabel">Y</td>
+      <td>
+        <input class="input-mini venn_area" id="Y" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="Zlabel">Z</td>
+      <td>
+        <input class="input-mini venn_area" id="Z" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="X,Ylabel">X&#8745Y</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Y" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="X,Zlabel">X&#8745Z</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Z" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="Y,Zlabel">Y&#8745Z</td>
+      <td>
+        <input class="input-mini venn_area" id="Y,Z" readonly>
+      </td>
+    </tr>
+    <tr>
+      <td id="X,Y,Zlabel">X&#8745Y&#8745Z</td>
+      <td>
+        <input class="input-mini venn_area" id="X,Y,Z" readonly>
+      </td>
+    </tr>
+    </table>
+</div>
 <div style="clear: both;"></div>
 
 </body>
@@ -357,22 +378,22 @@ var isoDict = {"AD":"Andorra"
 ,"EU":"European Union"};
 
 var indicatorDict = {
- "birth.reg":"Birth registered"
+  "p20":"P20"
+ ,"birth.reg":"Birth registered"
  ,"female":"Female"
- ,"fifteento49":"Aged 15 to 49"
- ,"fiveto14":"Aged 5 to 14"
- ,"gt49":"Older than 49"
- ,"higher":"Higher education"
  ,"male":"Male"
+ ,"under5":"Younger than 5"
+ ,"fiveto14":"Aged 5 to 14"
+ ,"fifteento49":"Aged 15 to 49"
+ ,"gt49":"Older than 49"
  ,"no.educ":"No education or preschool"
- ,"p20":"P20"
  ,"primary":"Primary education"
+  ,"secondary":"Secondary education"
+ ,"higher":"Higher education"
+ ,"urban":"Urban"
  ,"rural":"Rural"
- ,"secondary":"Secondary education"
  ,"skilled.attendant":"Had skilled birth attendant"
  ,"stunted":"Experiencing stunting"
- ,"under5":"Younger than 5"
- ,"urban":"Urban"
 };
 var indicators = Object.keys(indicatorDict);
 
@@ -434,71 +455,140 @@ d3.csv('all.venn.joined.csv',function(data){
         var values = [$selects[0].value,$selects[1].value,$selects[2].value];
         var indicatorSet = [subset.indicator1,subset.indicator2,subset.indicator3];
         var order = [indicatorSet.indexOf(values[0]),indicatorSet.indexOf(values[1]),indicatorSet.indexOf(values[2])];
+        var areas = [
+                        {sets:[indicatorDict[subset.indicator1]],size:subset.X}
+                        ,{sets:[indicatorDict[subset.indicator2]],size:subset.Y}
+                        ,{sets:[indicatorDict[subset.indicator3]],size:subset.Z}
+                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator2]],size:subset['X,Y']}
+                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator3]],size:subset['X,Z']}
+                        ,{sets:[indicatorDict[subset.indicator2],indicatorDict[subset.indicator3]],size:subset['Y,Z']}
+                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator2],indicatorDict[subset.indicator3]],size:subset['X,Y,Z']}
+                    ];
         //Sorry...
         if ([0,1,2].compare(order)) {
-            $('#X').val(subset.X)
-            $('#Y').val(subset.Y)
-            $('#Z').val(subset.Z)
-            $('#X\\,Y').val(subset['X,Y'])
-            $('#X\\,Z').val(subset['X,Z'])
-            $('#Y\\,Z').val(subset['Y,Z'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.X==""?"":subset.X+"%")
+            $('#Y').val(subset.Y==""?"":subset.Y+"%")
+            $('#Z').val(subset.Z==""?"":subset.Z+"%")
+            $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#X\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#Y\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator1])
+            $('#Ylabel').text(indicatorDict[subset.indicator2])
+            $('#Zlabel').text(indicatorDict[subset.indicator3])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
         //X, Y, Z
         //X, Z, Y
         }else if ([0,2,1].compare(order)) {
-            $('#X').val(subset.X)
-            $('#Y').val(subset.Z)
-            $('#Z').val(subset.Y)
-            $('#X\\,Y').val(subset['X,Z'])
-            $('#X\\,Z').val(subset['X,Y'])
-            $('#Y\\,Z').val(subset['Y,Z'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.X==""?"":subset.X+"%")
+            $('#Y').val(subset.Z==""?"":subset.Z+"%")
+            $('#Z').val(subset.Y==""?"":subset.Y+"%")
+            $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#X\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#Y\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator1])
+            $('#Ylabel').text(indicatorDict[subset.indicator3])
+            $('#Zlabel').text(indicatorDict[subset.indicator2])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
         //X, Y, Z
         //Y, X, Z
         }else if ([1,0,2].compare(order)) {
-            $('#X').val(subset.Y)
-            $('#Y').val(subset.X)
-            $('#Z').val(subset.Z)
-            $('#X\\,Y').val(subset['X,Y'])
-            $('#X\\,Z').val(subset['Y,Z'])
-            $('#Y\\,Z').val(subset['X,Z'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.Y==""?"":subset.Y+"%")
+            $('#Y').val(subset.X==""?"":subset.X+"%")
+            $('#Z').val(subset.Z==""?"":subset.Z+"%")
+            $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#X\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#Y\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator2])
+            $('#Ylabel').text(indicatorDict[subset.indicator1])
+            $('#Zlabel').text(indicatorDict[subset.indicator3])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
         //X, Y, Z
         //Y, Z, X
         }else if ([1,2,0].compare(order)) {
-            $('#X').val(subset.Y)
-            $('#Y').val(subset.Z)
-            $('#Z').val(subset.X)
-            $('#X\\,Y').val(subset['Y,Z'])
-            $('#X\\,Z').val(subset['X,Y'])
-            $('#Y\\,Z').val(subset['X,Z'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.Y==""?"":subset.Y+"%")
+            $('#Y').val(subset.Z==""?"":subset.Z+"%")
+            $('#Z').val(subset.X==""?"":subset.X+"%")
+            $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#X\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#Y\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator2])
+            $('#Ylabel').text(indicatorDict[subset.indicator3])
+            $('#Zlabel').text(indicatorDict[subset.indicator1])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
         //X, Y, Z
         //Z, X, Y
         }else if ([2,0,1].compare(order)) {
-            $('#X').val(subset.Z)
-            $('#Y').val(subset.X)
-            $('#Z').val(subset.Y)
-            $('#X\\,Y').val(subset['X,Z'])
-            $('#X\\,Z').val(subset['Y,Z'])
-            $('#Y\\,Z').val(subset['X,Y'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.Z==""?"":subset.Z+"%")
+            $('#Y').val(subset.X==""?"":subset.X+"%")
+            $('#Z').val(subset.Y==""?"":subset.Y+"%")
+            $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#X\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#Y\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator3])
+            $('#Ylabel').text(indicatorDict[subset.indicator1])
+            $('#Zlabel').text(indicatorDict[subset.indicator2])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
         //X, Y, Z
         //Z, Y, X
         }else if ([2,1,0].compare(order)) {
-            $('#X').val(subset.Z)
-            $('#Y').val(subset.Y)
-            $('#Z').val(subset.X)
-            $('#X\\,Y').val(subset['Y,Z'])
-            $('#X\\,Z').val(subset['X,Z'])
-            $('#Y\\,Z').val(subset['X,Y'])
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z'])
+            $('#X').val(subset.Z==""?"":subset.Z+"%")
+            $('#Y').val(subset.Y==""?"":subset.Y+"%")
+            $('#Z').val(subset.X==""?"":subset.X+"%")
+            $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
+            $('#X\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
+            $('#Y\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+            
+            $('#Xlabel').text(indicatorDict[subset.indicator3])
+            $('#Ylabel').text(indicatorDict[subset.indicator2])
+            $('#Zlabel').text(indicatorDict[subset.indicator1])
+            $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
+            $('#X\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
+            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
+            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
         }
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
             $('div#venn').hide()
+            $('div#err').show()
         }else{
+            $('div#err').hide()
             $('div#venn').show()
-            d3.select("#venn").datum(getSetIntersections()).call(chart);
+            d3.select("#venn").datum(areas).call(chart);
+            // tweak style
+            var colours = d3.scaleOrdinal().range(["rgb(186,12,47)","rgb(147,50,142)","rgb(27,54,93)","rgb(234,118,16)","rgb(0,149,200)"])
+            d3.selectAll("#venn .venn-circle path")
+                .style("stroke-width", 1)
+                .style("stroke-opacity", .5)
+                .style("stroke", function(d,i) { return colours(i); })
+                .style("fill", function(d,i) { return colours(i); });
+            
+            d3.selectAll("#venn .venn-circle text")
+                .style("fill", function(d,i) { return colours(i)});
         };
         
     };
@@ -512,39 +602,10 @@ d3.csv('all.venn.joined.csv',function(data){
         .text(function(d){return indicatorDict[d];});
     changeVenn();
 });
-    
-function getSetIntersections() {
-    areas = d3.selectAll(".venn_area").nodes().map(
-        function (element) {
-            return { sets: element.id.split(","),
-                     size: element.value!=""?parseFloat(element.value):0};} );
-    return areas;
-}
-
 
 // draw the initial set
 var chart = venn.VennDiagram()
                  .width(600)
                  .height(500);
-
-d3.select("#venn").datum(getSetIntersections()).call(chart);
-
-// redraw the sets on any change in input
-d3.selectAll("input").on("change", function() {
-    d3.select("#venn").datum(getSetIntersections()).call(chart);
-});
-
-// tweak style
-var colours = ['black', 'red', 'blue'];
-d3.selectAll("#venn .venn-circle path")
-    .style("fill-opacity", 0)
-    .style("stroke-width", 10)
-    .style("stroke-opacity", .5)
-    .style("stroke", function(d,i) { return colours[i]; });
-
-d3.selectAll("#venn .venn-circle text")
-    .style("fill", function(d,i) { return colours[i]})
-    .style("font-size", "32px")
-    .style("font-weight", "100");
 </script>
 </html>
