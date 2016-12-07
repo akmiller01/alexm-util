@@ -59,7 +59,7 @@
 </div>
 <div id="venn"></div>
 <div id="err" style="height:500px;width:600px;text-align:center;display:none;">
-    <b>Cannot display the combination of these variables.</b>
+    <b>Sorry, cannot display the combination of these variables.</b>
 </div>
 <div style="float:left;padding:20px;width:100%">
     <table>
@@ -578,7 +578,13 @@ d3.csv('all.venn.joined.csv',function(data){
         }else{
             $('div#err').hide()
             $('div#venn').show()
-            d3.select("#venn").datum(areas).call(chart);
+            try{
+                d3.select("#venn").datum(areas).call(chart);   
+            }catch(err){
+                console.log(err)
+                $('div#venn').hide()
+                $('div#err').show()
+            }
             // tweak style
             var colours = d3.scaleOrdinal().range(["rgb(186,12,47)","rgb(147,50,142)","rgb(27,54,93)","rgb(234,118,16)","rgb(0,149,200)"])
             d3.selectAll("#venn .venn-circle path")
