@@ -2,6 +2,10 @@
 <meta charset="utf-8">
 <style>
 
+#p20{
+  padding-left:10px;
+}
+
 .axis--x path {
   display: none;
 }
@@ -20,6 +24,31 @@ h1 {
   font-weight: normal;
 }
 
+div.legend {
+  width:25px;
+  height:25px;
+}
+
+.blue {
+  background-color: rgb(0,149,200);
+}
+
+.red {
+  background-color: rgb(186,12,47);
+}
+
+.grey {
+  background-color: grey;
+}
+
+#yaxislabel{
+  transform:rotate(-90deg);
+  transform-origin: left top 0;
+  position:relative;
+  top:325px;
+  
+}
+
 </style>
 <body>
     <h1>
@@ -31,7 +60,20 @@ h1 {
         <option value="stunt">Stunting status</option>
     </select>
     by Wealth Distribution</h1>
+    <table>
+      <tr>
+        <td><div class="red legend"></div></td><td><span id="redNarrative">More in the P20 </span><span id="redNumber">(Maximum of 100.0%)</span></td>
+      </tr>
+      <tr>
+        <td><div class="blue legend"></div></td><td><span id="blueNarrative">Fewer in the P20 </span><span id="blueNumber">(Minimum of 0.0%)</span></td>
+      </tr>
+      <tr>
+        <td><div class="grey legend"></div></td><td><span id="greyNarrative">No data </span><span id="greyNumber"></span></td>
+      </tr>
+    </table>
+    <div id="yaxislabel"><b>Percent of population</b></div>
     <svg width="960" height="500" id="p20"></svg>
+    <div id="xaxislabel"><b style="position:relative;left:350px;">Percent of maximum observed wealth</b></div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
@@ -352,7 +394,11 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
     y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
     yaxis.transition().call(d3.axisLeft(y).ticks(10, "%"))
     if (val=="p20") {
-        z.domain([0, d3.max(subset, function(d) { return Number(d.p20s); })]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
+      $("#redNarrative").text("More in the P20 ")
+      $("#redNumber").text("(Maximum of 100.0%)")
+      $("#blueNarrative").text("Fewer in the P20 ")
+      $("#blueNumber").text("(Minimum of 0.0%)")
+        z.domain([0, 1]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
         .transition()
@@ -360,7 +406,13 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.p20s==""?"grey":z(d.p20s);});
     }else if (val=="reg") {
-        z.domain([0, d3.max(subset, function(d) { return Number(d.regs); })]).range(["rgb(186,12,47)","rgb(0,149,200)"]);
+      var maxReg = d3.max(subset, function(d) { return Number(d.regs); });
+      var minReg = d3.min(subset, function(d) { return Number(d.regs); });
+      $("#redNarrative").text("Less under five birth registration ")
+      $("#redNumber").text("(Minimum of "+(minReg*100).toFixed(1)+"%)")
+      $("#blueNarrative").text("More under five birth registration ")
+      $("#blueNumber").text("(Maximum of "+(maxReg*100).toFixed(1)+"%)")
+        z.domain([minReg, maxReg]).range(["rgb(186,12,47)","rgb(0,149,200)"]);
         bars
         .data(subset)
         .transition()
@@ -368,7 +420,14 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         .attr("height", function(d) { return height - y(d.counts); })
         .style("fill",function(d) {return d.regs==""?"grey":z(d.regs);});
     }else if (val=="stunt") {
-        z.domain([0, d3.max(subset, function(d) { return Number(d.stunts); })]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        var maxStunt = d3.max(subset, function(d) { return Number(d.stunts); });
+        var minStunt = d3.min(subset, function(d) { return Number(d.stunts); });
+
+        $("#redNarrative").text("More under five stunting ")
+        $("#redNumber").text("(Maximum of "+(maxStunt*100).toFixed(1)+"%)")
+        $("#blueNarrative").text("Less under five stunting ")
+        $("#blueNumber").text("(Minimum of "+(minStunt*100).toFixed(1)+"%)")
+        z.domain([minStunt, maxStunt]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
         bars
         .data(subset)
         .transition()
