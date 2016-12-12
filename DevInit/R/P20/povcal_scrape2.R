@@ -37,6 +37,11 @@ total <- subset(regions,region=="Total of 6 regions")
 
 #Remove implausible values
 total <- total[!c(13637,22839),]
+years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
+for(i in years){
+  filename <- paste("years_all/pcn",i,"csv",sep=".")
+  write.csv(subset(total,year==i),filename,row.names=FALSE,na="")
+}
 total$log.pl <- log(total$pl)
 plot_ly(total,x= ~year,y= ~log.pl,z= ~poor) %>% add_markers()
 # plotly_POST(filename = "poverty-over-time")

@@ -39,11 +39,14 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
     listIndex <- 1
     for(i in 1:length(vars)){
       var = vars[i]
-      df[,var] <- factor(df[,var])
-      cmd = paste0("dum = model.matrix( ~ ",var," - 1, data=df)")
-      eval(parse(text=cmd))
-      dummyList[[listIndex]] = dum
-      listIndex <- listIndex + 1
+      levels <- length(unique(df[,var][which(complete.cases(df[,var]))]))
+      if(levels>1){
+        df[,var] <- factor(df[,var])
+        cmd = paste0("dum = model.matrix( ~ ",var," - 1, data=df)")
+        eval(parse(text=cmd))
+        dummyList[[listIndex]] = dum
+        listIndex <- listIndex + 1
+      }
     }
     return(dummyList)
   }
@@ -58,7 +61,12 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
     res <- list[[1]]
     for (i in 2:n){
       item <- list[[i]]
-      res <- cbind(res, item[match(rownames(res),rownames(item)),]) 
+      if(nrow(item)<=nrow(res)){
+        res <- cbind(res, item[match(rownames(res),rownames(item)),])  
+      }
+      else{
+        res <- cbind(item, res[match(rownames(item),rownames(res)),])  
+      }
     }
     return(res)
   }
@@ -75,8 +83,11 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
       dummy.column <- dummy.columns[i]
       if(
         grepl("FALSE",dummy.column,ignore.case=TRUE) 
-        | grepl("99",dummy.column)
-#         |  grepl("0",dummy.column,ignore.case=TRUE)
+        | grepl("9",dummy.column)
+        |  grepl("0",dummy.column,ignore.case=TRUE)
+        |  grepl("DK",dummy.column)
+        |  grepl("missing",dummy.column,ignore.case=TRUE)
+        |  grepl("manquant",dummy.column,ignore.case=TRUE)
       ){
         index <- i-deleted
         dummies <- dummies[,-index]
