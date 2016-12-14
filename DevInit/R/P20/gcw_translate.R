@@ -850,6 +850,23 @@ gcw$toilets[which(gcw$toilets=="Ventilated Improved Pit latrine (VIP)")] <- "Ven
 gcw$toilets[which(gcw$toilets=="Ventilated latrine")] <- "Ventilated Improved Pit latrine (VIP)"
 gcw$toilets[which(gcw$toilets=="cemented with sink")] <- "cemented with sink"
 
+#China
+gcw$toilets[which(gcw$toilets=="Unknown")] <- "NA"
+gcw$toilets[which(gcw$toilets=="Indoor flush toilet")] <- "flush to sewer"
+gcw$toilets[which(gcw$toilets=="Outdoor private flush toilet")] <- "flush, don't know where"
+gcw$toilets[which(gcw$toilets=="Outdoor public flush toilet")] <- "flush, don't know where"
+gcw$toilets[which(gcw$toilets=="Indoor non-flush toilet")] <- "pit latrine"
+gcw$toilets[which(gcw$toilets=="Outdoor private non-flush toilet")] <- "Outside dwelling"
+gcw$toilets[which(gcw$toilets=="Outdoor public non-flush toilet")] <- "Outside dwelling"
+gcw$toilets[which(gcw$toilets=="Other [Please specify]")] <- "other"
+gcw$water[which(gcw$water=="River/Lake water")] <- "river/dam/lake/ponds/stream/canal/irrigation channel"
+gcw$water[which(gcw$water=="Well/Spring water")] <- "well"
+gcw$water[which(gcw$water=="Tap water")] <- "piped to yard/plot"
+gcw$water[which(gcw$water=="Mineral/Purified/Filtered water")] <- "bottled water"
+gcw$water[which(gcw$water=="Rainwater")] <- "rainwater"
+gcw$water[which(gcw$water=="Cellar water")] <- "protected well in dwelling"
+gcw$water[which(gcw$water=="Pond water")] <- "river/dam/lake/ponds/stream/canal/irrigation channel"
+gcw$water[which(gcw$water=="Other [Please specify]")] <- "other"
 
 gcw$water[which(gcw$water=="NA")] <- NA
 gcw$floor[which(gcw$floor=="NA")] <- NA

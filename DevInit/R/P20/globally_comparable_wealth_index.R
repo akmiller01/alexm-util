@@ -51,6 +51,10 @@ for(i in 2:length(dirs)){
     hr <- read.csv(paste0(hrwd,"/",iso2,"HR",phase,"FL.csv")
                    ,na.strings="",as.is=TRUE,check.names=FALSE)
     
+    #Rename cluster/hh var
+    names(hr)[which(names(hr)=="hv001")] <- "cluster"
+    names(hr)[which(names(hr)=="hv002")] <- "household"
+    
     #Rename wealth var
     names(hr)[which(names(hr)=="hv271")] <- "wealth"
     hr$wealth <- hr$wealth/100000
@@ -507,6 +511,147 @@ for(i in 2:length(dirs)){
   }
 }
 
+#China
+wd <- "D:/Documents/Data/ChinaSurvey/"
+setwd(wd)
+message('China')
+
+load("dat2012.RData")
+load("wealth.RData")
+
+hr <- dat
+
+#Rename sample.weights var
+names(hr)[which(names(hr)=="fswt_rescs12")] <- "sample.weights"
+hr$weights <- hr$sample.weights/1000000
+
+#Rename urban var
+names(hr)[which(names(hr)=="urban12")] <- "urban.rural"
+
+#Rename car/truck var
+names(hr)[which(names(hr)=="Automobile")] <- "car"
+if(typeof(hr$car)=="NULL" | typeof(hr$car)=="logical" | length(hr$car[which(!is.na(hr$car))])==0){message("Car missing!");car.missing<-TRUE}else{car.missing<-FALSE}
+
+#Rename fridge var
+names(hr)[which(names(hr)=="Refrigerator.Freezer")] <- "fridge"
+if(typeof(hr$fridge)=="NULL" | typeof(hr$fridge)=="logical" | length(hr$fridge[which(!is.na(hr$fridge))])==0){message("Fridge missing!");fridge.missing<-TRUE}else{fridge.missing<-FALSE}
+
+#Rename phone var
+names(hr)[which(names(hr)=="Mobile.phone")] <- "phone"
+if(typeof(hr$phone)=="NULL" | typeof(hr$phone)=="logical" | length(hr$phone[which(!is.na(hr$phone))])==0){message("Phone missing!");phone.missing<-TRUE}else{phone.missing<-FALSE}
+
+#Rename tv var
+names(hr)[which(names(hr)=="TV")] <- "tv"
+if(typeof(hr$tv)=="NULL" | typeof(hr$tv)=="logical" | length(hr$tv[which(!is.na(hr$tv))])==0){message("TV missing!");tv.missing<-TRUE}else{tv.missing<-FALSE}
+
+# #Rename wall var
+# hr$wall<-NA
+# 
+# #Rename floor var
+# hr$floor<-NA
+
+#Rename members var
+names(hr)[which(names(hr)=="familysize")] <- "members"
+
+#Rename drinking water var
+names(hr)[which(names(hr)=="fb1")] <- "water"
+if(typeof(hr$water)=="NULL"){message("Missing water!");hr$water<-NA}
+
+#Rename toilets var
+names(hr)[which(names(hr)=="fb7")] <- "toilets"
+if(typeof(hr$toilets)=="NULL"){message("Missing toilets!");hr$toilets<-NA}
+
+names(hr)[which(names(hr)=="provcd")] <- "province"
+names(hr)[which(names(hr)=="countyid")] <- "county"
+names(hr)[which(names(hr)=="cid")] <- "cluster"
+names(hr)[which(names(hr)=="fid12")] <- "household"
+
+recode.urban.rural <- function(x){
+  if(is.null(x)){return(NA)}
+  else if(is.na(x)){return(NA)}
+  else if(tolower(x)=="urban" | x==1){return(1)}
+  else if(tolower(x)=="rural" | x==2){return(0)}
+  else{return(NA)}
+}
+hr$urban <- sapply(hr$urban.rural,recode.urban.rural)
+
+urban.inade.waters <- c(
+  "River/Lake water"
+  ,"Well/Spring water"
+  ,"Rainwater"
+  ,"Cellar water"
+  ,"Pond water"
+)
+rural.inade.waters <- c(
+  "River/Lake water"
+  ,"Rainwater"
+  ,"Cellar water"
+  ,"Pond water"
+)
+missing.water <- c("Other [Please specify]",NA)
+
+code.inade.water <- function(urbanV,waterV){
+  inade.water <- c()
+  for(i in 1:length(urbanV)){
+    urban <- urbanV[i]
+    water <- waterV[i]
+    if(water %in% missing.water){
+      inade.water <- c(inade.water,NA)
+    }else{
+      if(urban==1){
+        inade.water <- c(inade.water,water %in% urban.inade.waters)
+      }else if(urban==0){
+        inade.water <- c(inade.water,water %in% rural.inade.waters)
+      }else{
+        inade.water <- c(inade.water,NA)
+      } 
+    }
+  }
+  return(inade.water)
+}
+
+hr$inade.water <- code.inade.water(hr$urban,hr$water)
+hr$ade.water <- !hr$inade.water
+
+inade.toilets <- c(
+  "Outdoor public flush toilet"
+  ,"Outdoor public non-flush toilet"
+)
+missing.toilets <- c(NA,"NA","Unknown","Other [Please specify]")
+
+code.toilets <- function(toiletsV){
+  inade.toiletsV <- c()
+  for(i in 1:length(toiletsV)){
+    toilets <- toiletsV[i]
+    if(toilets %in% missing.toilets){
+      inade.toilet <- NA
+    }else if(toilets %in% inade.toilets){
+      inade.toilet <- 1
+    }else{
+      inade.toilet <- 0
+    }
+    inade.toiletsV <- c(inade.toiletsV,inade.toilet)
+  }
+  return(inade.toiletsV)
+}
+hr$inade.toilets <- code.toilets(hr$toilets)
+hr$ade.toilets <- !hr$inade.toilets
+
+keep = c("weights","urban","household","cluster","wealth","ade.wall","wall","ade.floor","floor","members","sleeping.rooms","ade.water","water","ade.toilets","toilets","share.toilets","tv","phone","car","fridge")
+hrNames <- names(hr)
+namesDiff <- setdiff(keep,hrNames)
+if(length(namesDiff)>0){
+  for(y in 1:length(namesDiff)){
+    hr[namesDiff[y]] <- NA
+    message(paste("Missing variable",namesDiff[y]))
+  } 
+}
+gcw.data <- hr[keep]
+setnames(gcw.data,"wealth","old.wealth")
+gcw.data$filename <- 'China'
+dataList[[dataIndex]] <- gcw.data
+dataIndex <- dataIndex + 1 
+
 wd <- "D:/Documents/Data/MICSmeta"
 setwd(wd)
 
@@ -537,6 +682,7 @@ gcw$share.toilets[which(tolower(gcw$share.toilets)=="manquant")] <- NA
 gcw$share.toilets[which(tolower(gcw$share.toilets)==9)] <- NA
 
 #Run translation
+source("C:/git/alexm-util/DevInit/R/P20/gcw_translate.R")
 save(gcw,file="gcw_translated.RData")
 # load("gcw_translated.RData")
 
@@ -574,18 +720,18 @@ gcw$toilets <- factor(gcw$toilets)
 dummyList[[8]] <- model.matrix( ~ toilets - 1, data=gcw)
 gcw$share.toilets <- factor(gcw$share.toilets)
 dummyList[[9]] <- model.matrix( ~ share.toilets - 1, data=gcw)
-gcw$hed <- factor(gcw$hed)
-dummyList[[10]] <- model.matrix( ~ hed - 1, data=gcw)
 gcw$tv <- factor(gcw$tv)
-dummyList[[11]] <- model.matrix( ~ tv - 1, data=gcw)
+dummyList[[10]] <- model.matrix( ~ tv - 1, data=gcw)
 gcw$phone <- factor(gcw$phone)
-dummyList[[12]] <- model.matrix( ~ phone - 1, data=gcw)
+dummyList[[11]] <- model.matrix( ~ phone - 1, data=gcw)
 gcw$car <- factor(gcw$car)
-dummyList[[13]] <- model.matrix( ~ car - 1, data=gcw)
+dummyList[[12]] <- model.matrix( ~ car - 1, data=gcw)
 gcw$fridge <- factor(gcw$fridge)
-dummyList[[14]] <- model.matrix( ~ fridge - 1, data=gcw)
+dummyList[[13]] <- model.matrix( ~ fridge - 1, data=gcw)
 gcw$urban <- factor(gcw$urban)
-dummyList[[15]] <- model.matrix( ~ urban - 1, data=gcw)
+dummyList[[14]] <- model.matrix( ~ urban - 1, data=gcw)
+
+#nrow of dummies is slightly smaller than nrowof gcw because of columns with absolutely no data, evidently...
 
 rm(gcw)
 gc()
@@ -616,9 +762,8 @@ gc()
 setwd("D:/Documents/Data/MICSmeta")
 # load("dummies.RData")
 
-#Common wealth index PCA, start massive processing task here
-
-dummies <- dummies[,c(2:326)]
+#Common wealth index PCA
+dummies <- dummies[,c(2:ncol(dummies))]
 gc()
 
 dummies[is.na(dummies)] <- 0
@@ -631,33 +776,149 @@ pca1 <- dat.pca$rotation[,1]
 pca2 <- dat.pca$rotation[,2]
 save(pca1,pca2,file="pcas.RData")
 # load("pcas.RData")
+load("dummies.RData")
 rm(dat.pca)
 gc()
 
-pca.vars <- names(pca1)
+components <- c(0,pca1)
+column.means <- colMeans(dummies,na.rm=TRUE)
+column.sds <- apply(dummies, 2, sd, na.rm=TRUE)
 
 c.wealth <- c()
-for(i in 1:length(pca.vars)){
-  pca.var <- pca.vars[i]
-  message(paste(i,pca.var,sep=". "))
-  component <- pca1[[pca.var]]
-  column <- dummies[,pca.var]
-  var.mean <- mean(column,na.rm=TRUE)
-  var.sd <- sd(column,na.rm=TRUE)
-  for(j in 1:length(column)){
-    val <- column[j]
-    if(is.na(val)){val<-var.mean}
-    wealth.contribution <- ((val-var.mean)/var.sd)*component
-    if(is.null(c.wealth[j])){
-      c.wealth[j] = wealth.contribution
-    }else{
-      c.wealth[j] = sum(c.wealth[j], wealth.contribution,na.rm=TRUE)
-    }
-  }
+for(i in 1:nrow(dummies)){
+  c.wealth.score <- sum(((dummies[i,]-column.means)/column.sds)*components,na.rm=TRUE)
+  c.wealth <- c(c.wealth,c.wealth.score)
 }
 
-rm(dummies)
 gc()
-load("gcw.RData")
-gcw.wealth <- cbind(gcw,c.wealth)
-save(gcw.wealth,"gcw_wealth.RData")
+dummies <- cbind(dummies,c.wealth)
+
+#Rural
+rural.dummies <- dummies[which(dummies[,"urban1"]==0),]
+urban.dummies <- dummies[which(dummies[,"urban1"]==1),]
+save(rural.dummies,file="rural_dummies.RData")
+save(urban.dummies,file="urban_dummies.RData")
+#Reset here
+setwd("D:/Documents/Data/MICSmeta")
+load("rural_dummies.RData")
+load("urban_dummies.RData")
+rm(dummies)
+rm(c.wealth)
+gc()
+
+rural.dummies <- rural.dummies[,c(2:(ncol(rural.dummies)-1))]
+gc()
+
+rural.dummies[is.na(rural.dummies)] <- 0
+rural.dummies[is.nan(rural.dummies)] <- 0
+rural.dummies[is.infinite(rural.dummies)] <- 0
+
+dat.pca <- prcomp(rural.dummies)
+
+pca1 <- dat.pca$rotation[,1]
+load("rural_dummies.RData")
+rm(dat.pca)
+gc()
+
+components <- c(0,pca1)
+column.means <- colMeans(rural.dummies,na.rm=TRUE)
+column.sds <- apply(rural.dummies, 2, sd, na.rm=TRUE)
+
+r.wealth <- c()
+for(i in 1:nrow(rural.dummies)){
+  r.wealth.score <- sum(((rural.dummies[i,]-column.means)/column.sds)*components,na.rm=TRUE)
+  r.wealth <- c(r.wealth,r.wealth.score)
+}
+
+gc()
+rural.dummies <- cbind(rural.dummies,r.wealth)
+
+rural.lm <- lm(c.wealth~r.wealth,data=data.frame(rural.dummies))
+r.alpha <- rural.lm$coefficients[[1]]
+r.beta <- rural.lm$coefficients[[2]]
+rm(rural.lm)
+gc()
+
+#Urban
+urban.dummies <- urban.dummies[,c(2:(ncol(urban.dummies)-1))]
+gc()
+
+urban.dummies[is.na(urban.dummies)] <- 0
+urban.dummies[is.nan(urban.dummies)] <- 0
+urban.dummies[is.infinite(urban.dummies)] <- 0
+
+dat.pca <- prcomp(urban.dummies)
+
+pca1 <- dat.pca$rotation[,1]
+load("urban_dummies.RData")
+rm(dat.pca)
+gc()
+
+components <- c(0,pca1)
+column.means <- colMeans(urban.dummies,na.rm=TRUE)
+column.sds <- apply(urban.dummies, 2, sd, na.rm=TRUE)
+
+u.wealth <- c()
+for(i in 1:nrow(urban.dummies)){
+  u.wealth.score <- sum(((urban.dummies[i,]-column.means)/column.sds)*components,na.rm=TRUE)
+  u.wealth <- c(u.wealth,u.wealth.score)
+}
+
+gc()
+urban.dummies <- cbind(urban.dummies,u.wealth)
+
+urban.lm <- lm(c.wealth~u.wealth,data=data.frame(urban.dummies))
+u.alpha <- urban.lm$coefficients[[1]]
+u.beta <- urban.lm$coefficients[[2]]
+rm(urban.lm)
+gc()
+
+#Composite wealth index
+save(u.alpha,u.beta,u.wealth,urban.dummies,r.alpha,r.beta,r.wealth,rural.dummies,file="final_ingredients.RData")
+load("D:/Documents/Data/MICSmeta/final_ingredients.RData")
+wealth <- u.alpha+(u.beta*u.wealth)
+urban.dummies <- cbind(urban.dummies,wealth)
+gc()
+wealth <- r.alpha+(r.beta*r.wealth)
+rural.dummies <- cbind(rural.dummies,wealth)
+gc()
+colnames(rural.dummies)[365] <- "u.wealth"
+dummies.final <- rbind(urban.dummies,rural.dummies)
+gc()
+save(dummies.final,file="composite_global_wealth.RData")
+load("D:/Documents/Data/MICSmeta/composite_global_wealth.RData")
+
+rm(urban.dummies)
+gc()
+rm(rural.dummies)
+gc()
+wealths <- dummies.final[,c("c.wealth","u.wealth","wealth")]
+gc()
+rm(dummies.final)
+gc()
+
+load("D:/Documents/Data/MICSmeta/gcw.RData")
+
+if(nrow(wealths)<=nrow(gcw)){
+  gcw <- cbind(gcw, wealths[match(rownames(gcw),rownames(wealths)),])  
+}else{
+  gcw <- cbind(wealths, gcw[match(rownames(wealths),rownames(gcw)),])  
+}
+
+gcw$wealth <- gcw$wealth*-1
+gcw <- gcw[order(gcw$wealth),]
+save(gcw,file="gcw_wealth.RData")
+
+gcw$p20 <- gcw$wealth <= quantile(gcw$wealth,probs=0.2,na.rm=TRUE)
+p20 <- subset(gcw,p20==TRUE)
+p20.table <- data.frame(table(p20$filename))
+p20.table <- p20.table[order(-p20.table$Freq),]
+names(p20.table) <- c("Filename","Raw household count")
+write.csv(p20.table,"global_wealth_p20.csv",row.names=FALSE)
+
+library(data.table)
+gcw.tab <- data.table(gcw)
+gcw.tab <- gcw.tab[,.(hc=weighted.mean(p20,weights,na.rm=TRUE)),by=.(filename)]
+gcw.tab$hc <- gcw.tab$hc*100
+gcw.tab <- gcw.tab[order(-gcw.tab$hc),]
+write.csv(gcw.tab,"global_wealth_p20_hc.csv",row.names=FALSE)
