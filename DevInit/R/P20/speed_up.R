@@ -3,32 +3,33 @@ library(Hmisc)
 library(plyr)
 library(foreign)
 library(data.table)
+library(devtools)
 ####Run function####
 # set our working directory, change this if using on another machine
-wd <- "D:/Documents/Data/DHSauto/"
+wd <- "D:/Documents/Data/DHS2/"
 setwd(wd)
 
-# List out all the directories in our wd, this is where our data is contained
-dirs <- list.dirs(wd,full.names=TRUE)
+#Unzip
+zips <- list.files(pattern="*.zip")
 
-# Loop through every dir
-for(i in 2:length(dirs)){
-  dir <- dirs[i]
-  hrBase <- basename(dir)
-  message(hrBase)
-  files <- list.files(dir,"*.dta",ignore.case=TRUE,full.names=TRUE)
-  if(length(files)>0){
-    for(j in 1:length(files)){
-      file <- files[j]
-      fileBase <- basename(file)
-      fileName <- substr(fileBase,1,nchar(fileBase)-4)
-      csvs <- list.files(dir,"*.csv",ignore.case=TRUE)
-      #Comment this out to avoid re-writing
-#       csvs <- c()
-      if(!(paste0(fileName,".csv") %in% csvs)){
-        data <- read.dta(file)
-        write.csv(data,paste0(dir,"/",fileName,".csv"),row.names=FALSE,na="")  
-      }
-    }
+for(i in 1:length(zips)){
+  zip <- zips[i]
+  unzip(zip)
+}
+
+# List out all the .dta in our wd, this is where our data is contained
+files <- list.files(wd,"*.dta",ignore.case=TRUE,full.names=TRUE)
+
+for(j in 1:length(files)){
+  file <- files[j]
+  fileBase <- basename(file)
+  fileName <- substr(fileBase,1,nchar(fileBase)-4)
+  fileName <- tolower(fileName)
+  rdatas <- list.files(wd,"*.RData",ignore.case=TRUE)
+  #Comment this out to avoid re-writing
+#       rdatas <- c()
+  if(!(paste0(fileName,".RData") %in% rdatas)){
+    data <- read.dta(file)
+    save(data,file=paste0(wd,"/",fileName,".RData"))  
   }
 }

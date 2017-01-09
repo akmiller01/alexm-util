@@ -909,7 +909,8 @@ gcw$wealth <- gcw$wealth*-1
 gcw <- gcw[order(gcw$wealth),]
 save(gcw,file="gcw_wealth.RData")
 
-gcw$p20 <- gcw$wealth <= quantile(gcw$wealth,probs=0.2,na.rm=TRUE)
+gcw$p20 <- gcw$wealth <= quantile(gcw$wealth,probs=0.20,na.rm=TRUE)
+gcw$p34 <- gcw$wealth <= quantile(gcw$wealth,probs=0.34,na.rm=TRUE)
 p20 <- subset(gcw,p20==TRUE)
 p20.table <- data.frame(table(p20$filename))
 p20.table <- p20.table[order(-p20.table$Freq),]
@@ -918,7 +919,8 @@ write.csv(p20.table,"global_wealth_p20.csv",row.names=FALSE)
 
 library(data.table)
 gcw.tab <- data.table(gcw)
-gcw.tab <- gcw.tab[,.(hc=weighted.mean(p20,weights,na.rm=TRUE)),by=.(filename)]
-gcw.tab$hc <- gcw.tab$hc*100
-gcw.tab <- gcw.tab[order(-gcw.tab$hc),]
-write.csv(gcw.tab,"global_wealth_p20_hc.csv",row.names=FALSE)
+gcw.tab <- gcw.tab[,.(hc20=weighted.mean(p20,weights,na.rm=TRUE),hc34=weighted.mean(p34,weights,na.rm=TRUE)),by=.(filename)]
+gcw.tab$hc20 <- gcw.tab$hc20*100
+gcw.tab$hc34 <- gcw.tab$hc34*100
+gcw.tab <- gcw.tab[order(-gcw.tab$hc20),]
+write.csv(gcw.tab,"global_wealth_p20_hc_new.csv",row.names=FALSE)
