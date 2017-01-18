@@ -2,11 +2,15 @@ library(foreign)
 library(Hmisc)
 library(data.table)
 
-setwd("D:/Documents/Data/DHSauto/ugir60dt")
-data <- read.dta("UGIR60FL.dta")
-# setwd("D:/Documents/Data/DHSauto/tzbr7hdt")
-# data <- read.dta("TZBR7HFL.dta")
+# setwd("D:/Documents/Data/DHSauto/ugir60dt")
+# data <- read.dta("UGIR60FL.dta")
+setwd("D:/Documents/Data/DHSauto/rwir61dt")
+data <- read.dta("RWIR61FL.dta")
+# setwd("D:/Documents/Data/DHSauto/tzir63dt")
+# data <- read.dta("TZIR63FL.dta")
 labs <- data.frame(names(data),attributes(data)[7])
+
+years.since <- 7
 
 data$survey.date <- data$v008
 data$wealth <- data$v191/100000
@@ -25,6 +29,20 @@ sisters <- subset(data.long,mm1 %in% c(2,"female"))
 sisters$pod <- sisters$survey.date-sisters$mm8
 sisters$age.at.death <- sisters$mm8-sisters$mm4
 sisters$aad.groups <- floor(sisters$age.at.death/60)
+
+maternal <- c(2,"died while pregnant",3,"died during delivery",4,"since delivery",5,"6 weeks after delivery",6,"2 months after delivery")
+not.maternal <- c(0,"never pregnant",1,"death not related",98,"don't know",99,NA)
+
+numerator <- data.table(subset(sisters,pod<(12*years.since)))[,.(deaths=sum(weights)
+                                                   ,maternal=sum((mm9 %in% maternal)*weights)
+                                                   ,non.maternal=sum((mm9 %in% not.maternal)*weights)
+                                                   ),by=.(aad.groups)]
+
+numerator <- data.frame(transform(numerator,mm.deaths = deaths*(maternal/(maternal+non.maternal))))
+numerator <- data.frame(transform(numerator,maternal.perc = (maternal/(maternal+non.maternal))))
+numerator <- numerator[c("aad.groups","mm.deaths")]
+
+names(numerator) <- c("age.group","numerator")
 
 ####Denominator (period 0-6 years, 0-84 months)
 surv.denom <- subset(sisters, is.na(age.at.death))
@@ -45,7 +63,7 @@ surv.denom$mag.exposure.months <- pmax(surv.denom$mag.exposure.months,0)
 #Lowest age group, surviving
 surv.denom$la <- (surv.denom$survey.date - 121)  - surv.denom$mm4
 surv.denom$la.group <- floor(surv.denom$la/60)
-surv.denom$lag.exposure.months <- 84 - (surv.denom$hag.exposure.months+surv.denom$mag.exposure.months)
+surv.denom$lag.exposure.months <- years.since*12 - (surv.denom$hag.exposure.months+surv.denom$mag.exposure.months)
 surv.denom$lag.exposure.months <- pmax(surv.denom$lag.exposure.months,0)
 
 #Highest age group, dead
@@ -67,6 +85,27 @@ dead.denom$la <- (dead.denom$mm8-121) - dead.denom$mm4
 dead.denom$la.group <- floor(dead.denom$la/60)
 dead.denom$lag.exposure.months <- dead.denom$la - (dead.denom$la.group*60 + 1)
 dead.denom$lag.exposure.months <- pmax(dead.denom$lag.exposure.months,0)
-dead.denom$lag.exposure.months[which(dead.denom$mm8<(dead.denom$survey.date - 84))] <- 0
+dead.denom$lag.exposure.months[which(dead.denom$mm8<(dead.denom$survey.date - years.since*12))] <- 0
 
 denominator <- rbind(surv.denom,dead.denom)
+denom.ha <- data.table(denominator)[,.(ha.count=sum(hag.exposure.months*weights)/12),by=.(ha.group)]
+names(denom.ha) <- c("age.group","ha.count")
+denom.ma <- data.table(denominator)[,.(ma.count=sum(mag.exposure.months*weights)/12),by=.(ma.group)]
+names(denom.ma) <- c("age.group","ma.count")
+denom.la <- data.table(denominator)[,.(la.count=sum(lag.exposure.months*weights)/12),by=.(la.group)]
+names(denom.la) <- c("age.group","la.count")
+
+library(plyr)
+denominator <- data.frame(join_all(list(denom.ha,denom.ma,denom.la)))
+denominator$denominator <- rowSums(denominator[c("ha.count","ma.count","la.count")],na.rm=TRUE)
+
+mort <- join(numerator,denominator,by="age.group")
+mort$mortality <- mort$numerator/mort$denominator
+mort <- data.frame(mort)[c("age.group","mortality")]
+mort <- subset(mort,age.group>2 & age.group<10)
+mort <- mort[order(mort$age.group),]
+age.verbose <- c("age15.19","age20.24","age25.29","age30.34","age35.39","age40.44","age45.49")
+mort$mortality <- mort$mortality*1000
+mort <- mort[c("mortality")]
+mort <- data.frame(t(mort))
+names(mort) <- age.verbose
