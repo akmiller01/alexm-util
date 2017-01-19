@@ -11,7 +11,7 @@
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
         .legend {
-            background-color: rgb(202,210,211);
+            background-color: rgba(202,210,211,0.5);
             border-radius: 3px;
             bottom: 10px;
             /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
@@ -34,7 +34,7 @@
         }
         
         .narrative{
-            background-color: rgb(202,210,211);
+            background-color: rgba(202,210,211,0.5);
             border-radius: 3px;
             bottom: 275px;
             /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
@@ -61,14 +61,14 @@
             display:none;
         }
         .help {
-            background-color: rgb(202,210,211);
+            background-color: rgba(202,210,211,0.5);
             border-radius: 3px;
-            top: 10px;
+            bottom: 10px;
             /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             padding: 10px;
             position: absolute;
-            left: 10px;
+            right: 0px;
             z-index: 1;
             max-width:25%;
         }
@@ -81,6 +81,9 @@
         p#tour{
             max-width:100%;
         }
+        p#area, p#p20, p#min, p#max, p#mean, p#tour {
+			background-color: rgba(202,210,211,1)
+			} 
     </style>
 </head>
 <body>

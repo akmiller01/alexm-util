@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://bl.ocks.org/mbostock/raw/4341954/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8">
+<title>Kernel Density Estimation</title>
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.bar {
+  fill: #bbb;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  stroke: #000;
+  stroke-width: 1.5px;
+  cursor:pointer;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}d
+
+.y.axis path {
+  display: none;
+}
+
+</style>
+<style type="text/css"></style></head><body>
+<script src="./d3.min.js"></script>
+<script src="./jquery-1.11.3.min.js"></script>
+<script>
+var faithful = [0.135394836033819,0.34094650636852,0.857775513274353,1.9407841338122,2.36192805219652,1.46853083325419,1.77397338864707,2.05906284378868,2.42035509193281,2.53975176840163,3.38856663044576,2.91654326855585,3.10251229010538,3.26087380336658,3.41322695864494,3.55079624950654,3.66904505131043,3.7819602534544,3.88942004914743,4.00336145545319,4.04120921404122,4.15555012199944,4.21243612387099,4.28153591860406,4.38480069279273,4.43781624544525,4.49366528034408,4.54864654815131,4.59587084395836,4.60098947710768,4.68233417183635,4.58364831656224,4.77520904201571,4.74602394631212,4.61161072275207,4.83223718658026];
+
+var margin = {top: 20, right: 30, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .domain([0, 5])
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .domain([0, .1])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(d3.format("%"));
+    
+var kde = kernelDensityEstimator(epanechnikovKernel(7), x.ticks(100)),
+data = kde(faithful);
+
+var line = function(array){
+  var result = []
+  for (var i = 0; i < array.length; i++) {
+    var d = array[i];
+    result.push([x(d[0]),y(d[1])]);
+  }
+  return result;
+}
+
+function circle(coordinates,area,cx,cy) {
+  var circle = [],
+      length = 0,
+      lengths = [length],
+      polygon = d3.geom.polygon(coordinates),
+      p0 = coordinates[0],
+      p1,
+      x,
+      y,
+      i = 0,
+      n = coordinates.length;
+
+  // Compute the distances of each coordinate.
+  while (++i < n) {
+    p1 = coordinates[i];
+    x = p1[0] - p0[0];
+    y = p1[1] - p0[1];
+    lengths.push(length += Math.sqrt(x * x + y * y));
+    p0 = p1;
+  }
+
+  var radius = Math.sqrt(Math.abs(area) / Math.PI),
+      centroid = [cx,cy],
+      angleOffset = Math.PI/2, // TODO compute automatically
+      angle,
+      i = -1,
+      k = 2 * Math.PI / lengths[lengths.length - 1];
+
+  // Compute points along the circle’s circumference at equivalent distances.
+  while (++i < n) {
+    angle = angleOffset + lengths[i] * k;
+    circle.push([
+      centroid[0] + radius * Math.cos(angle),
+      centroid[1] + radius * Math.sin(angle)
+    ]);
+  }
+
+  return circle;
+};
+
+var histogram = d3.layout.histogram()
+    .frequency(false)
+    .bins(x.ticks(40));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis)
+  .append("text")
+    .attr("class", "label")
+    .attr("x", width)
+    .attr("y", -6)
+    .style("text-anchor", "end")
+    .text("Time between Eruptions (min.)");
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis);
+
+//svg.append("path")
+//    .datum(faithful)
+//    .attr("class", "line")
+//    .attr("d",function(d){
+//      var cy = 125,
+//      cx = x(d3.mean(d)),
+//      r = rScale(sum(d))
+//      return "M "+cx+" "+cy+
+//      "m "+(r * -1)+", 0"+
+//      "a "+r+","+r+" 0 1,0 "+(r * 2)+",0"+
+//      "a "+r+","+r+" 0 1,0 "+(r * -2)+",0"
+//    });
+
+var cy = 200,
+cx = x(d3.mean(faithful)),
+area = sum(faithful)*2,
+radius = Math.sqrt(Math.abs(area) / Math.PI);
+
+svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("id","play")
+    .attr("d",function(d){return "M" + circle(d,area,cx,cy).join("L")+"Z";})
+    .attr("fill","blue");
+    
+function up(){
+  console.log("Up")
+  svg.select("path.line")
+  .transition()
+  .duration(1000)
+  .attr("d",function(d){return "M" + circle(d,area,cx,cy).join("L")+"Z";});
+}
+
+function down() {
+  console.log("Down")
+  svg.select("path.line")
+  .transition()
+  .duration(1000)
+  .attr("d",function(d){return "M" + circle(d,area,cx,height-radius).join("L")+"Z";});
+};    
+
+function unfold() {
+  console.log("Unfold")
+  svg.select("path.line")
+  .transition()
+  .duration(1000)
+  .attr("d",function(d){return "M" + line(d).join("L")+"Z";});
+};
+
+function play(){
+  down()
+  setTimeout(unfold,1000)
+  $('#play').off("click")
+  $('#play').attr("id","rewind");
+  $('#rewind').click(function() {
+        rewind();
+    });
+};
+
+function rewind(){
+  down()
+  setTimeout(up,1000)
+  $('#rewind').off("click")
+  $('#rewind').attr("id","play");
+  $('#play').click(function() {
+        play();
+    });
+};
+
+function kernelDensityEstimator(kernel, x) {
+  return function(sample) {
+    return x.map(function(x) {
+      return [x, d3.mean(sample, function(v) { return kernel(x - v); })];
+    });
+  };
+};
+
+function epanechnikovKernel(scale) {
+  return function(u) {
+    return Math.abs(u /= scale) <= 1 ? .75 * (1 - u * u) / scale : 0;
+  };
+};
+
+function sum(array) {
+  return array.reduce(function(a,b){return a+b});
+};
+
+$( document ).ready(function() {
+    $('#play').click(function() {
+        play();
+    });
+    
+});
+
+</script>
+</body></html>
