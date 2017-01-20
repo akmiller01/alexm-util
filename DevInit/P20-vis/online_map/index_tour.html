@@ -43,7 +43,7 @@
             position: absolute;
             left: 10px;
             z-index: 1;
-            width:215px;
+            width:300px;
         }
         .narrative h4 {
             margin: 0 0 10px;
@@ -92,14 +92,14 @@
 <div class="help">
     <button id="help" onclick="toggleHelp()">Help</button>
     <button id="close" onclick="toggleClose()">X</button>
-    <button id="prev" onclick="decrementTour()">&lt;&lt;&lt; Previous</button>
-    <button id="next" onclick="incrementTour()">Next &gt;&gt;&gt;</button>
+    <button id="prev" onclick="decrementTour()">Previous</button>
+    <button id="next" onclick="incrementTour()">Next</button>
     <p id="tour"></p>
 </div>
 <div class='narrative'>
-    <h4>Distribution of the global poorest 20%</h4>
+    <h4>Distribution of the poorest p20% of people globally</h4>
     <p id="area"><b>Area: </b><span>NA</span></p>
-    <p id="p20"><b>P20 percent: </b><span>100%</span></p>
+    <p id="p20"  style="line-height:334%;"><b>% of population in the global P20: </b><span>100%</span></p>
     <p class="p20_stats" id="mean"><b>P20 mean: </b><span>50%</span></p>
     <p class="p20_stats" id="min"><b>P20 min: </b><span>0%</span></p>
     <p class="p20_stats" id="max"><b>P20 max: </b><span>0%</span></p>
@@ -108,7 +108,7 @@
     <button onclick="map.flyTo({zoom:5,bearing:0})">Zoom to household cluster level</button>
 </div>
 <div class='legend'>
-    <h4>Percent of population in the P20</h4>
+    <h4>% of population in the global P20</h4>
     <div><span style='background-color: rgb(203,91,54)'>90 - 100%</span></div>
     <div><span style='background-color: rgb(245,124,77)'>80 - 90%</span></div>
     <div><span style='background-color: rgb(245,161,122)'>70 - 80%</span></div>
@@ -193,10 +193,12 @@ map.on('mousemove', function (e) {
 
 var tourStops = [
     {'center':[25, -0.5],'zoom':2,'narrative':"Welcome to the P20 zoom map. Click the 'Next' button above for a quick tour."}
-    ,{'center':[-71,19],'zoom':3,'narrative':"Here is Haiti and the Dominican Republic at the national zoom level. If you mouseover each country, you can see that Haiti has a P20 percentage of about 63%, while the Dominican Republic has a P20 percentage of about 6%."}
-    ,{'center':[-71,19],'zoom':4,'narrative':"Clicking the 'Zoom to subnational level' button below would bring you to this zoom level. Here you can see the P20 percentages of individual subnational regions within Haiti and the DR. If your mouse is hovering over more than one region at a time, the legend will tell you the average, minimum, and maximum P20 percentage for all of the regions under your mouse."}
-    ,{'center':[-71,19],'zoom':7,'narrative':"Finally, this is the household cluster level. Each dot represents an actual location where a survey was conducted, and the size of the dot represents our uncertainty about the exact location."}
-    ,{'center':[25, -0.5],'zoom':2,'narrative':"Thank you for checking out our P20 zoom map. This concludes your guided tour. Feel free to click the X button above the hide the tour buttons, and go explore the world!"}
+    ,{'center':[25,-0.5],'zoom':2,'narrative':"This map shows the global distribution of people in the poorest 20%, the P20. You can explore the map at three different levels."}
+    ,{'center':[25,-0.5],'zoom':2,'narrative':"At the national level, you can compare the % of a countries population in the P20 with others. If you scroll over individual countries you will  find the % of the population in the P20 appearing in the top left hand corner."}
+	,{'center':[119,2],'zoom':3,'narrative':"You can see the variations between countries. Here you can see in Indonesia 27% of the population (68 million people) are in the P20, compared with 0% in Malaysia."}
+    ,{'center':[115.352,-1.032],'zoom':4,'narrative':"However, when you look at the subnational level, you can see that the % of the population in the P20 varies across provinces.  In Gorontalo province 58% of the population are in the P20, compared with neighbouring North Sulawesi province where the percentage of people in the P20 falls to 28%."}
+    ,{'center':[123.034,1.271],'zoom':7,'narrative':"If we zoom in closer, at the household cluster level we can see disparities around the provincial capital Gorontalo with the % of household clusters in the P20 ranging from 100% to 0%."}
+	,{'center':[25, -0.5],'zoom':2,'narrative':"Thank you for checking out our P20 zoom map. This concludes your guided tour. Feel free to click the X button above the hide the tour buttons, and go explore the world!"}
 ];
 tourPosition = 0;
 
