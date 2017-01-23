@@ -363,3 +363,35 @@ weighted.mean(blind$female,blind$weights,na.rm=TRUE)
 # sexuality.hh <- subset(data,hhid %in% sexuality$hhid)
 # View(sexuality.hh[c("hhid","hv104","hv219","hv101","hv217")])
 # write.csv(sexuality.hh[c("hhid","hv104","hv219","hv101","hv217")],"sexuality.csv",row.names=FALSE)
+
+female <- subset(data,female==1)
+male <- subset(data,female==0)
+
+crossTabs <- list()
+crossTabs[["seeing male"]] <- crosstab(male$seeing,male$p20,weight=male$weights)$tab
+crossTabs[["hearing male"]] <- crosstab(male$hearing,male$p20,weight=male$weights)$tab
+crossTabs[["walking male"]] <- crosstab(male$walking,male$p20,weight=male$weights)$tab
+crossTabs[["remembering male"]] <- crosstab(male$remembering,male$p20,weight=male$weights)$tab
+crossTabs[["with self care male"]] <- crosstab(male$self.care,male$p20,weight=male$weights)$tab
+crossTabs[["communicating male"]] <- crosstab(male$communicating,male$p20,weight=male$weights)$tab
+crossTabs[["seeing female"]] <- crosstab(female$seeing,female$p20,weight=female$weights)$tab
+crossTabs[["hearing female"]] <- crosstab(female$hearing,female$p20,weight=female$weights)$tab
+crossTabs[["walking female"]] <- crosstab(female$walking,female$p20,weight=female$weights)$tab
+crossTabs[["remembering female"]] <- crosstab(female$remembering,female$p20,weight=female$weights)$tab
+crossTabs[["with self care female"]] <- crosstab(female$self.care,female$p20,weight=female$weights)$tab
+crossTabs[["communicating female"]] <- crosstab(female$communicating,female$p20,weight=female$weights)$tab
+
+setwd("D:/Documents/Data/DHSmeta2")
+
+# #Create workbook
+wb <- createWorkbook("crosstabs")
+
+crossNames <- names(crossTabs)
+for(i in 1:length(crossNames)){
+  crossName <- crossNames[i]
+  crossTab <- crossTabs[[i]]
+  addWorksheet(wb,crossName)
+  writeData(wb,sheet=crossName,crossTab,colNames=TRUE,rowNames=TRUE)
+}
+
+saveWorkbook(wb, "Uganda_Disability_by_P20_status_sex.xlsx", overwrite = TRUE)

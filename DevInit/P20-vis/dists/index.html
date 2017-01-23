@@ -30,15 +30,15 @@ div.legend {
 }
 
 .blue {
-  background-color: rgb(0,149,200);
+  background-color: rgb(12,101,167);
 }
 
 .red {
-  background-color: rgb(186,12,47);
+  background-color: rgb(208,53,56);
 }
 
 .grey {
-  background-color: grey;
+  background-color: rgb(207,202,210);
 }
 
 #yaxislabel{
@@ -47,6 +47,14 @@ div.legend {
   position:relative;
   top:325px;
   
+}
+
+td#label{font-weight:bold;}
+
+div.line{
+  background-color:black;
+  width:3px;
+  margin-left:11.5px;
 }
 
 </style>
@@ -61,6 +69,7 @@ div.legend {
     </select>
     by Wealth Distribution</h1>
     <table>
+      <tr><td id="label">P20%: </td><td id="value"></td></tr>
       <tr>
         <td><div class="red legend"></div></td><td><span id="redNarrative">More in the P20 </span><span id="redNumber">(Maximum of 100.0%)</span></td>
       </tr>
@@ -69,6 +78,9 @@ div.legend {
       </tr>
       <tr>
         <td><div class="grey legend"></div></td><td><span id="greyNarrative">No data </span><span id="greyNumber"></span></td>
+      </tr>
+      <tr>
+        <td><div class="line legend"></div></td><td><span id="lineNarrative">P20 falls below this line </span><span id="greyNumber"></span></td>
       </tr>
     </table>
     <div id="yaxislabel"><b>Percent of population</b></div>
@@ -338,7 +350,7 @@ var svg = d3.select("svg"),
 
 var x = d3.scaleLinear().rangeRound([0, width]),
     y = d3.scaleLinear().rangeRound([height, 0]),
-    z = d3.scaleLinear().range(["rgb(0,149,200)","rgb(186,12,47)"]);
+    z = d3.scaleLinear().range(["rgb(12,101,167)","rgb(208,53,56)"]);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -358,6 +370,14 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
   
   var subset = data.filter(function(d){return d.iso2==iso2})
 
+  var i = 0;
+  var p20 = subset[i].p20s;
+  while (p20==1 || p20=="") {
+    i += 1;
+    var p20 = subset[i].p20s;
+  };
+  var p20_cut = [subset[i].stops+(p20*0.04)];
+  
   x.domain([0,1]);
   y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
   z.domain([0, d3.max(subset, function(d) { return Number(d.p20s); })]);
@@ -386,40 +406,70 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
       .attr("y", function(d) { return y(d.counts); })
       .attr("width", (width/25)-1)
       .attr("height", function(d) { return height - y(d.counts); })
-      .style("fill",function(d) {return d.p20s==""?"grey":z(d.p20s);});
+      .style("fill",function(d) {return d.p20s==""?"rgb(207,202,210)":z(d.p20s);})
+      .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.p20s*100)+"%')"});
+      
+  var p20Line = g.selectAll(".p20line")
+    .data(p20_cut).enter()
+    .append("line")
+    .attr("class","p20line")
+    .attr("y1",-5)
+    .attr("y2",height)
+    .attr("x1",function(d){return x(d)-(width/25)+2})
+    .attr("x2",function(d){return x(d)-(width/25)+2})
+    .attr("stroke","black")
+    .attr("stroke-width","3px");
+    
   $('select').change(function(){
     var val = $('#indicator').val()
     var iso2 = $('#country').val()
     var subset = data.filter(function(d){return d.iso2==iso2})
+    console.log(subset)
+    var i = 0;
+    var p20 = subset[i].p20s;
+    while (p20==1 || p20=="") {
+      i += 1;
+      var p20 = subset[i].p20s;
+    };
+    var p20_cut = [subset[i].stops+(p20*0.04)];
+    p20Line.data(p20_cut)
+    .transition()
+    .attr("x1",function(d){return x(d)-(width/25)+2})
+    .attr("x2",function(d){return x(d)-(width/25)+2});
     y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
     yaxis.transition().call(d3.axisLeft(y).ticks(10, "%"))
     if (val=="p20") {
+      $('td#label').text('P20%: ');
       $("#redNarrative").text("More in the P20 ")
       $("#redNumber").text("(Maximum of 100.0%)")
       $("#blueNarrative").text("Fewer in the P20 ")
       $("#blueNumber").text("(Minimum of 0.0%)")
-        z.domain([0, 1]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        z.domain([0, 1]).range(["rgb(12,101,167)","rgb(208,53,56)"]);
         bars
         .data(subset)
         .transition()
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.p20s==""?"grey":z(d.p20s);});
+        .style("fill",function(d) {return d.p20s==""?"rgb(207,202,210)":z(d.p20s);})
+        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.p20s*100)+"%')"});
     }else if (val=="reg") {
+      $('td#label').text('Birth reg %: ');
       var maxReg = d3.max(subset, function(d) { return Number(d.regs); });
       var minReg = d3.min(subset, function(d) { return Number(d.regs); });
       $("#redNarrative").text("Less under five birth registration ")
       $("#redNumber").text("(Minimum of "+(minReg*100).toFixed(1)+"%)")
       $("#blueNarrative").text("More under five birth registration ")
       $("#blueNumber").text("(Maximum of "+(maxReg*100).toFixed(1)+"%)")
-        z.domain([minReg, maxReg]).range(["rgb(186,12,47)","rgb(0,149,200)"]);
+        z.domain([minReg, maxReg]).range(["rgb(208,53,56)","rgb(12,101,167)"]);
         bars
         .data(subset)
         .transition()
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.regs==""?"grey":z(d.regs);});
+        .style("fill",function(d) {return d.regs==""?"rgb(207,202,210)":z(d.regs);})
+        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.regs*100)+"%')"});
     }else if (val=="stunt") {
+      $('td#label').text('Stunting %: ');
         var maxStunt = d3.max(subset, function(d) { return Number(d.stunts); });
         var minStunt = d3.min(subset, function(d) { return Number(d.stunts); });
 
@@ -427,13 +477,14 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         $("#redNumber").text("(Maximum of "+(maxStunt*100).toFixed(1)+"%)")
         $("#blueNarrative").text("Less under five stunting ")
         $("#blueNumber").text("(Minimum of "+(minStunt*100).toFixed(1)+"%)")
-        z.domain([minStunt, maxStunt]).range(["rgb(0,149,200)","rgb(186,12,47)"]);
+        z.domain([minStunt, maxStunt]).range(["rgb(12,101,167)","rgb(208,53,56)"]);
         bars
         .data(subset)
         .transition()
         .attr("y", function(d) { return y(d.counts); })
         .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.stunts==""?"grey":z(d.stunts);});
+        .style("fill",function(d) {return d.stunts==""?"rgb(207,202,210)":z(d.stunts);})
+        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.stunts*100)+"%')"});
     };
   });
 });
