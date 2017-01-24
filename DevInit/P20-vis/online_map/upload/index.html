@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>P20 Zoom Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.js'></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.28.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0;}
+		#map-container{
+			position:absolute; top:0; bottom:0; width:100%;
+		}
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        .help {
+			background-color:black;
+			width:100%;
+			text-align:center;
+			position:absolute;
+			top:0;
+			z-index: 3;
+        }
+		.hideHelp {
+			position:absolute;
+			top:0;
+			left:0;
+			z-index: 4;
+			color:white;
+			margin-left:5px;
+			margin-top:2px;
+			cursor:pointer;
+        }
+		.closed {
+			left: auto !important;
+			color:black !important;
+			margin-top: 8px !important;
+			margin-right: 10px !important;
+			background-color: white;
+			font-weight:bold;
+			padding:5px 1.5px 5px 1.5px;
+			border: thick rgb(182,189,190) 1px;
+			border-radius:4px;
+			box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1)
+		}
+		.legend {
+            background-color: rgba(202,210,211,0.5);
+            border-radius: 3px;
+            bottom: 10px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            left: 10px;
+            z-index: 1;
+        }
+        
+        .legend h4 {
+            margin: 0 0 10px;
+			font-size:15px;
+        }
+        
+        .legend div span {
+            display: inline-block;
+            width:100%;
+            text-align:center;
+            border: none;
+        }
+        .title{
+            background-color: rgba(202,210,211,0.5);
+            border-radius: 3px;
+            top: 29px;
+            /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+			margin-top:10px;
+			margin-right:10px;
+            position: absolute;
+            left: 10px;
+            z-index: 1;
+            max-width:350px;
+        }
+        .title h4 {
+			margin:0px;
+			font-size:15px;
+        }
+        .narrative{
+            background-color: rgba(202,210,211,0.5);
+            border-radius: 3px;
+            bottom: 285px;
+            /*box-shadow: 0 1px 2px rgba(0,0,0,0.10);*/
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            left: 10px;
+            z-index: 1;
+			width:auto;
+        }
+        
+		.narrative p{
+			font-size:14px;
+			padding-left:5px;
+			padding-right:5px;
+		}
+		
+        .narrative button {
+            margin-bottom:2px;
+			display:block;
+        }
+        #area, #p20, .p20_stats, #pop {
+            margin:0px;
+            display:none;
+        }
+		#tour{
+			text-align:left;
+			background-color: white;
+			padding:5px;
+		}
+        #prev, #next, #close, #tour {
+            display:none;
+        }
+        button {
+            cursor:pointer;
+        }
+        #tour{
+            max-width:100%;
+        }
+        p#area, p#pop, p#p20, p#min, p#max, p#mean{
+			background-color: rgba(202,210,211,1)
+			}
+			
+		.help button{
+			margin:5px;
+			border:solid white 1px;
+			background-color:black;
+			color:white;
+		}
+		
+		.mapboxgl-ctrl-top-right{
+			top:29px;
+		}
+		
+		.mapboxgl-ctrl-group button{
+			width:35px !important;
+			height:35px !important;
+		}
+    </style>
+</head>
+<body>
+<div class="hideHelp open" onclick="toggleClose()">&#10006;</div>
+<div class="help">
+    <button id="help" onclick="toggleHelp()">Quick tour</button>
+    <button id="prev" onclick="decrementTour()">Previous</button>
+    <button id="next" onclick="incrementTour()">Next</button>
+    <div id="tour"></div>
+</div>
+<div id="map-container">
+	<div id="map"></div>
+	<div class='title'>
+		<h4>Distribution of the poorest 20% of people globally</h4>
+	</div>
+	<div class='narrative'>
+		<p id="area"><b>Area: </b><span>NA</span></p>
+		<p id="p20"><b>% of population in the global P20: </b><span>100%</span></p>
+		<p id="pop"><b>Population in the global P20: </b><span>NA</span></p>
+		
+		<p class="p20_stats" id="mean"><b>P20 mean: </b><span>50%</span></p>
+		<p class="p20_stats" id="min"><b>P20 min: </b><span>0%</span></p>
+		<p class="p20_stats" id="max"><b>P20 max: </b><span>0%</span></p>
+		<button onclick="map.flyTo({zoom:2,bearing:0})">Zoom to national level</button>
+		<button onclick="map.flyTo({zoom:4,bearing:0})">Zoom to subnational level</button>
+		<button onclick="map.flyTo({zoom:5,bearing:0})">Zoom to household cluster level</button>
+	</div>
+	<div class='legend'>
+		<h4>% of area population in the global P20</h4>
+		<div><span style='background-color: rgb(203,91,54)'>90 - 100%</span></div>
+		<div><span style='background-color: rgb(245,124,77)'>80 - 90%</span></div>
+		<div><span style='background-color: rgb(245,161,122)'>70 - 80%</span></div>
+		<div><span style='background-color: rgb(253,197,165)'>60 - 70%</span></div>
+		<div><span style='background-color: rgb(245,213,182)'>50 - 60%</span></div>
+		<div><span style='background-color: rgb(215,172,208)'>40 - 50%</span></div>
+		<div><span style='background-color: rgb(195,145,193)'>30 - 40%</span></div>
+		<div><span style='background-color: rgb(167,115,176)'>20 - 30%</span></div>
+		<div><span style='background-color: rgb(146,84,162)'>10 - 20%</span></div>
+		<div><span style='background-color: rgb(113,53,147)'>0 - 10%</span></div>
+		<div><span style='background-color: rgb(246,246,244);box-shadow: 0 0 0 1px rgb(156,156,156) inset;'>No data</span></div>
+	</div>
+</div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiYWttaWxsZXIwMSIsImEiOiJjaXJmMTExYXcwMDUyZ2VuZXVudGs2NXN6In0.UCGi9Cx5COTKxzSiDbusCg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/akmiller01/ciw51u7nk000l2jp62audponv',
+    zoom: 2,
+    center: [25, -0.5],
+    minZoom:1,
+    attributionControl: true
+});
+
+var nav = new mapboxgl.NavigationControl();
+map.addControl(nav, 'top-right');
+
+function numberWithCommas(x) {
+	var millions = Math.round(x/100000)/10;
+    return millions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ " million";
+};
+
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point);
+    var validFeatures = 0;
+    var maxP20 = 0;
+    var minP20 = 1;
+    var sumP20 = 0;
+    for(var i = 0; i < features.length; i++){
+        var feature = features[i];
+		if (feature.properties.hasOwnProperty("p20")
+			&& feature.layer.id!="national-borders-bg"
+			&& feature.layer.id!="national-borders"
+			&& feature.layer.id!="subnational-borders-bg"
+			&& feature.layer.id!="subnational-borders") {
+			var level = "";
+            var p20 = feature.properties.p20;
+            if (p20>maxP20) {
+                maxP20 = p20
+            };
+            if (p20<minP20) {
+                minP20 = p20
+            };
+            sumP20 = sumP20 + p20;
+            $('p#p20 span').text(Math.round(p20*100,2)+"%");
+            validFeatures = validFeatures + 1;
+        };
+        if (feature.properties.hasOwnProperty("NAME")) {
+            var country_name = feature.properties.NAME;
+			level = "national"
+			var pop = feature.properties.POP_EST*p20;
+            $('p#area span').text(country_name);
+			if (map.getZoom()<4) {
+                $('p#pop span').text(numberWithCommas(pop));
+				$('p#pop').show()
+            }
+			$('p#area b').text("Country: ")
+        };
+        if (feature.properties.hasOwnProperty("CNTRYNAMEE")) {
+            var country_name = feature.properties.CNTRYNAMEE;
+			level = "subnational"
+            var region_name = feature.properties.DHSREGEN;
+            //$('p#area span').text(region_name+", "+country_name);
+			$('p#area span').text(region_name);
+			$('p#pop').hide()
+			$('p#area b').text("Region: ")
+        };
+        if (feature.properties.hasOwnProperty("ADM1NAME")) {
+            var region_name = feature.properties.ADM1NAME;
+			level = "cluster"
+            $('p#area span').text(region_name);
+			$('p#pop').hide()
+			$('p#area b').text("Region: ")
+        };
+    };
+    if (validFeatures==1) {
+        $('p#area').show();
+        $('p#p20').show();
+        $('p.p20_stats').hide();
+    }else if(validFeatures>=2 && (level=="subnational" || level=="cluster")){
+        $('p#area').hide();
+        $('p#p20').hide();
+		$('p#pop').hide()
+        
+        $('p#mean span').text(Math.round((sumP20/validFeatures)*100,2)+"%");
+        $('p#min span').text(Math.round(minP20*100,2)+"%");
+        $('p#max span').text(Math.round(maxP20*100,2)+"%");
+        
+        $('p.p20_stats').show();
+    }else if(validFeatures==0){
+        $('p#area').hide();
+        $('p#p20').hide();
+        $('p.p20_stats').hide();
+		$('p#pop').hide()
+    };
+});
+
+var tourStops = [
+	{'center':[25,-0.5],'zoom':2,'narrative':"This map shows the global distribution of people in the poorest 20%, the P20. You can explore the map at three different levels."}
+    ,{'center':[25,-0.5],'zoom':2,'narrative':"At the national level, you can compare the % of a countries population in the P20 with others. If you scroll over individual countries you will  find the % of the population in the P20 appearing in the top left hand corner."}
+	,{'center':[120,-5],'zoom':3,'narrative':"You can see the variations between countries. Here at the national level you can see in Indonesia 27% of the population are in the P20, compared with 0% in Malaysia."}
+    ,{'center':[114.287,-0.4069],'zoom':4.1,'narrative':"However, when you look at the subnational level, you can see that the % of the population in the P20 varies across provinces. In West Kalimantan and Central Kalimantan province 63% and 52% of the population are in the P20 respectively, compared with nearby East Kalimantan province where the percentage of people in the P20 falls to 20%."}
+    ,{'center':[114.590,-3.320],'zoom':8.5,'narrative':"If we zoom in closer, at the household cluster level we can see disparities around Banjarmasin, the capital of Central Kalimantam with the % of those in each household clusters in the P20 ranging from 0% to 100%."}
+	,{'center':[25, -0.5],'zoom':2,'narrative':"Thank you for checking out our P20 zoom map. This concludes your guided tour. Feel free to click the close button in the top left corner to hide the tour buttons, and go explore the world!"}
+];
+tourPosition = 0;
+
+function repoControls() {
+    var helpHeight = $('div.help').height();
+	$('.mapboxgl-ctrl-top-right').css('top',helpHeight);
+	$('.title').css('top',helpHeight);
+};
+
+function toggleHelp() {
+    $('#help').hide();
+    $('#next').show();
+    
+    tourPosition = 0;
+    var stop = tourStops[tourPosition],
+    center = stop['center'],
+    zoom = stop['zoom'],
+    narrative = stop['narrative'];
+    //map.flyTo({'zoom':zoom,'bearing':0,'center':center})
+    $('#tour').text(narrative);
+    $('#tour').show();
+	repoControls();
+};
+function toggleClose() {
+	if($('.hideHelp').text()!="Tour"){
+		$('.help').hide();
+		$('#help').show();
+		$('#prev').hide();
+		$('#next').hide();
+		$('#tour').hide();
+		$('#tour').text("");
+		repoControls();
+		$('.hideHelp').text('Tour')
+		$('.hideHelp').addClass("closed")
+		$('.hideHelp').animate({right:0},500)
+		$('.title').animate({'top':0},500);
+	}else{
+		var helpHeight = $('div.help').height();
+		$('.title').animate({'top':helpHeight},500);
+		$('.help').slideDown();
+		$('.hideHelp').html('&#10006;')
+		$('.hideHelp').removeClass("closed")
+		$('.hideHelp').css("right","")
+	};
+};
+
+function incrementTour(){
+    tourPosition = tourPosition + 1;
+    if (tourPosition>=tourStops.length) {
+        tourPosition = 0;
+    };
+    if (tourPosition==0) {
+        $('#prev').hide();
+    }else{
+        $('#prev').show();
+    };
+    if (tourPosition==tourStops.length-1){
+        $('#next').hide();
+    }else{
+        $('#next').show();
+    };
+    var stop = tourStops[tourPosition],
+    center = stop['center'],
+    zoom = stop['zoom'],
+    narrative = stop['narrative'];
+    map.flyTo({'zoom':zoom,'bearing':0,'center':center})
+    $('#tour').text(narrative);
+    $('#tour').show();
+	repoControls();
+};
+function decrementTour(){
+    tourPosition = tourPosition - 1;
+    if (tourPosition<0) {
+        tourPosition = tourStops.length-1;
+    };
+    if (tourPosition==0) {
+        $('#prev').hide();
+    }else{
+        $('#prev').show();
+    };
+    if (tourPosition==tourStops.length-1){
+        $('#next').hide();
+    }else{
+        $('#next').show();
+    };
+    var stop = tourStops[tourPosition],
+    center = stop['center'],
+    zoom = stop['zoom'],
+    narrative = stop['narrative'];
+    map.flyTo({'zoom':zoom,'bearing':0,'center':center})
+    $('#tour').text(narrative);
+    $('#tour').show();
+	repoControls();
+};
+
+
+</script>
+
+</body>
+</html>
