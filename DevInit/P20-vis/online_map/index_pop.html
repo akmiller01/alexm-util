@@ -99,8 +99,9 @@
 <div class='narrative'>
     <h4>Distribution of the poorest p20% of people globally</h4>
     <p id="area"><b>Area: </b><span>NA</span></p>
-	<p id="pop"><b>Population: </b><span>NA</span></p>
-    <p id="p20"><b>% of population in the global P20: </b><span>100%</span></p>
+	<p id="p20"><b>% of population in the global P20: </b><span>100%</span></p>
+	<p id="pop"><b>Population in the global P20: </b><span>NA</span></p>
+    
     <p class="p20_stats" id="mean"><b>P20 mean: </b><span>50%</span></p>
     <p class="p20_stats" id="min"><b>P20 min: </b><span>0%</span></p>
     <p class="p20_stats" id="max"><b>P20 max: </b><span>0%</span></p>
@@ -150,9 +151,21 @@ map.on('mousemove', function (e) {
     var sumP20 = 0;
     for(var i = 0; i < features.length; i++){
         var feature = features[i];
+		if (feature.properties.hasOwnProperty("p20")) {
+            var p20 = feature.properties.p20;
+            if (p20>maxP20) {
+                maxP20 = p20
+            };
+            if (p20<minP20) {
+                minP20 = p20
+            };
+            sumP20 = sumP20 + p20;
+            $('p#p20 span').text(Math.round(p20*100,2)+"%");
+            validFeatures = validFeatures + 1;
+        };
         if (feature.properties.hasOwnProperty("NAME")) {
             var country_name = feature.properties.NAME;
-			var pop = feature.properties.POP_EST;
+			var pop = feature.properties.POP_EST*p20;
             $('p#area span').text(country_name);
 			$('p#pop span').text(numberWithCommas(pop));
 			$('p#pop').show()
@@ -167,18 +180,6 @@ map.on('mousemove', function (e) {
             var region_name = feature.properties.ADM1NAME;
             $('p#area span').text(region_name);
 			$('p#pop').hide()
-        };
-        if (feature.properties.hasOwnProperty("p20")) {
-            var p20 = feature.properties.p20;
-            if (p20>maxP20) {
-                maxP20 = p20
-            };
-            if (p20<minP20) {
-                minP20 = p20
-            };
-            sumP20 = sumP20 + p20;
-            $('p#p20 span').text(Math.round(p20*100,2)+"%");
-            validFeatures = validFeatures + 1;
         };
     };
     if (validFeatures==1) {
