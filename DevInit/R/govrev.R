@@ -1,7 +1,13 @@
-path<- "C:/git/digital-platform/country-year/"
+# dat <- read.csv("D:/Documents/weo_gdp_ncu.csv",na.strings='n/a')
+# dat <- dat[c(1,6:28)]
+# names(dat)[2:24] <- paste("gdp",c(1999:2021),sep=".")
+# dat <- reshape(dat,direction="long",idvar="Country",varying=c(2:24),sep=".")
+# write.csv(dat,"D:/Documents/weo_gdp_ncu_long.csv",row.names=FALSE,na="")
+
+path<- "D:/git/digital-platform/country-year/"
 setwd(path)
 
-df <- read.csv("./domestic.csv",colClasses=c("character","numeric","character","character","character","character","character","character","character","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+df <- read.csv("C:/git/alexm-util/DevInit/budgetLevels/results_ncu.csv",colClasses=c("character","numeric","character","character","character","character","character","character","character","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 gdp <- read.csv("./gdp-current-ncu-fy.csv",colClasses=c("character","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 id <- c()
 year <- c()

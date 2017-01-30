@@ -132,13 +132,13 @@ for(i in 1:length(filenames)){
 save(s,r,p,sr,rp,ps,srp,file="venn2.RData")
 load("venn2.RData")
 
-s <- round(s/1000000)
-r <- round(r/1000000)
-p <- round(p/1000000)
-sr <- round(sr/1000000)
-rp <- round(rp/1000000)
-ps <- round(ps/1000000)
-srp <- round(srp/1000000)
+s <- round(s$estimate/1000000)
+r <- round(r$estimate/1000000)
+p <- round(p$estimate/1000000)
+sr <- round(sr$estimate/1000000)
+rp <- round(rp$estimate/1000000)
+ps <- round(ps$estimate/1000000)
+srp <- round(srp$estimate/1000000)
 
 v <- venneuler(c(
   A=s

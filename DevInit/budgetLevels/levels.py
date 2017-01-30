@@ -16,7 +16,7 @@ import pdb
 
 #Parse Options
 parser = OptionParser()
-parser.add_option("-i", "--input", dest="input", default = "D:/Documents/Data/Final data government finance_AM300316.xlsx",
+parser.add_option("-i", "--input", dest="input", default = "D:/Documents/Gov finance/Final data government finance_KB300117.xlsx",
                 help="Input file", metavar="FILE")
 parser.add_option("-o", "--output", dest="output", default="./results.csv",
                 help="Output CSV file", metavar="FILE")
@@ -60,7 +60,11 @@ budgetDict["proj"] = "proj"
 budgetDict["Proj."] = "proj"
 budgetDict["Prov"] = "actual"
 budgetDict["Revised prog"] = "proj"
+budgetDict["Projections"] = "proj"
+budgetDict["Projection"] = "proj"
+budgetDict["Prog"] = "proj"
 budgetDict["Rev"] = "proj"
+budgetDict["Staff"] = "proj"
 budgetDict[""] = ""
 
 #Define hierarchy
@@ -83,23 +87,23 @@ for sheet in sheets:
     country = uni(sheet)
     print('Reading sheet: '+country)
     for row in ws.iter_rows():
-        names.append(uni(row[0].internal_value))
-        oldNames.append(uni(row[1].internal_value))
-        levels.append(uni(row[2].internal_value))
+        names.append(uni(row[0].value))
+        oldNames.append(uni(row[1].value))
+        levels.append(uni(row[2].value))
         colLen = len(row)
-        if uni(row[1].internal_value).lower() == "year":
+        if str(uni(row[1].value)).lower() == "year":
             for i in range(3,colLen):
-                val = uni(row[i].internal_value)
+                val = uni(row[i].value)
                 if str(val).lower()!='none':
                     years.append(val)
-        if uni(row[1].internal_value).lower() == "type":
+        if str(uni(row[1].value)).lower() == "type":
             for i in range(3,colLen):
-                val = uni(row[i].internal_value)
+                val = uni(row[i].value)
                 types.append(val)
         if rowIndex>=5:
             rowValues = []
             for i in range(3,colLen):
-                val = uni(row[i].internal_value)
+                val = uni(row[i].value)
                 rowValues.append(val)
             values.append(rowValues)
         rowIndex+=1

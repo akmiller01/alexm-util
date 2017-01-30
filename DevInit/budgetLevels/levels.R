@@ -3,7 +3,7 @@ setwd(wd)
 df <- read.csv("./results.csv"
                , header = TRUE
                ,sep=","
-               ,na.strings=c("","-")
+               ,na.strings=c("","-","--")
                ,check.names=FALSE
                ,stringsAsFactors=FALSE
                ,colClasses = c("character","character","numeric",
@@ -12,7 +12,7 @@ df <- read.csv("./results.csv"
                                "character","character","numeric")
                )
 names(df)[names(df) == "iso"] <- "id"
-mult <- read.csv("C:/git/digital-platform/reference/current-ncu-to-constant-2012-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+mult <- read.csv("D:/git/digital-platform/reference/current-ncu-to-constant-2012-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(mult)[names(mult)=="value"] <- "value.mult"
 if("value-ncu" %in% colnames(df)){
   names(df)[names(df)=="value-ncu"] <- "value.ncu"
@@ -24,8 +24,10 @@ df <- merge(
   df
   ,mult
   ,by=c("id","year")
+  ,all.x=TRUE
 )
-df <- transform(df,value=value.mult*value.ncu)
+# df <- transform(df,value=value.mult*value.ncu)
+df <- transform(df,value=value.ncu)
 df <- transform(df,l1=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l1))))
 df <- transform(df,l2=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l2))))
 df <- transform(df,l3=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l3))))
@@ -63,7 +65,7 @@ levels <- unique(levels)[complete.cases(unique(levels)),]
 levels <- transform(levels,id=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", name))))
 levels$sectoral <- "FALSE"
 levels <- levels[c(3,4,1,2)]
-old.levels <- read.csv("C:/git/digital-platform/reference/domestic-budget-level.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+old.levels <- read.csv("D:/git/digital-platform/reference/domestic-budget-level.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 sectoral <- subset(old.levels,sectoral==TRUE)
 old.levels <- old.levels[c(1,2,3,5)]
 levels <- merge(
