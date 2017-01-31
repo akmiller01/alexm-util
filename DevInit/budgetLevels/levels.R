@@ -12,8 +12,43 @@ df <- read.csv("./results.csv"
                                "character","character","numeric")
                )
 names(df)[names(df) == "iso"] <- "id"
-mult <- read.csv("D:/git/digital-platform/reference/current-ncu-to-constant-2012-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
-names(mult)[names(mult)=="value"] <- "value.mult"
+
+mult <- read.csv("D:/git/digital-platform/reference/imf_weo_ncu_deflator.2015.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+names(mult)[3] <- c("deflator")
+mult$deflator[which(mult$id=="SY")] <- 1
+
+#Have a PPP conversion for every year, but equal to 2015 rate for all years for all countries except for Syria
+ppp <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-ppp.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+names(ppp)[3] <- "ppp"
+sy.ppp <- subset(ppp,id=="SY")
+ppp <- subset(ppp,year==2015 & id!="SY")
+ppp$year <- NULL
+somalia.ppp <- data.frame("id"="SO","ppp"=1)
+ppp <- rbind(ppp,somalia.ppp)
+years <- c(1980:2021)
+ppp.frame <- data.frame("id"=sort(rep(ppp$id,length(years))),"year"=years)
+ppp <- merge(ppp.frame,ppp,by="id")
+ppp <- rbind(ppp,sy.ppp)
+
+usd <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+names(usd)[3] <- "usd"
+sy.usd <- subset(usd,id=="SY")
+usd <- subset(usd,year==2015 & id!="SY")
+usd$year <- NULL
+somalia.usd <- data.frame("id"="SO","usd"=1)
+usd <- rbind(usd,somalia.usd)
+years <- c(1980:2021)
+usd.frame <- data.frame("id"=sort(rep(usd$id,length(years))),"year"=years)
+usd <- merge(usd.frame,usd,by="id")
+usd <- rbind(usd,sy.usd)
+
+mult <- merge(mult,ppp,by=c("id","year"))
+mult <- merge(mult,usd,by=c("id","year"))
+mult$mult.ppp <- mult$deflator/mult$ppp
+mult$mult.usd <- mult$deflator*mult$usd
+mult$deflator <- NULL
+mult$ppp <- NULL
+mult$usd <- NULL
 if("value-ncu" %in% colnames(df)){
   names(df)[names(df)=="value-ncu"] <- "value.ncu"
   df$value <- df$value.ncu
@@ -26,17 +61,18 @@ df <- merge(
   ,by=c("id","year")
   ,all.x=TRUE
 )
-# df <- transform(df,value=value.mult*value.ncu)
-df <- transform(df,value=value.ncu)
+df <- transform(df,value.ppp=mult.ppp*value.ncu)
+df <- transform(df,value=mult.usd*value.ncu)
 df <- transform(df,l1=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l1))))
 df <- transform(df,l2=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l2))))
 df <- transform(df,l3=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l3))))
 df <- transform(df,l4=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l4))))
 df <- transform(df,l5=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l5))))
 df <- transform(df,l6=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", l6))))
-keep <- c(1,2,5,6,7,8,9,10,11,12,13)
+keep <- c(1,2,5,6,7,8,9,10,11,12,13,16)
 df <- df[keep]
 names(df)[names(df) == "value.ncu"] <- "value-ncu"
+names(df)[names(df) == "value.ppp"] <- "value-ppp"
 names(df)[names(df) == "type"] <- "budget-type"
 write.csv(df,"./results_ncu.csv",row.names=FALSE,na="")
 names(df)

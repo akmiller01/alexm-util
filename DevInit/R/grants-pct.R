@@ -1,7 +1,8 @@
 path<- "D:/git/digital-platform/country-year/"
 setwd(path)
 
-df <- read.csv("C:/git/alexm-util/DevInit/budgetLevels/results_ncu.csv",colClasses=c("character","numeric","character","character","character","character","character","character","character","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=TRUE,stringsAsFactors=FALSE)
+# df <- read.csv("C:/git/alexm-util/DevInit/budgetLevels/results_ncu.csv",colClasses=c("character","numeric","character","character","character","character","character","character","character","numeric","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=TRUE,stringsAsFactors=FALSE)
+df <- read.csv("D:/git/digital-platform/country-year/domestic.csv",colClasses=c("character","numeric","character","character","character","character","character","character","character","numeric","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=TRUE,stringsAsFactors=FALSE)
 
 totalRevGrants <- subset(df,l1=="total-revenue-and-grants" & is.na(l2))
 grantPhrases <- c("grants","official-grants","total-grants")
