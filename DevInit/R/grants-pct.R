@@ -23,4 +23,4 @@ keep <- c("id","year","value","budget.type")
 dat <- dat[keep]
 names(dat) <- c("id","year","value","budget-type")
 
-write.csv(dat,"./grants-pct-totalrevenue.csv",row.names=FALSE,na="")
+write.csv(dat,"./grants-percent-total-revenue.csv",row.names=FALSE,na="")

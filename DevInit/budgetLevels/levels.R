@@ -74,7 +74,7 @@ df <- df[keep]
 names(df)[names(df) == "value.ncu"] <- "value-ncu"
 names(df)[names(df) == "value.ppp"] <- "value-ppp"
 names(df)[names(df) == "type"] <- "budget-type"
-write.csv(df,"./results_ncu.csv",row.names=FALSE,na="")
+write.csv(df,"D:/git/digital-platform/country-year/domestic.csv",row.names=FALSE,na="")
 names(df)
 df <- read.csv("./results.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 levels <- df[c(6:11)]
@@ -113,4 +113,4 @@ levels <- merge(
 levels <- levels[order(levels$id)[!duplicated(sort(levels$id))],]
 new.levels <- rbind(levels,sectoral)
 new.levels <- unique(new.levels)
-write.csv(new.levels,"./results_levels.csv",row.names=FALSE,na="")
+write.csv(new.levels,"D:/git/digital-platform/reference/domestic-budget-level.csv",row.names=FALSE,na="")

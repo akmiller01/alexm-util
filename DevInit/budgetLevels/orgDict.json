@@ -416,7 +416,7 @@
     }, 
     "L2_grants": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Total Grants", 
+      "l2": "Grants", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -753,7 +753,7 @@
     }, 
     "L2_revenue": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -767,7 +767,7 @@
     }, 
     "L3_tax": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "Taxes", 
       "l4": "", 
       "l5": ""
@@ -1141,7 +1141,7 @@
     }, 
     "L2_revenue": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -1155,14 +1155,14 @@
     }, 
     "L3_tax": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "Tax Revenue", 
       "l4": "", 
       "l5": ""
     }, 
     "L4_indirect_taxes": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "Tax Revenue", 
       "l4": "Indirect Taxes", 
       "l5": ""
@@ -1587,7 +1587,7 @@
     }, 
     "L2_grants": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Total Grants", 
+      "l2": "Grants", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -2733,7 +2733,7 @@
     }, 
     "L2_revenue": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -2747,14 +2747,14 @@
     }, 
     "L3_other_revenue": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "Other Revenue", 
       "l4": "", 
       "l5": ""
     }, 
     "L3_tax": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Revenues", 
+      "l2": "Revenue", 
       "l3": "Taxes", 
       "l4": "", 
       "l5": ""
@@ -7339,7 +7339,7 @@
     }, 
     "L2_revenue": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Total Revenue", 
+      "l2": "Revenue", 
       "l3": "", 
       "l4": "", 
       "l5": ""
@@ -7353,7 +7353,7 @@
     }, 
     "L3_tax": {
       "l1": "Total Revenue and Grants", 
-      "l2": "Total Revenue", 
+      "l2": "Revenue", 
       "l3": "Tax", 
       "l4": "", 
       "l5": ""
