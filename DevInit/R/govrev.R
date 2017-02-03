@@ -12,7 +12,7 @@ df <- read.csv("D:/git/digital-platform/country-year/domestic.csv",colClasses=c(
 adv <- read.csv("D:/Documents/Gov finance/advanced.csv",na.strings="",as.is=TRUE,colClasses=c("character","numeric","numeric","character"))
 gdp <- read.csv("./gdp-current-ncu-fy.csv",colClasses=c("character","numeric","numeric"), header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 adv <- merge(adv,gdp,by=c("id","year"),suffixes=c(".adv",".gdp"))
-adv <- transform(adv,value=value.adv/value.gdp)
+adv <- transform(adv,value=(value.adv/value.gdp)*100)
 adv$value.adv <- NULL
 adv$value.gdp <- NULL
 
@@ -32,22 +32,20 @@ for(i in 1:nrow(df)){
   dfvalue <- row[11][1,1]
   if(!is.na(l1) && !is.na(l2)){
     if(l1=="total-revenue-and-grants" && l2=="revenue" && is.na(l3)){
-      if(dfyear<=2016){
-        id <- c(id,dfid)
-        year <- c(year,dfyear)
-        budget.type <- c(budget.type,budget)
-        thisGDP <- gdp[which(gdp$id==dfid),]
-        thisGDP <- thisGDP[which(thisGDP$year==dfyear),]
-        if(nrow(thisGDP)>0){
-          if(is.na(thisGDP$value[[1]])){
-            value <- c(value,NA)
-          }else{
-            value <- c(value,(dfvalue/thisGDP$value[[1]])*100)
-          }
-        }else{
+      id <- c(id,dfid)
+      year <- c(year,dfyear)
+      budget.type <- c(budget.type,budget)
+      thisGDP <- gdp[which(gdp$id==dfid),]
+      thisGDP <- thisGDP[which(thisGDP$year==dfyear),]
+      if(nrow(thisGDP)>0){
+        if(is.na(thisGDP$value[[1]])){
           value <- c(value,NA)
-          print(paste("No multiplier for:",dfid,dfyear))
+        }else{
+          value <- c(value,(dfvalue/thisGDP$value[[1]])*100)
         }
+      }else{
+        value <- c(value,NA)
+        print(paste("No multiplier for:",dfid,dfyear))
       }
     }
   }
@@ -73,22 +71,20 @@ for(i in 1:nrow(df)){
   dfvalue <- row[11][1,1]
   if(!is.na(l1)){
     if(l1=="total-revenue-and-grants" && is.na(l2)){
-      if(dfyear<=2016){
-        id <- c(id,dfid)
-        year <- c(year,dfyear)
-        budget.type <- c(budget.type,budget)
-        thisGDP <- gdp[which(gdp$id==dfid),]
-        thisGDP <- thisGDP[which(thisGDP$year==dfyear),]
-        if(nrow(thisGDP)>0){
-          if(is.na(thisGDP$value[[1]])){
-            value <- c(value,NA)
-          }else{
-            value <- c(value,(dfvalue/thisGDP$value[[1]])*100)
-          }
-        }else{
+      id <- c(id,dfid)
+      year <- c(year,dfyear)
+      budget.type <- c(budget.type,budget)
+      thisGDP <- gdp[which(gdp$id==dfid),]
+      thisGDP <- thisGDP[which(thisGDP$year==dfyear),]
+      if(nrow(thisGDP)>0){
+        if(is.na(thisGDP$value[[1]])){
           value <- c(value,NA)
-          print(paste("No multiplier for:",dfid,dfyear))
+        }else{
+          value <- c(value,(dfvalue/thisGDP$value[[1]])*100)
         }
+      }else{
+        value <- c(value,NA)
+        print(paste("No multiplier for:",dfid,dfyear))
       }
     }
   }

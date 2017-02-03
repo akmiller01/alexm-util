@@ -63,6 +63,7 @@ dat <- merge(
   ,all.x=TRUE
   )
 dat <- transform(dat,value.ng=(value.ppp.total-value.ppp.grant),value.total=value.ppp.total)
+dat$value.ng[which(is.na(dat$value.ng) & !is.na(dat$value.ppp.total))] <- dat$value.ppp.total[which(is.na(dat$value.ng) & !is.na(dat$value.ppp.total))]
 keep <- c("id","year","value.ng","value.total","budget.type")
 dat <- dat[keep]
 dat <- rbind(dat,adv)
