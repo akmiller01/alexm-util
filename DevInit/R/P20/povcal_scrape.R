@@ -117,6 +117,7 @@ ind.interp <- ind[,.(
   year=year
   ,hc=na.approx(hc,rule=2)
   ,pg=na.approx(pg,rule=2)
+  ,mean=na.approx(mean,rule=2)
   ,svyYear=svyYear
   ,original.hc=hc
   ),by=.(country,pl)]
@@ -127,7 +128,7 @@ remove <- c("original.hc","iso2c","SP.POP.TOTL")
 ind.interp[,(remove):=NULL]
 ind.interp$type <- "i"
 
-remove <- c("mean","pg2","watts","detail")
+remove <- c("pg2","watts","detail")
 agg[,(remove):=NULL]
 
 pcn <- rbind(agg,ind.interp)
@@ -153,10 +154,6 @@ for(i in years){
   filename <- paste("lissy_years/lissy",i,"csv",sep=".")
   write.csv(subset(pcn,year==i & country %in% ctryDiff),filename,row.names=FALSE,na="")
 }
-years <- c(2013:1981)
-for(i in years){
-  filename <- paste("years_all/pcn",i,"csv",sep=".")
-  write.csv(subset(pcn,year==i),filename,row.names=FALSE,na="")
-}
+
 popbypl <- pcn[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(pl,year)]
 write.csv(popbypl,"popbypl.csv",row.names=FALSE)

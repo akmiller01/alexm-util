@@ -58,7 +58,10 @@ dirs <- list.dirs(wd,full.names=TRUE)
 
 dataList <- list()
 occList <- list()
+seasonalList <- list()
 dataIndex <- 1
+dataIndex2 <- 1
+dataIndex3 <- 1
 
 # Loop through every dir
 for(i in 2:length(dirs)){
@@ -113,11 +116,15 @@ for(i in 2:length(dirs)){
     
     #Rename partners occupation var
     names(ir)[which(names(ir)=="v705")] <- "partner.occ"
-    if(typeof(ir$partner.occ)=="NULL"){partner.occ.missing<-TRUE}else{partner.occ.missing<-FALSE}
+    if(typeof(ir$partner.occ)=="NULL" | sum(is.na(ir$partner.occ))==length(ir$partner.occ)){partner.occ.missing<-TRUE}else{partner.occ.missing<-FALSE}
     
     #Rename occupation var
     names(ir)[which(names(ir)=="v714")] <- "working"
     if(typeof(ir$working)=="NULL"){working.missing<-TRUE}else{working.missing<-FALSE}
+    
+    #Rename seasonal var
+    names(ir)[which(names(ir)=="v732")] <- "seasonal"
+    if(typeof(ir$seasonal)=="NULL" | sum(is.na(ir$seasonal))==length(ir$seasonal)){seasonal.missing<-TRUE}else{seasonal.missing<-FALSE}
     
     #Rename age var
     names(ir)[which(names(ir)=="v012")] <- "age"
@@ -170,32 +177,78 @@ for(i in 2:length(dirs)){
 
     data$filename <- hrBase
     dataList[[dataIndex]] <- data
-    
-    womans.occ <- weighted.table(ir$v717,ir$p20,ir$weights)
-    names(womans.occ) <- c("field","p20","woman.occupation")
-    if(!partner.occ.missing){
-      mans.occ <- weighted.table(ir$partner.occ,ir$p20,ir$weights)
-      names(mans.occ) <- c("field","p20","man.occupation")
-      occupations <- merge(womans.occ,mans.occ,by=c("field","p20"),all=TRUE)
-    }else{
-      occupations <- womans.occ
-      occupations$man.occupation <- NA
-    }
-    occupations$filename <- hrBase
-    occList[[dataIndex]] <- occupations
-    
     dataIndex <- dataIndex + 1
+    
+    recodeOcc <- function(x){
+      if(is.na(x) | x==98 | x==99 | tolower(x)=="don't know"){return(NA)}
+      else if(x==0 | tolower(x)=="not working" | tolower(x)=="did not work"){return("not working")}
+      else if(x==1 | tolower(x)=="prof., tech., manag." | tolower(x)=="professional/technical/managerial"){return("professional/technical/managerial")}
+      else if(x==2 | tolower(x)=="clerical"){return("clerical")}
+      else if(x==3 | tolower(x)=="sales"){return("sales")}
+      else if(x==4 | tolower(x)=="agricultural - self employed" | tolower(x)=="agric-self employed"){return("agricultural - self employed")}
+      else if(x==5 | tolower(x)=="agricultural - employee"){return("agricultural - employee")}
+      else if(x==6 | tolower(x)=="household & domestic" | tolower(x)=="household and domestic"){return("household and domestic")}
+      else if(x==7 | tolower(x)=="services"){return("services")}
+      else if(x==8 | tolower(x)=="skilled manual"){return("skilled manual")}
+      else if(x==9 | tolower(x)=="unskilled manual"){return("unskilled manual")}
+      else if(x==10 | tolower(x)=="armed forces" | tolower(x)=="army" | tolower(x)=="military forces" | tolower(x)=="military/security"){return("military")}
+      else if(x==96 | x==11 | tolower(x)=="other" | tolower(x)=="others"){return("other")}
+      else{return(NA)}
+    }
+    
+    if(typeof(ir$v717)!="NULL" & sum(is.na(ir$v717))!=length(ir$v717)){
+      womans.occ <- weighted.table(sapply(ir$v717,recodeOcc),ir$p20,ir$weights)
+      names(womans.occ) <- c("field","p20","woman.occupation")
+      if(!partner.occ.missing){
+        mans.occ <- weighted.table(sapply(ir$partner.occ,recodeOcc),ir$p20,ir$weights)
+        names(mans.occ) <- c("field","p20","man.occupation")
+        occupations <- merge(womans.occ,mans.occ,by=c("field","p20"),all=TRUE)
+      }else{
+        occupations <- womans.occ
+        occupations$man.occupation <- NA
+      }
+      occupations$filename <- hrBase
+      occList[[dataIndex]] <- occupations
+      dataIndex2 <- dataIndex2 + 1
+    }else{
+      if(!partner.occ.missing){
+        mans.occ <- weighted.table(sapply(ir$partner.occ,recodeOcc),ir$p20,ir$weights)
+        names(mans.occ) <- c("field","p20","man.occupation")
+        occupations <- mans.occ
+        occupations$filename <- hrBase
+        occList[[dataIndex]] <- occupations
+        dataIndex2 <- dataIndex2 + 1
+      }
+    }
+    
+    recodeSeasonal <- function(x){
+      if(is.na(x)){return(NA)}
+      else if(x==1 | tolower(x)=="all year"){return("all year")}
+      else if(x==2 | tolower(x)=="seasonal"){return("seasonal")}
+      else if(x==3 | tolower(x)=="occasional"){return("occasional")}
+      else{return(NA)}
+    }
+    if(!seasonal.missing){
+      seasonal.data <- weighted.table(sapply(ir$seasonal,recodeSeasonal),ir$p20,ir$weights)
+      names(seasonal.data) <- c("class","p20","Freq")
+      seasonal.data$filename <- hrBase
+      seasonalList[[dataIndex]] <- seasonal.data
+      dataIndex3 <- dataIndex3 + 1
+    }
+    
   }
 }
 
 total <- rbindlist(dataList)
 occupations <- rbindlist(occList)
+seasonal <- rbindlist(seasonalList)
 setwd("D:/Documents/Data/DHSmeta2")
 
 pop <- povcalcuts[c("filename","female.15.49","male.15.49")]
 pop$pop.15.49 <- psum(pop$female.15.49,pop$male.15.49,na.rm=TRUE)
 total <- merge(total,pop,by="filename")
 occupations <- merge(occupations,pop,by="filename")
+seasonal <- merge(seasonal,pop,by="filename")
 global <- total[,.(
   percent.working = weighted.mean(percent.working,pop.15.49,na.rm=TRUE)
   ,women.working = weighted.mean(women.working,female.15.49,na.rm=TRUE)
@@ -205,8 +258,13 @@ global.occ <- occupations[,.(
   man.occupation = weighted.mean(man.occupation,male.15.49,na.rm=TRUE)
   ,woman.occupation = weighted.mean(woman.occupation,female.15.49,na.rm=TRUE)
 ),by=.(p20,field)]
+global.seasonal <- seasonal[,.(
+  seasonality = weighted.mean(Freq,female.15.49,na.rm=TRUE)
+),by=.(p20,class)]
 
 write.csv(total,"employment-nationally.csv",na="",row.names=FALSE)
 write.csv(global,"employment-globally.csv",na="",row.names=FALSE)
 write.csv(occupations,"occupations-nationally.csv",na="",row.names=FALSE)
 write.csv(global.occ,"occupations-globally.csv",na="",row.names=FALSE)
+write.csv(seasonal,"seasonal-nationally.csv",na="",row.names=FALSE)
+write.csv(global.seasonal,"seasonal-globally.csv",na="",row.names=FALSE)
