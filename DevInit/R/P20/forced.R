@@ -4,13 +4,14 @@ library(plyr)
 library(foreign)
 library(data.table)
 library(descr)
+library(varhandle)
 options(descr.plot = FALSE)
 
-weighted.table <- function(x,y,w){
-  return(
-    data.frame(crosstab(x,y,weight=w,prop.t=TRUE)$prop.tbl)
-  )
-}
+# weighted.table <- function(x,y,w){
+#   return(
+#     data.frame(crosstab(x,y,weight=w,prop.t=TRUE)$prop.tbl)
+#   )
+# }
 weighted.table <- function(x,y,w){
   return(
     data.frame(crosstab(x,y,weight=w,prop.c=TRUE)$prop.col)
@@ -66,8 +67,6 @@ dataList <- list()
 dataIndex <- 1
 dataList2 <- list()
 dataIndex2 <- 1
-tbList <- list()
-tbIndex <- 1
 
 # Loop through every dir
 for(i in 2:length(dirs)){
@@ -81,18 +80,6 @@ for(i in 2:length(dirs)){
     message(basename(dir))
     hrwd <- dir
     if(!file_test(op="-d", hrwd)){next;}
-    
-    # hr <- read.dta(paste0(hrwd,"/",iso2,"HR",phase,"FL.dta"))
-    # var.labs <- data.frame(names(hr),attributes(hr)[7])
-    # hr <- read.csv(paste0(hrwd,"/",iso2,"HR",phase,"FL.csv")
-    #                ,na.strings="",as.is=TRUE,check.names=FALSE)
-    # hr$sh30[which(hr$sh30==9)] <- NA
-    # names(hr)[which(names(hr)=="hv271")] <- "wealth"
-    # hr$wealth <- hr$wealth/100000
-    # 
-    # #Rename sample.weights var
-    # names(hr)[which(names(hr)=="hv005")] <- "sample.weights"
-    # hr$weights <- hr$sample.weights/1000000
     
     hrBase <- basename(hrwd)
     iso2 <- toupper(substr(hrBase,1,2))
@@ -117,14 +104,6 @@ for(i in 2:length(dirs)){
     povperc <- weighted.percentile(pr$wealth,pr$weights,prob=povcalcut)
     pr$p20 <- (pr$wealth<povperc)
     
-    if(typeof(pr$sh31)!="NULL" & sum(is.na(pr$sh31))!=length(pr$sh31) & length(unique(pr$sh31[which(!is.na(pr$sh31))]))>1){
-      pr$tb <- !is.na(pr$sh31)
-      ct <- weighted.table(pr$tb,pr$p20,pr$weights)
-      ct$filename <- hrBase
-      tbList[[tbIndex]] <- ct
-      tbIndex <- tbIndex + 1
-    }
-    
     irwd <- paste0("D:/Documents/Data/DHSauto/",tolower(iso2),"ir",phase,"dt/")
     if(!file_test(op="-d", irwd)){message("IR WD invalid");return(NA);}
     
@@ -140,51 +119,56 @@ for(i in 2:length(dirs)){
     
     ir$p20 <- (ir$wealth<povperc)
     
-    ir$fgm <- NA
-    ir$fgm[which(ir$g102==0 | tolower(ir$g102)=="no")] <- 0
-    ir$fgm[which(ir$g102==1 | tolower(ir$g102)=="yes")] <- 1
+    # if(is.factor(ir$d123)){ir$d123 <- unfactor(ir$d123)}
+    # ir$forced <- NA
+    # ir$forced[which(ir$d123==1 | tolower(ir$d123)=="wanted")] <- 0
+    # ir$forced[which(ir$d123==2 | tolower(ir$d123)=="forced")] <- 1
+    ir$forced <- ir$d123
+    if(length(which(ir$forced==9))>0){
+      ir$forced[which(ir$forced==9)] <- NA 
+    }
     
-    ir$any.std <- NA
-    ir$any.std[which(tolower(ir$v763a)=="no" | ir$v763a==0)] <- 0
-    ir$any.std[which(tolower(ir$v763a)=="yes" | ir$v763a==1)] <- 1
+    # if(is.factor(ir$d118y)){ir$d118y <- unfactor(ir$d118y)}
+    # ir$hurt.preg <- NA
+    # ir$hurt.preg[which(tolower(ir$d118y)=="someone hurt respondent during pregnancy" | ir$d118y==0)] <- 1
+    # ir$hurt.preg[which(tolower(ir$d118y)=="no one hurt respondent during pregnancy" | ir$d118y==1)] <- 0
+    ir$hurt.preg <- ir$d118y
+    if(length(which(ir$hurt.preg==9))>0){
+      ir$hurt.preg[which(ir$hurt.preg==9)] <- NA
+    }
     
-    if(typeof(ir$any.std)!="NULL" & sum(is.na(ir$any.std))!=length(ir$any.std) & length(unique(ir$any.std[which(!is.na(ir$any.std))]))>1){
-      std.data <- weighted.table(ir$any.std,ir$p20,ir$weights)
+    if(typeof(ir$forced)!="NULL" & sum(is.na(ir$forced))!=length(ir$forced) & length(unique(ir$forced[which(!is.na(ir$forced))]))>1){
+      std.data <- weighted.table(ir$forced,ir$p20,ir$weights)
       std.data$filename <- hrBase
       dataList[[dataIndex]] <- std.data
       dataIndex <- dataIndex + 1
     }
-    if(typeof(ir$fgm)!="NULL" & sum(is.na(ir$fgm))!=length(ir$fgm)){
-      fgm.data <- weighted.table(ir$fgm,ir$p20,ir$weights)
-      fgm.data$filename <- hrBase
-      dataList2[[dataIndex2]] <- fgm.data
+    if(typeof(ir$hurt.preg)!="NULL" & sum(is.na(ir$hurt.preg))!=length(ir$hurt.preg) & length(unique(ir$hurt.preg[which(!is.na(ir$hurt.preg))]))>1){
+      hurt.preg.data <- weighted.table(ir$hurt.preg,ir$p20,ir$weights)
+      hurt.preg.data$filename <- hrBase
+      dataList2[[dataIndex2]] <- hurt.preg.data
       dataIndex2 <- dataIndex2 + 1
     }
   }
 }
 library(varhandle)
-std <- rbindlist(dataList)
-names(std) <- c("any.std","p20","Freq","filename")
-std$any.std <- unfactor(std$any.std)
-fgm <- rbindlist(dataList2)
-names(fgm) <- c("fgm","p20","Freq","filename")
-fgm$fgm <- unfactor(fgm$fgm)
-tb <- rbindlist(tbList)
-names(tb) <- c("tb","p20","Freq","filename")
+forced <- rbindlist(dataList)
+names(forced) <- c("forced","p20","Freq","filename")
+forced$forced <- unfactor(forced$forced)
+hurt.preg <- rbindlist(dataList2)
+names(hurt.preg) <- c("hurt.preg","p20","Freq","filename")
+hurt.preg$hurt.preg <- unfactor(hurt.preg$hurt.preg)
 setwd("D:/Documents/Data/DHSmeta2")
 
 pop <- povcalcuts[c("filename","female.15.49")]
-std <- merge(std,pop,by="filename")
-fgm <- merge(fgm,pop,by="filename")
-std.tab <- std[,.(
-  any.std = weighted.mean(Freq,female.15.49,na.rm=TRUE)
-),by=.(p20,any.std)]
-fgm.tab <- fgm[,.(
-  fgm = weighted.mean(Freq,female.15.49,na.rm=TRUE)
-),by=.(p20,fgm)]
+forced <- merge(forced,pop,by="filename")
+hurt.preg <- merge(hurt.preg,pop,by="filename")
+forced.tab <- forced[,.(
+  Freq = weighted.mean(Freq,female.15.49,na.rm=TRUE)
+),by=.(p20,forced)]
+hurt.preg.tab <- hurt.preg[,.(
+  Freq = weighted.mean(Freq,female.15.49,na.rm=TRUE)
+),by=.(p20,hurt.preg)]
 
-write.csv(std,"std-nationally.csv",na="",row.names=FALSE)
-write.csv(std.tab,"std-globally.csv",na="",row.names=FALSE)
-write.csv(fgm,"fgm-nationally.csv",na="",row.names=FALSE)
-write.csv(fgm.tab,"fgm-globally.csv",na="",row.names=FALSE)
-write.csv(tb,"tb-nationally.csv",na="",row.names=FALSE)
+write.csv(forced,"forced-nationally.csv",na="",row.names=FALSE)
+write.csv(hurt.preg,"hurt-preg-nationally.csv",na="",row.names=FALSE)
