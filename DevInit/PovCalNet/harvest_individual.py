@@ -42,7 +42,7 @@ def input_text(browser, inputs):
 browser = webdriver.Chrome("C://chromedriver//chromedriver") # Create a session of Firefox
 browser.implicitly_wait(30) # Configure the WebDriver to wait up to 30 seconds for each page to load
 
-for i in range(2001,3001):
+for i in range(3001,5001):
     povline = str(i/100.00)
     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
     browser.find_element_by_xpath('//*[@title="Add All"]').click()

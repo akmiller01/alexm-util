@@ -68,9 +68,9 @@ ind <- fread(
   ,na.strings=c("NaN.00","n/a","Interpolated","Weighted sum","Weightedsum","Wght. interpolation")
 )
 
-save(agg,ind,file="total.RData")
-
-load("total.RData")
+# save(agg,ind,file="total.RData")
+# 
+# load("total.RData")
 
 agg <- subset(agg,!grepl("--",country,fixed=TRUE))
 ind <- subset(ind,!grepl("--",country,fixed=TRUE))
@@ -155,5 +155,23 @@ for(i in years){
   write.csv(subset(pcn,year==i & country %in% ctryDiff),filename,row.names=FALSE,na="")
 }
 
+firstOverTwenty <- function(hc.vector,pl.vector){
+  minimum.value <- 100
+  minimum.index <- 0
+  for(i in 1:length(hc.vector)){
+    x <- hc.vector[i]
+    diff <- abs(20-x)
+    if(diff<minimum.value){
+      minimum.value <- diff
+      minimum.index <- i
+    }
+  }
+  return(c(hc.vector[minimum.index],pl.vector[minimum.index]))
+}
+pcn <- pcn[order(pcn$hc),]
+np20 <- subset(pcn,!is.na(hc))[,.(hc=firstOverTwenty(hc,pl)[1],pl=firstOverTwenty(hc,pl)[2]),by=.(country,year)]
+np20 <- merge(np20,pcn,by=c("country","year","hc","pl"))
+# write.csv(np20,"np20.csv",row.names=FALSE,na="")
+
 popbypl <- pcn[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(pl,year)]
-write.csv(popbypl,"popbypl.csv",row.names=FALSE)
+# write.csv(popbypl,"popbypl.csv",row.names=FALSE)
