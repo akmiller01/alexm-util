@@ -104,7 +104,7 @@
 	<div class='title'>
         <select>
             <option>National percentage of the poorest 20% of people globally</option>
-            <option>National populations of the poorest 20% of people globally</option>
+            <option>Number of people in the poorest 20% of the global population</option>
             <option>Subnational percentage of the poorest 20% of people globally</option>
             <option>Survey-level percentage of the poorest 20% of people globally</option>
         </select>
@@ -164,7 +164,7 @@ $('.title select').change(function(){
         $('div.l02 span').text('20 - 40%');
         $('div.l01 span').text('0 - 20%');
         $('#area b').text('Country: ');
-    }else if (val=="National populations of the poorest 20% of people globally") {
+    }else if (val=="Number of people in the poorest 20% of the global population") {
         map.setStyle('mapbox://styles/akmiller01/ciyw0iolu00252snt7hzo1fny');
         $('.legend h4').text('Population in the global P20');
         $('div.l05 span').text('120 - 500 million');
@@ -197,13 +197,15 @@ $('.title select').change(function(){
 map.on('mousemove', function (e) {
     var features = map.queryRenderedFeatures(e.point);
     var validFeatures = 0;
+	var bgFeatures = 0;
+	var bgName = "";
     var maxP20 = 0;
     var minP20 = 1;
     var sumP20 = 0;
     for(var i = 0; i < features.length; i++){
         var feature = features[i];
 		if (feature.properties.hasOwnProperty("P20") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
-            var p20 = feature.properties.P20;
+			var p20 = feature.properties.P20;
             if (p20>maxP20) {
                 maxP20 = p20
             };
@@ -236,22 +238,28 @@ map.on('mousemove', function (e) {
             }else{
                 $('p#area span').text("Côte d'Ivoire");
             };
-        };
-        if (feature.properties.hasOwnProperty("CNTRYNAMEE")) {
+        }else if (feature.properties.hasOwnProperty("CNTRYNAMEE")) {
             var country_name = feature.properties.CNTRYNAMEE;
 			level = "subnational"
             var region_name = feature.properties.DHSREGEN;
             $('p#area span').text(region_name+", "+country_name);
-			//$('p#area span').text(region_name);
-        };
-        if (feature.properties.hasOwnProperty("dhsreg")) {
+        }else if (feature.properties.hasOwnProperty("dhsreg")) {
             var region_name = feature.properties.dhsreg;
             $('p#area span').text(region_name);
+        }else if (feature.properties.hasOwnProperty("NAME") && feature.layer.id=="BG Nations" && feature.layer.id!="BG Borders") {
+            var country_name = feature.properties.NAME;
+            var iso3 = feature.properties.WB_A3;
+            if (iso3!="CIV") {
+				bgName = country_name;
+            }else{
+				bgName = "Côte d'Ivoire";
+            };
+			bgFeatures = bgFeatures + 1;
         };
     };
     if (validFeatures==1) {
         var val = $('.title select').val();
-        if (val=="National populations of the poorest 20% of people globally"){
+        if (val=="Number of people in the poorest 20% of the global population"){
             $('p#area').show();
             $('p#pop').show();
             $('p.p20_stats').hide();
@@ -276,6 +284,26 @@ map.on('mousemove', function (e) {
         $('p#max span').text(Math.round(maxP20*100,2)+"%");
         
         $('p.p20_stats').show();
+        $(".mapboxgl-popup-close-button").click()
+        var popup = new mapboxgl.Popup({offset:10})
+        .setLngLat([e.lngLat.lng, e.lngLat.lat])
+        .setHTML($('.narrative').html())
+        .addTo(map);
+    }else if (bgFeatures>=1) {
+		var val = $('.title select').val();
+		$('p#area span').text(bgName);
+		if (val=="Number of people in the poorest 20% of the global population"){
+            $('p#area').show();
+			$('p#pop span').text("No data");
+            $('p#pop').show();
+            $('p.p20_stats').hide();
+        }else{
+            $('p#area').show();
+			$('p#p20 span').text("No data");
+            $('p#p20').show();
+            $('p.p20_stats').hide();
+            $('p#pop').hide()
+        };
         $(".mapboxgl-popup-close-button").click()
         var popup = new mapboxgl.Popup({offset:10})
         .setLngLat([e.lngLat.lng, e.lngLat.lat])

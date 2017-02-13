@@ -42,32 +42,8 @@ def input_text(browser, inputs):
 browser = webdriver.Chrome("C://chromedriver//chromedriver") # Create a session of Firefox
 browser.implicitly_wait(30) # Configure the WebDriver to wait up to 30 seconds for each page to load
 
-# for i in range(1,2001):
-#     povline = str(i/100.00)
-#     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
-#     browser.find_element_by_xpath('//*[@title="Add All"]').click()
-#     alert = browser.switch_to_alert()
-#     alert.accept()
-#     alert = browser.switch_to_alert()
-#     alert.accept()
-#     browser.find_element_by_xpath('//*[@id="btnSubmitCountries"]').click()
-#     queries = []
-#     plInput = {}
-#     plInput["input_id"] = "PL0"
-#     plInput["input_str"] = povline
-#     queries.append(plInput)
-#     input_text(browser, queries)
-#     browser.find_element_by_xpath('//*[@id="btnSetToAll"]').click()
-#     browser.find_element_by_xpath('//*[@id="btnSelectAllYears"]').click()
-#     browser.find_element_by_xpath('//*[@id="chkOutputFT"]').click()
-#     browser.find_element_by_xpath('//*[@title="Get result"]').click()
-#     tableElement = browser.find_element_by_xpath('//*[@class="oTbl"]')
-#     tableSource = tableElement.get_attribute('outerHTML')
-#     df = pd.read_html(tableSource)[0]
-#     df.to_csv(options.output+povline+".csv",index=False,header=False)
-    
-for i in range(3,151):
-    povline = str(i*10.00)
+for i in range(2001,3001):
+    povline = str(i/100.00)
     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
     browser.find_element_by_xpath('//*[@title="Add All"]').click()
     alert = browser.switch_to_alert()
@@ -89,3 +65,29 @@ for i in range(3,151):
     tableSource = tableElement.get_attribute('outerHTML')
     df = pd.read_html(tableSource)[0]
     df.to_csv(options.output+povline+".csv",index=False,header=False)
+    
+# for i in range(3,151):
+#     povline = str(i*10.00)
+#     browser.get("http://iresearch.worldbank.org/PovcalNet/povOnDemand.aspx") # Load page
+#     browser.find_element_by_xpath('//*[@title="Add All"]').click()
+#     alert = browser.switch_to_alert()
+#     alert.accept()
+#     alert = browser.switch_to_alert()
+#     alert.accept()
+#     browser.find_element_by_xpath('//*[@id="btnSubmitCountries"]').click()
+#     queries = []
+#     plInput = {}
+#     plInput["input_id"] = "PL0"
+#     plInput["input_str"] = povline
+#     queries.append(plInput)
+#     input_text(browser, queries)
+#     browser.find_element_by_xpath('//*[@id="btnSetToAll"]').click()
+#     browser.find_element_by_xpath('//*[@id="btnSelectAllYears"]').click()
+#     browser.find_element_by_xpath('//*[@id="chkOutputFT"]').click()
+#     browser.find_element_by_xpath('//*[@title="Get result"]').click()
+#     tableElement = browser.find_element_by_xpath('//*[@class="oTbl"]')
+#     tableSource = tableElement.get_attribute('outerHTML')
+#     df = pd.read_html(tableSource)[0]
+#     df.to_csv(options.output+povline+".csv",index=False,header=False)
+
+browser.close()
