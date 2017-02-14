@@ -132,7 +132,8 @@ remove <- c("pg2","watts","detail")
 agg[,(remove):=NULL]
 
 pcn <- rbind(agg,ind.interp)
-save(pcn,file="pcn.RData")
+save(pcn,pop,file="pcn.RData")
+# load("pcn.RData")
 
 differentSpellings <- setdiff(pcn$country,pop$country)
 missingCountries <- setdiff(pop$country,pcn$country)
@@ -145,14 +146,14 @@ sum(mcPop$SP.POP.TOTL,na.rm=TRUE)
 View(mcPop)[order(mcPop$SP.POP.TOTL),]
 
 pcn$poorpop <- (pcn$hc/100)*pcn$pop
-write.csv(pcn,"pcn.csv",row.names=FALSE)
-write.csv(subset(pcn,country %in% ctryDiff),"lissy.csv",na="",row.names=FALSE)
+# write.csv(pcn,"pcn.csv",row.names=FALSE)
+# write.csv(subset(pcn,country %in% ctryDiff),"lissy.csv",na="",row.names=FALSE)
 years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
 for(i in years){
   filename <- paste("years/pcn",i,"csv",sep=".")
-  write.csv(subset(pcn,year==i),filename,row.names=FALSE,na="")
+  # write.csv(subset(pcn,year==i),filename,row.names=FALSE,na="")
   filename <- paste("lissy_years/lissy",i,"csv",sep=".")
-  write.csv(subset(pcn,year==i & country %in% ctryDiff),filename,row.names=FALSE,na="")
+  # write.csv(subset(pcn,year==i & country %in% ctryDiff),filename,row.names=FALSE,na="")
 }
 
 firstOverTwenty <- function(hc.vector,pl.vector){
@@ -172,6 +173,47 @@ pcn <- pcn[order(pcn$hc),]
 np20 <- subset(pcn,!is.na(hc))[,.(hc=firstOverTwenty(hc,pl)[1],pl=firstOverTwenty(hc,pl)[2]),by=.(country,year)]
 np20 <- merge(np20,pcn,by=c("country","year","hc","pl"))
 # write.csv(np20,"np20.csv",row.names=FALSE,na="")
+
+mcPop.years <- subset(pop,country %in% missingCountries)
+mcPop.years <- data.table(mcPop.years)[,.(pop=sum(SP.POP.TOTL,na.rm=TRUE)),by=.(year)]
+world.pop <- subset(pop,country=="World")
+world.pop <- merge(world.pop,mcPop.years,by="year")
+world.pop$world.pop <- world.pop$SP.POP.TOTL-world.pop$pop 
+world.pop <- world.pop[c("year","world.pop")]
+pcn <- merge(pcn,world.pop,by=c("year"))
+pcn <- transform(pcn,pop.perc = (poorpop*1000000)/world.pop)
+global.percent <- pcn[,.(percent=sum(pop.perc,na.rm=TRUE)),by=.(year,pl)]
+year <- c()
+p20.threshold <- c()
+p20.level <- c()
+for(this.year in unique(global.percent$year)){
+  global.percent.dat <- subset(global.percent,year==this.year)
+  percents <- global.percent.dat$percent
+  minimum.value <- 100
+  minimum.index <- 0
+  for(i in 1:length(percents)){
+    x <- percents[i]
+    diff <- abs(0.20-x)
+    if(diff<minimum.value){
+      minimum.value <- diff
+      minimum.index <- i
+    }
+  }
+  year <- c(year,this.year)
+  p20.threshold <- c(p20.threshold,global.percent.dat$pl[minimum.index])
+  p20.level <- c(p20.level,global.percent.dat$percent[minimum.index])
+}
+p20 <- data.frame(year,p20.threshold,p20.level)
+p20 <- subset(p20,p20.threshold<10)
+plot(percent~pl,data=subset(global.percent,year==1981 & pl<5),type="l")
+
+setwd("D:/Documents/Data/P20_gif")
+for(this.year in unique(p20$year)){
+  filename = paste0(this.year,".png")
+  png(filename)
+  plot(percent*100~pl,data=subset(global.percent,year==this.year & pl<5),ylim=c(0,100),type="l",main=paste0("World population under $5 a day - ",this.year," (derived from PovcalNet)"),xlab="Poverty line (2011 $ PPP)",ylab="Percent of global population")
+  dev.off()
+}
 
 popbypl <- pcn[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(pl,year)]
 # write.csv(popbypl,"popbypl.csv",row.names=FALSE)
