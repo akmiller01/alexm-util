@@ -264,153 +264,272 @@ dat$livelihood_miss = psum(is.na(dat$refrigerator),is.na(dat$land),is.na(dat$cat
 # gen information_depriv = . if information_miss==2 | information_miss==3
 dat$information_depriv = NA
 # replace information_depriv = 0 if phone==1 | radio==1 | tv==1
-dat$information_depriv[which(dat$phone==1 | dat$radio==1 | dat$tv==1)] <- 0
+dat$information_depriv[which((dat$phone==1 | dat$radio==1 | dat$tv==1) & dat$information_miss<2)] <- 0
 # replace information_depriv = 1 if phone==0 & radio==0 & tv==0
-dat$information_depriv[which(dat$phone==0 & dat$radio==0 & dat$tv==0)] <- 1
+dat$information_depriv[which(psum(dat$phone,dat$radio,dat$tv,na.rm=TRUE)==0 & dat$information_miss<2)] <- 1
 # 
 # 
 # gen mobility_depriv = . if mobility_miss==3 | mobility_miss==4 | mobility_miss==5
 dat$mobility_depriv = NA
 # replace mobility_depriv = 0 if bicycle==1 | motorcycle==1 | car_truck==1 | animal_cart==1 | motorboat==1
-dat$mobility_depriv[which(dat$bicycle==1 | dat$motorcycle==1 | dat$car_truck==1 | dat$animal_cart==1 | dat$motorboat==1)] <- 0
+dat$mobility_depriv[which((dat$bicycle==1 | dat$motorcycle==1 | dat$car_truck==1 | dat$animal_cart==1 | dat$motorboat==1) & dat$mobility_miss<3)] <- 0
 # replace mobility_depriv = 1 if bicycle==0 & motorcycle==0 & car_truck==0 & animal_cart==0 & motorboat==0
-dat$mobility_depriv[which(dat$bicycle==0 & dat$motorcycle==0 & dat$car_truck==0 & dat$animal_cart==0 & dat$motorboat==0)] <- 1
+dat$mobility_depriv[which(psum(dat$bicycle,dat$motorcycle,dat$car_truck,dat$animal_car,dat$motorboat,na.rm=TRUE)==0 & dat$mobility_miss<3)] <- 1
 # 
 # 
 # gen livelihood_depriv = . if livelihood_miss==4 | livelihood_miss==5 | livelihood_miss==6 | livelihood_miss==7
+dat$livelihood_depriv = NA
 # replace livelihood_depriv = 0 if refrigerator== 1 | land==1 | cattle==1 | horses==1 | goats==1 | sheeps==1 | chicken==1
+dat$livelihood_depriv[which((dat$refrigerator== 1 | dat$land==1 | dat$cattle==1 | dat$horses==1 | dat$goats==1 | dat$sheeps==1 | dat$chicken==1) & dat$livelihood_miss<4)] <- 0
 # replace livelihood_depriv = 1 if refrigerator==0 & land==0 & cattle==0 & horses==0 & goats==0 & sheeps==0 & chicken==0
+dat$livelihood_depriv[which(psum(dat$refrigerator,dat$land,dat$cattle,dat$horses,dat$goats,dat$sheeps,dat$chicken,na.rm=TRUE)==0 & dat$livelihood_miss<4)] <- 1
 # 
 # 
 # gen asset_depriv = . if information_depriv==. | (information_depriv==1 & mobility_depriv==0 & livelihood_depriv==.) | (information_depriv==1 & mobility_depriv==. & livelihood_depriv==0)
+dat$asset_depriv = NA
 # replace asset_depriv = 0 if information_depriv==0 & (mobility_depriv==0 | livelihood_depriv==0)
+dat$asset_depriv[which(dat$information_depriv==0 & (dat$mobility_depriv==0 | dat$livelihood_depriv==0))] <- 0
 # replace asset_depriv = 1 if information_depriv==1 | (information_depriv==0 & mobility_depriv==1 & livelihood_depriv==1)
+dat$asset_depriv[which(dat$information_depriv==1 | (dat$information_depriv==0 & dat$mobility_depriv==1 & dat$livelihood_depriv==1))] <- 1
+dat$asset_depriv[which(
+  is.na(dat$information_depriv) |
+  (dat$information_depriv==1 & dat$mobility_depriv==0 & is.na(dat$livelihood_depriv)) |
+  (dat$information_depriv==1 & is.na(dat$mobility_depriv) & dat$livelihood_depriv==0)
+  )] <- NA
 # 
 # 
 # 
 # foreach var in sanitation water floor cookingfuel {
+for(var in c("sanitation","water","floor","cookingfuel")){
 # 
 # gen `var'_depriv=1 if `var'==0
+  varname <- paste0(var,"_depriv")
+  dat[,varname] <- NA
+  dat[,varname][which(dat[,var]==0)] <- 1
 # replace `var'_depriv=0 if `var'==1
+  dat[,varname][which(dat[,var]==1)] <- 0
 # }
+}
 # 
 # egen depriv = rsum(electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv)
+dat$depriv = psum(dat$electricity_depriv,dat$sanitation_depriv,dat$water_depriv,dat$floor_depriv,dat$cookingfuel_depriv,dat$asset_depriv,na.rm=TRUE)
 # replace depriv = . if electricity_depriv==. & sanitation_depriv==. & water_depriv==. & floor_depriv==. & cookingfuel_depriv==. & asset_depriv==.
+dat$depriv[which(
+  is.na(dat$electricity_depriv) &
+  is.na(dat$sanitation_depriv) &
+  is.na(dat$water_depriv) &
+  is.na(dat$floor_depriv) &
+  is.na(dat$cookingfuel_depriv) &
+  is.na(dat$asset_depriv)
+)] <- NA
 # 
 # gen ls_sample=1 if electricity_depriv<. & sanitation_depriv<. & water_depriv<. & floor_depriv<. & cookingfuel_depriv<. & asset_depriv<.
+dat$ls_sample = NA
+dat$ls_sample[which(
+  !is.na(dat$electricity_depriv) &
+  !is.na(dat$sanitation_depriv) &
+  !is.na(dat$water_depriv) &
+  !is.na(dat$floor_depriv) &
+  !is.na(dat$cookingfuel_depriv) &
+  !is.na(dat$asset_depriv)
+)] <- 1
 # egen livings_miss = rowmiss(electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv)
+dat$livings_miss <- NA
+dat$livings_miss = psum(
+  is.na(dat$electricity_depriv),
+  is.na(dat$sanitation_depriv),
+  is.na(dat$water_depriv),
+  is.na(dat$floor_depriv),
+  is.na(dat$cookingfuel_depriv),
+  is.na(dat$asset_depriv)
+)
 # 
 # keep if hv015==1 /* completed HH interview */
+dat <- dat[which(dat$hv015==1),]
 # sort hv001 hv002
+dat <- dat[order(dat$hv001,dat$hv002),]
 # 
 # 
 # keep wealthi wealths weight hhmembers_hh urban electricity electricity_depriv water sanitation cookingfuel floor sanitation_depriv water_depriv floor_depriv cookingfuel_depriv depriv ls_sample livings_miss hv001 hv002 phone radio tv bicycle motorcycle motorboat car_truck animal_cart refrigerator land cattle horses goats sheeps chicken information_miss mobility_miss livelihood_miss information_depriv mobility_depriv livelihood_depriv asset_depriv
+keep <- c("wealthi", "wealths", "weight", "hhmembers_hh", "urban", "electricity", "electricity_depriv", "water", "sanitation", "cookingfuel", "floor", "sanitation_depriv", "water_depriv", "floor_depriv", "cookingfuel_depriv", "depriv", "ls_sample", "livings_miss", "hv001", "hv002", "phone", "radio", "tv", "bicycle", "motorcycle", "motorboat", "car_truck", "animal_cart", "refrigerator", "land", "cattle", "horses", "goats", "sheeps", "chicken", "information_miss", "mobility_miss", "livelihood_miss", "information_depriv", "mobility_depriv", "livelihood_depriv", "asset_depriv")
+dat <- dat[keep]
+hh <- dat
 # 
 # 
 # save "HH_MPI2_MCC.dta", replace
+remove(dat)
 # 
 # 
 # * BIRTHs' QUESTIONNAIRE TO CALCULATE WHEN THE DEATH OF A CHILD HAPPENED *
 # 
 # use "UGBR60FL.DTA", clear
+dat <- read.dta("D:/Documents/Data/DHSauto/ugbr60dt/UGBR60FL.dta",convert.factors=FALSE)
+
 # 
 # sort b3
+dat <- dat[order(dat$b3),]
 # 
 # 
 # gen usual_res=(v135==1)
+dat$usual_res <- psum(dat$v135==1)
 # drop if usual_res==0
+dat <- dat[which(!dat$usual_res==0),]
 # 
 # 
 # gen date_death = b3+b7
+dat$date_death = dat$b3+dat$b7
 # 
 # gen mdead_from_survey = v008-date_death
+dat$mdead_from_survey = dat$v008-dat$date_death
 # 
 # gen ydead_from_survey = mdead_from_survey/12
+dat$ydead_from_survey = dat$mdead_from_survey/12
 # 
 # 
 # gen y = ydead_from_survey if b7<=60
+dat$y <- NA
+dat$y[which(dat$b7<=60)] <- dat$ydead_from_survey[which(dat$b7<=60)]
 # 
 # label var ydead_from_survey "# years from survey that a child died"
 # label var y "# years from survey that a child<=5y died"
 # 
 # gen b5r=0 if b5==1
+dat$b5r <- NA
+dat$b5r[which(dat$b5==1)] <- 0
 # replace b5r=1 if b5==0
+dat$b5r[which(dat$b5==0)] <- 1
+
 # 
 # egen child_died=sum(b5r), by(v001 v002 v003)
+child_died <- data.table(dat)[,.(child_died=sum(b5r,na.rm=TRUE)),by=.(v001,v002,v003)]
+dat <- merge(dat,child_died,by=c("v001","v002","v003"),all.x=TRUE)
 # egen child_died2=rsum(v206 v207)
+dat$child_died2 <- psum(dat$v206,dat$v207,na.rm=TRUE)
 # 
 # compare child_died child_died2
 # * they are identical *
 #   
 #   
 #   egen child_died5=sum(b5r) if ydead_from_survey<=5, by(v001 v002 v003)
+child_died5 <- data.table(subset(dat,ydead_from_survey<=5))[,.(child_died5=sum(b5r,na.rm=TRUE)),by=.(v001,v002,v003)]
+dat <- merge(dat,child_died5,by=c("v001","v002","v003"),all.x=TRUE)
 # * only deaths in the past 5 years *
 #   replace child_died5=0 if child_died5==. & child_died>=0 & child_died<.
+dat$child_died5[which(is.na(dat$child_died5) & dat$child_died>=0 & !is.na(dat$child_died))] <- 0
 # replace child_died5=. if b5r==1 & ydead_from_survey==.
+dat$child_died5[which(dat$b5r==1 & is.na(dat$ydead_from_survey))] <- NA
 # 
 # sort v001 v002 v003 ydead_from_survey
+dat <- dat[order(dat$v001,dat$v002,dat$v003,dat$ydead_from_survey),]
 # bys v001 v002 v003: gen uno=1 if _n==1
+dat$uno <- !duplicated( dat[,c("v001","v002","v003")])
 # keep if uno==1
+dat <- subset(dat,uno==TRUE)
 # drop uno
+dat$uno <- NULL
 # 
 # tab child_died child_died5,m
+table(dat$child_died,dat$child_died5)
 # 
 # egen child_diedhh=sum(child_died), by(v001 v002)
+child_diedhh <- data.table(dat)[,.(child_diedhh=sum(child_died,na.rm=TRUE)),by=.(v001,v002)]
+dat <- merge(dat,child_diedhh,by=c("v001","v002"),all.x=TRUE)
 # *egen child_died2hh=sum(child_died2), by(v001 v002)
 # egen child_died5hh=sum(child_died5), by(v001 v002)
+child_died5hh <- data.table(dat)[,.(child_died5hh=sum(child_died5,na.rm=TRUE)),by=.(v001,v002)]
+dat <- merge(dat,child_died5hh,by=c("v001","v002"),all.x=TRUE)
 # 
 # 
 # gen uno=1
+dat$uno <- 1
 # egen nwomen_birth_15_49=sum(uno), by(v001 v002)
+nwomen_birth_15_49 <- data.table(dat)[,.(nwomen_birth_15_49=sum(uno,na.rm=TRUE)),by=.(v001,v002)]
+dat <- merge(dat,nwomen_birth_15_49,by=c("v001","v002"),all.x=TRUE)
 # 
 # drop uno
+dat$uno <- NULL
 # bys v001 v002: gen uno=1 if _n==1
-# 
+dat$uno <- !duplicated( dat[,c("v001","v002")])
 # keep if uno==1
+dat <- subset(dat,uno==TRUE)
 # drop uno
+dat$uno <- NULL
 # 
 # 
 # keep child_died5 v001 v002 nwomen_birth_15_49 child_died5hh child_diedhh
+keep <- c("child_died5", "v001", "v002", "nwomen_birth_15_49", "child_died5hh", "child_diedhh")
+dat <- dat[keep]
 # 
 # ren v001 hv001
+names(dat)[which(names(dat)=="v001")] <- "hv001"
 # ren v002 hv002
+names(dat)[which(names(dat)=="v002")] <- "hv002"
 # 
 # sort hv001 hv002
+dat <- dat[order(dat$hv001,dat$hv002),]
 # 
 # save "child_death_MPI2_MCC.dta", replace
+br <- dat
 # 
+remove(child_died,child_died5,child_died5hh,child_diedhh,nwomen_birth_15_49,dat)
 # 
 # 
 # * WOMEN'S QUESTIONNAIRE (15-49 y) *
 # 
 # use "UGIR60FL.DTA", clear
+dat <- read.dta("D:/Documents/Data/DHSauto/ugir60dt/UGIR60FL.dta",convert.factors=FALSE)
+
 # 
 # gen usual_res=(v135==1) /* keep only usual residents, drop visitors */
+dat$usual_res <- dat$v135==1
 # drop if usual_res==0
+dat <- subset(dat,usual_res==TRUE)
 # 
 # egen children_died=rsum(v206 v207)
+dat$children_died <- psum(dat$v206,dat$v207,na.rm=TRUE)
 # egen children_diedhh=sum(children_died), by(v001 v002)
+children_diedhh <- data.table(dat)[,.(children_diedhh=sum(children_died,na.rm=TRUE)),by=.(v001,v002)]
+dat <- merge(dat,children_diedhh,by=c("v001","v002"),all.x=TRUE)
+remove(children_diedhh)
 # 
 # 
 # gen uno=1
+dat$uno <- 1
 # egen nwomen15_49=sum(uno), by(v001 v002)
+nwomen15_49 <- data.table(dat)[,.(nwomen15_49=sum(uno)),by=.(v001,v002)]
+dat <- merge(dat,nwomen15_49,by=c("v001","v002"),all.x=TRUE)
+
 # 
 # drop uno
+dat$uno <- NULL
+remove(nwomen15_49)
 # 
 # 
 # sort v001 v002 v003
+dat <- dat[order(dat$v001,dat$v002,dat$v003),]
 # bys v001 v002: gen uno=1 if _n==1
+dat$uno <- !duplicated( dat[,c("v001","v002")])
 # keep if uno==1
+dat <- subset(dat,uno==TRUE)
 # drop uno
+dat$uno <- NULL
 # 
-# ren v001 hv001      
+# ren v001 hv001
+names(dat)[which(names(dat)=="v001")] <- "hv001"
 # ren v002 hv002
+names(dat)[which(names(dat)=="v002")] <- "hv002"
 # ren v003 hv003
+names(dat)[which(names(dat)=="v003")] <- "hv003"
 # 
 # keep hv001 hv002 children_diedhh nwomen15_49
+keep <- c("hv001","hv002","children_diedhh","nwomen15_49")
+dat <- dat[keep]
 # 
 # sort hv001 hv002
+dat <- dat[order(dat$hv001,dat$hv002),]
 # save "UGIR60FL_MCC.dta", replace
+ir <- dat
+remove(dat)
 # 
 # * MEN'S QUESTIONNAIRE (15-59 y) *
 #   
@@ -442,9 +561,12 @@ dat$mobility_depriv[which(dat$bicycle==0 & dat$motorcycle==0 & dat$car_truck==0 
 #   * INDIVIDUALS' QUESTIONNAIRE *
 # 
 # use "UGPR60FL.DTA", clear
+dat <- read.dta("D:/Documents/Data/DHSauto/ugpr60dt/UGPR60FL.dta",convert.factors=FALSE)
+
 # 
 # sort hv001 hv002 hv003
 # merge hv001 hv002 using "UGIR60FL_MCC.dta"
+dat <- merge(dat,ir,by=c("hv001","hv002"),all.x=TRUE)
 # tab _merge
 # ren _merge merge_women
 # 
@@ -455,24 +577,35 @@ dat$mobility_depriv[which(dat$bicycle==0 & dat$motorcycle==0 & dat$car_truck==0 
 # 
 # sort hv001 hv002
 # merge hv001 hv002 using "HH_MPI2_MCC.dta"
+dat <- merge(dat,hh,by=c("hv001","hv002"),all.x=TRUE)
 # tab _merge
 # drop _merge
 # 
 # 
 # sort hv001 hv002
 # merge hv001 hv002 using "child_death_MPI2_MCC.dta"
+dat <- merge(dat,br,by=c("hv001","hv002"),all.x=TRUE)
 # tab _merge
 # ren _merge merge_births
 # 
 # replace child_died5hh=0 if children_diedhh==0 & child_died5hh==.
+dat$child_died5hh[which(dat$children_diedhh==0 & is.na(dat$child_died5hh))] <- 0
 # replace child_diedhh=0 if children_diedhh==0 & child_diedhh==.
+dat$child_diedhh[which(dat$children_diedhh==0 & is.na(dat$child_diedhh))] <- 0
+
 # 
 # 
 # 
 # gen age = hv105 if hv105<98
+dat$age <- dat$hv105
+dat$age[which(dat$hv105>=98)] <- NA
 # gen sex = 1 if hv104==1
+dat$sex <- NA
+dat$sex[which(dat$hv104==1)] <- 1
 # replace sex = 0 if hv104==2
+dat$sex[which(dat$hv104==2)] <- 0
 # egen hh=group(hv001 hv002)
+dat$hh <- paste(dat$hv001,dat$hv002)
 # 
 # gen uno=1
 # egen hhmembers=sum(uno), by(hh)
@@ -480,18 +613,26 @@ dat$mobility_depriv[which(dat$bicycle==0 & dat$motorcycle==0 & dat$car_truck==0 
 # drop hhmembers uno
 # 
 # gen usual_res=(hv102==1)
+dat$usual_res <- dat$hv102==1
 # drop if usual_res==0
+dat <- subset(dat,usual_res==TRUE)
 # 
 # gen uno=1
+dat$uno <- 1
 # egen hhmembers=sum(uno), by(hh)
+hhmembers <- data.table(dat)[,.(hhmembers=sum(uno)),by=.(hh)]
+dat <- merge(dat,hhmembers,by="hh",all.x=TRUE)
+remove(hhmembers)
 # 
 # label var hhmembers "Number of HH members (only usual residents, excludes visitors)"
 # label var hhmembers_hh "Number of HH members (usual residents + visitors)"
 # 
 # drop uno
+dat$uno <- NULL
 # 
 # compress
 # sort hv001 hv002 hvidx
+dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # save "Uganda_MPI2_2011.dta", replace
 # 
 # * MPI CALCULATION *
