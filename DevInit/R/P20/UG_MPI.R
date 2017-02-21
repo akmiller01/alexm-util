@@ -534,28 +534,49 @@ remove(dat)
 # * MEN'S QUESTIONNAIRE (15-59 y) *
 #   
 #   /*use "UGMR60FL.DTA", clear
+if(!file_test(op="-f", "D:/Documents/Data/DHSauto/ugmr60dt/UGMR60FL.dta")){message("No MR, skipping...");}else{
+  dat <- read.dta("D:/Documents/Data/DHSauto/ugmr60dt/UGMR60FL.dta",convert.factors=FALSE)
+
 # 
 # * keep only usual residents, drop visitors
 # gen usual_res=(mv135==1) * keep only usual residents, drop visitors
+  dat$usual_res <- dat$mv135==1
 # drop if usual_res==0
+  dat <- subset(dat,usual_res==TRUE)
 # 
 # egen mchildren_died=rsum(mv206 mv207)
+  dat$mchildren_died=psum(dat$mv206,dat$mv207,na.rm=TRUE)
 # egen mchildren_diedhh=sum(mchildren_died), by(mv001 mv002)
+  mchildren_diedhh <- data.table(dat)[,.(mchildren_diedhh=sum(mchildren_died,na.rm=TRUE)),by=.(mv001,mv002)]
+  dat <- merge(dat,mchildren_diedhh,by=c("mv001","mv002"),all.x=TRUE)
+  remove(mchildren_diedhh)
 # 
 # sort mv001 mv002 mv003
+  dat <- dat[order(dat$mv001,dat$mv002,dat$mv003),]
 # bys mv001 mv002: gen uno=1 if _n==1
+  dat$uno <- !duplicated( dat[,c("mv001","mv002")])
 # keep if uno==1
+  dat <- subset(dat,uno==TRUE)
 # drop uno
+  dat$uno <- NULL
 # 
-# ren mv001 hv001      
+# ren mv001 hv001  
+  names(dat)[which(names(dat)=="mv001")] <- "hv001"
 # ren mv002 hv002
+  names(dat)[which(names(dat)=="mv002")] <- "hv002"
 # ren mv003 hv003
+  names(dat)[which(names(dat)=="mv003")] <- "hv003"
 # 
 # keep hv001 hv002 mchildren_diedhh
+  keep <- c("hv001","hv002","mchildren_diedhh")
+  dat <- dat[keep]
 # 
 # sort hv001 hv002
+  dat <- dat[order(dat$hv001,dat$hv002),]
 # save "UGMR60FL_MCC.dta", replace
+  mr <- dat
 # */
+}
 #   
 #   
 #   * INDIVIDUALS' QUESTIONNAIRE *
@@ -566,12 +587,23 @@ dat <- read.dta("D:/Documents/Data/DHSauto/ugpr60dt/UGPR60FL.dta",convert.factor
 # 
 # sort hv001 hv002 hv003
 # merge hv001 hv002 using "UGIR60FL_MCC.dta"
+dat$master <- 1
+dat$women <- 1
 dat <- merge(dat,ir,by=c("hv001","hv002"),all.x=TRUE)
+dat$merge_women <- NA
+dat$merge_women[which(!is.na(dat$master) & is.na(dat$women))] <- 1
+dat$merge_women[which(is.na(dat$master) & !is.na(dat$women))] <- 2
+dat$merge_women[which(!is.na(dat$master) & !is.na(dat$women))] <- 3
+dat$master <- NULL
+dat$women <- NULL
 # tab _merge
 # ren _merge merge_women
 # 
 # /*sort hv001 hv002 hv003
 # merge hv001 hv002 using "UGMR60FL_MCC.dta"
+if(exists("mr")){
+  dat <- merge(dat,mr,by=c("hv001","hv002"),all.x=TRUE)
+}
 # tab _merge
 # ren _merge merge_men*/
 # 
@@ -654,52 +686,97 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # ** 1- DEPRIVED IN EDUCATION **
 # 
 # gen yschooling = 0 if hv106==0 | (hv106==1 & hv107==0)
+dat$yschooling <- NA
+dat$yschooling[which(dat$hv106==0 | (dat$hv106==1 & dat$hv107==0))] <- 0
 # replace yschooling =1 if hv106==1 & hv107==1
+dat$yschooling[which(dat$hv106==1 & dat$hv107==1)] <- 1
 # replace yschooling =2 if hv106==1 & hv107==2
+dat$yschooling[which(dat$hv106==1 & dat$hv107==2)] <- 2
 # replace yschooling =3 if hv106==1 & hv107==3
+dat$yschooling[which(dat$hv106==1 & dat$hv107==3)] <- 3
 # replace yschooling =4 if hv106==1 & hv107==4
+dat$yschooling[which(dat$hv106==1 & dat$hv107==4)] <- 4
 # replace yschooling =5 if hv106==1 & hv107==5
+dat$yschooling[which(dat$hv106==1 & dat$hv107==5)] <- 5
 # replace yschooling =6 if hv106==1 & hv107==6
+dat$yschooling[which(dat$hv106==1 & dat$hv107==6)] <- 6
 # replace yschooling =7 if hv106==1 & hv107==7
+dat$yschooling[which(dat$hv106==1 & dat$hv107==7)] <- 7
 # 
 # replace yschooling =8 if hv106==2 & hv107==1
+dat$yschooling[which(dat$hv106==2 & dat$hv107==1)] <- 8
 # replace yschooling =9 if hv106==2 & hv107==2
+dat$yschooling[which(dat$hv106==2 & dat$hv107==2)] <- 9
 # replace yschooling =10 if hv106==2 & hv107==3
+dat$yschooling[which(dat$hv106==2 & dat$hv107==3)] <- 10
 # replace yschooling =11 if hv106==2 & hv107==4
+dat$yschooling[which(dat$hv106==2 & dat$hv107==4)] <- 11
 # replace yschooling =12 if hv106==2 & hv107==5
+dat$yschooling[which(dat$hv106==2 & dat$hv107==5)] <- 12
 # replace yschooling =13 if hv106==2 & hv107==6
+dat$yschooling[which(dat$hv106==2 & dat$hv107==6)] <- 13
 # 
 # replace yschooling =14 if hv106==3 & hv107==1
+dat$yschooling[which(dat$hv106==3 & dat$hv107==1)] <- 14
 # replace yschooling =15 if hv106==3 & hv107==2
+dat$yschooling[which(dat$hv106==3 & dat$hv107==2)] <- 15
 # replace yschooling =16 if hv106==3 & hv107==3
+dat$yschooling[which(dat$hv106==3 & dat$hv107==3)] <- 16
 # replace yschooling =17 if hv106==3 & hv107==4
+dat$yschooling[which(dat$hv106==3 & dat$hv107==4)] <- 17
 # replace yschooling =18 if hv106==3 & hv107==5
+dat$yschooling[which(dat$hv106==3 & dat$hv107==5)] <- 18
 # 
 # replace yschooling =7 if hv106==2 & hv107==0
+dat$yschooling[which(dat$hv106==2 & dat$hv107==0)] <- 7
 # replace yschooling =13 if hv106==3 & hv107==0
+dat$yschooling[which(dat$hv106==3 & dat$hv107==0)] <- 13
 # 
 # replace yschooling=. if age<5
+dat$yschooling[which(dat$age<5)] <- NA
 # 
 # gen uno14=1 if age>=12 & age<. /* Number of HH members 12y or older */
+dat$uno14 <- NA
+dat$uno14[which(dat$age>=12 & !is.na(dat$age))] <- 1
 # bys hhid: egen hhmember14 = sum(uno14)
+hhmember14 <- data.table(dat)[,.(hhmember14=sum(uno14)),by=.(hhid)]
+dat <- merge(dat,hhmember14,by="hhid",all.x=TRUE)
+remove(hhmember14)
 # 
 # ** 1- DEPRIVED IN EDUCATION **
 # 
 # gen yschoolingi=0 if yschooling<6 & age>=12 & age<.
+dat$yschoolingi <- NA
+dat$yschoolingi[which(dat$yschooling<6 & dat$age>=10 & !is.na(dat$age))] <- 0
 # replace yschoolingi=1 if yschooling>=6 & yschooling<.
+dat$yschoolingi[which(dat$yschooling>=6 & !is.na(dat$yschooling))] <- 1
 # replace yschoolingi=1 if yschooling==. & ((hv106==2 | hv106==3) & (hv107==98 | hv107==99))
+dat$yschoolingi[which(is.na(dat$yschooling) & ((dat$hv106==2 | dat$hv106==3) & (dat$hv107==98 | dat$hv107==99)))] <- 1
 # 
 # 
 # gen schooling_missing = 1 if ((hv106==1 & hv107==98) | hv106==8 | hv106==9) & age>=12 & age<.
+dat$schooling_missing <- NA
+dat$schooling_missing[which(((dat$hv106==1 & dat$hv107==98) | dat$hv106==8 | dat$hv106==9) & dat$age>=12 & !is.na(dat$age))] <- 1
 # egen schooling_missinghh=sum(schooling_missing), by(hhid)
+schooling_missinghh <- data.table(dat)[,.(schooling_missinghh=sum(schooling_missing,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,schooling_missinghh,by="hhid",all.x=TRUE)
+remove(schooling_missinghh)
 # 
 # egen yeduchh=sum(yschoolingi), by(hhid) /* assumes that a member has <6 y schooling when there is missing info on that member's schooling  */
+yeduchh <- data.table(dat)[,.(yeduchh=sum(yschoolingi,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,yeduchh,by="hhid",all.x=TRUE)
+remove(yeduchh)
 #   replace yeduchh=. if schooling_missinghh==hhmember14
+dat$yeduchh[which(dat$schooling_missinghh==dat$hhmember14)] <- NA
 # 
 # * DEPRIVED IN EDUCATION INDICATOR *
 #   gen educ_depriv=1 if yeduchh==0 
+dat$educ_depriv <- NA
+dat$educ_depriv[which(dat$yeduchh==0)] <- 1
 # replace educ_depriv=0 if yeduchh>=1 & yeduchh<.
+dat$educ_depriv[which(dat$yeduchh>=1 & !is.na(dat$yeduchh))] <- 0
 # replace educ_depriv=. if yeduchh ==0 & schooling_missinghh>0 & schooling_missinghh>(1/3*hhmember14)
+dat$educ_depriv[which(dat$yeduchh ==0 & dat$schooling_missinghh>0 & dat$schooling_missinghh>(1/3*dat$hhmember14))] <- NA
 # 
 # 
 # 
@@ -707,29 +784,59 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # ** 2- DEPRIVED IN SCHOOL ATTENDANCE 7-14Y (entrance age is 6 but we allow for 1 year of late enrollment) **
 #   
 #   gen attendance_missing=1 if hv121==9 & age>=7  & age<=14
+dat$attendance_missing <- NA
+dat$attendance_missing[which(dat$hv121==9 & dat$age>=7  & dat$age<=14)] <- 1
 # gen child_7_14=1 if age>=7 & age<=14
+dat$child_7_14 <- NA
+dat$child_7_14[which(dat$age>=7 & dat$age<=14)] <- 1
 # 
 # egen attendance_missinghh=sum(attendance_missing), by(hhid)
+attendance_missinghh <- data.table(dat)[,.(attendance_missinghh=sum(attendance_missing,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,attendance_missinghh,by="hhid",all.x=TRUE)
+remove(attendance_missinghh)
 # egen child_7_14hh=sum(child_7_14), by(hhid)
+child_7_14hh <- data.table(dat)[,.(child_7_14hh=sum(child_7_14,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,child_7_14hh,by="hhid",all.x=TRUE)
+remove(child_7_14hh)
 # 
 # gen child_6_14=1 if age>=6 & age<=14
+dat$child_6_14 <- NA
+dat$child_6_14[which(dat$age>=6 & dat$age<=14)] <- 1
 # egen child_6_14hh=sum(child_6_14), by(hhid)
+child_6_14hh <- data.table(dat)[,.(child_6_14hh=sum(child_6_14,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,child_6_14hh,by="hhid",all.x=TRUE)
+remove(child_6_14hh)
 # 
 # 
 # 
 # gen attendance_missing_final = 1 if attendance_missinghh==child_7_14hh & child_7_14hh>0 & attendance_missing==1 & child_7_14==1
+dat$attendance_missing_final <- NA
+dat$attendance_missing_final[which(dat$attendance_missinghh==dat$child_7_14hh & dat$child_7_14hh>0 & dat$attendance_missing==1 & dat$child_7_14==1)] <- 1
 # egen attendance_missing_finalhh = sum(attendance_missing_final), by(hhid)
+attendance_missing_finalhh <- data.table(dat)[,.(attendance_missing_finalhh=sum(attendance_missing_final,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,attendance_missing_finalhh,by="hhid",all.x=TRUE)
+remove(attendance_missing_finalhh)
 # 
 # gen child_noattend=1 if hv121==0 & age>=7 & age<=14 
+dat$child_noattend <- NA
+dat$child_noattend[which(dat$hv121==0 & dat$age>=7 & dat$age<=14)] <- 1
 # replace child_noattend=0 if hv121==2 & age>=7 & age<=14
+dat$child_noattend[which(dat$hv121==2 & dat$age>=7 & dat$age<=14)] <- 0
 # 
 # * DEPRIVED IN SCHOOL ATTENDANCE 7-14Y *
 #   egen child_noattendhh=sum(child_noattend), by(hhid)
+child_noattendhh <- data.table(dat)[,.(child_noattendhh=sum(child_noattend,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,child_noattendhh,by="hhid",all.x=TRUE)
+remove(child_noattendhh)
 # replace child_noattendhh=1 if child_noattendhh>1 & child_noattendhh<.
+dat$child_noattendhh[which(dat$child_noattendhh>1 & !is.na(dat$child_noattendhh))] <- 1
 # *replace child_noattendhh=. if attendance_missing_finalhh>=1 & attendance_missing_finalhh<.
 # *replace child_noattendhh=. if child_noattendhh==0 & attendance_missing_finalhh>=1 & attendance_missing_finalhh>(1/3*child_7_14hh)
 # replace child_noattendhh=. if child_noattendhh==0 & attendance_missinghh>=1 & attendance_missinghh>(1/3*child_7_14hh)
+dat$child_noattendhh[which(dat$child_noattendhh==0 & dat$attendance_missinghh>=1 & dat$attendance_missinghh>(1/3*dat$child_7_14hh))] <- NA
 # replace child_noattendhh=0 if child_6_14hh>0 & child_6_14hh<. & child_7_14hh==0
+dat$child_noattendhh[which(dat$child_6_14hh>0 & !is.na(dat$child_6_14hh) & dat$child_7_14hh==0)] <- 0
+
 # 
 # 
 # 
@@ -748,84 +855,211 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 #   * WOMEN'S UNDERNUTRITION (BMI<18.5) *
 # 
 # gen w=1 if sex==0 & age>=15 & age<=49
+dat$w <- NA
+dat$w[which(dat$sex==0 & dat$age>=15 & dat$age<=49)] <- 1
 # egen whh=sum(w), by(hhid)
+whh <- data.table(dat)[,.(whh=sum(w,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,whh,by="hhid",all.x=TRUE)
+remove(whh)
 # 
 # gen bmi=(ha2/(ha3^2))*100000
+dat$bmi <- (dat$ha2/(dat$ha3^2))*100000
 # replace bmi=. if (ha2>=9994 & ha2<=9999) | (ha3>=9994 & ha3<=9999) | ha40==9998 | ha40==9999
+dat$bmi[which((dat$ha2>=9994 & dat$ha2<=9999) | (dat$ha3>=9994 & dat$ha3<=9999) | dat$ha40==9998 | dat$ha40==9999)] <- NA
 # 
 # gen malnourishedw = 1 if bmi<18.5
+dat$malnourishedw <- NA
+dat$malnourishedw[which(dat$bmi<18.5)] <- 1
 # replace malnourishedw=0 if bmi>=18.5 & bmi<.
+dat$malnourishedw[which(dat$bmi>=18 & !is.na(dat$bmi))] <- 0
 # egen malnourishedwhh=sum(malnourishedw), by (hhid) missing
+malnourishedwhh <- data.table(dat)[,.(malnourishedwhh=sum(malnourishedw,na.rm=TRUE),not.missing=sum(!is.na(malnourishedw))),by=.(hhid)]
+malnourishedwhh$malnourishedwhh[which(malnourishedwhh$not.missing==0)] <- NA
+malnourishedwhh <- data.frame(malnourishedwhh)
+malnourishedwhh$not.missing <- NULL
+dat <- merge(dat,malnourishedwhh,by="hhid",all.x=TRUE)
+remove(malnourishedwhh)
 # 
 # gen missing_bmi=1 if ha40>=9996 & ha40<=9999
+dat$missing_bmi <- NA
+dat$missing_bmi[which(dat$ha40>=9996 & dat$ha40<=9999)] <- 1
 # egen missing_bmihh=sum(missing_bmi), by(hhid) missing
+missing_bmihh <- data.table(dat)[,.(missing_bmihh=sum(missing_bmi,na.rm=TRUE),not.missing=sum(!is.na(missing_bmi))),by=.(hhid)]
+missing_bmihh$missing_bmihh[which(missing_bmihh$not.missing==0)] <- NA
+missing_bmihh <- data.frame(missing_bmihh)
+missing_bmihh$not.missing <- NULL
+dat <- merge(dat,missing_bmihh,by="hhid",all.x=TRUE)
+remove(missing_bmihh)
 # 
 # gen nomissing_bmi=1 if ha40<9996
+dat$nomissing_bmi <- NA
+dat$nomissing_bmi[which(dat$ha40<9996)] <- 1
 # egen nomissing_bmihh=sum(nomissing_bmi), by(hhid) missing
+nomissing_bmihh <- data.table(dat)[,.(nomissing_bmihh=sum(nomissing_bmi,na.rm=TRUE),not.missing=sum(!is.na(nomissing_bmi))),by=.(hhid)]
+nomissing_bmihh$nomissing_bmihh[which(nomissing_bmihh$not.missing==0)] <- NA
+nomissing_bmihh <- data.frame(nomissing_bmihh)
+nomissing_bmihh$not.missing <- NULL
+dat <- merge(dat,nomissing_bmihh,by="hhid",all.x=TRUE)
+remove(nomissing_bmihh)
 # 
 # gen noaplic_bmi=1 if ha40==.
+dat$noaplic_bmi <- NA
+dat$noaplic_bmi[which(is.na(dat$ha40))] <- 1
 # egen noaplic_bmihh=sum(noaplic_bmi), by(hhid) missing
+noaplic_bmihh <- data.table(dat)[,.(noaplic_bmihh=sum(noaplic_bmi,na.rm=TRUE),not.missing=sum(!is.na(noaplic_bmi))),by=.(hhid)]
+noaplic_bmihh$noaplic_bmihh[which(noaplic_bmihh$not.missing==0)] <- NA
+noaplic_bmihh <- data.frame(noaplic_bmihh)
+noaplic_bmihh$not.missing <- NULL
+dat <- merge(dat,noaplic_bmihh,by="hhid",all.x=TRUE)
+remove(noaplic_bmihh)
 # 
 # gen womanbmi=1 if ha40<.
+dat$womanbmi <- NA
+dat$womanbmi[which(!is.na(dat$ha40))] <- 1
 # egen womanbmihh=sum(womanbmi), by(hhid) missing
+womanbmihh <- data.table(dat)[,.(womanbmihh=sum(womanbmi,na.rm=TRUE),not.missing=sum(!is.na(womanbmi))),by=.(hhid)]
+womanbmihh$womanbmihh[which(womanbmihh$not.missing==0)] <- NA
+womanbmihh <- data.frame(womanbmihh)
+womanbmihh$not.missing <- NULL
+dat <- merge(dat,womanbmihh,by="hhid",all.x=TRUE)
+remove(womanbmihh)
 # 
 # 
 # gen missing_bmi_finalhh=1 if missing_bmihh>=1 & missing_bmihh<. & nomissing_bmihh==.
+dat$missing_bmi_finalhh <- NA
+dat$missing_bmi_finalhh[which(dat$missing_bmihh>=1 & !is.na(dat$missing_bmihh) & is.na(dat$nomissing_bmihh))] <- 1
 # 
 # gen uno_bmi=1 if bmi<.
+dat$uno_bmi <- NA
+dat$uno_bmi[which(!is.na(dat$bmi))] <- 1
 # egen nw_bmi=sum(uno_bmi), by (hhid)
+nw_bmi <- data.table(dat)[,.(nw_bmi=sum(uno_bmi,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nw_bmi,by="hhid",all.x=TRUE)
+remove(nw_bmi)
 # 
 # ren malnourishedwhh nmalnourishedwhh
+names(dat)[which(names(dat)=="malnourishedwhh")] <- "nmalnourishedwhh"
 # gen malnourishedwhh=1 if nmalnourishedwhh>=1 & nmalnourishedwhh<.
+dat$malnourishedwhh <- NA
+dat$malnourishedwhh[which(dat$nmalnourishedwhh>=1 & !is.na(dat$nmalnourishedwhh))] <- 1
 # replace malnourishedwhh=0 if nmalnourishedwhh==0
+dat$malnourishedwhh[which(dat$nmalnourishedwhh==0)] <- 0
 # 
 # replace missing_bmi_finalhh=1 if malnourishedwhh==0 & whh>(2*nw_bmi) & nw_bmi<.
+dat$missing_bmi_finalhh[which(dat$malnourishedwhh==0 & dat$whh>(2*dat$nw_bmi) & !is.na(dat$nw_bmi))] <- 1
 # replace missing_bmihh=1 if malnourishedwhh==0 & whh>(2*nw_bmi) & nw_bmi<.
+dat$missing_bmihh[which(dat$malnourishedwhh==0 & dat$whh>(2*dat$nw_bmi) & !is.na(dat$nw_bmi))] <- 1
 # replace malnourishedwhh=. if malnourishedwhh==0 & whh>(2*nw_bmi) & nw_bmi<.
+dat$malnourishedwhh[which(dat$malnourishedwhh==0 & dat$whh>(2*dat$nw_bmi) & !is.na(dat$nw_bmi))] <- NA
 # 
 # 
 # * MEN'S UNDERNUTRITION (BMI<18.5) *
 #   capture drop m mhh
 # 
 # gen m=1 if sex==1 & age>=15 & age<=54
+dat$m <- NA
+dat$m[which(dat$sex==1 & dat$age>=15 & dat$age<=54)] <- 1
 # egen mhh=sum(m), by(hhid)
+mhh <- data.table(dat)[,.(mhh=sum(m,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,mhh,by="hhid",all.x=TRUE)
+remove(mhh)
 # 
 # gen mbmi=(hb2/(hb3^2))*100000
+dat$mbmi <- (dat$hb2/(dat$hb3^2))*100000
 # replace mbmi=. if (hb2>=9994 & hb2<=9999) | (hb3>=9994 & hb3<=9999) | hb40==9998 | hb40==9999
+dat$mbmi[which((dat$hb2>=9994 & dat$hb2<=9999) | (dat$hb3>=9994 & dat$hb3<=9999) | dat$hb40==9998 | dat$hb40==9999)] <- NA
 # 
 # gen malnourishedm = 1 if mbmi<18.5
+dat$malnourishedm <- NA
+dat$malnourishedm[which(dat$mbmi<18.5)] <- 1
 # replace malnourishedm=0 if mbmi>=18.5 & mbmi<.
+dat$malnourishedm[which(dat$mbmi>=18.5 & !is.na(dat$mbmi))] <- 0
 # egen malnourishedmhh=sum(malnourishedm), by (hhid) missing
+malnourishedmhh <- data.table(dat)[,.(malnourishedmhh=sum(malnourishedm,na.rm=TRUE),not.missing=sum(!is.na(malnourishedm))),by=.(hhid)]
+malnourishedmhh$malnourishedmhh[which(malnourishedmhh$not.missing==0)] <- NA
+malnourishedmhh <- data.frame(malnourishedmhh)
+malnourishedmhh$not.missing <- NULL
+dat <- merge(dat,malnourishedmhh,by="hhid",all.x=TRUE)
+remove(malnourishedmhh)
 # 
 # gen missing_mbmi=1 if hb40>=9996 & hb40<=9999
+dat$missing_mbmi <- NA
+dat$missing_mbmi[which(dat$hb40>=9996 & dat$hb40<=9999)] <- 1
 # egen missing_mbmihh=sum(missing_mbmi), by(hhid) missing
+missing_mbmihh <- data.table(dat)[,.(missing_mbmihh=sum(missing_mbmi,na.rm=TRUE),not.missing=sum(!is.na(missing_mbmi))),by=.(hhid)]
+missing_mbmihh$missing_mbmihh[which(missing_mbmihh$not.missing==0)] <- NA
+missing_mbmihh <- data.frame(missing_mbmihh)
+missing_mbmihh$not.missing <- NULL
+dat <- merge(dat,missing_mbmihh,by="hhid",all.x=TRUE)
+remove(missing_mbmihh)
 # 
 # gen nomissing_mbmi=1 if hb40<9996
+dat$nomissing_mbmi <- NA
+dat$nomissing_mbmi[which(dat$hb40<9996)] <- 1
 # egen nomissing_mbmihh=sum(nomissing_mbmi), by(hhid) missing
+nomissing_mbmihh <- data.table(dat)[,.(nomissing_mbmihh=sum(nomissing_mbmi,na.rm=TRUE),not.missing=sum(!is.na(nomissing_mbmi))),by=.(hhid)]
+nomissing_mbmihh$nomissing_mbmihh[which(nomissing_mbmihh$not.missing==0)] <- NA
+nomissing_mbmihh <- data.frame(nomissing_mbmihh)
+nomissing_mbmihh$not.missing <- NULL
+dat <- merge(dat,nomissing_mbmihh,by="hhid",all.x=TRUE)
+remove(nomissing_mbmihh)
 # 
 # gen noaplic_mbmi=1 if hb40==.
+dat$noaplic_mbmi <- NA
+dat$noaplic_mbmi[which(is.na(dat$hb40))] <- 1
 # egen noaplic_mbmihh=sum(noaplic_mbmi), by(hhid) missing
+noaplic_mbmihh <- data.table(dat)[,.(noaplic_mbmihh=sum(noaplic_mbmi,na.rm=TRUE),not.missing=sum(!is.na(noaplic_mbmi))),by=.(hhid)]
+noaplic_mbmihh$noaplic_mbmihh[which(noaplic_mbmihh$not.missing==0)] <- NA
+noaplic_mbmihh <- data.frame(noaplic_mbmihh)
+noaplic_mbmihh$not.missing <- NULL
+dat <- merge(dat,noaplic_mbmihh,by="hhid",all.x=TRUE)
+remove(noaplic_mbmihh)
 # 
 # gen manbmi=1 if hb40<.
+dat$manbmi <- NA
+dat$manbmi[which(!is.na(dat$hb40))] <- 1
 # egen manbmihh=sum(manbmi), by(hhid) missing
+manbmihh <- data.table(dat)[,.(manbmihh=sum(manbmi,na.rm=TRUE),not.missing=sum(!is.na(manbmi))),by=.(hhid)]
+manbmihh$manbmihh[which(manbmihh$not.missing==0)] <- NA
+manbmihh <- data.frame(manbmihh)
+manbmihh$not.missing <- NULL
+dat <- merge(dat,manbmihh,by="hhid",all.x=TRUE)
+remove(manbmihh)
 # 
 # 
 # gen missing_mbmi_finalhh=1 if missing_mbmihh>=1 & missing_mbmihh<. & nomissing_mbmihh==.
+dat$missing_mbmi_finalhh <- NA
+dat$missing_mbmi_finalhh[which(dat$missing_mbmihh>=1 & !is.na(dat$missing_mbmihh) & is.na(dat$nomissing_mbmihh))] <- 1
 # 
 # gen uno_mbmi=1 if mbmi<.
+dat$uno_mbmi <- NA
+dat$uno_mbmi[which(!is.na(dat$mbmi))] <- 1
 # egen nm_bmi=sum(uno_mbmi), by (hhid)
+nm_bmi <- data.table(dat)[,.(nm_bmi=sum(uno_mbmi,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nm_bmi,by="hhid",all.x=TRUE)
+remove(nm_bmi)
 # 
 # ren malnourishedmhh nmalnourishedmhh
+names(dat)[which(names(dat)=="malnourishedmhh")] <- "nmalnourishedmhh"
 # gen malnourishedmhh=1 if nmalnourishedmhh>=1 & nmalnourishedmhh<.
+dat$malnourishedmhh <- NA
+dat$malnourishedmhh[which(dat$nmalnourishedmhh>=1 & !is.na(dat$nmalnourishedmhh))] <- 1
 # replace malnourishedmhh=0 if nmalnourishedmhh==0
+dat$malnourishedmhh[which(dat$nmalnourishedmhh==0)] <- 0
 # 
 # replace missing_mbmi_finalhh=1 if malnourishedmhh==0 & mhh>(2*nm_bmi) & nm_bmi<.
+dat$missing_mbmi_finalhh[which(dat$malnourishedmhh==0 & dat$mhh>(2*dat$nm_bmi) & !is.na(dat$nm_bmi))] <- 1
 # replace missing_mbmihh=1 if malnourishedmhh==0 & mhh>(2*nm_bmi) & nm_bmi<.
+dat$missing_mbmihh[which(dat$malnourishedmhh==0 & dat$mhh>(2*dat$nm_bmi) & !is.na(dat$nm_bmi))] <- 1
 # replace malnourishedmhh=. if malnourishedmhh==0 & mhh>(2*nm_bmi) & nm_bmi<.
+dat$malnourishedmhh[which(dat$malnourishedmhh==0 & dat$mhh>(2*dat$nm_bmi) & !is.na(dat$nm_bmi))] <- NA
+
 # 
 # 
 # sort hv001 hv002 hvidx
+dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # save "Uganda_MPI2_2011.dta", replace
+total <- dat
 # 
 # /* clear
 # set maxvar 7000
@@ -834,25 +1068,31 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # 
 # 
 # keep hc27 hc1 hc2 hc3 hc13 hc15 weight hv001 hv002 hvidx
+keep <- c("hc27","hc1","hc2","hc3","hc13","hc15","weight","hv001","hv002","hvidx")
+dat <- dat[keep]
 # 
 # 
 # * Variable "Sex" (1=male; 2=female)
 # tab hc27, miss 
 # gen gender = hc27
+dat$gender <- dat$hc27
 # desc gender
 # tab gender
 # 
 # * Variable "Age"can be expresses it in months or days
 # tab hc1, miss
 # codebook hc1 
-# gen age_months = hc1 
+# gen age_months = hc1
+dat$age_months <- dat$hc1
 # desc age_months
 # summ age_months 
 # gen str6 ageunit = "months" 
+dat$ageunit <- "months"
 # label var ageunit "Months"
 # 
 # *Variable "Sampling weight"
 # ren weight sw
+names(dat)[which(names(dat)=="weight")] <- "sw"
 # desc sw
 # summ sw
 # 
@@ -860,8 +1100,11 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # ta hc2, miss
 # codebook hc2
 # gen weight = hc2/10 if hc2<9000
+dat$weight <- NA
+dat$weight[which(dat$hc2<9000)] <- dat$hc2[which(dat$hc2<9000)]/10
 # desc weight 
 # replace weight=. if hc13>0
+dat$weight[which(dat$hc13>0)] <- NA
 # tab hc2 hc13 if hc13>0, miss
 # summ weight
 # 
@@ -869,25 +1112,34 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # ta hc3, miss
 # codebook hc3
 # gen height = hc3/10 if hc3<9000
+dat$height <- NA
+dat$height[which(dat$hc3<9000)] <- dat$hc3[which(dat$hc3<9000)]/10
 # desc height 
 # replace height=. if hc13>0
+dat$height[which(dat$hc13>0)] <- NA
 # tab hc3 hc13 if hc13>0, miss
 # summ height
 # 
 # codebook hc15
 # gen measure = "l" if hc15==1 
+dat$measure <- NA
+dat$measure[which(dat$hc15==1)] <- "l"
 # replace measure = "h" if hc15==2 
+dat$measure[which(dat$hc15==2)] <- "h"
 # replace measure = " " if hc15==0 | hc15==9 | hc15==.
 # desc measure
 # tab measure
 # 
 # *Variable "Oedema" 
 # gen oedema=.
+dat$oedema <- NA
 # desc oedema
 # 
 # 
 # 
 # keep hv001 hv002 hvidx gender age_months ageunit weight height oedema measure sw
+keep <- c("hv001", "hv002", "hvidx", "gender", "age_months", "ageunit", "weight", "height", "oedema", "measure", "sw")
+dat <- dat[keep]
 # save "C:\Users\cecilia.calderon\HDRO_MCC\MPI\WHO igrowup STATA\WHO igrowup workdata\UG_survey.dta", replace
 # 
 # 
@@ -930,6 +1182,7 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # 
 # /*	check the variable for "age"	*/
 # ren age_months agemons
+names(dat)[which(names(dat)=="age_months")] <- "agemons"
 # desc agemons
 # summ agemons
 # 
@@ -992,16 +1245,47 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # 
 # 
 # /* 	Fill in the macro parameters to run the command */
+
+igu.dir <- "D:/Documents/igrowup_R/"
+weianthro<-read.table(paste0(igu.dir,"/weianthro.txt"),header=T,sep="",skip=0)
+lenanthro<-read.table(paste0(igu.dir,"/lenanthro.txt"),header=T,sep="",skip=0)
+bmianthro<-read.table(paste0(igu.dir,"/bmianthro.txt"),header=T,sep="",skip=0)
+hcanthro<-read.table(paste0(igu.dir,"/hcanthro.txt"),header=T,sep="",skip=0)
+acanthro<-read.table(paste0(igu.dir,"/acanthro.txt"),header=T,sep="",skip=0)
+ssanthro<-read.table(paste0(igu.dir,"/ssanthro.txt"),header=T,sep="",skip=0)
+tsanthro<-read.table(paste0(igu.dir,"/tsanthro.txt"),header=T,sep="",skip=0)
+wflanthro<-read.table(paste0(igu.dir,"/wflanthro.txt"),header=T,sep="",skip=0)
+wfhanthro<-read.table(paste0(igu.dir,"/wfhanthro.txt"),header=T,sep="",skip=0)
+source(paste0(igu.dir,"igrowup_standard.r"))
+source(paste0(igu.dir,"igrowup_restricted.r"))
+igrowup.restricted(FileLab="dat",FilePath=igu.dir,
+                   mydf=dat, sex=gender
+                   , age=agemons, age.month=TRUE
+                   , weight=weight
+                   , lenhei=height
+                   , measure=measure
+                   , sw=sw)
+
+dat <- read.csv(paste0(igu.dir,"dat_z_rc.csv"))
+
 # igrowup_standard reflib datalib datalab gender agemons ageunit weight height measure head muac tri sub oedema sw 
 # 
 # keep hv001 hv002 hvidx agemons height _zwei _zlen _zbmi _zwfl _fwfl _flen _fwei _fbmi
+keep <- c("hv001","hv002","hvidx","agemons","height","zwei","zlen","zbmi","zwfl","fwfl","flen","fwei","fbmi")
+dat <- dat[keep]
+names(dat)[c(6:13)] <- paste0("_",names(dat)[c(6:13)])
 # sort hv001 hv002 hvidx
+dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # save "C:\Users\cecilia.calderon\HDRO_MCC\MPI\MPI_new calculations\Uganda 2011_DHS\UG_anthro.dta", replace */
+anthro <- dat
+remove(acanthro,bmianthro,hcanthro,lenanthro,matprev,matz,ssanthro,tsanthro,weianthro,wfhanthro,wflanthro)
 # 
 # 
 # 
 # use "Uganda_MPI2_2011.dta", clear
+dat <- total
 # merge hv001 hv002 hvidx using "UG_anthro.dta"
+dat <- merge(dat,anthro,by=c("hv001","hv002","hvidx"),all.x=TRUE)
 # tab _merge
 # drop _merge
 # 
@@ -1009,82 +1293,190 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # 
 # * Weight-for-age *
 # gen zwa = _zwei if _fwei==0
+dat$zwa <- NA
+dat$zwa[which(dat[,"_fwei"]==0)] <- dat[,"_zwei"][which(dat[,"_fwei"]==0)]
 # 
 # gen malnourishedw5 = 1 if zwa<=-2
+dat$malnourishedw5 <- NA
+dat$malnourishedw5[which(dat$zwa<=-2)] <- 1
 # replace malnourishedw5=0 if zwa>-2 & zwa<.
+dat$malnourishedw5[which(dat$zwa>-2 & !is.na(dat$zwa))] <- 0
 # egen malnourishedw5hh=sum(malnourishedw5), by (hhid) missing
+malnourishedw5hh <- data.table(dat)[,.(malnourishedw5hh=sum(malnourishedw5,na.rm=TRUE),not.missing=sum(!is.na(malnourishedw5))),by=.(hhid)]
+malnourishedw5hh$malnourishedw5hh[which(malnourishedw5hh$not.missing==0)] <- NA
+malnourishedw5hh <- data.frame(malnourishedw5hh)
+malnourishedw5hh$not.missing <- NULL
+dat <- merge(dat,malnourishedw5hh,by="hhid",all.x=TRUE)
+remove(malnourishedw5hh)
 # 
 # gen missing_zwa=1 if _fwei==1 | (hc2>9000 & hc2<=9999) | (hc13>0 & hc13<=9)
+dat$missing_zwa <- NA
+dat$missing_zwa[which(dat[,"_fwei"]==1 | (dat$hc2>9000 & dat$hc2<=9999) | (dat$hc13>0 & dat$hc13<=9))] <- 1
 # egen missing_zwahh=sum(missing_zwa), by(hhid) missing
+missing_zwahh <- data.table(dat)[,.(missing_zwahh=sum(missing_zwa,na.rm=TRUE),not.missing=sum(!is.na(missing_zwa))),by=.(hhid)]
+missing_zwahh$missing_zwahh[which(missing_zwahh$not.missing==0)] <- NA
+missing_zwahh <- data.frame(missing_zwahh)
+missing_zwahh$not.missing <- NULL
+dat <- merge(dat,missing_zwahh,by="hhid",all.x=TRUE)
+remove(missing_zwahh)
 # 
 # gen nomissing_zwa=1 if _fwei==0
+dat$nomissing_zwa <- NA
+dat$nomissing_zwa[which(dat[,"_fwei"]==0)] <- 1
 # egen nomissing_zwahh=sum(nomissing_zwa), by(hhid) missing
+nomissing_zwahh <- data.table(dat)[,.(nomissing_zwahh=sum(nomissing_zwa,na.rm=TRUE),not.missing=sum(!is.na(nomissing_zwa))),by=.(hhid)]
+nomissing_zwahh$nomissing_zwahh[which(nomissing_zwahh$not.missing==0)] <- NA
+nomissing_zwahh <- data.frame(nomissing_zwahh)
+nomissing_zwahh$not.missing <- NULL
+dat <- merge(dat,nomissing_zwahh,by="hhid",all.x=TRUE)
+remove(nomissing_zwahh)
 # 
 # gen missing_zwa_finalhh=1 if missing_zwahh>=1 & missing_zwahh<. & nomissing_zwahh==.
+dat$missing_zwa_finalhh <- NA
+dat$missing_zwa_finalhh[which(dat$missing_zwahh>=1 & !is.na(dat$missing_zwahh) & is.na(dat$nomissing_zwahh))] <- 1
 # replace missing_zwa_finalhh=0 if missing_zwa_finalhh==.
+dat$missing_zwa_finalhh[which(is.na(dat$missing_zwa_finalhh))] <- 0
 # 
 # gen uno_zwa=1 if zwa<.
+dat$uno_zwa <- NA
+dat$uno_zwa[which(!is.na(dat$zwa))] <- 1
 # egen nw_zwa=sum(uno_zwa), by (hhid)
+nw_zwa <- data.table(dat)[,.(nw_zwa=sum(uno_zwa,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nw_zwa,by="hhid",all.x=TRUE)
+remove(nw_zwa)
 # 
 # 
 # * Height-for-age *
 # gen zha = _zlen if _flen==0
+dat$zha <- NA
+dat$zha[which(dat[,"_flen"]==0)] <- dat[,"_zlen"][which(dat[,"_flen"]==0)]
 # 
 # gen malnourished5 = 1 if zha<=-2
+dat$malnourished5 <- NA
+dat$malnourished5[which(dat$zha<=-2)] <- 1
 # replace malnourished5=0 if zha>-2 & zha<.
+dat$malnourished5[which(dat$zha>-2 & !is.na(dat$zha))] <- 0
 # egen malnourished5hh=sum(malnourished5), by (hhid) missing
+malnourished5hh <- data.table(dat)[,.(malnourished5hh=sum(malnourished5,na.rm=TRUE),not.missing=sum(!is.na(malnourished5))),by=.(hhid)]
+malnourished5hh$malnourished5hh[which(malnourished5hh$not.missing==0)] <- NA
+malnourished5hh <- data.frame(malnourished5hh)
+malnourished5hh$not.missing <- NULL
+dat <- merge(dat,malnourished5hh,by="hhid",all.x=TRUE)
+remove(malnourished5hh)
 # 
 # gen missing_zha=1 if _flen==1 | (hc3>9000 & hc3<=9999) | (hc13>0 & hc13<=9)
+dat$missing_zha <- NA
+dat$missing_zha[which(dat[,"_flen"]==1 | (dat$hc3>9000 & dat$hc3<=9999) | (dat$hc13>0 & dat$hc13<=9))] <- 1
 # egen missing_zhahh=sum(missing_zha), by(hhid) missing
+missing_zhahh <- data.table(dat)[,.(missing_zhahh=sum(missing_zha,na.rm=TRUE),not.missing=sum(!is.na(missing_zha))),by=.(hhid)]
+missing_zhahh$missing_zhahh[which(missing_zhahh$not.missing==0)] <- NA
+missing_zhahh <- data.frame(missing_zhahh)
+missing_zhahh$not.missing <- NULL
+dat <- merge(dat,missing_zhahh,by="hhid",all.x=TRUE)
+remove(missing_zhahh)
 # 
 # gen nomissing_zha=1 if _flen==0
+dat$nomissing_zha <- NA
+dat$nomissing_zha[which(dat[,"_flen"]==0)] <- 1
 # egen nomissing_zhahh=sum(nomissing_zha), by(hhid) missing
+nomissing_zhahh <- data.table(dat)[,.(nomissing_zhahh=sum(nomissing_zha,na.rm=TRUE),not.missing=sum(!is.na(nomissing_zha))),by=.(hhid)]
+nomissing_zhahh$nomissing_zhahh[which(nomissing_zhahh$not.missing==0)] <- NA
+nomissing_zhahh <- data.frame(nomissing_zhahh)
+nomissing_zhahh$not.missing <- NULL
+dat <- merge(dat,nomissing_zhahh,by="hhid",all.x=TRUE)
+remove(nomissing_zhahh)
 # 
 # gen missing_zha_finalhh=1 if missing_zhahh>=1 & missing_zhahh<. & nomissing_zhahh==.
+dat$missing_zha_finalhh <- NA
+dat$missing_zha_finalhh[which(dat$missing_zhahh>=1 & !is.na(dat$missing_zhahh) & is.na(dat$nomissing_zhahh))] <- 1
 # replace missing_zha_finalhh=0 if missing_zha_finalhh==.
+dat$missing_zha_finalhh[which(is.na(dat$missing_zha_finalhh))] <- 0
 # 
 # gen uno_zha=1 if zha<.
+dat$uno_zha <- NA
+dat$uno_zha[which(!is.na(dat$zha))] <- 1
 # egen nw_zha=sum(uno_zha), by (hhid)
+nw_zha <- data.table(dat)[,.(nw_zha=sum(uno_zha,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nw_zha,by="hhid",all.x=TRUE)
+remove(nw_zha)
 # 
 # 
 # ren malnourished5hh nmalnourished5hh
+names(dat)[which(names(dat)=="malnourished5hh")] <- "nmalnourished5hh"
 # gen malnourished5hh=1 if nmalnourished5hh>=1 & nmalnourished5hh<.
+dat$malnourished5hh <- NA
+dat$malnourished5hh[which(dat$nmalnourished5hh>=1 & !is.na(dat$nmalnourished5hh))] <- 1
 # replace malnourished5hh=0 if nmalnourished5hh==0
+dat$malnourished5hh[which(dat$nmalnourished5hh==0)] <- 0
 # 
 # gen uno0_5=1 if age<=5
+dat$uno0_5 <- NA
+dat$uno0_5[which(dat$age<=5)] <- 1
 # bys hhid: egen hhmember0_5 = sum(uno0_5)
+hhmember0_5 <- data.table(dat)[,.(hhmember0_5=sum(uno0_5,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,hhmember0_5,by="hhid",all.x=TRUE)
+remove(hhmember0_5)
 # 
 # replace missing_zha_finalhh=1 if malnourished5hh==0 & hhmember0_5>(2*nw_zha) & nw_zha<.
+dat$missing_zha_finalhh[which(dat$malnourished5hh==0 & dat$hhmember0_5>(2*dat$nw_zha) & !is.na(dat$nw_zha))] <- 1
 # replace missing_zhahh=1 if malnourished5hh==0 & hhmember0_5>(2*nw_zha) & nw_zha<.
+dat$missing_zhahh[which(dat$malnourished5hh==0 & dat$hhmember0_5>(2*dat$nw_zha) & !is.na(dat$nw_zha))] <- 1
 # replace malnourished5hh=. if malnourished5hh==0 & hhmember0_5>(2*nw_zha) & nw_zha<.
+dat$malnourished5hh[which(dat$malnourished5hh==0 & dat$hhmember0_5>(2*dat$nw_zha) & !is.na(dat$nw_zha))] <- NA
 # 
 # 
 # * Number of children 5y but not necessarily <60 months
-# capture drop uno5 
+# capture drop uno5
 # capture drop nc5
 # gen uno5=1 if age==5
+dat$uno5 <- NA
+dat$uno5[which(dat$age==5)] <- 1
 # egen nc5=sum(uno5), by(hhid)
+nc5 <- data.table(dat)[,.(nc5=sum(uno5,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nc5,by="hhid",all.x=TRUE)
+remove(nc5)
 # 
 # 
 # gen undernutritionhh=0 if malnourishedwhh==0 & malnourished5hh==0
+dat$undernutritionhh <- NA
+dat$undernutritionhh[which(dat$malnourishedwhh==0 & dat$malnourished5hh==0)] <- 0
 # replace undernutritionhh=0 if malnourishedwhh==0 & malnourished5hh==. & hhmember0_5==0
+dat$undernutritionhh[which(dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & dat$hhmember0_5==0)] <- 0
 # replace undernutritionhh=0 if malnourished5hh==0 & malnourishedwhh==. & whh==0
+dat$undernutritionhh[which(dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & dat$whh==0)] <- 0
 # replace undernutritionhh=1 if (malnourishedwhh>0 & malnourishedwhh<.) | (malnourished5hh>0 & malnourished5hh<.)
+dat$undernutritionhh[which((dat$malnourishedwhh>0 & !is.na(dat$malnourishedwhh)) | (dat$malnourished5hh>0 & !is.na(dat$malnourished5hh)))] <- 1
 # 
 # replace undernutritionhh=0 if undernutritionhh==. & malnourishedwhh==0 & malnourished5hh==. & (whh>0 | hhmember0_5>0) & nc5>0 & nc5<. & nc5==hhmember0_5
+if(length(which(is.na(dat$undernutritionhh) & dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$nc5==dat$hhmember0_5))>0){
+  dat$undernutritionhh[which(is.na(dat$undernutritionhh) & dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$nc5==dat$hhmember0_5)] <- 0
+}
 # replace undernutritionhh=0 if undernutritionhh==. & malnourishedwhh==0 & malnourished5hh==. & (whh>0 | hhmember0_5>0) & nc5>0 & nc5<. & hhmember0_5>nc5 & (nw_zha/(hhmember0_5-nc5)>=(1/2))
+if(length(which(is.na(dat$undernutritionhh) & dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$hhmember0_5>dat$nc5 & (dat$nw_zha/(dat$hhmember0_5-dat$nc5)>=(1/2))))>0){
+  dat$undernutritionhh[which(is.na(dat$undernutritionhh) & dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$hhmember0_5>dat$nc5 & (dat$nw_zha/(dat$hhmember0_5-dat$nc5)>=(1/2)))] <- 0
+}
 # replace undernutritionhh=0 if undernutritionhh==. & malnourishedwhh==. & malnourished5hh==. & (whh>0 | hhmember0_5>0) & nc5>0 & nc5<. & hhmember0_5>nc5 & (nw_zha/(hhmember0_5-nc5)>=(1/2)) & (nw_bmi>=(1/2)*whh)
+if(length(which(is.na(dat$undernutritionhh) & is.na(dat$malnourishedwhh) & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$hhmember0_5>dat$nc5 & (dat$nw_zha/(dat$hhmember0_5-dat$nc5)>=(1/2)) & (dat$nw_bmi>=(1/2)*dat$whh)))>0){
+  dat$undernutritionhh[which(is.na(dat$undernutritionhh) & is.na(dat$malnourishedwhh) & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$hhmember0_5>dat$nc5 & (dat$nw_zha/(dat$hhmember0_5-dat$nc5)>=(1/2)) & (dat$nw_bmi>=(1/2)*dat$whh))] <- 0
+}
 # 
 # 
 # 
 # ** 2- DEPRIVED IN MORTALITY **
 # 
 # replace children_diedhh=0 if children_diedhh==. & whh==0
+dat$children_diedhh[which(is.na(dat$children_diedhh) & dat$whh==0)] <- 0
 # replace child_died5hh=0 if whh==0 & child_died5hh==.
+dat$child_died5hh[which(is.na(dat$child_died5hh) & dat$whh==0)] <- 0
 # replace child_diedhh=0 if whh==0 & child_diedhh==.
+dat$child_diedhh[which(is.na(dat$child_diedhh) & dat$whh==0)] <- 0
 # 
 # gen mortality5hh=0 if child_died5hh==0
+dat$mortality5hh <- NA
+dat$mortality5hh[which(dat$child_died5hh==0)] <- 0
 # replace mortality5hh=1 if (child_died5hh>=1 & child_died5hh<.)
+dat$mortality5hh[which((dat$child_died5hh>=1 & !is.na(dat$child_died5hh)))] <- 1
+
 # 
 # 
 # /* the mortality indicator uses the available information. If there is a HH where one women lost a kid an another has missing info, the HH is considered deprived in this indicator. */
@@ -1092,9 +1484,11 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # 
 # 
 # gen region = hv024
+dat$region <- dat$hv024
 # 
 # compress
 # sort hv001 hv002 hvidx
+dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # save "Uganda_MPI2_2011.dta", replace
 # 
 # 
@@ -1102,40 +1496,80 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # * NON-ELIGIBLE POPULATION *
 # 
 # gen uno7_14=1 if age>=7 & age<=14
+dat$uno7_14 <- NA
+dat$uno7_14[which(dat$age>=7 & dat$age<=14)] <- 1
 # bys hhid: egen hhmember7_14 = sum(uno7_14)
+hhmember7_14 <- data.table(dat)[,.(hhmember7_14=sum(uno7_14,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,hhmember7_14,by="hhid",all.x=TRUE)
+remove(hhmember7_14)
 # 
 # 
 # gen uno15_49=1 if age>=15 & age<=49 & sex==0
+dat$uno15_49 <- NA
+dat$uno15_49[which(dat$age>=15 & dat$age<=49 & dat$sex==0)] <- 1
 # bys hhid: egen hhmember15_49 = sum(uno15_49)
+hhmember15_49 <- data.table(dat)[,.(hhmember15_49=sum(uno15_49,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,hhmember15_49,by="hhid",all.x=TRUE)
+remove(hhmember15_49)
 # 
 # 
 # capture drop uno0_5 hhmember0_5
+dat$uno0_5 <- NULL
+dat$hhmember0_5 <- NULL
 # gen uno0_5=1 if age<=5
+dat$uno0_5 <- NA
+dat$uno0_5[which(dat$age<=5)] <- 1
 # bys hhid: egen hhmember0_5 = sum(uno0_5)
+hhmember0_5 <- data.table(dat)[,.(hhmember0_5=sum(uno0_5,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,hhmember0_5,by="hhid",all.x=TRUE)
+remove(hhmember0_5)
 # 
 # 
 # gen uno7_14hh=0 if hhmember7_14==0
+dat$uno7_14hh <- NA
+dat$uno7_14hh[which(dat$hhmember7_14==0)] <- 0
 # replace uno7_14hh=1 if hhmember7_14>=1 & hhmember7_14<.
+dat$uno7_14hh[which(dat$hhmember7_14>=1 & !is.na(dat$hhmember7_14))] <- 1
 # 
 # gen uno15_49hh=0 if hhmember15_49==0
+dat$uno15_49hh <- NA
+dat$uno15_49hh[which(dat$hhmember15_49==0)] <- 0
 # replace uno15_49hh=1 if hhmember15_49>=1 & hhmember15_49<.
+dat$uno15_49hh[which(dat$hhmember15_49>=1 & !is.na(dat$hhmember15_49))] <- 1
 # 
 # 
 # gen uno0_5hh=0 if hhmember0_5==0
+dat$uno0_5hh <- NA
+dat$uno0_5hh[which(dat$hhmember0_5==0)] <- 0
 # replace uno0_5hh=1 if hhmember0_5>=1 & hhmember0_5<.
+dat$uno0_5hh[which(dat$hhmember0_5>=1 & !is.na(dat$hhmember0_5))] <- 1
+
 # 
 # * Number of eligible children for anthropometrics
 # egen nch05=sum(hv120), by(hhid)
+nch05 <- data.table(dat)[,.(nch05=sum(hv120,na.rm=TRUE)),by=.(hhid)]
+dat <- merge(dat,nch05,by="hhid",all.x=TRUE)
+remove(nch05)
 # 
 # gen nutrihh=1 if undernutritionhh<. & (malnourished5hh<. | malnourishedwhh<.)
+dat$nutrihh <- NA
+dat$nutrihh[which(!is.na(dat$undernutritionhh) & (!is.na(dat$malnourished5hh) | !is.na(dat$malnourishedwhh)))] <- 1
 # replace nutrihh=3 if undernutritionhh==. & malnourished5hh==. &  malnourishedwhh==. & uno15_49hh==0 & uno0_5hh==0
+dat$nutrihh[which(is.na(dat$undernutritionhh) & is.na(dat$malnourished5hh) &  is.na(dat$malnourishedwhh) & dat$uno15_49hh==0 & dat$uno0_5hh==0)] <- 3
 # replace nutrihh=4 if undernutritionhh==. & malnourished5hh==. &  malnourishedwhh==. & (uno15_49hh==1 | uno0_5hh==1)
+dat$nutrihh[which(is.na(dat$undernutritionhh) & is.na(dat$malnourished5hh) &  is.na(dat$malnourishedwhh) & (dat$uno15_49hh==1 | dat$uno0_5hh==1))] <- 4
 # replace nutrihh=2 if undernutritionhh==. & nutrihh==.
+dat$nutrihh[which(is.na(dat$undernutritionhh) & is.na(dat$nutrihh))] <- 2
 # replace nutrihh=1 if undernutritionhh==0 & (malnourishedwhh==0 & malnourished5hh==. & (whh>0 | hhmember0_5>0) & nc5>0 & nc5<. & nc5==hhmember0_5)
+dat$nutrihh[which(dat$undernutritionhh==0 & (dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$nc5==dat$hhmember0_5))] <- 1
 # replace nutrihh=1 if undernutritionhh==0 & (malnourishedwhh==0 & malnourished5hh==. & (whh>0 | hhmember0_5>0) & nc5>0 & nc5<. & hhmember0_5>nc5 & (nw_zha/(hhmember0_5-nc5)>=(1/2)))
+dat$nutrihh[which(dat$undernutritionhh==0 & (dat$malnourishedwhh==0 & is.na(dat$malnourished5hh) & (dat$whh>0 | dat$hhmember0_5>0) & dat$nc5>0 & !is.na(dat$nc5) & dat$hhmember0_5>dat$nc5 & (dat$nw_zha/(dat$hhmember0_5-dat$nc5)>=(1/2))))] <- 1
 # replace nutrihh=3 if nutrihh==4 & hhmember0_5>0 & nc5==hhmember0_5 & whh==0
+dat$nutrihh[which(dat$nutrihh==4 & dat$hhmember0_5>0 & dat$nc5==dat$hhmember0_5 & dat$whh==0)] <- 3
 # replace nutrihh=2 if nutrihh==4 & missing_bmihh>0 & missing_bmihh<.
+dat$nutrihh[which(dat$nutrihh==4 & dat$missing_bmihh>0 & !is.na(dat$missing_bmihh))] <- 2
 # replace nutrihh=2 if nutrihh==4 & missing_zhahh>0 & missing_zhahh<.
+dat$nutrihh[which(dat$nutrihh==4 & dat$missing_zhahh>0 & !is.na(dat$missing_zhahh))] <- 2
 # 
 # label define nutrihh 1 "HH with nutrition information" 2 "HH with missing information on nutrition" 3 "HH with no eligible population for nutrition (no children 0-5y & no women 15-49y)" 4 "HH with eligible population for nutrition but measures not taken"
 # label values nutrihh nutrihh
@@ -1143,1284 +1577,228 @@ dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # ** the following will take into account men Anthropometrics **
 # 
 # ren undernutritionhh undernutritionhh_old
+names(dat)[which(names(dat)=="undernutritionhh")] <- "undernutritionhh_old"
 # gen undernutritionhh = undernutritionhh_old
+dat$undernutritionhh <- dat$undernutritionhh_old
 # replace undernutritionhh=1 if malnourishedmhh==1
+dat$undernutritionhh[which(dat$malnourishedmhh==1)] <- 1
 # replace undernutritionhh=0 if malnourishedmhh==0 & nutrihh==3
+dat$undernutritionhh[which(dat$malnourishedmhh==0 & dat$nutrihh==3)] <- 0
 # 
 # replace nutrihh=1 if undernutritionhh<. & undernutritionhh_old==.
+dat$nutrihh[which(!is.na(dat$undernutritionhh) & is.na(dat$undernutrition_old))] <- 1
 # 
 # replace undernutritionhh=. if undernutritionhh_old==0 & missing_mbmi_finalhh==1 & undernutritionhh==0
+dat$undernutritionhh[which(dat$undernutritionhh_old==0 & dat$missing_mbmi_finalhh==1 & dat$undernutritionhh==0)] <- NA
 # replace nutrihh=2 if undernutritionhh_old==0 & missing_mbmi_finalhh==1 & undernutritionhh==.
+dat$nutrihh[which(dat$undernutritionhh_old==0 & dat$missing_mbmi_finalhh==1 & is.na(dat$undernutritionhh))] <- 2
 # 
 # * special case
 # replace nutrihh=1 if nutrihh==. & hv001==622 & hv002==15
+dat$nutrihh[which(is.na(dat$nutrihh) & dat$hv001==622 & dat$hv002==15)] <- 1
 # 
 # gen attehh=1 if child_noattendhh<. & uno7_14hh==1
+dat$attehh <- NA
+dat$attehh[which(!is.na(dat$child_noattendhh) & dat$uno7_14==1)] <- 1
 # replace attehh=2 if child_noattendhh==.
+dat$attehh[which(is.na(dat$child_noattendhh))] <- 2
 # replace attehh=3 if child_noattendhh==0 & uno7_14hh==0
+dat$attehh[which(dat$child_noattendhh==0 & dat$uno7_14hh==0)] <- 3
 # replace attehh=1 if attehh==3 & child_6_14hh>0 & child_6_14hh<. & child_7_14hh==0
+dat$attehh[which(dat$attehh==3 & dat$child_6_14hh>0 & !is.na(dat$child_6_14hh) & dat$child_7_14hh==0)] <- 1
 # 
 # label define attehh 1 "HH with attendance information" 2 "HH with missing information on attendance" 3 "HH with no eligible population for attendace (no children 7-14y)"
 # label values attehh attehh
 # 
 # 
 # gen morthh=1 if mortality5hh<. & uno15_49hh==1
+dat$morthh <- NA
+dat$morthh[which(!is.na(dat$mortality5hh) & dat$uno15_49hh==1)] <- 1
 # replace morthh=3 if mortality5hh==0 & uno15_49hh==0
+dat$morthh[which(dat$mortality5hh==0 & dat$uno15_49hh==0)] <- 3
 # replace morthh=4 if mortality5hh==.
+dat$morthh[which(is.na(dat$mortality5hh))] <- 4
 # 
 # label define morthh 1 "HH with mortality information" 2 "HH with missing information on mortality" 3 "HH with no eligible population for mortality (no women 15-49y)" 4 "HH with eligible population for mortality but do not appear in fertility section"
 # label values morthh morthh
 # 
 # replace mortality5hh=0 if mortality5hh==. & merge_women==1
+dat$mortality5hh[which(is.na(dat$mortality5hh) & dat$merge_women==1)] <- 0
 # replace mortality5hh=. if mortality5hh==0 &  whh>(2*nwomen15_49) & nwomen15_49<.
+dat$mortality5hh[which(dat$mortality5hh==0 &  dat$whh>(2*dat$nwomen15_49) & !is.na(dat$nwomen15_49))] <- NA
 # 
 # replace morthh=2 if morthh==1 & mortality5hh==. &  whh>(2*nwomen15_49) & nwomen15_49<.
+dat$morthh[which(dat$morthh==1 & is.na(dat$mortality5hh) &  dat$whh>(2*dat$nwomen15_49) & !is.na(dat$nwomen15_49))] <- 2
 # compress
 # sort hv001 hv002 hvidx
+dat <- dat[order(dat$hv001,dat$hv002,dat$hvidx),]
 # save "Uganda_MPI2_2011.dta", replace
-# 
-# 
-# 
-# 
-# 
-# ** DO FILE FROM OPHI TO COMPUTE MPI **
-# 
-# ***************************************************************************
-# **** Multidimensional Poverty Measure *************************************
-# **** OPHI-HDCA Summer School 2011 *****************************************
-# **** 24 August to 3 September 2011 - Delft, the Netherlands ***************
-# ***************************************************************************
-# 
-# ** ADAPTED BY CECILIA ON MAY 2013 **
-# ** Uganda 2011 **
-# 
-# 
-# 
-# clear
-# set more off
-# set maxvar 10000
-# set mem 500m
-# cap log close
-# 
-# *** Replace here your path to the dataset***
-# cd "C:\Users\cecilia.calderon\HDRO_MCC\MPI\MPI_new calculations\Uganda 2011_DHS\"
-# 
-# *** Replace here the name of your dataset***
-# capture log close
-# log using "M0_dofile_Uganda2011_MPI2.log", text replace
-# use "Uganda_MPI2_2011.dta", clear
-# keep if hv042==1
-# 
-# 
-# *********************************************************************************
-# ******* Define the deprivation  matrix   ****************************************
-# *********************************************************************************
-# 
-# *** The dataset can be interpreted as the matrix of achivemnts 
-# *** We will now crate the deprivation matrix based on the indicator definition; and deprivation cut-off defined by you
-# *** during the last working session on the normative Issues in Multidimensional Poverty Measure
-# *** In order to do this, we will generate a new variable for each indicator contained in our measure
-# *** This will identify with 0 individuals or households who are not deprived in the specific indicator
-# *** and identify with 1 individual deprived in the specific indicator.
-# *** Note that you will need to replace with dot "." if the information is missing or inconsistent. 
-# *** We will assess later the frequency of missing values.
-# 
-# 
-# ** DEPRIVED IN DRINKING WATER
-# ** (the individual -HH- is considered deprived in drinking water is: unprotected well, spring, river/lake/pond or other)
-# 
-# /*lookfor water
-# codebook b2q12, tab(20)
-# gen d_dwater=(b2q12==5 | b2q12==6 | b2q12==7 | b2q12==8)
-# replace d_dwater=. if b2q12==.
-# tab b2q12 d_dwater [aw=weight], miss
-# label variable d_dwater "Deprived in drinking water"ic*/
-# 
-# ** Please follow the same logic for all indicators. 
-# ** Note that for advance indicator you may have to use more complex algorithms
-# 
-# *****************************************************************************
-# ********  Create a local variable with all your indicators          *********
-# *****************************************************************************
-# 
-# local varlist_pov electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv educ_depriv child_noattendhh undernutritionhh mortality5hh
-# 
-# 
-# 
-# *****************************************************************************
-# ****            Define the weights              *****************************
-# *****************************************************************************
-# ** Create a loop for the variables with the same weight *********************
-# *****************************************************************************
-# 
-# 
+save(dat,file="UG_MPI.RData")
+# install.packages("haven")
+library(haven)
+write_dta(dat,"D:/Documents/Data/MPI/Uganda_MPI2_2011.dta",version=12)
+
+load("C:/Users/alexm/Documents/Rwork/UG_MPI.RData")
+library(Hmisc)
+dat <- subset(dat,hv042==1)
+psum <- function(...,na.rm=FALSE) { 
+  rowSums(do.call(cbind,list(...)),na.rm=na.rm) } 
+
 # egen ls=rowmiss(electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv)
+dat$ls = psum(
+    is.na(dat$electricity_depriv)
+    ,is.na(dat$sanitation_depriv)
+    ,is.na(dat$water_depriv)
+    ,is.na(dat$floor_depriv)
+    ,is.na(dat$cookingfuel_depriv)
+    ,is.na(dat$asset_depriv)
+)
+varlist_pov <- c(
+  "electricity_depriv"
+  ,"sanitation_depriv"
+  ,"water_depriv"
+  ,"floor_depriv"
+  ,"cookingfuel_depriv"
+  ,"asset_depriv"
+  ,"educ_depriv"
+  ,"child_noattendhh"
+  ,"undernutritionhh"
+  ,"mortality5hh"
+)
+
 # 
-# 
-# gen hh_missing=0
-# replace hh_missing=1 if educ_depriv==. | nutrihh==2 | attehh==2 | morthh==2 | (ls>0 & ls<.)
 # 
 # foreach var in electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv {
-# gen w_`var'=1/18 if ls==0
-# *replace w_`var'=1/12 if ls==1
+#   gen w_`var'=1/18 if ls==0
 # }
-# 
-# /*foreach var in electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv {
-# replace `var'=0 if `var'==. & ls==1
-# }*/
-# /*foreach var in mortality5hh undernutritionhh child_noattendhh educ_depriv {
-# local w_`var'=1/6
-# }*/
-# 
-# 
+for(var in varlist_pov){
+  varname <- paste0("w_",var)
+  dat[,varname] <- NA
+  dat[,varname][which(dat$ls==0)] <- (1/18)
+}
+
 # gen w_mortality5hh = 1/6 if morthh==1 & nutrihh==1
+dat$w_mortality5hh <- NA
+dat$w_mortality5hh[which(dat$morthh==1 & dat$nutrihh==1)] <- (1/6)
 # replace w_mortality5hh = 1/3 if morthh==1 & nutrihh==3
+dat$w_mortality5hh[which(dat$morthh==1 & dat$nutrihh==3)] <- (1/3)
 # replace w_mortality5hh = 0 if morthh==3 & nutrihh==1
+dat$w_mortality5hh[which(dat$morthh==3 & dat$nutrihh==1)] <- 0
 # 
 # gen w_undernutritionhh = 1/6 if morthh==1 & nutrihh==1
+dat$w_undernutritionhh <- NA
+dat$w_undernutritionhh[which(dat$morthh==1 & dat$nutrihh==1)] <- (1/6)
 # replace w_undernutritionhh = 1/3 if morthh==3 & nutrihh==1
+dat$w_undernutritionhh[which(dat$morthh==3 & dat$nutrihh==1)] <- (1/3)
 # replace w_undernutritionhh = 0 if morthh==1 & nutrihh==3
+dat$w_undernutritionhh[which(dat$morthh==1 & dat$nutrihh==3)] <- 0
 # 
 # 
 # 
 # gen w_child_noattendhh = 1/6 if attehh==1 | attehh==3
+dat$w_child_noattendhh <- NA
+dat$w_child_noattendhh[which(dat$attehh==1 | dat$attehh==3)] <- (1/6)
 # 
 # gen w_educ_depriv = 1/6 if educ_depriv<.
-# 
-# 
-# 
-# *******************************************************************
-# *********     Define the weigthed deprivation g0* matrix       ****
-# *******************************************************************
-# 
+dat$w_educ_depriv = NA
+dat$w_educ_depriv[which(!is.na(dat$educ_depriv))] <- (1/6)
+
 # foreach var in `varlist_pov' {
 # gen wg0_`var' = `var'*w_`var'
 # }
-# 
-# ******************************************************************************
-# *********** Compute the frequency of missing values for indicator ************
-# ******************************************************************************
-# 
-# foreach var in `varlist_pov' {
-# gen `var'_miss=1 if `var'==.
-# replace `var'_miss=0 if `var'!=.
-# }
-# 
-# sum *_miss
-# 
-# 
-# ********************************************************************************
-# *************   Define the (weighted) deprivation count vector "ci" ************
-# ********************************************************************************
-# 
-# egen ci=rsum(wg0_*)
-# label variable ci "Deprivation Count"
-# 
-# egen n_missing=rowmiss(wg0_*)
-# label variable n_missing "Number of missing variables by individual"
-# gen missing=(n_missing>0)
-# label variable missing "Individual with missing variables"
-# 
-# *** Check sample drop due to missing values
-# tab missing
-# 
-# *******************************************************************************
-# ***** Create de identification vector (poor/non poor) *************************
-# ***** and compute individual average of deprivation ***************************
-# *******************************************************************************
-# 
-# forvalues x=1(1)10 {
-# gen h_`x'0p=(ci>=`x'/10) 
-# replace h_`x'0p=. if missing==1
-# gen a_`x'0p=(ci) if h_`x'0p==1
-# replace a_`x'0p=. if missing==1
-# label var h_`x'0p "Condition of Multidimensional Poverty  k=`x'"
-# label var a_`x'0p "Individual Average deprivation  k=`x'"
-# }
-# 
-# sum h_10p-a_100p [aw=weight]
-# 
-# 
-# 
-# gen h_33p=(ci>=3.33/10) 
-# replace h_33p=. if missing==1
-# gen a_33p=(ci) if h_33p==1
-# replace a_33p=. if missing==1
-# label var h_33p "Condition of Multidimensional Poverty  k=33.3"
-# label var a_33p "Individual Average deprivation  k=33.3"
-# 
-# sum h_33p a_33p [aw=weight]
-# 
-# 
-# 
-# 
-# ********************************************************************************
-#   ******* Compute raw headcounts        ******************************************
-#   ********************************************************************************
-#   
-#   foreach var in `varlist_pov' {
-# gen `var'_raw=(`var')
-#                 replace `var'_raw=. if missing==1
-# }
-# 
-# su *_raw  [iw=weight]
-# 
-# ******************************************************************************
-#   *********** Compute Censored headcount and censored headocunt ****************
-#   ******************************************************************************
-#   ***** Please define in the first line your poverty cutoff, the example shows k=33.3 is 33.3%
-# 
-# local k=1/3
-# foreach var in `varlist_pov' {
-# *gen `var'_CH_`k'=(`var'==1 & h_`k'==1)
-# *replace `var'_CH_`k'=. if missing==1
-# 
-# gen `var'_CH_33=(`var'==1 & h_33==1)
-#                   replace `var'_CH_33=. if missing==1
-#                   
-# }
-# 
-# sum electricity_depriv_CH_33-educ_depriv_CH_33 [iw=weight]
-# sum h_33 a_33 [iw=weight]
-# 
-# *h = HC
-# *a = intensity
-# 
-# 
-# 
-# 
-# capture drop cedu chealth cls
-# 
-# scalar drop _all
-# 
-# 
-# 
-# gen cedu = (child_noattendhh_CH_33 *  w_child_noattendhh) + (educ_depriv_CH_33 * w_educ_depriv)
-# sum cedu [iw=weight]
-# scalar mpi_edu=r(mean)
-# 
-# 
-# gen chealth = (mortality5hh_CH_33 * w_mortality5hh) + (undernutritionhh_CH_33 * w_undernutritionhh)
-# sum chealth [iw=weight]
-# scalar mpi_health=r(mean)
-# 
-# 
-# gen cls = (electricity_depriv_CH_33 * w_electricity_depriv) + (sanitation_depriv_CH_33 * w_sanitation_depriv) + (water_depriv_CH_33 * w_water_depriv) + (floor_depriv_CH_33 * w_floor_depriv) + (cookingfuel_depriv_CH_33 * w_cookingfuel_depriv) + (asset_depriv_CH_33 * w_asset_depriv)
-# sum cls [iw=weight]
-# scalar mpi_ls=r(mean)
-# 
-# 
-# sum a_33p [iw=weight]
-# scalar intensity = r(mean)
-# sum h_33p [iw=weight]
-# scalar headcount = r(mean)
-# 
-# 
-# scalar mpi=headcount*intensity
-# 
-# scalar headcount100=headcount*100
-# scalar intensity100=intensity*100
-# 
-# 
-# scalar edu_contrib = (mpi_edu/mpi)*100
-# scalar health_contrib = (mpi_health/mpi)*100
-# scalar ls_contrib = (mpi_ls/mpi)*100
-# 
-# 
-# capture drop uno
-# gen uno=1 if h_33p<.
-# 
-# sum uno [aw=weight] if h_33p<.
-# scalar pop=r(sum_w)
-# 
-# sum uno [aw=weight] if h_33p<. & ci>0 & ci<(1/3)
-# scalar pop_vuln0=r(sum_w)
-# 
-# sum uno [aw=weight] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar pop_vuln20=r(sum_w)
-# 
-# sum uno [aw=weight] if h_33p<. & ci>=0.5
-# scalar pop_severe=r(sum_w)
-# 
-# scalar vulnerable0=(pop_vuln0/pop)*100
-# scalar vulnerable20=(pop_vuln20/pop)*100
-# scalar severity=(pop_severe/pop)*100
-# 
-# 
-# * Sample size
-# 
-# * HHs
-# capture drop hh
-# egen hh=group(hv001 hv002)
-# sort age
-# bys hh: gen n=_n
-# gen nhh=1 if n==1
-# 
-# * Individuals
-# 
-# capture drop uno
-# gen uno=1
-# 
-# sum uno 
-# scalar ind_sample_tot=r(N)
-# sum uno if h_33p<.
-# scalar ind_sample_used=r(N)
-# 
-# sum uno [w=weight] if h_33p<.
-# scalar ind_sample_used_w=r(sum)
-# 
-# 
-# sum nhh
-# scalar hh_sample_tot=r(N)
-# sum nhh if h_33p<.
-# scalar hh_sample_used=r(N)
-# 
-# sum nhh [w=weight] if h_33p<.
-# scalar hh_sample_used_w=r(sum)
-# 
-# * Inequality
-# sum a_33p [aw=weight]
-# scalar cv_ineq_poor = r(sd)/r(mean)
-# 
-# sum ci [aw=weight] if h_33p<.
-# scalar cv_ineq_hc = r(sd)/r(mean)
-# 
-# sum ci [aw=weight] if h_33p<. & ci>0
-# scalar cv_ineq_positive = r(sd)/r(mean)
-# 
-# * CONTRIBUTION OF EACH DIMENSION FOR THE VULNERABLE POEPLE
-# 
-# foreach var in `varlist_pov' {
-# gen `var'_CH_33vu=0 if h_33p<. & ci>=0.2 & ci<(1/3)
-# replace `var'_CH_33vu=1 if `var'==1 & h_33p<. & ci>=0.2 & ci<(1/3)
-# replace `var'_CH_33vu=. if missing==1
-# }
-# 
-# 
-# 
-# gen ceduvu = (child_noattendhh_CH_33vu * w_child_noattendhh) + (educ_depriv_CH_33vu * w_educ_depriv)
-# sum ceduvu [iw=weight] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_eduvu=r(mean)
-# 
-# 
-# gen chealthvu = (mortality5hh_CH_33vu * w_mortality5hh) + (undernutritionhh_CH_33vu * w_undernutritionhh)
-# sum chealthvu [iw=weight] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_healthvu=r(mean)
-# 
-# 
-# gen clsvu = (asset_depriv_CH_33vu * w_asset_depriv) + (electricity_depriv_CH_33vu * w_electricity_depriv) + (sanitation_depriv_CH_33vu * w_sanitation_depriv) + (water_depriv_CH_33vu * w_water_depriv) + (floor_depriv_CH_33vu * w_floor_depriv) + (cookingfuel_depriv_CH_33vu * w_cookingfuel_depriv)
-# sum clsvu [iw=weight] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_lsvu=r(mean)
-# 
-# sum ci [iw=weight] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar headcountvu = r(mean)
-# 
-# 
-# *scalar mpivu=headcountvu*intensityvu
-# 
-# scalar headcountvu100=headcountvu*100
-# *scalar intensityvu100=intensityvu*100
-# 
-# 
-# scalar edu_contribvu = (mpi_eduvu/headcountvu100)*10000
-# scalar health_contribvu = (mpi_healthvu/headcountvu100)*10000
-# scalar ls_contribvu = (mpi_lsvu/headcountvu100)*10000
-# 
-# 
-# scalar list mpi headcount100 intensity100 vulnerable0 vulnerable20 severity edu_contrib health_contrib ls_contrib edu_contribvu health_contribvu ls_contribvu cv_ineq_poor cv_ineq_positive cv_ineq_hc hh_sample_tot hh_sample_used hh_sample_used_w ind_sample_tot ind_sample_used ind_sample_used_w
-# 
-# 
-# gen sample6y=1 if h_33p<.
-# 
-# gen ineligible=0
-# replace ineligible=1 if (whh==0 & hhmember0_5==0) | (whh==0 & hhmember0_5>0 & hhmember0_5==nc5 & nutrihh==3)
-# 
-# 
-# *gen sample_all=1 if (sample6y==. & (nutrihh==1 | nutrihh==2 | nutrihh==3)) | sample6y==1
-# *replace sample_all=. if sample_all==1 & morthh==4 & hv010==0 & sample_original==.
-# gen sample_all=1
-# 
-# sort hv001 hv002 hvidx
-# save "Uganda_MPI2_2011_final.dta", replace
-# 
-# capture log close
-# 
-# 
-# 
-# ********************
-#   *** RE-WEIGHTING ***
-#   ********************
-#   clear
-# 
-# use "Uganda_MPI2_2011_final.dta", clear
-# keep if hv042==1
-# 
-# 
-# gen age_group=1 if age>=0 & age<=5
-# replace age_group=2 if age>=6 & age<=14
-# replace age_group=3 if age>=15 & age<=49
-# replace age_group=4 if age>=50 & age<.
-# 
-# set more off
-# scalar drop _all
-# 
-# forvalues a=1(1)4 {
-#   forvalues s=0(1)1 {
-#     forvalues u=0(1)1 {
-#       
-#       sum sample_all [w=weight] if age_group==`a' & sex==`s' & urban==`u'
-#       scalar sample_`a'_`s'_`u' = r(sum_w)
-#       
-#     }
-#   }
-# }
-# 
-# 
-# ***************************************************************************
-#   **** MISSING IN THE 3 VARIABLES (we don't observe sex, age and urban) *****
-#                                    ***************************************************************************
-#                                    
-#                                    sum sample_all [w=weight] if (sex==. & urb==. & age_g==.) | (sex<. & urb<. & age_g<.)
-#                                    scalar sample_mnm = r(sum_w)
-#                                    sum sample_all [w=weight] if (sex<. & urb<. & age_g<.)
-#                                    scalar sample_nm = r(sum_w)
-#                                    
-#                                    
-#                                    scalar ratio_all = sample_mnm / sample_nm
-#                                    
-#                                    forvalues a=1(1)4 {
-#                                    forvalues s=0(1)1 {
-#                                    forvalues u=0(1)1 {
-#                                    
-#                                    scalar sample_nm_`a'_`s'_`u' = ratio_all * sample_`a'_`s'_`u'
-#                                    
-#                                    }
-#                                    }
-#                                    }
-#                                    
-#                                    
-#                                    **************************************************************************************
-#                                    **** MPI SAMPLE MISSING IN THE 3 VARIABLES (we don't observe sex, age and urban) *****
-#   **************************************************************************************
-#   
-#   * NEW MPI SAMPLE
-# 
-# forvalues a=1(1)4 {
-#   forvalues s=0(1)1 {
-#     forvalues u=0(1)1 {
-#       
-#       sum sample_all [w=weight] if age_group==`a' & sex==`s' & urban==`u' & sample6y==1
-#       scalar sample_`a'_`s'_`u'_6y = r(sum_w)
-#       
-#     }
-#   }
-# }
-# 
-# sum sample_all [w=weight] if sample6y==1 & ((sex==. & urb==. & age_g==.) | (sex<. & urb<. & age_g<.))
-# scalar sample_mnm_6y = r(sum_w)
-# sum sample_all [w=weight] if (sex<. & urb<. & age_g<.) & sample6y==1
-# scalar sample_nm_6y = r(sum_w)
-# 
-# 
-# scalar ratio_all_6y = sample_mnm_6y / sample_nm_6y
-# 
-# forvalues a=1(1)4 {
-#   forvalues s=0(1)1 {
-#     forvalues u=0(1)1 {
-#       
-#       scalar sample_nm_`a'_`s'_`u'_6y = ratio_all_6y * sample_`a'_`s'_`u'_6y
-#       
-#     }
-#   }
-# }
-# 
-# 
-# **************************************************************************************
-#   **** MISSING IN TWO VARIABLES AT A TIME (we only observe one: sex, age or urban) *****
-#   **************************************************************************************
-#   
-#   * ONLY OBSERVE SEX
-# forvalues s = 0(1)1 {
-#   sum sample_all [w=weight] if sex==`s' & (sex<. & urb==. & age_g==.)
-#   scalar sample_m_`s's_onlysex = r(sum_w)
-#   
-#   sum sample6y [w=weight] if sex==`s' & (sex<. & urb==. & age_g==.)
-#   scalar sample_m_`s's_onlysex_6y = r(sum_w)
-# }
-# 
-# 
-# forvalues s = 0(1)1 {
-#   scalar samplenew_`s's = sample_nm_4_`s'_1 + sample_nm_4_`s'_0 + sample_nm_3_`s'_1 + sample_nm_3_`s'_0 + sample_nm_2_`s'_1 + sample_nm_2_`s'_0 + sample_nm_1_`s'_1 + sample_nm_1_`s'_0
-#   
-#   scalar samplenew_`s's_onlysex = samplenew_`s's + sample_m_`s's_onlysex
-#   
-#   
-#   scalar samplenew_`s's_6y = sample_nm_4_`s'_1_6y + sample_nm_4_`s'_0_6y + sample_nm_3_`s'_1_6y + sample_nm_3_`s'_0_6y + sample_nm_2_`s'_1_6y + sample_nm_2_`s'_0_6y + sample_nm_1_`s'_1_6y + sample_nm_1_`s'_0_6y
-#   
-#   scalar samplenew_`s's_onlysex_6y = samplenew_`s's_6y + sample_m_`s's_onlysex_6y
-# }
-# 
-# 
-# forvalues s = 0(1)1 {
-#   scalar ratio_`s's_onlysex = samplenew_`s's_onlysex / samplenew_`s's
-#   scalar ratio_`s's_onlysex_6y = samplenew_`s's_onlysex_6y / samplenew_`s's_6y
-# }
-# 
-# forvalues a=1(1)4 {
-#   forvalues s=0(1)1 {
-#     forvalues u=0(1)1 {
-#       
-#       scalar sample_onlysex_`a'a_`s's_`u'u_all = sample_nm_`a'_`s'_`u' * ratio_`s's_onlysex
-#       scalar sample_onlysex_`a'a_`s's_`u'u_6y = sample_nm_`a'_`s'_`u'_6y * ratio_`s's_onlysex_6y
-#       
-#     }
-#   }
-#   }
-# 
-# * ONLY OBSERVE AGE
-# forvalues a = 1(1)4 {
-#   sum sample_all [w=weight] if age_g==`a' & (sex==. & urb==. & age_g<.)
-#   scalar sample_m_`a'a_onlyage = r(sum_w)
-#   
-#   sum sample6y [w=weight] if age_g==`a' & (sex==. & urb==. & age_g<.)
-#   scalar sample_m_`a'a_onlyage_6y = r(sum_w)
-# }
-# 
-# 
-# forvalues a = 1(1)4 {
-#   scalar samplenew_`a'a = sample_onlysex_`a'a_1s_1u_all + sample_onlysex_`a'a_1s_0u_all + sample_onlysex_`a'a_0s_1u_all + sample_onlysex_`a'a_0s_0u_all
-#   
-#   scalar samplenew_`a'a_onlyage = samplenew_`a'a + sample_m_`a'a_onlyage
-#   
-#   
-#   scalar samplenew_`a'a_6y = sample_onlysex_`a'a_1s_1u_6y + sample_onlysex_`a'a_1s_0u_6y + sample_onlysex_`a'a_0s_1u_6y + sample_onlysex_`a'a_0s_0u_6y
-#   
-#   scalar samplenew_`a'a_onlyage_6y = samplenew_`a'a_6y + sample_m_`a'a_onlyage_6y
-# }
-# 
-# 
-# forvalues a = 1(1)4 {
-# scalar ratio_`a'a_onlyage = samplenew_`a'a_onlyage / samplenew_`a'a
-# scalar ratio_`a'a_onlyage_6y = samplenew_`a'a_onlyage_6y / samplenew_`a'a_6y
-# }
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar sample_onlyage_`a'a_`s's_`u'u_all = sample_onlysex_`a'a_`s's_`u'u_all * ratio_`a'a_onlyage
-# scalar sample_onlyage_`a'a_`s's_`u'u_6y = sample_onlysex_`a'a_`s's_`u'u_6y * ratio_`a'a_onlyage_6y
-# 
-# }
-# }
-# }
-# 
-# * ONLY OBSERVE URBAN
-# forvalues u = 0(1)1 {
-# sum sample_all [w=weight] if urban==`u' & (sex==. & urb<. & age_g==.)
-# scalar sample_m_`u'u_onlyurb = r(sum_w)
-# 
-# sum sample6y [w=weight] if urban==`u' & (sex==. & urb<. & age_g==.)
-# scalar sample_m_`u'u_onlyurb_6y = r(sum_w)
-# }
-# 
-# 
-# forvalues u = 0(1)1 {
-# scalar samplenew_`u'u = sample_onlyage_4a_1s_`u'u_all + sample_onlyage_4a_0s_`u'u_all + sample_onlyage_3a_1s_`u'u_all + sample_onlyage_3a_0s_`u'u_all + sample_onlyage_2a_1s_`u'u_all + sample_onlyage_2a_0s_`u'u_all + sample_onlyage_1a_1s_`u'u_all + sample_onlyage_1a_0s_`u'u_all
-# 
-# scalar samplenew_`u'u_onlyurb = samplenew_`u'u + sample_m_`u'u_onlyurb
-# 
-# 
-# scalar samplenew_`u'u_6y = sample_onlyage_4a_1s_`u'u_6y + sample_onlyage_4a_0s_`u'u_6y + sample_onlyage_3a_1s_`u'u_6y + sample_onlyage_3a_0s_`u'u_6y + sample_onlyage_2a_1s_`u'u_6y + sample_onlyage_2a_0s_`u'u_6y + sample_onlyage_1a_1s_`u'u_6y + sample_onlyage_1a_0s_`u'u_6y
-# 
-# scalar samplenew_`u'u_onlyurb_6y = samplenew_`u'u_6y + sample_m_`u'u_onlyurb_6y
-# }
-# 
-# 
-# forvalues u = 0(1)1 {
-# scalar ratio_`u'u_onlyurb = samplenew_`u'u_onlyurb / samplenew_`u'u
-# scalar ratio_`u'u_onlyurb_6y = samplenew_`u'u_onlyurb_6y / samplenew_`u'u_6y
-# }
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar sample_onlyurb_`a'a_`s's_`u'u_all = sample_onlyage_`a'a_`s's_`u'u_all * ratio_`u'u_onlyurb
-# scalar sample_onlyurb_`a'a_`s's_`u'u_6y = sample_onlyage_`a'a_`s's_`u'u_6y * ratio_`u'u_onlyurb_6y
-# 
-# }
-# }
-# }
-# 
-# 
-# ***********************************************************************
-# **** MISSING IN ONE VARIABLE AT A TIME (either sex, age or urban) *****
-# ***********************************************************************
-# * missing sex
-# forvalues a=1(1)4 {
-# forvalues u=0(1)1 {
-# 
-# sum sample_all [w=weight] if age_group==`a' & urban==`u' & (sex==. & age_g<. & urban<.)
-# scalar sample_m_`a'a_`u'u = r(sum_w)
-# 
-# sum sample6y [w=weight] if age_group==`a' & urban==`u' & (sex==. & age_g<. & urban<.)
-# scalar sample_m_`a'a_`u'u_6y = r(sum_w)
-# 
-# }
-# }
-# 
-# * SEX MISSING: COLLAPSE THE 16 GROUPS INTO 8 GROUPS (AGE-URBAN)
-# forvalues a=1(1)4 {
-# forvalues u=0(1)1 {
-# 
-# scalar samplenew_`a'a_`u'u = sample_onlyurb_`a'a_1s_`u'u_all + sample_onlyurb_`a'a_0s_`u'u_all
-# scalar samplenew_`a'a_`u'u_sexm = samplenew_`a'a_`u'u + sample_m_`a'a_`u'u
-# 
-# scalar samplenew_`a'a_`u'u_6y = sample_onlyurb_`a'a_1s_`u'u_6y + sample_onlyurb_`a'a_0s_`u'u_6y
-# scalar samplenew_`a'a_`u'u_sexm_6y = samplenew_`a'a_`u'u_6y + sample_m_`a'a_`u'u_6y
-# 
-# }
-# }
-# 
-# 
-# forvalues a=1(1)4 {
-# forvalues u = 0(1)1 {
-# scalar ratio_`a'a_`u'u = samplenew_`a'a_`u'u_sexm / samplenew_`a'a_`u'u
-# scalar ratio_`a'a_`u'u_6y = samplenew_`a'a_`u'u_sexm_6y / samplenew_`a'a_`u'u_6y
-# }
-# }
-# 
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar sample_sexmis_`a'a_`s's_`u'u_all = sample_onlyurb_`a'a_`s's_`u'u_all * ratio_`a'a_`u'u
-# scalar sample_sexmis_`a'a_`s's_`u'u_6y = sample_onlyurb_`a'a_`s's_`u'u_6y * ratio_`a'a_`u'u_6y
-# 
-# }
-# }
-# }
-# 
-# 
-# * missing age
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# sum sample_all [w=weight] if sex==`s' & urban==`u' & (sex<. & age_g==. & urban<.)
-# scalar sample_m_`s's_`u'u = r(sum_w)
-# 
-# sum sample6y [w=weight] if sex==`s' & urban==`u' & (sex<. & age_g==. & urban<.)
-# scalar sample_m_`s's_`u'u_6y = r(sum_w)
-# 
-# }
-# }
-# 
-# 
-# * AGE MISSING: COLLAPSE THE 16 GROUPS INTO 4 GROUPS (SEX-URBAN)
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar samplenew_`s's_`u'u = sample_sexmis_4a_`s's_`u'u_all + sample_sexmis_3a_`s's_`u'u_all + sample_sexmis_2a_`s's_`u'u_all + sample_sexmis_1a_`s's_`u'u_all
-# scalar samplenew_`s's_`u'u_agem = samplenew_`s's_`u'u + sample_m_`s's_`u'u
-# 
-# scalar samplenew_`s's_`u'u_6y = sample_sexmis_4a_`s's_`u'u_6y + sample_sexmis_3a_`s's_`u'u_6y + sample_sexmis_2a_`s's_`u'u_6y + sample_sexmis_1a_`s's_`u'u_6y
-# scalar samplenew_`s's_`u'u_agem_6y = samplenew_`s's_`u'u_6y + sample_m_`s's_`u'u_6y
-# 
-# }
-# }
-# 
-# 
-# forvalues s=0(1)1 {
-# forvalues u = 0(1)1 {
-# scalar ratio_`s's_`u'u = samplenew_`s's_`u'u_agem / samplenew_`s's_`u'u
-# scalar ratio_`s's_`u'u_6y = samplenew_`s's_`u'u_agem_6y / samplenew_`s's_`u'u_6y
-# }
-# }
-# 
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar sample_agemis_`a'a_`s's_`u'u_all = sample_sexmis_`a'a_`s's_`u'u_all * ratio_`s's_`u'u
-# scalar sample_agemis_`a'a_`s's_`u'u_6y = sample_sexmis_`a'a_`s's_`u'u_6y * ratio_`s's_`u'u_6y
-# 
-# }
-# }
-# }
-# 
-# 
-# 
-# * missing urban
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# 
-# sum sample_all [w=weight] if age_g==`a' & sex==`s' & (sex<. & age_g<. & urban==.)
-# scalar sample_m_`a'a_`s's = r(sum_w)
-# 
-# sum sample6y [w=weight] if age_g==`a' & sex==`s' & (sex<. & age_g<. & urban==.)
-# scalar sample_m_`a'a_`s's_6y = r(sum_w)
-# 
-# }
-# }
-# 
-# 
-# * URBAN MISSING: COLLAPSE THE 16 GROUPS INTO 8 GROUPS (AGE-SEX)
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# 
-# scalar samplenew_`a'a_`s's = sample_agemis_`a'a_`s's_1u_all + sample_agemis_`a'a_`s's_0u_all
-# scalar samplenew_`a'a_`s's_urbm = samplenew_`a'a_`s's + sample_m_`a'a_`s's
-# 
-# scalar samplenew_`a'a_`s's_6y = sample_agemis_`a'a_`s's_1u_6y + sample_agemis_`a'a_`s's_0u_6y
-# scalar samplenew_`a'a_`s's_urbm_6y = samplenew_`a'a_`s's_6y + sample_m_`a'a_`s's_6y
-# 
-# }
-# }
-# 
-# 
-# forvalues a=1(1)4 {
-# forvalues s = 0(1)1 {
-# scalar ratio_`a'a_`s's = samplenew_`a'a_`s's_urbm / samplenew_`a'a_`s's
-# scalar ratio_`a'a_`s's_6y = samplenew_`a'a_`s's_urbm_6y / samplenew_`a'a_`s's_6y
-# }
-# }
-# 
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# 
-# scalar sample_urbmis_`a'a_`s's_`u'u_all = sample_agemis_`a'a_`s's_`u'u_all * ratio_`a'a_`s's
-# scalar sample_urbmis_`a'a_`s's_`u'u_6y = sample_agemis_`a'a_`s's_`u'u_6y * ratio_`a'a_`s's_6y
-# 
-# }
-# }
-# }
-# 
-# **********************************************************************
-# *** CORRECTING THE ORIGINAL WEIGHTS FOR EVERYONE IN THE MPI SAMPLE ***
-# **********************************************************************
-# 
-# * COLLAPSE THE CORRECTED CELLS INTO DIFFERENT GROUPS ACCORDING TO THEIR MISSINGS TO CORRECT THE WEIGHTS OF THE OBSERVATIONS IN THE MPI SAMPLE WITH MISSINGS IN AGE, SEX AND OR URBAN
-# 
-# 
-# * SEX, AGE AND URBAN MISSING
-# scalar total_all = sample_urbmis_4a_1s_1u_all + sample_urbmis_4a_1s_0u_all + sample_urbmis_4a_0s_1u_all + sample_urbmis_4a_0s_0u_all + sample_urbmis_3a_1s_1u_all + sample_urbmis_3a_1s_0u_all + sample_urbmis_3a_0s_1u_all + sample_urbmis_3a_0s_0u_all + sample_urbmis_2a_1s_1u_all + sample_urbmis_2a_1s_0u_all + sample_urbmis_2a_0s_1u_all + sample_urbmis_2a_0s_0u_all + sample_urbmis_1a_1s_1u_all + sample_urbmis_1a_1s_0u_all + sample_urbmis_1a_0s_1u_all + sample_urbmis_1a_0s_0u_all
-# 
-# scalar total_6y = sample_urbmis_4a_1s_1u_6y + sample_urbmis_4a_1s_0u_6y + sample_urbmis_4a_0s_1u_6y + sample_urbmis_4a_0s_0u_6y + sample_urbmis_3a_1s_1u_6y + sample_urbmis_3a_1s_0u_6y + sample_urbmis_3a_0s_1u_6y + sample_urbmis_3a_0s_0u_6y + sample_urbmis_2a_1s_1u_6y + sample_urbmis_2a_1s_0u_6y + sample_urbmis_2a_0s_1u_6y + sample_urbmis_2a_0s_0u_6y + sample_urbmis_1a_1s_1u_6y + sample_urbmis_1a_1s_0u_6y + sample_urbmis_1a_0s_1u_6y + sample_urbmis_1a_0s_0u_6y
-# 
-# scalar ratio_total = total_all / total_6y
-# 
-# 
-# * ONLY OBSERVE SEX
-# forvalues s = 0(1)1 {
-# scalar total_sex`s'_all = sample_urbmis_4a_`s's_1u_all + sample_urbmis_4a_`s's_0u_all + sample_urbmis_3a_`s's_1u_all + sample_urbmis_3a_`s's_0u_all + sample_urbmis_2a_`s's_1u_all + sample_urbmis_2a_`s's_0u_all + sample_urbmis_1a_`s's_1u_all + sample_urbmis_1a_`s's_0u_all
-# 
-# scalar total_sex`s'_6y = sample_urbmis_4a_`s's_1u_6y + sample_urbmis_4a_`s's_0u_6y + sample_urbmis_3a_`s's_1u_6y + sample_urbmis_3a_`s's_0u_6y + sample_urbmis_2a_`s's_1u_6y + sample_urbmis_2a_`s's_0u_6y + sample_urbmis_1a_`s's_1u_6y + sample_urbmis_1a_`s's_0u_6y
-# 
-# scalar ratio_total_sex`s' = total_sex`s'_all / total_sex`s'_6y
-# }
-# 
-# * ONLY OBSERVE AGE
-# forvalues a = 1(1)4 {
-# scalar total_age`a'_all = sample_urbmis_`a'a_1s_1u_all + sample_urbmis_`a'a_1s_0u_all + sample_urbmis_`a'a_0s_1u_all + sample_urbmis_`a'a_0s_0u_all
-# 
-# scalar total_age`a'_6y = sample_urbmis_`a'a_1s_1u_6y + sample_urbmis_`a'a_1s_0u_6y + sample_urbmis_`a'a_0s_1u_6y + sample_urbmis_`a'a_0s_0u_6y
-# 
-# scalar ratio_total_age`a' = total_age`a'_all / total_age`a'_6y
-# }
-# 
-# * ONLY OBSERVE URBAN
-# forvalues u = 0(1)1 {
-# scalar total_urb`u'_all = sample_urbmis_4a_1s_`u'u_all + sample_urbmis_4a_0s_`u'u_all + sample_urbmis_3a_1s_`u'u_all + sample_urbmis_3a_0s_`u'u_all + sample_urbmis_2a_1s_`u'u_all + sample_urbmis_2a_0s_`u'u_all + sample_urbmis_1a_1s_`u'u_all + sample_urbmis_1a_0s_`u'u_all
-# 
-# scalar total_urb`u'_6y = sample_urbmis_4a_1s_`u'u_6y + sample_urbmis_4a_0s_`u'u_6y + sample_urbmis_3a_1s_`u'u_6y + sample_urbmis_3a_0s_`u'u_6y + sample_urbmis_2a_1s_`u'u_6y + sample_urbmis_2a_0s_`u'u_6y + sample_urbmis_1a_1s_`u'u_6y + sample_urbmis_1a_0s_`u'u_6y
-# 
-# scalar ratio_total_urb`u' = total_urb`u'_all / total_urb`u'_6y
-# }
-# 
-# * SEX MISSING ONLY
-# forvalues a = 1(1)4 {
-# forvalues u = 0(1)1 {
-# 
-# scalar total_sexmis_`a'a_`u'u_all = sample_urbmis_`a'a_1s_`u'u_all + sample_urbmis_`a'a_0s_`u'u_all
-# 
-# scalar total_sexmis_`a'a_`u'u_6y = sample_urbmis_`a'a_1s_`u'u_6y + sample_urbmis_`a'a_0s_`u'u_6y
-# 
-# scalar ratio_total_sexmis_`a'a_`u'u = total_sexmis_`a'a_`u'u_all / total_sexmis_`a'a_`u'u_6y
-# 
-# }
-# }
-# 
-# * AGE MISSING ONLY
-# forvalues s = 0(1)1 {
-# forvalues u = 0(1)1 {
-# 
-# scalar total_agemis_`s's_`u'u_all = sample_urbmis_4a_`s's_`u'u_all + sample_urbmis_3a_`s's_`u'u_all + sample_urbmis_2a_`s's_`u'u_all + sample_urbmis_1a_`s's_`u'u_all
-# 
-# scalar total_agemis_`s's_`u'u_6y = sample_urbmis_4a_`s's_`u'u_6y + sample_urbmis_3a_`s's_`u'u_6y + sample_urbmis_2a_`s's_`u'u_6y + sample_urbmis_1a_`s's_`u'u_6y
-# 
-# scalar ratio_total_agemis_`s's_`u'u = total_agemis_`s's_`u'u_all / total_agemis_`s's_`u'u_6y
-# 
-# }
-# }
-# 
-# * URBAN MISSING ONLY
-# forvalues a = 1(1)4 {
-# forvalues s = 0(1)1 {
-# 
-# scalar total_urbmis_`a'a_`s's_all = sample_urbmis_`a'a_`s's_1u_all + sample_urbmis_`a'a_`s's_0u_all
-# 
-# scalar total_urbmis_`a'a_`s's_6y = sample_urbmis_`a'a_`s's_1u_6y + sample_urbmis_`a'a_`s's_0u_6y
-# 
-# scalar ratio_total_urbmis_`a'a_`s's = total_urbmis_`a'a_`s's_all / total_urbmis_`a'a_`s's_6y
-# 
-# }
-# }
-# 
-# * DEFINE THE RATIOS FOR NON-MISSING VALUES IN SEX, AGE AND URBAN
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# scalar sample_all_`a'_`s'_`u'_w = sample_urbmis_`a'a_`s's_`u'u_all / sample_urbmis_`a'a_`s's_`u'u_6y
-# }
-# }
-# }
-# 
-# capture drop weight_w
-# gen weight_w = weight if sample6y==1 
-# *& age_group<. & sex<. & urban<.
-# 
-# forvalues a=1(1)4 {
-# forvalues s=0(1)1 {
-# forvalues u=0(1)1 {
-# replace weight_w = weight * sample_all_`a'_`s'_`u'_w if age_group==`a' & sex==`s' & urban==`u' & sample6y==1
-# }
-# }
-# }
-# 
-# replace weight_w = weight * ratio_total if sample6y==1 & age_group==. & sex==. & urban==.
-# 
-# forvalues s=0(1)1 {
-# replace weight_w = weight * ratio_total_sex`s' if sample6y==1 & age_group==. & sex==`s' & urban==.
-# }
-# 
-# forvalues a=1(1)4 {
-# replace weight_w = weight * ratio_total_age`a' if sample6y==1 & age_group==`a' & sex==. & urban==.
-# }
-# 
-# forvalues u=0(1)1 {
-# replace weight_w = weight * ratio_total_urb`u' if sample6y==1 & age_group==. & sex==. & urban==`u'
-# }
-# 
-# forvalues a = 1(1)4 {
-# forvalues u = 0(1)1 {
-# replace weight_w = weight * ratio_total_sexmis_`a'a_`u'u if sample6y==1 & age_group==`a' & sex==. & urban==`u'
-# }
-# }
-# 
-# forvalues s = 0(1)1 {
-#   forvalues u = 0(1)1 {
-#     replace weight_w = weight * ratio_total_agemis_`s's_`u'u if sample6y==1 & age_group==. & sex==`s' & urban==`u'
-#   }
-#   }
-#     
-#     forvalues a = 1(1)4 {
-#     forvalues s = 0(1)1 {
-#     replace weight_w = weight * ratio_total_urbmis_`a'a_`s's if sample6y==1 & age_group==`a' & sex==`s' & urban==.
-#     }
-#     }
-# 
-# sort hv001 hv002 hhid
-# 
-# save "Uganda_MPI2_2011_final_w.dta", replace
-# 
-# 
-# * OPEN DATA WITH NEW WEIGHT FOR HH USED IN NEW MPI (CORRECTS FOR THE EXCLUSION OF HHs WITHOUT ELIGIBLE POP)
-# 
-# ** ADAPTED BY CECILIA ON JULY 8 2013 **
-#   ** Uganda 2011 **
-#   
-#   
-#   
-#   clear
-# set more off
-# set maxvar 10000
-# set mem 500m
-# cap log close
-# 
-# *** Replace here your path to the dataset***
-#   cd "C:\Users\cecilia.calderon\HDRO_MCC\MPI\MPI_new calculations\Uganda 2011_DHS\"
-# 
-# *** Replace here the name of your dataset***
-# capture log close
-# log using "M0_dofile_Uganda2011_MPI2_w.log", text replace
-# use "Uganda_MPI2_2011_final_w.dta", clear
-# keep if hv042==1
-# 
-# capture drop ls-uno
-# 
-# *********************************************************************************
-# ******* Define the deprivation  matrix   ****************************************
-# *********************************************************************************
-# 
-# *** The dataset can be interpreted as the matrix of achivemnts 
-# *** We will now crate the deprivation matrix based on the indicator definition; and deprivation cut-off defined by you
-# *** during the last working session on the normative Issues in Multidimensional Poverty Measure
-# *** In order to do this, we will generate a new variable for each indicator contained in our measure
-# *** This will identify with 0 individuals or households who are not deprived in the specific indicator
-# *** and identify with 1 individual deprived in the specific indicator.
-# *** Note that you will need to replace with dot "." if the information is missing or inconsistent. 
-# *** We will assess later the frequency of missing values.
-# 
-# 
-# ** DEPRIVED IN DRINKING WATER
-# ** (the individual -HH- is considered deprived in drinking water is: unprotected well, spring, river/lake/pond or other)
-# 
-# /*lookfor water
-# codebook b2q12, tab(20)
-# gen d_dwater=(b2q12==5 | b2q12==6 | b2q12==7 | b2q12==8)
-# replace d_dwater=. if b2q12==.
-# tab b2q12 d_dwater [aw=weight], miss
-# label variable d_dwater "Deprived in drinking water"ic*/
-# 
-# ** Please follow the same logic for all indicators. 
-# ** Note that for advance indicator you may have to use more complex algorithms
-# 
-# *****************************************************************************
-# ********  Create a local variable with all your indicators          *********
-# *****************************************************************************
-# 
-# local varlist_pov electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv educ_depriv child_noattendhh undernutritionhh mortality5hh
-# 
-# 
-# 
-# *****************************************************************************
-# ****            Define the weights              *****************************
-# *****************************************************************************
-# ** Create a loop for the variables with the same weight *********************
-# *****************************************************************************
-# 
-# 
-# egen ls=rowmiss(electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv)
-# 
-# 
-# gen hh_missing=0
-# replace hh_missing=1 if educ_depriv==. | nutrihh==2 | attehh==2 | morthh==2 | (ls>0 & ls<.)
-# 
-# foreach var in electricity_depriv sanitation_depriv water_depriv floor_depriv cookingfuel_depriv asset_depriv {
-# gen w_`var'=1/18 if ls==0
-# }
-# 
-# 
-# 
-# gen w_mortality5hh = 1/6 if morthh==1 & nutrihh==1
-# replace w_mortality5hh = 1/3 if morthh==1 & nutrihh==3
-# replace w_mortality5hh = 0 if morthh==3 & nutrihh==1
-# 
-# gen w_undernutritionhh = 1/6 if morthh==1 & nutrihh==1
-# replace w_undernutritionhh = 1/3 if morthh==3 & nutrihh==1
-# replace w_undernutritionhh = 0 if morthh==1 & nutrihh==3
-# 
-# 
-# 
-# gen w_child_noattendhh = 1/6 if attehh==1 | attehh==3
-# 
-# gen w_educ_depriv = 1/6 if educ_depriv<.
-# 
-# 
-# 
-# 
-# *******************************************************************
-# *********     Define the weigthed deprivation g0* matrix       ****
-# *******************************************************************
-# 
-# foreach var in `varlist_pov' {
-# gen wg0_`var' = `var'*w_`var'
-# }
-# 
-# ******************************************************************************
-# *********** Compute the frequency of missing values for indicator ************
-# ******************************************************************************
-# 
-# foreach var in `varlist_pov' {
-# gen `var'_miss=1 if `var'==.
-# replace `var'_miss=0 if `var'!=.
-#     }
-# 
-# sum *_miss
-# 
-# 
-# ********************************************************************************
-# *************   Define the (weighted) deprivation count vector "ci" ************
-# ********************************************************************************
-# 
-# egen ci=rsum(wg0_*)
-# label variable ci "Deprivation Count"
-# 
-# egen n_missing=rowmiss(wg0_*)
-# label variable n_missing "Number of missing variables by individual"
-# gen missing=(n_missing>0)
-# label variable missing "Individual with missing variables"
-# 
-# *** Check sample drop due to missing values
-# tab missing
-# 
-# *******************************************************************************
-# ***** Create de identification vector (poor/non poor) *************************
-# ***** and compute individual average of deprivation ***************************
-# *******************************************************************************
-# 
-# forvalues x=1(1)10 {
-# gen h_`x'0p=(ci>=`x'/10) 
-# replace h_`x'0p=. if missing==1
-# gen a_`x'0p=(ci) if h_`x'0p==1
-# replace a_`x'0p=. if missing==1
-# label var h_`x'0p "Condition of Multidimensional Poverty  k=`x'"
-# label var a_`x'0p "Individual Average deprivation  k=`x'"
-# }
-# 
-# sum h_10p-a_100p [aw=weight_w]
-# 
-# 
-# 
-# gen h_33p=(ci>=3.33/10) 
-# replace h_33p=. if missing==1
-# gen a_33p=(ci) if h_33p==1
-# replace a_33p=. if missing==1
-# label var h_33p "Condition of Multidimensional Poverty  k=33.3"
-# label var a_33p "Individual Average deprivation  k=33.3"
-# 
-# sum h_33p a_33p [aw=weight_w]
-# 
-# 
-# 
-# 
-# ********************************************************************************
-#   ******* Compute raw headcounts        ******************************************
-#   ********************************************************************************
-#   
-#   foreach var in `varlist_pov' {
-# gen `var'_raw=(`var')
-#                 replace `var'_raw=. if missing==1
-# }
-# 
-# su *_raw  [iw=weight_w]
-# 
-# ******************************************************************************
-#   *********** Compute Censored headcount and censored headocunt ****************
-#   ******************************************************************************
-#   ***** Please define in the first line your poverty cutoff, the example shows k=33.3 is 33.3%
-# 
-# local k=1/3
-# foreach var in `varlist_pov' {
-# *gen `var'_CH_`k'=(`var'==1 & h_`k'==1)
-# *replace `var'_CH_`k'=. if missing==1
-# 
-# gen `var'_CH_33=(`var'==1 & h_33==1)
-#                   replace `var'_CH_33=. if missing==1
-#                   
-# }
-# 
-# sum electricity_depriv_CH_33-educ_depriv_CH_33 [iw=weight_w]
-# sum h_33 a_33 [iw=weight_w]
-# 
-# *h = HC
-# *a = intensity
-# 
-# 
-# 
-# 
-# capture drop cedu chealth cls
-# 
-# scalar drop _all
-# 
-# 
-# 
-# gen cedu = (child_noattendhh_CH_33 *  w_child_noattendhh) + (educ_depriv_CH_33 * w_educ_depriv)
-# sum cedu [iw=weight_w]
-# scalar mpi_edu=r(mean)
-# 
-# 
-# gen chealth = (mortality5hh_CH_33 * w_mortality5hh) + (undernutritionhh_CH_33 * w_undernutritionhh)
-# sum chealth [iw=weight_w]
-# scalar mpi_health=r(mean)
-# 
-# 
-# gen cls = (electricity_depriv_CH_33 * w_electricity_depriv) + (sanitation_depriv_CH_33 * w_sanitation_depriv) + (water_depriv_CH_33 * w_water_depriv) + (floor_depriv_CH_33 * w_floor_depriv) + (cookingfuel_depriv_CH_33 * w_cookingfuel_depriv) + (asset_depriv_CH_33 * w_asset_depriv)
-# sum cls [iw=weight_w]
-# scalar mpi_ls=r(mean)
-# 
-# 
-# sum a_33p [iw=weight_w]
-# scalar intensity = r(mean)
-# sum h_33p [iw=weight_w]
-# scalar headcount = r(mean)
-# 
-# 
-# scalar mpi=headcount*intensity
-# 
-# scalar headcount100=headcount*100
-# scalar intensity100=intensity*100
-# 
-# 
-# scalar edu_contrib = (mpi_edu/mpi)*100
-# scalar health_contrib = (mpi_health/mpi)*100
-# scalar ls_contrib = (mpi_ls/mpi)*100
-# 
-# 
-# capture drop uno
-# gen uno=1 if h_33p<.
-# 
-# sum uno [aw=weight_w] if h_33p<.
-# scalar pop=r(sum_w)
-# 
-# sum uno [aw=weight_w] if h_33p<. & ci>0 & ci<(1/3)
-# scalar pop_vuln0=r(sum_w)
-# 
-# sum uno [aw=weight_w] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar pop_vuln20=r(sum_w)
-# 
-# sum uno [aw=weight_w] if h_33p<. & ci>=0.5
-# scalar pop_severe=r(sum_w)
-# 
-# scalar vulnerable0=(pop_vuln0/pop)*100
-# scalar vulnerable20=(pop_vuln20/pop)*100
-# scalar severity=(pop_severe/pop)*100
-# 
-# 
-# * Sample size
-# 
-# * HHs
-# capture drop hh
-# egen hh=group(hv001 hv002)
-# sort age
-# bys hh: gen n=_n
-# gen nhh=1 if n==1
-# 
-# * Individuals
-# 
-# capture drop uno
-# gen uno=1
-# 
-# sum uno 
-# scalar ind_sample_tot=r(N)
-# sum uno if h_33p<.
-# scalar ind_sample_used=r(N)
-# 
-# sum uno [w=weight_w] if h_33p<.
-# scalar ind_sample_used_w=r(sum)
-# 
-# 
-# sum nhh
-# scalar hh_sample_tot=r(N)
-# 
-# sum nhh if h_33p<.
-# scalar hh_sample_used=r(N)
-# 
-# sort hv001 hv002 hvidx
-# sum nhh [w=weight_w] if h_33p<.
-# scalar hh_sample_used_w=r(sum)
-# 
-# * Inequality
-# sum a_33p [aw=weight_w]
-# scalar cv_ineq_poor = r(sd)/r(mean)
-# 
-# sum ci [aw=weight_w] if h_33p<.
-# scalar cv_ineq_hc = r(sd)/r(mean)
-# 
-# sum ci [aw=weight_w] if h_33p<. & ci>0
-# scalar cv_ineq_positive = r(sd)/r(mean)
-# 
-# * CONTRIBUTION OF EACH DIMENSION FOR THE VULNERABLE POEPLE
-# capture drop *vu
-# 
-# foreach var in `varlist_pov' {
-# gen `var'_CH_33vu=0 if h_33p<. & ci>=0.2 & ci<(1/3)
-# replace `var'_CH_33vu=1 if `var'==1 & h_33p<. & ci>=0.2 & ci<(1/3)
-# replace `var'_CH_33vu=. if missing==1
-#     }
-# 
-# 
-# 
-# gen ceduvu = (child_noattendhh_CH_33vu * w_child_noattendhh) + (educ_depriv_CH_33vu * w_educ_depriv)
-# sum ceduvu [iw=weight_w] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_eduvu=r(mean)
-# 
-# 
-# gen chealthvu = (mortality5hh_CH_33vu * w_mortality5hh) + (undernutritionhh_CH_33vu * w_undernutritionhh)
-# sum chealthvu [iw=weight_w] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_healthvu=r(mean)
-# 
-# 
-# gen clsvu = (asset_depriv_CH_33vu * w_asset_depriv) + (electricity_depriv_CH_33vu * w_electricity_depriv) + (sanitation_depriv_CH_33vu * w_sanitation_depriv) + (water_depriv_CH_33vu * w_water_depriv) + (floor_depriv_CH_33vu * w_floor_depriv) + (cookingfuel_depriv_CH_33vu * w_cookingfuel_depriv)
-# sum clsvu [iw=weight_w] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar mpi_lsvu=r(mean)
-# 
-# sum ci [iw=weight_w] if h_33p<. & ci>=0.2 & ci<(1/3)
-# scalar headcountvu = r(mean)
-# 
-# 
-# scalar headcountvu100=headcountvu*100
-# 
-# 
-# scalar edu_contribvu = (mpi_eduvu/headcountvu100)*10000
-# scalar health_contribvu = (mpi_healthvu/headcountvu100)*10000
-# scalar ls_contribvu = (mpi_lsvu/headcountvu100)*10000
-# 
-# 
-# * CONTRIBUTION OF EACH DIMENSION FOR THE VULNERABLE + POOR POEPLE (ci >= 0.2)
-# capture drop *vupo
-# 
-# foreach var in `varlist_pov' {
-# gen `var'_CH_33vupo=0 if h_33p<. & ci>=0.2 & ci<.
-# replace `var'_CH_33vupo=1 if `var'==1 & h_33p<. & ci>=0.2 & ci<.
-# replace `var'_CH_33vupo=. if missing==1
-#     }
-# 
-# 
-# 
-# gen ceduvupo = (child_noattendhh_CH_33vupo * w_child_noattendhh) + (educ_depriv_CH_33vupo * w_educ_depriv)
-# sum ceduvupo [iw=weight_w] if h_33p<. & ci>=0.2 & ci<.
-# scalar mpi_eduvupo=r(mean)
-# 
-# 
-# gen chealthvupo = (mortality5hh_CH_33vupo * w_mortality5hh) + (undernutritionhh_CH_33vupo * w_undernutritionhh)
-# sum chealthvupo [iw=weight_w] if h_33p<. & ci>=0.2 & ci<.
-# scalar mpi_healthvupo=r(mean)
-# 
-# 
-# gen clsvupo = (asset_depriv_CH_33vupo * w_asset_depriv) + (electricity_depriv_CH_33vupo * w_electricity_depriv) + (sanitation_depriv_CH_33vupo * w_sanitation_depriv) + (water_depriv_CH_33vupo * w_water_depriv) + (floor_depriv_CH_33vupo * w_floor_depriv) + (cookingfuel_depriv_CH_33vupo * w_cookingfuel_depriv)
-# sum clsvupo [iw=weight_w] if h_33p<. & ci>=0.2 & ci<.
-# scalar mpi_lsvupo=r(mean)
-# 
-# sum ci [iw=weight_w] if h_33p<. & ci>=0.2 & ci<.
-# scalar headcountvupo = r(mean)
-# 
-# 
-# 
-# scalar headcountvupo100=headcountvupo*100
-# 
-# 
-# scalar edu_contribvupo = (mpi_eduvupo/headcountvupo100)*10000
-# scalar health_contribvupo = (mpi_healthvupo/headcountvupo100)*10000
-# scalar ls_contribvupo = (mpi_lsvupo/headcountvupo100)*10000
-# 
-# 
-# scalar list mpi headcount100 intensity100 vulnerable0 vulnerable20 severity edu_contrib health_contrib ls_contrib edu_contribvu health_contribvu ls_contribvu edu_contribvupo health_contribvupo ls_contribvupo cv_ineq_poor cv_ineq_positive cv_ineq_hc hh_sample_tot hh_sample_used hh_sample_used_w ind_sample_tot ind_sample_used ind_sample_used_w
-# 
-# 
-# 
-# sum sample_all [w=weight]
-# scalar sall = r(sum)
-# sum sample6y [w=weight_w]
-# scalar smpi =  r(sum)
-# 
-# scalar list sall smpi
-# ************************************
-#   **  ALWAYS CHECK THAT sall = smpi **
-#   ************************************
-#   
+for(var in varlist_pov){
+  varname <- paste0("wg0_",var)
+  weightname <- paste0("w_",var)
+  dat[,varname] <- dat[,var]*dat[,weightname]
+}
+
+wg0_names <- names(dat)[which(substr(names(dat),1,3)=="wg0")]
+dat$ci <- psum(dat[wg0_names],na.rm=TRUE)
+dat$mpi.poor <- dat$ci>=(1/3)
+
+
+### and now P20 ###
+wd <- "D:/Documents/Data/P20_2013/meta"
+setwd(wd)
+
+povcalcuts <- read.csv("headcounts.csv",as.is=TRUE)
+weighted.percentile <- function(x,w,prob,na.rm=TRUE){
+  df <- data.frame(x,w)
+  if(na.rm){
+    df <- df[which(complete.cases(df)),]
+  }
+  #Sort
+  df <- df[order(df$x),]
+  sumw <- sum(df$w)
+  df$cumsumw <- cumsum(df$w)
+  #For each percentile
+  cutList <- c()
+  cutNames <-c()
+  for(i in 1:length(prob)){
+    p <- prob[i]
+    pStr <- paste0(round(p*100,digits=2),"%")
+    sumwp <- sumw*p
+    df$above.prob <- df$cumsumw>=sumwp
+    thisCut <- df$x[which(df$above.prob==TRUE)[1]]
+    cutList <- c(cutList,thisCut)
+    cutNames <- c(cutNames,pStr)
+  }
+  names(cutList) <- cutNames
+  return(cutList)
+}
+# povcalcut <- subset(povcalcuts,filename=="ughr72dt")$hc
+povcalcut <- 0.4891
+povperc <- weighted.percentile(dat$wealths,dat$weight,prob=povcalcut)
+
+dat$p20 <- (dat$wealths < povperc)
+
+library(descr)
+crosstab(dat$p20,dat$mpi.poor,prop.t=TRUE,weight=dat$weight)
+
+p20.not.mpi <- subset(dat,p20==TRUE & mpi.poor==FALSE)
+mpi.not.p20 <- subset(dat,p20==FALSE & mpi.poor==TRUE)
+
+# describe(p20.not.mpi[varlist_pov])
+# describe(mpi.not.p20[varlist_pov])
+
+library(data.table)
+setwd("D:/Documents/Data/MICSmeta/")
+load("child.maternal.RData")
+setnames(child.health,"skilled.attendant","ch.skilled.attendant")
+valid.vacc <- c(TRUE,"TRUE","Yes","Oui","Sí")
+no.vacc <- c(FALSE,"FALSE","No","Non","No sabe")
+missing.vacc <- c("DK",NA,"Missing","NSP","Manquant")
+recode.vacc <- function(x){
+  if(is.na(x)){return(NA)}
+  else if(x %in% valid.vacc){return(1)}
+  else if(x %in% no.vacc){return(0)}
+  else if(x %in% missing.vacc){return(NA)}
+  return(NA)
+}
+child.health$vacc <- sapply(child.health$any.vacc,recode.vacc)
+child.health.tab <- child.health[,.(
+  ch.skilled.attendant=sum(ch.skilled.attendant==TRUE,na.rm=TRUE)>=1
+  ,any.vacc=sum(vacc,na.rm=TRUE)>=1
+),by=.(filename,cluster,household)]
+maternal.health.tab <- maternal.health[,.(
+  ceb=sum(ceb,na.rm=TRUE)
+  ,cdead=sum(cdead,na.rm=TRUE)
+  ,skilled.attendant=sum(skilled.attendant,na.rm=TRUE)>=1
+  ,maternal.deaths=sum(maternal.deaths,na.rm=TRUE)
+),by=.(filename,cluster,household)]
+
+maternal.health.tab <- subset(maternal.health.tab,filename=="ughr60dt")
+child.health.tab <- subset(child.health.tab,filename=="ughr60dt")
+setnames(maternal.health.tab,"cluster","hv001")
+setnames(maternal.health.tab,"household","hv002")
+setnames(child.health.tab,"cluster","hv001")
+setnames(child.health.tab,"household","hv002")
+dat <- merge(dat,maternal.health.tab,by=c("hv001","hv002"),all.x=TRUE)
+dat <- merge(dat,child.health.tab,by=c("hv001","hv002"),all.x=TRUE)
+
+crosstab(dat$p20,dat$skilled.attendant,prop.r=TRUE,weight=dat$weight)
+crosstab(dat$mpi.poor,dat$skilled.attendant,prop.r=TRUE,weight=dat$weight)
+
+crosstab(dat$p20,dat$maternal.deaths>=1,prop.r=TRUE,weight=dat$weight)
+crosstab(dat$mpi.poor,dat$maternal.deaths>=1,prop.r=TRUE,weight=dat$weight)
+
