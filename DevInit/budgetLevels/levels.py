@@ -16,7 +16,7 @@ import pdb
 
 #Parse Options
 parser = OptionParser()
-parser.add_option("-i", "--input", dest="input", default = "D:/Documents/Gov finance/Final data government finance_KB300117.xlsx",
+parser.add_option("-i", "--input", dest="input", default = "D:/Documents/Gov finance/Final data government finance_KB300117_rev2.xlsx",
                 help="Input file", metavar="FILE")
 parser.add_option("-o", "--output", dest="output", default="./results.csv",
                 help="Output CSV file", metavar="FILE")
