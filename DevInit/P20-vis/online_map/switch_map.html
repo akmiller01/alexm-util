@@ -291,24 +291,30 @@ map.on('mousemove', function (e) {
         .addTo(map);
     }else if (bgFeatures>=1) {
 		var val = $('.title select').val();
-		$('p#area span').text(bgName);
-		if (val=="Number of people in the poorest 20% of the global population"){
-            $('p#area').show();
-			$('p#pop span').text("No data");
-            $('p#pop').show();
-            $('p.p20_stats').hide();
-        }else{
-            $('p#area').show();
-			$('p#p20 span').text("No data");
-            $('p#p20').show();
-            $('p.p20_stats').hide();
-            $('p#pop').hide()
-        };
-        $(".mapboxgl-popup-close-button").click()
-        var popup = new mapboxgl.Popup({offset:10})
-        .setLngLat([e.lngLat.lng, e.lngLat.lat])
-        .setHTML($('.narrative').html())
-        .addTo(map);
+		if (val=="Survey-level percentage of the poorest 20% of people globally") {
+			$(".mapboxgl-popup-close-button").click()
+			
+		} else {
+			
+			$('p#area span').text(bgName);
+			if (val=="Number of people in the poorest 20% of the global population"){
+				$('p#area').show();
+				$('p#pop span').text("No data");
+				$('p#pop').show();
+				$('p.p20_stats').hide();
+			}else{
+				$('p#area').show();
+				$('p#p20 span').text("No data");
+				$('p#p20').show();
+				$('p.p20_stats').hide();
+				$('p#pop').hide()
+			};
+			$(".mapboxgl-popup-close-button").click()
+			var popup = new mapboxgl.Popup({offset:10})
+			.setLngLat([e.lngLat.lng, e.lngLat.lat])
+			.setHTML($('.narrative').html())
+			.addTo(map);
+		};
     }else if(validFeatures==0){
         $('p#area').hide();
         $('p#p20').hide();
