@@ -117,6 +117,7 @@ ind.interp <- ind[,.(
   year=year
   ,hc=na.approx(hc,rule=2)
   ,pg=na.approx(pg,rule=2)
+  ,pg2=na.approx(pg2,rule=2)
   ,mean=na.approx(mean,rule=2)
   ,svyYear=svyYear
   ,original.hc=hc
@@ -128,7 +129,7 @@ remove <- c("original.hc","iso2c","SP.POP.TOTL")
 ind.interp[,(remove):=NULL]
 ind.interp$type <- "i"
 
-remove <- c("pg2","watts","detail")
+remove <- c("watts","detail")
 agg[,(remove):=NULL]
 
 pcn <- rbind(agg,ind.interp)
@@ -217,3 +218,21 @@ for(this.year in unique(p20$year)){
 
 popbypl <- pcn[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(pl,year)]
 # write.csv(popbypl,"popbypl.csv",row.names=FALSE)
+
+pcn <- transform(pcn,ymin=pl*(1-pg2/pg))
+mean(subset(pcn,pl==2.56 & year==2013 & tolower(type)=="c")$ymin,na.rm=TRUE)
+mean(subset(pcn,pl==2 & year==2013 & tolower(type)=="c")$ymin,na.rm=TRUE)
+mean(subset(pcn,pl==1 & year==2013 & tolower(type)=="c")$ymin,na.rm=TRUE)
+mean(subset(pcn,pl==round(mean/(10*30.42),2) & year==2013 & tolower(type)=="c")$ymin,na.rm=TRUE)
+
+pl.tab <- data.table(pcn)[,.(poorpop=sum(poorpop,na.rm=TRUE)),by=.(year,pl)]
+plot(poorpop~pl,data=subset(pl.tab,year==1990 & pl<2),type="l",ylim=c(0,2000),main="World population under $2 a day by poverty line (1990)",ylab="Population (millions)",xlab="Poverty line (2011 $ PPP)")
+plot(poorpop~pl,data=subset(pl.tab,year==2013 & pl<2),type="l",ylim=c(0,2000),main="World population under $2 a day by poverty line (2013)",ylab="Population (millions)",xlab="Poverty line (2011 $ PPP)")
+
+library(ggplot2)
+years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
+plot.dat <- subset(pl.tab,pl<2 & year %in% years)
+# plot.dat$year <- factor(plot.dat$year)
+                   
+g <- ggplot(plot.dat,aes(x=pl,y=poorpop,group=year,colour=year)) + geom_line()
+g

@@ -202,60 +202,57 @@ map.on('mousemove', function (e) {
     var maxP20 = 0;
     var minP20 = 1;
     var sumP20 = 0;
+	var uniques = {};
     for(var i = 0; i < features.length; i++){
         var feature = features[i];
-		if (feature.properties.hasOwnProperty("P20") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
-			var p20 = feature.properties.P20;
-            if (p20>maxP20) {
-                maxP20 = p20
-            };
-            if (p20<minP20) {
-                minP20 = p20
-            };
-            sumP20 = sumP20 + p20;
-            $('p#p20 span').text(Math.round(p20*100,2)+"%");
-            validFeatures = validFeatures + 1;
-        };
-        if (feature.properties.hasOwnProperty("p20") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
-            var p20 = feature.properties.p20;
-            if (p20>maxP20) {
-                maxP20 = p20
-            };
-            if (p20<minP20) {
-                minP20 = p20
-            };
-            sumP20 = sumP20 + p20;
-            $('p#p20 span').text(Math.round(p20*100,2)+"%");
-            validFeatures = validFeatures + 1;
-        };
-        if (feature.properties.hasOwnProperty("NAME") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
-            var country_name = feature.properties.NAME;
-            var iso3 = feature.properties.WB_A3;
-            var pop = feature.properties["poor.pop"];
-            $('p#pop span').text(numberWithCommas(pop));
-            if (iso3!="CIV") {
-                $('p#area span').text(country_name);
-            }else{
-                $('p#area span').text("Côte d'Ivoire");
-            };
-        }else if (feature.properties.hasOwnProperty("CNTRYNAMEE")) {
-            var country_name = feature.properties.CNTRYNAMEE;
-			level = "subnational"
-            var region_name = feature.properties.DHSREGEN;
-            $('p#area span').text(region_name+", "+country_name);
-        }else if (feature.properties.hasOwnProperty("dhsreg")) {
-            var region_name = feature.properties.dhsreg;
-            $('p#area span').text(region_name);
-        }else if (feature.properties.hasOwnProperty("NAME") && feature.layer.id=="BG Nations" && feature.layer.id!="BG Borders") {
-            var country_name = feature.properties.NAME;
-            var iso3 = feature.properties.WB_A3;
-            if (iso3!="CIV") {
+		var key = JSON.stringify([feature.properties,feature.layer.id]);
+		if (!uniques.hasOwnProperty(key)) {
+			uniques[key] = true;
+			if (feature.properties.hasOwnProperty("P20") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
+				var p20 = feature.properties.P20;
+				if (p20>maxP20) {
+					maxP20 = p20
+				};
+				if (p20<minP20) {
+					minP20 = p20
+				};
+				sumP20 = sumP20 + p20;
+				$('p#p20 span').text(Math.round(p20*100,2)+"%");
+				validFeatures = validFeatures + 1;
+			};
+			if (feature.properties.hasOwnProperty("p20") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
+				var p20 = feature.properties.p20;
+				if (p20>maxP20) {
+					maxP20 = p20
+				};
+				if (p20<minP20) {
+					minP20 = p20
+				};
+				sumP20 = sumP20 + p20;
+				$('p#p20 span').text(Math.round(p20*100,2)+"%");
+				validFeatures = validFeatures + 1;
+			};
+			if (feature.properties.hasOwnProperty("NAME") && feature.layer.id!="BG Nations" && feature.layer.id!="BG Borders") {
+				var country_name = feature.properties.NAME;
+				var iso3 = feature.properties.WB_A3;
+				var pop = feature.properties["poor.pop"];
+				$('p#pop span').text(numberWithCommas(pop));
+				$('p#area span').text(country_name);
+			}else if (feature.properties.hasOwnProperty("CNTRYNAMEE")) {
+				var country_name = feature.properties.CNTRYNAMEE;
+				level = "subnational"
+				var region_name = feature.properties.DHSREGEN;
+				$('p#area span').text(region_name+", "+country_name);
+			}else if (feature.properties.hasOwnProperty("dhsreg")) {
+				var region_name = feature.properties.dhsreg;
+				$('p#area span').text(region_name);
+			}else if (feature.properties.hasOwnProperty("NAME") && feature.layer.id=="BG Nations" && feature.layer.id!="BG Borders") {
+				var country_name = feature.properties.NAME;
+				var iso3 = feature.properties.WB_A3;
 				bgName = country_name;
-            }else{
-				bgName = "Côte d'Ivoire";
-            };
-			bgFeatures = bgFeatures + 1;
-        };
+				bgFeatures = bgFeatures + 1;
+			};
+		};
     };
     if (validFeatures==1) {
         var val = $('.title select').val();
