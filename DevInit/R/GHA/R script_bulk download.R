@@ -1,7 +1,55 @@
 # install.packages("plyr")
+# install.packages("readxl")
+library(readxl)
 
 wd <- "D:/Documents/Data/GHA/FTS"
 setwd(wd)
+
+#Define renamed vars
+csv_names <- c(
+  "Flow ID"
+  ,"Flow status"
+  ,"Flow date"
+  ,"Description"
+  ,"Amount (USD)"
+  ,"Original amount"
+  ,"Original currency"
+  ,"Exchange rate"
+  ,"Flow type"
+  ,"Contribution type"
+  ,"Budget year"
+  ,"Decision date"
+  ,"Version ID"
+  ,"Created"
+  ,"Last updated"
+  ,"Modality"
+  ,"Donor project code"
+  ,"Reporting organization"
+  ,"Donor"
+  ,"Source Organization type"
+  ,"Source Emergency"
+  ,"Source Location"
+  ,"Source Project"
+  ,"Source Usage year"
+  ,"Source Plan"
+  ,"Source Cluster"
+  ,"Source Sector"
+  ,"Recipient Organization"
+  ,"Destination Organization type"
+  ,"Destination Emergency"
+  ,"Destination Country"
+  ,"Destination Project"
+  ,"Destination Usage year"
+  ,"Destination Plan"
+  ,"Destination Cluster"
+  ,"Destination Sector"
+)
+
+#Format them as if R did it automatically
+csv_names <- make.names(csv_names)
+
+data <- read_excel("Somalia 2015_full download.xls",sheet="Results - Incoming",skip=2,col_names=csv_names)
+
 #No longer a need to skip 5 rows, header is right at the top with this download
 data <- read.csv("2015_Somalia.csv",header=TRUE,na.strings="",as.is=TRUE)
 library(plyr)
@@ -135,4 +183,8 @@ withoutincome <- subset(data,is.na(incomegroups))
 unique(withoutincome$Destination.Country)
 
 write.csv(data,"fts_transformed.csv",na="",row.names=FALSE)
+
+install.packages("data.table")
+library(data.table)
+dat.tab <- data.table(data)[,.(millionsContributed=sum(millionsContributed,na.rm=TRUE),millionsCommitted=sum(millionsCommitted,na.rm=TRUE)),by=.(Recipient.Organization)]
 
