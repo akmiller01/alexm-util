@@ -383,7 +383,7 @@ var isoDict = {"AD":"Andorra"
 ,"EU":"European Union"
 ,"WD":"The World (surveyed country average)"};
 
-var indicatorDict = {
+indicatorDict = {
  "blank1":"None"
  ,"blank2":"None"
  ,"p20":"P20"
@@ -509,13 +509,15 @@ d3.csv('all.venn.joined.csv',function(data){
             $('#X\\,Y\\,Zlabel').text("")
             //Two choice
         }else if (values.length==2) {
+            console.log(values)
             var fullValues = [values[0],values[1],"blank1"].sort();
             var subset = data.filter(function(d){
-                var indicatorSet = [d.indicator1,d.indicator2,"blank1"].sort();
+                var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
                 return(fullValues.compare(indicatorSet) && d.iso2==iso2);
             })[0];
-            if (subset.indicator1==values[0]) {
-                if (subset.indicator2==values[1]) {
+            console.log(subset)
+            if (values[0]==subset.indicator1) {
+                if (values[1]==subset.indicator2) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
                                     ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
@@ -527,7 +529,7 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#Xlabel').text(indicatorDict[subset.indicator1])
                     $('#Ylabel').text(indicatorDict[subset.indicator2])
                     $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
-                }else if (subset.indicator2==values[2]) {
+                }else if (values[1]==subset.indicator3) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
                                     ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
@@ -540,8 +542,8 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#Ylabel').text(indicatorDict[subset.indicator3])
                     $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
                 };
-            }else if (subset.indicator1==values[1]) {
-                if (subset.indicator2==values[0]) {
+            }else if (values[0]==subset.indicator2) {
+                if (values[1]==subset.indicator1) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
                                     ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
@@ -553,7 +555,7 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#Xlabel').text(indicatorDict[subset.indicator2])
                     $('#Ylabel').text(indicatorDict[subset.indicator1])
                     $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
-                }else if (subset.indicator2==values[2]) {
+                }else if (values[1]==subset.indicator3) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
                                     ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
@@ -566,8 +568,8 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#Ylabel').text(indicatorDict[subset.indicator3])
                     $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
                 };
-            }else if (subset.indicator1==values[2]) {
-                if (subset.indicator2==values[0]) {
+            }else if (values[0]==subset.indicator3) {
+                if (values[1]==subset.indicator1) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
                                     ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
@@ -579,7 +581,7 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#Xlabel').text(indicatorDict[subset.indicator3])
                     $('#Ylabel').text(indicatorDict[subset.indicator1])
                     $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
-                }else if (subset.indicator2==values[1]) {
+                }else if (values[1]==subset.indicator2) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
                                     ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
