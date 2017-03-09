@@ -14,6 +14,24 @@ setwd("D:/Documents/Data/P20_2013/meta")
 load("total_triple.RData")
 
 data.total$sex <- factor(data.total$sex,levels=c("Male","Female"))
+# 
+# data.total$whipple <- substr(as.character(data.total$age),nchar(as.character(data.total$age)),nchar(as.character(data.total$age)))
+# data.total$whipple05 <- data.total$whipple %in% c("0","5")
+# mean(data.total$whipple05,na.rm=TRUE)*500
+# 
+# p20 <- subset(data.total,p20==TRUE & age>=15 & age<=49)
+# mean(p20$whipple05,na.rm=TRUE)*500
+# nonp20 <- subset(data.total,p20==FALSE  & age>=15 & age<=49)
+# mean(nonp20$whipple05,na.rm=TRUE)*500
+# 
+# children <- subset(data.total,!is.na(age.months))
+# children$whipple <- substr(as.character(children$age.months),nchar(as.character(children$age.months)),nchar(as.character(children$age.months)))
+# children$whipple06 <- children$whipple %in% c("0","6")
+# mean(children$whipple06,na.rm=TRUE)*500
+# p20.kids <- subset(children,p20==TRUE)
+# mean(p20.kids$whipple06,na.rm=TRUE)*500
+# nonp20.kids <- subset(children,p20==FALSE)
+# mean(nonp20.kids$whipple06,na.rm=TRUE)*500
 
 pop.confidence <- function(x,y,w,pop){
   ct <- crosstab(x,y,weight=w,prop.t=TRUE,drop.levels=FALSE)

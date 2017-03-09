@@ -775,8 +775,8 @@ dat.pca <- prcomp(dummies)
 pca1 <- dat.pca$rotation[,1]
 pca2 <- dat.pca$rotation[,2]
 save(pca1,pca2,file="pcas.RData")
-# load("pcas.RData")
-load("dummies.RData")
+# load("D:/Documents/Data/MICSmeta/pcas.RData")
+load("D:/Documents/Data/MICSmeta/dummies.RData")
 rm(dat.pca)
 gc()
 

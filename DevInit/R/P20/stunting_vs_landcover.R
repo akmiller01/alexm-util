@@ -11,6 +11,27 @@ lapply(libs, require, character.only = TRUE)
 if (!require(gpclib)) install.packages("gpclib", type="source")
 gpclibPermit()
 
+p20.count <- raster("../pov-tifs/p20.tif")
+
+r <- raster("D:/Documents/Data/DHS map/total_native.tif")
+r <- crop(r,extent(p20.count))
+data <- data.table(coordinates(r))
+data$z <- getValues(r)
+dat <- data
+coordinates(data) <- ~x+y
+ug <- readOGR(dsn = "../voronoi/voronoi.shp", layer = "voronoi")
+proj4string(data) <- proj4string(ug)
+
+ug.data <- over(data,ug[,c("DHSCLUST","p20")])
+data <- dat
+ug.data <- cbind(data,ug.data)
+ug.data <- data.table(ug.data)
+
+save(ug.data,file="ug.data.RData")
+ug.data$lc <- factor(ug.data$z)
+fit <- lm(p20~lc,data=ug.data)
+summary(fit)
+
 # r <- raster("UGA_pph_v2b_2015_UNadj.tif")
 # 
 # data <- data.table(coordinates(r))
@@ -33,18 +54,18 @@ gpclibPermit()
 # writeRaster(p50,"../pov-tifs/p50.tif")
 # writeRaster(gp50,"../pov-tifs/gp50.tif")
 
-p20 <- raster("../pov-tifs/p20.tif")
-p50 <- raster("../pov-tifs/p50.tif")
-gp50 <- raster("../pov-tifs/gp50.tif")
+p20.count <- raster("../pov-tifs/p20.tif")
 
-source("C:/git/alexm-util/DevInit/R/P20/raster2dots.R")
+land_cover <- raster("D:/Documents/Data/DHS map/total_native.tif")
+land_cover <- crop(land_cover,extent(p20.count))
+lcXYZ <- data.table(coordinates(land_cover))
+lcXYZ$lc <- getValues(land_cover)
 
-# raster2dots(p20,"../dots/p20/points")
-# raster2dots(p50,"../dots/p50/points")
-# raster2dots(gp50,"../dots/gp50/points")
+p20.count <- resample(p20.count,land_cover)
+dat <- data.table(coordinates(p20.count))
+dat$p20 <- getValues(p20.count)
 
-source("C:/git/alexm-util/DevInit/R/P20/combine_shp.R")
+dat$lc <- factor(lcXYZ$lc)
 
-# combineShp("../dots/p20","../dots/p20_merge")
-combineShp("../dots/p50","../dots/p50_merge")
-combineShp("../dots/gp50","../dots/gp50_merge")
+fit <- lm(p20~lc,data=dat)
+summary(fit)

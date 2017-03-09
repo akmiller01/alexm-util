@@ -125,6 +125,11 @@ Array.prototype.compare = function(testArr) {
     return true;
 }
 
+function numberWithCommas(x) {
+	var millions = Math.round((x/100)/100000)/10;
+    return millions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ " million";
+};
+
 var isoDict = {"AD":"Andorra"
 ,"AE":"UAE"
 ,"AF":"Afghanistan"
@@ -375,11 +380,16 @@ var isoDict = {"AD":"Andorra"
 ,"ZA":"South Africa"
 ,"ZM":"Zambia"
 ,"ZW":"Zimbabwe"
-,"EU":"European Union"};
+,"EU":"European Union"
+,"WD":"The World (surveyed country average)"};
 
 var indicatorDict = {
-  "p20":"P20"
- ,"birth.reg":"Birth registered"
+ "blank1":"None"
+ ,"blank2":"None"
+ ,"p20":"P20"
+ ,"non.p20":"Population not in the P20"
+ ,"ext":"Extreme poverty"
+ ,"no.birth.reg":"Birth not registered"
  ,"female":"Female"
  ,"male":"Male"
  ,"under5":"Younger than 5"
@@ -388,11 +398,11 @@ var indicatorDict = {
  ,"gt49":"Older than 49"
  ,"no.educ":"No education or preschool"
  ,"primary":"Primary education"
-  ,"secondary":"Secondary education"
+ ,"secondary":"Secondary education"
  ,"higher":"Higher education"
  ,"urban":"Urban"
  ,"rural":"Rural"
- ,"skilled.attendant":"Had skilled birth attendant"
+ ,"no.skilled.attendant":"Had no skilled birth attendants"
  ,"stunted":"Experiencing stunting"
 };
 var indicators = Object.keys(indicatorDict);
@@ -400,35 +410,39 @@ var indicators = Object.keys(indicatorDict);
 function ensureUnique() {
     var $selects = $('select.indicator');
     var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+    //var counts = {};
+    //for(var i = 0; i< values.length; i++) {
+    //    var num = values[i];
+    //    counts[num] = counts[num] ? counts[num]+1 : 1;
+    //};
+    //var uniqueLength = counts["none"]>=1?(d3.map(values,function(d){return d;}).keys().length - 1):d3.map(values,function(d){return d;}).keys().length;
+    //var desiredLength = values.length - counts["none"];
     var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
     while (uniqueLength!=3) {
-        if (values[0]==values[1]) {
-            var value1index = indicators.indexOf($selects[1].value);
-            if (value1index>=(indicators.length-1)) {
-                value1index = -1
+        if ($('#Yselect option:selected').val()==values[0]) {
+            var option = $('#Yselect option:selected').next();
+            if (option.length==0) {
+                var option = $('#Yselect option').first();
             };
-            value1index+=1;
-            $selects[1].options[value1index].selected = true;
+            option[0].selected=true
             var values = [$selects[0].value,$selects[1].value,$selects[2].value];
             var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
         if (values[1]==values[2]) {
-            var value2index = indicators.indexOf($selects[2].value);
-            if (value2index>=(indicators.length-1)) {
-                value2index = -1
+            var option = $('#Zselect option:selected').next();
+            if (option.length==0) {
+                var option = $('#Zselect option').first();
             };
-            value2index+=1;
-            $selects[2].options[value2index].selected = true;
+            option[0].selected=true
             var values = [$selects[0].value,$selects[1].value,$selects[2].value];
             var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
         if (values[2]==values[0]){
-            var value2index = indicators.indexOf($selects[2].value);
-            if (value2index>=(indicators.length-1)) {
-                value2index = -1
+            var option = $('#Zselect option:selected').next();
+            if (option.length==0) {
+                var option = $('#Zselect option').first();
             };
-            value2index+=1;
-            $selects[2].options[value2index].selected = true;
+            option[0].selected=true
             var values = [$selects[0].value,$selects[1].value,$selects[2].value];
             var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
@@ -447,33 +461,167 @@ d3.csv('all.venn.joined.csv',function(data){
     function changeVenn() {
         var iso2 = $("#isoSelect").val();
         var values = ensureUnique().sort();
-        var subset = data.filter(function(d){
-            var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
-            return(values.compare(indicatorSet) && d.iso2==iso2);
-        })[0];
-        var $selects = $('select.indicator');
-        var values = [$selects[0].value,$selects[1].value,$selects[2].value];
-        var indicatorSet = [subset.indicator1,subset.indicator2,subset.indicator3];
-        var order = [indicatorSet.indexOf(values[0]),indicatorSet.indexOf(values[1]),indicatorSet.indexOf(values[2])];
-        var areas = [
-                        {sets:[indicatorDict[subset.indicator1]],size:subset.X}
-                        ,{sets:[indicatorDict[subset.indicator2]],size:subset.Y}
-                        ,{sets:[indicatorDict[subset.indicator3]],size:subset.Z}
-                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator2]],size:subset['X,Y']}
-                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator3]],size:subset['X,Z']}
-                        ,{sets:[indicatorDict[subset.indicator2],indicatorDict[subset.indicator3]],size:subset['Y,Z']}
-                        ,{sets:[indicatorDict[subset.indicator1],indicatorDict[subset.indicator2],indicatorDict[subset.indicator3]],size:subset['X,Y,Z']}
-                    ];
-        //Sorry...
-        if ([0,1,2].compare(order)) {
-            $('#X').val(subset.X==""?"":subset.X+"%")
-            $('#Y').val(subset.Y==""?"":subset.Y+"%")
-            $('#Z').val(subset.Z==""?"":subset.Z+"%")
-            $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#X\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#Y\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
+        for (var i=values.length-1; i>=0; i--) {
+            if (values[i] === "blank1") {
+                values.splice(i, 1);
+            }else if (values[i] === "blank2") {
+                values.splice(i, 1);
+            }
+        };
+        //One choice
+        if (values.length==1) {
+            var fullValues = [values[0],"blank1","blank2"].sort();
+            var subset = data.filter(function(d){
+                var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
+                return(fullValues.compare(indicatorSet) && d.iso2==iso2);
+            })[0];
+            if (subset.indicator1==values[0]) {
+                var areas = [
+                                {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                            ];
+                $('#X').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+                $('#Xlabel').text(indicatorDict[subset.indicator1])
+            }else if (subset.indicator2==values[0]) {
+                var areas = [
+                                {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                            ];
+                $('#X').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+                $('#Xlabel').text(indicatorDict[subset.indicator2])
+            }else if (subset.indicator3==values[0]) {
+                var areas = [
+                                {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                            ];
+                $('#X').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+                $('#Xlabel').text(indicatorDict[subset.indicator3])
+            };
             
+            $('#Y').val("")
+            $('#Z').val("")
+            $('#X\\,Y').val("")
+            $('#X\\,Z').val("")
+            $('#Y\\,Z').val("")
+            $('#X\\,Y\\,Z').val("")
+            $('#Ylabel').text("")
+            $('#Zlabel').text("")
+            $('#X\\,Ylabel').text("")
+            $('#X\\,Zlabel').text("")
+            $('#Y\\,Zlabel').text("")
+            $('#X\\,Y\\,Zlabel').text("")
+            //Two choice
+        }else if (values.length==2) {
+            var fullValues = [values[0],values[1],"blank1"].sort();
+            var subset = data.filter(function(d){
+                var indicatorSet = [d.indicator1,d.indicator2,"blank1"].sort();
+                return(fullValues.compare(indicatorSet) && d.iso2==iso2);
+            })[0];
+            if (subset.indicator1==values[0]) {
+                if (subset.indicator2==values[1]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['X,Y']}
+                                ];
+                    $('#X').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+                    $('#Y').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+                    $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator1])
+                    $('#Ylabel').text(indicatorDict[subset.indicator2])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
+                }else if (subset.indicator2==values[2]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Z']}
+                                ];
+                    $('#X').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+                    $('#Y').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+                    $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator1])
+                    $('#Ylabel').text(indicatorDict[subset.indicator3])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
+                };
+            }else if (subset.indicator1==values[1]) {
+                if (subset.indicator2==values[0]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset['X,Y']}
+                                ];
+                    $('#X').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+                    $('#Y').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+                    $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator2])
+                    $('#Ylabel').text(indicatorDict[subset.indicator1])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
+                }else if (subset.indicator2==values[2]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['Y,Z']}
+                                ];
+                    $('#X').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+                    $('#Y').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+                    $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator2])
+                    $('#Ylabel').text(indicatorDict[subset.indicator3])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
+                };
+            }else if (subset.indicator1==values[2]) {
+                if (subset.indicator2==values[0]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%",indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset['X,Z']}
+                                ];
+                    $('#X').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+                    $('#Y').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+                    $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator3])
+                    $('#Ylabel').text(indicatorDict[subset.indicator1])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
+                }else if (subset.indicator2==values[1]) {
+                    var areas = [
+                                    {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['Y,Z']}
+                                ];
+                    $('#X').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+                    $('#Y').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+                    $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
+                    $('#Xlabel').text(indicatorDict[subset.indicator3])
+                    $('#Ylabel').text(indicatorDict[subset.indicator2])
+                    $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
+                };
+            };
+            $('#Z').val("")
+            $('#X\\,Z').val("")
+            $('#Y\\,Z').val("")
+            $('#X\\,Y\\,Z').val("")
+            $('#Zlabel').text("")
+            $('#X\\,Zlabel').text("")
+            $('#Y\\,Zlabel').text("")
+            $('#X\\,Y\\,Zlabel').text("")
+        }else if (values.length==3) {
+            var subset = data.filter(function(d){
+                var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
+                return(values.compare(indicatorSet) && d.iso2==iso2);
+            })[0];
+            var areas = [
+                            {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                            ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                            ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['X,Y']}
+                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Z']}
+                            ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['Y,Z']}
+                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Y,Z']}
+                        ];
+            $('#X').val(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
+            $('#Y').val(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
+            $('#Z').val(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
+            $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
+            $('#X\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
+            $('#Y\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
+            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%, or about "+numberWithCommas(subset['X,Y,Z']*subset.pop))
             $('#Xlabel').text(indicatorDict[subset.indicator1])
             $('#Ylabel').text(indicatorDict[subset.indicator2])
             $('#Zlabel').text(indicatorDict[subset.indicator3])
@@ -481,97 +629,8 @@ d3.csv('all.venn.joined.csv',function(data){
             $('#X\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
             $('#Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
             $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
-        //X, Y, Z
-        //X, Z, Y
-        }else if ([0,2,1].compare(order)) {
-            $('#X').val(subset.X==""?"":subset.X+"%")
-            $('#Y').val(subset.Z==""?"":subset.Z+"%")
-            $('#Z').val(subset.Y==""?"":subset.Y+"%")
-            $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#X\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#Y\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
-            
-            $('#Xlabel').text(indicatorDict[subset.indicator1])
-            $('#Ylabel').text(indicatorDict[subset.indicator3])
-            $('#Zlabel').text(indicatorDict[subset.indicator2])
-            $('#X\\,Ylabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
-            $('#X\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
-            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
-            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
-        //X, Y, Z
-        //Y, X, Z
-        }else if ([1,0,2].compare(order)) {
-            $('#X').val(subset.Y==""?"":subset.Y+"%")
-            $('#Y').val(subset.X==""?"":subset.X+"%")
-            $('#Z').val(subset.Z==""?"":subset.Z+"%")
-            $('#X\\,Y').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#X\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#Y\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
-            
-            $('#Xlabel').text(indicatorDict[subset.indicator2])
-            $('#Ylabel').text(indicatorDict[subset.indicator1])
-            $('#Zlabel').text(indicatorDict[subset.indicator3])
-            $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
-            $('#X\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
-            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
-            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator3])
-        //X, Y, Z
-        //Y, Z, X
-        }else if ([1,2,0].compare(order)) {
-            $('#X').val(subset.Y==""?"":subset.Y+"%")
-            $('#Y').val(subset.Z==""?"":subset.Z+"%")
-            $('#Z').val(subset.X==""?"":subset.X+"%")
-            $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#X\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#Y\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
-            
-            $('#Xlabel').text(indicatorDict[subset.indicator2])
-            $('#Ylabel').text(indicatorDict[subset.indicator3])
-            $('#Zlabel').text(indicatorDict[subset.indicator1])
-            $('#X\\,Ylabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3])
-            $('#X\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
-            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
-            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
-        //X, Y, Z
-        //Z, X, Y
-        }else if ([2,0,1].compare(order)) {
-            $('#X').val(subset.Z==""?"":subset.Z+"%")
-            $('#Y').val(subset.X==""?"":subset.X+"%")
-            $('#Z').val(subset.Y==""?"":subset.Y+"%")
-            $('#X\\,Y').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#X\\,Z').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#Y\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
-            
-            $('#Xlabel').text(indicatorDict[subset.indicator3])
-            $('#Ylabel').text(indicatorDict[subset.indicator1])
-            $('#Zlabel').text(indicatorDict[subset.indicator2])
-            $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
-            $('#X\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
-            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
-            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1]+" and "+indicatorDict[subset.indicator2])
-        //X, Y, Z
-        //Z, Y, X
-        }else if ([2,1,0].compare(order)) {
-            $('#X').val(subset.Z==""?"":subset.Z+"%")
-            $('#Y').val(subset.Y==""?"":subset.Y+"%")
-            $('#Z').val(subset.X==""?"":subset.X+"%")
-            $('#X\\,Y').val(subset['Y,Z']==""?"":subset['Y,Z']+"%")
-            $('#X\\,Z').val(subset['X,Z']==""?"":subset['X,Z']+"%")
-            $('#Y\\,Z').val(subset['X,Y']==""?"":subset['X,Y']+"%")
-            $('#X\\,Y\\,Z').val(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%")
-            
-            $('#Xlabel').text(indicatorDict[subset.indicator3])
-            $('#Ylabel').text(indicatorDict[subset.indicator2])
-            $('#Zlabel').text(indicatorDict[subset.indicator1])
-            $('#X\\,Ylabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2])
-            $('#X\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator1])
-            $('#Y\\,Zlabel').text(indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
-            $('#X\\,Y\\,Zlabel').text(indicatorDict[subset.indicator3]+" and "+indicatorDict[subset.indicator2]+" and "+indicatorDict[subset.indicator1])
-        }
+        };
+
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
             $('div#venn').hide()
             $('div#err').show()
@@ -586,7 +645,7 @@ d3.csv('all.venn.joined.csv',function(data){
                 $('div#err').show()
             }
             // tweak style
-            var colours = d3.scaleOrdinal().range(["rgb(186,12,47)","rgb(147,50,142)","rgb(27,54,93)","rgb(234,118,16)","rgb(0,149,200)"])
+            var colours = d3.scaleOrdinal().range(["rgb(143,28,20)","rgb(189,39,41)","rgb(240,131,110)","rgb(232,68,58)"])
             d3.selectAll("#venn .venn-circle path")
                 .style("stroke-width", 1)
                 .style("stroke-opacity", .5)
@@ -600,9 +659,63 @@ d3.csv('all.venn.joined.csv',function(data){
     };
     var dropdowns = d3.selectAll('select');
     dropdowns.on("change",changeVenn);
-    var indicatorDropdowns = d3.selectAll('select.indicator');
-    var options = indicatorDropdowns.selectAll('option.indicator').data(indicators);
-    options.enter().append("option")
+    var indicatorDropdown1 = d3.selectAll('select#Xselect');
+    var indicatorDropdown2 = d3.selectAll('select#Yselect');
+    var indicatorDropdown3 = d3.selectAll('select#Zselect');
+    indicatorDropdown1.selectAll('option.indicator').data(["p20","non.p20","ext"])
+        .enter().append("option")
+        .attr('value',function(d){return d})
+        .attr('class','indicator')
+        .text(function(d){return indicatorDict[d];});
+    var choices1 = [
+        "blank1"
+        ,"p20"
+        ,"non.p20"
+        ,"ext"
+        ,"no.birth.reg"
+        ,"female"
+        ,"male"
+        ,"under5"
+        ,"fiveto14"
+        ,"fifteento49"
+        ,"gt49"
+        ,"no.educ"
+        ,"primary"
+        ,"secondary"
+        ,"higher"
+        ,"urban"
+        ,"rural"
+        ,"no.skilled.attendant"
+        ,"stunted"
+    ];
+    var choices2 = [
+        "blank2"
+        ,"p20"
+        ,"non.p20"
+        ,"ext"
+        ,"no.birth.reg"
+        ,"female"
+        ,"male"
+        ,"under5"
+        ,"fiveto14"
+        ,"fifteento49"
+        ,"gt49"
+        ,"no.educ"
+        ,"primary"
+        ,"secondary"
+        ,"higher"
+        ,"urban"
+        ,"rural"
+        ,"no.skilled.attendant"
+        ,"stunted"
+    ];
+    indicatorDropdown2.selectAll('option.indicator').data(choices1)
+        .enter().append("option")
+        .attr('value',function(d){return d})
+        .attr('class','indicator')
+        .text(function(d){return indicatorDict[d];});
+    indicatorDropdown3.selectAll('option.indicator').data(choices2)
+        .enter().append("option")
         .attr('value',function(d){return d})
         .attr('class','indicator')
         .text(function(d){return indicatorDict[d];});
