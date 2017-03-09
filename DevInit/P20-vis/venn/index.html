@@ -25,6 +25,7 @@
           font-family: Arial;
           font-weight: normal;
         }
+        /*.clone{text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}*/
         
         table {float:left;}
         
@@ -96,6 +97,10 @@
       <span class="caveat" id="X,Y,Zcaveat"></span>
       <span class="label" id="X,Y,Zlabel">X&#8745Y&#8745Z</span>
     </p>
+    <p>
+        <span id="mouseoverPre">Tooltip placeholder: </span>
+        <span id="mouseover"></span>
+    </p>
 </div>
 <div id="err" style="height:500px;width:600px;text-align:center;display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
@@ -126,6 +131,27 @@ Array.prototype.clean = function(deleteValue) {
   }
   return this;
 };
+
+d3.selection.prototype.moveToFront = function() {
+    return this.each(function(){
+      var text = this;
+      var clone = text.cloneNode(true)
+      clone.setAttribute("class","clone")
+      d3.select(clone).data(d3.select(text).data())
+      var g = text.parentNode;
+      var svg = g.parentNode;
+      svg.appendChild(clone);
+    });
+};
+//d3.selection.prototype.moveToBack = function() {  
+//    return this.each(function() { 
+//        var firstChild = this.parentNode.firstChild; 
+//        if (firstChild) { 
+//            this.parentNode.insertBefore(this, firstChild); 
+//        } 
+//    });
+//};
+
 
 function numberWithCommas(x) {
 	var millions = Math.round((x/100)/100000)/10;
@@ -711,15 +737,16 @@ d3.csv('all.venn.joined.csv',function(data){
                 $('div#err').show()
             }
             // tweak style
-            var colours = d3.scaleOrdinal().range(["rgb(143,28,20)","rgb(189,39,41)","rgb(240,131,110)","rgb(232,68,58)"])
-            d3.selectAll("#venn .venn-circle path")
-                .style("stroke-width", 1)
-                .style("stroke-opacity", .5)
-                .style("stroke", function(d,i) { return colours(i); })
-                .style("fill", function(d,i) { return colours(i); });
-            
-            d3.selectAll("#venn .venn-circle text")
-                .style("fill", function(d,i) { return colours(i)});
+            //var colours = d3.scaleOrdinal().range(["rgb(143,28,20)","rgb(189,39,41)","rgb(240,131,110)","rgb(232,68,58)"])
+            //d3.selectAll("#venn .venn-circle path")
+            //    .style("stroke-width", 1)
+            //    .style("stroke-opacity", 1)
+            //    .style("fill-opacity",.8)
+            //    .style("stroke", function(d,i) { return colours(i); })
+            //    .style("fill", function(d,i) { return colours(i); });
+                
+            d3.selectAll(".venn-area").on("mouseover",function(d){$('#mouseover').text(d.size+"%");console.log(d.size);return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
+            d3.selectAll(".venn-area").on("mouseout",function(d){$('#mouseover').text("");console.log(d.size);return d3.select(this.childNodes[0]).style("stroke-width",0);})
         };
         
     };

@@ -1239,7 +1239,7 @@
             // so this is the same as d3.schemeCategory10, which is only defined in d3 4.0
             // since we can support older versions of d3 as long as we don't force this,
             // I'm hackily redefining below. TODO: remove this and change to d3.schemeCategory10
-            colourScheme = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"],
+            colourScheme = ["rgb(205,44,43)","rgb(220,55,46)","rgb(236,99,81)"],
             colourIndex = 0,
             colours = function(key) {
                 if (key in colourMap) {
@@ -1333,10 +1333,14 @@
                 enterPath.style("fill-opacity", "0")
                     .filter(function (d) { return d.sets.length == 1; } )
                     .style("fill", function(d) { return colours(label(d)); })
-                    .style("fill-opacity", ".25");
+                    .style("fill-opacity", ".8");
 
                 enterText
                     .style("fill", function(d) { return d.sets.length == 1 ? colours(label(d)) : "#444"; });
+                //Add text overlap on top with cloned elements
+                d3.selectAll("#venn .venn-circle text").style("fill", "black").moveToFront();
+                var clones = svg.selectAll(".clone")
+                .data(data, function(d) { return d.sets; })
             }
 
             // update existing, using pathTween if necessary
@@ -1357,7 +1361,13 @@
                 .text(function (d) { return label(d); } )
                 .attr("x", function(d) { return Math.floor(textCentres[d.sets].x);})
                 .attr("y", function(d) { return Math.floor(textCentres[d.sets].y);});
-
+                
+            var updateClone = clones.transition("venn").duration(duration)
+                .filter(function (d) { return d.sets in textCentres; })
+                .text(function (d) { return label(d); } )
+                .attr("x", function(d) { return Math.floor(textCentres[d.sets].x);})
+                .attr("y", function(d) { return Math.floor(textCentres[d.sets].y);});
+                
             if (wrap) {
                 if (hasPrevious) {
                     // d3 4.0 uses 'on' for events on transitions,
@@ -1367,8 +1377,14 @@
                     } else {
                         updateText.each("end", wrapText(circles, label));
                     }
+                    if ('on' in updateClone) {
+                        updateClone.on("end", wrapText(circles, label));
+                    } else {
+                        updateClone.each("end", wrapText(circles, label));
+                    }
                 } else {
                     updateText.each(wrapText(circles, label));
+                    updateClone.each(wrapText(circles, label));
                 }
             }
 
@@ -1380,13 +1396,19 @@
             var exitText = exit.selectAll("text")
                 .attr("x", width/2)
                 .attr("y", height/2);
+            
+            var exitClone = clones.exit().transition('venn').duration(0).attr("x", width/2)
+                .attr("y", height/2).remove();
 
             // if we've been passed a fontSize explicitly, use it to
             // transition
+            fontSize="15px"
             if (fontSize !== null) {
                 enterText.style("font-size", "0px");
                 updateText.style("font-size", fontSize);
+                updateClone.style("font-size", fontSize);
                 exitText.style("font-size", "0px");
+                exitClone.style("font-size", "0px");
             }
 
 
