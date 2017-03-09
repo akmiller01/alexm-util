@@ -60,7 +60,7 @@
     </table>
 </div>
 <div id="venn"></div>
-<div style="float:left;padding:20px;">
+<div style="float:left;padding:20px;" id="narrative">
     <p>
       <span id="X"></span>
       <span class="caveat" id="Xcaveat"></span>
@@ -693,15 +693,20 @@ d3.csv('all.venn.joined.csv',function(data){
 
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
             $('div#venn').hide()
+            $('div#narrative').hide()
             $('div#err').show()
         }else{
             $('div#err').hide()
+            $('div#narrative').show()
             $('div#venn').show()
             try{
-                d3.select("#venn").datum(areas).call(chart);   
+                $('g.venn-circle').show()
+                d3.select("#venn").datum(areas).call(chart);
+                $("g.venn-circle[data-venn-sets*=' – 0%']").hide();
             }catch(err){
                 console.log(err)
                 $('div#venn').hide()
+                $('div#narrative').hide()
                 $('div#err').show()
             }
             // tweak style
