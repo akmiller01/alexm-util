@@ -1338,7 +1338,7 @@
                 enterText
                     .style("fill", function(d) { return d.sets.length == 1 ? colours(label(d)) : "#444"; });
                 //Add text overlap on top with cloned elements
-                d3.selectAll("#venn .venn-circle text").style("fill", "black").moveToFront();
+                d3.selectAll("#venn .venn-circle text").style("fill", "black").filter(function(d){return d.size>0}).moveToFront();
                 var clones = svg.selectAll(".clone")
                 .data(data, function(d) { return d.sets; })
             }
