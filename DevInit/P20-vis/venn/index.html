@@ -703,6 +703,7 @@ d3.csv('all.venn.joined.csv',function(data){
                 $('g.venn-circle').show()
                 d3.select("#venn").datum(areas).call(chart);
                 $("g.venn-circle[data-venn-sets*=' – 0%']").hide();
+                $("g.venn-circle[data-venn-sets*=' – %']").hide();
             }catch(err){
                 console.log(err)
                 $('div#venn').hide()
