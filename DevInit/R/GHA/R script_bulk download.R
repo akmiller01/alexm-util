@@ -44,14 +44,52 @@ csv_names <- c(
   ,"Destination Cluster"
   ,"Destination Sector"
 )
+csv_types <- c(
+  "numeric"
+  ,"text"
+  ,"numeric"
+  ,"text"
+  ,"numeric"
+  ,"numeric"
+  ,"text"
+  ,"numeric"
+  ,"text"
+  ,"text"
+  ,"numeric"
+  ,"numeric"
+  ,"numeric"
+  ,"numeric"
+  ,"numeric"
+  ,"text"
+  ,"text"
+  ,"text"
+  ,"text"
+  ,"text"
+  ,"numeric"
+  ,"text"
+  ,"numeric"
+  ,"numeric"
+  ,"numeric"
+  ,"numeric"
+  ,"text"
+  ,"text"
+  ,"text"
+  ,"numeric"
+  ,"text"
+  ,"text"
+  ,"numeric"
+  ,"text"
+  ,"text"
+  ,"text"
+)
 
 #Format them as if R did it automatically
 csv_names <- make.names(csv_names)
 
-data <- read_excel("Somalia 2015_full download.xls",sheet="Results - Incoming",skip=2,col_names=csv_names)
+data <- read_excel("Somalia 2015_full download.xls",sheet="Results - Incoming",skip=3,col_names=csv_names,col_types=csv_types)
 
 #No longer a need to skip 5 rows, header is right at the top with this download
-data <- read.csv("2015_Somalia.csv",header=TRUE,na.strings="",as.is=TRUE)
+# data <- read.csv("2015_Somalia.csv",header=TRUE,na.strings="",as.is=TRUE)
 library(plyr)
 
 #Parse numbers (removing commas)
@@ -65,6 +103,9 @@ library(plyr)
 #Remove total row
 #Note sure "Total: " still applies, I'll remove the comma and make it case insensitive to pick it up in case
 data <- subset(data,!grepl("total",Donor,ignore.case=TRUE))
+
+#Remove government
+data$Donor <- gsub(", Government of","",data$Donor)
 
 #Merge to create new column "Code name" based on donor type
 codenames <- read.csv("codename.csv",na.strings="",as.is=TRUE)
