@@ -746,7 +746,15 @@ d3.csv('all.venn.joined.csv',function(data){
         };
         var caveats = [caveatDict[subset.indicator1],caveatDict[subset.indicator2],caveatDict[subset.indicator3]].clean(undefined).join(" and ");
         $('.caveat').show()
-        $('.label').show()
+        $('span.label').show()
+        $('p').show()
+        var labels = $('span.label')
+        for(var j = 0; j < labels.length; j++){
+            label = labels[j];
+            if (label.innerText.indexOf("P20")==-1 && label.innerText.indexOf("poverty")==-1) {
+                label.parentElement.style.display = "none";
+            };
+        };
         if ($('#X').text()=="") {
             $('#Xcaveat').hide()
             $('#Xlabel').hide()
@@ -808,7 +816,7 @@ d3.csv('all.venn.joined.csv',function(data){
             $("path").on("mouseout",function(){
                 $('#tooltip').hide();
                 })
-            d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%");return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
+            d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%, or about "+numberWithCommas(d.size*subset.pop));return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
             d3.selectAll(".venn-area").on("mouseout",function(d){$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke-width",0);})
         };
         
