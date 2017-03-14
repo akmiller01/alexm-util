@@ -44,49 +44,11 @@ csv_names <- c(
   ,"Destination Cluster"
   ,"Destination Sector"
 )
-csv_types <- c(
-  "numeric"
-  ,"text"
-  ,"numeric"
-  ,"text"
-  ,"numeric"
-  ,"numeric"
-  ,"text"
-  ,"numeric"
-  ,"text"
-  ,"text"
-  ,"numeric"
-  ,"numeric"
-  ,"numeric"
-  ,"numeric"
-  ,"numeric"
-  ,"text"
-  ,"text"
-  ,"text"
-  ,"text"
-  ,"text"
-  ,"numeric"
-  ,"text"
-  ,"numeric"
-  ,"numeric"
-  ,"numeric"
-  ,"numeric"
-  ,"text"
-  ,"text"
-  ,"text"
-  ,"numeric"
-  ,"text"
-  ,"text"
-  ,"numeric"
-  ,"text"
-  ,"text"
-  ,"text"
-)
 
 #Format them as if R did it automatically
 csv_names <- make.names(csv_names)
 
-data <- read_excel("Somalia 2015_full download.xls",sheet="Results - Incoming",skip=3,col_names=csv_names,col_types=csv_types)
+data <- read_excel("Somalia 2015_full download.xls",sheet="Results - Incoming",skip=3,col_names=csv_names)
 
 #No longer a need to skip 5 rows, header is right at the top with this download
 # data <- read.csv("2015_Somalia.csv",header=TRUE,na.strings="",as.is=TRUE)

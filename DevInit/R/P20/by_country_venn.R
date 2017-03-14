@@ -11,6 +11,11 @@ load("total_triple.RData")
 data.total$sex <- factor(data.total$sex,levels=c("Male","Female"))
 
 countryMeta <- read.csv("headcounts.csv",as.is=TRUE)
+countryMeta <- transform(countryMeta,
+                         under5 = male.under5+female.under5
+                         ,over25 = female.25.plus+male.25.plus
+                         ,female.25.49 = female.25.plus-female.49.plus
+                         )
 
 weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   df <- data.frame(x,w)
@@ -67,7 +72,7 @@ venn.data.index <- 1
 filenames <- countryMeta$filename
 for(i in 1:length(filenames)){
   this.filename <- filenames[i]
-  pop <- subset(countryMeta,filename==this.filename)$pop.total
+  popset <- subset(countryMeta,filename==this.filename)[c("pop.total","under5","over25","female.25.49","female.15.49")]
   message(this.filename)
   dat <- subset(data.total,filename==this.filename)
   if(nrow(dat)>0){
@@ -123,6 +128,23 @@ for(i in 1:length(filenames)){
       valid.weights <- dat$weights[which(valid.rows==TRUE)]
       venn.segments <- triple.cross(valid.data[combs[j,1]][[1]],valid.data[combs[j,2]][[1]],valid.data[combs[j,3]][[1]],valid.weights)
       venn.df <- data.frame(list(filename=this.filename,indicator1=combs[j,1],indicator2=combs[j,2],indicator3=combs[j,3],venn.segments))
+      if("no.educ" %in% combs[j,] | 
+         "primary" %in% combs[j,] | 
+         "secondary" %in% combs[j,] | 
+         "higher" %in% combs[j,]){
+        if("no.skilled.attendant" %in% combs[j,]){
+          pop <- popset$female.25.49[1]
+        }else{
+          pop <- popset$over25[1] 
+        }
+      }else if("no.birth.reg" %in% combs[j,] | 
+               "stunted" %in% combs[j,]){
+        pop <- popset$under5[1] 
+      }else if("no.skilled.attendant" %in% combs[j,]){
+        pop <- popset$female.15.49[1] 
+      }else{
+        pop <- popset$pop.total[1]
+      }
       venn.df$pop <- pop
       venn.data[[venn.data.index]] <- venn.df
       venn.data.index <- venn.data.index + 1

@@ -143,6 +143,7 @@ for(i in 2:length(dirs)){
     #Rename cluster/hh var
     names(pr)[which(names(pr)=="hv001")] <- "cluster"
     names(pr)[which(names(pr)=="hv002")] <- "household"
+    names(pr)[which(names(pr)=="hv024")] <- "region"
     names(pr)[which(names(pr)=="hvidx")] <- "line"
     names(pr)[which(names(pr)=="hv112")] <- "mother.line"
     pr$mother.line[which(pr$mother.line==99)] <- NA
@@ -200,7 +201,7 @@ for(i in 2:length(dirs)){
       ,by=c("cluster","household","mother.line")
     )
     
-    keep <- c("wealth","weights","urban.rural","educ","age","sex","cluster","household","head.sex","head.age","p20"
+    keep <- c("wealth","weights","urban.rural","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
               ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl","ext"
     )
@@ -231,6 +232,7 @@ dirs <- list.dirs(wd,full.names=TRUE)
 
 # dir <- "D:/Documents/Data/MICSauto/Somalia MICS 2006 SPSS Datasets"
 # dir <- "D:/Documents/Data/MICSauto/Algeria_MICS4_Datasets"
+# dir <- "D:/Documents/Data/MICSauto/Zimbabwe_MICS5_Datasets"
 
 for(i in 2:length(dirs)){
   dir <- dirs[i]
@@ -254,7 +256,7 @@ for(i in 2:length(dirs)){
     names(hl) <- tolower(names(hl))
     names(ch) <- tolower(names(ch))
     names(wm) <- tolower(names(wm))
-    
+
     file.varName <- subset(varNames,filename==hrBase)
     
     attendedVar <- subset(file.varName,match=="attended")$varName
@@ -337,6 +339,7 @@ for(i in 2:length(dirs)){
     names(hl)[which(names(hl)=="ln")] <- "line"
     names(hh)[which(names(hh)=="hh1")] <- "cluster"
     names(hh)[which(names(hh)=="hh2")] <- "household"
+    names(hh)[which(names(hh)=="hh7")] <- "region"
     names(ch)[which(names(ch)=="hh1")] <- "cluster"
     names(ch)[which(names(ch)=="hh2")] <- "household"
     names(ch)[which(names(ch)=="ln")] <- "line"
@@ -548,7 +551,7 @@ for(i in 2:length(dirs)){
     )
     
     
-    hhkeep <- c("wealth","weights","urban.rural","cluster","household","head.sex","head.age","p20","np20","npl","ext")
+    hhkeep <- c("wealth","weights","urban.rural","region","cluster","household","head.sex","head.age","p20","np20","npl","ext")
     hhNames <- names(hh)
     namesDiff <- setdiff(hhkeep,hhNames)
     if(length(namesDiff)>0){
@@ -564,7 +567,7 @@ for(i in 2:length(dirs)){
       ,by=c("cluster","household")
     )
     hl <- data.frame(hl,as.is=TRUE,check.names=FALSE)
-    keep <- c("wealth","weights","urban.rural","educ","age","sex","cluster","household","head.sex","head.age","p20"
+    keep <- c("wealth","weights","urban.rural","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
               ,"woman.bmi","man.bmi","child.weights","mother.bmi","np20","npl","ext"
     )

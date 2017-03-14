@@ -10,7 +10,6 @@ import codecs
 import subprocess
 import csv
 import pdb
-import ia5
 
 
 #Parse Options
@@ -19,7 +18,7 @@ parser.add_option("-i", "--input", dest="input", default="D:/CRS/",
                 help="Input folder.", metavar="FOLDER")
 parser.add_option("-o", "--output", dest="output", default="D:/CRS/",
                 help="Output folder.", metavar="FILE")
-parser.add_option("-d", "--download", dest="download", default=True,
+parser.add_option("-d", "--download", dest="download", default=False,
                 help="Re-download?", metavar="BOOLEAN")
 parser.add_option("-u", "--unzip", dest="unzip", default=True,
                 help="Re-unzip?", metavar="BOOLEAN")
@@ -109,7 +108,7 @@ if options.unzip==True:
     for inPath in paths:
         filename = os.path.basename(inPath)
         print "Extracting "+filename
-        unzip(inPath,options.input)
+        # unzip(inPath,options.input)
         #os.remove(inPath)
 
 #Find .txt in folder
@@ -120,7 +119,7 @@ for inPath in txtpaths:
     filename = os.path.basename(inPath)
     name, extension = os.path.splitext(filename)
     print "Reading "+filename
-    utf16s = ["CRS 1973-94 data.txt","CRS 1995-99 data.txt"]
+    utf16s = []
     if filename in utf16s:
         CRS_encoding = "utf-16"
     else:

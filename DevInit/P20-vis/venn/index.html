@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Dynamic P20 Venn</title>
+    <title>Who are the P20?</title>
     <style>
         body {
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
             font-size: 14px;
+            margin:0px;
         }
         
         th {
@@ -27,17 +28,79 @@
         }
         /*.clone{text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;}*/
         
-        table {float:left;}
+        div.header {
+            width:100%;
+            background: #e8443a;
+            padding:15px;
+            }
+        img.logo{
+            height:32px;
+        }
+        .titleWrap{
+            width:100%;
+        }
+        .title{
+            color:#e8443a;
+            font-weight:bold;
+            margin-right:auto;
+            margin-left:auto;
+            text-align:center;
+            }
+        .copy p{
+            text-align:center;
+            margin-right:20%;
+            margin-left:20%;
+        }
+        .selectBar{
+            color:#60575d;
+            background:rgb(233,231,232);
+            width:100%;
+            text-align:center;
+            font-weight:bold;
+        }
+        .selectBar select{
+            color:#60575d;
+            text-align:center;
+            font-weight:bold;
+        }
         
-        div#venn {float:left;}
+        div#venn, div#err, div#narrative{
+            float:left;
+            width:50%;
+            margin-left:auto;
+            margin-right:auto;
+            
+        }
+        div#venn, div#err{
+            text-align:center;
+        }
+        #tooltip{
+            position:absolute;
+            background:white;
+            border:solid black 1px;
+            border-radius:5px;
+            padding:5px;
+            display:none;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Venn diagram comparing demographics in
-    <select id="isoSelect"></select>
-    </h1>
-<div style="float:left;padding:20px;width:100%">
+    <div class="header">
+        <img class="logo" src="./logo.png"/>
+    </div>
+    <div class="titleWrap">
+    <h1 class="title">Who are the P20?</h1>
+    </div>
+    <div class="copy">
+        <p>The poorest 20 percent of people in the world (the P20) are located in all corners of the world. Although our current understanding of who they are and where they live is based on a limited set of surveys, the chart below can be used to explore everything we know about this diverse group of people. Called a Euler diagram, this chart demonstrates the relative percentages of each demographic you select as well as how these characteristics intersect to paint the full picture of poverty.</p>
+    </div>
+    <div class="selectBar">
+    Who are the P20 in <select id="isoSelect"></select>?
+    </div>
+    
+    
+<div style="padding:20px;width:100%;">
     <table>
     <tr>
         <th>Poverty status</th>
@@ -61,7 +124,7 @@
     </table>
 </div>
 <div id="venn"></div>
-<div style="float:left;padding:20px;" id="narrative">
+<div id="narrative">
     <p>
       <span id="X"></span>
       <span class="caveat" id="Xcaveat"></span>
@@ -97,21 +160,27 @@
       <span class="caveat" id="X,Y,Zcaveat"></span>
       <span class="label" id="X,Y,Zlabel">X&#8745Y&#8745Z</span>
     </p>
-    <p>
-        <span id="mouseoverPre">Tooltip placeholder: </span>
-        <span id="mouseover"></span>
-    </p>
 </div>
-<div id="err" style="height:500px;width:600px;text-align:center;display:none;">
+<div id="err" style="height:400px;width:500px;text-align:center;display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
 </div>
 <div style="clear: both;"></div>
+<div id="tooltip"></div>
 
 </body>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="venn.js"></script>
+
 <script>
+function tip(e) {
+    $('#tooltip').show();
+    var tooltip = $('#tooltip');
+    for (var i=tooltip.length; i--;) {
+        tooltip[i].style.left = e.pageX+15 + 'px';
+        tooltip[i].style.top = e.pageY-15 + 'px';
+    }
+};
 Array.prototype.compare = function(testArr) {
     if (this.length != testArr.length) return false;
     for (var i = 0; i < testArr.length; i++) {
@@ -143,15 +212,6 @@ d3.selection.prototype.moveToFront = function() {
       svg.appendChild(clone);
     });
 };
-//d3.selection.prototype.moveToBack = function() {  
-//    return this.each(function() { 
-//        var firstChild = this.parentNode.firstChild; 
-//        if (firstChild) { 
-//            this.parentNode.insertBefore(this, firstChild); 
-//        } 
-//    });
-//};
-
 
 function numberWithCommas(x) {
 	var millions = Math.round((x/100)/100000)/10;
@@ -531,19 +591,19 @@ d3.csv('all.venn.joined.csv',function(data){
             })[0];
             if (subset.indicator1==values[0]) {
                 var areas = [
-                                {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
+                                {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
                             ];
                 $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
                 $('#Xlabel').text(sentenceDict[subset.indicator1]+".")
             }else if (subset.indicator2==values[0]) {
                 var areas = [
-                                {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
+                                {sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
                             ];
                 $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
                 $('#Xlabel').text(sentenceDict[subset.indicator2]+".")
             }else if (subset.indicator3==values[0]) {
                 var areas = [
-                                {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
+                                {sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
                             ];
                 $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
                 $('#Xlabel').text(sentenceDict[subset.indicator3]+".")
@@ -571,9 +631,9 @@ d3.csv('all.venn.joined.csv',function(data){
             if (values[0]==subset.indicator1) {
                 if (values[1]==subset.indicator2) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
-                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
-                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['X,Y']}
+                                    {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset['X,Y']}
                                 ];
                     $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
                     $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
@@ -583,9 +643,9 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#X\\,Ylabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator2]+".")
                 }else if (values[1]==subset.indicator3) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
-                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
-                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Z']}
+                                    {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['X,Z']}
                                 ];
                     $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
                     $('#Y').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
@@ -597,9 +657,9 @@ d3.csv('all.venn.joined.csv',function(data){
             }else if (values[0]==subset.indicator2) {
                 if (values[1]==subset.indicator1) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
-                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
-                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset['X,Y']}
+                                    {sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset['X,Y']}
                                 ];
                     $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
                     $('#Y').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
@@ -609,9 +669,9 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#X\\,Ylabel').text(sentenceDict[subset.indicator2]+" and "+sentenceDict[subset.indicator1]+".")
                 }else if (values[1]==subset.indicator3) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
-                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
-                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['Y,Z']}
+                                    {sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['Y,Z']}
                                 ];
                     $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
                     $('#Y').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
@@ -623,9 +683,9 @@ d3.csv('all.venn.joined.csv',function(data){
             }else if (values[0]==subset.indicator3) {
                 if (values[1]==subset.indicator1) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
-                                    ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
-                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%",indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset['X,Z']}
+                                    {sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
+                                    ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%",indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset['X,Z']}
                                 ];
                     $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
                     $('#Y').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
@@ -635,9 +695,9 @@ d3.csv('all.venn.joined.csv',function(data){
                     $('#X\\,Ylabel').text(sentenceDict[subset.indicator3]+" and "+sentenceDict[subset.indicator1]+".")
                 }else if (values[1]==subset.indicator2) {
                     var areas = [
-                                    {sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
-                                    ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
-                                    ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['Y,Z']}
+                                    {sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
+                                    ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
+                                    ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset['Y,Z']}
                                 ];
                     $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
                     $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
@@ -661,13 +721,13 @@ d3.csv('all.venn.joined.csv',function(data){
                 return(values.compare(indicatorSet) && d.iso2==iso2);
             })[0];
             var areas = [
-                            {sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%"],size:subset.X}
-                            ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset.Y}
-                            ,{sets:[indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset.Z}
-                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%"],size:subset['X,Y']}
-                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Z']}
-                            ,{sets:[indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['Y,Z']}
-                            ,{sets:[indicatorDict[subset.indicator1]+" – "+subset.X+"%",indicatorDict[subset.indicator2]+" – "+subset.Y+"%",indicatorDict[subset.indicator3]+" – "+subset.Z+"%"],size:subset['X,Y,Z']}
+                            {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
+                            ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
+                            ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
+                            ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset['X,Y']}
+                            ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['X,Z']}
+                            ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['Y,Z']}
+                            ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['X,Y,Z']}
                         ];
             $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
             $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
@@ -728,8 +788,8 @@ d3.csv('all.venn.joined.csv',function(data){
             try{
                 $('g.venn-circle').show()
                 d3.select("#venn").datum(areas).call(chart);
-                $("g.venn-circle[data-venn-sets*=' – 0%']").hide();
-                $("g.venn-circle[data-venn-sets*=' – %']").hide();
+                $("g.venn-circle[data-venn-sets*=': 0%']").hide();
+                $("g.venn-circle[data-venn-sets*=': %']").hide();
             }catch(err){
                 console.log(err)
                 $('div#venn').hide()
@@ -744,9 +804,12 @@ d3.csv('all.venn.joined.csv',function(data){
             //    .style("fill-opacity",.8)
             //    .style("stroke", function(d,i) { return colours(i); })
             //    .style("fill", function(d,i) { return colours(i); });
-                
-            d3.selectAll(".venn-area").on("mouseover",function(d){$('#mouseover').text(d.size+"%");console.log(d.size);return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
-            d3.selectAll(".venn-area").on("mouseout",function(d){$('#mouseover').text("");console.log(d.size);return d3.select(this.childNodes[0]).style("stroke-width",0);})
+            $("path").on("mousemove",tip)
+            $("path").on("mouseout",function(){
+                $('#tooltip').hide();
+                })
+            d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%");return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
+            d3.selectAll(".venn-area").on("mouseout",function(d){$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke-width",0);})
         };
         
     };
@@ -817,7 +880,7 @@ d3.csv('all.venn.joined.csv',function(data){
 
 // draw the initial set
 var chart = venn.VennDiagram()
-                 .width(600)
-                 .height(500);
+                 .width(400)
+                 .height(400);
 </script>
 </html>
