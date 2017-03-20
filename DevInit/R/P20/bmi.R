@@ -16,7 +16,7 @@ man.bmi.tab <- man.bmi.tab[,.(
   ,obese.class.ii = weighted.mean(man.bmi.class=="Obese class II",weights,na.rm=TRUE)
   ,obese.class.iii = weighted.mean(man.bmi.class=="Obese class III",weights,na.rm=TRUE)
 )
-,by=.(filename)]
+,by=.(filename,p20)]
 
 woman.bmi.tab <- data.table(subset(data.total,!is.na(woman.bmi)))
 woman.bmi.tab <- woman.bmi.tab[,.(
@@ -29,7 +29,7 @@ woman.bmi.tab <- woman.bmi.tab[,.(
   ,obese.class.ii = weighted.mean(woman.bmi.class=="Obese class II",weights,na.rm=TRUE)
   ,obese.class.iii = weighted.mean(woman.bmi.class=="Obese class III",weights,na.rm=TRUE)
 )
-,by=.(filename)]
+,by=.(filename,p20)]
 
 wd <- "D:/Documents/Data/P20_2013/meta"
 setwd(wd)

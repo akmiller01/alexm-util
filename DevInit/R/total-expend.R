@@ -8,7 +8,7 @@ keep <- c("id","year","value.ppp","budget.type")
 totalExp  <- totalExp[keep]
 
 adv <- read.csv("D:/Documents/Gov finance/adv_exp.csv",na.strings="",as.is=TRUE,colClasses=c("character","numeric","numeric","character"))
-mult <- read.csv("D:/git/digital-platform/reference/imf_weo_ncu_deflator.2015.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+mult <- read.csv("D:/git/digital-platform/reference/imf_weo_ncu_deflator.2014.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(mult)[3] <- c("deflator")
 mult$deflator[which(mult$id=="SY")] <- 1
 
@@ -16,7 +16,7 @@ mult$deflator[which(mult$id=="SY")] <- 1
 ppp <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-ppp.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(ppp)[3] <- "ppp"
 sy.ppp <- subset(ppp,id=="SY")
-ppp <- subset(ppp,year==2015 & id!="SY")
+ppp <- subset(ppp,year==2014 & id!="SY")
 ppp$year <- NULL
 somalia.ppp <- data.frame("id"="SO","ppp"=1)
 ppp <- rbind(ppp,somalia.ppp)
@@ -28,7 +28,7 @@ ppp <- rbind(ppp,sy.ppp)
 usd <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(usd)[3] <- "usd"
 sy.usd <- subset(usd,id=="SY")
-usd <- subset(usd,year==2015 & id!="SY")
+usd <- subset(usd,year==2014 & id!="SY")
 usd$year <- NULL
 somalia.usd <- data.frame("id"="SO","usd"=1)
 usd <- rbind(usd,somalia.usd)
@@ -47,6 +47,8 @@ mult$usd <- NULL
 
 adv <- merge(adv,mult,by=c("id","year"))
 adv <- transform(adv,value.ppp=value*mult.ppp)
+# adv <- transform(adv,value.constant=value*mult.usd)
+# write.csv(adv,"D:/Documents/Data/Ex/deflated_advanced_expenditure.csv",row.names=FALSE,na="")
 adv <- adv[c("id","year","value.ppp","budget.type")]
 
 dat <- rbind(totalExp,adv)
