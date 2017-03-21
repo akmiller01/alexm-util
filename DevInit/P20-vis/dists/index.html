@@ -336,11 +336,25 @@ var isoDict = {"AD":"Andorra"
 ,"EU":"European Union"};
 
 function catColours(text) {
-    if (~text.indexOf('Female')) {
-        return("#f8c1b2")
-    }else{
+    if (~text.indexOf('Under 5')) {
+        return("#bc2629")
+    }
+    if (~text.indexOf('5 to 14')) {
         return("#e84439")
     }
+    if (~text.indexOf('15 to 49')) {
+        return("#f0826d")
+    }
+    if (~text.indexOf('50 or greater')) {
+        return("#f8c1b2")
+    }
+    if (~text.indexOf('Female')) {
+        return("#f8c1b2")
+    }
+    if (~text.indexOf('Male')) {
+        return("#e84439")
+    }
+    return("#e84439")
 }
 
 var svg = d3.select("svg"),

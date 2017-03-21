@@ -68,6 +68,8 @@ simpleCap <- function(x) {
   paste(toupper(substring(s, 1,1)), substring(s, 2),
         sep="", collapse=" ")
 }
+psum <- function(...,na.rm=FALSE) { 
+  rowSums(do.call(cbind,list(...)),na.rm=na.rm) } 
 dist.data <- list()
 dist.data.index <- 1
 
@@ -82,7 +84,9 @@ for(i in 1:length(filenames)){
     dat$decile <- factor(sapply(dat$wealth,decile,deciles=deciles)
                          ,levels=c("10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"))
     dat$shortAgeCat <- factor(sapply(dat$age,shortAgeCat),levels=c("Under 5","5 to 14","15 to 49","50 or greater"))
-    dat$region <- unfactor(dat$region)
+    if(is.factor(dat$region)){
+      dat$region <- unfactor(dat$region)
+    }
     dat$region <- sapply(dat$region,simpleCap)
     qggad <- c("decile","sex","region","shortAgeCat")
     dat$stunted <- dat$stunting!="Not stunted"
@@ -108,6 +112,7 @@ for(i in 1:length(filenames)){
         not.reg=weighted.mean(not.reg,weights,na.rm=TRUE)
         ,stunted=weighted.mean(stunted,weights,na.rm=TRUE)
         ,no.educ=weighted.mean(no.educ,weights,na.rm=TRUE)
+        ,filename=max(filename)
         ),by=x]
       plot.dat$selection <- paste(x,collapse=",")
       if(length(x)==1){
@@ -117,10 +122,11 @@ for(i in 1:length(filenames)){
       }
       plot.dat <- subset(plot.dat,!grepl("NA",x))
       plot.dat <- data.frame(plot.dat)
-      plot.dat <- plot.dat[c("selection","x","not.reg","stunted","no.educ")]
+      plot.dat <- plot.dat[c("selection","x","not.reg","stunted","no.educ","filename")]
       plot.dat <- plot.dat[complete.cases(plot.dat$x),]
       if(nrow(plot.dat)>0){
-        plot.dat$filename <- this.filename
+        plot.dat$miss <- psum(is.na(plot.dat$not.reg) | is.nan(plot.dat$not.reg),is.na(plot.dat$stunted) | is.nan(plot.dat$stunted),is.na(plot.dat$no.educ) | is.nan(plot.dat$no.educ))
+        plot.dat <- subset(plot.dat,miss<3)
         dist.data[[dist.data.index]] <- plot.dat
         dist.data.index <- dist.data.index + 1
       }
