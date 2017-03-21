@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <style>
 
-#p20{
+#vis{
   padding-left:10px;
 }
 
@@ -24,23 +24,6 @@ h1 {
   font-weight: normal;
 }
 
-div.legend {
-  width:25px;
-  height:25px;
-}
-
-.blue {
-  background-color: rgb(12,101,167);
-}
-
-.red {
-  background-color: rgb(208,53,56);
-}
-
-.grey {
-  background-color: rgb(207,202,210);
-}
-
 #yaxislabel{
   transform:rotate(-90deg);
   transform-origin: left top 0;
@@ -51,46 +34,55 @@ div.legend {
 
 td#label{font-weight:bold;}
 
-div.line{
-  background-color:black;
-  width:3px;
-  margin-left:11.5px;
-}
+#tooltip{
+            position:absolute;
+            background:white;
+            border:solid black 1px;
+            border-radius:5px;
+            padding:5px;
+            display:none;
+        }
 
 </style>
 <body>
     <h1>
     <select id="country">
     </select>
-    <select id="indicator">
-        <option value="p20">P20 status</option>
-        <option value="reg">Birth registration</option>
-        <option value="stunt">Stunting status</option>
+    <select id="selection">
     </select>
-    by Wealth Distribution</h1>
-    <table>
-      <tr><td id="label">P20%: </td><td id="value"></td></tr>
-      <tr>
-        <td><div class="red legend"></div></td><td><span id="redNarrative">More in the P20 </span><span id="redNumber">(Maximum of 100.0%)</span></td>
-      </tr>
-      <tr>
-        <td><div class="blue legend"></div></td><td><span id="blueNarrative">Fewer in the P20 </span><span id="blueNumber">(Minimum of 0.0%)</span></td>
-      </tr>
-      <tr>
-        <td><div class="grey legend"></div></td><td><span id="greyNarrative">No data </span><span id="greyNumber"></span></td>
-      </tr>
-      <tr>
-        <td><div class="line legend"></div></td><td><span id="lineNarrative">P20 falls below this line </span><span id="greyNumber"></span></td>
-      </tr>
-    </table>
+    <select id="indicator">
+      <option value="not.reg">Birth not registered</option>
+      <option value="stunted">Experiencing stunting</option>
+      <option value="no.educ">No education</option>
+    </select>
+    </h1>
     <div id="yaxislabel"><b>Percent of population</b></div>
-    <svg width="960" height="500" id="p20"></svg>
-    <div id="xaxislabel"><b style="position:relative;left:350px;">Percent of maximum observed wealth</b></div>
+    <svg width="960" height="500" id="vis"></svg>
+    <div id="xaxislabel"><b style="position:relative;left:430px;">X</b></div>
+    <div id="tooltip"></div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-    
+function tip(e) {
+    $('#tooltip').show();
+    var tooltip = $('#tooltip');
+    for (var i=tooltip.length; i--;) {
+        tooltip[i].style.left = e.pageX+15 + 'px';
+        tooltip[i].style.top = e.pageY-15 + 'px';
+    }
+};
+var selectionDict = {
+  "decile":"Decile"
+  ,"decile,sex":"Decile and sex"
+  ,"decile,shortAgeCat":"Decile and age category"
+  ,"region":"Survey region"
+  ,"region,sex":"Survey region and sex"
+  ,"region,shortAgeCat":"Survey region and age category"
+  ,"sex":"Sex"
+  ,"sex,shortAgeCat":"Sex and age category"
+  ,"shortAgeCat":"Age category"
+  }    
 var isoDict = {"AD":"Andorra"
 ,"AE":"UAE"
 ,"AF":"Afghanistan"
@@ -343,19 +335,26 @@ var isoDict = {"AD":"Andorra"
 ,"ZW":"Zimbabwe"
 ,"EU":"European Union"};
 
+function catColours(text) {
+    if (~text.indexOf('Female')) {
+        return("#f8c1b2")
+    }else{
+        return("#e84439")
+    }
+}
+
 var svg = d3.select("svg"),
-    margin = {top: 20, right: 20, bottom: 30, left: 40},
+    margin = {top: 20, right: 100, bottom: 200, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom;
 
-var x = d3.scaleLinear().rangeRound([0, width]),
-    y = d3.scaleLinear().rangeRound([height, 0]),
-    z = d3.scaleLinear().range(["rgb(12,101,167)","rgb(208,53,56)"]);
+var x = d3.scaleBand().rangeRound([0, width]),
+    y = d3.scaleLinear().rangeRound([height, 0]);
 
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, function(error, data) {
+d3.csv("all.dist.joined.csv",function(error, data) {
   if (error) throw error;
   
   var isos = d3.map(data,function(d){return d.iso2;}).keys();
@@ -365,128 +364,88 @@ d3.csv("all.dist.joined.csv",function(d){d.stops = d.stops*4; return d;}, functi
         .attr('class','iso')
         .attr('value',function(d){return d})
         .text(function(d){return isoDict[d];});
+  
+  var selections = d3.map(data,function(d){return d.selection;}).keys();
+  var selectionSelect = d3.select("#selection");
+    
+  selectionSelect.selectAll("option.select").data(selections).enter().append("option")
+        .attr('class','select')
+        .attr('value',function(d){return d})
+        .text(function(d){return selectionDict[d];});
     
   var iso2 = $("#country").val()
+  var selection = $("#selection").val()
+  var indicator = $("#indicator").val()
   
-  var subset = data.filter(function(d){return d.iso2==iso2})
-
-  var i = 0;
-  var p20 = subset[i].p20s;
-  while (p20==1 || p20=="") {
-    i += 1;
-    var p20 = subset[i].p20s;
-  };
-  var p20_cut = [subset[i].stops+(p20*0.04)];
+  $('#xaxislabel b').text(selectionDict[selection]);
   
-  x.domain([0,1]);
-  y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
-  z.domain([0, d3.max(subset, function(d) { return Number(d.p20s); })]);
+  var subset = data.filter(function(d){return d.iso2==iso2 && d.selection==selection});
+  var xCategories = subset.map(function(d){return d.x});
+  x.domain(xCategories);
+  y.domain([0, d3.max(subset, function(d) {return Number(d[indicator]); })]);
 
-  g.append("g")
+  var xaxis = g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).ticks(10, "%"));
+      .call(d3.axisBottom(x));
 
   var yaxis = g.append("g")
       .attr("class", "axis axis--y")
       .call(d3.axisLeft(y).ticks(10, "%"))
       
-    yaxis.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("Frequency");
+  yaxis.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end")
+    .text("Frequency");
 
-  var bars = g.selectAll(".bar")
-    .data(subset)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.stops)-(width/25)+2; })
-      .attr("y", function(d) { return y(d.counts); })
-      .attr("width", (width/25)-1)
-      .attr("height", function(d) { return height - y(d.counts); })
-      .style("fill",function(d) {return d.p20s==""?"rgb(207,202,210)":z(d.p20s);})
-      .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.p20s*100)+"%')"});
-      
-  var p20Line = g.selectAll(".p20line")
-    .data(p20_cut).enter()
-    .append("line")
-    .attr("class","p20line")
-    .attr("y1",-5)
-    .attr("y2",height)
-    .attr("x1",function(d){return x(d)-(width/25)+2})
-    .attr("x2",function(d){return x(d)-(width/25)+2})
-    .attr("stroke","black")
-    .attr("stroke-width","3px");
+  function update() {
+    var iso2 = $("#country").val()
+    var selection = $("#selection").val()
+    var indicator = $("#indicator").val()
     
-  $('select').change(function(){
-    var val = $('#indicator').val()
-    var iso2 = $('#country').val()
-    var subset = data.filter(function(d){return d.iso2==iso2})
-    console.log(subset)
-    var i = 0;
-    var p20 = subset[i].p20s;
-    while (p20==1 || p20=="") {
-      i += 1;
-      var p20 = subset[i].p20s;
-    };
-    var p20_cut = [subset[i].stops+(p20*0.04)];
-    p20Line.data(p20_cut)
-    .transition()
-    .attr("x1",function(d){return x(d)-(width/25)+2})
-    .attr("x2",function(d){return x(d)-(width/25)+2});
-    y.domain([0, d3.max(subset, function(d) { return Number(d.counts); })]);
+    $('#xaxislabel b').text(selectionDict[selection]);
+    
+    var subset = data.filter(function(d){return d.iso2==iso2 && d.selection==selection});
+    var xCategories = subset.map(function(d){return d.x});
+    x.domain(xCategories);
+    y.domain([0, d3.max(subset, function(d) {return Number(d[indicator]); })]);
+    
     yaxis.transition().call(d3.axisLeft(y).ticks(10, "%"))
-    if (val=="p20") {
-      $('td#label').text('P20%: ');
-      $("#redNarrative").text("More in the P20 ")
-      $("#redNumber").text("(Maximum of 100.0%)")
-      $("#blueNarrative").text("Fewer in the P20 ")
-      $("#blueNumber").text("(Minimum of 0.0%)")
-        z.domain([0, 1]).range(["rgb(12,101,167)","rgb(208,53,56)"]);
-        bars
-        .data(subset)
-        .transition()
-        .attr("y", function(d) { return y(d.counts); })
-        .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.p20s==""?"rgb(207,202,210)":z(d.p20s);})
-        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.p20s*100)+"%')"});
-    }else if (val=="reg") {
-      $('td#label').text('Birth reg %: ');
-      var maxReg = d3.max(subset, function(d) { return Number(d.regs); });
-      var minReg = d3.min(subset, function(d) { return Number(d.regs); });
-      $("#redNarrative").text("Less under five birth registration ")
-      $("#redNumber").text("(Minimum of "+(minReg*100).toFixed(1)+"%)")
-      $("#blueNarrative").text("More under five birth registration ")
-      $("#blueNumber").text("(Maximum of "+(maxReg*100).toFixed(1)+"%)")
-        z.domain([minReg, maxReg]).range(["rgb(208,53,56)","rgb(12,101,167)"]);
-        bars
-        .data(subset)
-        .transition()
-        .attr("y", function(d) { return y(d.counts); })
-        .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.regs==""?"rgb(207,202,210)":z(d.regs);})
-        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.regs*100)+"%')"});
-    }else if (val=="stunt") {
-      $('td#label').text('Stunting %: ');
-        var maxStunt = d3.max(subset, function(d) { return Number(d.stunts); });
-        var minStunt = d3.min(subset, function(d) { return Number(d.stunts); });
-
-        $("#redNarrative").text("More under five stunting ")
-        $("#redNumber").text("(Maximum of "+(maxStunt*100).toFixed(1)+"%)")
-        $("#blueNarrative").text("Less under five stunting ")
-        $("#blueNumber").text("(Minimum of "+(minStunt*100).toFixed(1)+"%)")
-        z.domain([minStunt, maxStunt]).range(["rgb(12,101,167)","rgb(208,53,56)"]);
-        bars
-        .data(subset)
-        .transition()
-        .attr("y", function(d) { return y(d.counts); })
-        .attr("height", function(d) { return height - y(d.counts); })
-        .style("fill",function(d) {return d.stunts==""?"rgb(207,202,210)":z(d.stunts);})
-        .attr("onmouseover",function(d){return "$('td#value').text('"+Math.round(d.stunts*100)+"%')"});
-    };
-  });
+    xaxis.transition().call(d3.axisBottom(x))
+    xaxis.selectAll("text")
+      .attr("transform", "rotate(45)")
+      .style("text-anchor", "start");
+    
+    var bars = g.selectAll(".bar").data(subset)
+      .attr("class", "bar")
+      .style("fill",function(d){return catColours(d.x)})
+      .attr("onmouseout","$('#tooltip').hide()")
+      .attr("x", function(d) { return x(d.x) + 2; })
+      .attr("y", function(d) { return y(d[indicator]); })
+      .attr("width", (width/xCategories.length)-1)
+      .attr("height", function(d) { return height - y(d[indicator]); })
+      .attr("onmouseover",function(d){return "$('#tooltip').text('"+Math.round(d[indicator]*100)+"%')"});
+      
+      bars.enter().append("rect")
+      .attr("class", "bar")
+      .style("fill",function(d){return catColours(d.x)})
+      .attr("onmouseout","$('#tooltip').hide()")
+      .attr("x", function(d) { return x(d.x) + 2; })
+      .attr("y", function(d) { return y(d[indicator]); })
+      .attr("width", (width/xCategories.length)-1)
+      .attr("height", function(d) { return height - y(d[indicator]); })
+      .attr("onmouseover",function(d){return "$('#tooltip').text('"+Math.round(d[indicator]*100)+"%')"});
+      
+      bars.exit().remove()
+      
+    $('.bar').on("mousemove",tip)
+  };
+  
+  update() 
+    
+  $('select').change(function(){update()});
 });
 
 </script>

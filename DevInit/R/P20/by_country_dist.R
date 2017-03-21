@@ -3,6 +3,7 @@ library(ggplot2)
 library(plyr)
 library(Hmisc)
 require(gtools)
+library(varhandle)
 
 setwd("D:/Documents/Data/P20_2013/meta")
 load("total_triple.RData")
@@ -35,7 +36,38 @@ weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   names(cutList) <- cutNames
   return(cutList)
 }
-
+decile <- function(x,deciles){
+  for(i in 2:length(deciles)){
+    d <- deciles[i]
+    if(is.na(x)){return(NA)}
+    if(x<=d){
+      return(names(deciles)[i])
+    }
+  }
+  return(names(deciles)[i])
+}
+shortAgeCat <- function(a){
+  if(a %in% c(98,99,NA)){return(NA)}
+  if(a<5){return("Under 5")}
+  if(a>=5 & a<15){return("5 to 14")}
+  if(a>=15 & a<50){return("15 to 49")}
+  if(a>=50){return("50 or greater")}
+}
+rowwisePaste <- function(aV,bV,sep=" "){
+  results <- c()
+  for(i in 1:length(aV)){
+    a <- aV[i]
+    b <- bV[i]
+    result <- paste(a,b,sep=sep)
+    results <- c(results,result)
+  }
+  return(results)
+}
+simpleCap <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+        sep="", collapse=" ")
+}
 dist.data <- list()
 dist.data.index <- 1
 
@@ -45,40 +77,68 @@ for(i in 1:length(filenames)){
   message(this.filename)
   dat <- subset(data.total,filename==this.filename)
   if(nrow(dat)>0){
-    bin.count <- 25
-    max.wealth <- max(dat$wealth,na.rm=TRUE)
-    min.wealth <- min(dat$wealth,na.rm=TRUE)
-    weight.sum <- sum(dat$weights,na.rm=TRUE)
-    wealth.stop <- (max.wealth-min.wealth)/bin.count
-    stops <- c()
-    counts <- c()
-    regs <- c()
-    p20s <- c()
-    stunts <- c()
-    for(j in 1:bin.count){
-      bin.start <- min.wealth+(wealth.stop*(j-1))
-      bin.end <- min.wealth+(wealth.stop*j)
-      dat.subset <- subset(dat,wealth>=bin.start & wealth<bin.end)
-      bin.weights <- sum(dat.subset$weights)
-      bin.perc <- bin.weights/weight.sum
-      weighted.reg <- weighted.mean(dat.subset$birth.reg==1,dat.subset$weights,na.rm=TRUE)
-      weighted.p20 <- weighted.mean(dat.subset$p20,dat.subset$weights,na.rm=TRUE)
-      weighted.stunting <- weighted.mean(dat.subset$stunting!="Not stunted",dat.subset$weights,na.rm=TRUE)
-      stops <- c(stops,j)
-      counts <- c(counts,bin.perc)
-      regs <- c(regs,weighted.reg)
-      p20s <- c(p20s,weighted.p20)
-      stunts <- c(stunts,weighted.stunting)
+    bin.count <- 10
+    deciles <- weighted.percentile(dat$wealth,dat$weights,prob=seq(0,1,1/bin.count))
+    dat$decile <- factor(sapply(dat$wealth,decile,deciles=deciles)
+                         ,levels=c("10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"))
+    dat$shortAgeCat <- factor(sapply(dat$age,shortAgeCat),levels=c("Under 5","5 to 14","15 to 49","50 or greater"))
+    dat$region <- unfactor(dat$region)
+    dat$region <- sapply(dat$region,simpleCap)
+    qggad <- c("decile","sex","region","shortAgeCat")
+    dat$stunted <- dat$stunting!="Not stunted"
+    dat$not.reg <- dat$birth.reg==0
+    dat$no.educ <- dat$educ=="No education, preschool"
+    indicators <- c("stunted","not.reg")
+    combinations <- list(
+      list(x=c("decile"))
+      ,list(x=c("decile","sex"))
+      ,list(x=c("decile","shortAgeCat"))
+      ,list(x=c("region"))
+      ,list(x=c("region","sex"))
+      ,list(x=c("region","shortAgeCat"))
+      ,list(x=c("sex"))
+      ,list(x=c("sex","shortAgeCat"))
+      ,list(x=c("shortAgeCat"))
+    )
+    for(comb in combinations){
+      x <- comb$x
+      plot.dat <- data.table(dat)
+      setorderv(plot.dat,x)
+      plot.dat <- plot.dat[,.(
+        not.reg=weighted.mean(not.reg,weights,na.rm=TRUE)
+        ,stunted=weighted.mean(stunted,weights,na.rm=TRUE)
+        ,no.educ=weighted.mean(no.educ,weights,na.rm=TRUE)
+        ),by=x]
+      plot.dat$selection <- paste(x,collapse=",")
+      if(length(x)==1){
+        plot.dat$x <- plot.dat[,x,with=FALSE]
+      }else{
+        plot.dat$x <- rowwisePaste(plot.dat[,x[1],with=FALSE][[1]],plot.dat[,x[2],with=FALSE][[1]],sep=" and ")
+      }
+      plot.dat <- subset(plot.dat,!grepl("NA",x))
+      plot.dat <- data.frame(plot.dat)
+      plot.dat <- plot.dat[c("selection","x","not.reg","stunted","no.educ")]
+      plot.dat <- plot.dat[complete.cases(plot.dat$x),]
+      if(nrow(plot.dat)>0){
+        plot.dat$filename <- this.filename
+        dist.data[[dist.data.index]] <- plot.dat
+        dist.data.index <- dist.data.index + 1
+      }
     }
-    wealth.dist <- data.frame(filename=this.filename,stops,counts,regs,p20s,stunts)
-    dist.data[[dist.data.index]] <- wealth.dist
-    dist.data.index <- dist.data.index + 1
-#     ggplot(wealth.dist,aes(x=stops,y=counts,fill=regs)) + geom_bar(stat="identity")
-#     ggplot(wealth.dist,aes(x=stops,y=counts,fill=stunts)) + geom_bar(stat="identity")
-#     ggplot(wealth.dist,aes(x=stops,y=counts,fill=p20s)) + geom_bar(stat="identity")
   }
 }
 
 all.dist <- rbindlist(dist.data)
-setwd("D:/Documents/P20 Visualizations")
-write.csv(all.dist,"all.dist.csv",row.names=FALSE,na="")
+# plot.dat <- na.omit(subset(data.frame(all.dist)[c("x","selection","not.reg")],selection=="decile,sex"))
+# plot.dat$x <- factor(plot.dat$x)
+# plot(not.reg~x,data=plot.dat,main=this.filename)
+
+all.isos <- read.csv("D:/Documents/Data/DHSmeta/all.isos.csv",na.strings="")
+
+all.dist.joined <- join(all.dist,all.isos,by="filename")
+# all.dist.joined <- transform(all.dist.joined,
+#                              not.reg = round(not.reg*100)
+#                              ,stunted = round(stunted*100)
+#                              ,no.educ = round(no.educ*100)
+# )
+write.csv(all.dist.joined,"C:/git/alexm-util/DevInit/P20-vis/dists/all.dist.joined.csv",row.names=FALSE,na="")
