@@ -36,15 +36,15 @@ weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   names(cutList) <- cutNames
   return(cutList)
 }
-decile <- function(x,deciles){
-  for(i in 2:length(deciles)){
-    d <- deciles[i]
+quintile <- function(x,quintiles){
+  for(i in 2:length(quintiles)){
+    d <- quintiles[i]
     if(is.na(x)){return(NA)}
     if(x<=d){
-      return(names(deciles)[i])
+      return(names(quintiles)[i])
     }
   }
-  return(names(deciles)[i])
+  return(names(quintiles)[i])
 }
 shortAgeCat <- function(a){
   if(a %in% c(98,99,NA)){return(NA)}
@@ -79,24 +79,24 @@ for(i in 1:length(filenames)){
   message(this.filename)
   dat <- subset(data.total,filename==this.filename)
   if(nrow(dat)>0){
-    bin.count <- 10
-    deciles <- weighted.percentile(dat$wealth,dat$weights,prob=seq(0,1,1/bin.count))
-    dat$decile <- factor(sapply(dat$wealth,decile,deciles=deciles)
+    bin.count <- 5
+    quintiles <- weighted.percentile(dat$wealth,dat$weights,prob=seq(0,1,1/bin.count))
+    dat$quintile <- factor(sapply(dat$wealth,quintile,quintiles=quintiles)
                          ,levels=c("10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"))
     dat$shortAgeCat <- factor(sapply(dat$age,shortAgeCat),levels=c("Under 5","5 to 14","15 to 49","50 or greater"))
     if(is.factor(dat$region)){
       dat$region <- unfactor(dat$region)
     }
     dat$region <- sapply(dat$region,simpleCap)
-    qggad <- c("decile","sex","region","shortAgeCat")
+    qggad <- c("quintile","sex","region","shortAgeCat")
     dat$stunted <- dat$stunting!="Not stunted"
     dat$not.reg <- dat$birth.reg==0
     dat$no.educ <- dat$educ=="No education, preschool"
     indicators <- c("stunted","not.reg")
     combinations <- list(
-      list(x=c("decile"))
-      ,list(x=c("decile","sex"))
-      ,list(x=c("decile","shortAgeCat"))
+      list(x=c("quintile"))
+      ,list(x=c("quintile","sex"))
+      ,list(x=c("quintile","shortAgeCat"))
       ,list(x=c("region"))
       ,list(x=c("region","sex"))
       ,list(x=c("region","shortAgeCat"))
@@ -135,7 +135,7 @@ for(i in 1:length(filenames)){
 }
 
 all.dist <- rbindlist(dist.data)
-# plot.dat <- na.omit(subset(data.frame(all.dist)[c("x","selection","not.reg")],selection=="decile,sex"))
+# plot.dat <- na.omit(subset(data.frame(all.dist)[c("x","selection","not.reg")],selection=="quintile,sex"))
 # plot.dat$x <- factor(plot.dat$x)
 # plot(not.reg~x,data=plot.dat,main=this.filename)
 
