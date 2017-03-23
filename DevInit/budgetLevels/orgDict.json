@@ -3745,7 +3745,7 @@
     "L3_interest": {
       "l1": "Total Expenditure", 
       "l2": "Recurrent Expenditure", 
-      "l3": "Interest Payments", 
+      "l3": "Interest", 
       "l4": "", 
       "l5": ""
     }, 
@@ -7547,14 +7547,14 @@
     "L3_non_resource": {
       "l1": "Total Revenue and Grants", 
       "l2": "Revenue", 
-      "l3": "Non Resource Revenue", 
+      "l3": "Non Oil Revenue", 
       "l4": "", 
       "l5": ""
     }, 
     "L3_resource": {
       "l1": "Total Revenue and Grants", 
       "l2": "Revenue", 
-      "l3": "Resource Revenue", 
+      "l3": "Oil Revenue", 
       "l4": "", 
       "l5": ""
     }, 
