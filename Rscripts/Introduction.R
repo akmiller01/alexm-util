@@ -39,17 +39,18 @@ sd(mtcars$wt)
 median(mtcars$wt)
 
 #Assign a value to an object
-four <- 4
+four = 4
+four != 4
 
 #Create vectors; c() is concatenate
-wb <- c("Stop","Drop","Roll")
-xb <- c(1,2,3)
+wb = c("Stop","Drop","Roll")
+xb = c(1,2,3)
 
 #data.frame joins vectors into matrix
 df <- data.frame(wb,xb)
 
 #Test frame
-fivebytwo <- data.frame(c(1,2,3,4,5),c(1,2,3,4,5))
+fivebytwo <- data.frame(var1=c(1,2,3,4,5),var2=c(1,2,3,4,5))
 twobyfive <- data.frame(c(1,2),c(1,2),c(1,2),c(1,2),c(1,2))
 
 #OLS

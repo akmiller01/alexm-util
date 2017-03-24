@@ -76,6 +76,7 @@ regionDict <- list(
   ,"north-of-sahara"="North Africa"
 )
 plot.dat$Region <- sapply(regionDict[plot.dat$region],`[[`,index=1)
+write.csv(plot.dat,"D:/Documents/Data/MNM/bubble2/data.csv",row.names=FALSE,na="")
 setnames(
   plot.dat
   ,"name"

@@ -9,6 +9,9 @@ dac <- read.csv(dacPath,header=T,as.is=T)
 wd <- "D:/CRS/"
 setwd(wd)
 
+# dat <- read.csv("CRS 2010 data.csv")
+# write.csv(research,"research.csv",row.names=FALSE,na="")
+
 #Define the datasets we want to work with
 datasets <- c("CRS 2015 data.csv"
               ,"CRS 2014 data.csv"
