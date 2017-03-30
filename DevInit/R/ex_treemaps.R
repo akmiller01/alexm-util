@@ -2,7 +2,7 @@
 library(treemap)
 library(plyr)
 library(data.table)
-wd <- "D:/Documents/Data/EX"
+wd <- "/Users/Alex/Downloads/home_work/bubble/join"
 setwd(wd)
 
 diRamp <- function(colorText1,colorText2=NA,colorText3=NA){
@@ -64,80 +64,88 @@ treeMapRamp <- function(vector){
   return(colors)
 }
 
-data <- read.csv("national_pov.csv",na.strings="",as.is=TRUE)
+dataList <- list()
+dataIndex <- 1
 
-depth <- read.csv("depth.csv",na.strings="",as.is=TRUE)
-names(depth) = c("id","year","depth")
-depth <- subset(depth,year==2013)
-depth$year <- NULL
-data <- join(data,depth,by="id")
+data.files <- list.files(pattern="*.csv")
 
-entity <- read.csv("D:/git/digital-platform/reference/entity.csv",na.strings="")
-entity <- entity[c("id","region")]
-data <- join(data,entity,by="id")
+for(file in data.files){
+  temp <- read.csv(file,na.strings="")
+  dataList[[dataIndex]] <- temp
+  dataIndex <- dataIndex + 1
+}
 
-data <- data[complete.cases(data[c("name","UK.Bilateral.ODA","P20.percent","Extreme.poverty.percent","P20.population","Extreme.poverty.population","depth","region")]),]
+data <- join_all(dataList,by="Country")
 
-data <- transform(data,p20.pop.color=treeMapRamp(P20.population))
-data <- transform(data,sqrt.p20.pop.color=treeMapRamp(sqrt(P20.population)))
-data <- transform(data,ext.pop.color=treeMapRamp(Extreme.poverty.population))
-data <- transform(data,sqrt.ext.pop.color=treeMapRamp(sqrt(Extreme.poverty.population)))
-data <- transform(data,p20.color=treeMapRamp(P20.percent))
-data <- transform(data,ext.color=treeMapRamp(Extreme.poverty.percent))
-data <- transform(data,depth.color=treeMapRamp(depth))
-data <- transform(data,UK.Bilateral.ODA=as.numeric(UK.Bilateral.ODA))
+# View(data[which(!complete.cases(data)),])
+# 
+# data <- transform(data,p20.pop.color=treeMapRamp(p20.pop))
+# data <- transform(data,sqrt.p20.pop.color=treeMapRamp(sqrt(p20.pop)))
+# data <- transform(data,ext.pop.color=treeMapRamp(ext.pop))
+# data <- transform(data,sqrt.ext.pop.color=treeMapRamp(sqrt(ext.pop)))
+# data <- transform(data,p20.color=treeMapRamp(p20))
+# data <- transform(data,ext.color=treeMapRamp(ext))
+# data <- transform(data,depth.color=treeMapRamp(ext.depth))
+# data <- transform(data,UK.Bilateral.ODA=as.numeric(oda))
+# data$name <- data$Country
+# 
+# treemap(data
+#         ,index="name"
+#         ,vSize="UK.Bilateral.ODA"
+#         ,vColor="p20.color"
+#         ,type="color"
+#         ,title=""
+#         # ,lowerbound.cex.labels=1
+#         ,fontsize.labels=12
+#         ,inflate.labels=TRUE
+# )
+# treemap(data
+#         ,index="name"
+#         ,vSize="UK.Bilateral.ODA"
+#         ,vColor="sqrt.p20.pop.color"
+#         ,type="color"
+#         ,title=""
+#         # ,lowerbound.cex.labels=1
+#         ,fontsize.labels=12
+#         ,inflate.labels=TRUE
+# )
+# treemap(data
+#         ,index="name"
+#         ,vSize="UK.Bilateral.ODA"
+#         ,vColor="ext.color"
+#         ,type="color"
+#         ,title=""
+#         # ,lowerbound.cex.labels=1
+#         ,fontsize.labels=12
+#         ,inflate.labels=TRUE
+# )
+# treemap(data
+#         ,index="name"
+#         ,vSize="UK.Bilateral.ODA"
+#         ,vColor="sqrt.ext.pop.color"
+#         ,type="color"
+#         ,title=""
+#         # ,lowerbound.cex.labels=1
+#         ,fontsize.labels=12
+#         ,inflate.labels=TRUE
+# )
+# treemap(data
+#         ,index="name"
+#         ,vSize="UK.Bilateral.ODA"
+#         ,vColor="depth.color"
+#         ,type="color"
+#         ,title=""
+#         # ,lowerbound.cex.labels=1
+#         ,fontsize.labels=12
+#         ,inflate.labels=TRUE
+# )
 
+pov.names <- read.csv("/Users/Alex/Downloads/home_work/bubble/pov_names.csv",na.strings="")
+data <- join(data,pov.names,by="Country")
 
-treemap(data
-        ,index="name"
-        ,vSize="UK.Bilateral.ODA"
-        ,vColor="p20.color"
-        ,type="color"
-        ,title=""
-        # ,lowerbound.cex.labels=1
-        ,fontsize.labels=12
-        ,inflate.labels=TRUE
-)
-treemap(data
-        ,index="name"
-        ,vSize="UK.Bilateral.ODA"
-        ,vColor="sqrt.p20.pop.color"
-        ,type="color"
-        ,title=""
-        # ,lowerbound.cex.labels=1
-        ,fontsize.labels=12
-        ,inflate.labels=TRUE
-)
-treemap(data
-        ,index="name"
-        ,vSize="UK.Bilateral.ODA"
-        ,vColor="ext.color"
-        ,type="color"
-        ,title=""
-        # ,lowerbound.cex.labels=1
-        ,fontsize.labels=12
-        ,inflate.labels=TRUE
-)
-treemap(data
-        ,index="name"
-        ,vSize="UK.Bilateral.ODA"
-        ,vColor="sqrt.ext.pop.color"
-        ,type="color"
-        ,title=""
-        # ,lowerbound.cex.labels=1
-        ,fontsize.labels=12
-        ,inflate.labels=TRUE
-)
-treemap(data
-        ,index="name"
-        ,vSize="UK.Bilateral.ODA"
-        ,vColor="depth.color"
-        ,type="color"
-        ,title=""
-        # ,lowerbound.cex.labels=1
-        ,fontsize.labels=12
-        ,inflate.labels=TRUE
-)
+regions <- read.csv("~/git/digital-platform/reference/entity.csv",na.strings="",as.is=TRUE)
+regions <- regions[c("id","region")]
+data <- join(data,regions,by="id")
 
 regionDict <- list(
   "europe"="Europe"               
@@ -150,13 +158,10 @@ regionDict <- list(
   ,"far-east-asia"="Far East Asia"        
   ,"north-of-sahara"="North Africa"
 )
-library(varhandle)
-data$region <- unfactor(data$region)
 data$region <- sapply(regionDict[data$region],`[[`,index=1)
-write.csv(data,"bubble.dat2.csv",row.names=FALSE,na="")
 
 library(ggplot2)
-ggplot(data,aes(x=Extreme.poverty.percent*100,y=depth,size=UK.Bilateral.ODA/1000000,colour=region,label=name)) + geom_point(alpha=0.5) +
+ggplot(data,aes(x=ext*100,y=ext.depth,size=oda,colour=region,label=Country)) + geom_point(alpha=0.5) +
   labs(x="Percent of population in extreme poverty"
        ,y="Depth of extreme poverty"
        ,size="UK bilateral ODA (millions)"
@@ -165,11 +170,11 @@ ggplot(data,aes(x=Extreme.poverty.percent*100,y=depth,size=UK.Bilateral.ODA/1000
 # +
   # geom_text(aes(label=ifelse(UK.Bilateral.ODA>334745686,as.character(name),'')),hjust=0,vjust=1)
 require(scales)
-ggplot(data,aes(y=Extreme.poverty.population,x=depth,size=UK.Bilateral.ODA/1000000,colour=region)) + geom_point(alpha=0.5) +
+ggplot(data,aes(y=ext.pop,x=ext.depth,size=oda,colour=region)) + geom_point(alpha=0.5) +
   labs(y="Population in extreme poverty"
        ,x="Depth of extreme poverty"
        ,size="UK bilateral ODA (millions)"
        ,colour="Region"
        ) +
   theme_bw() + scale_size(range=c(1,15)) + scale_y_log10(labels = comma)  +
- geom_text(aes(label=ifelse(UK.Bilateral.ODA>334745686,as.character(name),'')),hjust=0,vjust=1)
+ geom_text(aes(label=ifelse(oda>300,as.character(Country),'')),hjust=0,vjust=1)
