@@ -593,6 +593,7 @@ function ensureUnique() {
 
 d3.csv('all.venn.joined.csv',function(data){
     var isos = d3.map(data,function(d){return d.iso2;}).keys();
+    isos = isos.sort(function(a,b){return d3.ascending(isoDict[a],isoDict[b])});
     var isoSelect = d3.select("#isoSelect");
     
     isoSelect.selectAll("option.iso").data(isos).enter().append("option")
