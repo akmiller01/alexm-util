@@ -857,6 +857,7 @@ d3.csv('all.venn.joined.csv',function(data){
             d3.selectAll(".venn-area").on("mouseout",function(d){$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke-width",0);})
         };
         setParams(params);
+        $('text.label').hide()
     };
     var dropdowns = d3.selectAll('select');
     dropdowns.on("change",changeVenn);
