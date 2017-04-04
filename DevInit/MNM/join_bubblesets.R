@@ -76,6 +76,26 @@ regionDict <- list(
   ,"north-of-sahara"="North Africa"
 )
 plot.dat$Region <- sapply(regionDict[plot.dat$region],`[[`,index=1)
+library(scales)
+ggplot(dat,aes(x=mc.oda,y=cases,size=health.exp,colour=Region)) + geom_point(alpha=0.75) +
+  labs(x="Malaria control ODA"
+       ,y="Reported malaria cases"
+       ,title="Malaria ODA spending vs. Health outcomes"
+       ,size="Health expenditure per capita"
+       ,colour="Region"
+  ) +
+  theme_bw() + scale_size(range=c(1,15)) + scale_y_log10(labels = comma) +
+  scale_x_log10(labels = comma)
+library(scales)
+ggplot(subset(dat,year==2014),aes(x=mc.oda,y=health.exp,size=cases,colour=Region)) + geom_point(alpha=0.75) +
+  labs(x="Malaria control ODA"
+       ,y="Health expenditure per capita"
+       ,title="Malaria ODA spending vs. Health outcomes"
+       ,size="Reported malaria cases"
+       ,colour="Region"
+  ) +
+  theme_bw() + scale_size(range=c(1,15)) + scale_y_log10(labels = comma) +
+  scale_x_log10(labels = comma)
 write.csv(plot.dat,"D:/Documents/Data/MNM/bubble2/data.csv",row.names=FALSE,na="")
 setnames(
   plot.dat

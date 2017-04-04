@@ -1,13 +1,13 @@
 library(plyr)
 
-setwd("C:/Users/Alex/Documents/MNM/grouping_data")
+setwd("/Users/Alex/Downloads/home_work/MNM/grouping_data")
 
 cases <- read.csv("reported_cases.csv",na.strings="")
 deaths <- read.csv("reported_deaths.csv",na.strings="")
 ids <- read.csv("ids.csv",na.strings="")
 eliminating <- read.csv("eliminating.csv",na.strings="")
 burden <- read.csv("burden.csv",na.strings="")
-pop <- read.csv("C:/git/digital-platform/country-year/population-total.csv",na.strings="")
+pop <- read.csv("~/git/digital-platform/country-year/population-total.csv",na.strings="")
 names(pop) <- c("id","year","pop")
 dat <- join(cases,deaths,by=c("Country","year"))
 dat <- join(dat,burden,by="Country")

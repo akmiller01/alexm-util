@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Who are the P20?</title>
+    <title>Who are the global P20?</title>
     <style>
         body {
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -90,10 +90,10 @@
         <img class="logo" src="./logo.png"/>
     </div>
     <div class="titleWrap">
-    <h1 class="title">Who are the P20?</h1>
+    <h1 class="title">Who are the global P20?</h1>
     </div>
     <div class="copy">
-        <p>The poorest 20 percent of people in the world (the P20) are located in all corners of the world. Although our current understanding of who they are and where they live is based on a limited set of surveys, the chart below can be used to explore everything we know about this diverse group of people. Called a Euler diagram, this chart demonstrates the relative percentages of each demographic you select as well as how these characteristics intersect to paint the full picture of poverty.</p>
+        <p>The poorest 20 percent of people in the world (the P20) are the poorest 1.4 billion in the world. Although our current understanding of who they are and where they live is based on a limited set of surveys, the chart below can be used to explore everything we know about this diverse group of people. Called a Euler diagram, this chart demonstrates the relative percentages of each demographic you select as well as how these characteristics intersect to paint the full picture of poverty.</p>
     </div>
     <div class="selectBar">
     Who are the P20 in <select id="isoSelect"></select>?
@@ -128,37 +128,37 @@
     <p>
       <span id="X"></span>
       <span class="caveat" id="Xcaveat"></span>
-      <span class="label" id="Xlabel">X</span>
+      <span class="label" id="Xlabel"></span>
     </p>
     <p>
       <span id="Y"></span>
       <span class="caveat" id="Ycaveat"></span>
-      <span class="label" id="Ylabel">Y</span>
+      <span class="label" id="Ylabel"></span>
     </p>
     <p>
       <span id="Z"></span>
       <span class="caveat" id="Zcaveat"></span>
-      <span class="label" id="Zlabel">Z</span>
+      <span class="label" id="Zlabel"></span>
     </p>
     <p>
       <span id="X,Y"></span>
       <span class="caveat" id="X,Ycaveat"></span>
-      <span class="label" id="X,Ylabel">X&#8745Y</span>
+      <span class="label" id="X,Ylabel"></span>
     </p>
     <p>
       <span id="X,Z"></span>
       <span class="caveat" id="X,Zcaveat"></span>
-      <span class="label" id="X,Zlabel">X&#8745Z</span>
+      <span class="label" id="X,Zlabel"></span>
     </p>
     <p>
       <span id="Y,Z"></span>
       <span class="caveat" id="Y,Zcaveat"></span>
-      <span class="label" id="Y,Zlabel">Y&#8745Z</span>
+      <span class="label" id="Y,Zlabel"></span>
     </p>
     <p>
       <span id="X,Y,Z"></span>
       <span class="caveat" id="X,Y,Zcaveat"></span>
-      <span class="label" id="X,Y,Zlabel">X&#8745Y&#8745Z</span>
+      <span class="label" id="X,Y,Zlabel"></span>
     </p>
 </div>
 <div id="err" style="height:400px;width:500px;text-align:center;display:none;">
@@ -173,6 +173,37 @@
 <script src="venn.js"></script>
 
 <script>
+//Get and Set Params functions
+function getParams() {
+    var paramArr = window.location.search.substr(1).split("&")[0] == "" ? [] : window.location.search.substr(1).split("&");
+    var params = {};
+    for (var i = 0; i < paramArr.length; i++) {
+        var param = paramArr[i];
+        params[param.split("=")[0]] = param.split("=")[1]
+    };
+    return params
+};
+function setParams(params) {
+    if (params === undefined) {
+        params = {}
+    }
+    var i = 1,
+        locationSearch = "",
+        len = Object.keys(params).length;
+    for (var param in params) {
+        if (i == 1) {
+            locationSearch += "?"
+        }
+        locationSearch += param
+        locationSearch += "="
+        locationSearch += params[param]
+        if (i < len) {
+            locationSearch += "&"
+        }
+        i += 1
+    };
+    window.history.pushState({}, "", "/" + locationSearch);
+};
 function tip(e) {
     $('#tooltip').show();
     var tooltip = $('#tooltip');
@@ -573,7 +604,9 @@ d3.csv('all.venn.joined.csv',function(data){
         .attr('value',function(d){return d})
         .text(function(d){return isoDict[d];});
     function changeVenn() {
+        var params = {};
         var iso2 = $("#isoSelect").val();
+        params["id"]=iso2;
         var values = ensureUnique().sort();
         for (var i=values.length-1; i>=0; i--) {
             if (values[i] === "blank1") {
@@ -584,6 +617,7 @@ d3.csv('all.venn.joined.csv',function(data){
         };
         //One choice
         if (values.length==1) {
+            params["i1"]=values[0];
             var fullValues = [values[0],"blank1","blank2"].sort();
             var subset = data.filter(function(d){
                 var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
@@ -623,6 +657,8 @@ d3.csv('all.venn.joined.csv',function(data){
             $('#X\\,Y\\,Zlabel').text("")
             //Two choice
         }else if (values.length==2) {
+            params["i1"]=values[0];
+            params["i2"]=values[1];
             var fullValues = [values[0],values[1],"blank1"].sort();
             var subset = data.filter(function(d){
                 var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
@@ -716,6 +752,9 @@ d3.csv('all.venn.joined.csv',function(data){
             $('#Y\\,Zlabel').text("")
             $('#X\\,Y\\,Zlabel').text("")
         }else if (values.length==3) {
+            params["i1"]=values[0];
+            params["i2"]=values[1];
+            params["i3"]=values[2];
             var subset = data.filter(function(d){
                 var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
                 return(values.compare(indicatorSet) && d.iso2==iso2);
@@ -819,7 +858,7 @@ d3.csv('all.venn.joined.csv',function(data){
             d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%, or about "+numberWithCommas(d.size*subset.pop));return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
             d3.selectAll(".venn-area").on("mouseout",function(d){$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke-width",0);})
         };
-        
+        setParams(params);
     };
     var dropdowns = d3.selectAll('select');
     dropdowns.on("change",changeVenn);
@@ -883,6 +922,22 @@ d3.csv('all.venn.joined.csv',function(data){
         .attr('value',function(d){return d})
         .attr('class','indicator')
         .text(function(d){return indicatorDict[d];});
+    var params = getParams(),
+    paramKeys = Object.keys(params);
+    if(paramKeys.length>0){
+        if(paramKeys.indexOf("id")>-1){
+            $("#isoSelect option[value='"+params["id"]+"']")[0].selected = true;
+        };
+        if(paramKeys.indexOf("i1")>-1){
+            $("select#Xselect option[value='"+params["i1"]+"']")[0].selected = true;
+        };
+        if(paramKeys.indexOf("i2")>-1){
+            $("select#Yselect option[value='"+params["i2"]+"']")[0].selected = true;
+        };
+        if(paramKeys.indexOf("i3")>-1){
+            $("select#Zselect option[value='"+params["i3"]+"']")[0].selected = true;
+        };
+    }
     changeVenn();
 });
 
