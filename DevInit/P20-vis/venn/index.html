@@ -925,16 +925,20 @@ d3.csv('all.venn.joined.csv',function(data){
     paramKeys = Object.keys(params);
     if(paramKeys.length>0){
         if(paramKeys.indexOf("id")>-1){
-            $("#isoSelect option[value='"+params["id"]+"']")[0].selected = true;
+            try{$("#isoSelect option[value='"+params["id"]+"']")[0].selected = true;}
+            catch(err){delete params.id;setParams(params);}
         };
         if(paramKeys.indexOf("i1")>-1){
-            $("select#Xselect option[value='"+params["i1"]+"']")[0].selected = true;
+            try{$("select#Xselect option[value='"+params["i1"]+"']")[0].selected = true;}
+            catch(err){delete params.i1;setParams(params);}
         };
         if(paramKeys.indexOf("i2")>-1){
-            $("select#Yselect option[value='"+params["i2"]+"']")[0].selected = true;
+            try{$("select#Yselect option[value='"+params["i2"]+"']")[0].selected = true;}
+            catch(err){delete params.i2;setParams(params);}
         };
         if(paramKeys.indexOf("i3")>-1){
-            $("select#Zselect option[value='"+params["i3"]+"']")[0].selected = true;
+            try{$("select#Zselect option[value='"+params["i3"]+"']")[0].selected = true;}
+            catch(err){delete params.i3;setParams(params);}
         };
     }
     changeVenn();
