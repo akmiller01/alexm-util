@@ -570,8 +570,6 @@ function ensureUnique() {
                 var option = $('#Yselect option').first();
             };
             option[0].selected=true
-            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
-            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
         if (values[1]==values[2]) {
             var option = $('#Zselect option:selected').next();
@@ -579,8 +577,6 @@ function ensureUnique() {
                 var option = $('#Zselect option').first();
             };
             option[0].selected=true
-            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
-            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
         if (values[2]==values[0]){
             var option = $('#Zselect option:selected').next();
@@ -588,9 +584,9 @@ function ensureUnique() {
                 var option = $('#Zselect option').first();
             };
             option[0].selected=true
-            var values = [$selects[0].value,$selects[1].value,$selects[2].value];
-            var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
         };
+        var values = [$selects[0].value,$selects[1].value,$selects[2].value];
+        var uniqueLength = d3.map(values,function(d){return d;}).keys().length;
     };
     return(values)
 };
@@ -607,7 +603,7 @@ d3.csv('all.venn.joined.csv',function(data){
         var params = {};
         var iso2 = $("#isoSelect").val();
         params["id"]=iso2;
-        var values = ensureUnique().sort();
+        var values = ensureUnique();
         for (var i=values.length-1; i>=0; i--) {
             if (values[i] === "blank1") {
                 values.splice(i, 1);
@@ -752,12 +748,13 @@ d3.csv('all.venn.joined.csv',function(data){
             $('#Y\\,Zlabel').text("")
             $('#X\\,Y\\,Zlabel').text("")
         }else if (values.length==3) {
+            var fullValues = [values[0],values[1],values[2]].sort();
             params["i1"]=values[0];
             params["i2"]=values[1];
             params["i3"]=values[2];
             var subset = data.filter(function(d){
                 var indicatorSet = [d.indicator1,d.indicator2,d.indicator3].sort();
-                return(values.compare(indicatorSet) && d.iso2==iso2);
+                return(fullValues.compare(indicatorSet) && d.iso2==iso2);
             })[0];
             var areas = [
                             {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
