@@ -919,7 +919,7 @@ d3.csv('all.venn.joined.csv',function(data){
             d3.selectAll("#venn .venn-circle path")
                 .style("stroke-width", 1)
                 .style("stroke-opacity", 1)
-                .style("fill-opacity",.5)
+                .style("fill-opacity",.65)
                 .style("stroke", function(d) {
                     var id = d.sets[0].split(":")[0];
                     return indicatorColour[id];
