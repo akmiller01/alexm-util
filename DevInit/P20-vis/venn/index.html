@@ -503,11 +503,11 @@ var isoDict = {"AD":"Andorra"
 ,"WD":"The World (surveyed country average)"};
 
 indicatorDict = {
- "blank1":"None"
- ,"blank2":"None"
+ "blank1":"None selected"
+ ,"blank2":"None selected"
  ,"p20":"P20"
  ,"non.p20":"Not in the P20"
- ,"ext":"Extreme poverty"
+ ,"ext":"Extreme poverty < $1.90 per day"
  ,"no.birth.reg":"Birth not registered"
  ,"female":"Female"
  ,"male":"Male"
@@ -523,6 +523,80 @@ indicatorDict = {
  ,"rural":"Rural"
  ,"no.skilled.attendant":"Had no skilled birth attendants"
  ,"stunted":"Experiencing stunting"
+};
+
+colourDict = {
+    "red":[
+        "#e84439"
+        ,"#f8c1b2"
+        ,"#f0826d"
+        ,"#bc2629"
+        ,"#8f1b13"
+    ]
+    ,"yellow":[
+        "#f49b21"
+        ,"#fccc8e"
+        ,"#f9b865"
+        ,"#e48a00"
+        ,"#a85d00"
+    ]
+    ,"orange":[
+        "#eb642b"
+        ,"#f6bb9d"
+        ,"#f18e5e"
+        ,"#d85b31"
+        ,"#973915"
+    ]
+    ,"pink":[
+        "#c2135b"
+        ,"#e4819b"
+        ,"#d64278"
+        ,"#ad1257"
+        ,"#7e1850"
+    ]
+    ,"purple":[
+        "#893f90"
+        ,"#c189bb"
+        ,"#a45ea1"
+        ,"#7b3b89"
+        ,"#551f65"
+    ]
+    ,"blue":[
+        "#0089cc"
+        ,"#88bae5"
+        ,"#5da3d9"
+        ,"#0071b1"
+        ,"#0c457b"
+    ]
+    ,"green":[
+        "#109e68"
+        ,"#92cba9"
+        ,"#5ab88a"
+        ,"#007851"
+        ,"rgb(9,81,58)"
+    ]
+};
+
+indicatorColour = {
+ "None selected":"black"
+ ,"P20":colourDict.red[0]
+ ,"Not in the P20":colourDict.red[1]
+ ,"Extreme poverty < $1.90 per day":colourDict.red[2]
+ ,"Birth not registered":colourDict.red[3]
+ ,"Female":colourDict.blue[0]
+ ,"Male":colourDict.blue[1]
+ ,"Younger than 5":colourDict.yellow[0]
+ ,"Aged 5 to 14":colourDict.yellow[1]
+ ,"Aged 15 to 49":colourDict.yellow[2]
+ ,"Older than 49":colourDict.yellow[3]
+ ,"No education or preschool":colourDict.purple[0]
+ ,"Primary education":colourDict.purple[1]
+ ,"Secondary education":colourDict.purple[2]
+ ,"Higher education":colourDict.purple[3]
+ ,"Urban":colourDict.orange[0]
+ ,"Rural":colourDict.orange[1]
+ ,"Had no skilled birth attendants":colourDict.pink[0]
+ ,"Experiencing stunting":colourDict.red[4]
 };
 
 sentenceDict = {
@@ -842,13 +916,18 @@ d3.csv('all.venn.joined.csv',function(data){
                 $('div#err').show()
             }
             // tweak style
-            //var colours = d3.scaleOrdinal().range(["rgb(143,28,20)","rgb(189,39,41)","rgb(240,131,110)","rgb(232,68,58)"])
-            //d3.selectAll("#venn .venn-circle path")
-            //    .style("stroke-width", 1)
-            //    .style("stroke-opacity", 1)
-            //    .style("fill-opacity",.8)
-            //    .style("stroke", function(d,i) { return colours(i); })
-            //    .style("fill", function(d,i) { return colours(i); });
+            d3.selectAll("#venn .venn-circle path")
+                .style("stroke-width", 1)
+                .style("stroke-opacity", 1)
+                .style("fill-opacity",.8)
+                .style("stroke", function(d) {
+                    var id = d.sets[0].split(":")[0];
+                    return indicatorColour[id];
+                    })
+                .style("fill", function(d) {
+                    var id = d.sets[0].split(":")[0];
+                    return indicatorColour[id];
+                    });
             $("path").on("mousemove",tip)
             $("path").on("mouseout",function(){
                 $('#tooltip').hide();
