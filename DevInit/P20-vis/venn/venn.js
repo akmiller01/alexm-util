@@ -1269,8 +1269,7 @@
             selection.selectAll("svg").data([circles]).enter().append("svg");
 
             var svg = selection.select("svg")
-                .attr("width", width)
-                .attr("height", height);
+                .attr("viewBox","0 0 "+(width*1)+" "+(height*1));
 
             // to properly transition intersection areas, we need the
             // previous circles locations. load from elements

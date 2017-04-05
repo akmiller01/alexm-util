@@ -31,7 +31,8 @@
         div.header {
             width:100%;
             background: #e8443a;
-            padding:15px;
+            padding-top:15px;
+            padding-bottom:15px;
             }
         img.logo{
             height:32px;
@@ -64,12 +65,11 @@
             font-weight:bold;
         }
         
-        div#venn, div#err, div#narrative{
-            float:left;
-            width:50%;
+        div#venn, div#err{
+            min-width:500px;
+            width:100%;
             margin-left:auto;
             margin-right:auto;
-            
         }
         div#venn, div#err{
             text-align:center;
@@ -81,6 +81,20 @@
             border-radius:5px;
             padding:5px;
             display:none;
+        }
+        #indicatorBar{
+            width:100%;
+            padding-top:15px;
+            padding-bottom:15px;
+        }
+        #indicatorBar #wrapper{
+            text-align:center;
+        }
+        #indicatorBar #tableWrap{
+            display:inline-block;
+        }
+        #visTitle, #subtitle{
+            text-align:center;
         }
     </style>
 </head>
@@ -100,68 +114,46 @@
     </div>
     
     
-<div style="padding:20px;width:100%;">
-    <table>
-    <tr>
-        <th>Poverty status</th>
-        <th>Selection 2</th>
-        <th>Selection 3</th>
-    </tr>
-    <tr>
-        <td>
-            <select id="Xselect" class="indicator">
-            </select>
-        </td>
-        <td>
-            <select id="Yselect" class="indicator">
-            </select>
-        </td>
-        <td>
-            <select id="Zselect" class="indicator">
-            </select>
-        </td>
-    </tr>
-    </table>
+<div id="indicatorBar">
+    <div id="wrapper">
+        <div id="tableWrap">
+            <table>
+                <tr>
+                    <td><b>Poverty status</b></td>
+                </tr>
+                <tr>
+                    <td><select id="Xselect" class="indicator"></select></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="tableWrap">
+            <table>
+                <tr>
+                    <td><b>Selection 2</b></td>
+                </tr>
+                <tr>
+                    <td><select id="Yselect" class="indicator"></select></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="tableWrap">
+            <table>
+                <tr>
+                    <td><b>Selection 3</b></td>
+                </tr>
+                <tr>
+                     <td><select id="Zselect" class="indicator"></select></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+<h1 id="visTitle"></h1>
+<h2 id="subtitle"></h2>
 <div id="venn"></div>
-<div id="narrative">
-    <p>
-      <span id="X"></span>
-      <span class="caveat" id="Xcaveat"></span>
-      <span class="label" id="Xlabel"></span>
-    </p>
-    <p>
-      <span id="Y"></span>
-      <span class="caveat" id="Ycaveat"></span>
-      <span class="label" id="Ylabel"></span>
-    </p>
-    <p>
-      <span id="Z"></span>
-      <span class="caveat" id="Zcaveat"></span>
-      <span class="label" id="Zlabel"></span>
-    </p>
-    <p>
-      <span id="X,Y"></span>
-      <span class="caveat" id="X,Ycaveat"></span>
-      <span class="label" id="X,Ylabel"></span>
-    </p>
-    <p>
-      <span id="X,Z"></span>
-      <span class="caveat" id="X,Zcaveat"></span>
-      <span class="label" id="X,Zlabel"></span>
-    </p>
-    <p>
-      <span id="Y,Z"></span>
-      <span class="caveat" id="Y,Zcaveat"></span>
-      <span class="label" id="Y,Zlabel"></span>
-    </p>
-    <p>
-      <span id="X,Y,Z"></span>
-      <span class="caveat" id="X,Y,Zcaveat"></span>
-      <span class="label" id="X,Y,Zlabel"></span>
-    </p>
-</div>
-<div id="err" style="height:400px;width:500px;text-align:center;display:none;">
+<div id="err" style="display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
 </div>
 <div style="clear: both;"></div>
@@ -245,7 +237,7 @@ d3.selection.prototype.moveToFront = function() {
 };
 
 function numberWithCommas(x) {
-	var millions = Math.round((x/100)/100000)/10;
+	var millions = Math.round(x/100000)/10;
     return millions.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+ " million people";
 };
 
@@ -507,7 +499,7 @@ indicatorDict = {
  ,"blank2":"None selected"
  ,"p20":"P20"
  ,"non.p20":"Not in the P20"
- ,"ext":"Extreme poverty < $1.90 per day"
+ ,"ext":"Extreme poverty"
  ,"no.birth.reg":"Birth not registered"
  ,"female":"Female"
  ,"male":"Male"
@@ -577,50 +569,49 @@ colourDict = {
     ]
 };
 
-indicatorColour = {
- "None selected":"black"
- ,"P20":colourDict.red[0]
- ,"Not in the P20":colourDict.red[1]
- ,"Extreme poverty < $1.90 per day":colourDict.red[2]
- ,"Birth not registered":colourDict.red[3]
- ,"Female":colourDict.blue[0]
- ,"Male":colourDict.blue[1]
- ,"Younger than 5":colourDict.green[0]
- ,"Aged 5 to 14":colourDict.green[1]
- ,"Aged 15 to 49":colourDict.green[2]
- ,"Older than 49":colourDict.green[3]
- ,"No education or preschool":colourDict.purple[0]
- ,"Primary education":colourDict.purple[1]
- ,"Secondary education":colourDict.purple[2]
- ,"Higher education":colourDict.purple[3]
- ,"Urban":colourDict.orange[0]
- ,"Rural":colourDict.orange[1]
- ,"Had no skilled birth attendants":colourDict.pink[0]
- ,"Experiencing stunting":colourDict.red[4]
-};
+indicatorColour = {};
+indicatorColour[indicatorDict["blank1"]] = "black";
+indicatorColour[indicatorDict["blank2"]] = "black";
+indicatorColour[indicatorDict["p20"]] = colourDict.red[0];
+indicatorColour[indicatorDict["non.p20"]] = colourDict.red[1];
+indicatorColour[indicatorDict["ext"]] = colourDict.red[2];
+indicatorColour[indicatorDict["no.birth.reg"]] = colourDict.red[3];
+indicatorColour[indicatorDict["stunted"]] = colourDict.red[4];
+indicatorColour[indicatorDict["male"]] = colourDict.blue[0];
+indicatorColour[indicatorDict["female"]] = colourDict.blue[1];
+indicatorColour[indicatorDict["under5"]] = colourDict.green[0];
+indicatorColour[indicatorDict["fiveto14"]] = colourDict.green[1];
+indicatorColour[indicatorDict["fifteento49"]] = colourDict.green[2];
+indicatorColour[indicatorDict["gt49"]] = colourDict.green[3];
+indicatorColour[indicatorDict["no.educ"]] = colourDict.purple[0];
+indicatorColour[indicatorDict["primary"]] = colourDict.purple[1];
+indicatorColour[indicatorDict["secondary"]] = colourDict.purple[2];
+indicatorColour[indicatorDict["higher"]] = colourDict.purple[3];
+indicatorColour[indicatorDict["urban"]] = colourDict.orange[0];
+indicatorColour[indicatorDict["rural"]] = colourDict.orange[1];
+indicatorColour[indicatorDict["no.skilled.attendant"]] = colourDict.pink[0];
 
-sentenceDict = {
- "blank1":""
- ,"blank2":""
- ,"p20":"are in the P20"
- ,"non.p20":"are not in the P20"
- ,"ext":"are in extreme poverty"
- ,"no.birth.reg":"do not have birth registrations"
- ,"female":"are female"
- ,"male":"are male"
- ,"under5":"are younger than 5"
- ,"fiveto14":"are aged 5 to 14"
- ,"fifteento49":"are aged 15 to 49"
- ,"gt49":"are older than 49"
- ,"no.educ":"have either no education or preschool education"
- ,"primary":"have primary education"
- ,"secondary":"have secondary education"
- ,"higher":"have higher education"
- ,"urban":"live in urban areas"
- ,"rural":"live in rural areas"
- ,"no.skilled.attendant":"had no skilled birth attendants"
- ,"stunted":"are experiencing stunting"
-};
+sentenceDict = {};
+sentenceDict[indicatorDict["blank1"]] = "";
+sentenceDict[indicatorDict["blank2"]] = "";
+sentenceDict[indicatorDict["p20"]] = "are in the P20";
+sentenceDict[indicatorDict["non.p20"]] = "are not in the P20";
+sentenceDict[indicatorDict["ext"]] = "are in extreme poverty";
+sentenceDict[indicatorDict["no.birth.reg"]] = "do not have birth registrations";
+sentenceDict[indicatorDict["female"]] = "are female";
+sentenceDict[indicatorDict["male"]] = "are male";
+sentenceDict[indicatorDict["under5"]] = "are younger than 5";
+sentenceDict[indicatorDict["fiveto14"]] = "are aged 5 to 14";
+sentenceDict[indicatorDict["fifteento49"]] = "are aged 15 to 49";
+sentenceDict[indicatorDict["gt49"]] = "are older than 49";
+sentenceDict[indicatorDict["no.educ"]] = "have either no education or preschool education";
+sentenceDict[indicatorDict["primary"]] = "have primary education";
+sentenceDict[indicatorDict["secondary"]] = "have secondary education";
+sentenceDict[indicatorDict["higher"]] = "have higher education";
+sentenceDict[indicatorDict["urban"]] = "live in urban areas";
+sentenceDict[indicatorDict["rural"]] = "live in rural areas";
+sentenceDict[indicatorDict["no.skilled.attendant"]] = "had no skilled birth attendants";
+sentenceDict[indicatorDict["stunted"]] = "are experiencing stunting";
 
 caveatDict = {
  "no.birth.reg":"less than 5 years old"
@@ -676,7 +667,8 @@ d3.csv('all.venn.joined.csv',function(data){
         .text(function(d){return isoDict[d];});
     function changeVenn() {
         var params = {};
-        var iso2 = $("#isoSelect").val();
+        var iso2 = $("#isoSelect").val(),
+        country = isoDict[iso2];
         params["id"]=iso2;
         var values = ensureUnique();
         for (var i=values.length-1; i>=0; i--) {
@@ -698,34 +690,16 @@ d3.csv('all.venn.joined.csv',function(data){
                 var areas = [
                                 {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
                             ];
-                $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-                $('#Xlabel').text(sentenceDict[subset.indicator1]+".")
             }else if (subset.indicator2==values[0]) {
                 var areas = [
                                 {sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
                             ];
-                $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-                $('#Xlabel').text(sentenceDict[subset.indicator2]+".")
             }else if (subset.indicator3==values[0]) {
                 var areas = [
                                 {sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
                             ];
-                $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-                $('#Xlabel').text(sentenceDict[subset.indicator3]+".")
             };
-            
-            $('#Y').text("")
-            $('#Z').text("")
-            $('#X\\,Y').text("")
-            $('#X\\,Z').text("")
-            $('#Y\\,Z').text("")
-            $('#X\\,Y\\,Z').text("")
-            $('#Ylabel').text("")
-            $('#Zlabel').text("")
-            $('#X\\,Ylabel').text("")
-            $('#X\\,Zlabel').text("")
-            $('#Y\\,Zlabel').text("")
-            $('#X\\,Y\\,Zlabel').text("")
+
             //Two choice
         }else if (values.length==2) {
             params["i1"]=values[0];
@@ -742,24 +716,12 @@ d3.csv('all.venn.joined.csv',function(data){
                                     ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
                                     ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset['X,Y']}
                                 ];
-                    $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-                    $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-                    $('#X\\,Y').text(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator1]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator2]+".")
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator2]+".")
                 }else if (values[1]==subset.indicator3) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
                                     ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
                                     ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['X,Z']}
                                 ];
-                    $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-                    $('#Y').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-                    $('#X\\,Y').text(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator1]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator3]+".")
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator3]+".")
                 };
             }else if (values[0]==subset.indicator2) {
                 if (values[1]==subset.indicator1) {
@@ -768,24 +730,12 @@ d3.csv('all.venn.joined.csv',function(data){
                                     ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
                                     ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset['X,Y']}
                                 ];
-                    $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-                    $('#Y').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-                    $('#X\\,Y').text(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator2]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator1]+".")
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator2]+" and "+sentenceDict[subset.indicator1]+".")
                 }else if (values[1]==subset.indicator3) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
                                     ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
                                     ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['Y,Z']}
                                 ];
-                    $('#X').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-                    $('#Y').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-                    $('#X\\,Y').text(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator2]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator3]+".")
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator2]+" and "+sentenceDict[subset.indicator3]+".")
                 };
             }else if (values[0]==subset.indicator3) {
                 if (values[1]==subset.indicator1) {
@@ -794,34 +744,14 @@ d3.csv('all.venn.joined.csv',function(data){
                                     ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset.X}
                                     ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%",indicatorDict[subset.indicator1]+": "+subset.X+"%"],size:subset['X,Z']}
                                 ];
-                    $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-                    $('#Y').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-                    $('#X\\,Y').text(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator3]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator1+"."])
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator3]+" and "+sentenceDict[subset.indicator1]+".")
                 }else if (values[1]==subset.indicator2) {
                     var areas = [
                                     {sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset.Z}
                                     ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset.Y}
                                     ,{sets:[indicatorDict[subset.indicator3]+": "+subset.Z+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%"],size:subset['Y,Z']}
                                 ];
-                    $('#X').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-                    $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-                    $('#X\\,Y').text(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
-                    $('#Xlabel').text(sentenceDict[subset.indicator3]+".")
-                    $('#Ylabel').text(sentenceDict[subset.indicator2]+".")
-                    $('#X\\,Ylabel').text(sentenceDict[subset.indicator3]+" and "+sentenceDict[subset.indicator2]+".")
                 };
             };
-            $('#Z').text("")
-            $('#X\\,Z').text("")
-            $('#Y\\,Z').text("")
-            $('#X\\,Y\\,Z').text("")
-            $('#Zlabel').text("")
-            $('#X\\,Zlabel').text("")
-            $('#Y\\,Zlabel').text("")
-            $('#X\\,Y\\,Zlabel').text("")
         }else if (values.length==3) {
             var fullValues = [values[0],values[1],values[2]].sort();
             params["i1"]=values[0];
@@ -840,70 +770,23 @@ d3.csv('all.venn.joined.csv',function(data){
                             ,{sets:[indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['Y,Z']}
                             ,{sets:[indicatorDict[subset.indicator1]+": "+subset.X+"%",indicatorDict[subset.indicator2]+": "+subset.Y+"%",indicatorDict[subset.indicator3]+": "+subset.Z+"%"],size:subset['X,Y,Z']}
                         ];
-            $('#X').text(subset.X==""?"":subset.X+"%, or about "+numberWithCommas(subset.X*subset.pop))
-            $('#Y').text(subset.Y==""?"":subset.Y+"%, or about "+numberWithCommas(subset.Y*subset.pop))
-            $('#Z').text(subset.Z==""?"":subset.Z+"%, or about "+numberWithCommas(subset.Z*subset.pop))
-            $('#X\\,Y').text(subset['X,Y']==""?"":subset['X,Y']+"%, or about "+numberWithCommas(subset['X,Y']*subset.pop))
-            $('#X\\,Z').text(subset['X,Z']==""?"":subset['X,Z']+"%, or about "+numberWithCommas(subset['X,Z']*subset.pop))
-            $('#Y\\,Z').text(subset['Y,Z']==""?"":subset['Y,Z']+"%, or about "+numberWithCommas(subset['Y,Z']*subset.pop))
-            $('#X\\,Y\\,Z').text(subset['X,Y,Z']==""?"":subset['X,Y,Z']+"%, or about "+numberWithCommas(subset['X,Y,Z']*subset.pop))
-            $('#Xlabel').text(sentenceDict[subset.indicator1]+".")
-            $('#Ylabel').text(sentenceDict[subset.indicator2]+".")
-            $('#Zlabel').text(sentenceDict[subset.indicator3]+".")
-            $('#X\\,Ylabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator2]+".")
-            $('#X\\,Zlabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator3]+".")
-            $('#Y\\,Zlabel').text(sentenceDict[subset.indicator2]+" and "+sentenceDict[subset.indicator3]+".")
-            $('#X\\,Y\\,Zlabel').text(sentenceDict[subset.indicator1]+" and "+sentenceDict[subset.indicator2]+" and "+sentenceDict[subset.indicator3]+".")
         };
-        var caveats = [caveatDict[subset.indicator1],caveatDict[subset.indicator2],caveatDict[subset.indicator3]].clean(undefined).join(" and ");
-        $('.caveat').show()
-        $('span.label').show()
-        $('p').show()
-        var labels = $('span.label')
-        for(var j = 0; j < labels.length; j++){
-            label = labels[j];
-            if (label.innerText.indexOf("P20")==-1 && label.innerText.indexOf("poverty")==-1) {
-                label.parentElement.style.display = "none";
-            };
-        };
-        if ($('#X').text()=="") {
-            $('#Xcaveat').hide()
-            $('#Xlabel').hide()
-        };
-        if ($('#Y').text()=="") {
-            $('#Ycaveat').hide()
-            $('#Ylabel').hide()
-        };
-        if ($('#Z').text()=="") {
-            $('#Zcaveat').hide()
-            $('#Zlabel').hide()
-        };
-        if ($('#X\\,Y').text()=="") {
-            $('#X\\,Ycaveat').hide()
-            $('#X\\,Ylabel').hide()
-        };
-        if ($('#X\\,Z').text()=="") {
-            $('#X\\,Zcaveat').hide()
-            $('#X\\,Zlabel').hide()
-        };
-        if ($('#Y\\,Z').text()=="") {
-            $('#Y\\,Zcaveat').hide()
-            $('#Y\\,Zlabel').hide()
-        };
-        if ($('#X\\,Y\\,Z').text()=="") {
-            $('#X\\,Y\\,Zcaveat').hide()
-            $('#X\\,Y\\,Zlabel').hide()
-        };
-        $('.caveat').text(caveats)
-
+        var year = subset.year,
+        pop = subset.pop,
+        caveats = [caveatDict[subset.indicator1],caveatDict[subset.indicator2],caveatDict[subset.indicator3]].clean(undefined),
+        uniqueCaveats = d3.map(caveats, function(d){return d;}).keys().join(" and ");
+        
+        $('#visTitle').text(country+" ("+year+")")
+        $('#subtitle').text(caveats.length==0?"All percentages out of "+numberWithCommas(pop):"All percentages out of "+numberWithCommas(pop)+". Only showing population which is "+uniqueCaveats+".")
+        
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
             $('div#venn').hide()
-            $('div#narrative').hide()
+            $('#subtitle').hide()
             $('div#err').show()
         }else{
             $('div#err').hide()
-            $('div#narrative').show()
             $('div#venn').show()
+            $('#subtitle').show()
             try{
                 $('g.venn-circle').show()
                 d3.select("#venn").datum(areas).call(chart);
@@ -912,7 +795,7 @@ d3.csv('all.venn.joined.csv',function(data){
             }catch(err){
                 console.log(err)
                 $('div#venn').hide()
-                $('div#narrative').hide()
+                $('#subtitle').hide()
                 $('div#err').show()
             }
             // tweak style
@@ -932,8 +815,23 @@ d3.csv('all.venn.joined.csv',function(data){
             $("path").on("mouseout",function(){
                 $('#tooltip').hide();
                 })
-            d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%, or about "+numberWithCommas(d.size*subset.pop));return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
-            d3.selectAll(".venn-area").on("mouseout",function(d){var colour = indicatorColour[d.sets[0].split(":")[0]],setLength = d.sets.length;$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke",d3.color(colour).darker()).style("stroke-width",setLength==1?1:0);})
+            d3.selectAll(".venn-area").on("mouseover",function(d){
+                var phrases = [];
+                for(var j = 0; j < d.sets.length; j++){
+                    var id = d.sets[j].split(":")[0],
+                    phrase = sentenceDict[id];
+                    phrases.push(phrase);
+                };
+                var sentence = " "+phrases.join(" and ")+".";
+                $('#tooltip').text(
+                    d.size+"%, or about "+numberWithCommas((d.size/100)*subset.pop)+sentence
+                    );
+                return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);
+                })
+            d3.selectAll(".venn-area").on("mouseout",function(d){
+                var colour = indicatorColour[d.sets[0].split(":")[0]],setLength = d.sets.length;
+                $('#tooltip').text("");
+                return d3.select(this.childNodes[0]).style("stroke",d3.color(colour).darker()).style("stroke-width",setLength==1?1:0);});
         };
         setParams(params);
         $('text.label').hide()
@@ -943,11 +841,15 @@ d3.csv('all.venn.joined.csv',function(data){
     var indicatorDropdown1 = d3.selectAll('select#Xselect');
     var indicatorDropdown2 = d3.selectAll('select#Yselect');
     var indicatorDropdown3 = d3.selectAll('select#Zselect');
-    indicatorDropdown1.selectAll('option.indicator').data(["p20","non.p20","ext"])
+    indicatorDropdown1.selectAll('option.indicator').data(
+        [{"id":"p20","text":"P20"}
+        ,{"id":"non.p20","text":"Not in the P20"}
+        ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}]
+        )
         .enter().append("option")
-        .attr('value',function(d){return d})
+        .attr('value',function(d){return d.id})
         .attr('class','indicator')
-        .text(function(d){return indicatorDict[d];});
+        .text(function(d){return d.text;});
     var choices1 = [
         {"id":"blank1","text":"None selected"}
         ,{"id":"p20","text":"P20"}
@@ -1025,7 +927,7 @@ d3.csv('all.venn.joined.csv',function(data){
 
 // draw the initial set
 var chart = venn.VennDiagram()
-                 .width(400)
+                 .width(1000)
                  .height(400);
 </script>
 </html>
