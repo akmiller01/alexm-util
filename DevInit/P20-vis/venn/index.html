@@ -949,57 +949,57 @@ d3.csv('all.venn.joined.csv',function(data){
         .attr('class','indicator')
         .text(function(d){return indicatorDict[d];});
     var choices1 = [
-        "blank1"
-        ,"p20"
-        ,"non.p20"
-        ,"ext"
-        ,"no.birth.reg"
-        ,"female"
-        ,"male"
-        ,"under5"
-        ,"fiveto14"
-        ,"fifteento49"
-        ,"gt49"
-        ,"no.educ"
-        ,"primary"
-        ,"secondary"
-        ,"higher"
-        ,"urban"
-        ,"rural"
-        ,"no.skilled.attendant"
-        ,"stunted"
+        {"id":"blank1","text":"None selected"}
+        ,{"id":"p20","text":"P20"}
+        ,{"id":"non.p20","text":"Not in the P20"}
+        ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}
+        ,{"id":"no.birth.reg","text":"Birth not registered (under 5)"}
+        ,{"id":"female","text":"Female"}
+        ,{"id":"male","text":"Male"}
+        ,{"id":"under5","text":"Younger than 5"}
+        ,{"id":"fiveto14","text":"Aged 5 to 14"}
+        ,{"id":"fifteento49","text":"Aged 15 to 49"}
+        ,{"id":"gt49","text":"Older than 49"}
+        ,{"id":"no.educ","text":"No education or preschool (over 25)"}
+        ,{"id":"primary","text":"Primary education (over 25)"}
+        ,{"id":"secondary","text":"Secondary education (over 25)"}
+        ,{"id":"higher","text":"Higher education (over 25)"}
+        ,{"id":"urban","text":"Urban"}
+        ,{"id":"rural","text":"Rural"}
+        ,{"id":"no.skilled.attendant","text":"Had no skilled birth attendants (child-bearing women)"}
+        ,{"id":"stunted","text":"Experiencing stunting (under 5)"}
     ];
     var choices2 = [
-        "blank2"
-        ,"p20"
-        ,"non.p20"
-        ,"ext"
-        ,"no.birth.reg"
-        ,"female"
-        ,"male"
-        ,"under5"
-        ,"fiveto14"
-        ,"fifteento49"
-        ,"gt49"
-        ,"no.educ"
-        ,"primary"
-        ,"secondary"
-        ,"higher"
-        ,"urban"
-        ,"rural"
-        ,"no.skilled.attendant"
-        ,"stunted"
+        {"id":"blank2","text":"None selected"}
+        ,{"id":"p20","text":"P20"}
+        ,{"id":"non.p20","text":"Not in the P20"}
+        ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}
+        ,{"id":"no.birth.reg","text":"Birth not registered (under 5)"}
+        ,{"id":"female","text":"Female"}
+        ,{"id":"male","text":"Male"}
+        ,{"id":"under5","text":"Younger than 5"}
+        ,{"id":"fiveto14","text":"Aged 5 to 14"}
+        ,{"id":"fifteento49","text":"Aged 15 to 49"}
+        ,{"id":"gt49","text":"Older than 49"}
+        ,{"id":"no.educ","text":"No education or preschool (over 25)"}
+        ,{"id":"primary","text":"Primary education (over 25)"}
+        ,{"id":"secondary","text":"Secondary education (over 25)"}
+        ,{"id":"higher","text":"Higher education (over 25)"}
+        ,{"id":"urban","text":"Urban"}
+        ,{"id":"rural","text":"Rural"}
+        ,{"id":"no.skilled.attendant","text":"Had no skilled birth attendants (child-bearing women)"}
+        ,{"id":"stunted","text":"Experiencing stunting (under 5)"}
     ];
     indicatorDropdown2.selectAll('option.indicator').data(choices1)
         .enter().append("option")
-        .attr('value',function(d){return d})
+        .attr('value',function(d){return d.id})
         .attr('class','indicator')
-        .text(function(d){return indicatorDict[d];});
+        .text(function(d){return d.text;});
     indicatorDropdown3.selectAll('option.indicator').data(choices2)
         .enter().append("option")
-        .attr('value',function(d){return d})
+        .attr('value',function(d){return d.id})
         .attr('class','indicator')
-        .text(function(d){return indicatorDict[d];});
+        .text(function(d){return d.text;});
     var params = getParams(),
     paramKeys = Object.keys(params);
     if(paramKeys.length>0){
