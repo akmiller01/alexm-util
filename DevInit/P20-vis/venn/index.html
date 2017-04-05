@@ -933,7 +933,7 @@ d3.csv('all.venn.joined.csv',function(data){
                 $('#tooltip').hide();
                 })
             d3.selectAll(".venn-area").on("mouseover",function(d){$('#tooltip').text(d.size+"%, or about "+numberWithCommas(d.size*subset.pop));return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);})
-            d3.selectAll(".venn-area").on("mouseout",function(d){var colour = indicatorColour[d.sets[0].split(":")[0]];$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke",colour).style("stroke-width",1);})
+            d3.selectAll(".venn-area").on("mouseout",function(d){var colour = indicatorColour[d.sets[0].split(":")[0]],setLength = d.sets.length;$('#tooltip').text("");return d3.select(this.childNodes[0]).style("stroke",colour).style("stroke-width",setLength==1?1:0);})
         };
         setParams(params);
         $('text.label').hide()
