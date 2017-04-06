@@ -53,6 +53,7 @@
             margin-left:20%;
         }
         .selectBar{
+            font-size:20px;
             color:#60575d;
             background:rgb(233,231,232);
             width:100%;
@@ -108,7 +109,7 @@
     <h1 class="title">Who are the global P20?</h1>
     </div>
     <div class="copy">
-        <p>The poorest 20 percent of people in the world (the P20) are the poorest 1.4 billion in the world. Although our current understanding of who they are and where they live is based on a limited set of surveys, the chart below can be used to explore everything we know about this diverse group of people. Called a Euler diagram, this chart demonstrates the relative percentages of each demographic you select as well as how these characteristics intersect to paint the full picture of poverty.</p>
+        <p>The P20 are the 1.4 billion men, women and children living in over 100 countries who are the poorest 20% of the global population. People in the P20 often experience multiple and intersecting deprivations, disadvantages and discrimination based on identity, circumstances and life events. The below visualisation enables you to explore how these experiences and identities intersect for the P20 across different countries.</p>
     </div>
     <div class="selectBar">
     Who are the P20 in <select id="isoSelect"></select>?
@@ -151,7 +152,7 @@
         </div>
     </div>
 </div>
-<h1 id="visTitle"></h1>
+<!--<h1 id="visTitle"></h1>-->
 
 <div id="venn"></div>
 <div id="err" style="display:none;">
@@ -596,8 +597,8 @@ indicatorColour[indicatorDict["no.skilled.attendant"]] = colourDict.pink[0];
 sentenceDict = {};
 sentenceDict[indicatorDict["blank1"]] = "";
 sentenceDict[indicatorDict["blank2"]] = "";
-sentenceDict[indicatorDict["p20"]] = "are in the P20";
-sentenceDict[indicatorDict["non.p20"]] = "are not in the P20";
+sentenceDict[indicatorDict["p20"]] = "are in the global P20";
+sentenceDict[indicatorDict["non.p20"]] = "are not in the global P20";
 sentenceDict[indicatorDict["ext"]] = "are in extreme poverty";
 sentenceDict[indicatorDict["no.birth.reg"]] = "do not have birth registrations";
 sentenceDict[indicatorDict["female"]] = "are female";
@@ -659,14 +660,15 @@ function ensureUnique() {
 };
 
 d3.csv('all.venn.joined.csv',function(data){
-    var isos = d3.map(data,function(d){return d.iso2;}).keys();
+    isoMap = d3.map(data,function(d){return d.iso2;});
+    var isos = isoMap.keys();
     isos = isos.sort(function(a,b){return d3.ascending(isoDict[a],isoDict[b])});
     var isoSelect = d3.select("#isoSelect");
     
     isoSelect.selectAll("option.iso").data(isos).enter().append("option")
         .attr('class','iso')
         .attr('value',function(d){return d})
-        .text(function(d){return isoDict[d];});
+        .text(function(d){return isoDict[d]+" ("+isoMap["$"+d].year+")";});
     function changeVenn() {
         var params = {};
         var iso2 = $("#isoSelect").val(),
@@ -826,7 +828,7 @@ d3.csv('all.venn.joined.csv',function(data){
                 };
                 var sentence = " "+phrases.join(" and ")+".";
                 $('#tooltip').text(
-                    d.size+"%, or about "+numberWithCommas((d.size/100)*subset.pop)+sentence
+                    d.size>0?d.size+"%, or about "+numberWithCommas((d.size/100)*subset.pop)+sentence:"There are no people"+sentence+" This overlap is unintentionally generated due to geometric constraints."
                     );
                 return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);
                 })
