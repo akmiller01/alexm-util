@@ -67,6 +67,7 @@
         
         div#venn, div#err{
             min-width:500px;
+            max-width:800px;
             width:100%;
             margin-left:auto;
             margin-right:auto;
@@ -151,11 +152,12 @@
     </div>
 </div>
 <h1 id="visTitle"></h1>
-<h2 id="subtitle"></h2>
+
 <div id="venn"></div>
 <div id="err" style="display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
 </div>
+<h2 id="subtitle"></h2>
 <div style="clear: both;"></div>
 <div id="tooltip"></div>
 
@@ -280,8 +282,8 @@ var isoDict = {"AD":"Andorra"
 ,"BZ":"Belize"
 ,"CA":"Canada"
 ,"CC":"Cocos (Keeling) Islands"
-,"CD":"DRC"
-,"CF":"CAR"
+,"CD":"Democratic Republic of the Congo"
+,"CF":"Central African Republic"
 ,"CG":"Congo"
 ,"CH":"Switzerland"
 ,"CI":"Cote d'Ivoire"
@@ -857,14 +859,14 @@ d3.csv('all.venn.joined.csv',function(data){
         ,{"id":"ext","text":"Extreme poverty < $1.90 per day","selected":false}
         ,{"id":"stunted","text":"Experiencing stunting (under 5)","selected":false}
         ,{"id":"no.birth.reg","text":"Birth not registered (under 5)","selected":false}
+        ,{"id":"urban","text":"Urban","selected":false}
+        ,{"id":"rural","text":"Rural","selected":false}
         ,{"id":"female","text":"Female","selected":false}
         ,{"id":"male","text":"Male","selected":false}
         ,{"id":"under5","text":"Younger than 5","selected":false}
         ,{"id":"fiveto14","text":"Aged 5 to 14","selected":false}
         ,{"id":"fifteento49","text":"Aged 15 to 49","selected":false}
         ,{"id":"gt49","text":"Older than 49","selected":false}
-        ,{"id":"urban","text":"Urban","selected":false}
-        ,{"id":"rural","text":"Rural","selected":false}
         ,{"id":"no.educ","text":"No education or preschool (over 25)","selected":false}
         ,{"id":"primary","text":"Primary education (over 25)","selected":false}
         ,{"id":"secondary","text":"Secondary education (over 25)","selected":false}
@@ -878,14 +880,14 @@ d3.csv('all.venn.joined.csv',function(data){
         ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}
         ,{"id":"stunted","text":"Experiencing stunting (under 5)"}
         ,{"id":"no.birth.reg","text":"Birth not registered (under 5)"}
+        ,{"id":"urban","text":"Urban"}
+        ,{"id":"rural","text":"Rural"}
         ,{"id":"female","text":"Female"}
         ,{"id":"male","text":"Male"}
         ,{"id":"under5","text":"Younger than 5"}
         ,{"id":"fiveto14","text":"Aged 5 to 14"}
         ,{"id":"fifteento49","text":"Aged 15 to 49"}
         ,{"id":"gt49","text":"Older than 49"}
-        ,{"id":"urban","text":"Urban"}
-        ,{"id":"rural","text":"Rural"}
         ,{"id":"no.educ","text":"No education or preschool (over 25)"}
         ,{"id":"primary","text":"Primary education (over 25)"}
         ,{"id":"secondary","text":"Secondary education (over 25)"}
@@ -928,7 +930,7 @@ d3.csv('all.venn.joined.csv',function(data){
 
 // draw the initial set
 var chart = venn.VennDiagram()
-                 .width(1000)
-                 .height(400);
+                 .width(800)
+                 .height(300);
 </script>
 </html>
