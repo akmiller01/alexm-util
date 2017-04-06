@@ -831,7 +831,7 @@ d3.csv('all.venn.joined.csv',function(data){
                 };
                 var sentence = " "+phrases.join(" and ")+".";
                 $('#tooltip').text(
-                    d.size>0?d.size+"%, or about "+numberWithCommas((d.size/100)*subset.pop)+sentence:"There are no people"+sentence+" This overlap is unintentionally generated due to geometric constraints."
+                    d.size>0?d.size+"%, or about "+numberWithCommas((d.size/100)*subset.pop)+sentence:"No people"+sentence+" This overlap is unintentionally generated due to geometric constraints."
                     );
                 return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);
                 })
