@@ -1,10 +1,10 @@
 #Import
-df <- read.csv("C:/git/alexm-util/Rscripts/Snap Poll Data.csv")
+df <- read.csv("~/git/alexm-util/Rscripts/Snap Poll Data.csv")
 View(df)
 
 #Change working directory
 getwd()
-WD <- "C:/git/alexm-util/Rscripts/"
+WD <- "~/git/alexm-util/Rscripts/"
 setwd (WD)
 df <- read.csv("Snap Poll Data.csv")
 
@@ -35,8 +35,9 @@ names(df)[names(df) == "respondentBirthYear"] <- "Age"
 
 summary(df$Age)
 
-df$Old[df$Age == c("45-54","55-64","65 and up")] <- "Older"
-df$Old[df$Age == c("20-34","35-44")] <- "Younger"
+df$Old <- NA
+df$Old[df$Age %in% c("45-54","55-64","65 and up")] <- "Older"
+df$Old[df$Age %in% c("20-34","35-44")] <- "Younger"
 
 View(df)
 
@@ -72,7 +73,7 @@ sub <- c("respondentGender","respondentBirthYear","qg_70")
 df1 <- subset(df,select = sub)
 
 #Subset with rows
-df1 <- subset(df, respondentGender == "m" | respondentGender =="f")
+df1 <- subset(df, respondentGender == "m" & respondentGender =="f")
 
 #Select random rows
 df1 <- df[sample(1:nrow(df),500, replace = FALSE),]
