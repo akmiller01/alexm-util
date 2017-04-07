@@ -5,16 +5,18 @@ import pdb
 import matplotlib
 from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D
+from matplotlib.font_manager import FontProperties
 
 font = {
     #'family' : 'Helvetica'
         #,'weight' : 'bold'
-        'size'   : 14}
+        'size'   : 16,'stretch':'condensed'}
 
 matplotlib.rc('font', **font)
 
-def autolabel(rects, ax,color="#000000",maximum=None):
+def autolabel(rects, ax,color="#000000",fontsize=12,fontweight="normal",maximum=None):
     # Get y-axis height to calculate label position from.
+    fp = FontProperties(weight=fontweight)
     (y_bottom, y_top) = ax.get_ylim()
     if maximum is None:
         y_height = y_top - y_bottom
@@ -23,6 +25,7 @@ def autolabel(rects, ax,color="#000000",maximum=None):
     for rect in rects:
         if isinstance(rect,Rectangle):
             height = rect.get_height()
+            
     
             # Fraction of axis height taken up by this rectangle
             p_height = (height / y_height)
@@ -37,7 +40,7 @@ def autolabel(rects, ax,color="#000000",maximum=None):
             if  pd.notnull(height):
                 ax.text(rect.get_x() + rect.get_width()/2., label_position,
                     '%.1f' % height,
-                    ha='center', va='bottom',color=color)
+                    ha='center', va='bottom',color=color,fontsize=fontsize,fontproperties=fp)
         elif isinstance(rect,Line2D):
             heights = rect.get_ydata()
             xs = rect.get_xdata()
@@ -50,16 +53,16 @@ def autolabel(rects, ax,color="#000000",maximum=None):
                 if pd.notnull(height):
                     ax.text(x, y+lw*2,
                         '%s' % format(int(height),",d"),
-                        ha='center', va='bottom',color=color)
+                        ha='center', va='bottom',color=color,fontsize=fontsize,fontproperties=fp)
 
 df = pd.read_csv("1.csv")
 
 # Setting the positions and width for the bars
 pos = list(range(len(df["US$1.25/day (%)"])))
-width = 0.25
+width = 0.4
 
 # Plotting the bars
-fig, ax = plt.subplots(figsize=(10,5))
+fig, ax = plt.subplots(figsize=(8.8,5))
 
 # Create a bar with pre_score data,
 # in position pos,
@@ -74,7 +77,7 @@ rect1 = plt.bar(pos,
         color='#dce127',
         # with label the first value in first_name
         label=df['year'][0])
-jointMax = max(df["US$1.25/day (%)"].max(), df["US$2/day (%)"].max())*1.2
+jointMax = max(df["US$1.25/day (%)"].max(), df["US$2/day (%)"].max())*1.5
 autolabel(rect1,ax,maximum=jointMax)
 
 # Create a bar with mid_score data,
@@ -94,7 +97,7 @@ rect2 = plt.bar([p + width for p in pos],
 autolabel(rect2,ax,maximum=jointMax)
 
 # Setting the x-axis and y-axis limits
-plt.xlim(min(pos)-width, max(pos)+width*4)
+plt.xlim(min(pos)-width, max(pos))
 plt.ylim([0, jointMax ])
 
 # Adding the legend and showing the plot
@@ -109,14 +112,14 @@ line = plt.plot([p + width*0.5 for p in pos],
         color='#47b7b9',
         lw=5)
 
-autolabel(line,ax2,'#47b7b9')
+autolabel(line,ax2,'#47b7b9',fontsize=16,fontweight="bold")
 
 
 # Adding the legend and showing the plot
-plt.legend(["GDP per capita PPP ($)"], loc='upper right',framealpha=0)
+plt.legend(["GDP per capita\nPPP ($)"], loc='upper right',framealpha=0)
 # Setting the x-axis and y-axis limits
-plt.xlim(min(pos)-width, max(pos)+width*4)
-plt.ylim([0, df["GDP per capita PPP ($)"].max()*1.2 ])
+plt.xlim(min(pos)-width, max(pos))
+plt.ylim([0, df["GDP per capita PPP ($)"].max()*1.5 ])
 
 # Set the position of the x ticks
 ax.set_xticks([p + .5 * width for p in pos])
@@ -142,4 +145,4 @@ ax2.spines['left'].set_visible(False)
 
 fig.tight_layout()
 
-plt.savefig('1auto.png',transparent=True)
+plt.savefig('1auto.png',transparent=True,bbox_inches="tight")
