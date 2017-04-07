@@ -19,7 +19,7 @@ for(file in files){
 dat <- join_all(dataList,by=c("id","year"))
 dat$mc.oda.pc <- dat$mc.oda/(dat$pop/100000)
 # write.csv(dat,"../bubble_data.csv",row.names=FALSE,na="")
-
+dat <- read.csv("/Users/Alex/Downloads/data.csv",na.strings=FALSE,as.is=TRUE)
 library(ggplot2)
 
 # ggplot(dat,aes(x=mc.oda.pc,y=deaths.per.100k,size=log(health.exp),colour=region)) + geom_point() +
@@ -39,7 +39,7 @@ library(ggplot2)
 #        ,size="Log Malaria control ODA per 100k population"
 #        ,colour="Region"
 #   )
-dat$health.exp[which(dat$health.exp>=400)] <- 400
+# dat$health.exp[which(dat$health.exp>=400)] <- 400
 ggplot(dat,aes(x=log(mc.oda),y=log(cases),size=health.exp,colour=region)) + geom_point() +
   labs(x="Malaria control ODA"
        ,y="Reported malaria cases"

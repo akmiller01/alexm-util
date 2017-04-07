@@ -77,28 +77,28 @@ for(file in data.files){
 
 data <- join_all(dataList,by="Country")
 
-# View(data[which(!complete.cases(data)),])
-# 
-# data <- transform(data,p20.pop.color=treeMapRamp(p20.pop))
-# data <- transform(data,sqrt.p20.pop.color=treeMapRamp(sqrt(p20.pop)))
-# data <- transform(data,ext.pop.color=treeMapRamp(ext.pop))
-# data <- transform(data,sqrt.ext.pop.color=treeMapRamp(sqrt(ext.pop)))
-# data <- transform(data,p20.color=treeMapRamp(p20))
-# data <- transform(data,ext.color=treeMapRamp(ext))
-# data <- transform(data,depth.color=treeMapRamp(ext.depth))
-# data <- transform(data,UK.Bilateral.ODA=as.numeric(oda))
-# data$name <- data$Country
-# 
-# treemap(data
-#         ,index="name"
-#         ,vSize="UK.Bilateral.ODA"
-#         ,vColor="p20.color"
-#         ,type="color"
-#         ,title=""
-#         # ,lowerbound.cex.labels=1
-#         ,fontsize.labels=12
-#         ,inflate.labels=TRUE
-# )
+View(data[which(!complete.cases(data)),])
+
+data <- transform(data,p20.pop.color=treeMapRamp(p20.pop))
+data <- transform(data,sqrt.p20.pop.color=treeMapRamp(sqrt(p20.pop)))
+data <- transform(data,ext.pop.color=treeMapRamp(ext.pop))
+data <- transform(data,sqrt.ext.pop.color=treeMapRamp(sqrt(ext.pop)))
+data <- transform(data,p20.color=treeMapRamp(p20))
+data <- transform(data,ext.color=treeMapRamp(ext))
+data <- transform(data,depth.color=treeMapRamp(ext.depth))
+data <- transform(data,UK.Bilateral.ODA=as.numeric(oda))
+data$name <- data$Country
+
+treemap(data
+        ,index="name"
+        ,vSize="UK.Bilateral.ODA"
+        ,vColor="p20.color"
+        ,type="color"
+        ,title=""
+        # ,lowerbound.cex.labels=1
+        ,fontsize.labels=12
+        ,inflate.labels=TRUE
+)
 # treemap(data
 #         ,index="name"
 #         ,vSize="UK.Bilateral.ODA"
