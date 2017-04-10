@@ -59,6 +59,16 @@ class ReportMaker(object):
                         backColor=font["background"],
                     )
                     self.createParagraph(innerText, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+            for line in page.findall("line"):
+                self.c.setDash(int(line.get("on")),int(line.get("off")))
+                self.c.setStrokeColor(line.get("color"))
+                self.c.line(int(line.get("x1")),self.height-int(line.get("y1")),int(line.get("x2")),self.height-int(line.get("y2")))
+            for table in page.findall("table"):
+                tabDat = dataDictionary[table.get("data")]
+                t = Table(tabDat,int(table.get("width"))/len(tabDat[1]),int(table.get("height"))/len(tabDat),style=tableStyles[table.get("data")])
+                t.wrapOn(self.c, self.width, self.height)
+                t.drawOn(self.c, *self.coord(int(table.get("left")), int(table.get("top"))+int(table.get("height"))))
+
             self.c.showPage()
  
     #----------------------------------------------------------------------
@@ -87,5 +97,18 @@ class ReportMaker(object):
 #----------------------------------------------------------------------
 if __name__ == "__main__":
     doc = ReportMaker("ug2.pdf","130055.xml")
+    #Normally this would be pulled in programmatically, but I'm placing it here for testing
+    dataDictionary = {}
+    dataDictionary["table1"] = [["Gini index score*","Gini index rank**","Year"],[45,108,2012]]
+    tableStyles = {}
+    tableStyles["table1"] = [
+        ('TEXTCOLOR',(0,0),(-1,-1),"white")
+        ,('BACKGROUND',(0,0),(2,0),"#6dc163")
+        ,('TEXTFONTWEIGHT',(0,0),(2,0),"bold")
+        ,('BACKGROUND',(0,1),(2,1),"#f79c2a")
+        ,('GRID',(0,0),(-1,-1),1,"white")
+        ,('ALIGN',(0,0),(-1,-1),"CENTER")
+        ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
+        ]
     doc.createDocument()
     doc.savePDF()
