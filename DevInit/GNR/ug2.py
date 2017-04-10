@@ -4,6 +4,9 @@ from reportlab.lib.units import mm, inch
 from reportlab.pdfgen import canvas
 from reportlab.platypus import Image, Paragraph, Table
 from xml.etree import ElementTree
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from tables import dataDictionary, tableStyles
 import pdb
 
  
@@ -13,6 +16,8 @@ class ReportMaker(object):
  
     #----------------------------------------------------------------------
     def __init__(self, pdf_file, xml_file):
+        pdfmetrics.registerFont(TTFont('Arial', 'fonts/Arial.ttf'))
+        pdfmetrics.registerFont(TTFont('Arial-Bold', 'fonts/Arial-Bold.ttf'))
         self.styles = getSampleStyleSheet()
         self.e = ElementTree.parse(xml_file).getroot()
         self.width, self.height =  int(self.e.getchildren()[0].get("width")), int(self.e.getchildren()[0].get("height"))
@@ -24,6 +29,10 @@ class ReportMaker(object):
                 font["size"] = int(fontspec.get("size"))
                 font["color"] = fontspec.get("color")
                 font["background"] = fontspec.get("background")
+                if fontspec.get("indent") is not None:
+                    font["indent"] = fontspec.get("indent")
+                else:
+                    font["indent"] = "0"
                 self.fonts[fontspec.get("id")] = font 
  
     #----------------------------------------------------------------------
@@ -41,11 +50,12 @@ class ReportMaker(object):
                     font = self.fonts[text.get("font")]
                     style = ParagraphStyle(
                         'default',
-                        fontName="Helvetica",
-                        leading=font["size"],
+                        fontName="Arial",
+                        leading=int(font["size"])+7,
                         fontSize=font["size"],
                         textColor=font["color"],
                         backColor=font["background"],
+                        firstLineIndent=int(font["indent"]),
                     )
                     self.createParagraph(text.text, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
                 else:
@@ -53,10 +63,12 @@ class ReportMaker(object):
                     font = self.fonts[text.get("font")]
                     style = ParagraphStyle(
                         'default',
-                        fontName="Helvetica",
+                        fontName="Arial",
+                        leading=int(font["size"])+7,
                         fontSize=font["size"],
                         textColor=font["color"],
                         backColor=font["background"],
+                        firstLineIndent=int(font["indent"]),
                     )
                     self.createParagraph(innerText, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
             for line in page.findall("line"):
@@ -64,8 +76,17 @@ class ReportMaker(object):
                 self.c.setStrokeColor(line.get("color"))
                 self.c.line(int(line.get("x1")),self.height-int(line.get("y1")),int(line.get("x2")),self.height-int(line.get("y2")))
             for table in page.findall("table"):
+                self.c.setDash(1,0)
                 tabDat = dataDictionary[table.get("data")]
-                t = Table(tabDat,int(table.get("width"))/len(tabDat[1]),int(table.get("height"))/len(tabDat),style=tableStyles[table.get("data")])
+                if table.get("widths"):
+                    colWidths = [float(width) for width in table.get("widths").split(",")]
+                else:
+                    colWidths = float(table.get("width"))/len(tabDat[0])
+                if table.get("heights"):
+                    rowHeights = [float(height) for height in table.get("heights").split(",")]
+                else:
+                    rowHeights = float(table.get("height"))/len(tabDat)
+                t = Table(tabDat,colWidths,rowHeights,style=tableStyles[table.get("data")])
                 t.wrapOn(self.c, self.width, self.height)
                 t.drawOn(self.c, *self.coord(int(table.get("left")), int(table.get("top"))+int(table.get("height"))))
 
@@ -97,18 +118,5 @@ class ReportMaker(object):
 #----------------------------------------------------------------------
 if __name__ == "__main__":
     doc = ReportMaker("ug2.pdf","130055.xml")
-    #Normally this would be pulled in programmatically, but I'm placing it here for testing
-    dataDictionary = {}
-    dataDictionary["table1"] = [["Gini index score*","Gini index rank**","Year"],[45,108,2012]]
-    tableStyles = {}
-    tableStyles["table1"] = [
-        ('TEXTCOLOR',(0,0),(-1,-1),"white")
-        ,('BACKGROUND',(0,0),(2,0),"#6dc163")
-        ,('TEXTFONTWEIGHT',(0,0),(2,0),"bold")
-        ,('BACKGROUND',(0,1),(2,1),"#f79c2a")
-        ,('GRID',(0,0),(-1,-1),1,"white")
-        ,('ALIGN',(0,0),(-1,-1),"CENTER")
-        ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
-        ]
     doc.createDocument()
     doc.savePDF()

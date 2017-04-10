@@ -97,7 +97,7 @@ rect2 = plt.bar([p + width for p in pos],
 autolabel(rect2,ax,maximum=jointMax)
 
 # Setting the x-axis and y-axis limits
-plt.xlim(min(pos)-width, max(pos))
+plt.xlim(min(pos)-width, max(pos)+width*2)
 plt.ylim([0, jointMax ])
 
 # Adding the legend and showing the plot
@@ -118,7 +118,7 @@ autolabel(line,ax2,'#47b7b9',fontsize=16,fontweight="bold")
 # Adding the legend and showing the plot
 plt.legend(["GDP per capita\nPPP ($)"], loc='upper right',framealpha=0)
 # Setting the x-axis and y-axis limits
-plt.xlim(min(pos)-width, max(pos))
+plt.xlim(min(pos)-width, max(pos)+width*2)
 plt.ylim([0, df["GDP per capita PPP ($)"].max()*1.5 ])
 
 # Set the position of the x ticks
