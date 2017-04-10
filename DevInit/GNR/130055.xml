@@ -28,36 +28,24 @@
 	<fontspec id="22" size="8" family="Times" color="#47b7b9"/>
 	<fontspec id="23" size="13" family="Times" color="#231f20"/>
 <image top="0" left="0" width="892" height="117" src="banner.png"/>
-<text top="34" left="674" width="183" height="19" font="0"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
 <text top="33" left="128" width="213" height="21" font="1">2015 Nutrition Country Profile</text>
-<text top="117" left="36" width="284" height="23" font="2">ECONOMICS AND DEMOGRAPHY</text>
-<text top="401" left="36" width="206" height="23" font="2">CHILD ANTHROPOMETRY</text>
-<text top="675" left="36" width="376" height="23" font="2">ADOLESCENT AND ADULT NUTRITION STATUS</text>
+<text top="34" left="674" width="183" height="19" font="0"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
 <text top="58" left="128" width="113" height="34" font="3">UGANDA</text>
-<image top="1104" left="0" width="892" height="120" src="7.png"/>
-<text top="1104" left="101" width="594" height="19" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
-<text top="1127" left="117" width="113" height="14" font="5"><b>Under-5 stunting, 2012</b></text>
-<text top="1125" left="230" width="5" height="12" font="6"><b>a</b></text>
-<text top="1127" left="269" width="113" height="14" font="5"><b>Under-5 wasting, 2012</b></text>
-<text top="1125" left="381" width="5" height="12" font="6"><b>b</b></text>
-<text top="1127" left="411" width="129" height="14" font="5"><b>Under-5 overweight, 2012</b></text>
-<text top="1125" left="541" width="5" height="12" font="6"><b>a</b></text>
-<text top="1127" left="580" width="96" height="14" font="5"><b>WRA anemia, 2011</b></text>
-<text top="1125" left="675" width="5" height="12" font="6"><b>b</b></text>
-<text top="1127" left="755" width="46" height="14" font="5"><b>EBF, 2011</b></text>
-<text top="1125" left="801" width="5" height="12" font="6"><b>a</b></text>
-<text top="1147" left="111" width="130" height="15" font="7">Off course, some progress</text>
-<text top="1147" left="302" width="51" height="15" font="7">On course</text>
-<text top="1147" left="414" width="130" height="15" font="7">On course, good progress</text>
-<text top="1147" left="604" width="52" height="15" font="7">Off course</text>
-<text top="1147" left="755" width="51" height="15" font="7">On course</text>
-<text top="1168" left="101" width="32" height="10" font="8">Sources: </text>
-<text top="1167" left="133" width="5" height="9" font="9">a </text>
-<text top="1168" left="138" width="362" height="10" font="8">Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF; </text>
-<text top="1167" left="500" width="5" height="9" font="9">b </text>
-<text top="1168" left="504" width="39" height="10" font="8">WHO 2014.</text>
-<text top="1179" left="101" width="741" height="10" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most recent data available; on/off-course calculation is based on trend data. </text>
-<text top="1189" left="101" width="233" height="10" font="8">WRA = women of reproductive age. EBF = exclusive breastfeeding. </text>
+<!-- Row 1 -->
+<text top="117" left="36" width="284" height="23" font="2">ECONOMICS AND DEMOGRAPHY</text>
+
+<!-- Chart 1 -->
+<text top="156" left="36" width="136" height="15" font="10">POVERTY RATES AND GDP</text>
+<image top="180" left="36" width="250" height="170" src="1auto.png"/>
+<text top="350" left="36" width="90" height="10" font="14">Source: World Bank 2015.</text>
+<text top="361" left="36" width="127" height="10" font="14">Note: PPP = purchasing power parity.</text>
+
+<!-- Chart 2 -->
+<text top="156" left="316" width="142" height="15" font="10">UNDER-5 MORTALITY RATE</text>
+<image top="180" left="300" width="250" height="180" src="2.png"/>
+<text top="361" left="316" width="231" height="10" font="14">Source: UN Inter-agency Group for Child Mortality Estimation 2014.</text>
+
+<!-- Table 1 -->
 <text top="156" left="596" width="107" height="15" font="10">INCOME INEQUALITY</text>
 <text top="177" left="603" width="73" height="12" font="11"><b>Gini index score*</b></text>
 <text top="177" left="692" width="65" height="12" font="11"><b>Gini index rank</b></text>
@@ -71,6 +59,8 @@
 <text top="219" left="783" width="6" height="9" font="15">† </text>
 <text top="221" left="787" width="72" height="10" font="14">The countries with a </text>
 <text top="232" left="596" width="230" height="10" font="14">Gini index are ranked from most equal (#1) to most unequal (#145).</text>
+
+<!-- Table 2 -->
 <text top="261" left="595" width="67" height="15" font="10">POPULATION</text>
 <text top="284" left="600" width="68" height="12" font="16">Population (000) </text>
 <text top="284" left="759" width="27" height="12" font="16">40,141</text>
@@ -85,6 +75,11 @@
 <text top="342" left="770" width="5" height="12" font="16">5</text>
 <text top="342" left="819" width="20" height="12" font="16">2015</text>
 <text top="362" left="601" width="149" height="10" font="14">Source: 2015 projections from UNPD 2013.</text>
+
+<!-- Row 2 -->
+<text top="401" left="36" width="206" height="23" font="2">CHILD ANTHROPOMETRY</text>
+
+<!-- Table 3 -->
 <text top="440" left="36" width="130" height="15" font="10">CHILD ANTHROPOMETRY</text>
 <text top="462" left="41" width="181" height="12" font="17"><b>Number of children under 5 affected (000)</b></text>
 <text top="482" left="51" width="36" height="12" font="16">Stunting </text>
@@ -121,6 +116,22 @@
 <text top="639" left="78" width="85" height="10" font="14"> UNICEF/WHO/WB  2015; </text>
 <text top="637" left="164" width="4" height="9" font="15">b</text>
 <text top="639" left="168" width="49" height="10" font="14"> UNICEF  2015.</text>
+
+<!-- Chart 3 -->
+<text top="440" left="316" width="89" height="15" font="10">PREVALENCE OF </text>
+<text top="455" left="316" width="125" height="15" font="10">UNDER-5 STUNTING (%)</text>
+<image top="490" left="316" width="125" height="140" src="3.png"/>
+<text top="646" left="316" width="112" height="10" font="14">Source: UNICEF/WHO/WB 2015.</text>
+
+<!-- Chart 4 -->
+<text top="441" left="525" width="331" height="14" font="20">CHANGES IN STUNTING PREVALENCE OVER TIME, BY WEALTH QUINTILE</text>
+<image top="460" left="525" width="331" height="170" src="4.png"/>
+<text top="646" left="525" width="250" height="10" font="14">Source: DHS surveys 1990−2011 adapted from Bredenkamp et al. 2014.</text>
+
+<!-- Row 3 -->
+<text top="675" left="36" width="376" height="23" font="2">ADOLESCENT AND ADULT NUTRITION STATUS</text>
+
+<!-- Table 4 -->
 <text top="714" left="36" width="323" height="15" font="10">ADOLESCENT AND ADULT ANTHROPOMETRY (% POPULATION)</text>
 <text top="737" left="41" width="93" height="12" font="16">Adolescent overweight </text>
 <text top="735" left="131" width="4" height="10" font="18">a</text>
@@ -143,6 +154,8 @@
 <text top="816" left="78" width="41" height="10" font="14"> WHO  2015; </text>
 <text top="814" left="120" width="4" height="9" font="15">b</text>
 <text top="816" left="124" width="38" height="10" font="14"> DHS  2015.</text>
+
+<!-- Table 5 -->
 <text top="714" left="455" width="218" height="15" font="10">MICRONUTRIENT STATUS OF POPULATION</text>
 <text top="736" left="461" width="176" height="12" font="17"><b>Women of reproductive age with anemia </b></text>
 <text top="734" left="636" width="4" height="11" font="19"><b>a</b></text>
@@ -171,28 +184,44 @@
 <text top="873" left="543" width="72" height="10" font="14"> Stevens et al. 2015; </text>
 <text top="871" left="615" width="3" height="9" font="15">c</text>
 <text top="873" left="618" width="41" height="10" font="14"> WHO  2004.</text>
-<text top="441" left="525" width="331" height="14" font="20">CHANGES IN STUNTING PREVALENCE OVER TIME, BY WEALTH QUINTILE</text>
-<image top="460" left="525" width="331" height="170" src="4.png"/>
-<text top="646" left="525" width="250" height="10" font="14">Source: DHS surveys 1990−2011 adapted from Bredenkamp et al. 2014.</text>
-<text top="440" left="316" width="89" height="15" font="10">PREVALENCE OF </text>
-<text top="455" left="316" width="125" height="15" font="10">UNDER-5 STUNTING (%)</text>
-<image top="490" left="316" width="125" height="140" src="3.png"/>
-<text top="646" left="316" width="112" height="10" font="14">Source: UNICEF/WHO/WB 2015.</text>
-<text top="156" left="36" width="136" height="15" font="10">POVERTY RATES AND GDP</text>
-<image top="180" left="36" width="250" height="170" src="1auto.png"/>
-<text top="350" left="36" width="90" height="10" font="14">Source: World Bank 2015.</text>
-<text top="361" left="36" width="127" height="10" font="14">Note: PPP = purchasing power parity.</text>
-<text top="156" left="316" width="142" height="15" font="10">UNDER-5 MORTALITY RATE</text>
-<image top="180" left="300" width="250" height="180" src="2.png"/>
-<text top="361" left="316" width="231" height="10" font="14">Source: UN Inter-agency Group for Child Mortality Estimation 2014.</text>
+
+<!-- Chart 5 -->
 <text top="850" left="36" width="247" height="15" font="10">METABOLIC RISK FACTORS FOR DIET-RELATED </text>
 <text top="865" left="36" width="219" height="15" font="10">NONCOMMUNICABLE DISEASES, 2008 (%)</text>
 <image top="890" left="36" width="219" height="140" src="5.png"/>
 <text top="1068" left="36" width="67" height="10" font="14">Source: WHO 2014.</text>
+
+<!-- Chart 6 -->
 <text top="907" left="455" width="321" height="15" font="10">PREVALENCE OF ADULT OVERWEIGHT AND OBESITY, 2014 (%)</text>
 <image top="930" left="455" width="321" height="140" src="6.png"/>
 <text top="1060" left="455" width="67" height="10" font="14">Source: WHO 2015.</text>
 <text top="1070" left="455" width="101" height="10" font="14">Note: BMI = body mass index.</text>
+
+<!-- Table 6 -->
+<image top="1104" left="0" width="892" height="120" src="7.png"/>
+<text top="1104" left="101" width="594" height="19" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
+<text top="1127" left="117" width="113" height="14" font="5"><b>Under-5 stunting, 2012</b></text>
+<text top="1125" left="230" width="5" height="12" font="6"><b>a</b></text>
+<text top="1127" left="269" width="113" height="14" font="5"><b>Under-5 wasting, 2012</b></text>
+<text top="1125" left="381" width="5" height="12" font="6"><b>b</b></text>
+<text top="1127" left="411" width="129" height="14" font="5"><b>Under-5 overweight, 2012</b></text>
+<text top="1125" left="541" width="5" height="12" font="6"><b>a</b></text>
+<text top="1127" left="580" width="96" height="14" font="5"><b>WRA anemia, 2011</b></text>
+<text top="1125" left="675" width="5" height="12" font="6"><b>b</b></text>
+<text top="1127" left="755" width="46" height="14" font="5"><b>EBF, 2011</b></text>
+<text top="1125" left="801" width="5" height="12" font="6"><b>a</b></text>
+<text top="1147" left="111" width="130" height="15" font="7">Off course, some progress</text>
+<text top="1147" left="302" width="51" height="15" font="7">On course</text>
+<text top="1147" left="414" width="130" height="15" font="7">On course, good progress</text>
+<text top="1147" left="604" width="52" height="15" font="7">Off course</text>
+<text top="1147" left="755" width="51" height="15" font="7">On course</text>
+<text top="1168" left="101" width="32" height="10" font="8">Sources: </text>
+<text top="1167" left="133" width="5" height="9" font="9">a </text>
+<text top="1168" left="138" width="362" height="10" font="8">Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF; </text>
+<text top="1167" left="500" width="5" height="9" font="9">b </text>
+<text top="1168" left="504" width="39" height="10" font="8">WHO 2014.</text>
+<text top="1179" left="101" width="741" height="10" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most recent data available; on/off-course calculation is based on trend data. </text>
+<text top="1189" left="101" width="233" height="10" font="8">WRA = women of reproductive age. EBF = exclusive breastfeeding. </text>
 <text top="1222" left="442" width="8" height="17" font="23">1</text>
 </page>
 <!--<page number="2" position="absolute" top="0" left="0" height="1262" width="892">
