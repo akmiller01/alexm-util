@@ -90,8 +90,12 @@ print("")
 # "utils" is a base package, and should not be updated
 
 # Load and attach the add-on packages that you need
-library("openxlsx", lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE)
-library("reshape", lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE)
+library("openxlsx"
+        # , lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE
+        )
+library("reshape"
+        # , lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE
+        )
 
 ###############################################################################
 
@@ -156,6 +160,17 @@ absolute_file_name <- list.files(
 )
 # print(absolute_file_name)
 
+#Explicit exclusions
+exclusions <- (
+  grepl("spotlight-on-kenya",absolute_file_name)
+  | grepl("warehouse/data_series",absolute_file_name)
+  | grepl("warehouse/dimension",absolute_file_name)
+  | grepl("warehouse/donor_profile",absolute_file_name)
+  | (grepl("warehouse/recipient_profile",absolute_file_name) & !grepl("oda_per_poor_person_2015.csv",absolute_file_name))
+  | grepl("warehouse/multilateral_profile",absolute_file_name)
+  | grepl("warehouse/south_south_cooperation",absolute_file_name)
+)
+absolute_file_name <- absolute_file_name[!exclusions]
 # Specify the reference directory i.e., the directory where the reference .csv data files are
 reference_file_location = "~/user-data-test/reference/"
 print("")
@@ -195,6 +210,9 @@ concepts <- read.csv(
   , as.is = TRUE
 )
 # print(concepts)
+
+#Exclude all concepts which are not marked in column "include-in-methodology-page"
+concepts <- concepts[which(concepts["include-in-methodology-page"]==1),]
 
 # Get the number of rows and columns
 # print(dim(concepts))
@@ -316,10 +334,19 @@ print("")
 # for ( i in c( 1:267, 285:length( absolute_file_name ) ) ) {
 
 # Random test
-for ( i in c( 1:2 ) ) {
+# for ( i in c( 1:2 ) ) {
+
+#List for subsetting Poverty data to just 2013 and earlier
+poverty_dat <- c(
+  "depth-of-extreme-poverty-190"
+  ,"poor-people-190"
+  ,"poorest-20-percent"
+  ,"poverty-190"
+  ,"poverty-310"
+  )
 
 # All
-# for ( i in 1:length( absolute_file_name ) ) {
+for ( i in 1:length( absolute_file_name ) ) {
 
   # Show the absolute path for the file that is being processed
   print("")
@@ -389,7 +416,7 @@ for ( i in c( 1:2 ) ) {
     # 42 = i after ...country-year/
     # nchar( absolute_file_name[ i ] ) = length of absolute_file_name
     # - 4 = get rid of the '.csv'
-    relative_file_name = substr( absolute_file_name[ i ], 42, nchar( absolute_file_name[ i ] ) - 4 )
+    relative_file_name = substr( absolute_file_name[ i ], 41, nchar( absolute_file_name[ i ] ) - 4 )
     print("")
     print( paste( "Relative file name:                                    ", relative_file_name, ".csv", sep = "" ) )
     print("")
@@ -404,7 +431,7 @@ for ( i in c( 1:2 ) ) {
     print("")
     print( paste( "File name:                                             ", file_name, ".csv", sep = "") )
     print("")
-
+    
     # Put in a check here to only process files that have an entry in the control file concepts.csv
     # There may be more files in the country-year' directory and any subdirectories within it than in the control file
     # START CHECK IF CONCEPT IN CONTROL IF
@@ -426,6 +453,12 @@ for ( i in c( 1:2 ) ) {
       column_name <- colnames( data )
       # print(column_name)
       # print(length(column_name))
+      #Subset to just 2013 for poverty data
+      if(file_name %in% poverty_dat){
+        if("year" %in% column_name){
+          data <- subset(data,year<=2013)
+        }
+      }
 
       # Create a file name using the working directory + file name you just extracted
       # You will use this name to label the output folder
@@ -673,6 +706,7 @@ for ( i in c( 1:2 ) ) {
       if ( "id" %in% column_name &&
            "year" %in% column_name &&
            "value" %in% column_name &&
+           !("budget-type" %in% column_name) &&
            !is.null( concept$type ) &&
            concept$type == "simple"
           ) {
@@ -736,6 +770,7 @@ for ( i in c( 1:2 ) ) {
       # Provide a "wide" file (years as columns) for 'original-value'
       if ( "id" %in% column_name &&
            "year" %in% column_name &&
+           !("budget-type" %in% column_name) &&
            "original-value" %in% column_name &&
            concept$type == "simple"
           ) {
@@ -796,7 +831,135 @@ for ( i in c( 1:2 ) ) {
           , na = ""
         )
       }
-
+      #Fix for files which have unique IDs by the combination of ID and budget-type
+      if ( "id" %in% column_name &&
+           "year" %in% column_name &&
+           "value" %in% column_name &&
+           "budget-type" %in% column_name &&
+           !is.null( concept$type ) &&
+           concept$type == "simple"
+      ) {
+        
+        print("")
+        print( paste( "Wide file ('value') added for:                         ", file_name, ".csv", sep = "" ) )
+        print("")
+        
+        if ( "entity-name" %in% column_name ) {
+          wide_data <- reshape(
+            data[ c( "id", "entity-name", "year","budget-type", "value" ) ]
+            , idvar = c( "id", "entity-name","budget-type" )
+            , timevar = "year"
+            , direction = "wide"
+          )
+        } else {
+          wide_data <- reshape(
+            data[ c("id", "year","budget-type", "value") ]
+            , idvar = c( "id","budget-type" )
+            , timevar = "year"
+            , direction = "wide"
+          )
+        }
+        
+        wide_data_names <- names( wide_data )
+        
+        for( j in 1:length( wide_data_names ) ) {
+          wide_data_name = wide_data_names[ j ]
+          # wide_data_name = the name that will be given to the wide data file
+          # Indexing starts at 1
+          if ( substr( wide_data_name, 1, 5 ) == "value" ) {
+            names( wide_data )[ names( wide_data ) == wide_data_name ] <-
+              substr( wide_data_name, 7, nchar( wide_data_name ) )
+          }
+        }
+        
+        notes_for_user <- c(
+          notes_for_user
+          , "On the 'Data-wide-value' sheet, we have provided the indicator in a wide format. The values you see listed there are from the 'value' column."
+          , ""
+        )
+        addWorksheet(
+          xlsx_work_book
+          , "Data-wide-value"
+        )
+        writeData(
+          xlsx_work_book
+          , sheet = "Data-wide-value"
+          , wide_data
+          , colNames = TRUE
+          , rowNames = FALSE
+        )
+        write.csv(
+          wide_data
+          , paste( csv_sub_directory, "/", file_name, "-wide-value", ".csv", sep = "" )
+          , row.names = FALSE
+          , na = ""
+        )
+      }
+      
+      # Provide a "wide" file (years as columns) for 'original-value'
+      if ( "id" %in% column_name &&
+           "year" %in% column_name &&
+           "budget-type" %in% column_name &&
+           "original-value" %in% column_name &&
+           concept$type == "simple"
+      ) {
+        
+        print("")
+        print( paste( "Wide file ('original-value') added for:                ", file_name, ".csv", sep = "" ) )
+        print("")
+        
+        if ( "entity-name" %in% column_name ) {
+          wide_data <- reshape(
+            data[ c( "id", "entity-name", "year","budget-type", "original-value" ) ]
+            , idvar = c("id","entity-name","budget-type")
+            , timevar = "year"
+            , direction = "wide"
+          )
+        } else {
+          wide_data <- reshape(
+            data[ c( "id", "year","budget-type", "original-value" ) ]
+            , idvar = c( "id","budget-type" )
+            , timevar = "year"
+            , direction = "wide"
+          )
+        }
+        
+        wide_data_names <- names( wide_data )
+        
+        for( j in 1:length( wide_data_names ) ) {
+          
+          wide_data_name = wide_data_names[ j ]
+          
+          if ( substr( wide_data_name, 1, 14 ) == "original-value" ) {
+            names( wide_data )[ names( wide_data ) == wide_data_name ] <-
+              substr( wide_data_name, 16, nchar( wide_data_name ) )
+          }
+        }
+        
+        notes_for_user <- c(
+          notes_for_user
+          ,"On the 'Data-wide-original-value' sheet, we have provided the indicator in a wide format. The values you see listed there are from the 'original-value' column."
+          ,""
+        )
+        
+        addWorksheet(
+          xlsx_work_book
+          ,"Data-wide-original-value"
+        )
+        writeData(
+          xlsx_work_book
+          , sheet = "Data-wide-original-value"
+          , wide_data
+          , colNames = TRUE
+          , rowNames = FALSE
+        )
+        write.csv(
+          wide_data
+          , paste( csv_sub_directory, "/", file_name, "-wide-original-value", ".csv", sep = "" )
+          , row.names = FALSE
+          , na = ""
+        )
+      }
       # Add reference files/data
       file.copy(
         paste( reference_file_location, "entity.csv", sep = "" )
@@ -888,6 +1051,8 @@ for ( i in c( 1:2 ) ) {
       print("")
 
       # Zip up!
+      files <- dir(file_name,full.names=TRUE)
+      zip(zipfile = paste0(file_name,".zip"),files=files)
 
     } else {
 
