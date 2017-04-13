@@ -539,7 +539,7 @@ for ( i in 1:length( absolute_file_name ) ) {
       }
 
       # Special Spotlight on Uganda data case
-      if ( substr( relative_file_name, 1, 7 ) == "uganda-" ) {
+      if ( substr( relative_file_name, 1, 19 ) == "spotlight-on-uganda" ) {
         # which: gives the 'TRUE' indices of a logical object, allowing for array indices.
         data <- data[ , -which( names( data ) %in% c( "entity-name" ) ) ]
         if ("id" %in% column_name ) {

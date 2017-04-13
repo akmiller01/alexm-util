@@ -16,7 +16,7 @@ import pdb
 
 #Parse Options
 parser = OptionParser()
-parser.add_option("-i", "--input", dest="input", default = "D:/Documents/Gov finance/Final data government finance_KB300117_RW edits_KB.xlsx",
+parser.add_option("-i", "--input", dest="input", default = "/Users/Alex/Downloads/Final data government finance GHA only.xlsx",
                 help="Input file", metavar="FILE")
 parser.add_option("-o", "--output", dest="output", default="./results.csv",
                 help="Output CSV file", metavar="FILE")
@@ -37,7 +37,7 @@ def uni(input):
 #Import xlsx data
 inPath = options.input
 try:
-    wb = load_workbook(filename = inPath, use_iterators = True, data_only=True)
+    wb = load_workbook(filename = inPath, read_only = True, data_only=True)
 except:
     raise Exception("Input xlsx path required!")
 sheets = wb.get_sheet_names()
@@ -45,8 +45,10 @@ sheets = wb.get_sheet_names()
 #budget reference
 budgetDict = {}
 budgetDict["Actual"] = "actual"
+budgetDict["Act"] = "actual"
 budgetDict["Budget"] = "budget"
 budgetDict["Est"] = "actual"
+budgetDict["Estimate"] = "actual"
 budgetDict["EST"] = "actual"
 budgetDict["est"] = "actual"
 budgetDict["Estim"] = "actual"

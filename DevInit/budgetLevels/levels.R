@@ -1,4 +1,4 @@
-wd <- "C:/git/alexm-util/DevInit/budgetLevels"
+wd <- "~/git/alexm-util/DevInit/budgetLevels"
 setwd(wd)
 df <- read.csv("./results.csv"
                , header = TRUE
@@ -13,12 +13,12 @@ df <- read.csv("./results.csv"
                )
 names(df)[names(df) == "iso"] <- "id"
 
-mult <- read.csv("D:/git/digital-platform/reference/imf_weo_ncu_deflator.2015.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+mult <- read.csv("~/git/digital-platform/reference/imf_weo_ncu_deflator.2015.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(mult)[3] <- c("deflator")
 mult$deflator[which(mult$id=="SY")] <- 1
 
 #Have a PPP conversion for every year, but equal to 2015 rate for all years for all countries except for Syria
-ppp <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-ppp.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+ppp <- read.csv("~/git/digital-platform/reference/current-ncu-to-current-ppp.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(ppp)[3] <- "ppp"
 sy.ppp <- subset(ppp,id=="SY")
 ppp <- subset(ppp,year==2015 & id!="SY")
@@ -30,7 +30,7 @@ ppp.frame <- data.frame("id"=sort(rep(ppp$id,length(years))),"year"=years)
 ppp <- merge(ppp.frame,ppp,by="id")
 ppp <- rbind(ppp,sy.ppp)
 
-usd <- read.csv("D:/git/digital-platform/reference/current-ncu-to-current-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+usd <- read.csv("~/git/digital-platform/reference/current-ncu-to-current-usd.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 names(usd)[3] <- "usd"
 sy.usd <- subset(usd,id=="SY")
 usd <- subset(usd,year==2015 & id!="SY")
@@ -74,7 +74,7 @@ df <- df[keep]
 names(df)[names(df) == "value.ncu"] <- "value-ncu"
 names(df)[names(df) == "value.ppp"] <- "value-ppp"
 names(df)[names(df) == "type"] <- "budget-type"
-write.csv(df,"D:/git/digital-platform/country-year/domestic.csv",row.names=FALSE,na="")
+write.csv(df,"~/git/digital-platform/country-year/domestic-gha.csv",row.names=FALSE,na="")
 names(df)
 df <- read.csv("./results.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 levels <- df[c(6:11)]
@@ -101,7 +101,7 @@ levels <- unique(levels)[complete.cases(unique(levels)),]
 levels <- transform(levels,id=gsub(" ","-",tolower(gsub("[^[:alnum:] ]", "", name))))
 levels$sectoral <- "FALSE"
 levels <- levels[c(3,4,1,2)]
-old.levels <- read.csv("D:/git/digital-platform/reference/domestic-budget-level.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
+old.levels <- read.csv("~/git/digital-platform/reference/domestic-budget-level.csv", header = TRUE,sep=",",na.strings="",check.names=FALSE,stringsAsFactors=FALSE)
 sectoral <- subset(old.levels,sectoral==TRUE)
 old.levels <- old.levels[c(1,2,3,5)]
 levels <- merge(
@@ -113,4 +113,4 @@ levels <- merge(
 levels <- levels[order(levels$id)[!duplicated(sort(levels$id))],]
 new.levels <- rbind(levels,sectoral)
 new.levels <- unique(new.levels)
-write.csv(new.levels,"D:/git/digital-platform/reference/domestic-budget-level.csv",row.names=FALSE,na="")
+write.csv(new.levels,"~/git/digital-platform/reference/domestic-budget-level-gha.csv",row.names=FALSE,na="")
