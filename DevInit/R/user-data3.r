@@ -551,6 +551,8 @@ for ( i in 1:length( absolute_file_name ) ) {
           )
         }
       }
+      #Rewrite column name after possibly appending entity-name
+      column_name <- colnames( data )
 
       # Sort the 'data' data frame
       # We've already done this once before? See line xxx above
