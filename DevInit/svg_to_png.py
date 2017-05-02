@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from glob import glob
 import os
 from optparse import OptionParser
@@ -11,7 +12,11 @@ parser.add_option("-i", "--input", dest="input", default="C:\\Users\\alexm\\Docu
                         help="Output path. Default is wd",metavar="FOLDER")
 (options, args) = parser.parse_args()
 
-browser = webdriver.Chrome("C://chromedriver//2.29//chromedriver")
+opts = webdriver.ChromeOptions()
+opts.add_argument("--start-maximized")
+
+
+browser = webdriver.Chrome(executable_path="C://chromedriver//2.29//chromedriver",chrome_options=opts)
 
 svgs = glob(options.input+"\\*.svg")
 
