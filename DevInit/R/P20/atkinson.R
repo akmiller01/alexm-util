@@ -14,4 +14,10 @@ atkinson = function(x,aversion=1,na.rm=TRUE){
 #install.packages("DescTools")
 # library(DescTools)
 # Atkinson(c(1,2,3),parameter=0.5)
-atkinson(c(1,2,3),0.5)
+# atkinson(c(1,2,3),0.5)
+# 
+# library(data.table)
+# df <- data.frame(group=c("a","a","a","b","b","b"),L=c(0.3,0.1,1,0.2,0.4,1))
+# dt <- data.table(df)
+# setkey(dt,group,L)
+# dt[,diff:=c(L[1],diff(L)),by=group]
