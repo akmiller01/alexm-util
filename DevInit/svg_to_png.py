@@ -13,7 +13,7 @@ parser.add_option("-i", "--input", dest="input", default="C:\\Users\\alexm\\Docu
 (options, args) = parser.parse_args()
 
 opts = webdriver.ChromeOptions()
-opts.add_argument("--start-maximized")
+opts.add_argument("start-maximized")
 
 
 browser = webdriver.Chrome(executable_path="C://chromedriver//2.29//chromedriver",chrome_options=opts)

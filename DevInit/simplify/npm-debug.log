@@ -1,0 +1,1648 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'topojson' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'topojson', null ]
+5 verbose cache add name=undefined spec="topojson" args=["topojson",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'topojson',
+6 verbose parsed url   path: 'topojson',
+6 verbose parsed url   href: 'topojson' }
+7 silly lockFile 947c2103-topojson topojson
+8 verbose lock topojson /home/vagrant/.npm/947c2103-topojson.lock
+9 silly lockFile 947c2103-topojson topojson
+10 silly lockFile 947c2103-topojson topojson
+11 verbose addNamed [ 'topojson', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 7edf76d6-topojson topojson@
+14 verbose lock topojson@ /home/vagrant/.npm/7edf76d6-topojson.lock
+15 silly addNameRange { name: 'topojson', range: '*', hasData: false }
+16 verbose url raw topojson
+17 verbose url resolving [ 'https://registry.npmjs.org/', './topojson' ]
+18 verbose url resolved https://registry.npmjs.org/topojson
+19 info trying registry request attempt 1 at 16:49:42
+20 verbose etag "58ddeeef-1eac3"
+21 http GET https://registry.npmjs.org/topojson
+22 http 304 https://registry.npmjs.org/topojson
+23 silly registry.get cb [ 304,
+23 silly registry.get   { date: 'Mon, 15 May 2017 16:49:43 GMT',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     'cache-control': 'max-age=300',
+23 silly registry.get     etag: '"58ddeeef-1eac3"',
+23 silly registry.get     age: '65',
+23 silly registry.get     connection: 'keep-alive',
+23 silly registry.get     'x-served-by': 'cache-iad2635-IAD',
+23 silly registry.get     'x-cache': 'HIT',
+23 silly registry.get     'x-cache-hits': '1',
+23 silly registry.get     'x-timer': 'S1494866983.066584,VS0,VE1',
+23 silly registry.get     vary: 'Accept-Encoding' } ]
+24 verbose etag topojson from cache
+25 silly addNameRange number 2 { name: 'topojson', range: '*', hasData: true }
+26 silly addNameRange versions [ 'topojson',
+26 silly addNameRange   [ '0.0.1',
+26 silly addNameRange     '0.0.2',
+26 silly addNameRange     '0.0.4',
+26 silly addNameRange     '0.0.5',
+26 silly addNameRange     '0.0.6',
+26 silly addNameRange     '0.0.7',
+26 silly addNameRange     '0.0.8',
+26 silly addNameRange     '0.0.9',
+26 silly addNameRange     '0.0.10',
+26 silly addNameRange     '0.0.11',
+26 silly addNameRange     '0.0.12',
+26 silly addNameRange     '0.0.13',
+26 silly addNameRange     '0.0.14',
+26 silly addNameRange     '0.0.15',
+26 silly addNameRange     '0.0.16',
+26 silly addNameRange     '0.0.17',
+26 silly addNameRange     '0.0.18',
+26 silly addNameRange     '0.0.19',
+26 silly addNameRange     '0.0.20',
+26 silly addNameRange     '0.0.21',
+26 silly addNameRange     '0.0.23',
+26 silly addNameRange     '0.0.24',
+26 silly addNameRange     '0.0.25',
+26 silly addNameRange     '0.0.26',
+26 silly addNameRange     '0.0.27',
+26 silly addNameRange     '0.0.28',
+26 silly addNameRange     '0.0.29',
+26 silly addNameRange     '0.0.30',
+26 silly addNameRange     '0.0.31',
+26 silly addNameRange     '0.0.32',
+26 silly addNameRange     '0.0.33',
+26 silly addNameRange     '0.0.34',
+26 silly addNameRange     '0.0.35',
+26 silly addNameRange     '0.0.36',
+26 silly addNameRange     '0.0.37',
+26 silly addNameRange     '0.0.38',
+26 silly addNameRange     '0.0.39',
+26 silly addNameRange     '1.0.0',
+26 silly addNameRange     '1.1.0',
+26 silly addNameRange     '1.1.1',
+26 silly addNameRange     '1.1.2',
+26 silly addNameRange     '1.1.3',
+26 silly addNameRange     '1.1.4',
+26 silly addNameRange     '1.1.5',
+26 silly addNameRange     '1.1.6',
+26 silly addNameRange     '1.2.0',
+26 silly addNameRange     '1.2.1',
+26 silly addNameRange     '1.2.2',
+26 silly addNameRange     '1.2.3',
+26 silly addNameRange     '1.3.0',
+26 silly addNameRange     '1.4.0',
+26 silly addNameRange     '1.4.1',
+26 silly addNameRange     '1.4.2',
+26 silly addNameRange     '1.4.3',
+26 silly addNameRange     '1.4.4',
+26 silly addNameRange     '1.4.5',
+26 silly addNameRange     '1.4.6',
+26 silly addNameRange     '1.4.7',
+26 silly addNameRange     '1.4.8',
+26 silly addNameRange     '1.4.9',
+26 silly addNameRange     '1.5.0',
+26 silly addNameRange     '1.5.1',
+26 silly addNameRange     '1.5.2',
+26 silly addNameRange     '1.5.3',
+26 silly addNameRange     '1.5.4',
+26 silly addNameRange     '1.6.0',
+26 silly addNameRange     '1.6.1',
+26 silly addNameRange     '1.6.2',
+26 silly addNameRange     '1.6.3',
+26 silly addNameRange     '1.6.4',
+26 silly addNameRange     '1.6.5',
+26 silly addNameRange     '1.6.6',
+26 silly addNameRange     '1.6.7',
+26 silly addNameRange     '1.6.8',
+26 silly addNameRange     '1.6.9',
+26 silly addNameRange     '1.6.10',
+26 silly addNameRange     '1.6.11',
+26 silly addNameRange     '1.6.12',
+26 silly addNameRange     '1.6.13',
+26 silly addNameRange     '1.6.14',
+26 silly addNameRange     '1.6.15',
+26 silly addNameRange     '1.6.16',
+26 silly addNameRange     '1.6.17',
+26 silly addNameRange     '1.6.18',
+26 silly addNameRange     '1.6.19',
+26 silly addNameRange     '1.6.20',
+26 silly addNameRange     '1.6.21',
+26 silly addNameRange     '1.6.22',
+26 silly addNameRange     '1.6.23',
+26 silly addNameRange     '1.6.24',
+26 silly addNameRange     '1.6.25',
+26 silly addNameRange     '1.6.26',
+26 silly addNameRange     '1.6.27',
+26 silly addNameRange     '2.0.0-alpha.1',
+26 silly addNameRange     '2.0.0-alpha.2',
+26 silly addNameRange     '2.0.0',
+26 silly addNameRange     '2.2.0',
+26 silly addNameRange     '3.0.0' ] ]
+27 verbose addNamed [ 'topojson', '3.0.0' ]
+28 verbose addNamed [ '3.0.0', '3.0.0' ]
+29 silly lockFile 51dc3392-topojson-3-0-0 topojson@3.0.0
+30 verbose lock topojson@3.0.0 /home/vagrant/.npm/51dc3392-topojson-3-0-0.lock
+31 silly lockFile 51dc3392-topojson-3-0-0 topojson@3.0.0
+32 silly lockFile 51dc3392-topojson-3-0-0 topojson@3.0.0
+33 silly lockFile 7edf76d6-topojson topojson@
+34 silly lockFile 7edf76d6-topojson topojson@
+35 silly resolved [ { name: 'topojson',
+35 silly resolved     version: '3.0.0',
+35 silly resolved     description: 'An extension to GeoJSON that encodes topology.',
+35 silly resolved     keywords: [ 'topojson', 'geojson' ],
+35 silly resolved     homepage: 'https://github.com/topojson/topojson',
+35 silly resolved     license: 'BSD-3-Clause',
+35 silly resolved     author: { name: 'Mike Bostock', url: 'https://bost.ocks.org/mike' },
+35 silly resolved     main: 'dist/topojson.node.js',
+35 silly resolved     browser: 'dist/topojson.js',
+35 silly resolved     module: 'index',
+35 silly resolved     'jsnext:main': 'index',
+35 silly resolved     repository: { type: 'git', url: 'https://github.com/topojson/topojson.git' },
+35 silly resolved     bin:
+35 silly resolved      { geo2topo: 'node_modules/topojson-server/bin/geo2topo',
+35 silly resolved        toposimplify: 'node_modules/topojson-simplify/bin/toposimplify',
+35 silly resolved        topo2geo: 'node_modules/topojson-client/bin/topo2geo',
+35 silly resolved        topomerge: 'node_modules/topojson-client/bin/topomerge',
+35 silly resolved        topoquantize: 'node_modules/topojson-client/bin/topoquantize' },
+35 silly resolved     scripts:
+35 silly resolved      { pretest: 'rm -rf dist && mkdir dist && node rollup.node',
+35 silly resolved        test: 'tape \'test/**/*-test.js\'',
+35 silly resolved        prepublish: 'npm run test && rollup -c --banner "$(preamble)" -f umd -n topojson -o dist/topojson.js -- index.js && uglifyjs --preamble "$(preamble)" dist/topojson.js -c negate_iife=false -m -o dist/topojson.min.js',
+35 silly resolved        postpublish: 'git push && git push --tags && cp -v README.md LICENSE.md dist/topojson.js dist/topojson.min.js ../topojson-bower && cd ../topojson-bower && git add README.md LICENSE.md topojson.js topojson.min.js && git commit -m "${npm_package_version}" && git tag -am "${npm_package_version}" v${npm_package_version} && git push && git push --tags && cd - && cp dist/topojson.js ../d3.github.com/topojson.v3.js && cp dist/topojson.min.js ../d3.github.com/topojson.v3.min.js && cd ../d3.github.com && git add topojson.v3.js topojson.v3.min.js && git commit -m "topojson ${npm_package_version}" && git push && cd - && zip -j dist/topojson.zip -- LICENSE.md README.md dist/topojson.js dist/topojson.min.js' },
+35 silly resolved     devDependencies:
+35 silly resolved      { 'package-preamble': '0.0',
+35 silly resolved        rollup: '0.41',
+35 silly resolved        'rollup-plugin-ascii': '0.0',
+35 silly resolved        'rollup-plugin-node-resolve': '2',
+35 silly resolved        tape: '4',
+35 silly resolved        'uglify-js': '2' },
+35 silly resolved     dependencies:
+35 silly resolved      { 'topojson-client': '3.0.0',
+35 silly resolved        'topojson-server': '3.0.0',
+35 silly resolved        'topojson-simplify': '3.0.0' },
+35 silly resolved     readme: '# TopoJSON\n\n**TopoJSON** is an extension of GeoJSON that encodes topology. Rather than representing geometries discretely, geometries in TopoJSON files are stitched together from shared line segments called *arcs*. This technique is similar to [Matt Bloch’s MapShaper](http://www.cartogis.org/docs/proceedings/2006/bloch_harrower.pdf\n) and the [Arc/Info Export format, .e00](http://indiemaps.com/blog/2009/02/e00parser-an-actionscript-3-parser-for-the-arcinfo-export-topological-gis-format/).\n\nTopoJSON eliminates redundancy, allowing related geometries to be stored efficiently in the same file. For example, the shared boundary between California and Nevada is represented only once, rather than being duplicated for both states. A single TopoJSON file can contain multiple feature collections without duplication, such as states and counties. Or, a TopoJSON file can efficiently represent both polygons (for fill) and boundaries (for stroke) as two feature collections that share the same arc mesh. See [How To Infer Topology](https://bost.ocks.org/mike/topology/) for a visual explanation of how TopoJSON works. See [Command-Line Cartography](https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c) for an introduction to TopoJSON and related tools.\n\nTo further reduce file size, TopoJSON can use quantized delta-encoding for integer coordinates. This is similar to rounding coordinate values (e.g., [LilJSON](https://github.com/migurski/LilJSON)), but with greater efficiency and control over loss of information. And like GeoJSON, TopoJSON files are easily modified in a text editor and amenable to gzip compression.\n\nAs a result, TopoJSON is substantially more compact than GeoJSON, frequently offering a reduction of 80% or more even without simplification. Yet encoding topology also has numerous useful applications for maps and visualization above! It allows [topology-preserving shape simplification](https://github.com/topojson/topojson-simplify), which ensures that adjacent features remain connected after simplification; this applies even across feature collections, such as simultaneous consistent simplification of state and county boundaries. Topology can also be used for [Dorling](http://www.ncgia.ucsb.edu/projects/Cartogram_Central/types.html) or [hexagonal cartograms](http://pitchinteractive.com/latest/tilegrams-more-human-maps/), as well as other techniques that need shared boundary information such as [automatic map coloring](https://bl.ocks.org/4188334).\n\n## Installing\n\nIf you use NPM, `npm install topojson`. Otherwise, download the [latest release](https://github.com/topojson/topojson/releases/latest). You can also load directly from [d3js.org](https://d3js.org) as a [standalone library](https://unpkg.com/topojson@3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `topojson` global is exported:\n\n```html\n<script src="https://unpkg.com/topojson@3"></script>\n<script>\n\nvar topology = topojson.topology({foo: geojson});\n\n</script>\n```\n\n[Try topojson in your browser.](https://tonicdev.com/npm/topojson)\n\n## API Reference\n\n### [Generation (topojson-server)](https://github.com/topojson/topojson-server)\n\n* [topojson.topology](https://github.com/topojson/topojson-server/blob/master/README.md#topology) - convert GeoJSON to TopoJSON.\n* [geo2topo](https://github.com/topojson/topojson-server/blob/master/README.md#geo2topo) - convert GeoJSON to TopoJSON.\n\n### [Simplification (topojson-simplify)](https://github.com/topojson/topojson-simplify)\n\n* [topojson.presimplify](https://github.com/topojson/topojson-simplify/blob/master/README.md#presimplify) - prepare TopoJSON for simplification.\n* [topojson.simplify](https://github.com/topojson/topojson-simplify/blob/master/README.md#simplify) - simplify geometry by removing coordinates.\n* [topojson.quantile](https://github.com/topojson/topojson-simplify/blob/master/README.md#quantile) - compute a simplification threshold.\n* [topojson.filter](https://github.com/topojson/topojson-simplify/blob/master/README.md#filter) - remove rings from a topology.\n* [topojson.filterAttached](https://github.com/topojson/topojson-simplify/blob/master/README.md#filterAttached) - remove detached rings.\n* [topojson.filterAttachedWeight](https://github.com/topojson/topojson-simplify/blob/master/README.md#filterAttachedWeight) - remove small detached rings.\n* [topojson.filterWeight](https://github.com/topojson/topojson-simplify/blob/master/README.md#filterWeight) - remove small rings.\n* [topojson.planarRingArea](https://github.com/topojson/topojson-simplify/blob/master/README.md#planarRingArea) - compute the planar area of a ring.\n* [topojson.planarTriangleArea](https://github.com/topojson/topojson-simplify/blob/master/README.md#planarTriangleArea) - compute the planar area of a triangle.\n* [topojson.sphericalRingArea](https://github.com/topojson/topojson-simplify/blob/master/README.md#sphericalRingArea) - compute the spherical area of a ring.\n* [topojson.sphericalTriangleArea](https://github.com/topojson/topojson-simplify/blob/master/README.md#sphericalTriangleArea) - compute the spherical area of a triangle.\n* [toposimplify](https://github.com/topojson/topojson-simplify/blob/master/README.md#toposimplify) - simplify TopoJSON, removing coordinates.\n\n### [Manipulation (topojson-client)](https://github.com/topojson/topojson-client)\n\n* [topojson.feature](https://github.com/topojson/topojson-client/blob/master/README.md#feature) - convert TopoJSON to GeoJSON.\n* [topojson.merge](https://github.com/topojson/topojson-client/blob/master/README.md#merge) - merge TopoJSON geometry and convert to GeoJSON polygons.\n* [topojson.mergeArcs](https://github.com/topojson/topojson-client/blob/master/README.md#mergeArcs) - merge TopoJSON geometry to form polygons.\n* [topojson.mesh](https://github.com/topojson/topojson-client/blob/master/README.md#mesh) - mesh TopoJSON geometry and convert to GeoJSON lines.\n* [topojson.meshArcs](https://github.com/topojson/topojson-client/blob/master/README.md#meshArcs) - mesh TopoJSON geometry to form lines.\n* [topojson.neighbors](https://github.com/topojson/topojson-client/blob/master/README.md#neighbors) - compute adjacent features.\n* [topojson.bbox](https://github.com/topojson/topojson-client/blob/master/README.md#bbox) - compute the bounding box of a topology.\n* [topojson.quantize](https://github.com/topojson/topojson-client/blob/master/README.md#quantize) - round coordinates, reducing precision.\n* [topojson.transform](https://github.com/topojson/topojson-client/blob/master/README.md#transform) - remove delta-encoding and apply a transform.\n* [topojson.untransform](https://github.com/topojson/topojson-client/blob/master/README.md#untransform) - apply delta-encoding and remove a transform.\n* [topo2geo](https://github.com/topojson/topojson-client/blob/master/README.md#topo2geo) - convert TopoJSON to GeoJSON.\n* [topomerge](https://github.com/topojson/topojson-client/blob/master/README.md#topomerge) - merge TopoJSON geometry, and optionally filter.\n* [topoquantize](https://github.com/topojson/topojson-client/blob/master/README.md#topoquantize) - round TopoJSON, reducing precision.\n',
+35 silly resolved     readmeFilename: 'README.md',
+35 silly resolved     bugs: { url: 'https://github.com/topojson/topojson/issues' },
+35 silly resolved     _id: 'topojson@3.0.0',
+35 silly resolved     _from: 'topojson@' } ]
+36 info install topojson@3.0.0 into /git/alexm-util/DevInit
+37 info installOne topojson@3.0.0
+38 info /git/alexm-util/DevInit/node_modules/topojson unbuild
+39 verbose tar unpack /home/vagrant/.npm/topojson/3.0.0/package.tgz
+40 silly lockFile c73417a6-il-DevInit-node-modules-topojson tar:///git/alexm-util/DevInit/node_modules/topojson
+41 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson /home/vagrant/.npm/c73417a6-il-DevInit-node-modules-topojson.lock
+42 silly lockFile 4a787216-t-npm-topojson-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson/3.0.0/package.tgz
+43 verbose lock tar:///home/vagrant/.npm/topojson/3.0.0/package.tgz /home/vagrant/.npm/4a787216-t-npm-topojson-3-0-0-package-tgz.lock
+44 silly gunzTarPerm modes [ '755', '644' ]
+45 silly gunzTarPerm extractEntry package.json
+46 silly gunzTarPerm extractEntry .npmignore
+47 silly gunzTarPerm extractEntry README.md
+48 silly gunzTarPerm extractEntry index.js
+49 silly gunzTarPerm extractEntry rollup.config.js
+50 silly gunzTarPerm extractEntry rollup.node.js
+51 silly gunzTarPerm extractEntry LICENSE.md
+52 silly gunzTarPerm extractEntry dist/topojson.js
+53 silly gunzTarPerm extractEntry dist/topojson.min.js
+54 silly gunzTarPerm extractEntry dist/topojson.node.js
+55 silly lockFile c73417a6-il-DevInit-node-modules-topojson tar:///git/alexm-util/DevInit/node_modules/topojson
+56 silly lockFile c73417a6-il-DevInit-node-modules-topojson tar:///git/alexm-util/DevInit/node_modules/topojson
+57 silly lockFile 4a787216-t-npm-topojson-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson/3.0.0/package.tgz
+58 silly lockFile 4a787216-t-npm-topojson-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson/3.0.0/package.tgz
+59 info preinstall topojson@3.0.0
+60 verbose readDependencies using package.json deps
+61 verbose readDependencies using package.json deps
+62 verbose cache add [ 'topojson-client@3.0.0', null ]
+63 verbose cache add name=undefined spec="topojson-client@3.0.0" args=["topojson-client@3.0.0",null]
+64 verbose parsed url { protocol: null,
+64 verbose parsed url   slashes: null,
+64 verbose parsed url   auth: null,
+64 verbose parsed url   host: null,
+64 verbose parsed url   port: null,
+64 verbose parsed url   hostname: null,
+64 verbose parsed url   hash: null,
+64 verbose parsed url   search: null,
+64 verbose parsed url   query: null,
+64 verbose parsed url   pathname: 'topojson-client@3.0.0',
+64 verbose parsed url   path: 'topojson-client@3.0.0',
+64 verbose parsed url   href: 'topojson-client@3.0.0' }
+65 verbose cache add name="topojson-client" spec="3.0.0" args=["topojson-client","3.0.0"]
+66 verbose parsed url { protocol: null,
+66 verbose parsed url   slashes: null,
+66 verbose parsed url   auth: null,
+66 verbose parsed url   host: null,
+66 verbose parsed url   port: null,
+66 verbose parsed url   hostname: null,
+66 verbose parsed url   hash: null,
+66 verbose parsed url   search: null,
+66 verbose parsed url   query: null,
+66 verbose parsed url   pathname: '3.0.0',
+66 verbose parsed url   path: '3.0.0',
+66 verbose parsed url   href: '3.0.0' }
+67 verbose addNamed [ 'topojson-client', '3.0.0' ]
+68 verbose addNamed [ '3.0.0', '3.0.0' ]
+69 silly lockFile 2b0f4873-topojson-client-3-0-0 topojson-client@3.0.0
+70 verbose lock topojson-client@3.0.0 /home/vagrant/.npm/2b0f4873-topojson-client-3-0-0.lock
+71 verbose cache add [ 'topojson-server@3.0.0', null ]
+72 verbose cache add name=undefined spec="topojson-server@3.0.0" args=["topojson-server@3.0.0",null]
+73 verbose parsed url { protocol: null,
+73 verbose parsed url   slashes: null,
+73 verbose parsed url   auth: null,
+73 verbose parsed url   host: null,
+73 verbose parsed url   port: null,
+73 verbose parsed url   hostname: null,
+73 verbose parsed url   hash: null,
+73 verbose parsed url   search: null,
+73 verbose parsed url   query: null,
+73 verbose parsed url   pathname: 'topojson-server@3.0.0',
+73 verbose parsed url   path: 'topojson-server@3.0.0',
+73 verbose parsed url   href: 'topojson-server@3.0.0' }
+74 verbose cache add name="topojson-server" spec="3.0.0" args=["topojson-server","3.0.0"]
+75 verbose parsed url { protocol: null,
+75 verbose parsed url   slashes: null,
+75 verbose parsed url   auth: null,
+75 verbose parsed url   host: null,
+75 verbose parsed url   port: null,
+75 verbose parsed url   hostname: null,
+75 verbose parsed url   hash: null,
+75 verbose parsed url   search: null,
+75 verbose parsed url   query: null,
+75 verbose parsed url   pathname: '3.0.0',
+75 verbose parsed url   path: '3.0.0',
+75 verbose parsed url   href: '3.0.0' }
+76 verbose addNamed [ 'topojson-server', '3.0.0' ]
+77 verbose addNamed [ '3.0.0', '3.0.0' ]
+78 silly lockFile 3543b411-topojson-server-3-0-0 topojson-server@3.0.0
+79 verbose lock topojson-server@3.0.0 /home/vagrant/.npm/3543b411-topojson-server-3-0-0.lock
+80 verbose cache add [ 'topojson-simplify@3.0.0', null ]
+81 verbose cache add name=undefined spec="topojson-simplify@3.0.0" args=["topojson-simplify@3.0.0",null]
+82 verbose parsed url { protocol: null,
+82 verbose parsed url   slashes: null,
+82 verbose parsed url   auth: null,
+82 verbose parsed url   host: null,
+82 verbose parsed url   port: null,
+82 verbose parsed url   hostname: null,
+82 verbose parsed url   hash: null,
+82 verbose parsed url   search: null,
+82 verbose parsed url   query: null,
+82 verbose parsed url   pathname: 'topojson-simplify@3.0.0',
+82 verbose parsed url   path: 'topojson-simplify@3.0.0',
+82 verbose parsed url   href: 'topojson-simplify@3.0.0' }
+83 verbose cache add name="topojson-simplify" spec="3.0.0" args=["topojson-simplify","3.0.0"]
+84 verbose parsed url { protocol: null,
+84 verbose parsed url   slashes: null,
+84 verbose parsed url   auth: null,
+84 verbose parsed url   host: null,
+84 verbose parsed url   port: null,
+84 verbose parsed url   hostname: null,
+84 verbose parsed url   hash: null,
+84 verbose parsed url   search: null,
+84 verbose parsed url   query: null,
+84 verbose parsed url   pathname: '3.0.0',
+84 verbose parsed url   path: '3.0.0',
+84 verbose parsed url   href: '3.0.0' }
+85 verbose addNamed [ 'topojson-simplify', '3.0.0' ]
+86 verbose addNamed [ '3.0.0', '3.0.0' ]
+87 silly lockFile acb4808b-topojson-simplify-3-0-0 topojson-simplify@3.0.0
+88 verbose lock topojson-simplify@3.0.0 /home/vagrant/.npm/acb4808b-topojson-simplify-3-0-0.lock
+89 verbose url raw topojson-client/3.0.0
+90 verbose url resolving [ 'https://registry.npmjs.org/', './topojson-client/3.0.0' ]
+91 verbose url resolved https://registry.npmjs.org/topojson-client/3.0.0
+92 info trying registry request attempt 1 at 16:49:43
+93 http GET https://registry.npmjs.org/topojson-client/3.0.0
+94 verbose url raw topojson-server/3.0.0
+95 verbose url resolving [ 'https://registry.npmjs.org/', './topojson-server/3.0.0' ]
+96 verbose url resolved https://registry.npmjs.org/topojson-server/3.0.0
+97 info trying registry request attempt 1 at 16:49:43
+98 http GET https://registry.npmjs.org/topojson-server/3.0.0
+99 verbose url raw topojson-simplify/3.0.0
+100 verbose url resolving [ 'https://registry.npmjs.org/', './topojson-simplify/3.0.0' ]
+101 verbose url resolved https://registry.npmjs.org/topojson-simplify/3.0.0
+102 info trying registry request attempt 1 at 16:49:43
+103 http GET https://registry.npmjs.org/topojson-simplify/3.0.0
+104 http 200 https://registry.npmjs.org/topojson-simplify/3.0.0
+105 silly registry.get cb [ 200,
+105 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+105 silly registry.get     etag: '"R2Q4W629O6YZHX988GA7AC07"',
+105 silly registry.get     'content-type': 'application/json',
+105 silly registry.get     'cache-control': 'max-age=300',
+105 silly registry.get     'content-length': '1885',
+105 silly registry.get     'accept-ranges': 'bytes',
+105 silly registry.get     date: 'Mon, 15 May 2017 16:49:43 GMT',
+105 silly registry.get     via: '1.1 varnish',
+105 silly registry.get     age: '0',
+105 silly registry.get     connection: 'keep-alive',
+105 silly registry.get     'x-served-by': 'cache-iad2125-IAD',
+105 silly registry.get     'x-cache': 'MISS',
+105 silly registry.get     'x-cache-hits': '0',
+105 silly registry.get     'x-timer': 'S1494866983.359462,VS0,VE21',
+105 silly registry.get     vary: 'Accept-Encoding' } ]
+106 silly lockFile 808e58a3-lify-topojson-simplify-3-0-0-tgz https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz
+107 verbose lock https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz /home/vagrant/.npm/808e58a3-lify-topojson-simplify-3-0-0-tgz.lock
+108 verbose addRemoteTarball [ 'https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz',
+108 verbose addRemoteTarball   '58527d26ca85bd8589b5800f6c10e93885245ae5' ]
+109 info retry fetch attempt 1 at 16:49:43
+110 verbose fetch to= /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz
+111 http GET https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz
+112 http 200 https://registry.npmjs.org/topojson-server/3.0.0
+113 silly registry.get cb [ 200,
+113 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+113 silly registry.get     etag: '"AT057TLQDL8HFIE7XPGH5EH9F"',
+113 silly registry.get     'content-type': 'application/json',
+113 silly registry.get     'cache-control': 'max-age=300',
+113 silly registry.get     'content-length': '1881',
+113 silly registry.get     'accept-ranges': 'bytes',
+113 silly registry.get     date: 'Mon, 15 May 2017 16:49:43 GMT',
+113 silly registry.get     via: '1.1 varnish',
+113 silly registry.get     age: '0',
+113 silly registry.get     connection: 'keep-alive',
+113 silly registry.get     'x-served-by': 'cache-iad2650-IAD',
+113 silly registry.get     'x-cache': 'MISS',
+113 silly registry.get     'x-cache-hits': '0',
+113 silly registry.get     'x-timer': 'S1494866983.362005,VS0,VE61',
+113 silly registry.get     vary: 'Accept-Encoding' } ]
+114 http 200 https://registry.npmjs.org/topojson-client/3.0.0
+115 silly registry.get cb [ 200,
+115 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+115 silly registry.get     etag: '"7XTLXC9OZHF91SLA6KX2KKX1O"',
+115 silly registry.get     'content-type': 'application/json',
+115 silly registry.get     'cache-control': 'max-age=300',
+115 silly registry.get     'content-length': '1837',
+115 silly registry.get     'accept-ranges': 'bytes',
+115 silly registry.get     date: 'Mon, 15 May 2017 16:49:43 GMT',
+115 silly registry.get     via: '1.1 varnish',
+115 silly registry.get     age: '0',
+115 silly registry.get     connection: 'keep-alive',
+115 silly registry.get     'x-served-by': 'cache-iad2641-IAD',
+115 silly registry.get     'x-cache': 'MISS',
+115 silly registry.get     'x-cache-hits': '0',
+115 silly registry.get     'x-timer': 'S1494866983.358533,VS0,VE61',
+115 silly registry.get     vary: 'Accept-Encoding' } ]
+116 http 200 https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz
+117 verbose tar unpack /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz
+118 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+119 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package /home/vagrant/.npm/c9f10380-3366-0-18923598900437355-package.lock
+120 silly lockFile f48ed51c-3366-0-18923598900437355-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz
+121 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz /home/vagrant/.npm/f48ed51c-3366-0-18923598900437355-tmp-tgz.lock
+122 silly gunzTarPerm modes [ '755', '644' ]
+123 silly lockFile 635fc087-client-topojson-client-3-0-0-tgz https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz
+124 verbose lock https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz /home/vagrant/.npm/635fc087-client-topojson-client-3-0-0-tgz.lock
+125 silly lockFile 65780e16-server-topojson-server-3-0-0-tgz https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz
+126 verbose lock https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz /home/vagrant/.npm/65780e16-server-topojson-server-3-0-0-tgz.lock
+127 verbose addRemoteTarball [ 'https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz',
+127 verbose addRemoteTarball   '1f99293a77ef42a448d032a81aa982b73f360d2f' ]
+128 verbose addRemoteTarball [ 'https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz',
+128 verbose addRemoteTarball   '378e78e87c3972a7b5be2c5d604369b6bae69c5e' ]
+129 info retry fetch attempt 1 at 16:49:43
+130 verbose fetch to= /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz
+131 info retry fetch attempt 1 at 16:49:43
+132 verbose fetch to= /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz
+133 silly gunzTarPerm extractEntry package.json
+134 http GET https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz
+135 http GET https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz
+136 silly gunzTarPerm extractEntry .npmignore
+137 silly gunzTarPerm extractEntry README.md
+138 silly gunzTarPerm extractEntry index.js
+139 silly gunzTarPerm extractEntry dist/topojson-simplify.js
+140 silly gunzTarPerm extractEntry dist/topojson-simplify.min.js
+141 silly gunzTarPerm extractEntry bin/toposimplify
+142 silly gunzTarPerm extractEntry .eslintrc
+143 silly gunzTarPerm extractEntry LICENSE.md
+144 silly gunzTarPerm extractEntry src/filter.js
+145 silly gunzTarPerm extractEntry src/filterAttachedWeight.js
+146 silly gunzTarPerm extractEntry src/filterWeight.js
+147 silly gunzTarPerm extractEntry src/heap.js
+148 silly gunzTarPerm extractEntry src/filterAttached.js
+149 http 200 https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz
+150 silly gunzTarPerm extractEntry src/presimplify.js
+151 silly gunzTarPerm extractEntry src/prune.js
+152 http 200 https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz
+153 silly gunzTarPerm extractEntry src/quantile.js
+154 silly gunzTarPerm extractEntry src/simplify.js
+155 silly gunzTarPerm extractEntry src/spherical.js
+156 silly gunzTarPerm extractEntry src/planar.js
+157 verbose tar unpack /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz
+158 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+159 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package /home/vagrant/.npm/f5cf69ec-3418-0-11361761367879808-package.lock
+160 silly lockFile c5597b71-3418-0-11361761367879808-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz
+161 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz /home/vagrant/.npm/c5597b71-3418-0-11361761367879808-tmp-tgz.lock
+162 silly gunzTarPerm modes [ '755', '644' ]
+163 silly gunzTarPerm extractEntry package.json
+164 silly gunzTarPerm extractEntry .npmignore
+165 silly gunzTarPerm extractEntry README.md
+166 verbose tar unpack /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz
+167 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+168 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package /home/vagrant/.npm/da948ef2-83418-0-2690133866854012-package.lock
+169 silly lockFile 54994c9a-83418-0-2690133866854012-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz
+170 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz /home/vagrant/.npm/54994c9a-83418-0-2690133866854012-tmp-tgz.lock
+171 silly gunzTarPerm modes [ '755', '644' ]
+172 silly gunzTarPerm extractEntry index.js
+173 silly gunzTarPerm extractEntry package.json
+174 silly gunzTarPerm extractEntry .eslintrc
+175 silly gunzTarPerm extractEntry bin/topo2geo
+176 silly gunzTarPerm extractEntry .npmignore
+177 silly gunzTarPerm extractEntry README.md
+178 silly gunzTarPerm extractEntry index.js
+179 silly gunzTarPerm extractEntry dist/topojson-server.js
+180 silly gunzTarPerm extractEntry dist/topojson-server.min.js
+181 silly gunzTarPerm extractEntry bin/geo2topo
+182 silly gunzTarPerm extractEntry LICENSE.md
+183 silly gunzTarPerm extractEntry bin/topomerge
+184 silly gunzTarPerm extractEntry bin/topoquantize
+185 silly gunzTarPerm extractEntry .eslintrc
+186 silly gunzTarPerm extractEntry src/bounds.js
+187 silly gunzTarPerm extractEntry dist/topojson-client.js
+188 silly gunzTarPerm extractEntry dist/topojson-client.min.js
+189 silly gunzTarPerm extractEntry LICENSE.md
+190 silly gunzTarPerm extractEntry src/bbox.js
+191 silly gunzTarPerm extractEntry src/feature.js
+192 silly gunzTarPerm extractEntry src/identity.js
+193 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+194 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+195 silly lockFile f48ed51c-3366-0-18923598900437355-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz
+196 silly lockFile f48ed51c-3366-0-18923598900437355-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/tmp.tgz
+197 verbose tar pack [ '/home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz',
+197 verbose tar pack   '/home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package' ]
+198 verbose tarball /home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+199 verbose folder /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+200 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+201 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package /home/vagrant/.npm/c9f10380-3366-0-18923598900437355-package.lock
+202 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+203 verbose lock tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz /home/vagrant/.npm/d5950450-ojson-simplify-3-0-0-package-tgz.lock
+204 silly gunzTarPerm extractEntry src/merge.js
+205 silly gunzTarPerm extractEntry src/mesh.js
+206 silly gunzTarPerm extractEntry src/cut.js
+207 silly gunzTarPerm extractEntry src/dedup.js
+208 silly gunzTarPerm extractEntry src/bisect.js
+209 silly gunzTarPerm extractEntry src/quantize.js
+210 silly gunzTarPerm extractEntry src/delta.js
+211 silly gunzTarPerm extractEntry src/extract.js
+212 silly gunzTarPerm extractEntry src/reverse.js
+213 silly gunzTarPerm extractEntry src/stitch.js
+214 silly gunzTarPerm extractEntry src/geometry.js
+215 silly gunzTarPerm extractEntry src/join.js
+216 silly gunzTarPerm extractEntry src/prequantize.js
+217 silly gunzTarPerm extractEntry src/topology.js
+218 silly gunzTarPerm extractEntry src/transform.js
+219 silly gunzTarPerm extractEntry src/untransform.js
+220 silly gunzTarPerm extractEntry src/hash/hashmap.js
+221 silly gunzTarPerm extractEntry src/hash/hashset.js
+222 silly gunzTarPerm extractEntry src/neighbors.js
+223 silly gunzTarPerm extractEntry src/hash/point-equal.js
+224 silly gunzTarPerm extractEntry src/hash/point-hash.js
+225 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+226 silly lockFile c9f10380-3366-0-18923598900437355-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983366-0.18923598900437355/package
+227 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+228 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+229 silly lockFile da5fe41c--topojson-simplify-3-0-0-package /home/vagrant/.npm/topojson-simplify/3.0.0/package
+230 verbose lock /home/vagrant/.npm/topojson-simplify/3.0.0/package /home/vagrant/.npm/da5fe41c--topojson-simplify-3-0-0-package.lock
+231 silly lockFile da5fe41c--topojson-simplify-3-0-0-package /home/vagrant/.npm/topojson-simplify/3.0.0/package
+232 silly lockFile da5fe41c--topojson-simplify-3-0-0-package /home/vagrant/.npm/topojson-simplify/3.0.0/package
+233 verbose tar unpack /home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+234 silly lockFile 725f93e5--topojson-simplify-3-0-0-package tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package
+235 verbose lock tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package /home/vagrant/.npm/725f93e5--topojson-simplify-3-0-0-package.lock
+236 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+237 verbose lock tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz /home/vagrant/.npm/d5950450-ojson-simplify-3-0-0-package-tgz.lock
+238 silly gunzTarPerm modes [ '755', '644' ]
+239 silly gunzTarPerm extractEntry package.json
+240 silly gunzTarPerm extractEntry .npmignore
+241 silly gunzTarPerm extractEntry README.md
+242 silly gunzTarPerm extractEntry index.js
+243 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+244 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+245 silly lockFile c5597b71-3418-0-11361761367879808-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz
+246 silly lockFile c5597b71-3418-0-11361761367879808-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/tmp.tgz
+247 silly gunzTarPerm extractEntry .eslintrc
+248 silly gunzTarPerm extractEntry LICENSE.md
+249 verbose tar pack [ '/home/vagrant/.npm/topojson-client/3.0.0/package.tgz',
+249 verbose tar pack   '/home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package' ]
+250 verbose tarball /home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+251 verbose folder /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+252 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+253 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package /home/vagrant/.npm/f5cf69ec-3418-0-11361761367879808-package.lock
+254 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+255 verbose lock tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz /home/vagrant/.npm/1df428a2-opojson-client-3-0-0-package-tgz.lock
+256 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+257 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+258 silly lockFile 54994c9a-83418-0-2690133866854012-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz
+259 silly lockFile 54994c9a-83418-0-2690133866854012-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/tmp.tgz
+260 verbose tar pack [ '/home/vagrant/.npm/topojson-server/3.0.0/package.tgz',
+260 verbose tar pack   '/home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package' ]
+261 verbose tarball /home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+262 verbose folder /home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+263 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+264 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package /home/vagrant/.npm/da948ef2-83418-0-2690133866854012-package.lock
+265 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+266 verbose lock tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz /home/vagrant/.npm/81b83b26-opojson-server-3-0-0-package-tgz.lock
+267 silly gunzTarPerm extractEntry bin/toposimplify
+268 silly gunzTarPerm extractEntry dist/topojson-simplify.js
+269 silly gunzTarPerm extractEntry dist/topojson-simplify.min.js
+270 silly gunzTarPerm extractEntry src/filter.js
+271 silly gunzTarPerm extractEntry src/filterAttachedWeight.js
+272 silly gunzTarPerm extractEntry src/filterWeight.js
+273 silly gunzTarPerm extractEntry src/heap.js
+274 silly gunzTarPerm extractEntry src/filterAttached.js
+275 silly gunzTarPerm extractEntry src/presimplify.js
+276 silly gunzTarPerm extractEntry src/prune.js
+277 silly gunzTarPerm extractEntry src/quantile.js
+278 silly gunzTarPerm extractEntry src/simplify.js
+279 silly gunzTarPerm extractEntry src/spherical.js
+280 silly gunzTarPerm extractEntry src/planar.js
+281 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+282 silly lockFile f5cf69ec-3418-0-11361761367879808-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.11361761367879808/package
+283 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+284 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+285 silly lockFile bafa2a3f-pm-topojson-client-3-0-0-package /home/vagrant/.npm/topojson-client/3.0.0/package
+286 verbose lock /home/vagrant/.npm/topojson-client/3.0.0/package /home/vagrant/.npm/bafa2a3f-pm-topojson-client-3-0-0-package.lock
+287 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+288 silly lockFile da948ef2-83418-0-2690133866854012-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866983418-0.2690133866854012/package
+289 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+290 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+291 silly lockFile bafa2a3f-pm-topojson-client-3-0-0-package /home/vagrant/.npm/topojson-client/3.0.0/package
+292 silly lockFile bafa2a3f-pm-topojson-client-3-0-0-package /home/vagrant/.npm/topojson-client/3.0.0/package
+293 verbose tar unpack /home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+294 silly lockFile 1eeb196b-pm-topojson-client-3-0-0-package tar:///home/vagrant/.npm/topojson-client/3.0.0/package
+295 verbose lock tar:///home/vagrant/.npm/topojson-client/3.0.0/package /home/vagrant/.npm/1eeb196b-pm-topojson-client-3-0-0-package.lock
+296 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+297 verbose lock tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz /home/vagrant/.npm/1df428a2-opojson-client-3-0-0-package-tgz.lock
+298 silly lockFile 866839ed-pm-topojson-server-3-0-0-package /home/vagrant/.npm/topojson-server/3.0.0/package
+299 verbose lock /home/vagrant/.npm/topojson-server/3.0.0/package /home/vagrant/.npm/866839ed-pm-topojson-server-3-0-0-package.lock
+300 silly lockFile 725f93e5--topojson-simplify-3-0-0-package tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package
+301 silly lockFile 725f93e5--topojson-simplify-3-0-0-package tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package
+302 silly lockFile 866839ed-pm-topojson-server-3-0-0-package /home/vagrant/.npm/topojson-server/3.0.0/package
+303 silly lockFile 866839ed-pm-topojson-server-3-0-0-package /home/vagrant/.npm/topojson-server/3.0.0/package
+304 silly gunzTarPerm modes [ '755', '644' ]
+305 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+306 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+307 verbose tar unpack /home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+308 silly lockFile f397d6ab-pm-topojson-server-3-0-0-package tar:///home/vagrant/.npm/topojson-server/3.0.0/package
+309 verbose lock tar:///home/vagrant/.npm/topojson-server/3.0.0/package /home/vagrant/.npm/f397d6ab-pm-topojson-server-3-0-0-package.lock
+310 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+311 verbose lock tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz /home/vagrant/.npm/81b83b26-opojson-server-3-0-0-package-tgz.lock
+312 silly gunzTarPerm modes [ '755', '644' ]
+313 verbose chmod /home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz 644
+314 verbose chown /home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz [ 1000, 1000 ]
+315 silly lockFile 808e58a3-lify-topojson-simplify-3-0-0-tgz https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz
+316 silly lockFile 808e58a3-lify-topojson-simplify-3-0-0-tgz https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz
+317 silly gunzTarPerm extractEntry package.json
+318 silly lockFile acb4808b-topojson-simplify-3-0-0 topojson-simplify@3.0.0
+319 silly lockFile acb4808b-topojson-simplify-3-0-0 topojson-simplify@3.0.0
+320 silly gunzTarPerm extractEntry package.json
+321 silly gunzTarPerm extractEntry .npmignore
+322 silly gunzTarPerm extractEntry README.md
+323 silly gunzTarPerm extractEntry .npmignore
+324 silly gunzTarPerm extractEntry README.md
+325 silly gunzTarPerm extractEntry index.js
+326 silly gunzTarPerm extractEntry index.js
+327 silly gunzTarPerm extractEntry .eslintrc
+328 silly gunzTarPerm extractEntry .eslintrc
+329 silly gunzTarPerm extractEntry LICENSE.md
+330 silly gunzTarPerm extractEntry LICENSE.md
+331 silly gunzTarPerm extractEntry bin/geo2topo
+332 silly gunzTarPerm extractEntry dist/topojson-server.js
+333 silly gunzTarPerm extractEntry dist/topojson-server.min.js
+334 silly gunzTarPerm extractEntry src/bounds.js
+335 silly gunzTarPerm extractEntry src/cut.js
+336 silly gunzTarPerm extractEntry src/dedup.js
+337 silly gunzTarPerm extractEntry bin/topo2geo
+338 silly gunzTarPerm extractEntry bin/topomerge
+339 silly gunzTarPerm extractEntry src/delta.js
+340 silly gunzTarPerm extractEntry src/extract.js
+341 silly gunzTarPerm extractEntry bin/topoquantize
+342 silly gunzTarPerm extractEntry dist/topojson-client.js
+343 silly gunzTarPerm extractEntry dist/topojson-client.min.js
+344 silly gunzTarPerm extractEntry src/bbox.js
+345 silly gunzTarPerm extractEntry src/geometry.js
+346 silly gunzTarPerm extractEntry src/join.js
+347 silly gunzTarPerm extractEntry src/feature.js
+348 silly gunzTarPerm extractEntry src/identity.js
+349 silly gunzTarPerm extractEntry src/merge.js
+350 silly gunzTarPerm extractEntry src/mesh.js
+351 silly gunzTarPerm extractEntry src/bisect.js
+352 silly gunzTarPerm extractEntry src/quantize.js
+353 silly gunzTarPerm extractEntry src/reverse.js
+354 silly gunzTarPerm extractEntry src/stitch.js
+355 silly gunzTarPerm extractEntry src/prequantize.js
+356 silly gunzTarPerm extractEntry src/topology.js
+357 silly gunzTarPerm extractEntry src/hash/hashmap.js
+358 silly gunzTarPerm extractEntry src/hash/hashset.js
+359 silly gunzTarPerm extractEntry src/transform.js
+360 silly gunzTarPerm extractEntry src/untransform.js
+361 silly gunzTarPerm extractEntry src/hash/point-equal.js
+362 silly gunzTarPerm extractEntry src/hash/point-hash.js
+363 silly gunzTarPerm extractEntry src/neighbors.js
+364 silly lockFile 1eeb196b-pm-topojson-client-3-0-0-package tar:///home/vagrant/.npm/topojson-client/3.0.0/package
+365 silly lockFile 1eeb196b-pm-topojson-client-3-0-0-package tar:///home/vagrant/.npm/topojson-client/3.0.0/package
+366 silly lockFile f397d6ab-pm-topojson-server-3-0-0-package tar:///home/vagrant/.npm/topojson-server/3.0.0/package
+367 silly lockFile f397d6ab-pm-topojson-server-3-0-0-package tar:///home/vagrant/.npm/topojson-server/3.0.0/package
+368 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+369 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+370 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+371 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+372 verbose chmod /home/vagrant/.npm/topojson-client/3.0.0/package.tgz 644
+373 verbose chown /home/vagrant/.npm/topojson-client/3.0.0/package.tgz [ 1000, 1000 ]
+374 verbose chmod /home/vagrant/.npm/topojson-server/3.0.0/package.tgz 644
+375 verbose chown /home/vagrant/.npm/topojson-server/3.0.0/package.tgz [ 1000, 1000 ]
+376 silly lockFile 635fc087-client-topojson-client-3-0-0-tgz https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz
+377 silly lockFile 635fc087-client-topojson-client-3-0-0-tgz https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz
+378 silly lockFile 65780e16-server-topojson-server-3-0-0-tgz https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz
+379 silly lockFile 65780e16-server-topojson-server-3-0-0-tgz https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz
+380 silly lockFile 2b0f4873-topojson-client-3-0-0 topojson-client@3.0.0
+381 silly lockFile 2b0f4873-topojson-client-3-0-0 topojson-client@3.0.0
+382 silly lockFile 3543b411-topojson-server-3-0-0 topojson-server@3.0.0
+383 silly lockFile 3543b411-topojson-server-3-0-0 topojson-server@3.0.0
+384 silly resolved [ { name: 'topojson-simplify',
+384 silly resolved     version: '3.0.0',
+384 silly resolved     description: 'Topology-preserving simplification and filtering for TopoJSON.',
+384 silly resolved     keywords: [ 'topojson', 'geojson', 'simplification' ],
+384 silly resolved     homepage: 'https://github.com/topojson/topojson-simplify',
+384 silly resolved     license: 'BSD-3-Clause',
+384 silly resolved     author: { name: 'Mike Bostock', url: 'https://bost.ocks.org/mike' },
+384 silly resolved     main: 'dist/topojson-simplify.js',
+384 silly resolved     module: 'index',
+384 silly resolved     repository:
+384 silly resolved      { type: 'git',
+384 silly resolved        url: 'https://github.com/topojson/topojson-simplify.git' },
+384 silly resolved     bin: { toposimplify: 'bin/toposimplify' },
+384 silly resolved     scripts:
+384 silly resolved      { pretest: 'rm -rf dist && mkdir dist && rollup --banner "$(preamble)" -g topojson-client:topojson -f umd -n topojson -o dist/topojson-simplify.js -- index.js',
+384 silly resolved        test: 'tape \'test/**/*-test.js\' && eslint index.js src',
+384 silly resolved        prepublish: 'npm run test && uglifyjs --preamble "$(preamble)" -cm -o dist/topojson-simplify.min.js -- dist/topojson-simplify.js',
+384 silly resolved        postpublish: 'git push && git push --tags && zip -j dist/topojson-simplify.zip -- LICENSE.md README.md dist/topojson-simplify.js dist/topojson-simplify.min.js' },
+384 silly resolved     dependencies: { commander: '2', 'topojson-client': '3' },
+384 silly resolved     devDependencies:
+384 silly resolved      { eslint: '3',
+384 silly resolved        'package-preamble': '0.0',
+384 silly resolved        rollup: '0.41',
+384 silly resolved        tape: '4',
+384 silly resolved        'uglify-js': '2' },
+384 silly resolved     readme: '# TopoJSON Simplify\n\nTopology-preserving simplification and filtering for TopoJSON. Smaller files, faster rendering!\n\nFor an introduction to line simplification:\n\n* https://bost.ocks.org/mike/simplify/\n* https://www.jasondavies.com/simplify/\n\n## Installing\n\nIf you use NPM, `npm install topojson-simplify`. Otherwise, download the [latest release](https://github.com/topojson/topojson-simplify/releases/latest). You can also load directly from [unpkg](https://unpkg.com). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `topojson` global is exported:\n\n```html\n<script src="https://unpkg.com/topojson-client@3"></script>\n<script src="https://unpkg.com/topojson-simplify@3"></script>\n<script>\n\ntopology = topojson.presimplify(topology);\n\n</script>\n```\n\n[Try topojson-simplify in your browser.](https://tonicdev.com/npm/topojson-simplify)\n\n# API Reference\n\n<a name="presimplify" href="#presimplify">#</a> topojson.<b>presimplify</b>(<i>topology</i>[, <i>weight</i>]) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/presimplify.js "Source")\n\nReturns a shallow copy of the specified *topology* where each coordinate of each arc is assigned a *z*-value according to the specified *weight* function. If *weight* is not specified, it defaults to [planarTriangleArea](#planarTriangleArea). If the input *topology* is delta-encoded (that is, if a *topology*.transform is present), this transform is removed in the returned output topology.\n\nThe returned presimplified topology can be passed to [simplify](#simplify) to remove coordinates below a desired weight threshold.\n\n<a name="simplify" href="#simplify">#</a> topojson.<b>simplify</b>(<i>topology</i>[, <i>minWeight</i>[, <i>weight</i>]]) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/simplify.js "Source")\n\nReturns a shallow copy of the specified *topology* where every arc coordinate whose *z*-value is lower than *minWeight* is removed. Only the *x* and *y* dimensions of the coordinates are preserved in the returned topology. If *minWeight* is not specified, it defaults to [Number.MIN_VALUE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE). This method has no effect on Point and MultiPoint geometries.\n\nSee [presimplify](#presimplify) to assign *z*-value for each coordinate. See also [toposimplify](#toposimplify).\n\n<a name="quantile" href="#quantile">#</a> topojson.<b>quantile</b>(<i>topology</i>, <i>p</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/quantile.js "Source")\n\nReturns the *p*-quantile of the weighted points in the given [presimplified](#presimplify) *topology*, where *p* is a number in the range [0, 1]. The quantile value is then typically passed as the *minWeight* to [simplify](#simplify). For example, the median weight can be computed using *p* = 0.5, the first quartile at *p* = 0.25, and the third quartile at *p* = 0.75. This implementation uses the [R-7 method](https://en.wikipedia.org/wiki/Quantile#Quantiles_of_a_population), which is the default for the R programming language and Excel.\n\n### Filtering\n\n<a name="filter" href="#filter">#</a> topojson.<b>filter</b>(<i>topology</i>[, <i>filter</i>]) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/filter.js "Source")\n\nReturns a shallow copy of the specified *topology*, removing any rings that fail the specified [*filter* function](#_filter). See [filterAttached](#filterAttached) and [filterWeight](#filterWeight) for built-in filter implementations.\n\nIf a resulting Polygon geometry object has no rings, it is replaced with a null geometry; likewise, empty polygons are removed from MultiPolygon geometry objects, and if the resulting MultiPolygon geometry object has no polygons, it is replaced with a null geometry; likewise, any null geometry objects are removed from GeometryCollection objects, and if the resulting GeometryCollection is empty, it is replaced with a null geometry.\n\nAfter any geometry objects are removed from the *topology*, the resulting topology is pruned, removing any unused arcs. As a result, this operation typically changes the arc indexes of the topology.\n\n<a name="filterAttached" href="#filterAttached">#</a> topojson.<b>filterAttached</b>(<i>topology</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/filterAttached.js "Source")\n\nReturns a [ring *filter* function](#_filter) that returns true if the specified *ring* shares an arc with any other object in the *topology*.\n\n<a name="filterAttachedWeight" href="#filterAttachedWeight">#</a> topojson.<b>filterAttachedWeight</b>(<i>topology</i>[, <i>minWeight</i>[, <i>weight</i>]]) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/filterAttachedWeight.js "Source")\n\nReturns a [ring *filter* function](#_filter) that returns true if the weight of the specified *ring* is greater than or equal to the specified *minWeight* threshold or the specified *ring* shares an arc with any other object in the *topology*.\n\n<a name="filterWeight" href="#filterWeight">#</a> topojson.<b>filterWeight</b>(<i>topology</i>[, <i>minWeight</i>[, <i>weight</i>]]) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/filterWeight.js "Source")\n\nReturns a [ring *filter* function](#_filter) that returns true if the weight of the specified *ring* is greater than or equal to the specified *minWeight* threshold. If *minWeight* is not specified, it defaults to [Number.MIN_VALUE](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE). If *weight* is not specified, it defaults to [planarRingArea](#planarRingArea).\n\n<a name="_filter" href="#_filter">#</a> <i>filter</i>(<i>ring</i>, <i>interior</i>)\n\nTo filter a topology, you supply a ring *filter* function to [filter](#filter). The *filter* function is invoked for each ring in the input topology, being passed two arguments: the *ring*, specified as an array of points where each point is a two-element array of numbers, and the *interior* flag. If *interior* is false, the given *ring* is the exterior ring of a polygon; if *interior* is true, the given *ring* is an interior ring (a hole). The *filter* function must then return true if the ring should be preserved, or false if the ring should be removed.\n\n### Geometry\n\n<a name="planarRingArea" href="#planarRingArea">#</a> topojson.<b>planarRingArea</b>(<i>ring</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/planar.js#L6 "Source")\n\nReturns the [planar area](http://mathworld.wolfram.com/PolygonArea.html) of the specified *ring*, which is an array of points \\[\\[*x*₀, *y*₀\\], \\[*x*₁, *y*₁\\], …\\]. The first point must be equal to the last point. This implementation is agnostic to winding order; the returned value is always non-negative.\n\n<a name="planarTriangleArea" href="#planarTriangleArea">#</a> topojson.<b>planarTriangleArea</b>(<i>triangle</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/planar.js#L1 "Source")\n\nReturns the [planar area](http://mathworld.wolfram.com/TriangleArea.html) of the specified *triangle*, which is an array of three points \\[\\[*x*₀, *y*₀\\], \\[*x*₁, *y*₁\\], \\[*x*₂, *y*₂\\]\\]. This implementation is agnostic to winding order; the returned value is always non-negative.\n\n<a name="sphericalRingArea" href="#sphericalRingArea">#</a> topojson.<b>sphericalRingArea</b>(<i>ring</i>, <i>interior</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/spherical.js#L14 "Source")\n\nReturns the [spherical area](https://en.wikipedia.org/wiki/Spherical_trigonometry#Area_and_spherical_excess) of the specified *ring*, which is an array of points \\[\\[*x*₀, *y*₀\\], \\[*x*₁, *y*₁\\], …\\] where *x* and *y* represent longitude and latitude in degrees, respectively. The first point must be equal to the last point.\n\nThis implementation uses [d3-geo](https://github.com/d3/d3-geo)’s [winding order convention](https://bl.ocks.org/mbostock/a7bdfeb041e850799a8d3dce4d8c50c8) to determine which side of the polygon is the inside: polygons smaller than a hemisphere must be clockwise, while polygons [larger than a hemisphere](https://bl.ocks.org/mbostock/6713736) must be anticlockwise. If *interior* is true, the opposite winding order is used. This winding order convention is also used by [ESRI shapefiles](https://github.com/mbostock/shapefile); however, it is the **opposite** convention of GeoJSON’s [RFC 7946](https://tools.ietf.org/html/rfc7946#section-3.1.6).\n\n<a name="sphericalTriangleArea" href="#sphericalTriangleArea">#</a> topojson.<b>sphericalTriangleArea</b>(<i>triangle</i>) [<>](https://github.com/topojson/topojson-simplify/blob/master/src/spherical.js#L43 "Source")\n\nReturns the [spherical excess](http://mathworld.wolfram.com/SphericalExcess.html) of the specified *triangle*, which is an array of three points \\[\\[*x*₀, *y*₀\\], \\[*x*₁, *y*₁\\], \\[*x*₂, *y*₂\\]\\] where *x* and *y* represent longitude and latitude in degrees, respectively. This implementation uses the same winding order convention as [sphericalRingArea](#sphericalRingArea).\n\n## Command Line Reference\n\n### toposimplify\n\n<a name="toposimplify" href="#toposimplify">#</a> <b>toposimplify</b> [<i>options…</i>] [<i>file</i>] [<>](https://github.com/topojson/topojson-simplify/blob/master/bin/toposimplify "Source")\n\nGiven an input *topology*, assigns a *z*-value to every arc coordinate according to a configurable *weight* function, and then generates an output *topology* where every arc coordinate whose *z*-value is lower than a configurable minimum weight is removed. Only the *x* and *y* dimensions of the coordinates are preserved in the returned topology. See also [presimplify](#presimplify), [simplify](#simplify) and [filter](#filter).\n\n<a name="toposimplify_help" href="#toposimplify_help">#</a> toposimplify <b>-h</b>\n<br><a href="#toposimplify_help">#</a> toposimplify <b>--help</b>\n\nOutput usage information.\n\n<a name="toposimplify_version" href="#toposimplify_version">#</a> toposimplify <b>-V</b>\n<br><a href="#toposimplify_version">#</a> toposimplify <b>--version</b>\n\nOutput the version number.\n\n<a name="toposimplify_out" href="#toposimplify_out">#</a> toposimplify <b>-o</b> <i>file</i>\n<br><a href="#toposimplify_out">#</a> toposimplify <b>--out</b> <i>file</i>\n\nSpecify the output TopoJSON file name. Defaults to “-” for stdout.\n\n<a name="toposimplify_planar_area" href="#toposimplify_planar_area">#</a> toposimplify <b>-p</b> <i>value</i>\n<br><a href="#toposimplify_planar_area">#</a> toposimplify <b>--planar-area</b> <i>value</i>\n\nSpecify simplification threshold *value* as the minimum planar triangle area, typically in square pixels.\n\n<a name="toposimplify_planar_quantile" href="#toposimplify_planar_quantile">#</a> toposimplify <b>-P</b> <i>value</i>\n<br><a href="#toposimplify_planar_quantile">#</a> toposimplify <b>--planar-quantile</b> <i>value</i>\n\nSpecify simplification threshold *value* as the minimum quantile of planar triangle areas. The *value* should be in the range [0, 1].\n\n<a name="toposimplify_spherical_area" href="#toposimplify_spherical_area">#</a> toposimplify <b>-s</b> <i>value</i>\n<br><a href="#toposimplify_spherical_area">#</a> toposimplify <b>--spherical-area</b> <i>value</i>\n\nSpecify simplification threshold *value* as the minimum spherical triangle area ([spherical excess](http://mathworld.wolfram.com/SphericalExcess.html)), in [steradians](https://en.wikipedia.org/wiki/Steradian).\n\n<a name="toposimplify_spherical_quantile" href="#toposimplify_spherical_quantile">#</a> toposimplify <b>-S</b> <i>value</i>\n<br><a href="#toposimplify_spherical_quantile">#</a> toposimplify <b>--spherical-quantile</b> <i>value</i>\n\nSpecify simplification threshold *value* as the minimum quantile of spherical triangle areas ([spherical excess](http://mathworld.wolfram.com/SphericalExcess.html)). The *value* should be in the range [0, 1].\n\n<a name="toposimplify_filter_detached" href="#toposimplify_filter_detached">#</a> toposimplify <b>-f</b>\n<br><a href="#toposimplify_filter_detached">#</a> toposimplify <b>--filter-detached</b>\n\nRemove detached rings that are smaller than the simplification threshold after simplifying. See [filterAttached](#filterAttached).\n\n<a name="toposimplify_filter_all" href="#toposimplify_filter_all">#</a> toposimplify <b>-F</b>\n<br><a href="#toposimplify_filter_all">#</a> toposimplify <b>--filter-all</b>\n\nRemove any rings that are smaller than the simplification threshold after simplifying. See [filterWeight](#filterWeight).\n',
+384 silly resolved     readmeFilename: 'README.md',
+384 silly resolved     bugs: { url: 'https://github.com/topojson/topojson-simplify/issues' },
+384 silly resolved     _id: 'topojson-simplify@3.0.0',
+384 silly resolved     dist: { shasum: '3f7ebed1c12f22d9f05728188f7ae95948e3ab12' },
+384 silly resolved     _from: 'topojson-simplify@3.0.0',
+384 silly resolved     _resolved: 'https://registry.npmjs.org/topojson-simplify/-/topojson-simplify-3.0.0.tgz' },
+384 silly resolved   { name: 'topojson-client',
+384 silly resolved     version: '3.0.0',
+384 silly resolved     description: 'Manipulate TopoJSON and convert it to GeoJSON.',
+384 silly resolved     keywords: [ 'topojson', 'topology', 'geojson' ],
+384 silly resolved     homepage: 'https://github.com/topojson/topojson-client',
+384 silly resolved     license: 'BSD-3-Clause',
+384 silly resolved     author: { name: 'Mike Bostock', url: 'https://bost.ocks.org/mike' },
+384 silly resolved     main: 'dist/topojson-client.js',
+384 silly resolved     module: 'index',
+384 silly resolved     repository:
+384 silly resolved      { type: 'git',
+384 silly resolved        url: 'https://github.com/topojson/topojson-client.git' },
+384 silly resolved     bin:
+384 silly resolved      { topo2geo: 'bin/topo2geo',
+384 silly resolved        topomerge: 'bin/topomerge',
+384 silly resolved        topoquantize: 'bin/topoquantize' },
+384 silly resolved     scripts:
+384 silly resolved      { pretest: 'rm -rf dist && mkdir dist && rollup --banner "$(preamble)" -f umd -n topojson -o dist/topojson-client.js -- index.js',
+384 silly resolved        test: 'tape \'test/**/*-test.js\' && eslint index.js src',
+384 silly resolved        prepublish: 'npm run test && uglifyjs --preamble "$(preamble)" -cm -o dist/topojson-client.min.js -- dist/topojson-client.js',
+384 silly resolved        postpublish: 'git push && git push --tags && zip -j dist/topojson-client.zip -- LICENSE.md README.md dist/topojson-client.js dist/topojson-client.min.js' },
+384 silly resolved     dependencies: { commander: '2' },
+384 silly resolved     devDependencies:
+384 silly resolved      { eslint: '3',
+384 silly resolved        'package-preamble': '0.0',
+384 silly resolved        rollup: '0.41',
+384 silly resolved        tape: '4',
+384 silly resolved        'uglify-js': '2' },
+384 silly resolved     readme: '# TopoJSON Client\n\nThe **topojson-client** module provides tools for manipulating [TopoJSON](https://github.com/topojson/topojson), such as to [merge shapes](#merge) or [quantize coordinates](#quantize), and for converting back to [GeoJSON](#feature) for rendering with standard tools such as [d3.geoPath](https://github.com/d3/d3-geo/blob/master/README.md#geoPath). For example, [bl.ocks.org/3783604](https://bl.ocks.org/mbostock/3783604):\n\n```html\n<!DOCTYPE html>\n<canvas width="960" height="600"></canvas>\n<script src="https://d3js.org/d3.v4.min.js"></script>\n<script src="https://unpkg.com/topojson-client@3"></script>\n<script>\n\nvar context = d3.select("canvas").node().getContext("2d"),\n    path = d3.geoPath().context(context);\n\nd3.json("https://d3js.org/us-10m.v1.json", function(error, us) {\n  if (error) throw error;\n\n  context.beginPath();\n  path(topojson.mesh(us));\n  context.stroke();\n});\n\n</script>\n```\n\n## Installing\n\nIf you use NPM, `npm install topojson-client`. Otherwise, download the [latest release](https://github.com/topojson/topojson-client/releases/latest). You can also load directly from [UNPKG](https://unpkg.com) as a [standalone library](https://unpkg.com/topojson-client@3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `topojson` global is exported:\n\n```html\n<script src="https://unpkg.com/topojson-client@3"></script>\n<script>\n\nvar feature = topojson.feature(topology, topology.objects.foo);\n\n</script>\n```\n\nThe TopoJSON client API is implemented using ES2015 modules. In compatible environments, you can import the library as a namespace, like so:\n\n```js\nimport * as topojson from "topojson-client";\n```\n\n[Try topojson-client in your browser.](https://runkit.com/npm/topojson-client)\n\n# API Reference\n\n<a name="feature" href="#feature">#</a> topojson.<b>feature</b>(<i>topology</i>, <i>object</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/feature.js "Source")\n\nReturns the GeoJSON Feature or FeatureCollection for the specified *object* in the given *topology*. If the specified object is a GeometryCollection, a FeatureCollection is returned, and each geometry in the collection is mapped to a Feature. Otherwise, a Feature is returned. The returned feature is a shallow copy of the source *object*: they may share identifiers, bounding boxes, properties and coordinates.\n\nSome examples:\n\n* A point is mapped to a feature with a geometry object of type “Point”.\n* Likewise for line strings, polygons, and other simple geometries.\n* A null geometry object (of type null in TopoJSON) is mapped to a feature with a null geometry object.\n* A geometry collection of points is mapped to a feature collection of features, each with a point geometry.\n* A geometry collection of geometry collections is mapped to a feature collection of features, each with a geometry collection.\n\nSee [feature-test.js](https://github.com/topojson/topojson-client/blob/master/test/feature-test.js) for more examples.\n\n<a name="merge" href="#merge">#</a> topojson.<b>merge</b>(<i>topology</i>, <i>objects</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/merge.js#L5 "Source")\n\nReturns the GeoJSON MultiPolygon geometry object representing the union for the specified array of Polygon and MultiPolygon *objects* in the given *topology*. Interior borders shared by adjacent polygons are removed. See [Merging States](https://bl.ocks.org/mbostock/5416405) for an example. The returned geometry is a shallow copy of the source *object*: they may share coordinates.\n\n<a name="mergeArcs" href="#mergeArcs">#</a> topojson.<b>mergeArcs</b>(<i>topology</i>, <i>objects</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/merge.js#L9 "Source")\n\nEquivalent to [topojson.merge](#merge), but returns TopoJSON rather than GeoJSON. The returned geometry is a shallow copy of the source *object*: they may share coordinates.\n\n<a name="mesh" href="#mesh">#</a> topojson.<b>mesh</b>(<i>topology</i>[, <i>object</i>[, <i>filter</i>]]) [<>](https://github.com/topojson/topojson-client/blob/master/src/mesh.js#L4 "Source")\n\nReturns the GeoJSON MultiLineString geometry object representing the mesh for the specified *object* in the given *topology*. This is useful for rendering strokes in complicated objects efficiently, as edges that are shared by multiple features are only stroked once. If *object* is not specified, a mesh of the entire topology is returned. The returned geometry is a shallow copy of the source *object*: they may share coordinates.\n\nAn optional *filter* function may be specified to prune arcs from the returned mesh using the topology. The filter function is called once for each candidate arc and takes two arguments, *a* and *b*, two geometry objects that share that arc. Each arc is only included in the resulting mesh if the filter function returns true. For typical map topologies the geometries *a* and *b* are adjacent polygons and the candidate arc is their boundary. If an arc is only used by a single geometry then *a* and *b* are identical. This property is useful for separating interior and exterior boundaries; an easy way to produce a mesh of interior boundaries is:\n\n```js\nvar interiors = topojson.mesh(topology, object, function(a, b) { return a !== b; });\n```\n\nSee this [county choropleth](https://bl.ocks.org/mbostock/4060606) for example. Note: the *a* and *b* objects are TopoJSON objects (pulled directly from the topology), and not automatically converted to GeoJSON features as by [topojson.feature](#feature).\n\n<a name="meshArcs" href="#meshArcs">#</a> topojson.<b>meshArcs</b>(<i>topology</i>[, <i>object</i>[, <i>filter</i>]]) [<>](https://github.com/topojson/topojson-client/blob/master/src/mesh.js#L8 "Source")\n\nEquivalent to [topojson.mesh](#mesh), but returns TopoJSON rather than GeoJSON. The returned geometry is a shallow copy of the source *object*: they may share coordinates.\n\n<a name="neighbors" href="#neighbors">#</a> topojson.<b>neighbors</b>(<i>objects</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/neighbors.js "Source")\n\nReturns an array representing the set of neighboring objects for each object in the specified *objects* array. The returned array has the same number of elements as the input array; each element *i* in the returned array is the array of indexes for neighbors of object *i* in the input array. For example, if the specified objects array contains the features *foo* and *bar*, and these features are neighbors, the returned array will be \\[\\[1\\], \\[0\\]\\], indicating that *foo* is a neighbor of *bar* and *vice versa*. Each array of neighbor indexes for each object is guaranteed to be sorted in ascending order.\n\nFor a practical example, see the [world map](https://bl.ocks.org/mbostock/4180634) with topological coloring.\n\n### Transforms\n\n<a name="bbox" href="#bbox">#</a> topojson.<b>bbox</b>(<i>topology</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/bbox.js "Source")\n\nReturns the computed [bounding box](https://github.com/topojson/topojson-specification#3-bounding-boxes) of the specified *topology* [*x*₀, *y*₀, *x*₁, *y*₁] where *x*₀ is the minimum *x*-value, *y*₀ is the minimum *y*-value, *x*₁ is the maximum *x*-value, and *y*₁ is the maximum *y*-value. If the *topology* has no points and no arcs, the returned bounding box is [∞, ∞, -∞, -∞]. (This method ignores the existing *topology*.bbox, if any.)\n\n<a name="quantize" href="#quantize">#</a> topojson.<b>quantize</b>(<i>topology</i>, <i>transform</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/quantize.js "Source")\n\nReturns a shallow copy of the specified *topology* with [quantized and delta-encoded](https://github.com/topojson/topojson-specification#213-arcs) arcs according to the specified [*transform* object](https://github.com/topojson/topojson-specification/blob/master/README.md#212-transforms). If the *topology* is already quantized, an error is thrown. See also [topoquantize](#topoquantize).\n\nIf a quantization number *n* is specified instead of a *transform* object, the corresponding transform object is first computed using the bounding box of the topology. In this case, the quantization number *n* must be a positive integer greater than one which determines the maximum number of expressible values per dimension in the resulting quantized coordinates; typically, a power of ten is chosen such as 1e4, 1e5 or 1e6. If the *topology* does not already have a *topology*.bbox, one is computed using [topojson.bbox](#bbox).\n\n<a name="transform" href="#transform">#</a> topojson.<b>transform</b>(<i>transform</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/transform.js "Source")\n\nIf the specified [*transform* object](https://github.com/topojson/topojson-specification/blob/master/README.md#212-transforms) is non-null, returns a [point *transform* function](#_transform) to remove delta-encoding and apply the transform. If the *transform* is null, returns the identity function.\n\n<a name="untransform" href="#untransform">#</a> topojson.<b>untransform</b>(<i>transform</i>) [<>](https://github.com/topojson/topojson-client/blob/master/src/untransform.js "Source")\n\nIf the specified [*transform* object](https://github.com/topojson/topojson-specification/blob/master/README.md#212-transforms) is non-null, returns a [point *transform* function](#_transform) to apply quantized delta-encoding and remove the transform. If the *transform* is null, returns the identity function. See also [topojson.quantize](#quantize).\n\n<a name="_transform" href="#_transform">#</a> <i>transform</i>(<i>point</i>[, <i>index</i>])\n\nApplies this transform function to the specified *point*, returning a new point with the transformed coordinates. If the specified *index* is truthy, the input *point* is treated as relative to the previous point passed to this transform, as is the case with delta-encoded arcs.\n\n## Command Line Reference\n\n### topo2geo\n\n<a name="topo2geo" href="#topo2geo">#</a> <b>topo2geo</b> [<i>options…</i>] &lt;<i>name</i>=<i>file</i>&gt;… [<>](https://github.com/topojson/topojson-client/blob/master/bin/topo2geo "Source")\n\nConverts one or more TopoJSON objects from an input topology to one or more GeoJSON features. For example, to convert the “states” TopoJSON GeometryCollection object in us.json to a GeoJSON feature collection in us-states.json:\n\n```\ntopo2geo states=us-states.json < us.json\n```\n\nFor convenience, you can omit the object name and specify only the file *name*; the object name will be the basename of the file, with the directory and extension removed. For example, to convert the “states” TopoJSON GeometryCollection object in us.json to a GeoJSON feature collection in states.json:\n\n```\ntopo2geo states.json < us.json\n```\n\nSee also [geo2topo](https://github.com/topojson/topojson/blob/master/README.md#geo2topo).\n\nTo list the available object names, use [--list](#topo2geo_list).\n\n<a name="topo2geo_help" href="#topo2geo_help">#</a> topo2geo <b>-h</b>\n<br><a href="#topo2geo_help">#</a> topo2geo <b>--help</b>\n\nOutput usage information.\n\n<a name="topo2geo_version" href="#topo2geo_version">#</a> topo2geo <b>-V</b>\n<br><a href="#topo2geo_version">#</a> topo2geo <b>--version</b>\n\nOutput the version number.\n\n<a name="topo2geo_newline_delimited" href="#topo2geo_newline_delimited">#</a> topo2geo <b>-n</b>\n<br><a href="#topo2geo_newline_delimited">#</a> topo2geo <b>--newline-delimited</b>\n\nOutput [newline-delimited JSON](http://ndjson.org/), with one feature per line.\n\n<a name="topo2geo_in" href="#topo2geo_in">#</a> topo2geo <b>-i</b> <i>file</i>\n<br><a href="#topo2geo_in">#</a> topo2geo <b>--in</b> <i>file</i>\n\nSpecify the input TopoJSON file name. Defaults to “-” for stdin.\n\n<a name="topo2geo_list" href="#topo2geo_list">#</a> topo2geo <b>-l</b>\n<br><a href="#topo2geo_list">#</a> topo2geo <b>--list</b>\n\nList the names of the objects in the input topology, and then exit. For example, this:\n\n```\ntopo2geo -l < us.json\n```\n\nWill output this:\n\n```\ncounties\nstates\nnation\n```\n\n### topomerge\n\n<a name="topomerge" href="#topomerge">#</a> <b>topomerge</b> [<i>options…</i>] &lt;<i>target</i>=<i>source</i>&gt; [<i>file</i>] [<>](https://github.com/topojson/topojson-client/blob/master/bin/topomerge "Source")\n\nMerges polygons (or meshes lines) from the specified *source* TopoJSON geometry collection object, assigning to the *target* object.\n\nSee also [topojson.mergeArcs](#mergeArcs) and [topojson.meshArcs](#meshArcs).\n\n<a name="topomerge_help" href="#topomerge_help">#</a> topomerge <b>-h</b>\n<br><a href="#topomerge_help">#</a> topomerge <b>--help</b>\n\nOutput usage information.\n\n<a name="topomerge_version" href="#topomerge_version">#</a> topomerge <b>-V</b>\n<br><a href="#topomerge_version">#</a> topomerge <b>--version</b>\n\nOutput the version number.\n\n<a name="topomerge_out" href="#topomerge_out">#</a> topomerge <b>-o</b> <i>file</i>\n<br><a href="#topomerge_out">#</a> topomerge <b>--out</b> <i>file</i>\n\nSpecify the output TopoJSON file name. Defaults to “-” for stdout.\n\n<a name="topomerge_key" href="#topomerge_key">#</a> topomerge <b>-k</b> <i>expression</i>\n<br><a href="#topomerge_key">#</a> topomerge <b>--key</b> <i>expression</i>\n\nSpecify a JavaScript *expression*, given a TopoJSON geometry object *d* and its zero-based index *i* in its parent collection, that determines how geometry objects are grouped before merging; each group is merged separately. For example, given a topology of U.S. *counties*, where the *id* of each county is it’s five-digit FIPS code, the county boundaries can be merged into state boundaries by using the first two digits of the county FIPS code, which represents the state FIPS code:\n\n```\ntopomerge states=counties -k \'d.id.slice(0, 2)\' < us-counties.json > us-states.json\n```\n\nIf a key is not specified, all input geometry objects will be merged together. For example, this can be used to merge the state boundaries into a single nation boundary:\n\n```\ntopomerge nation=states < us-states.json > us.json\n```\n\n<a name="topomerge_filter" href="#topomerge_filter">#</a> topomerge <b>-f</b> <i>expression</i>\n<br><a href="#topomerge_filter">#</a> topomerge <b>--filter</b> <i>expression</i>\n\nSpecify a JavaScript *expression* that filters the input geometries before merging or meshing. In conjunction with [--mesh](#topomerge_mesh), the *expression* is given two TopoJSON geometry objects *a* and *b* that represent the adjacent features for a given arc segment; if the *expression* evaluates truthily, the associated arc segment is retained in mesh. Otherwise, the *expression* is given an input TopoJSON geometry object *d* and its zero-based index *i* in its parent collection; if the *expression* evaluates truthily, the geometry object is retained in the merged polygon.\n\n<a name="topomerge_mesh" href="#topomerge_mesh">#</a> topomerge <b>--mesh</b>\n\nUse [topojson.meshArcs](#meshArcs) instead of [topojson.mergeArcs](#mergeArcs), generating a geometry collection of lines rather than polygons.\n\n### topoquantize\n\n<a name="topoquantize" href="#topoquantize">#</a> <b>topoquantize</b> [<i>options…</i>] &lt;<i>n</i>&gt; [<i>file</i>] [<>](https://github.com/topojson/topojson-client/blob/master/bin/topoquantize "Source")\n\nQuantizes the coordinates of the input TopoJSON topology and [delta-encodes](https://github.com/topojson/topojson-specification#213-arcs) the topology’s arcs. The quantization parameter *n* must be a positive integer greater than one, and determines the maximum expressible number of unique values per dimension in the resulting quantized coordinates; typically, a power of ten is chosen such as 1e4, 1e5 or 1e6. If the *topology* does not already have a [bbox](#bbox), one is computed and assigned. If the *topology* is already quantized, an error is thrown. See also [topojson.quantize](#quantize).\n\n<a name="topoquantize_help" href="#topoquantize_help">#</a> topoquantize <b>-h</b>\n<br><a href="#topoquantize_help">#</a> topoquantize <b>--help</b>\n\nOutput usage information.\n\n<a name="topoquantize_version" href="#topoquantize_version">#</a> topoquantize <b>-V</b>\n<br><a href="#topoquantize_version">#</a> topoquantize <b>--version</b>\n\nOutput the version number.\n\n<a name="topoquantize_out" href="#topoquantize_out">#</a> topoquantize <b>-o</b> <i>file</i>\n<br><a href="#topoquantize_out">#</a> topoquantize <b>--out</b> <i>file</i>\n\nSpecify the output TopoJSON file name. Defaults to “-” for stdout.\n',
+384 silly resolved     readmeFilename: 'README.md',
+384 silly resolved     bugs: { url: 'https://github.com/topojson/topojson-client/issues' },
+384 silly resolved     _id: 'topojson-client@3.0.0',
+384 silly resolved     dist: { shasum: '1cf9d3b401a32b3aaf18f6f055363150647f54eb' },
+384 silly resolved     _from: 'topojson-client@3.0.0',
+384 silly resolved     _resolved: 'https://registry.npmjs.org/topojson-client/-/topojson-client-3.0.0.tgz' },
+384 silly resolved   { name: 'topojson-server',
+384 silly resolved     version: '3.0.0',
+384 silly resolved     description: 'Convert GeoJSON to TopoJSON for smaller files and the power of topology!',
+384 silly resolved     keywords: [ 'topojson', 'geojson' ],
+384 silly resolved     homepage: 'https://github.com/topojson/topojson-server',
+384 silly resolved     license: 'BSD-3-Clause',
+384 silly resolved     author: { name: 'Mike Bostock', url: 'https://bost.ocks.org/mike' },
+384 silly resolved     main: 'dist/topojson-server.js',
+384 silly resolved     module: 'index',
+384 silly resolved     repository:
+384 silly resolved      { type: 'git',
+384 silly resolved        url: 'https://github.com/topojson/topojson-server.git' },
+384 silly resolved     bin: { geo2topo: 'bin/geo2topo' },
+384 silly resolved     scripts:
+384 silly resolved      { pretest: 'rm -rf dist && mkdir dist && rollup --banner "$(preamble)" -f umd -n topojson -o dist/topojson-server.js -- index.js && rollup -f cjs -o build/topojson-internals.js -- test/internals.js',
+384 silly resolved        test: 'tape \'test/**/*-test.js\' && eslint index.js src',
+384 silly resolved        prepublish: 'npm run test && uglifyjs --preamble "$(preamble)" -cm -o dist/topojson-server.min.js -- dist/topojson-server.js',
+384 silly resolved        postpublish: 'git push && git push --tags && zip -j dist/topojson-server.zip -- LICENSE.md README.md dist/topojson-server.js dist/topojson-server.min.js' },
+384 silly resolved     dependencies: { commander: '2' },
+384 silly resolved     devDependencies:
+384 silly resolved      { eslint: '3',
+384 silly resolved        'package-preamble': '0.0',
+384 silly resolved        rollup: '0.41',
+384 silly resolved        tape: '4',
+384 silly resolved        'topojson-client': '3',
+384 silly resolved        'uglify-js': '2' },
+384 silly resolved     readme: '# TopoJSON Server\n\nThe **topojson-server** module provides tools for converting GeoJSON to [TopoJSON](https://github.com/topojson). See [How to Infer Topology](https://bost.ocks.org/mike/topology/) for details on how the topology is constructed.\n\nSee [shapefile](https://github.com/mbostock/shapefile) for converting ESRI shapefiles to GeoJSON, [ndjson-cli](https://github.com/mbostock/ndjson-cli) for manipulating newline-delimited JSON streams, [d3-geo-projection](https://github.com/d3/d3-geo-projection) for manipulating GeoJSON, and [topojson-client](https://github.com/topojson/topojson-client) for manipulating TopoJSON and converting it back to GeoJSON. See also [us-atlas](https://github.com/topojson/us-atlas) and [world-atlas](https://github.com/topojson/world-atlas) for pre-built TopoJSON.\n\n## Installing\n\nIf you use NPM, `npm install topojson-server`. Otherwise, download the [latest release](https://github.com/topojson/topojson-server/releases/latest). You can also load directly from [unpkg](https://unpkg.com). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `topojson` global is exported:\n\n```html\n<script src="https://unpkg.com/topojson-server@3"></script>\n<script>\n\nvar topology = topojson.topology({foo: geojson});\n\n</script>\n```\n\n[Try topojson-server in your browser.](https://tonicdev.com/npm/topojson-server)\n\n## API Reference\n\n<a name="topology" href="#topology">#</a> topojson.<b>topology</b>(<i>objects</i>[, <i>quantization</i>]) [<>](https://github.com/topojson/topojson-server/blob/master/src/topology.js "Source")\n\nReturns a TopoJSON topology for the specified [GeoJSON *objects*](http://geojson.org/geojson-spec.html#geojson-objects). The returned topology makes a shallow copy of the input *objects*: the identifier, bounding box, properties and coordinates of input objects may be shared with the output topology.\n\nIf a *quantization* parameter is specified, the input geometry is quantized prior to computing the topology, the returned topology is quantized, and its arcs are [delta-encoded](https://github.com/topojson/topojson-specification/blob/master/README.md#213-arcs). Quantization is recommended to improve the quality of the topology if the input geometry is messy (*i.e.*, small floating point error means that adjacent boundaries do not have identical values); typical values are powers of ten, such as 1e4, 1e5 or 1e6. See also [topojson.quantize](https://github.com/topojson/topojson-client/blob/master/README.md#quantize) to quantize a topology after it has been constructed, without altering the topological relationships.\n\n## Command-Line Reference\n\n### geo2topo\n\n<a name="geo2topo" href="#geo2topo">#</a> <b>geo2topo</b> [<i>options…</i>] [<i>name</i>=]<i>file</i>… [<>](https://github.com/topojson/topojson/blob/master/bin/geo2topo "Source")\n\nConverts one or more GeoJSON objects to an output topology. For example, to convert the us-states.json GeoJSON FeatureCollection to a TopologyJSON topology with the “states” object in us.json:\n\n```\ngeo2topo states=us-states.json > us.json\n```\n\nFor convenience, you can omit the object name and specify only the output *file* name; the object name will be the basename of the file, with the directory and extension removed. For example, to convert the states.json GeoJSON FeatureCollection to a TopologyJSON topology with the “states” object in us.json:\n\n```\ngeo2topo states.json > us.json\n```\n\nAny properties and identifiers of input [feature objects](https://tools.ietf.org/html/rfc7946#section-3.2) are propagated to the output. If you want to transform or filter properties, try [ndjson-cli](https://github.com/mbostock/ndjson-cli) as demonstrated in [Command-Line Cartography](https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c).\n\nSee also [topo2geo](https://github.com/topojson/topojson-client/blob/master/README.md#topo2geo).\n\n<a name="geo2topo_help" href="#geo2topo_help">#</a> geo2topo <b>-h</b>\n<br><a href="#geo2topo_help">#</a> geo2topo <b>--help</b>\n\nOutput usage information.\n\n<a name="geo2topo_version" href="#geo2topo_version">#</a> geo2topo <b>-V</b>\n<br><a href="#geo2topo_version">#</a> geo2topo <b>--version</b>\n\nOutput the version number.\n\n<a name="geo2topo_newline_delimited" href="#geo2topo_newline_delimited">#</a> geo2topo <b>-n</b>\n<br><a href="#geo2topo_newline_delimited">#</a> geo2topo <b>--newline-delimited</b>\n\nOutput [newline-delimited JSON](http://ndjson.org/), with one feature per line.\n\n<a name="geo2topo_in" href="#geo2topo_in">#</a> geo2topo <b>-i</b> <i>file</i>\n<br><a href="#geo2topo_in">#</a> geo2topo <b>--in</b> <i>file</i>\n\nSpecify the input TopoJSON file name. Defaults to “-” for stdin.\n\n<a name="geo2topo_list" href="#geo2topo_list">#</a> geo2topo <b>-l</b>\n<br><a href="#geo2topo_list">#</a> geo2topo <b>--list</b>\n\nList the names of the objects in the input topology, and then exit. For example, this:\n\n```\ngeo2topo -l < us.json\n```\n\nWill output this:\n\n```\ncounties\nstates\nnation\n```\n',
+384 silly resolved     readmeFilename: 'README.md',
+384 silly resolved     bugs: { url: 'https://github.com/topojson/topojson-server/issues' },
+384 silly resolved     _id: 'topojson-server@3.0.0',
+384 silly resolved     dist: { shasum: '7857c2508b959aa01ff3f83cf2bd5a54191352a8' },
+384 silly resolved     _from: 'topojson-server@3.0.0',
+384 silly resolved     _resolved: 'https://registry.npmjs.org/topojson-server/-/topojson-server-3.0.0.tgz' } ]
+385 info install topojson-simplify@3.0.0 into /git/alexm-util/DevInit/node_modules/topojson
+386 info install topojson-client@3.0.0 into /git/alexm-util/DevInit/node_modules/topojson
+387 info install topojson-server@3.0.0 into /git/alexm-util/DevInit/node_modules/topojson
+388 info installOne topojson-simplify@3.0.0
+389 info installOne topojson-client@3.0.0
+390 info installOne topojson-server@3.0.0
+391 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify unbuild
+392 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client unbuild
+393 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server unbuild
+394 verbose tar unpack /home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+395 silly lockFile b2a67e21-son-node-modules-topojson-client tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client
+396 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client /home/vagrant/.npm/b2a67e21-son-node-modules-topojson-client.lock
+397 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+398 verbose lock tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz /home/vagrant/.npm/1df428a2-opojson-client-3-0-0-package-tgz.lock
+399 verbose tar unpack /home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+400 silly lockFile d1197068-n-node-modules-topojson-simplify tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+401 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify /home/vagrant/.npm/d1197068-n-node-modules-topojson-simplify.lock
+402 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+403 verbose lock tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz /home/vagrant/.npm/d5950450-ojson-simplify-3-0-0-package-tgz.lock
+404 verbose tar unpack /home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+405 silly lockFile 7f04ca32-son-node-modules-topojson-server tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+406 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server /home/vagrant/.npm/7f04ca32-son-node-modules-topojson-server.lock
+407 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+408 verbose lock tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz /home/vagrant/.npm/81b83b26-opojson-server-3-0-0-package-tgz.lock
+409 silly gunzTarPerm modes [ '755', '644' ]
+410 silly gunzTarPerm modes [ '755', '644' ]
+411 silly gunzTarPerm modes [ '755', '644' ]
+412 silly gunzTarPerm extractEntry package.json
+413 silly gunzTarPerm extractEntry package.json
+414 silly gunzTarPerm extractEntry package.json
+415 silly gunzTarPerm extractEntry .npmignore
+416 silly gunzTarPerm extractEntry README.md
+417 silly gunzTarPerm extractEntry .npmignore
+418 silly gunzTarPerm extractEntry README.md
+419 silly gunzTarPerm extractEntry .npmignore
+420 silly gunzTarPerm extractEntry README.md
+421 silly gunzTarPerm extractEntry index.js
+422 silly gunzTarPerm extractEntry index.js
+423 silly gunzTarPerm extractEntry index.js
+424 silly gunzTarPerm extractEntry .eslintrc
+425 silly gunzTarPerm extractEntry .eslintrc
+426 silly gunzTarPerm extractEntry LICENSE.md
+427 silly gunzTarPerm extractEntry .eslintrc
+428 silly gunzTarPerm extractEntry LICENSE.md
+429 silly gunzTarPerm extractEntry LICENSE.md
+430 silly gunzTarPerm extractEntry bin/geo2topo
+431 silly gunzTarPerm extractEntry dist/topojson-server.js
+432 silly gunzTarPerm extractEntry bin/toposimplify
+433 silly gunzTarPerm extractEntry dist/topojson-simplify.js
+434 silly gunzTarPerm extractEntry bin/topo2geo
+435 silly gunzTarPerm extractEntry bin/topomerge
+436 silly gunzTarPerm extractEntry dist/topojson-server.min.js
+437 silly gunzTarPerm extractEntry src/bounds.js
+438 silly gunzTarPerm extractEntry dist/topojson-simplify.min.js
+439 silly gunzTarPerm extractEntry src/filter.js
+440 silly gunzTarPerm extractEntry bin/topoquantize
+441 silly gunzTarPerm extractEntry dist/topojson-client.js
+442 silly gunzTarPerm extractEntry src/cut.js
+443 silly gunzTarPerm extractEntry src/dedup.js
+444 silly gunzTarPerm extractEntry src/filterAttachedWeight.js
+445 silly gunzTarPerm extractEntry src/filterWeight.js
+446 silly gunzTarPerm extractEntry dist/topojson-client.min.js
+447 silly gunzTarPerm extractEntry src/bbox.js
+448 silly gunzTarPerm extractEntry src/delta.js
+449 silly gunzTarPerm extractEntry src/extract.js
+450 silly gunzTarPerm extractEntry src/feature.js
+451 silly gunzTarPerm extractEntry src/identity.js
+452 silly gunzTarPerm extractEntry src/heap.js
+453 silly gunzTarPerm extractEntry src/filterAttached.js
+454 silly gunzTarPerm extractEntry src/geometry.js
+455 silly gunzTarPerm extractEntry src/join.js
+456 silly gunzTarPerm extractEntry src/presimplify.js
+457 silly gunzTarPerm extractEntry src/prune.js
+458 silly gunzTarPerm extractEntry src/merge.js
+459 silly gunzTarPerm extractEntry src/mesh.js
+460 silly gunzTarPerm extractEntry src/bisect.js
+461 silly gunzTarPerm extractEntry src/quantize.js
+462 silly gunzTarPerm extractEntry src/quantile.js
+463 silly gunzTarPerm extractEntry src/simplify.js
+464 silly gunzTarPerm extractEntry src/reverse.js
+465 silly gunzTarPerm extractEntry src/stitch.js
+466 silly gunzTarPerm extractEntry src/prequantize.js
+467 silly gunzTarPerm extractEntry src/topology.js
+468 silly gunzTarPerm extractEntry src/spherical.js
+469 silly gunzTarPerm extractEntry src/planar.js
+470 silly gunzTarPerm extractEntry src/hash/hashmap.js
+471 silly gunzTarPerm extractEntry src/hash/hashset.js
+472 silly gunzTarPerm extractEntry src/transform.js
+473 silly gunzTarPerm extractEntry src/untransform.js
+474 silly gunzTarPerm extractEntry src/hash/point-equal.js
+475 silly gunzTarPerm extractEntry src/hash/point-hash.js
+476 silly gunzTarPerm extractEntry src/neighbors.js
+477 silly lockFile d1197068-n-node-modules-topojson-simplify tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+478 silly lockFile d1197068-n-node-modules-topojson-simplify tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+479 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+480 silly lockFile d5950450-ojson-simplify-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-simplify/3.0.0/package.tgz
+481 info preinstall topojson-simplify@3.0.0
+482 verbose readDependencies using package.json deps
+483 verbose readDependencies using package.json deps
+484 verbose cache add [ 'commander@2', null ]
+485 verbose cache add name=undefined spec="commander@2" args=["commander@2",null]
+486 verbose parsed url { protocol: null,
+486 verbose parsed url   slashes: null,
+486 verbose parsed url   auth: null,
+486 verbose parsed url   host: null,
+486 verbose parsed url   port: null,
+486 verbose parsed url   hostname: null,
+486 verbose parsed url   hash: null,
+486 verbose parsed url   search: null,
+486 verbose parsed url   query: null,
+486 verbose parsed url   pathname: 'commander@2',
+486 verbose parsed url   path: 'commander@2',
+486 verbose parsed url   href: 'commander@2' }
+487 verbose cache add name="commander" spec="2" args=["commander","2"]
+488 verbose parsed url { protocol: null,
+488 verbose parsed url   slashes: null,
+488 verbose parsed url   auth: null,
+488 verbose parsed url   host: null,
+488 verbose parsed url   port: null,
+488 verbose parsed url   hostname: null,
+488 verbose parsed url   hash: null,
+488 verbose parsed url   search: null,
+488 verbose parsed url   query: null,
+488 verbose parsed url   pathname: '2',
+488 verbose parsed url   path: '2',
+488 verbose parsed url   href: '2' }
+489 verbose addNamed [ 'commander', '2' ]
+490 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+491 silly lockFile 8e7dc0f1-commander-2 commander@2
+492 verbose lock commander@2 /home/vagrant/.npm/8e7dc0f1-commander-2.lock
+493 silly addNameRange { name: 'commander',
+493 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+493 silly addNameRange   hasData: false }
+494 verbose url raw commander
+495 verbose url resolving [ 'https://registry.npmjs.org/', './commander' ]
+496 verbose url resolved https://registry.npmjs.org/commander
+497 info trying registry request attempt 1 at 16:49:44
+498 http GET https://registry.npmjs.org/commander
+499 http 200 https://registry.npmjs.org/commander
+500 silly registry.get cb [ 200,
+500 silly registry.get   { server: 'nginx/1.10.1',
+500 silly registry.get     'content-type': 'application/json',
+500 silly registry.get     'last-modified': 'Sat, 13 May 2017 14:52:52 GMT',
+500 silly registry.get     etag: '"59171dc4-1038f"',
+500 silly registry.get     'cache-control': 'max-age=300',
+500 silly registry.get     'content-length': '66447',
+500 silly registry.get     'accept-ranges': 'bytes',
+500 silly registry.get     date: 'Mon, 15 May 2017 16:49:44 GMT',
+500 silly registry.get     via: '1.1 varnish',
+500 silly registry.get     age: '69',
+500 silly registry.get     connection: 'keep-alive',
+500 silly registry.get     'x-served-by': 'cache-iad2632-IAD',
+500 silly registry.get     'x-cache': 'HIT',
+500 silly registry.get     'x-cache-hits': '1',
+500 silly registry.get     'x-timer': 'S1494866985.652405,VS0,VE1',
+500 silly registry.get     vary: 'Accept-Encoding' } ]
+501 silly addNameRange number 2 { name: 'commander', range: '>=2.0.0-0 <3.0.0-0', hasData: true }
+502 silly addNameRange versions [ 'commander',
+502 silly addNameRange   [ '0.0.1',
+502 silly addNameRange     '0.0.3',
+502 silly addNameRange     '0.0.4',
+502 silly addNameRange     '0.0.5',
+502 silly addNameRange     '0.1.0',
+502 silly addNameRange     '0.2.0',
+502 silly addNameRange     '0.2.1',
+502 silly addNameRange     '0.3.0',
+502 silly addNameRange     '0.3.1',
+502 silly addNameRange     '0.3.2',
+502 silly addNameRange     '0.3.3',
+502 silly addNameRange     '0.4.0',
+502 silly addNameRange     '0.4.1',
+502 silly addNameRange     '0.4.2',
+502 silly addNameRange     '0.4.3',
+502 silly addNameRange     '0.5.0',
+502 silly addNameRange     '0.5.1',
+502 silly addNameRange     '0.6.0',
+502 silly addNameRange     '0.6.1',
+502 silly addNameRange     '0.5.2',
+502 silly addNameRange     '1.0.0',
+502 silly addNameRange     '1.0.1',
+502 silly addNameRange     '1.0.2',
+502 silly addNameRange     '1.0.3',
+502 silly addNameRange     '1.0.4',
+502 silly addNameRange     '1.0.5',
+502 silly addNameRange     '1.1.0',
+502 silly addNameRange     '1.1.1',
+502 silly addNameRange     '1.2.0',
+502 silly addNameRange     '1.3.0',
+502 silly addNameRange     '1.3.1',
+502 silly addNameRange     '1.3.2',
+502 silly addNameRange     '2.0.0',
+502 silly addNameRange     '2.1.0',
+502 silly addNameRange     '2.2.0',
+502 silly addNameRange     '2.3.0',
+502 silly addNameRange     '2.4.0',
+502 silly addNameRange     '2.5.0',
+502 silly addNameRange     '2.5.1',
+502 silly addNameRange     '2.6.0',
+502 silly addNameRange     '2.7.0',
+502 silly addNameRange     '2.7.1',
+502 silly addNameRange     '2.8.0',
+502 silly addNameRange     '2.8.1',
+502 silly addNameRange     '2.9.0' ] ]
+503 verbose addNamed [ 'commander', '2.9.0' ]
+504 verbose addNamed [ '2.9.0', '2.9.0' ]
+505 silly lockFile 07267fc6-commander-2-9-0 commander@2.9.0
+506 verbose lock commander@2.9.0 /home/vagrant/.npm/07267fc6-commander-2-9-0.lock
+507 silly lockFile fc4c5515-rg-commander-commander-2-9-0-tgz https://registry.npmjs.org/commander/-/commander-2.9.0.tgz
+508 verbose lock https://registry.npmjs.org/commander/-/commander-2.9.0.tgz /home/vagrant/.npm/fc4c5515-rg-commander-commander-2-9-0-tgz.lock
+509 verbose addRemoteTarball [ 'https://registry.npmjs.org/commander/-/commander-2.9.0.tgz',
+509 verbose addRemoteTarball   '9c99094176e12240cb22d6c5146098400fe0f7d4' ]
+510 info retry fetch attempt 1 at 16:49:44
+511 verbose fetch to= /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz
+512 http GET https://registry.npmjs.org/commander/-/commander-2.9.0.tgz
+513 silly lockFile 7f04ca32-son-node-modules-topojson-server tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+514 silly lockFile 7f04ca32-son-node-modules-topojson-server tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+515 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+516 silly lockFile 81b83b26-opojson-server-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-server/3.0.0/package.tgz
+517 silly lockFile b2a67e21-son-node-modules-topojson-client tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client
+518 silly lockFile b2a67e21-son-node-modules-topojson-client tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client
+519 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+520 silly lockFile 1df428a2-opojson-client-3-0-0-package-tgz tar:///home/vagrant/.npm/topojson-client/3.0.0/package.tgz
+521 info preinstall topojson-server@3.0.0
+522 info preinstall topojson-client@3.0.0
+523 verbose readDependencies using package.json deps
+524 http 200 https://registry.npmjs.org/commander/-/commander-2.9.0.tgz
+525 verbose readDependencies using package.json deps
+526 verbose readDependencies using package.json deps
+527 verbose cache add [ 'commander@2', null ]
+528 verbose cache add name=undefined spec="commander@2" args=["commander@2",null]
+529 verbose parsed url { protocol: null,
+529 verbose parsed url   slashes: null,
+529 verbose parsed url   auth: null,
+529 verbose parsed url   host: null,
+529 verbose parsed url   port: null,
+529 verbose parsed url   hostname: null,
+529 verbose parsed url   hash: null,
+529 verbose parsed url   search: null,
+529 verbose parsed url   query: null,
+529 verbose parsed url   pathname: 'commander@2',
+529 verbose parsed url   path: 'commander@2',
+529 verbose parsed url   href: 'commander@2' }
+530 verbose cache add name="commander" spec="2" args=["commander","2"]
+531 verbose parsed url { protocol: null,
+531 verbose parsed url   slashes: null,
+531 verbose parsed url   auth: null,
+531 verbose parsed url   host: null,
+531 verbose parsed url   port: null,
+531 verbose parsed url   hostname: null,
+531 verbose parsed url   hash: null,
+531 verbose parsed url   search: null,
+531 verbose parsed url   query: null,
+531 verbose parsed url   pathname: '2',
+531 verbose parsed url   path: '2',
+531 verbose parsed url   href: '2' }
+532 verbose addNamed [ 'commander', '2' ]
+533 verbose readDependencies using package.json deps
+534 verbose tar unpack /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz
+535 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+536 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package /home/vagrant/.npm/60a9ea3c-84659-0-7709493217989802-package.lock
+537 silly lockFile 61e7e63e-84659-0-7709493217989802-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz
+538 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz /home/vagrant/.npm/61e7e63e-84659-0-7709493217989802-tmp-tgz.lock
+539 silly gunzTarPerm modes [ '755', '644' ]
+540 verbose cache add [ 'commander@2', null ]
+541 verbose cache add name=undefined spec="commander@2" args=["commander@2",null]
+542 verbose parsed url { protocol: null,
+542 verbose parsed url   slashes: null,
+542 verbose parsed url   auth: null,
+542 verbose parsed url   host: null,
+542 verbose parsed url   port: null,
+542 verbose parsed url   hostname: null,
+542 verbose parsed url   hash: null,
+542 verbose parsed url   search: null,
+542 verbose parsed url   query: null,
+542 verbose parsed url   pathname: 'commander@2',
+542 verbose parsed url   path: 'commander@2',
+542 verbose parsed url   href: 'commander@2' }
+543 verbose cache add name="commander" spec="2" args=["commander","2"]
+544 verbose parsed url { protocol: null,
+544 verbose parsed url   slashes: null,
+544 verbose parsed url   auth: null,
+544 verbose parsed url   host: null,
+544 verbose parsed url   port: null,
+544 verbose parsed url   hostname: null,
+544 verbose parsed url   hash: null,
+544 verbose parsed url   search: null,
+544 verbose parsed url   query: null,
+544 verbose parsed url   pathname: '2',
+544 verbose parsed url   path: '2',
+544 verbose parsed url   href: '2' }
+545 verbose addNamed [ 'commander', '2' ]
+546 silly gunzTarPerm extractEntry package.json
+547 silly gunzTarPerm extractEntry LICENSE
+548 silly gunzTarPerm extractEntry index.js
+549 silly gunzTarPerm extractEntry Readme.md
+550 silly gunzTarPerm extractEntry History.md
+551 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+552 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+553 silly lockFile 61e7e63e-84659-0-7709493217989802-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz
+554 silly lockFile 61e7e63e-84659-0-7709493217989802-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/tmp.tgz
+555 verbose tar pack [ '/home/vagrant/.npm/commander/2.9.0/package.tgz',
+555 verbose tar pack   '/home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package' ]
+556 verbose tarball /home/vagrant/.npm/commander/2.9.0/package.tgz
+557 verbose folder /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+558 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+559 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package /home/vagrant/.npm/60a9ea3c-84659-0-7709493217989802-package.lock
+560 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+561 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package.tgz /home/vagrant/.npm/1d00ec79--npm-commander-2-9-0-package-tgz.lock
+562 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+563 silly lockFile 60a9ea3c-84659-0-7709493217989802-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984659-0.7709493217989802/package
+564 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+565 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+566 silly lockFile cd54efcd-rant-npm-commander-2-9-0-package /home/vagrant/.npm/commander/2.9.0/package
+567 verbose lock /home/vagrant/.npm/commander/2.9.0/package /home/vagrant/.npm/cd54efcd-rant-npm-commander-2-9-0-package.lock
+568 silly lockFile cd54efcd-rant-npm-commander-2-9-0-package /home/vagrant/.npm/commander/2.9.0/package
+569 silly lockFile cd54efcd-rant-npm-commander-2-9-0-package /home/vagrant/.npm/commander/2.9.0/package
+570 verbose tar unpack /home/vagrant/.npm/commander/2.9.0/package.tgz
+571 silly lockFile 95940923-rant-npm-commander-2-9-0-package tar:///home/vagrant/.npm/commander/2.9.0/package
+572 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package /home/vagrant/.npm/95940923-rant-npm-commander-2-9-0-package.lock
+573 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+574 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package.tgz /home/vagrant/.npm/1d00ec79--npm-commander-2-9-0-package-tgz.lock
+575 silly gunzTarPerm modes [ '755', '644' ]
+576 silly gunzTarPerm extractEntry package.json
+577 silly gunzTarPerm extractEntry index.js
+578 silly gunzTarPerm extractEntry Readme.md
+579 silly lockFile 95940923-rant-npm-commander-2-9-0-package tar:///home/vagrant/.npm/commander/2.9.0/package
+580 silly lockFile 95940923-rant-npm-commander-2-9-0-package tar:///home/vagrant/.npm/commander/2.9.0/package
+581 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+582 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+583 verbose chmod /home/vagrant/.npm/commander/2.9.0/package.tgz 644
+584 verbose chown /home/vagrant/.npm/commander/2.9.0/package.tgz [ 1000, 1000 ]
+585 silly lockFile fc4c5515-rg-commander-commander-2-9-0-tgz https://registry.npmjs.org/commander/-/commander-2.9.0.tgz
+586 silly lockFile fc4c5515-rg-commander-commander-2-9-0-tgz https://registry.npmjs.org/commander/-/commander-2.9.0.tgz
+587 silly lockFile 07267fc6-commander-2-9-0 commander@2.9.0
+588 silly lockFile 07267fc6-commander-2-9-0 commander@2.9.0
+589 silly lockFile 8e7dc0f1-commander-2 commander@2
+590 silly lockFile 8e7dc0f1-commander-2 commander@2
+591 silly resolved [ { name: 'commander',
+591 silly resolved     version: '2.9.0',
+591 silly resolved     description: 'the complete solution for node.js command-line programs',
+591 silly resolved     keywords: [ 'command', 'option', 'parser' ],
+591 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+591 silly resolved     license: 'MIT',
+591 silly resolved     repository: { type: 'git', url: 'https://github.com/tj/commander.js.git' },
+591 silly resolved     devDependencies: { should: '>= 0.0.1', sinon: '>=1.17.1' },
+591 silly resolved     scripts: { test: 'make test' },
+591 silly resolved     main: 'index',
+591 silly resolved     engines: { node: '>= 0.6.x' },
+591 silly resolved     files: [ 'index.js' ],
+591 silly resolved     dependencies: { 'graceful-readlink': '>= 1.0.0' },
+591 silly resolved     readme: '# Commander.js\n\n\n[![Build Status](https://api.travis-ci.org/tj/commander.js.svg)](http://travis-ci.org/tj/commander.js)\n[![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![Join the chat at https://gitter.im/tj/commander.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tj/commander.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n  The complete solution for [node.js](http://nodejs.org) command-line interfaces, inspired by Ruby\'s [commander](https://github.com/tj/commander).  \n  [API documentation](http://tj.github.com/commander.js/)\n\n\n## Installation\n\n    $ npm install commander\n\n## Option parsing\n\n Options with commander are defined with the `.option()` method, also serving as documentation for the options. The example below parses args and options from `process.argv`, leaving remaining args as the `program.args` array which were not consumed by options.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-p, --peppers\', \'Add peppers\')\n  .option(\'-P, --pineapple\', \'Add pineapple\')\n  .option(\'-b, --bbq-sauce\', \'Add bbq sauce\')\n  .option(\'-c, --cheese [type]\', \'Add the specified type of cheese [marble]\', \'marble\')\n  .parse(process.argv);\n\nconsole.log(\'you ordered a pizza with:\');\nif (program.peppers) console.log(\'  - peppers\');\nif (program.pineapple) console.log(\'  - pineapple\');\nif (program.bbqSauce) console.log(\'  - bbq\');\nconsole.log(\'  - %s cheese\', program.cheese);\n```\n\n Short flags may be passed as a single arg, for example `-abc` is equivalent to `-a -b -c`. Multi-word options such as "--template-engine" are camel-cased, becoming `program.templateEngine` etc.\n\n\n## Coercion\n\n```js\nfunction range(val) {\n  return val.split(\'..\').map(Number);\n}\n\nfunction list(val) {\n  return val.split(\',\');\n}\n\nfunction collect(val, memo) {\n  memo.push(val);\n  return memo;\n}\n\nfunction increaseVerbosity(v, total) {\n  return total + 1;\n}\n\nprogram\n  .version(\'0.0.1\')\n  .usage(\'[options] <file ...>\')\n  .option(\'-i, --integer <n>\', \'An integer argument\', parseInt)\n  .option(\'-f, --float <n>\', \'A float argument\', parseFloat)\n  .option(\'-r, --range <a>..<b>\', \'A range\', range)\n  .option(\'-l, --list <items>\', \'A list\', list)\n  .option(\'-o, --optional [value]\', \'An optional value\')\n  .option(\'-c, --collect [value]\', \'A repeatable value\', collect, [])\n  .option(\'-v, --verbose\', \'A value that can be increased\', increaseVerbosity, 0)\n  .parse(process.argv);\n\nconsole.log(\' int: %j\', program.integer);\nconsole.log(\' float: %j\', program.float);\nconsole.log(\' optional: %j\', program.optional);\nprogram.range = program.range || [];\nconsole.log(\' range: %j..%j\', program.range[0], program.range[1]);\nconsole.log(\' list: %j\', program.list);\nconsole.log(\' collect: %j\', program.collect);\nconsole.log(\' verbosity: %j\', program.verbose);\nconsole.log(\' args: %j\', program.args);\n```\n\n## Regular Expression\n```js\nprogram\n  .version(\'0.0.1\')\n  .option(\'-s --size <size>\', \'Pizza size\', /^(large|medium|small)$/i, \'medium\')\n  .option(\'-d --drink [drink]\', \'Drink\', /^(coke|pepsi|izze)$/i)\n  .parse(process.argv);\n  \nconsole.log(\' size: %j\', program.size);\nconsole.log(\' drink: %j\', program.drink);\n```\n\n## Variadic arguments\n\n The last argument of a command can be variadic, and only the last argument.  To make an argument variadic you have to\n append `...` to the argument name.  Here is an example:\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'rmdir <dir> [otherDirs...]\')\n  .action(function (dir, otherDirs) {\n    console.log(\'rmdir %s\', dir);\n    if (otherDirs) {\n      otherDirs.forEach(function (oDir) {\n        console.log(\'rmdir %s\', oDir);\n      });\n    }\n  });\n\nprogram.parse(process.argv);\n```\n\n An `Array` is used for the value of a variadic argument.  This applies to `program.args` as well as the argument passed\n to your action as demonstrated above.\n\n## Specify the argument syntax\n\n```js\n#!/usr/bin/env node\n\nvar program = require(\'../\');\n\nprogram\n  .version(\'0.0.1\')\n  .arguments(\'<cmd> [env]\')\n  .action(function (cmd, env) {\n     cmdValue = cmd;\n     envValue = env;\n  });\n\nprogram.parse(process.argv);\n\nif (typeof cmdValue === \'undefined\') {\n   console.error(\'no command given!\');\n   process.exit(1);\n}\nconsole.log(\'command:\', cmdValue);\nconsole.log(\'environment:\', envValue || "no environment given");\n```\n\n## Git-style sub-commands\n\n```js\n// file: ./examples/pm\nvar program = require(\'..\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'install [name]\', \'install one or more packages\')\n  .command(\'search [query]\', \'search with optional query\')\n  .command(\'list\', \'list packages installed\', {isDefault: true})\n  .parse(process.argv);\n```\n\nWhen `.command()` is invoked with a description argument, no `.action(callback)` should be called to handle sub-commands, otherwise there will be an error. This tells commander that you\'re going to use separate executables for sub-commands, much like `git(1)` and other popular tools.  \nThe commander will try to search the executables in the directory of the entry script (like `./examples/pm`) with the name `program-command`, like `pm-install`, `pm-search`.\n\nOptions can be passed with the call to `.command()`. Specifying `true` for `opts.noHelp` will remove the option from the generated help output. Specifying `true` for `opts.isDefault` will run the subcommand if no other subcommand is specified.\n\nIf the program is designed to be installed globally, make sure the executables have proper modes, like `755`.\n\n### `--harmony`\n\nYou can enable `--harmony` option in two ways:\n* Use `#! /usr/bin/env node --harmony` in the sub-commands scripts. Note some os version don’t support this pattern.\n* Use the `--harmony` option when call the command, like `node --harmony examples/pm publish`. The `--harmony` option will be preserved when spawning sub-command process.\n\n## Automated --help\n\n The help information is auto-generated based on the information commander already knows about your program, so the following `--help` info is for free:\n\n```  \n $ ./examples/pizza --help\n\n   Usage: pizza [options]\n\n   An application for pizzas ordering\n\n   Options:\n\n     -h, --help           output usage information\n     -V, --version        output the version number\n     -p, --peppers        Add peppers\n     -P, --pineapple      Add pineapple\n     -b, --bbq            Add bbq sauce\n     -c, --cheese <type>  Add the specified type of cheese [marble]\n     -C, --no-cheese      You do not want any cheese\n\n```\n\n## Custom help\n\n You can display arbitrary `-h, --help` information\n by listening for "--help". Commander will automatically\n exit once you are done so that the remainder of your program\n does not execute causing undesired behaviours, for example\n in the following executable "stuff" will not output when\n `--help` is used.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-f, --foo\', \'enable some foo\')\n  .option(\'-b, --bar\', \'enable some bar\')\n  .option(\'-B, --baz\', \'enable some baz\');\n\n// must be before .parse() since\n// node\'s emit() is immediate\n\nprogram.on(\'--help\', function(){\n  console.log(\'  Examples:\');\n  console.log(\'\');\n  console.log(\'    $ custom-help --help\');\n  console.log(\'    $ custom-help -h\');\n  console.log(\'\');\n});\n\nprogram.parse(process.argv);\n\nconsole.log(\'stuff\');\n```\n\nYields the following help output when `node script-name.js -h` or `node script-name.js --help` are run:\n\n```\n\nUsage: custom-help [options]\n\nOptions:\n\n  -h, --help     output usage information\n  -V, --version  output the version number\n  -f, --foo      enable some foo\n  -b, --bar      enable some bar\n  -B, --baz      enable some baz\n\nExamples:\n\n  $ custom-help --help\n  $ custom-help -h\n\n```\n\n## .outputHelp(cb)\n\nOutput help information without exiting.\nOptional callback cb allows post-processing of help text before it is displayed.\n\nIf you want to display help by default (e.g. if no command was provided), you can use something like:\n\n```js\nvar program = require(\'commander\');\nvar colors = require(\'colors\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'getstream [url]\', \'get stream URL\')\n  .parse(process.argv);\n\n  if (!process.argv.slice(2).length) {\n    program.outputHelp(make_red);\n  }\n\nfunction make_red(txt) {\n  return colors.red(txt); //display the help text in red on the console\n}\n```\n\n## .help(cb)\n\n  Output help information and exit immediately.\n  Optional callback cb allows post-processing of help text before it is displayed.\n\n## Examples\n\n```js\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-C, --chdir <path>\', \'change the working directory\')\n  .option(\'-c, --config <path>\', \'set config path. defaults to ./deploy.conf\')\n  .option(\'-T, --no-tests\', \'ignore test hook\')\n\nprogram\n  .command(\'setup [env]\')\n  .description(\'run setup commands for all envs\')\n  .option("-s, --setup_mode [mode]", "Which setup mode to use")\n  .action(function(env, options){\n    var mode = options.setup_mode || "normal";\n    env = env || \'all\';\n    console.log(\'setup for %s env(s) with %s mode\', env, mode);\n  });\n\nprogram\n  .command(\'exec <cmd>\')\n  .alias(\'ex\')\n  .description(\'execute the given remote cmd\')\n  .option("-e, --exec_mode <mode>", "Which exec mode to use")\n  .action(function(cmd, options){\n    console.log(\'exec "%s" using %s mode\', cmd, options.exec_mode);\n  }).on(\'--help\', function() {\n    console.log(\'  Examples:\');\n    console.log();\n    console.log(\'    $ deploy exec sequential\');\n    console.log(\'    $ deploy exec async\');\n    console.log();\n  });\n\nprogram\n  .command(\'*\')\n  .action(function(env){\n    console.log(\'deploying "%s"\', env);\n  });\n\nprogram.parse(process.argv);\n```\n\nMore Demos can be found in the [examples](https://github.com/tj/commander.js/tree/master/examples) directory.\n\n## License\n\nMIT\n\n',
+591 silly resolved     readmeFilename: 'Readme.md',
+591 silly resolved     bugs: { url: 'https://github.com/tj/commander.js/issues' },
+591 silly resolved     _id: 'commander@2.9.0',
+591 silly resolved     dist: { shasum: '63c70d1c72fa14ec84a8a26bc49312d71b970804' },
+591 silly resolved     _from: 'commander@2',
+591 silly resolved     _resolved: 'https://registry.npmjs.org/commander/-/commander-2.9.0.tgz' } ]
+592 info install commander@2.9.0 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+593 info installOne commander@2.9.0
+594 silly resolved [ { name: 'commander',
+594 silly resolved     version: '2.9.0',
+594 silly resolved     description: 'the complete solution for node.js command-line programs',
+594 silly resolved     keywords: [ 'command', 'option', 'parser' ],
+594 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+594 silly resolved     license: 'MIT',
+594 silly resolved     repository: { type: 'git', url: 'https://github.com/tj/commander.js.git' },
+594 silly resolved     devDependencies: { should: '>= 0.0.1', sinon: '>=1.17.1' },
+594 silly resolved     scripts: { test: 'make test' },
+594 silly resolved     main: 'index',
+594 silly resolved     engines: { node: '>= 0.6.x' },
+594 silly resolved     files: [ 'index.js' ],
+594 silly resolved     dependencies: { 'graceful-readlink': '>= 1.0.0' },
+594 silly resolved     readme: '# Commander.js\n\n\n[![Build Status](https://api.travis-ci.org/tj/commander.js.svg)](http://travis-ci.org/tj/commander.js)\n[![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![Join the chat at https://gitter.im/tj/commander.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tj/commander.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n  The complete solution for [node.js](http://nodejs.org) command-line interfaces, inspired by Ruby\'s [commander](https://github.com/tj/commander).  \n  [API documentation](http://tj.github.com/commander.js/)\n\n\n## Installation\n\n    $ npm install commander\n\n## Option parsing\n\n Options with commander are defined with the `.option()` method, also serving as documentation for the options. The example below parses args and options from `process.argv`, leaving remaining args as the `program.args` array which were not consumed by options.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-p, --peppers\', \'Add peppers\')\n  .option(\'-P, --pineapple\', \'Add pineapple\')\n  .option(\'-b, --bbq-sauce\', \'Add bbq sauce\')\n  .option(\'-c, --cheese [type]\', \'Add the specified type of cheese [marble]\', \'marble\')\n  .parse(process.argv);\n\nconsole.log(\'you ordered a pizza with:\');\nif (program.peppers) console.log(\'  - peppers\');\nif (program.pineapple) console.log(\'  - pineapple\');\nif (program.bbqSauce) console.log(\'  - bbq\');\nconsole.log(\'  - %s cheese\', program.cheese);\n```\n\n Short flags may be passed as a single arg, for example `-abc` is equivalent to `-a -b -c`. Multi-word options such as "--template-engine" are camel-cased, becoming `program.templateEngine` etc.\n\n\n## Coercion\n\n```js\nfunction range(val) {\n  return val.split(\'..\').map(Number);\n}\n\nfunction list(val) {\n  return val.split(\',\');\n}\n\nfunction collect(val, memo) {\n  memo.push(val);\n  return memo;\n}\n\nfunction increaseVerbosity(v, total) {\n  return total + 1;\n}\n\nprogram\n  .version(\'0.0.1\')\n  .usage(\'[options] <file ...>\')\n  .option(\'-i, --integer <n>\', \'An integer argument\', parseInt)\n  .option(\'-f, --float <n>\', \'A float argument\', parseFloat)\n  .option(\'-r, --range <a>..<b>\', \'A range\', range)\n  .option(\'-l, --list <items>\', \'A list\', list)\n  .option(\'-o, --optional [value]\', \'An optional value\')\n  .option(\'-c, --collect [value]\', \'A repeatable value\', collect, [])\n  .option(\'-v, --verbose\', \'A value that can be increased\', increaseVerbosity, 0)\n  .parse(process.argv);\n\nconsole.log(\' int: %j\', program.integer);\nconsole.log(\' float: %j\', program.float);\nconsole.log(\' optional: %j\', program.optional);\nprogram.range = program.range || [];\nconsole.log(\' range: %j..%j\', program.range[0], program.range[1]);\nconsole.log(\' list: %j\', program.list);\nconsole.log(\' collect: %j\', program.collect);\nconsole.log(\' verbosity: %j\', program.verbose);\nconsole.log(\' args: %j\', program.args);\n```\n\n## Regular Expression\n```js\nprogram\n  .version(\'0.0.1\')\n  .option(\'-s --size <size>\', \'Pizza size\', /^(large|medium|small)$/i, \'medium\')\n  .option(\'-d --drink [drink]\', \'Drink\', /^(coke|pepsi|izze)$/i)\n  .parse(process.argv);\n  \nconsole.log(\' size: %j\', program.size);\nconsole.log(\' drink: %j\', program.drink);\n```\n\n## Variadic arguments\n\n The last argument of a command can be variadic, and only the last argument.  To make an argument variadic you have to\n append `...` to the argument name.  Here is an example:\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'rmdir <dir> [otherDirs...]\')\n  .action(function (dir, otherDirs) {\n    console.log(\'rmdir %s\', dir);\n    if (otherDirs) {\n      otherDirs.forEach(function (oDir) {\n        console.log(\'rmdir %s\', oDir);\n      });\n    }\n  });\n\nprogram.parse(process.argv);\n```\n\n An `Array` is used for the value of a variadic argument.  This applies to `program.args` as well as the argument passed\n to your action as demonstrated above.\n\n## Specify the argument syntax\n\n```js\n#!/usr/bin/env node\n\nvar program = require(\'../\');\n\nprogram\n  .version(\'0.0.1\')\n  .arguments(\'<cmd> [env]\')\n  .action(function (cmd, env) {\n     cmdValue = cmd;\n     envValue = env;\n  });\n\nprogram.parse(process.argv);\n\nif (typeof cmdValue === \'undefined\') {\n   console.error(\'no command given!\');\n   process.exit(1);\n}\nconsole.log(\'command:\', cmdValue);\nconsole.log(\'environment:\', envValue || "no environment given");\n```\n\n## Git-style sub-commands\n\n```js\n// file: ./examples/pm\nvar program = require(\'..\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'install [name]\', \'install one or more packages\')\n  .command(\'search [query]\', \'search with optional query\')\n  .command(\'list\', \'list packages installed\', {isDefault: true})\n  .parse(process.argv);\n```\n\nWhen `.command()` is invoked with a description argument, no `.action(callback)` should be called to handle sub-commands, otherwise there will be an error. This tells commander that you\'re going to use separate executables for sub-commands, much like `git(1)` and other popular tools.  \nThe commander will try to search the executables in the directory of the entry script (like `./examples/pm`) with the name `program-command`, like `pm-install`, `pm-search`.\n\nOptions can be passed with the call to `.command()`. Specifying `true` for `opts.noHelp` will remove the option from the generated help output. Specifying `true` for `opts.isDefault` will run the subcommand if no other subcommand is specified.\n\nIf the program is designed to be installed globally, make sure the executables have proper modes, like `755`.\n\n### `--harmony`\n\nYou can enable `--harmony` option in two ways:\n* Use `#! /usr/bin/env node --harmony` in the sub-commands scripts. Note some os version don’t support this pattern.\n* Use the `--harmony` option when call the command, like `node --harmony examples/pm publish`. The `--harmony` option will be preserved when spawning sub-command process.\n\n## Automated --help\n\n The help information is auto-generated based on the information commander already knows about your program, so the following `--help` info is for free:\n\n```  \n $ ./examples/pizza --help\n\n   Usage: pizza [options]\n\n   An application for pizzas ordering\n\n   Options:\n\n     -h, --help           output usage information\n     -V, --version        output the version number\n     -p, --peppers        Add peppers\n     -P, --pineapple      Add pineapple\n     -b, --bbq            Add bbq sauce\n     -c, --cheese <type>  Add the specified type of cheese [marble]\n     -C, --no-cheese      You do not want any cheese\n\n```\n\n## Custom help\n\n You can display arbitrary `-h, --help` information\n by listening for "--help". Commander will automatically\n exit once you are done so that the remainder of your program\n does not execute causing undesired behaviours, for example\n in the following executable "stuff" will not output when\n `--help` is used.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-f, --foo\', \'enable some foo\')\n  .option(\'-b, --bar\', \'enable some bar\')\n  .option(\'-B, --baz\', \'enable some baz\');\n\n// must be before .parse() since\n// node\'s emit() is immediate\n\nprogram.on(\'--help\', function(){\n  console.log(\'  Examples:\');\n  console.log(\'\');\n  console.log(\'    $ custom-help --help\');\n  console.log(\'    $ custom-help -h\');\n  console.log(\'\');\n});\n\nprogram.parse(process.argv);\n\nconsole.log(\'stuff\');\n```\n\nYields the following help output when `node script-name.js -h` or `node script-name.js --help` are run:\n\n```\n\nUsage: custom-help [options]\n\nOptions:\n\n  -h, --help     output usage information\n  -V, --version  output the version number\n  -f, --foo      enable some foo\n  -b, --bar      enable some bar\n  -B, --baz      enable some baz\n\nExamples:\n\n  $ custom-help --help\n  $ custom-help -h\n\n```\n\n## .outputHelp(cb)\n\nOutput help information without exiting.\nOptional callback cb allows post-processing of help text before it is displayed.\n\nIf you want to display help by default (e.g. if no command was provided), you can use something like:\n\n```js\nvar program = require(\'commander\');\nvar colors = require(\'colors\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'getstream [url]\', \'get stream URL\')\n  .parse(process.argv);\n\n  if (!process.argv.slice(2).length) {\n    program.outputHelp(make_red);\n  }\n\nfunction make_red(txt) {\n  return colors.red(txt); //display the help text in red on the console\n}\n```\n\n## .help(cb)\n\n  Output help information and exit immediately.\n  Optional callback cb allows post-processing of help text before it is displayed.\n\n## Examples\n\n```js\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-C, --chdir <path>\', \'change the working directory\')\n  .option(\'-c, --config <path>\', \'set config path. defaults to ./deploy.conf\')\n  .option(\'-T, --no-tests\', \'ignore test hook\')\n\nprogram\n  .command(\'setup [env]\')\n  .description(\'run setup commands for all envs\')\n  .option("-s, --setup_mode [mode]", "Which setup mode to use")\n  .action(function(env, options){\n    var mode = options.setup_mode || "normal";\n    env = env || \'all\';\n    console.log(\'setup for %s env(s) with %s mode\', env, mode);\n  });\n\nprogram\n  .command(\'exec <cmd>\')\n  .alias(\'ex\')\n  .description(\'execute the given remote cmd\')\n  .option("-e, --exec_mode <mode>", "Which exec mode to use")\n  .action(function(cmd, options){\n    console.log(\'exec "%s" using %s mode\', cmd, options.exec_mode);\n  }).on(\'--help\', function() {\n    console.log(\'  Examples:\');\n    console.log();\n    console.log(\'    $ deploy exec sequential\');\n    console.log(\'    $ deploy exec async\');\n    console.log();\n  });\n\nprogram\n  .command(\'*\')\n  .action(function(env){\n    console.log(\'deploying "%s"\', env);\n  });\n\nprogram.parse(process.argv);\n```\n\nMore Demos can be found in the [examples](https://github.com/tj/commander.js/tree/master/examples) directory.\n\n## License\n\nMIT\n\n',
+594 silly resolved     readmeFilename: 'Readme.md',
+594 silly resolved     bugs: { url: 'https://github.com/tj/commander.js/issues' },
+594 silly resolved     _id: 'commander@2.9.0',
+594 silly resolved     dist: { shasum: '63c70d1c72fa14ec84a8a26bc49312d71b970804' },
+594 silly resolved     _from: 'commander@2',
+594 silly resolved     _resolved: 'https://registry.npmjs.org/commander/-/commander-2.9.0.tgz' } ]
+595 info install commander@2.9.0 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+596 info installOne commander@2.9.0
+597 silly resolved [ { name: 'commander',
+597 silly resolved     version: '2.9.0',
+597 silly resolved     description: 'the complete solution for node.js command-line programs',
+597 silly resolved     keywords: [ 'command', 'option', 'parser' ],
+597 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+597 silly resolved     license: 'MIT',
+597 silly resolved     repository: { type: 'git', url: 'https://github.com/tj/commander.js.git' },
+597 silly resolved     devDependencies: { should: '>= 0.0.1', sinon: '>=1.17.1' },
+597 silly resolved     scripts: { test: 'make test' },
+597 silly resolved     main: 'index',
+597 silly resolved     engines: { node: '>= 0.6.x' },
+597 silly resolved     files: [ 'index.js' ],
+597 silly resolved     dependencies: { 'graceful-readlink': '>= 1.0.0' },
+597 silly resolved     readme: '# Commander.js\n\n\n[![Build Status](https://api.travis-ci.org/tj/commander.js.svg)](http://travis-ci.org/tj/commander.js)\n[![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![Join the chat at https://gitter.im/tj/commander.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tj/commander.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n  The complete solution for [node.js](http://nodejs.org) command-line interfaces, inspired by Ruby\'s [commander](https://github.com/tj/commander).  \n  [API documentation](http://tj.github.com/commander.js/)\n\n\n## Installation\n\n    $ npm install commander\n\n## Option parsing\n\n Options with commander are defined with the `.option()` method, also serving as documentation for the options. The example below parses args and options from `process.argv`, leaving remaining args as the `program.args` array which were not consumed by options.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-p, --peppers\', \'Add peppers\')\n  .option(\'-P, --pineapple\', \'Add pineapple\')\n  .option(\'-b, --bbq-sauce\', \'Add bbq sauce\')\n  .option(\'-c, --cheese [type]\', \'Add the specified type of cheese [marble]\', \'marble\')\n  .parse(process.argv);\n\nconsole.log(\'you ordered a pizza with:\');\nif (program.peppers) console.log(\'  - peppers\');\nif (program.pineapple) console.log(\'  - pineapple\');\nif (program.bbqSauce) console.log(\'  - bbq\');\nconsole.log(\'  - %s cheese\', program.cheese);\n```\n\n Short flags may be passed as a single arg, for example `-abc` is equivalent to `-a -b -c`. Multi-word options such as "--template-engine" are camel-cased, becoming `program.templateEngine` etc.\n\n\n## Coercion\n\n```js\nfunction range(val) {\n  return val.split(\'..\').map(Number);\n}\n\nfunction list(val) {\n  return val.split(\',\');\n}\n\nfunction collect(val, memo) {\n  memo.push(val);\n  return memo;\n}\n\nfunction increaseVerbosity(v, total) {\n  return total + 1;\n}\n\nprogram\n  .version(\'0.0.1\')\n  .usage(\'[options] <file ...>\')\n  .option(\'-i, --integer <n>\', \'An integer argument\', parseInt)\n  .option(\'-f, --float <n>\', \'A float argument\', parseFloat)\n  .option(\'-r, --range <a>..<b>\', \'A range\', range)\n  .option(\'-l, --list <items>\', \'A list\', list)\n  .option(\'-o, --optional [value]\', \'An optional value\')\n  .option(\'-c, --collect [value]\', \'A repeatable value\', collect, [])\n  .option(\'-v, --verbose\', \'A value that can be increased\', increaseVerbosity, 0)\n  .parse(process.argv);\n\nconsole.log(\' int: %j\', program.integer);\nconsole.log(\' float: %j\', program.float);\nconsole.log(\' optional: %j\', program.optional);\nprogram.range = program.range || [];\nconsole.log(\' range: %j..%j\', program.range[0], program.range[1]);\nconsole.log(\' list: %j\', program.list);\nconsole.log(\' collect: %j\', program.collect);\nconsole.log(\' verbosity: %j\', program.verbose);\nconsole.log(\' args: %j\', program.args);\n```\n\n## Regular Expression\n```js\nprogram\n  .version(\'0.0.1\')\n  .option(\'-s --size <size>\', \'Pizza size\', /^(large|medium|small)$/i, \'medium\')\n  .option(\'-d --drink [drink]\', \'Drink\', /^(coke|pepsi|izze)$/i)\n  .parse(process.argv);\n  \nconsole.log(\' size: %j\', program.size);\nconsole.log(\' drink: %j\', program.drink);\n```\n\n## Variadic arguments\n\n The last argument of a command can be variadic, and only the last argument.  To make an argument variadic you have to\n append `...` to the argument name.  Here is an example:\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'rmdir <dir> [otherDirs...]\')\n  .action(function (dir, otherDirs) {\n    console.log(\'rmdir %s\', dir);\n    if (otherDirs) {\n      otherDirs.forEach(function (oDir) {\n        console.log(\'rmdir %s\', oDir);\n      });\n    }\n  });\n\nprogram.parse(process.argv);\n```\n\n An `Array` is used for the value of a variadic argument.  This applies to `program.args` as well as the argument passed\n to your action as demonstrated above.\n\n## Specify the argument syntax\n\n```js\n#!/usr/bin/env node\n\nvar program = require(\'../\');\n\nprogram\n  .version(\'0.0.1\')\n  .arguments(\'<cmd> [env]\')\n  .action(function (cmd, env) {\n     cmdValue = cmd;\n     envValue = env;\n  });\n\nprogram.parse(process.argv);\n\nif (typeof cmdValue === \'undefined\') {\n   console.error(\'no command given!\');\n   process.exit(1);\n}\nconsole.log(\'command:\', cmdValue);\nconsole.log(\'environment:\', envValue || "no environment given");\n```\n\n## Git-style sub-commands\n\n```js\n// file: ./examples/pm\nvar program = require(\'..\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'install [name]\', \'install one or more packages\')\n  .command(\'search [query]\', \'search with optional query\')\n  .command(\'list\', \'list packages installed\', {isDefault: true})\n  .parse(process.argv);\n```\n\nWhen `.command()` is invoked with a description argument, no `.action(callback)` should be called to handle sub-commands, otherwise there will be an error. This tells commander that you\'re going to use separate executables for sub-commands, much like `git(1)` and other popular tools.  \nThe commander will try to search the executables in the directory of the entry script (like `./examples/pm`) with the name `program-command`, like `pm-install`, `pm-search`.\n\nOptions can be passed with the call to `.command()`. Specifying `true` for `opts.noHelp` will remove the option from the generated help output. Specifying `true` for `opts.isDefault` will run the subcommand if no other subcommand is specified.\n\nIf the program is designed to be installed globally, make sure the executables have proper modes, like `755`.\n\n### `--harmony`\n\nYou can enable `--harmony` option in two ways:\n* Use `#! /usr/bin/env node --harmony` in the sub-commands scripts. Note some os version don’t support this pattern.\n* Use the `--harmony` option when call the command, like `node --harmony examples/pm publish`. The `--harmony` option will be preserved when spawning sub-command process.\n\n## Automated --help\n\n The help information is auto-generated based on the information commander already knows about your program, so the following `--help` info is for free:\n\n```  \n $ ./examples/pizza --help\n\n   Usage: pizza [options]\n\n   An application for pizzas ordering\n\n   Options:\n\n     -h, --help           output usage information\n     -V, --version        output the version number\n     -p, --peppers        Add peppers\n     -P, --pineapple      Add pineapple\n     -b, --bbq            Add bbq sauce\n     -c, --cheese <type>  Add the specified type of cheese [marble]\n     -C, --no-cheese      You do not want any cheese\n\n```\n\n## Custom help\n\n You can display arbitrary `-h, --help` information\n by listening for "--help". Commander will automatically\n exit once you are done so that the remainder of your program\n does not execute causing undesired behaviours, for example\n in the following executable "stuff" will not output when\n `--help` is used.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-f, --foo\', \'enable some foo\')\n  .option(\'-b, --bar\', \'enable some bar\')\n  .option(\'-B, --baz\', \'enable some baz\');\n\n// must be before .parse() since\n// node\'s emit() is immediate\n\nprogram.on(\'--help\', function(){\n  console.log(\'  Examples:\');\n  console.log(\'\');\n  console.log(\'    $ custom-help --help\');\n  console.log(\'    $ custom-help -h\');\n  console.log(\'\');\n});\n\nprogram.parse(process.argv);\n\nconsole.log(\'stuff\');\n```\n\nYields the following help output when `node script-name.js -h` or `node script-name.js --help` are run:\n\n```\n\nUsage: custom-help [options]\n\nOptions:\n\n  -h, --help     output usage information\n  -V, --version  output the version number\n  -f, --foo      enable some foo\n  -b, --bar      enable some bar\n  -B, --baz      enable some baz\n\nExamples:\n\n  $ custom-help --help\n  $ custom-help -h\n\n```\n\n## .outputHelp(cb)\n\nOutput help information without exiting.\nOptional callback cb allows post-processing of help text before it is displayed.\n\nIf you want to display help by default (e.g. if no command was provided), you can use something like:\n\n```js\nvar program = require(\'commander\');\nvar colors = require(\'colors\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'getstream [url]\', \'get stream URL\')\n  .parse(process.argv);\n\n  if (!process.argv.slice(2).length) {\n    program.outputHelp(make_red);\n  }\n\nfunction make_red(txt) {\n  return colors.red(txt); //display the help text in red on the console\n}\n```\n\n## .help(cb)\n\n  Output help information and exit immediately.\n  Optional callback cb allows post-processing of help text before it is displayed.\n\n## Examples\n\n```js\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-C, --chdir <path>\', \'change the working directory\')\n  .option(\'-c, --config <path>\', \'set config path. defaults to ./deploy.conf\')\n  .option(\'-T, --no-tests\', \'ignore test hook\')\n\nprogram\n  .command(\'setup [env]\')\n  .description(\'run setup commands for all envs\')\n  .option("-s, --setup_mode [mode]", "Which setup mode to use")\n  .action(function(env, options){\n    var mode = options.setup_mode || "normal";\n    env = env || \'all\';\n    console.log(\'setup for %s env(s) with %s mode\', env, mode);\n  });\n\nprogram\n  .command(\'exec <cmd>\')\n  .alias(\'ex\')\n  .description(\'execute the given remote cmd\')\n  .option("-e, --exec_mode <mode>", "Which exec mode to use")\n  .action(function(cmd, options){\n    console.log(\'exec "%s" using %s mode\', cmd, options.exec_mode);\n  }).on(\'--help\', function() {\n    console.log(\'  Examples:\');\n    console.log();\n    console.log(\'    $ deploy exec sequential\');\n    console.log(\'    $ deploy exec async\');\n    console.log();\n  });\n\nprogram\n  .command(\'*\')\n  .action(function(env){\n    console.log(\'deploying "%s"\', env);\n  });\n\nprogram.parse(process.argv);\n```\n\nMore Demos can be found in the [examples](https://github.com/tj/commander.js/tree/master/examples) directory.\n\n## License\n\nMIT\n\n',
+597 silly resolved     readmeFilename: 'Readme.md',
+597 silly resolved     bugs: { url: 'https://github.com/tj/commander.js/issues' },
+597 silly resolved     _id: 'commander@2.9.0',
+597 silly resolved     dist: { shasum: '63c70d1c72fa14ec84a8a26bc49312d71b970804' },
+597 silly resolved     _from: 'commander@2',
+597 silly resolved     _resolved: 'https://registry.npmjs.org/commander/-/commander-2.9.0.tgz' } ]
+598 info install commander@2.9.0 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client
+599 info installOne commander@2.9.0
+600 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander unbuild
+601 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander unbuild
+602 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander unbuild
+603 verbose tar unpack /home/vagrant/.npm/commander/2.9.0/package.tgz
+604 silly lockFile 6373a57e--simplify-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+605 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander /home/vagrant/.npm/6373a57e--simplify-node-modules-commander.lock
+606 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+607 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package.tgz /home/vagrant/.npm/1d00ec79--npm-commander-2-9-0-package-tgz.lock
+608 verbose tar unpack /home/vagrant/.npm/commander/2.9.0/package.tgz
+609 silly lockFile dfd1f1c5-on-server-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+610 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander /home/vagrant/.npm/dfd1f1c5-on-server-node-modules-commander.lock
+611 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+612 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package.tgz /home/vagrant/.npm/1d00ec79--npm-commander-2-9-0-package-tgz.lock
+613 verbose tar unpack /home/vagrant/.npm/commander/2.9.0/package.tgz
+614 silly lockFile fa2b24bc-on-client-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander
+615 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander /home/vagrant/.npm/fa2b24bc-on-client-node-modules-commander.lock
+616 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+617 verbose lock tar:///home/vagrant/.npm/commander/2.9.0/package.tgz /home/vagrant/.npm/1d00ec79--npm-commander-2-9-0-package-tgz.lock
+618 silly gunzTarPerm modes [ '755', '644' ]
+619 silly gunzTarPerm extractEntry package.json
+620 silly gunzTarPerm extractEntry index.js
+621 silly gunzTarPerm extractEntry Readme.md
+622 silly lockFile 6373a57e--simplify-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+623 silly lockFile 6373a57e--simplify-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+624 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+625 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+626 info preinstall commander@2.9.0
+627 verbose readDependencies using package.json deps
+628 verbose readDependencies using package.json deps
+629 verbose cache add [ 'graceful-readlink@>= 1.0.0', null ]
+630 verbose cache add name=undefined spec="graceful-readlink@>= 1.0.0" args=["graceful-readlink@>= 1.0.0",null]
+631 verbose parsed url { protocol: null,
+631 verbose parsed url   slashes: null,
+631 verbose parsed url   auth: null,
+631 verbose parsed url   host: null,
+631 verbose parsed url   port: null,
+631 verbose parsed url   hostname: null,
+631 verbose parsed url   hash: null,
+631 verbose parsed url   search: null,
+631 verbose parsed url   query: null,
+631 verbose parsed url   pathname: 'graceful-readlink@%3E=%201.0.0',
+631 verbose parsed url   path: 'graceful-readlink@%3E=%201.0.0',
+631 verbose parsed url   href: 'graceful-readlink@%3E=%201.0.0' }
+632 verbose cache add name="graceful-readlink" spec=">= 1.0.0" args=["graceful-readlink",">= 1.0.0"]
+633 verbose parsed url { protocol: null,
+633 verbose parsed url   slashes: null,
+633 verbose parsed url   auth: null,
+633 verbose parsed url   host: null,
+633 verbose parsed url   port: null,
+633 verbose parsed url   hostname: null,
+633 verbose parsed url   hash: null,
+633 verbose parsed url   search: null,
+633 verbose parsed url   query: null,
+633 verbose parsed url   pathname: '%3E=%201.0.0',
+633 verbose parsed url   path: '%3E=%201.0.0',
+633 verbose parsed url   href: '%3E=%201.0.0' }
+634 verbose addNamed [ 'graceful-readlink', '>= 1.0.0' ]
+635 verbose addNamed [ null, '>=1.0.0' ]
+636 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+637 verbose lock graceful-readlink@>= 1.0.0 /home/vagrant/.npm/a12a5266-graceful-readlink-1-0-0.lock
+638 silly addNameRange { name: 'graceful-readlink', range: '>=1.0.0', hasData: false }
+639 verbose url raw graceful-readlink
+640 verbose url resolving [ 'https://registry.npmjs.org/', './graceful-readlink' ]
+641 verbose url resolved https://registry.npmjs.org/graceful-readlink
+642 info trying registry request attempt 1 at 16:49:44
+643 http GET https://registry.npmjs.org/graceful-readlink
+644 silly gunzTarPerm modes [ '755', '644' ]
+645 http 200 https://registry.npmjs.org/graceful-readlink
+646 silly registry.get cb [ 200,
+646 silly registry.get   { server: 'nginx/1.10.1',
+646 silly registry.get     'content-type': 'application/json',
+646 silly registry.get     'last-modified': 'Sat, 24 Dec 2016 22:39:10 GMT',
+646 silly registry.get     etag: '"585ef90e-c1b"',
+646 silly registry.get     'cache-control': 'max-age=300',
+646 silly registry.get     'content-length': '3099',
+646 silly registry.get     'accept-ranges': 'bytes',
+646 silly registry.get     date: 'Mon, 15 May 2017 16:49:44 GMT',
+646 silly registry.get     via: '1.1 varnish',
+646 silly registry.get     age: '69',
+646 silly registry.get     connection: 'keep-alive',
+646 silly registry.get     'x-served-by': 'cache-iad2642-IAD',
+646 silly registry.get     'x-cache': 'HIT',
+646 silly registry.get     'x-cache-hits': '1',
+646 silly registry.get     'x-timer': 'S1494866985.915798,VS0,VE0',
+646 silly registry.get     vary: 'Accept-Encoding' } ]
+647 silly addNameRange number 2 { name: 'graceful-readlink', range: '>=1.0.0', hasData: true }
+648 silly addNameRange versions [ 'graceful-readlink', [ '1.0.0', '1.0.1' ] ]
+649 verbose addNamed [ 'graceful-readlink', '1.0.1' ]
+650 verbose addNamed [ '1.0.1', '1.0.1' ]
+651 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+652 verbose lock graceful-readlink@1.0.1 /home/vagrant/.npm/105b07a8-graceful-readlink-1-0-1.lock
+653 silly lockFile e4fa26ed-link-graceful-readlink-1-0-1-tgz https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz
+654 verbose lock https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz /home/vagrant/.npm/e4fa26ed-link-graceful-readlink-1-0-1-tgz.lock
+655 verbose addRemoteTarball [ 'https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz',
+655 verbose addRemoteTarball   '4cafad76bc62f02fa039b2f94e9a3dd3a391a725' ]
+656 info retry fetch attempt 1 at 16:49:44
+657 verbose fetch to= /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz
+658 http GET https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz
+659 silly gunzTarPerm extractEntry package.json
+660 silly gunzTarPerm extractEntry index.js
+661 silly gunzTarPerm extractEntry Readme.md
+662 http 200 https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz
+663 verbose tar unpack /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz
+664 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+665 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package /home/vagrant/.npm/3d911070-4897-0-49382388102822006-package.lock
+666 silly lockFile 66be8b12-4897-0-49382388102822006-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz
+667 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz /home/vagrant/.npm/66be8b12-4897-0-49382388102822006-tmp-tgz.lock
+668 silly gunzTarPerm modes [ '755', '644' ]
+669 silly gunzTarPerm extractEntry package.json
+670 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+671 silly gunzTarPerm extractEntry .npmignore
+672 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+673 silly gunzTarPerm extractEntry README.md
+674 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+675 silly gunzTarPerm extractEntry LICENSE
+676 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+677 silly gunzTarPerm extractEntry index.js
+678 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+679 silly gunzTarPerm extractEntry .travis.yml
+680 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+681 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+682 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+683 silly lockFile 66be8b12-4897-0-49382388102822006-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz
+684 silly lockFile 66be8b12-4897-0-49382388102822006-tmp-tgz tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/tmp.tgz
+685 verbose tar pack [ '/home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz',
+685 verbose tar pack   '/home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package' ]
+686 verbose tarball /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+687 verbose folder /home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+688 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+689 verbose lock tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package /home/vagrant/.npm/3d911070-4897-0-49382388102822006-package.lock
+690 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+691 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz /home/vagrant/.npm/6b54f123-ceful-readlink-1-0-1-package-tgz.lock
+692 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+693 silly lockFile 3d911070-4897-0-49382388102822006-package tar:///home/vagrant/tmp/npm-3124-aKMiccxh/1494866984897-0.49382388102822006/package
+694 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+695 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+696 silly lockFile 4cd97498--graceful-readlink-1-0-1-package /home/vagrant/.npm/graceful-readlink/1.0.1/package
+697 verbose lock /home/vagrant/.npm/graceful-readlink/1.0.1/package /home/vagrant/.npm/4cd97498--graceful-readlink-1-0-1-package.lock
+698 silly lockFile 4cd97498--graceful-readlink-1-0-1-package /home/vagrant/.npm/graceful-readlink/1.0.1/package
+699 silly lockFile 4cd97498--graceful-readlink-1-0-1-package /home/vagrant/.npm/graceful-readlink/1.0.1/package
+700 verbose tar unpack /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+701 silly lockFile 7d938b77--graceful-readlink-1-0-1-package tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package
+702 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package /home/vagrant/.npm/7d938b77--graceful-readlink-1-0-1-package.lock
+703 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+704 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz /home/vagrant/.npm/6b54f123-ceful-readlink-1-0-1-package-tgz.lock
+705 silly gunzTarPerm modes [ '755', '644' ]
+706 silly gunzTarPerm extractEntry package.json
+707 silly gunzTarPerm extractEntry .npmignore
+708 silly gunzTarPerm extractEntry README.md
+709 silly gunzTarPerm extractEntry LICENSE
+710 silly gunzTarPerm extractEntry index.js
+711 silly gunzTarPerm extractEntry .travis.yml
+712 silly lockFile 7d938b77--graceful-readlink-1-0-1-package tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package
+713 silly lockFile 7d938b77--graceful-readlink-1-0-1-package tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package
+714 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+715 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+716 verbose chmod /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz 644
+717 verbose chown /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz [ 1000, 1000 ]
+718 silly lockFile e4fa26ed-link-graceful-readlink-1-0-1-tgz https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz
+719 silly lockFile e4fa26ed-link-graceful-readlink-1-0-1-tgz https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz
+720 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+721 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+722 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+723 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+724 silly resolved [ { name: 'graceful-readlink',
+724 silly resolved     version: '1.0.1',
+724 silly resolved     description: 'graceful fs.readlink',
+724 silly resolved     main: 'index.js',
+724 silly resolved     repository:
+724 silly resolved      { type: 'git',
+724 silly resolved        url: 'git://github.com/zhiyelee/graceful-readlink.git' },
+724 silly resolved     homepage: 'https://github.com/zhiyelee/graceful-readlink',
+724 silly resolved     bugs: { url: 'https://github.com/zhiyelee/graceful-readlink/issues' },
+724 silly resolved     keywords: [ 'fs.readlink', 'readlink' ],
+724 silly resolved     author: { name: 'zhiyelee' },
+724 silly resolved     license: 'MIT',
+724 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+724 silly resolved     readme: '# graceful-readlink\n[![NPM Version](http://img.shields.io/npm/v/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n[![NPM Downloads](https://img.shields.io/npm/dm/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n\n\n## Usage\n\n```js\nvar readlinkSync = require(\'graceful-readlink\').readlinkSync;\nconsole.log(readlinkSync(f));\n// output\n//  the file pointed to when `f` is a symbolic link\n//  the `f` itself when `f` is not a symbolic link\n```\n## Licence\n\nMIT License\n',
+724 silly resolved     readmeFilename: 'README.md',
+724 silly resolved     _id: 'graceful-readlink@1.0.1',
+724 silly resolved     dist: { shasum: 'cf10bfca2709fde0f05d4161396c1b56c54b88d7' },
+724 silly resolved     _from: 'graceful-readlink@>= 1.0.0',
+724 silly resolved     _resolved: 'https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz' } ]
+725 info install graceful-readlink@1.0.1 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+726 info installOne graceful-readlink@1.0.1
+727 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink unbuild
+728 verbose tar unpack /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+729 silly lockFile 9436072e-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink
+730 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink /home/vagrant/.npm/9436072e-r-node-modules-graceful-readlink.lock
+731 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+732 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz /home/vagrant/.npm/6b54f123-ceful-readlink-1-0-1-package-tgz.lock
+733 silly gunzTarPerm modes [ '755', '644' ]
+734 silly gunzTarPerm extractEntry package.json
+735 silly gunzTarPerm extractEntry .npmignore
+736 silly gunzTarPerm extractEntry README.md
+737 silly lockFile dfd1f1c5-on-server-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+738 silly lockFile dfd1f1c5-on-server-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+739 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+740 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+741 info preinstall commander@2.9.0
+742 verbose readDependencies using package.json deps
+743 verbose readDependencies using package.json deps
+744 silly gunzTarPerm extractEntry LICENSE
+745 silly gunzTarPerm extractEntry index.js
+746 verbose cache add [ 'graceful-readlink@>= 1.0.0', null ]
+747 verbose cache add name=undefined spec="graceful-readlink@>= 1.0.0" args=["graceful-readlink@>= 1.0.0",null]
+748 verbose parsed url { protocol: null,
+748 verbose parsed url   slashes: null,
+748 verbose parsed url   auth: null,
+748 verbose parsed url   host: null,
+748 verbose parsed url   port: null,
+748 verbose parsed url   hostname: null,
+748 verbose parsed url   hash: null,
+748 verbose parsed url   search: null,
+748 verbose parsed url   query: null,
+748 verbose parsed url   pathname: 'graceful-readlink@%3E=%201.0.0',
+748 verbose parsed url   path: 'graceful-readlink@%3E=%201.0.0',
+748 verbose parsed url   href: 'graceful-readlink@%3E=%201.0.0' }
+749 verbose cache add name="graceful-readlink" spec=">= 1.0.0" args=["graceful-readlink",">= 1.0.0"]
+750 verbose parsed url { protocol: null,
+750 verbose parsed url   slashes: null,
+750 verbose parsed url   auth: null,
+750 verbose parsed url   host: null,
+750 verbose parsed url   port: null,
+750 verbose parsed url   hostname: null,
+750 verbose parsed url   hash: null,
+750 verbose parsed url   search: null,
+750 verbose parsed url   query: null,
+750 verbose parsed url   pathname: '%3E=%201.0.0',
+750 verbose parsed url   path: '%3E=%201.0.0',
+750 verbose parsed url   href: '%3E=%201.0.0' }
+751 verbose addNamed [ 'graceful-readlink', '>= 1.0.0' ]
+752 verbose addNamed [ null, '>=1.0.0' ]
+753 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+754 verbose lock graceful-readlink@>= 1.0.0 /home/vagrant/.npm/a12a5266-graceful-readlink-1-0-0.lock
+755 silly addNameRange { name: 'graceful-readlink', range: '>=1.0.0', hasData: false }
+756 verbose registry.get graceful-readlink not expired, no request
+757 silly addNameRange number 2 { name: 'graceful-readlink', range: '>=1.0.0', hasData: true }
+758 silly addNameRange versions [ 'graceful-readlink', [ '1.0.0', '1.0.1' ] ]
+759 verbose addNamed [ 'graceful-readlink', '1.0.1' ]
+760 verbose addNamed [ '1.0.1', '1.0.1' ]
+761 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+762 verbose lock graceful-readlink@1.0.1 /home/vagrant/.npm/105b07a8-graceful-readlink-1-0-1.lock
+763 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+764 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+765 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+766 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+767 silly resolved [ { name: 'graceful-readlink',
+767 silly resolved     version: '1.0.1',
+767 silly resolved     description: 'graceful fs.readlink',
+767 silly resolved     main: 'index.js',
+767 silly resolved     repository:
+767 silly resolved      { type: 'git',
+767 silly resolved        url: 'git://github.com/zhiyelee/graceful-readlink.git' },
+767 silly resolved     homepage: 'https://github.com/zhiyelee/graceful-readlink',
+767 silly resolved     bugs: { url: 'https://github.com/zhiyelee/graceful-readlink/issues' },
+767 silly resolved     keywords: [ 'fs.readlink', 'readlink' ],
+767 silly resolved     author: { name: 'zhiyelee' },
+767 silly resolved     license: 'MIT',
+767 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+767 silly resolved     readme: '# graceful-readlink\n[![NPM Version](http://img.shields.io/npm/v/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n[![NPM Downloads](https://img.shields.io/npm/dm/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n\n\n## Usage\n\n```js\nvar readlinkSync = require(\'graceful-readlink\').readlinkSync;\nconsole.log(readlinkSync(f));\n// output\n//  the file pointed to when `f` is a symbolic link\n//  the `f` itself when `f` is not a symbolic link\n```\n## Licence\n\nMIT License\n',
+767 silly resolved     readmeFilename: 'README.md',
+767 silly resolved     _id: 'graceful-readlink@1.0.1',
+767 silly resolved     dist: { shasum: 'cf10bfca2709fde0f05d4161396c1b56c54b88d7' },
+767 silly resolved     _from: 'graceful-readlink@>= 1.0.0',
+767 silly resolved     _resolved: 'https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz' } ]
+768 info install graceful-readlink@1.0.1 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+769 info installOne graceful-readlink@1.0.1
+770 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink unbuild
+771 verbose tar unpack /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+772 silly lockFile 7924d286-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink
+773 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink /home/vagrant/.npm/7924d286-r-node-modules-graceful-readlink.lock
+774 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+775 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz /home/vagrant/.npm/6b54f123-ceful-readlink-1-0-1-package-tgz.lock
+776 silly gunzTarPerm extractEntry .travis.yml
+777 silly gunzTarPerm modes [ '755', '644' ]
+778 silly gunzTarPerm extractEntry package.json
+779 silly gunzTarPerm extractEntry index.js
+780 silly gunzTarPerm extractEntry Readme.md
+781 silly lockFile 9436072e-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink
+782 silly lockFile 9436072e-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink
+783 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+784 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+785 info preinstall graceful-readlink@1.0.1
+786 verbose readDependencies using package.json deps
+787 silly gunzTarPerm modes [ '755', '644' ]
+788 verbose readDependencies using package.json deps
+789 silly resolved []
+790 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink
+791 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules/graceful-readlink
+792 verbose linkStuff [ false,
+792 verbose linkStuff   false,
+792 verbose linkStuff   false,
+792 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander/node_modules' ]
+793 info linkStuff graceful-readlink@1.0.1
+794 verbose linkBins graceful-readlink@1.0.1
+795 verbose linkMans graceful-readlink@1.0.1
+796 verbose rebuildBundles graceful-readlink@1.0.1
+797 info install graceful-readlink@1.0.1
+798 silly gunzTarPerm extractEntry package.json
+799 info postinstall graceful-readlink@1.0.1
+800 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+801 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules/commander
+802 verbose linkStuff [ false,
+802 verbose linkStuff   false,
+802 verbose linkStuff   false,
+802 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify/node_modules' ]
+803 info linkStuff commander@2.9.0
+804 silly gunzTarPerm extractEntry .npmignore
+805 silly gunzTarPerm extractEntry README.md
+806 verbose linkBins commander@2.9.0
+807 verbose linkMans commander@2.9.0
+808 verbose rebuildBundles commander@2.9.0
+809 verbose rebuildBundles [ 'graceful-readlink' ]
+810 info install commander@2.9.0
+811 info postinstall commander@2.9.0
+812 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+813 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify
+814 verbose linkStuff [ false,
+814 verbose linkStuff   false,
+814 verbose linkStuff   false,
+814 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules' ]
+815 info linkStuff topojson-simplify@3.0.0
+816 verbose linkBins topojson-simplify@3.0.0
+817 verbose link bins [ { toposimplify: 'bin/toposimplify' },
+817 verbose link bins   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/.bin',
+817 verbose link bins   false ]
+818 verbose linkMans topojson-simplify@3.0.0
+819 verbose rebuildBundles topojson-simplify@3.0.0
+820 silly gunzTarPerm extractEntry LICENSE
+821 silly gunzTarPerm extractEntry index.js
+822 verbose rebuildBundles [ 'commander' ]
+823 silly lockFile fa2b24bc-on-client-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander
+824 silly lockFile fa2b24bc-on-client-node-modules-commander tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander
+825 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+826 silly lockFile 1d00ec79--npm-commander-2-9-0-package-tgz tar:///home/vagrant/.npm/commander/2.9.0/package.tgz
+827 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-simplify unbuild
+828 info preuninstall topojson-simplify@3.0.0
+829 info preinstall commander@2.9.0
+830 info uninstall topojson-simplify@3.0.0
+831 verbose false,/git/alexm-util/DevInit/node_modules,/git/alexm-util/DevInit/node_modules/topojson/node_modules unbuild topojson-simplify@3.0.0
+832 verbose /git/alexm-util/DevInit/node_modules/topojson/node_modules/.bin,[object Object] binRoot
+833 silly gunzTarPerm extractEntry .travis.yml
+834 verbose readDependencies using package.json deps
+835 info postuninstall topojson-simplify@3.0.0
+836 verbose readDependencies using package.json deps
+837 verbose cache add [ 'graceful-readlink@>= 1.0.0', null ]
+838 verbose cache add name=undefined spec="graceful-readlink@>= 1.0.0" args=["graceful-readlink@>= 1.0.0",null]
+839 verbose parsed url { protocol: null,
+839 verbose parsed url   slashes: null,
+839 verbose parsed url   auth: null,
+839 verbose parsed url   host: null,
+839 verbose parsed url   port: null,
+839 verbose parsed url   hostname: null,
+839 verbose parsed url   hash: null,
+839 verbose parsed url   search: null,
+839 verbose parsed url   query: null,
+839 verbose parsed url   pathname: 'graceful-readlink@%3E=%201.0.0',
+839 verbose parsed url   path: 'graceful-readlink@%3E=%201.0.0',
+839 verbose parsed url   href: 'graceful-readlink@%3E=%201.0.0' }
+840 verbose cache add name="graceful-readlink" spec=">= 1.0.0" args=["graceful-readlink",">= 1.0.0"]
+841 verbose parsed url { protocol: null,
+841 verbose parsed url   slashes: null,
+841 verbose parsed url   auth: null,
+841 verbose parsed url   host: null,
+841 verbose parsed url   port: null,
+841 verbose parsed url   hostname: null,
+841 verbose parsed url   hash: null,
+841 verbose parsed url   search: null,
+841 verbose parsed url   query: null,
+841 verbose parsed url   pathname: '%3E=%201.0.0',
+841 verbose parsed url   path: '%3E=%201.0.0',
+841 verbose parsed url   href: '%3E=%201.0.0' }
+842 verbose addNamed [ 'graceful-readlink', '>= 1.0.0' ]
+843 verbose addNamed [ null, '>=1.0.0' ]
+844 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+845 verbose lock graceful-readlink@>= 1.0.0 /home/vagrant/.npm/a12a5266-graceful-readlink-1-0-0.lock
+846 silly addNameRange { name: 'graceful-readlink', range: '>=1.0.0', hasData: false }
+847 verbose registry.get graceful-readlink not expired, no request
+848 silly addNameRange number 2 { name: 'graceful-readlink', range: '>=1.0.0', hasData: true }
+849 silly addNameRange versions [ 'graceful-readlink', [ '1.0.0', '1.0.1' ] ]
+850 verbose addNamed [ 'graceful-readlink', '1.0.1' ]
+851 verbose addNamed [ '1.0.1', '1.0.1' ]
+852 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+853 verbose lock graceful-readlink@1.0.1 /home/vagrant/.npm/105b07a8-graceful-readlink-1-0-1.lock
+854 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+855 silly lockFile 105b07a8-graceful-readlink-1-0-1 graceful-readlink@1.0.1
+856 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+857 silly lockFile a12a5266-graceful-readlink-1-0-0 graceful-readlink@>= 1.0.0
+858 silly resolved [ { name: 'graceful-readlink',
+858 silly resolved     version: '1.0.1',
+858 silly resolved     description: 'graceful fs.readlink',
+858 silly resolved     main: 'index.js',
+858 silly resolved     repository:
+858 silly resolved      { type: 'git',
+858 silly resolved        url: 'git://github.com/zhiyelee/graceful-readlink.git' },
+858 silly resolved     homepage: 'https://github.com/zhiyelee/graceful-readlink',
+858 silly resolved     bugs: { url: 'https://github.com/zhiyelee/graceful-readlink/issues' },
+858 silly resolved     keywords: [ 'fs.readlink', 'readlink' ],
+858 silly resolved     author: { name: 'zhiyelee' },
+858 silly resolved     license: 'MIT',
+858 silly resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+858 silly resolved     readme: '# graceful-readlink\n[![NPM Version](http://img.shields.io/npm/v/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n[![NPM Downloads](https://img.shields.io/npm/dm/graceful-readlink.svg?style=flat)](https://www.npmjs.org/package/graceful-readlink)\n\n\n## Usage\n\n```js\nvar readlinkSync = require(\'graceful-readlink\').readlinkSync;\nconsole.log(readlinkSync(f));\n// output\n//  the file pointed to when `f` is a symbolic link\n//  the `f` itself when `f` is not a symbolic link\n```\n## Licence\n\nMIT License\n',
+858 silly resolved     readmeFilename: 'README.md',
+858 silly resolved     _id: 'graceful-readlink@1.0.1',
+858 silly resolved     dist: { shasum: 'cf10bfca2709fde0f05d4161396c1b56c54b88d7' },
+858 silly resolved     _from: 'graceful-readlink@>= 1.0.0',
+858 silly resolved     _resolved: 'https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz' } ]
+859 info install graceful-readlink@1.0.1 into /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander
+860 info installOne graceful-readlink@1.0.1
+861 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander/node_modules/graceful-readlink unbuild
+862 verbose tar unpack /home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+863 silly lockFile dc571901-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander/node_modules/graceful-readlink
+864 verbose lock tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-client/node_modules/commander/node_modules/graceful-readlink /home/vagrant/.npm/dc571901-r-node-modules-graceful-readlink.lock
+865 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+866 verbose lock tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz /home/vagrant/.npm/6b54f123-ceful-readlink-1-0-1-package-tgz.lock
+867 verbose about to build /git/alexm-util/DevInit/node_modules/topojson
+868 info /git/alexm-util/DevInit/node_modules/topojson unbuild
+869 info preuninstall topojson@3.0.0
+870 info uninstall topojson@3.0.0
+871 verbose true,/git/alexm-util/DevInit/node_modules,/git/alexm-util/DevInit/node_modules unbuild topojson@3.0.0
+872 verbose /git/alexm-util/DevInit/node_modules/.bin,[object Object] binRoot
+873 info postuninstall topojson@3.0.0
+874 silly lockFile 7924d286-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink
+875 silly lockFile 7924d286-r-node-modules-graceful-readlink tar:///git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink
+876 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+877 silly lockFile 6b54f123-ceful-readlink-1-0-1-package-tgz tar:///home/vagrant/.npm/graceful-readlink/1.0.1/package.tgz
+878 info preinstall graceful-readlink@1.0.1
+879 verbose readDependencies using package.json deps
+880 verbose readDependencies using package.json deps
+881 silly resolved []
+882 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink
+883 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules/graceful-readlink
+884 verbose linkStuff [ false,
+884 verbose linkStuff   false,
+884 verbose linkStuff   false,
+884 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander/node_modules' ]
+885 info linkStuff graceful-readlink@1.0.1
+886 verbose linkBins graceful-readlink@1.0.1
+887 verbose linkMans graceful-readlink@1.0.1
+888 verbose rebuildBundles graceful-readlink@1.0.1
+889 info install graceful-readlink@1.0.1
+890 info postinstall graceful-readlink@1.0.1
+891 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+892 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules/commander
+893 verbose linkStuff [ false,
+893 verbose linkStuff   false,
+893 verbose linkStuff   false,
+893 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server/node_modules' ]
+894 info linkStuff commander@2.9.0
+895 verbose linkBins commander@2.9.0
+896 verbose linkMans commander@2.9.0
+897 verbose rebuildBundles commander@2.9.0
+898 verbose rebuildBundles [ 'graceful-readlink' ]
+899 info install commander@2.9.0
+900 info postinstall commander@2.9.0
+901 verbose about to build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+902 info build /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server
+903 verbose linkStuff [ false,
+903 verbose linkStuff   false,
+903 verbose linkStuff   false,
+903 verbose linkStuff   '/git/alexm-util/DevInit/node_modules/topojson/node_modules' ]
+904 info linkStuff topojson-server@3.0.0
+905 silly gunzTarPerm modes [ '755', '644' ]
+906 verbose linkBins topojson-server@3.0.0
+907 verbose link bins [ { geo2topo: 'bin/geo2topo' },
+907 verbose link bins   '/git/alexm-util/DevInit/node_modules/topojson/node_modules/.bin',
+907 verbose link bins   false ]
+908 verbose linkMans topojson-server@3.0.0
+909 verbose rebuildBundles topojson-server@3.0.0
+910 info /git/alexm-util/DevInit/node_modules/topojson/node_modules/topojson-server unbuild
+911 info preuninstall topojson-server@3.0.0
+912 error Error: UNKNOWN, symlink '../topojson-simplify/bin/toposimplify'
+913 error If you need help, you may report this log at:
+913 error     <http://github.com/isaacs/npm/issues>
+913 error or email it to:
+913 error     <npm-@googlegroups.com>
+914 error System Linux 3.13.0-98-generic
+915 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "topojson"
+916 error cwd /git/alexm-util/DevInit/simplify
+917 error node -v v0.10.25
+918 error npm -v 1.3.10
+919 error path ../topojson-simplify/bin/toposimplify
+920 error code UNKNOWN
+921 error errno -1
+922 verbose exit [ -1, true ]
