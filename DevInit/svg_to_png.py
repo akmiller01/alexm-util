@@ -6,23 +6,29 @@ from optparse import OptionParser
 from os.path import basename, splitext
 from PIL import Image
 import pdb
+from pyvirtualdisplay import Display
+
+display = Display(visible=0, size=(1000, 1000))
+display.start()
 
 parser = OptionParser()
-parser.add_option("-i", "--input", dest="input", default="C:\\Users\\alexm\\Documents\\charts\\Gates\\Global trends",
+parser.add_option("-i", "--input", dest="input", default="/media/alex/HD/charts/Gates/Donor trends",
                         help="Output path. Default is wd",metavar="FOLDER")
 (options, args) = parser.parse_args()
 
-opts = webdriver.ChromeOptions()
-opts.add_argument("start-maximized")
+# opts = webdriver.ChromeOptions()
+# opts.add_argument("start-maximized")
+# 
+# 
+# browser = webdriver.Chrome(chrome_options=opts)
+browser = webdriver.Chrome()
 
 
-browser = webdriver.Chrome(executable_path="C://chromedriver//2.29//chromedriver",chrome_options=opts)
-
-svgs = glob(options.input+"\\*.svg")
+svgs = glob(options.input+"/*.svg")
 
 for svg in svgs:
-    filename = options.input+"\\"+basename(splitext(svg)[0])+".png"
-    browser.get(svg)
+    filename = options.input+"/"+basename(splitext(svg)[0])+".png"
+    browser.get("file://"+svg)
     browser.save_screenshot(filename)
     
     element = browser.find_element_by_css_selector('svg')
