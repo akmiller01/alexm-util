@@ -1,9 +1,12 @@
 library(plyr)
+library(data.table)
 
 wd <-"C:/Users/Alex/Documents/R/GDELT/"
 setwd(wd)
 colnames <- read.csv("CSV.header.dailyupdates.csv", header = FALSE,
                      sep="\t",colClasses="character")
+data.list <- list()
+data.index <- 1
 for(i in 1:10){
   yesterday <- format(Sys.Date()-i, "%Y%m%d")
   yestwd <- paste(wd,yesterday,sep="/")
@@ -27,14 +30,11 @@ for(i in 1:10){
   data <- read.csv(filename, header = FALSE,
                    sep="\t",colClasses="character",
                    col.names = colnames)
-  bdi <- subset(data,(Actor1CountryCode=="BDI" | Actor2CountryCode=="BDI"))
-  if(exists("reports")){
-    reports <- rbind(bdi,reports)
-  }
-  else{
-    reports <- bdi
-  }
+  data.list[[data.index]] <- data
+  data.index <- data.index + 1
 }
+
+reports <- rbindlist(data.list)
 
 df <- ddply(reports,.(SQLDATE,EventRootCode)
             ,function(x){
@@ -72,7 +72,7 @@ longdf <- reshape(dat
                   ,varying=c("percentProtest","percentMilitary")
                   ,times = c("Reports on Political Dissent","Reports on Military Force")
                   ,v.names="value"
-                  )
+)
 names(longdf)[which(names(longdf)=="time")]<-"type"
 library(ggplot2)
 

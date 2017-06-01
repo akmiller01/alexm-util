@@ -118,12 +118,28 @@
             margin-bottom:0;
         }
         .btn-group{
-            margin-left:auto;
-            margin-right:auto;
+            display:flex;
+            justify-content:center;
             padding:0px;
         }
         #narrative{
             padding-left:15px;
+        }
+        .info-button{
+            cursor:pointer;
+            display:inline-block;
+            margin-left:15px;
+        }
+        .tooltip-close{
+            font-style:normal;
+        }
+        #helpTooltip{
+            display:none;
+        }
+        #downloadholder{
+            display:inline-block;
+            margin-left:15px;
+            cursor:pointer;
         }
     </style>
 </head>
@@ -177,41 +193,29 @@
                 </tr>
             </table>
         </div>
-        <!--<div id="tableWrap">-->
-            <!--<table>
-                <tr>
-                    <td><b>Percentages or absolute populations</b></td>
-                </tr>
-                <tr>
-                     <td><select id="popToggle" class="indicator">
-                        <option value="perc">Percentages</option>
-                        <option value="pop">Absolute populations</option>
-                     </select></td>
-                </tr>
-            </table>-->
-        <!--</div>-->
+        <div class="info-button" id="showHelp">
+            <i class="ss-info"></i>
+        </div>
+        <div id="downloadholder">
+            <a onclick="crowbar();">Download</a>
+        </div>
+        <div id="helpTooltip" class="tooltip" style="top: 400px; left: 610px; opacity: 1; transform: translateY(-110%) translateX(-50%);"><div class="select-tooltip"><strong>Note: </strong>Selecting 'Experience stunting' or 'Birth not registered' will limit the selected population to children under 5. Selecting education levels will limit the selected population to adults 25 and older. Selecting 'Had no skilled birth attendant' will limit the selected population to women aged 15 to 49.</div><i class="tooltip-close">&#x2716;</i></div>
     </div>
 </div>
-
 <div id="venn"></div>
 <div id="err" style="display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
 </div>
 <h2 id="subtitle"></h2>
-<div class="row" style="margin:0px;">
-    <div class="col-sm-4"></div>
-    <div class="btn-group col-sm-8" id="popToggle" >
-        <a class="button btn btn--light active" id="perc">Population percentage</a>
-        <a class="button btn btn--light" id="pop">Population number</a>
-    </div>
+<div class="btn-group" id="popToggle" >
+    <a class="button btn btn--light active" id="perc">Population percentage</a>
+    <a class="button btn btn--light" id="pop">Population number</a>
 </div>
 <div id="tooltip" class="world-map-tooltip">
     <img style="max-width: 20px;max-height: 15px;">
     <p></p>
 </div>
 <div id="narrative">
-    <h3>About this visualisation</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet.</p>
     <h3>About the P20 initiative</h3>
     <p>The <a class="color-accent" href="http://devinit.org/p20i/">P20 initiative</a> focuses on the people who are in the poorest 20% globally. It aims to track their progress and improve information about their lives in order to ensure no one is left behind in efforts to tackle poverty.</p>
     <p><a class="color-accent" href="https://sustainabledevelopment.un.org/post2015/transformingourworld">Agenda 2030</a> and the <a class="color-accent" href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/">Sustainable Development Goals</a> have brought us a global commitment to end extreme poverty and ensure no one is left behind. For this ambition to be met, we need to know who the poorest people in the world are, understand their lives, and ensure they are included in progress.</p>
@@ -223,7 +227,19 @@
 <script src="venn.js"></script>
 
 <script>
-
+//Help functions
+crowbar = function () {
+                  var e = document.createElement('script'); e.setAttribute('src',
+                  'svg-crowbar.js'
+                  ); e.setAttribute('class', 'svg-crowbar'); document.body.appendChild(e);
+        };
+$('#showHelp').click(function(e){
+    var tooltip = $('#helpTooltip');
+    tooltip[0].style.left = e.pageX + 'px';
+    tooltip[0].style.top = e.pageY + 'px';
+    $('#helpTooltip').show();
+});
+$('#helpTooltip .tooltip-close').click(function(){$('#helpTooltip').hide()})
 //Get and Set Params functions
 function getParams() {
     var paramArr = window.location.search.substr(1).split("&")[0] == "" ? [] : window.location.search.substr(1).split("&");
@@ -775,15 +791,6 @@ sentenceDict[indicatorDict["rural"]] = "live in rural areas";
 sentenceDict[indicatorDict["no.skilled.attendant"]] = "had no skilled birth attendants";
 sentenceDict[indicatorDict["stunted"]] = "are experiencing stunting";
 
-caveatDict = {
- "no.birth.reg":"less than 5 years old"
- ,"no.educ":"more than 25 years old"
- ,"primary":"more than 25 years old"
- ,"secondary":"more than 25 years old"
- ,"higher":"more than 25 years old"
- ,"no.skilled.attendant":"female between the ages of 15 and 49"
- ,"stunted":"less than 5 years old"
-};
 var indicators = Object.keys(indicatorDict);
 
 function ensureUnique() {
@@ -1222,14 +1229,12 @@ function changeVenn() {
                             ];
             };
         };
-        var pop = subset.pop,
-        caveats = [caveatDict[subset.indicator1],caveatDict[subset.indicator2],caveatDict[subset.indicator3]].clean(undefined),
-        uniqueCaveats = d3.map(caveats, function(d){return d;}).keys().join(" and ");
+        var pop = subset.pop;
         
         if(toggleVal=="perc"){
-            $('#subtitle').text(caveats.length==0?"All percentages out of "+numberWithCommas(pop)+".":"All percentages out of "+numberWithCommas(pop)+". Only showing population which is "+uniqueCaveats+".")
+            $('#subtitle').text("All percentages out of "+numberWithCommas(pop)+".")
         }else{
-            $('#subtitle').text(caveats.length==0?"":"Only showing population which is "+uniqueCaveats+".")            
+            $('#subtitle').text("")            
         };
         
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
