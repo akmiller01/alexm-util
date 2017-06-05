@@ -136,10 +136,44 @@
         #helpTooltip{
             display:none;
         }
-        #downloadholder{
-            display:inline-block;
-            margin-left:15px;
+        .tour-overlay{
+            top:-150px;
+            bottom:-120px;
+        }
+        .tour-datahub .tour-item-2{
+            top:130px;
+            left:50%;
+            margin-left:-520px;
+            text-align:center;
+        }
+        .tour-datahub .tour-item-3{
+            top:25px;
+            margin-left:320px;
+        }
+        .tour-datahub .tour-item-4{
+            top:130px;
+            margin-left:-38px;
+            text-align:center;
+        }
+        .tour-datahub .tour-item-5{
+            top:105px;
+            margin-left:415px;
+        }
+        .tour-datahub .tour-item-9{
+            width:auto;
+            bottom:30px;
+            margin-left:-550px;
+        }
+        .tour-datahub .tour-item-10{
+            bottom:70px;
+        }
+        .tour-overlay-close{
             cursor:pointer;
+        }
+        #share{
+            position:absolute;
+            bottom:0px;
+            right:5%;
         }
     </style>
 </head>
@@ -196,13 +230,29 @@
         <div class="info-button" id="showHelp">
             <i class="ss-info"></i>
         </div>
-        <div id="downloadholder">
-            <a onclick="crowbar();">Download</a>
-        </div>
         <div id="helpTooltip" class="tooltip" style="top: 400px; left: 610px; opacity: 1; transform: translateY(-110%) translateX(-50%);"><div class="select-tooltip"><strong>Note: </strong>Selecting 'Experience stunting' or 'Birth not registered' will limit the selected population to children under 5. Selecting education levels will limit the selected population to adults 25 and older. Selecting 'Had no skilled birth attendant' will limit the selected population to women aged 15 to 49.</div><i class="tooltip-close">&#x2716;</i></div>
+        <a id="tour" class="btn btn--small btn--light tour-overlay-toggle" onclick="toggleTourOverlay()">Using this visualisation</a>
     </div>
 </div>
-<div id="venn"></div>
+<div style="position:relative;">
+    <div id="venn"></div>
+    <div class="tour-overlay tour-datahub text-left" onclick="$('.tour-overlay').toggle()" style="display:none;">
+        <div class="tour-overlay-content">
+            <h3 class="h3 m-t--0">
+                <a class="tour-overlay-close"><i class="ss-delete"></i></a>
+            </h3>
+            <ul class="tour-items">
+                <li class="tour-item-2"> <i class="ss-up"></i><br/>Change poverty status</li>
+                <li class="tour-item-3"><i class="ss-left"></i> Change country</li>
+                <li class="tour-item-4"> <i class="ss-up"></i><br/>Change indicators</li>
+                <li class="tour-item-5"><i class="ss-left"></i> Find more information</li>
+                <li class="tour-item-7">Hover over area to<br>to see data snapshot</li>
+                <li class="tour-item-9">Switch between percentages and absolute numbers <i class="ss-right"></i></li>
+                <li class="tour-item-10">Click "Share this chart" below to<br>to share the chart you've created<br><i class="ss-down"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
 <div id="err" style="display:none;">
     <b>Sorry, cannot display the combination of these variables.</b>
 </div>
@@ -210,6 +260,7 @@
 <div class="btn-group" id="popToggle" >
     <a class="button btn btn--light active" id="perc">Population percentage</a>
     <a class="button btn btn--light" id="pop">Population number</a>
+    <div id="share" class="btn btn--dark" url="" onclick="prompt('Press Ctrl + C to copy to clipboard',$(this).attr('url'))" style="margin-top: 0.3em;"><i class="ss-share"></i> Share this chart</div>
 </div>
 <div id="tooltip" class="world-map-tooltip">
     <img style="max-width: 20px;max-height: 15px;">
@@ -218,7 +269,16 @@
 <div id="narrative">
     <h3>About the P20 initiative</h3>
     <p>The <a class="color-accent" href="http://devinit.org/p20i/">P20 initiative</a> focuses on the people who are in the poorest 20% globally. It aims to track their progress and improve information about their lives in order to ensure no one is left behind in efforts to tackle poverty.</p>
-    <p><a class="color-accent" href="https://sustainabledevelopment.un.org/post2015/transformingourworld">Agenda 2030</a> and the <a class="color-accent" href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/">Sustainable Development Goals</a> have brought us a global commitment to end extreme poverty and ensure no one is left behind. For this ambition to be met, we need to know who the poorest people in the world are, understand their lives, and ensure they are included in progress.</p>
+    <p><a class="color-accent" href="https://sustainabledevelopment.un.org/post2015/transformingourworld"  target="_blank">Agenda 2030</a> and the <a class="color-accent" href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/"  target="_blank">Sustainable Development Goals</a> have brought us a global commitment to end extreme poverty and ensure no one is left behind. For this ambition to be met, we need to know who the poorest people in the world are, understand their lives, and ensure they are included in progress.</p>
+    <h3>P20 Video</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DhGv6Dh_jCc" frameborder="0" allowfullscreen></iframe>
+    <h3>Methodology</h3>
+    <p>This visualisation is powered by data from Development Initiatives based on PovcalNet as well as selected DHS and MICS surveys. For detailed methodology notes please consult the annexes in the <a href="http://devinit.org/post/p20-initiative-data-to-leave-no-one-behind/" target="_blank" class="color-accent">P20 baseline report.</a></p>
+    <p>The P20 Initiative promotes the production and use of disaggregated data. As a minimum standard, data should be disaggregated by quintile, geography, gender, age and disability (QGGAD) to ensure sufficient granularity to include everyone in progress. Of the data sources used to power this visualisation, there is no disability data available from PovCal. Only 11 of the 56 DHS surveys and 5 of the 41 MICS surveys in our sample have some questions about disability.  Categories of people that are relatively small such as those experiencing a particular disability are not represented well by this type of visualisation. Consequently, we have omitted disability data from this visualisation. </p>
+    <p>An unintentional overlap may appear when comparing binary indicators, such as male and female, urban and rural, or more than one age range. This is due to geometric constraints of the visualisation. </p>
+    <p>Due to data and geometric constraints, some combinations of indicators cannot be compared against each other and data isn't available for all indicators for all countries</p>
+    <p>Some indicators are only measured for certain population groups. Selecting 'Experience stunting' or 'Birth not registered' will limit the selected population to children under 5. Selecting education levels will limit the selected population to adults 25 and older. Selecting 'Had no skilled birth attendant' will limit the selected population to women aged 15 to 49.</p>
+    <p>Download the data behind the visualisation <a href="all.venn.joined2.csv" class="color-accent">here</a>.</p>
 </div>
 
 </body>
@@ -228,11 +288,10 @@
 
 <script>
 //Help functions
-crowbar = function () {
-                  var e = document.createElement('script'); e.setAttribute('src',
-                  'svg-crowbar.js'
-                  ); e.setAttribute('class', 'svg-crowbar'); document.body.appendChild(e);
-        };
+function toggleTourOverlay(){
+    $('.tour-overlay').toggle()
+}
+
 $('#showHelp').click(function(e){
     var tooltip = $('#helpTooltip');
     tooltip[0].style.left = e.pageX + 'px';
@@ -252,24 +311,26 @@ function getParams() {
 };
 function setParams(params) {
     if (params === undefined) {
-        params = {}
+        params = {};
     }
     var i = 1,
         locationSearch = "",
         len = Object.keys(params).length;
     for (var param in params) {
         if (i == 1) {
-            locationSearch += "?"
+            locationSearch += "?";
         }
-        locationSearch += param
-        locationSearch += "="
-        locationSearch += params[param]
+        locationSearch += param;
+        locationSearch += "=";
+        locationSearch += params[param];
         if (i < len) {
-            locationSearch += "&"
+            locationSearch += "&";
         }
-        i += 1
-    };
-    window.history.pushState({}, "", "/" + locationSearch);
+        i += 1;
+    }
+    var baseurl = window.location.href.split("?")[0];
+    $('#share').attr("url",baseurl+locationSearch);
+    //window.history.pushState({}, "",  locationSearch);
 };
 function tip(e) {
     $('#tooltip').show();
