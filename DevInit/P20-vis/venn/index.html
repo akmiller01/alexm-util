@@ -75,6 +75,9 @@
         .indicator{
             border-radius: .25em;
         }
+        .indicator option:not(.disabled){
+            color:black;
+        }
         div#venn, div#err{
             min-width:500px;
             max-width:800px;
@@ -107,9 +110,10 @@
         #subtitle{
             font-size:16px;
         }
-        .disabled{
-            background-color:grey;
-        }
+        /*.disabled{*/
+        /*    background-color:grey;*/
+        /*    color:black;*/
+        /*}*/
         .bg--dark select{
             color: #453f43;
         }
@@ -167,6 +171,12 @@
         .tour-datahub .tour-item-10{
             bottom:70px;
         }
+        .tour-datahub .tour-item-11{
+            left:50%;
+            margin-left:220px;
+            bottom:0px;
+            text-align:center;
+        }
         .tour-overlay-close{
             cursor:pointer;
         }
@@ -174,6 +184,10 @@
             position:absolute;
             bottom:0px;
             right:5%;
+        }
+        #embededVideo{
+            display:flex;
+            justify-content:center;
         }
     </style>
 </head>
@@ -249,6 +263,7 @@
                 <li class="tour-item-7">Hover over area to<br>to see data snapshot</li>
                 <li class="tour-item-9">Switch between percentages and absolute numbers <i class="ss-right"></i></li>
                 <li class="tour-item-10">Click "Share this chart" below to<br>to share the chart you've created<br><i class="ss-down"></i></li>
+                <li class="tour-item-11">Scroll down for more<br>information and data download<br><i class="ss-down"></i></li>
             </ul>
         </div>
     </div>
@@ -270,8 +285,8 @@
     <h3>About the P20 initiative</h3>
     <p>The <a class="color-accent" href="http://devinit.org/p20i/">P20 initiative</a> focuses on the people who are in the poorest 20% globally. It aims to track their progress and improve information about their lives in order to ensure no one is left behind in efforts to tackle poverty.</p>
     <p><a class="color-accent" href="https://sustainabledevelopment.un.org/post2015/transformingourworld"  target="_blank">Agenda 2030</a> and the <a class="color-accent" href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/"  target="_blank">Sustainable Development Goals</a> have brought us a global commitment to end extreme poverty and ensure no one is left behind. For this ambition to be met, we need to know who the poorest people in the world are, understand their lives, and ensure they are included in progress.</p>
-    <h3>P20 Video</h3>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DhGv6Dh_jCc" frameborder="0" allowfullscreen></iframe>
+    <div id="embededVideo"><iframe width="560" height="315" src="https://www.youtube.com/embed/DhGv6Dh_jCc" frameborder="0" allowfullscreen></iframe>
+    </div>
     <h3>Methodology</h3>
     <p>This visualisation is powered by data from Development Initiatives based on PovcalNet as well as selected DHS and MICS surveys. For detailed methodology notes please consult the annexes in the <a href="http://devinit.org/post/p20-initiative-data-to-leave-no-one-behind/" target="_blank" class="color-accent">P20 baseline report.</a></p>
     <p>The P20 Initiative promotes the production and use of disaggregated data. As a minimum standard, data should be disaggregated by quintile, geography, gender, age and disability (QGGAD) to ensure sufficient granularity to include everyone in progress. Of the data sources used to power this visualisation, there is no disability data available from PovCal. Only 11 of the 56 DHS surveys and 5 of the 41 MICS surveys in our sample have some questions about disability.  Categories of people that are relatively small such as those experiencing a particular disability are not represented well by this type of visualisation. Consequently, we have omitted disability data from this visualisation. </p>
@@ -1075,12 +1090,14 @@ function changeVenn() {
     missingData = missingDict[iso2];
     params["id"]=iso2;
     
-    //$('option').removeClass("disabled");
+    $('.disabled span').remove()
+    $('option').removeClass("disabled");
     $('option').attr("disabled",false);
     if(missingData!==undefined){
         for(var i = 0; i < missingData.length; i++){
             var missingName = missingData[i];
-            //$("option[value='"+missingName+"']").addClass("disabled")
+            $("option[value='"+missingName+"']").append("<span> (no data)</span>");
+            $("option[value='"+missingName+"']").addClass("disabled")
             $("option[value='"+missingName+"']").attr("disabled",true);
         };
     };
@@ -1293,7 +1310,7 @@ function changeVenn() {
         var pop = subset.pop;
         
         if(toggleVal=="perc"){
-            $('#subtitle').text("All percentages out of "+numberWithCommas(pop)+".")
+            //$('#subtitle').text("All percentages out of "+numberWithCommas(pop)+".")
         }else{
             $('#subtitle').text("")            
         };
