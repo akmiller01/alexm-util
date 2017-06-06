@@ -89,5 +89,5 @@ aql <- melt(airquality,id.vars = c('month','day'),variable.name = "climate_varia
 head(aql)
 
 #Long to wide
-aqw <- dcast(aql,month+day~variable)
+aqw <- dcast(aql,month+day~climate_variable)
 head(aqw)
