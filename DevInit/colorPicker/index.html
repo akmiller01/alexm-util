@@ -1,0 +1,582 @@
+<html>
+    <head>
+        <script type="text/javascript" src='jquery.js'></script>
+        <script type="text/javascript" src='jquery-ui.min.js'></script>
+        <style>
+            .content{
+                width:100%;
+                display:flex;
+                justify-content:center;
+            }
+            textarea{
+                width:100%;
+            }
+            hr{
+                clear: both;
+                color: #eee;
+                background-color: #eee;
+                height: 1px;
+                border: none;
+                margin: 0;
+                padding: 0;
+                font-size: 1px;
+                line-height: 1px;
+            }
+            .colorPicker ul {
+                border:1px solid Black;
+                display:inline-block;
+                vertical-align:top;
+                width:100%;
+                min-height:1.5em;
+                padding:2px;
+            }
+            .colorPicker li {
+                width:1.5em;
+                height:1.5em;
+                list-style:none;
+                border:3px solid transparent;
+                text-align:center;
+                display: inline-block;
+                margin:2px;
+                float:left;
+                cursor:pointer;
+            }
+            
+            .ared01 {
+                background-color:#e84439;
+            }
+            .ared02 {
+                background-color:#f8c1b2;
+            }
+            .ared03{
+                background-color:#f0826d;
+            }
+            .ared04{
+                background-color:#bc2629;
+            }
+            .ared05{
+                background-color:#8f1b13;
+                color:white;
+            }
+            .ared06{
+                background-color:#fce3dc;
+            }
+            .ared07{
+                background-color:#fbd7cb;
+            }
+            .ared08{
+                background-color:#f6b0a0;
+            }
+            .ared09{
+                background-color:#ec6250;
+            }
+            .ared10{
+                background-color:#dc372d;
+            }
+            .ared11{
+                background-color:#cd2b2a;
+            }
+            .ared12{
+                background-color:#a21e25;
+                color:white;
+            }
+            .ared13{
+                background-color:#6b120a;
+                color:white;
+            }
+            .borange01 {
+                background-color:#eb642b;
+            }
+            .borange02 {
+                background-color:#f6bb9d;
+            }
+            .borange03{
+                background-color:#f18e5e;
+            }
+            .borange04{
+                background-color:#d85b31;
+            }
+            .borange05{
+                background-color:#973915;
+                color:white;
+            }
+            .borange06{
+                background-color:#fde5d4;
+            }
+            .borange07{
+                background-color:#fcdbbf;
+            }
+            .borange08{
+                background-color:#facbad;
+            }
+            .borange09{
+                background-color:#f3a47c;
+            }
+            .borange10{
+                background-color:#ee7644;
+            }
+            .borange11{
+                background-color:#cb5730;
+            }
+            .borange12{
+                background-color:#ac4622;
+                color:white;
+            }
+            .borange13{
+                background-color:#7a2e05;
+                color:white;
+            }
+            .cyellow01 {
+                background-color:#f49b21;
+            }
+            .cyellow02 {
+                background-color:#fccc8e;
+            }
+            .cyellow03{
+                background-color:#f9b865;
+            }
+            .cyellow04{
+                background-color:#e48a00;
+            }
+            .cyellow05{
+                background-color:#a85d00;
+                color:white;
+            }
+            .cyellow06{
+                background-color:#feedd4;
+            }
+            .cyellow07{
+                background-color:#fee7c1;
+            }
+            .cyellow08{
+                background-color:#fedcab;
+            }
+            .cyellow09{
+                background-color:#fac47e;
+            }
+            .cyellow10{
+                background-color:#f7a838;
+            }
+            .cyellow11{
+                background-color:#df8000;
+            }
+            .cyellow12{
+                background-color:#ba6b15;
+                color:white;
+            }
+            .cyellow13{
+                background-color:#7d4712;
+                color:white;
+            }
+            .dpink01 {
+                background-color:#c2135b;
+            }
+            .dpink02 {
+                background-color:#e4819b;
+            }
+            .dpink03{
+                background-color:#d64278;
+            }
+            .dpink04{
+                background-color:#ad1257;
+            }
+            .dpink05{
+                background-color:#7e1850;
+                color:white;
+            }
+            .dpink06{
+                background-color:#f9cdd0;
+            }
+            .dpink07{
+                background-color:#f6b8c1;
+            }
+            .dpink08{
+                background-color:#f3a5b6;
+            }
+            .dpink09{
+                background-color:#e05c86;
+            }
+            .dpink10{
+                background-color:#d12568;
+            }
+            .dpink11{
+                background-color:#9f1459;
+            }
+            .dpink12{
+                background-color:#8d0e56;
+                color:white;
+            }
+            .dpink13{
+                background-color:#65093d;
+                color:white;
+            }
+            .epurple01 {
+                background-color:#893f90;
+            }
+            .epurple02 {
+                background-color:#c189bb;
+            }
+            .epurple03{
+                background-color:#a45ea1;
+            }
+            .epurple04{
+                background-color:#7b3b89;
+            }
+            .epurple05{
+                background-color:#551f65;
+                color:white;
+            }
+            .epurple06{
+                background-color:#ebcfe5;
+            }
+            .epurple07{
+                background-color:#deb5d6;
+            }
+            .epurple08{
+                background-color:#cb98c4;
+            }
+            .epurple09{
+                background-color:#af73ae;
+            }
+            .epurple10{
+                background-color:#994d98;
+            }
+            .epurple11{
+                background-color:#732c85;
+            }
+            .epurple12{
+                background-color:#632572;
+                color:white;
+            }
+            .epurple13{
+                background-color:#42184c;
+                color:white;
+            }
+            .fblue01 {
+                background-color:#0089cc;
+            }
+            .fblue02 {
+                background-color:#88bae5;
+            }
+            .fblue03{
+                background-color:#5da3d9;
+            }
+            .fblue04{
+                background-color:#0071b1;
+            }
+            .fblue05{
+                background-color:#0c457b;
+                color:white;
+            }
+            .fblue06{
+                background-color:#d3e0f4;
+            }
+            .fblue07{
+                background-color:#bcd4f0;
+            }
+            .fblue08{
+                background-color:#a3c7eb;
+            }
+            .fblue09{
+                background-color:#77adde;
+            }
+            .fblue10{
+                background-color:#4397d3;
+            }
+            .fblue11{
+                background-color:#105fa3;
+            }
+            .fblue12{
+                background-color:#00538e;
+                color:white;
+            }
+            .fblue13{
+                background-color:#0a3a64;
+                color:white;
+            }
+            .ggreen01 {
+                background-color:#109e68;
+            }
+            .ggreen02 {
+                background-color:#92cba9;
+            }
+            .ggreen03{
+                background-color:#5ab88a;
+            }
+            .ggreen04{
+                background-color:#1e8259;
+            }
+            .ggreen05{
+                background-color:#16513a;
+                color:white;
+            }
+            .ggreen06{
+                background-color:#c5e1cb;
+            }
+            .ggreen07{
+                background-color:#b1d8bb;
+            }
+            .ggreen08{
+                background-color:#a2d1b0;
+            }
+            .ggreen09{
+                background-color:#74bf93;
+            }
+            .ggreen10{
+                background-color:#3b8c61;
+            }
+            .ggreen11{
+                background-color:#00694a;
+            }
+            .ggreen12{
+                background-color:#005b3e;
+                color:white;
+            }
+            .ggreen13{
+                background-color:#07482e;
+                color:white;
+            }
+            .hgrey01 {
+                background-color:#6a6569;
+            }
+            .hgrey02 {
+                background-color:#a9a6aa;
+            }
+            .hgrey03{
+                background-color:#847e84;
+            }
+            .hgrey04{
+                background-color:#555053;
+            }
+            .hgrey05{
+                background-color:#443e42;
+                color:white;
+            }
+            .hgrey06{
+                background-color:#d9d4da;
+            }
+            .hgrey07{
+                background-color:#cac5cb;
+            }
+            .hgrey08{
+                background-color:#b3b0b7;
+            }
+            .hgrey09{
+                background-color:#b9b5bb;
+            }
+            .hgrey10{
+                background-color:#5a545a;
+            }
+            .hgrey11{
+                background-color:#736e73;
+            }
+            .hgrey12{
+                background-color:#4e484c;
+                color:white;
+            }
+            .hgrey13{
+                background-color:#302b2e;
+                color:white;
+            }
+</style>
+    </head>
+    <body>
+        <div class="content">
+        <div class="fieldWrapper colorPicker">
+            <label for="id_hexes">Colours hexes:</label> <textarea name="hexes" value="" id="id_hexes" type="text" rows="5"></textarea>
+            <label for="id_rgbs">Colours RGBs:</label> <textarea name="rgbs" value="" id="id_rgbs" type="text" rows="5"></textarea>
+            <!--Color picker here-->
+            <p>
+                <kbd>Click</kbd> to add or remove colours<br />
+                <kbd>Click + drag</kbd> selected colours to reorder
+            </p>
+            <p>Selected colours:</p>
+            <ul id="selected">
+            </ul>
+            <p>Available colours:</p>
+            <ul id="available">
+                <li class="ared01">1</li>
+                <li class="ared02">2</li>
+                <li class="ared03">3</li>
+                <li class="ared04">4</li>
+                <li class="ared05">5</li>
+                <li class="ared06">6</li>
+                <li class="ared07">7</li>
+                <li class="ared08">8</li>
+                <li class="ared09">9</li>
+                <li class="ared10">10</li>
+                <li class="ared11">11</li>
+                <li class="ared12">12</li>
+                <li class="ared13">13</li>
+                <hr class="azzz"/>
+                <li class="borange01">1</li>
+                <li class="borange02">2</li>
+                <li class="borange03">3</li>
+                <li class="borange04">4</li>
+                <li class="borange05">5</li>
+                <li class="borange06">6</li>
+                <li class="borange07">7</li>
+                <li class="borange08">8</li>
+                <li class="borange09">9</li>
+                <li class="borange10">10</li>
+                <li class="borange11">11</li>
+                <li class="borange12">12</li>
+                <li class="borange13">13</li>
+                <hr class="bzzz"/>
+                <li class="cyellow01">1</li>
+                <li class="cyellow02">2</li>
+                <li class="cyellow03">3</li>
+                <li class="cyellow04">4</li>
+                <li class="cyellow05">5</li>
+                <li class="cyellow06">6</li>
+                <li class="cyellow07">7</li>
+                <li class="cyellow08">8</li>
+                <li class="cyellow09">9</li>
+                <li class="cyellow10">10</li>
+                <li class="cyellow11">11</li>
+                <li class="cyellow12">12</li>
+                <li class="cyellow13">13</li>
+                <hr class="czzz"/>
+                <li class="dpink01">1</li>
+                <li class="dpink02">2</li>
+                <li class="dpink03">3</li>
+                <li class="dpink04">4</li>
+                <li class="dpink05">5</li>
+                <li class="dpink06">6</li>
+                <li class="dpink07">7</li>
+                <li class="dpink08">8</li>
+                <li class="dpink09">9</li>
+                <li class="dpink10">10</li>
+                <li class="dpink11">11</li>
+                <li class="dpink12">12</li>
+                <li class="dpink13">13</li>
+                <hr class="dzzz"/>
+                <li class="epurple01">1</li>
+                <li class="epurple02">2</li>
+                <li class="epurple03">3</li>
+                <li class="epurple04">4</li>
+                <li class="epurple05">5</li>
+                <li class="epurple06">6</li>
+                <li class="epurple07">7</li>
+                <li class="epurple08">8</li>
+                <li class="epurple09">9</li>
+                <li class="epurple10">10</li>
+                <li class="epurple11">11</li>
+                <li class="epurple12">12</li>
+                <li class="epurple13">13</li>
+                <hr class="ezzz"/>
+                <li class="fblue01">1</li>
+                <li class="fblue02">2</li>
+                <li class="fblue03">3</li>
+                <li class="fblue04">4</li>
+                <li class="fblue05">5</li>
+                <li class="fblue06">6</li>
+                <li class="fblue07">7</li>
+                <li class="fblue08">8</li>
+                <li class="fblue09">9</li>
+                <li class="fblue10">10</li>
+                <li class="fblue11">11</li>
+                <li class="fblue12">12</li>
+                <li class="fblue13">13</li>
+                <hr class="fzzz"/>
+                <li class="ggreen01">1</li>
+                <li class="ggreen02">2</li>
+                <li class="ggreen03">3</li>
+                <li class="ggreen04">4</li>
+                <li class="ggreen05">5</li>
+                <li class="ggreen06">6</li>
+                <li class="ggreen07">7</li>
+                <li class="ggreen08">8</li>
+                <li class="ggreen09">9</li>
+                <li class="ggreen10">10</li>
+                <li class="ggreen11">11</li>
+                <li class="ggreen12">12</li>
+                <li class="ggreen13">13</li>
+                <hr class="gzzz"/>
+                <li class="hgrey01">1</li>
+                <li class="hgrey02">2</li>
+                <li class="hgrey03">3</li>
+                <li class="hgrey04">4</li>
+                <li class="hgrey05">5</li>
+                <li class="hgrey06">6</li>
+                <li class="hgrey07">7</li>
+                <li class="hgrey08">8</li>
+                <li class="hgrey09">9</li>
+                <li class="hgrey10">10</li>
+                <li class="hgrey11">11</li>
+                <li class="hgrey12">12</li>
+                <li class="hgrey13">13</li>
+            </ul>
+            <button onclick="reset()">Reset</button>
+        </div>
+        
+        
+        <script>
+            $(".colorPicker ul").on('click','li',function(){
+                var parentId = $(this).parent().attr("id");
+                if (parentId=="available") {
+                    $(this).appendTo($('.colorPicker #selected'));
+                }else{
+                    $(this).appendTo($('.colorPicker #available'));
+                }
+                getColours();
+                reorder();
+            });
+            $(".colorPicker ul").on("sortupdate",function(){getColours();});
+            function reorder(){
+                $(".colorPicker ul#available").children().sort(function(a,b){
+                    return($(b).attr("class")>$(a).attr("class")?-1:1)
+                }).appendTo(".colorPicker ul#available");
+            }
+            $(".colorPicker ul#selected").sortable({
+                connectWith: "ul",
+                delay: 150, //Needed to prevent accidental drag when trying to select
+                revert: 0,
+                helper: function (e, item) {
+                    var helper = $('<li/>');
+                    if (!item.hasClass('selected')) {
+                        item.addClass('selected').siblings().removeClass('selected');
+                    }
+                    var elements = item.parent().children('.selected').clone();
+                    item.data('multidrag', elements).siblings('.selected').remove();
+                    return helper.append(elements);
+                },
+                stop: function (e, info) {
+                    info.item.after(info.item.data('multidrag')).remove();
+                }
+            
+            });
+            function hexc(colorval) {
+                var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                delete(parts[0]);
+                for (var i = 1; i <= 3; ++i) {
+                    parts[i] = parseInt(parts[i]).toString(16);
+                    if (parts[i].length == 1) parts[i] = '0' + parts[i];
+                }
+                color = '#' + parts.join('');
+                return(color);
+            }
+            function getColours(){
+                var rgbs = [],
+                hexes = [];
+                
+                var $selectedColours = $('.colorPicker #selected li');
+                $selectedColours.each(function(){
+                    var rgb = $(this).css("background-color"),
+                    hex = hexc(rgb);
+                    rgbs.push(rgb);
+                    hexes.push(hex);
+                });
+                $("[name='rgbs']").val(rgbs.join("; "));
+                $("[name='hexes']").val(hexes.join(", "));
+            }
+            function reset() {
+                $(".colorPicker #selected li").appendTo(".colorPicker #available");
+                reorder();
+                $("[name='rgbs']").val("");
+                $("[name='hexes']").val("");
+            }
+        </script>
+        </div>
+    </body>
+</html>
