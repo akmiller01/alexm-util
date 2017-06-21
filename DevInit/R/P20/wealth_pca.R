@@ -74,26 +74,27 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
   if(length(catvars)>0){
     dummies <- cbindlist(dummyList)
   }
+  colnames(dummies) <- paste0("dum",colnames(dummies))
   
   ## In case there are categories you don't want generated, edit this and uncomment it
-    dummy.columns <- colnames(dummies)
-    deleted <- 0
-    
-    for(i in 1:length(dummy.columns)){
-      dummy.column <- dummy.columns[i]
-      if(
-        grepl("FALSE",dummy.column,ignore.case=TRUE) 
-        | grepl("9",dummy.column)
-        |  grepl("0",dummy.column,ignore.case=TRUE)
-        |  grepl("DK",dummy.column)
-        |  grepl("missing",dummy.column,ignore.case=TRUE)
-        |  grepl("manquant",dummy.column,ignore.case=TRUE)
-      ){
-        index <- i-deleted
-        dummies <- dummies[,-index]
-        deleted <- deleted + 1
-      }
-    }
+    # dummy.columns <- colnames(dummies)
+    # deleted <- 0
+    # 
+    # for(i in 1:length(dummy.columns)){
+    #   dummy.column <- dummy.columns[i]
+    #   if(
+    #     grepl("FALSE",dummy.column,ignore.case=TRUE) 
+    #     | grepl("9",dummy.column)
+    #     |  grepl("0",dummy.column,ignore.case=TRUE)
+    #     |  grepl("DK",dummy.column)
+    #     |  grepl("missing",dummy.column,ignore.case=TRUE)
+    #     |  grepl("manquant",dummy.column,ignore.case=TRUE)
+    #   ){
+    #     index <- i-deleted
+    #     dummies <- dummies[,-index]
+    #     deleted <- deleted + 1
+    #   }
+    # }
   
   if(length(catvars)>0){
     dataf <- cbindlist(list(dataf,dummies))
