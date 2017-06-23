@@ -748,3 +748,6 @@ countryMeta$male.stunted <- countryMeta$p80.male.stunted+countryMeta$p20.male.st
 countryMeta <- subset(countryMeta,filename=="Brazil")
 
 write.csv(countryMeta,"bycountry_tabs_Brazil.csv",row.names=FALSE,na="")
+
+br.data.total <- data.total
+save(br.data.total,file="br.data.total.RData")

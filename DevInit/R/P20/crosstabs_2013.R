@@ -14,6 +14,12 @@ setwd("D:/Documents/Data/P20_2013/meta")
 load("total_triple.RData")
 
 data.total$sex <- factor(data.total$sex,levels=c("Male","Female"))
+
+# totalWeights <- data.table(data.total)[,.(total.weights=sum(weights,na.rm=TRUE)),by=.(filename,p20)]
+# ageTable <- data.table(data.total)[,.(age.weights=sum(weights,na.rm=TRUE)),by=.(filename,p20,age)]
+# ageTable <- merge(ageTable,totalWeights,by=c("filename","p20"))
+# ageTable$weighted.percent = ageTable$age.weights/ageTable$total.weights
+# write.csv(ageTable,"ageTable.csv",row.names=FALSE,na="")
 # 
 # data.total$whipple <- substr(as.character(data.total$age),nchar(as.character(data.total$age)),nchar(as.character(data.total$age)))
 # data.total$whipple05 <- data.total$whipple %in% c("0","5")
