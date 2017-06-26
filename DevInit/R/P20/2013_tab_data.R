@@ -232,7 +232,7 @@ dirs <- list.dirs(wd,full.names=TRUE)
 
 # dir <- "D:/Documents/Data/MICSauto/Somalia MICS 2006 SPSS Datasets"
 # dir <- "D:/Documents/Data/MICSauto/Algeria_MICS4_Datasets"
-# dir <- "D:/Documents/Data/MICSauto/Zimbabwe_MICS5_Datasets"
+# dir <- "D:/Documents/Data/MICSauto//Georgia MICS 2005 SPSS Datasets"
 
 for(i in 2:length(dirs)){
   dir <- dirs[i]
@@ -307,7 +307,12 @@ for(i in 2:length(dirs)){
     names(hl)[which(names(hl)==gradeVar)] <- "grade"
     
     #Rename age var
-    names(hl)[which(names(hl)=="hl6")] <- "age"
+    if(max(hl$hl6,na.rm=TRUE)<45){
+      names(hl)[which(names(hl)=="hl5")] <- "age"
+    }else{
+      names(hl)[which(names(hl)=="hl6")] <- "age"
+    }
+    
     
     #Rename sex var
     names(hl)[which(names(hl)=="hl4")] <- "sex"
