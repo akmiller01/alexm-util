@@ -244,7 +244,7 @@
         <div class="info-button" id="showHelp">
             <i class="ss-info"></i>
         </div>
-        <div id="helpTooltip" class="tooltip" style="top: 400px; left: 610px; opacity: 1; transform: translateY(-110%) translateX(-50%);"><div class="select-tooltip"><strong>Note: </strong>Selecting 'Experience stunting' or 'Birth not registered' will limit the selected population to children under 5. Selecting education levels will limit the selected population to adults 25 and older. Selecting 'Had no skilled birth attendant' will limit the selected population to women aged 15 to 49.</div><i class="tooltip-close">&#x2716;</i></div>
+        <div id="helpTooltip" class="tooltip" style="top: 400px; left: 610px; opacity: 1; transform: translateY(-110%) translateX(-50%);"><div class="select-tooltip"><strong>Note: </strong>Some indicators are only measured for certain population groups. Selecting 'Experience stunting' or 'Birth not registered' limits the selected population to children aged under 5 years. Selecting the education level limits the selected population to adults aged 25 years and older. Selecting 'Had no skilled attendant at birth' limits the selected population to girls and women aged 15 to 49 years.</div><i class="tooltip-close">&#x2716;</i></div>
         <a id="tour" class="btn btn--small btn--light tour-overlay-toggle" onclick="toggleTourOverlay()">Using this visualisation</a>
     </div>
 </div>
@@ -262,14 +262,14 @@
                 <li class="tour-item-5"><i class="ss-left"></i> Find more information</li>
                 <li class="tour-item-7">Hover over area to<br>to see data snapshot</li>
                 <li class="tour-item-9">Switch between percentages and absolute numbers <i class="ss-right"></i></li>
-                <li class="tour-item-10">Click "Share this chart" below to<br>to share the chart you've created<br><i class="ss-down"></i></li>
+                <li class="tour-item-10">Share the chart you've created<br><i class="ss-down"></i></li>
                 <li class="tour-item-11">Scroll down for more<br>information and data download<br><i class="ss-down"></i></li>
             </ul>
         </div>
     </div>
 </div>
 <div id="err" style="display:none;">
-    <b>Sorry, cannot display the combination of these variables.</b>
+    <b>Sorry, cannot display this combination of variables.</b>
 </div>
 <h2 id="subtitle"></h2>
 <div class="btn-group" id="popToggle" >
@@ -282,17 +282,17 @@
     <p></p>
 </div>
 <div id="narrative">
-    <h3>About the P20 initiative</h3>
-    <p>The <a class="color-accent" href="http://devinit.org/p20i/">P20 initiative</a> focuses on the people who are in the poorest 20% globally. It aims to track their progress and improve information about their lives in order to ensure no one is left behind in efforts to tackle poverty.</p>
+    <h3>About the P20 Initiative</h3>
+    <p>The <a class="color-accent" href="http://devinit.org/p20i/">P20 Initiative</a> focuses on the people who are in the poorest 20% of the global population. It aims to track their progress and improve information about their lives in order to ensure no one is left behind in efforts to tackle poverty.</p>
     <p><a class="color-accent" href="https://sustainabledevelopment.un.org/post2015/transformingourworld"  target="_blank">Agenda 2030</a> and the <a class="color-accent" href="http://www.un.org/sustainabledevelopment/sustainable-development-goals/"  target="_blank">Sustainable Development Goals</a> have brought us a global commitment to end extreme poverty and ensure no one is left behind. For this ambition to be met, we need to know who the poorest people in the world are, understand their lives, and ensure they are included in progress.</p>
     <div id="embededVideo"><iframe width="560" height="315" src="https://www.youtube.com/embed/DhGv6Dh_jCc" frameborder="0" allowfullscreen></iframe>
     </div>
     <h3>Methodology</h3>
-    <p>This visualisation is powered by data from Development Initiatives based on PovcalNet as well as selected DHS and MICS surveys. For detailed methodology notes please consult the annexes in the <a href="http://devinit.org/post/p20-initiative-data-to-leave-no-one-behind/" target="_blank" class="color-accent">P20 baseline report.</a></p>
-    <p>The P20 Initiative promotes the production and use of disaggregated data. As a minimum standard, data should be disaggregated by quintile, geography, gender, age and disability (QGGAD) to ensure sufficient granularity to include everyone in progress. Of the data sources used to power this visualisation, there is no disability data available from PovCal. Only 11 of the 56 DHS surveys and 5 of the 41 MICS surveys in our sample have some questions about disability.  Categories of people that are relatively small such as those experiencing a particular disability are not represented well by this type of visualisation. Consequently, we have omitted disability data from this visualisation. </p>
+    <p>This visualisation is powered by data from Development Initiatives based on PovcalNet and selected DHS and MICS surveys. For detailed methodology notes please consult the annexes in the <a href="http://devinit.org/post/p20-initiative-data-to-leave-no-one-behind/" target="_blank" class="color-accent">P20 baseline report.</a></p>
+    <p>The P20 Initiative promotes the production and use of disaggregated data. We believe, as a minimum standard, data should be disaggregated by quintile, geography, gender, age and disability (QGGAD) to ensure sufficient granularity to include everyone in progress. Of the data sources used to power this visualisation, there is no disability data available from PovcalNet. Only 11 of the 56 DHS surveys and 5 of the 41 MICS surveys in our sample have some questions about disability.  Categories of people that are relatively small such as those experiencing a particular disability, are not represented well by this type of visualisation. Consequently, we have omitted disability data from this visualisation. </p>
     <p>An unintentional overlap may appear when comparing binary indicators, such as male and female, urban and rural, or more than one age range. This is due to geometric constraints of the visualisation. </p>
-    <p>Due to data and geometric constraints, some combinations of indicators cannot be compared against each other and data isn't available for all indicators for all countries</p>
-    <p>Some indicators are only measured for certain population groups. Selecting 'Experience stunting' or 'Birth not registered' will limit the selected population to children under 5. Selecting education levels will limit the selected population to adults 25 and older. Selecting 'Had no skilled birth attendant' will limit the selected population to women aged 15 to 49.</p>
+    <p>Data isn't available for all indicators for all countries, and due to data and geometric constraints, some combinations of indicators cannot be compared against each other.</p>
+    <p>Some indicators are only measured for certain population groups. Selecting 'Experience stunting' or 'Birth not registered' limits the selected population to children aged under 5 years. Selecting the education level limits the selected population to adults aged 25 years and older. Selecting 'Had no skilled attendant at birth' limits the selected population to girls and women aged 15 to 49 years.</p>
     <p>Download the data behind the visualisation <a href="all.venn.joined2.csv" class="color-accent">here</a>.</p>
 </div>
 
@@ -440,7 +440,7 @@ var isoDict = {"AD":"Andorra"
 ,"CF":"Central African Republic"
 ,"CG":"Congo"
 ,"CH":"Switzerland"
-,"CI":"Cote d'Ivoire"
+,"CI":"Côte d'Ivoire"
 ,"CK":"Cook Islands"
 ,"CL":"Chile"
 ,"CM":"Cameroon"
@@ -468,7 +468,7 @@ var isoDict = {"AD":"Andorra"
 ,"ET":"Ethiopia"
 ,"FI":"Finland"
 ,"FJ":"Fiji"
-,"FK":"Falkland Islands "
+,"FK":"Falkland Islands"
 ,"FM":"Micronesia"
 ,"FO":"Faroe Islands"
 ,"FR":"France"
@@ -605,7 +605,7 @@ var isoDict = {"AD":"Andorra"
 ,"SO":"Somalia"
 ,"SR":"Suriname"
 ,"SS":"South Sudan"
-,"ST":"Sao Tome & Principe"
+,"ST":"São Tomé and Príncipe"
 ,"SV":"El Salvador"
 ,"SX":"Sint Maarten (Dutch part)"
 ,"SY":"Syria"
@@ -753,21 +753,21 @@ indicatorDict = {
  ,"blank2":"None selected"
  ,"p20":"P20"
  ,"non.p20":"Not in the P20"
- ,"ext":"Extreme poverty"
+ ,"ext":"Extreme poverty (<$1.90 per day)"
  ,"no.birth.reg":"Birth not registered"
  ,"female":"Female"
  ,"male":"Male"
- ,"under5":"Younger than 5"
- ,"fiveto14":"Aged 5 to 14"
- ,"fifteento49":"Aged 15 to 49"
- ,"gt49":"Older than 49"
+ ,"under5":"Younger than 5 years of age"
+ ,"fiveto14":"Aged 5 to 14 years"
+ ,"fifteento49":"Aged 15 to 49 years"
+ ,"gt49":"Older than 49 years"
  ,"no.educ":"No education or preschool"
  ,"primary":"Primary education"
  ,"secondary":"Secondary education"
  ,"higher":"Higher education"
  ,"urban":"Urban"
  ,"rural":"Rural"
- ,"no.skilled.attendant":"Had no skilled birth attendants"
+ ,"no.skilled.attendant":"Had no skilled attendant at birth"
  ,"stunted":"Experiencing stunting"
 };
 
@@ -850,21 +850,21 @@ sentenceDict[indicatorDict["blank1"]] = "";
 sentenceDict[indicatorDict["blank2"]] = "";
 sentenceDict[indicatorDict["p20"]] = "are in the global P20";
 sentenceDict[indicatorDict["non.p20"]] = "are not in the global P20";
-sentenceDict[indicatorDict["ext"]] = "are in extreme poverty";
-sentenceDict[indicatorDict["no.birth.reg"]] = "do not have birth registrations";
+sentenceDict[indicatorDict["ext"]] = "are in extreme poverty (<$1.90 per day)";
+sentenceDict[indicatorDict["no.birth.reg"]] = "are not registered at birth";
 sentenceDict[indicatorDict["female"]] = "are female";
 sentenceDict[indicatorDict["male"]] = "are male";
-sentenceDict[indicatorDict["under5"]] = "are younger than 5";
-sentenceDict[indicatorDict["fiveto14"]] = "are aged 5 to 14";
-sentenceDict[indicatorDict["fifteento49"]] = "are aged 15 to 49";
-sentenceDict[indicatorDict["gt49"]] = "are older than 49";
+sentenceDict[indicatorDict["under5"]] = "are younger than 5 years of age";
+sentenceDict[indicatorDict["fiveto14"]] = "are aged 5 to 14 years";
+sentenceDict[indicatorDict["fifteento49"]] = "are aged 15 to 49 years";
+sentenceDict[indicatorDict["gt49"]] = "are older than 49 years";
 sentenceDict[indicatorDict["no.educ"]] = "have either no education or preschool education";
 sentenceDict[indicatorDict["primary"]] = "have primary education";
 sentenceDict[indicatorDict["secondary"]] = "have secondary education";
 sentenceDict[indicatorDict["higher"]] = "have higher education";
 sentenceDict[indicatorDict["urban"]] = "live in urban areas";
 sentenceDict[indicatorDict["rural"]] = "live in rural areas";
-sentenceDict[indicatorDict["no.skilled.attendant"]] = "had no skilled birth attendants";
+sentenceDict[indicatorDict["no.skilled.attendant"]] = "had no skilled attendant at birth";
 sentenceDict[indicatorDict["stunted"]] = "are experiencing stunting";
 
 var indicators = Object.keys(indicatorDict);
@@ -1406,43 +1406,43 @@ var choices1 = [
     {"id":"blank1","text":"None selected","selected":false}
     ,{"id":"p20","text":"P20","selected":false}
     ,{"id":"non.p20","text":"Not in the P20","selected":true}
-    ,{"id":"ext","text":"Extreme poverty < $1.90 per day","selected":false}
+    ,{"id":"ext","text":"Living in extreme poverty (<$1.90 per day)","selected":false}
     ,{"id":"stunted","text":"Experiencing stunting (under 5)","selected":false}
     ,{"id":"no.birth.reg","text":"Birth not registered (under 5)","selected":false}
     ,{"id":"urban","text":"Urban","selected":false}
     ,{"id":"rural","text":"Rural","selected":false}
     ,{"id":"female","text":"Female","selected":false}
     ,{"id":"male","text":"Male","selected":false}
-    ,{"id":"under5","text":"Younger than 5","selected":false}
-    ,{"id":"fiveto14","text":"Aged 5 to 14","selected":false}
-    ,{"id":"fifteento49","text":"Aged 15 to 49","selected":false}
+    ,{"id":"under5","text":"Younger than 5 years of age","selected":false}
+    ,{"id":"fiveto14","text":"Aged 5 to 14 years","selected":false}
+    ,{"id":"fifteento49","text":"Aged 15 to 49 years","selected":false}
     ,{"id":"gt49","text":"Older than 49","selected":false}
     ,{"id":"no.educ","text":"No education or preschool (over 25)","selected":false}
     ,{"id":"primary","text":"Primary education (over 25)","selected":false}
     ,{"id":"secondary","text":"Secondary education (over 25)","selected":false}
     ,{"id":"higher","text":"Higher education (over 25)","selected":false}
-    ,{"id":"no.skilled.attendant","text":"Had no skilled birth attendants (child-bearing women)","selected":false}
+    ,{"id":"no.skilled.attendant","text":"Had no skilled attendant at birth (girls and women 15 to 49 years)","selected":false}
 ];
 var choices2 = [
     {"id":"blank2","text":"None selected"}
     ,{"id":"p20","text":"P20"}
     ,{"id":"non.p20","text":"Not in the P20"}
-    ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}
+    ,{"id":"ext","text":"Living in extreme poverty (<$1.90 per day)"}
     ,{"id":"stunted","text":"Experiencing stunting (under 5)"}
     ,{"id":"no.birth.reg","text":"Birth not registered (under 5)"}
     ,{"id":"urban","text":"Urban"}
     ,{"id":"rural","text":"Rural"}
     ,{"id":"female","text":"Female"}
     ,{"id":"male","text":"Male"}
-    ,{"id":"under5","text":"Younger than 5"}
-    ,{"id":"fiveto14","text":"Aged 5 to 14"}
-    ,{"id":"fifteento49","text":"Aged 15 to 49"}
+    ,{"id":"under5","text":"Younger than 5 years of age"}
+    ,{"id":"fiveto14","text":"Aged 5 to 14 years"}
+    ,{"id":"fifteento49","text":"Aged 15 to 49 years"}
     ,{"id":"gt49","text":"Older than 49"}
     ,{"id":"no.educ","text":"No education or preschool (over 25)"}
     ,{"id":"primary","text":"Primary education (over 25)"}
     ,{"id":"secondary","text":"Secondary education (over 25)"}
     ,{"id":"higher","text":"Higher education (over 25)"}
-    ,{"id":"no.skilled.attendant","text":"Had no skilled birth attendants (child-bearing women)"}
+    ,{"id":"no.skilled.attendant","text":"Had no skilled attendant at birth (girls and women 15 to 49 years)"}
 ];
 indicatorDropdown2.selectAll('option.indicator').data(choices1)
     .enter().append("option")
