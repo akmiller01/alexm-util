@@ -160,8 +160,8 @@
             text-align:center;
         }
         .tour-datahub .tour-item-5{
-            top:105px;
-            margin-left:415px;
+            top:107px;
+            margin-left:470px;
         }
         .tour-datahub .tour-item-9{
             width:auto;
@@ -753,7 +753,7 @@ indicatorDict = {
  ,"blank2":"None selected"
  ,"p20":"P20"
  ,"non.p20":"Not in the P20"
- ,"ext":"Extreme poverty (<$1.90 per day)"
+ ,"ext":"Extreme poverty"
  ,"no.birth.reg":"Birth not registered"
  ,"female":"Female"
  ,"male":"Male"
@@ -761,7 +761,7 @@ indicatorDict = {
  ,"fiveto14":"Aged 5 to 14 years"
  ,"fifteento49":"Aged 15 to 49 years"
  ,"gt49":"Older than 49 years"
- ,"no.educ":"No education or preschool"
+ ,"no.educ":"No education or preschool only"
  ,"primary":"Primary education"
  ,"secondary":"Secondary education"
  ,"higher":"Higher education"
@@ -1395,7 +1395,7 @@ var indicatorDropdown2 = d3.selectAll('select#Yselect');
 var indicatorDropdown3 = d3.selectAll('select#Zselect');
 indicatorDropdown1.selectAll('option.indicator').data(
     [{"id":"p20","text":"P20"}
-    ,{"id":"non.p20","text":"Not in the P20"}
+    ,{"id":"non.p20","text":"The rest of the population (not in the P20)"}
     ,{"id":"ext","text":"Extreme poverty < $1.90 per day"}]
     )
     .enter().append("option")
@@ -1405,7 +1405,7 @@ indicatorDropdown1.selectAll('option.indicator').data(
 var choices1 = [
     {"id":"blank1","text":"None selected","selected":false}
     ,{"id":"p20","text":"P20","selected":false}
-    ,{"id":"non.p20","text":"Not in the P20","selected":true}
+    ,{"id":"non.p20","text":"The rest of the population (not in the P20)","selected":true}
     ,{"id":"ext","text":"Living in extreme poverty (<$1.90 per day)","selected":false}
     ,{"id":"stunted","text":"Experiencing stunting (under 5)","selected":false}
     ,{"id":"no.birth.reg","text":"Birth not registered (under 5)","selected":false}
@@ -1417,7 +1417,7 @@ var choices1 = [
     ,{"id":"fiveto14","text":"Aged 5 to 14 years","selected":false}
     ,{"id":"fifteento49","text":"Aged 15 to 49 years","selected":false}
     ,{"id":"gt49","text":"Older than 49 years","selected":false}
-    ,{"id":"no.educ","text":"No education or preschool (over 25)","selected":false}
+    ,{"id":"no.educ","text":"No education or preschool only (over 25)","selected":false}
     ,{"id":"primary","text":"Primary education (over 25)","selected":false}
     ,{"id":"secondary","text":"Secondary education (over 25)","selected":false}
     ,{"id":"higher","text":"Higher education (over 25)","selected":false}
@@ -1426,7 +1426,7 @@ var choices1 = [
 var choices2 = [
     {"id":"blank2","text":"None selected"}
     ,{"id":"p20","text":"P20"}
-    ,{"id":"non.p20","text":"Not in the P20"}
+    ,{"id":"non.p20","text":"The rest of the population (not in the P20)"}
     ,{"id":"ext","text":"Living in extreme poverty (<$1.90 per day)"}
     ,{"id":"stunted","text":"Experiencing stunting (under 5)"}
     ,{"id":"no.birth.reg","text":"Birth not registered (under 5)"}
