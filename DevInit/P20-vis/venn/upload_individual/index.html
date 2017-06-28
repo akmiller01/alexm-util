@@ -1361,11 +1361,11 @@ function changeVenn() {
                 var sentence = " "+phrases.join(" and ")+".";
                 if(toggleVal=="perc"){
                     $('#tooltip p').text(
-                    d.size>0?d.size+"%"+" in "+country+sentence:"0% in "+country+sentence
+                    d.size>0?d.size+"%"+" in "+country+sentence:"0%. This overlap is unintentional and due to geometric constraints of the visualisation."
                     );
                 }else{
                     $('#tooltip p').text(
-                    d.size>0?"About "+numberWithCommas((d.size/100)*subset.pop)+" in "+country+sentence:"No people in "+country+sentence
+                    d.size>0?"About "+numberWithCommas((d.size/100)*subset.pop)+" in "+country+sentence:"No people. This overlap is unintentional and due to geometric constraints of the visualisation."
                     );
                 };
                 return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);
