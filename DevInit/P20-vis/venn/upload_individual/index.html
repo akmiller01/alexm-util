@@ -1360,13 +1360,33 @@ function changeVenn() {
                 };
                 var sentence = " "+phrases.join(" and ")+".";
                 if(toggleVal=="perc"){
-                    $('#tooltip p').text(
-                    d.size>0?d.size+"%"+" in "+country+sentence:"0%. This overlap is unintentional and due to geometric constraints of the visualisation."
-                    );
+                    if(d.size==0){
+                        $('#tooltip p').text(
+                            "0%. This overlap is unintentional and due to geometric constraints of the visualisation."
+                        );
+                        $('#tooltip img').hide();
+                        $('#tooltip').css("background-color","rgba(90, 84, 90,.85)");
+                    }else{
+                        $('#tooltip p').text(
+                            d.size+"%"+" in "+country+sentence
+                        );
+                        $('#tooltip img').show();
+                        $('#tooltip').css("background-color","rgba(0,0,0,.85)");
+                    }
                 }else{
-                    $('#tooltip p').text(
-                    d.size>0?"About "+numberWithCommas((d.size/100)*subset.pop)+" in "+country+sentence:"No people. This overlap is unintentional and due to geometric constraints of the visualisation."
-                    );
+                    if(d.size==0){
+                        $('#tooltip p').text(
+                            "No people. This overlap is unintentional and due to geometric constraints of the visualisation."
+                        );
+                        $('#tooltip img').hide();
+                        $('#tooltip').css("background-color","rgba(90, 84, 90,.85)");
+                    }else{
+                        $('#tooltip p').text(
+                            "About "+numberWithCommas((d.size/100)*subset.pop)+" in "+country+sentence
+                        );
+                        $('#tooltip img').show();
+                        $('#tooltip').css("background-color","rgba(0,0,0,.85)");
+                    }
                 };
                 return d3.select(this.childNodes[0]).style("stroke","black").style("stroke-width",2);
                 })
