@@ -1,4 +1,4 @@
-import csv
+import pandas as pd
 from docx import Document
 import django
 from django.template import Template, Context
@@ -15,26 +15,26 @@ import pdb
 from optparse import OptionParser
 
 def docx_contextualize(input_docx,context_file):
-    with open(context_file) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for context in reader:
-            print context
-            c = Context(context)
+    df = pd.read_csv(context_file)
+    for index, row in df.iterrows():
+        context = dict(row.dropna())
+        print context
+        c = Context(context)
+        
+        f = open(input_docx,'rb')
+        doc = Document(f)
+        f.close()
+        for i in range(0,len(doc.paragraphs)):
+            t = Template(doc.paragraphs[i].text)
+            doc.paragraphs[i].text = t.render(c)
             
-            f = open(input_docx,'rb')
-            doc = Document(f)
-            f.close()
-            for i in range(0,len(doc.paragraphs)):
-                t = Template(doc.paragraphs[i].text)
-                doc.paragraphs[i].text = t.render(c)
-                
-            for table in doc.tables:
-                for row in table.rows:
-                    for cell in row.cells:
-                        t = Template(cell.text)
-                        cell.text = t.render(c)
-            
-            doc.save(context['file_name']+".docx")
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    t = Template(cell.text)
+                    cell.text = t.render(c)
+        
+        doc.save(context['file_name']+".docx")
             
             
 #Parse Options
