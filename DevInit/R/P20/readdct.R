@@ -1,5 +1,3 @@
-dct_file <- "C:/Users/Alex/Downloads/AFBR70FL/AFBR70FL.DCT"
-
 library(readr)
 
 readdct = function(dct_file){
