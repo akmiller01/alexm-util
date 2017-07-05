@@ -20,5 +20,3 @@ readdct = function(dct_file){
   )
   return(data.frame(dat))
 }
-
-dat <- readdct(dct_file)
