@@ -307,7 +307,7 @@
     <p>Download the data behind the visualisation <a href="all.venn.joined2.csv" class="color-accent">here</a>.</p>
 </div>
 <div id="beta-message" class="beta-message show-message text-center bg--dark">
-    <p>BETA: This visualisation is currently a beta version, please share your <a href="mailto:info@devinit.org" class="color-accent">feedback</a> to help us provide the best possible experience.</p>
+    <p>BETA: This visualisation is currently a beta version; please share your <a href="mailto:info@devinit.org" class="color-accent">feedback</a> to help us provide the best possible experience.</p>
     <i class="tooltip-close" onclick="$('#beta-message').removeClass('show-message');">✖</i>
 </div>
 </body>
@@ -887,7 +887,7 @@ caveatDict = {
  ,"primary":"more than 25 years old"
  ,"secondary":"more than 25 years old"
  ,"higher":"more than 25 years old"
- ,"no.skilled.attendant":"female between the ages of 15 and 49"
+ ,"no.skilled.attendant":"between the ages of 15 and 49 and female"
  ,"stunted":"less than 5 years old"
 };
 
@@ -1355,12 +1355,17 @@ function changeVenn() {
         };
         var pop = subset.pop,
         caveats = [caveatDict[subset.indicator1],caveatDict[subset.indicator2],caveatDict[subset.indicator3]].clean(undefined),
-        uniqueCaveats = d3.map(caveats, function(d){return d;}).keys().join(" and ");
+        uniqueCaveats = d3.map(caveats, function(d){return d;}).keys(),
+        caveatSentence = uniqueCaveats.join(" and ");
+        //Manual recoding of sentence output
+        if((uniqueCaveats.indexOf(caveatDict["no.skilled.attendant"])>=0) && (uniqueCaveats.indexOf(caveatDict["no.educ"])>=0)){
+            caveatSentence = "between the ages of 25 and 49 years old and female"
+        }
         
         if(toggleVal=="perc"){
-            $('#subtitle').text(caveats.length==0?"":"Only showing population which is "+uniqueCaveats+".")
+            $('#subtitle').text(caveats.length==0?"":"Only showing data for people that are "+caveatSentence+".")
         }else{
-            $('#subtitle').text(caveats.length==0?"":"Only showing population which is "+uniqueCaveats+".")            
+            $('#subtitle').text(caveats.length==0?"":"Only showing data for people that are "+caveatSentence+".")            
         };
         
         if (d3.sum([subset.X,subset.Y,subset.Z,subset['Y,Z'],subset['X,Z'],subset['X,Y'],subset['X,Y,Z']])<=0) {
