@@ -774,6 +774,9 @@ data.total$stunting[which(data.total$child.height.age > (-6) & data.total$child.
 data.total$stunting[which(data.total$child.height.age > (-3) & data.total$child.height.age<= (-2))] <- "Stunted, but not severely"
 data.total$stunting[which(data.total$child.height.age > (-2) & data.total$child.height.age< (6))] <- "Not stunted"
 # data.total$stunting[which(data.total$child.height.age>= (6))] <- "Implausibly high"
+# 
+# data.total$stunted <- (data.total$child.height.age> -6) & (data.total$child.height.age<= -2)
+# data.total$stunted <- data.total$child.height.age<= -2
 
 data.total$stunting <- factor(data.total$stunting
                               ,levels=c(
