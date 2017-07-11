@@ -28,9 +28,9 @@ parser.add_option("-p", "--password", dest="password", default=False,
                         help="DHS password",metavar="STRING")
 parser.add_option("-r", "--project", dest="proj", default=1,
                         help="Project index",metavar="INTEGER")
-parser.add_option("-d", "--download", dest="download", default="C:\\Users\\Alex\\Documents\\Data\\DHSauto\\urlslist_87786.txt",
+parser.add_option("-d", "--download", dest="download", default="C:\\Users\\Alex\\Documents\\Data\\P20\\urlslist_87786.txt",
                         help="Bulk download PATH",metavar="STRING")
-parser.add_option("-o", "--output", dest="output", default="C:\\Users\\Alex\\Documents\\Data\\DHSauto",
+parser.add_option("-o", "--output", dest="output", default="C:\\Users\\Alex\\Documents\\Data\\P20\\DHS",
                         help="Output path. Default is wd",metavar="FOLDER")
 (options, args) = parser.parse_args()
 

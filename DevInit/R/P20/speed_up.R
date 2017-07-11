@@ -6,7 +6,7 @@ library(data.table)
 library(devtools)
 ####Run function####
 # set our working directory, change this if using on another machine
-wd <- "D:/Documents/Data/DHS2/"
+wd <- "C:/Users/Alex/Documents/Data/P20/DHS"
 setwd(wd)
 
 #Unzip
@@ -29,7 +29,7 @@ for(j in 1:length(files)){
   #Comment this out to avoid re-writing
 #       rdatas <- c()
   if(!(paste0(fileName,".RData") %in% rdatas)){
-    data <- read.dta(file)
+    data <- read.dta(file,convert.factors=FALSE)
     save(data,file=paste0(wd,"/",fileName,".RData"))  
   }
 }
