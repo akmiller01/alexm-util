@@ -4,7 +4,7 @@ library(plyr)
 library(foreign)
 library(data.table)
 
-setwd("D:/Documents/Data/MICSmeta")
+setwd("C:/git/alexm-util/DevInit/R/P20")
 varNames <- read.csv("mics_meta_vars_complete.csv",as.is=TRUE,na.strings="")
 
 cwi.class <- function(hh,hl){

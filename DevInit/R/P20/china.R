@@ -1,26 +1,26 @@
-wd <- "D:/Documents/Data/ChinaSurvey/"
+wd <- "C:/Users/Alex/Documents/Data/P20/CFPS"
 setwd(wd)
 
 library(foreign)
-library(sas7bdat)
+# library(sas7bdat)
 library(readstata13)
 library(data.table)
 library(plyr)
 library(varhandle)
 
-# fam <- read.dta("STATA/CFPS_2012_family_dta/Ecfps2012family_032015.dta")
-# attributes(fam)$variable.labels <- data.frame(names(fam),attributes(fam)[7])
-# famros <- read.dta13("STATA/CFPS_2012_famconf_dta/Ecfps2012famroster_032015compress.dta")
-# attributes(famros)$variable.labels <- data.frame(names(famros),attributes(famros)[8])
+fam <- read.dta("CFPS_2014_family_dta/Cfps2014famecon_170630.dta",convert.factors=FALSE)
+attributes(fam)$variable.labels <- data.frame(names(fam),attributes(fam)[7])
+famros <- read.dta("CFPS_2014_famconf_dta/cfps2014famconf_170630.dta",convert.factors=FALSE)
+attributes(famros)$variable.labels <- data.frame(names(famros),attributes(famros)[7])
 # tracking <- read.dta("STATA/CFPS_2012_tracking_dta/Ecrosswaveid_032015.dta")
 # attributes(tracking)$variable.labels <- data.frame(names(tracking),attributes(tracking)[7])
-# adult <- read.dta("STATA/CFPS_2012_adult_dta/Ecfps2012adultcombined_032015.dta")
-# attributes(adult)$variable.labels <- data.frame(names(adult),attributes(adult)[7])
-# child <- read.dta("STATA/CFPS_2012_child_dta/Ecfps2012childcombined_032015.dta")
-# attributes(child)$variable.labels <- data.frame(names(child),attributes(child)[7])
-# 
-# 
-# save(fam,famros,tracking,adult,child,file="dat2012.RData")
+adult <- read.dta("CFPS_2014_adult_dta/cfps2014adult_170630.dta",convert.factors=FALSE)
+attributes(adult)$variable.labels <- data.frame(names(adult),attributes(adult)[7])
+child <- read.dta("CFPS_2014_child_dta/Cfps2014child_170630.dta",convert.factors=FALSE)
+attributes(child)$variable.labels <- data.frame(names(child),attributes(child)[7])
+
+
+save(fam,famros,adult,child,file="dat2012.RData")
 load("dat2012.RData")
 # write.csv(attributes(fam)$variable.labels,"fam.vars.csv")
 # write.csv(attributes(famros)$variable.labels,"famros.vars.csv")
@@ -46,10 +46,6 @@ assets <- c(
   ,"fs6_s_13"
   ,"fs6_s_14"
   ,"fs6_s_15"
-  ,"fs6_s_16"
-  ,"fs6_s_17"
-  ,"fs6_s_18"
-  ,"fs6_s_19"
   )
 
 assetDf <- dat[assets]
@@ -83,13 +79,18 @@ fs6 <- data.frame(fs6)
 fs6.names <- names(fs6)
 dat <- cbind(dat,fs6)
 
+dat$fq2 <- as.character(dat$fq2)
+dat$fa3 <- as.character(dat$fa3)
+dat$fa4 <- as.character(dat$fa4)
+dat$fa5 <- as.character(dat$fa5)
+dat$fa6 <- as.character(dat$fa6)
+
 dummyList <- list(
-  dum1 = model.matrix( ~ fq1 - 1, data=dat )
-  ,dum2 = model.matrix( ~ fb1 - 1, data=dat )
-  ,dum3 = model.matrix( ~ fb2 - 1, data=dat )
-  ,dum4 = model.matrix( ~ fb3 - 1, data=dat )
-  ,dum5 = model.matrix( ~ fb5 - 1, data=dat )
-  ,dum6 = model.matrix( ~ fb7 - 1, data=dat )
+  dum1 = model.matrix( ~ fq2 - 1, data=dat )
+  ,dum2 = model.matrix( ~ fa3 - 1, data=dat )
+  ,dum3 = model.matrix( ~ fa4 - 1, data=dat )
+  ,dum4 = model.matrix( ~ fa5 - 1, data=dat )
+  ,dum5 = model.matrix( ~ fa6 - 1, data=dat )
 )
 
 cbindlist <- function(list) {
@@ -188,9 +189,9 @@ for(i in 1:length(pca.vars)){
 dat <- cbind(dat,c.wealth)
 
 #urban
-urban <- subset(dat,urban12=="Urban")
+urban <- subset(dat,urban14==1)
 
-dat.pca <- prcomp(dat.asset.cap[which(dat$urban12=="Urban"),])
+dat.pca <- prcomp(dat.asset.cap[which(dat$urban14==1),])
 
 pca1 <- dat.pca$rotation[,1]
 
@@ -222,9 +223,9 @@ u.alpha <- urban.lm$coefficients[[1]]
 u.beta <- urban.lm$coefficients[[2]]
 
 #Rural
-rural <- subset(dat,urban12=="Rural")
+rural <- subset(dat,urban14==0)
 
-dat.pca <- prcomp(dat.asset.cap[which(dat$urban12=="Rural"),])
+dat.pca <- prcomp(dat.asset.cap[which(dat$urban14==0),])
 
 pca1 <- dat.pca$rotation[,1]
 
@@ -261,4 +262,5 @@ urban$r.wealth <- NA
 urban$wealth <- u.alpha+(u.beta*u.wealth)
 rural$wealth <- r.alpha+(r.beta*r.wealth)
 dat <- rbind(urban,rural)
+dat$wealth <- -1 * dat$wealth
 save(dat,file=paste0("wealth.RData"))

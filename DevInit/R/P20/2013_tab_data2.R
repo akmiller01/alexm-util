@@ -36,6 +36,10 @@ weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   return(cutList)
 }
 
+psum <- function(...,na.rm=TRUE) { 
+  rowSums(do.call(cbind,list(...)),na.rm=na.rm)
+} 
+
 ####Run function####
 # set our working directory, change this if using on another machine
 wd <- "C:/Users/Alex/Documents/Data/P20/DHS/"
@@ -55,12 +59,363 @@ for(i in 2:length(rdatas)){
   recode <- tolower(substr(basename(rdata),3,4))
   phase <- tolower(substr(basename(rdata),5,6))
   povcal_filename <- paste0(country,recode,phase,"dt")
-  # For this analysis, we're only interested in individual member recodes, or "hr"
   if(povcal_filename %in% povcalcuts$filename){
     message(povcal_filename)
     # load(rdata)
     # hr <- data
     # remove(data)
+    
+    ###Maternal
+    ir_path <- paste0(country,"ir",phase,"fl.RData")
+    load(ir_path)
+    ir <- data.frame(data)
+    remove(data)
+    
+    names(ir)[which(names(ir)=="v001")] <- "cluster"
+    names(ir)[which(names(ir)=="v002")] <- "household"
+    names(ir)[which(names(ir)=="v003")] <- "line"
+    names(ir)[which(names(ir)=="v201")] <- "ceb"
+    ir$woman.weights <- ir$v005/1000000
+    if(typeof(ir$v206)=="NULL" & typeof(ir$v207)=="NULL"){
+      ir$cdead <- NA
+    }else{
+      ir$cdead <- psum(ir$v206,ir$v207,na.rm=TRUE) 
+    }
+    ###Skilled attendant_1
+    if(typeof(ir$m3a_1)=="NULL" & 
+       typeof(ir$m3b_1)=="NULL" & 
+       typeof(ir$m3c_1)=="NULL" & 
+       typeof(ir$m3d_1)=="NULL" & 
+       typeof(ir$m3e_1)=="NULL" & 
+       typeof(ir$m3f_1)=="NULL"){
+      ir$skilled.attendant_1 <- NA
+    }else{
+      ir$skilled.attendant_1 <- psum(
+        (ir$m3a_1==1 | tolower(ir$m3a_1)=="yes")
+        ,(ir$m3b_1==1 | tolower(ir$m3b_1)=="yes")
+        ,(ir$m3c_1==1 | tolower(ir$m3c_1)=="yes")
+        ,(ir$m3d_1==1 | tolower(ir$m3d_1)=="yes")
+        ,(ir$m3e_1==1 | tolower(ir$m3e_1)=="yes")
+        ,(ir$m3f_1==1 | tolower(ir$m3f_1)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_1 <- 6-psum(
+        typeof(ir$m3a_1)=="NULL" | sum(is.na(ir$m3a_1))==nrow(ir),
+        typeof(ir$m3b_1)=="NULL" | sum(is.na(ir$m3b_1))==nrow(ir),
+        typeof(ir$m3c_1)=="NULL" | sum(is.na(ir$m3c_1))==nrow(ir),
+        typeof(ir$m3d_1)=="NULL" | sum(is.na(ir$m3d_1))==nrow(ir),
+        typeof(ir$m3e_1)=="NULL" | sum(is.na(ir$m3e_1))==nrow(ir),
+        typeof(ir$m3f_1)=="NULL" | sum(is.na(ir$m3f_1))==nrow(ir)
+      )
+      if(skilled.sum_1>0){
+        ir$skilled.attendant.missing_1 <-  psum(
+          is.na(ir$m3a_1)
+          ,is.na(ir$m3b_1)
+          ,is.na(ir$m3c_1)
+          ,is.na(ir$m3d_1)
+          ,is.na(ir$m3e_1)
+          ,is.na(ir$m3f_1)
+        )>=skilled.sum_1
+        ir$skilled.attendant_1[which(ir$skilled.attendant.missing_1==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_1 <- NA
+      }
+      ir$skilled.attendant_1[which(ir$b8_01>5)] <- NA
+    }
+    ###Skilled attendant_2
+    if(typeof(ir$m3a_2)=="NULL" & 
+       typeof(ir$m3b_2)=="NULL" & 
+       typeof(ir$m3c_2)=="NULL" & 
+       typeof(ir$m3d_2)=="NULL" & 
+       typeof(ir$m3e_2)=="NULL" & 
+       typeof(ir$m3f_2)=="NULL"){
+      ir$skilled.attendant_2 <- NA
+    }else{
+      ir$skilled.attendant_2 <- psum(
+        (ir$m3a_2==1 | tolower(ir$m3a_2)=="yes")
+        ,(ir$m3b_2==1 | tolower(ir$m3b_2)=="yes")
+        ,(ir$m3c_2==1 | tolower(ir$m3c_2)=="yes")
+        ,(ir$m3d_2==1 | tolower(ir$m3d_2)=="yes")
+        ,(ir$m3e_2==1 | tolower(ir$m3e_2)=="yes")
+        ,(ir$m3f_2==1 | tolower(ir$m3f_2)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_2 <- 6-psum(
+        typeof(ir$m3a_2)=="NULL" | sum(is.na(ir$m3a_2))==nrow(ir),
+        typeof(ir$m3b_2)=="NULL" | sum(is.na(ir$m3b_2))==nrow(ir),
+        typeof(ir$m3c_2)=="NULL" | sum(is.na(ir$m3c_2))==nrow(ir),
+        typeof(ir$m3d_2)=="NULL" | sum(is.na(ir$m3d_2))==nrow(ir),
+        typeof(ir$m3e_2)=="NULL" | sum(is.na(ir$m3e_2))==nrow(ir),
+        typeof(ir$m3f_2)=="NULL" | sum(is.na(ir$m3f_2))==nrow(ir)
+      )
+      if(skilled.sum_2>0){
+        ir$skilled.attendant.missing_2 <-  psum(
+          is.na(ir$m3a_2)
+          ,is.na(ir$m3b_2)
+          ,is.na(ir$m3c_2)
+          ,is.na(ir$m3d_2)
+          ,is.na(ir$m3e_2)
+          ,is.na(ir$m3f_2)
+        )>=skilled.sum_2
+        ir$skilled.attendant_2[which(ir$skilled.attendant.missing_2==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_2 <- NA
+      }
+      ir$skilled.attendant_2[which(ir$b8_02>5)] <- NA
+    }
+    ###Skilled attendant_3
+    if(typeof(ir$m3a_3)=="NULL" & 
+       typeof(ir$m3b_3)=="NULL" & 
+       typeof(ir$m3c_3)=="NULL" & 
+       typeof(ir$m3d_3)=="NULL" & 
+       typeof(ir$m3e_3)=="NULL" & 
+       typeof(ir$m3f_3)=="NULL"){
+      ir$skilled.attendant_3 <- NA
+    }else{
+      ir$skilled.attendant_3 <- psum(
+        (ir$m3a_3==1 | tolower(ir$m3a_3)=="yes")
+        ,(ir$m3b_3==1 | tolower(ir$m3b_3)=="yes")
+        ,(ir$m3c_3==1 | tolower(ir$m3c_3)=="yes")
+        ,(ir$m3d_3==1 | tolower(ir$m3d_3)=="yes")
+        ,(ir$m3e_3==1 | tolower(ir$m3e_3)=="yes")
+        ,(ir$m3f_3==1 | tolower(ir$m3f_3)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_3 <- 6-psum(
+        typeof(ir$m3a_3)=="NULL" | sum(is.na(ir$m3a_3))==nrow(ir),
+        typeof(ir$m3b_3)=="NULL" | sum(is.na(ir$m3b_3))==nrow(ir),
+        typeof(ir$m3c_3)=="NULL" | sum(is.na(ir$m3c_3))==nrow(ir),
+        typeof(ir$m3d_3)=="NULL" | sum(is.na(ir$m3d_3))==nrow(ir),
+        typeof(ir$m3e_3)=="NULL" | sum(is.na(ir$m3e_3))==nrow(ir),
+        typeof(ir$m3f_3)=="NULL" | sum(is.na(ir$m3f_3))==nrow(ir)
+      )
+      if(skilled.sum_3>0){
+        ir$skilled.attendant.missing_3 <-  psum(
+          is.na(ir$m3a_3)
+          ,is.na(ir$m3b_3)
+          ,is.na(ir$m3c_3)
+          ,is.na(ir$m3d_3)
+          ,is.na(ir$m3e_3)
+          ,is.na(ir$m3f_3)
+        )>=skilled.sum_3
+        ir$skilled.attendant_3[which(ir$skilled.attendant.missing_3==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_3 <- NA
+      }
+      ir$skilled.attendant_3[which(ir$b8_03>5)] <- NA
+    }
+    ###Skilled attendant_4
+    if(typeof(ir$m3a_4)=="NULL" & 
+       typeof(ir$m3b_4)=="NULL" & 
+       typeof(ir$m3c_4)=="NULL" & 
+       typeof(ir$m3d_4)=="NULL" & 
+       typeof(ir$m3e_4)=="NULL" & 
+       typeof(ir$m3f_4)=="NULL"){
+      ir$skilled.attendant_4 <- NA
+    }else{
+      ir$skilled.attendant_4 <- psum(
+        (ir$m3a_4==1 | tolower(ir$m3a_4)=="yes")
+        ,(ir$m3b_4==1 | tolower(ir$m3b_4)=="yes")
+        ,(ir$m3c_4==1 | tolower(ir$m3c_4)=="yes")
+        ,(ir$m3d_4==1 | tolower(ir$m3d_4)=="yes")
+        ,(ir$m3e_4==1 | tolower(ir$m3e_4)=="yes")
+        ,(ir$m3f_4==1 | tolower(ir$m3f_4)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_4 <- 6-psum(
+        typeof(ir$m3a_4)=="NULL" | sum(is.na(ir$m3a_4))==nrow(ir),
+        typeof(ir$m3b_4)=="NULL" | sum(is.na(ir$m3b_4))==nrow(ir),
+        typeof(ir$m3c_4)=="NULL" | sum(is.na(ir$m3c_4))==nrow(ir),
+        typeof(ir$m3d_4)=="NULL" | sum(is.na(ir$m3d_4))==nrow(ir),
+        typeof(ir$m3e_4)=="NULL" | sum(is.na(ir$m3e_4))==nrow(ir),
+        typeof(ir$m3f_4)=="NULL" | sum(is.na(ir$m3f_4))==nrow(ir)
+      )
+      if(skilled.sum_4>0){
+        ir$skilled.attendant.missing_4 <-  psum(
+          is.na(ir$m3a_4)
+          ,is.na(ir$m3b_4)
+          ,is.na(ir$m3c_4)
+          ,is.na(ir$m3d_4)
+          ,is.na(ir$m3e_4)
+          ,is.na(ir$m3f_4)
+        )>=skilled.sum_4
+        ir$skilled.attendant_4[which(ir$skilled.attendant.missing_4==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_4 <- NA
+      }
+      ir$skilled.attendant_4[which(ir$b8_04>5)] <- NA
+    }
+    ###Skilled attendant_5
+    if(typeof(ir$m3a_5)=="NULL" & 
+       typeof(ir$m3b_5)=="NULL" & 
+       typeof(ir$m3c_5)=="NULL" & 
+       typeof(ir$m3d_5)=="NULL" & 
+       typeof(ir$m3e_5)=="NULL" & 
+       typeof(ir$m3f_5)=="NULL"){
+      ir$skilled.attendant_5 <- NA
+    }else{
+      ir$skilled.attendant_5 <- psum(
+        (ir$m3a_5==1 | tolower(ir$m3a_5)=="yes")
+        ,(ir$m3b_5==1 | tolower(ir$m3b_5)=="yes")
+        ,(ir$m3c_5==1 | tolower(ir$m3c_5)=="yes")
+        ,(ir$m3d_5==1 | tolower(ir$m3d_5)=="yes")
+        ,(ir$m3e_5==1 | tolower(ir$m3e_5)=="yes")
+        ,(ir$m3f_5==1 | tolower(ir$m3f_5)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_5 <- 6-psum(
+        typeof(ir$m3a_5)=="NULL" | sum(is.na(ir$m3a_5))==nrow(ir),
+        typeof(ir$m3b_5)=="NULL" | sum(is.na(ir$m3b_5))==nrow(ir),
+        typeof(ir$m3c_5)=="NULL" | sum(is.na(ir$m3c_5))==nrow(ir),
+        typeof(ir$m3d_5)=="NULL" | sum(is.na(ir$m3d_5))==nrow(ir),
+        typeof(ir$m3e_5)=="NULL" | sum(is.na(ir$m3e_5))==nrow(ir),
+        typeof(ir$m3f_5)=="NULL" | sum(is.na(ir$m3f_5))==nrow(ir)
+      )
+      if(skilled.sum_5>0){
+        ir$skilled.attendant.missing_5 <-  psum(
+          is.na(ir$m3a_5)
+          ,is.na(ir$m3b_5)
+          ,is.na(ir$m3c_5)
+          ,is.na(ir$m3d_5)
+          ,is.na(ir$m3e_5)
+          ,is.na(ir$m3f_5)
+        )>=skilled.sum_5
+        ir$skilled.attendant_5[which(ir$skilled.attendant.missing_5==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_5 <- NA
+      }
+      ir$skilled.attendant_5[which(ir$b8_05>5)] <- NA
+    }
+    ###Skilled attendant_6
+    if(typeof(ir$m3a_6)=="NULL" & 
+       typeof(ir$m3b_6)=="NULL" & 
+       typeof(ir$m3c_6)=="NULL" & 
+       typeof(ir$m3d_6)=="NULL" & 
+       typeof(ir$m3e_6)=="NULL" & 
+       typeof(ir$m3f_6)=="NULL"){
+      ir$skilled.attendant_6 <- NA
+    }else{
+      ir$skilled.attendant_6 <- psum(
+        (ir$m3a_6==1 | tolower(ir$m3a_6)=="yes")
+        ,(ir$m3b_6==1 | tolower(ir$m3b_6)=="yes")
+        ,(ir$m3c_6==1 | tolower(ir$m3c_6)=="yes")
+        ,(ir$m3d_6==1 | tolower(ir$m3d_6)=="yes")
+        ,(ir$m3e_6==1 | tolower(ir$m3e_6)=="yes")
+        ,(ir$m3f_6==1 | tolower(ir$m3f_6)=="yes")
+        ,na.rm=TRUE
+      )>=1
+      skilled.sum_6 <- 6-psum(
+        typeof(ir$m3a_6)=="NULL" | sum(is.na(ir$m3a_6))==nrow(ir),
+        typeof(ir$m3b_6)=="NULL" | sum(is.na(ir$m3b_6))==nrow(ir),
+        typeof(ir$m3c_6)=="NULL" | sum(is.na(ir$m3c_6))==nrow(ir),
+        typeof(ir$m3d_6)=="NULL" | sum(is.na(ir$m3d_6))==nrow(ir),
+        typeof(ir$m3e_6)=="NULL" | sum(is.na(ir$m3e_6))==nrow(ir),
+        typeof(ir$m3f_6)=="NULL" | sum(is.na(ir$m3f_6))==nrow(ir)
+      )
+      if(skilled.sum_6>0){
+        ir$skilled.attendant.missing_6 <-  psum(
+          is.na(ir$m3a_6)
+          ,is.na(ir$m3b_6)
+          ,is.na(ir$m3c_6)
+          ,is.na(ir$m3d_6)
+          ,is.na(ir$m3e_6)
+          ,is.na(ir$m3f_6)
+        )>=skilled.sum_6
+        ir$skilled.attendant_6[which(ir$skilled.attendant.missing_6==TRUE)] <- NA
+      }else{
+        ir$skilled.attendant_6 <- NA
+      }
+      ir$skilled.attendant_6[which(ir$b8_06>5)] <- NA
+    }
+    ir$all.births <- psum(!is.na(ir$skilled.attendant_1),!is.na(ir$skilled.attendant_2),!is.na(ir$skilled.attendant_3),!is.na(ir$skilled.attendant_4)
+                          ,!is.na(ir$skilled.attendant_5),!is.na(ir$skilled.attendant_6))
+    ir$attended.births <- psum(ir$skilled.attendant_1,ir$skilled.attendant_2,ir$skilled.attendant_3,ir$skilled.attendant_4
+                          ,ir$skilled.attendant_5,ir$skilled.attendant_6,na.rm=TRUE)
+    maternal.deaths <- function(df){
+      maternal.deathsV <- c()
+      for(i in 1:nrow(df)){
+        maternal.deaths <- 0
+        for(j in 1:20){
+          num <- sprintf("%02d", j)
+          pregVar <- paste0("mm9_",num)
+          if(typeof(df[[pregVar]])!="NULL"){
+            preg <- df[[pregVar]][i]
+            if(!is.na(preg)){
+              if(preg==2 |
+                 preg==3 |
+                 preg==5 |
+                 preg==6 |
+                 tolower(preg)=="died while pregnant" |
+                 tolower(preg)=="died during delivery" |
+                 tolower(preg)=="6 weeks after delivery" |
+                 tolower(preg)=="2 months after delivery"
+              ){
+                maternal.deaths <- maternal.deaths + 1
+              }
+            }
+          }else{
+            next;
+          }
+        }
+        maternal.deathsV <- c(maternal.deathsV,maternal.deaths)
+      }
+      return(maternal.deathsV)
+    }
+    ir$maternal.deaths <- maternal.deaths(ir)
+    maternal.sum <- 20-psum(
+      typeof(ir$mm1_01)=="NULL" | sum(is.na(ir$mm1_01))==nrow(ir),
+      typeof(ir$mm1_02)=="NULL" | sum(is.na(ir$mm1_02))==nrow(ir),
+      typeof(ir$mm1_03)=="NULL" | sum(is.na(ir$mm1_03))==nrow(ir),
+      typeof(ir$mm1_04)=="NULL" | sum(is.na(ir$mm1_04))==nrow(ir),
+      typeof(ir$mm1_05)=="NULL" | sum(is.na(ir$mm1_05))==nrow(ir),
+      typeof(ir$mm1_06)=="NULL" | sum(is.na(ir$mm1_06))==nrow(ir),
+      typeof(ir$mm1_07)=="NULL" | sum(is.na(ir$mm1_07))==nrow(ir),
+      typeof(ir$mm1_08)=="NULL" | sum(is.na(ir$mm1_08))==nrow(ir),
+      typeof(ir$mm1_09)=="NULL" | sum(is.na(ir$mm1_09))==nrow(ir),
+      typeof(ir$mm1_10)=="NULL" | sum(is.na(ir$mm1_10))==nrow(ir),
+      typeof(ir$mm1_11)=="NULL" | sum(is.na(ir$mm1_11))==nrow(ir),
+      typeof(ir$mm1_12)=="NULL" | sum(is.na(ir$mm1_12))==nrow(ir),
+      typeof(ir$mm1_13)=="NULL" | sum(is.na(ir$mm1_13))==nrow(ir),
+      typeof(ir$mm1_14)=="NULL" | sum(is.na(ir$mm1_14))==nrow(ir),
+      typeof(ir$mm1_15)=="NULL" | sum(is.na(ir$mm1_15))==nrow(ir),
+      typeof(ir$mm1_16)=="NULL" | sum(is.na(ir$mm1_16))==nrow(ir),
+      typeof(ir$mm1_17)=="NULL" | sum(is.na(ir$mm1_17))==nrow(ir),
+      typeof(ir$mm1_18)=="NULL" | sum(is.na(ir$mm1_18))==nrow(ir),
+      typeof(ir$mm1_19)=="NULL" | sum(is.na(ir$mm1_19))==nrow(ir),
+      typeof(ir$mm1_20)=="NULL" | sum(is.na(ir$mm1_20))==nrow(ir)
+    )
+    if(maternal.sum>0){
+      ir$maternal.missing <- psum(
+        is.na(ir$mm1_01),is.na(ir$mm1_02),is.na(ir$mm1_03),is.na(ir$mm1_04),is.na(ir$mm1_05),is.na(ir$mm1_06),is.na(ir$mm1_07),is.na(ir$mm1_08),
+        is.na(ir$mm1_09),is.na(ir$mm1_10),is.na(ir$mm1_11),is.na(ir$mm1_12),is.na(ir$mm1_13),is.na(ir$mm1_14),is.na(ir$mm1_15),is.na(ir$mm1_16),
+        is.na(ir$mm1_17),is.na(ir$mm1_18),is.na(ir$mm1_19),is.na(ir$mm1_20)
+      )>=maternal.sum
+      ir$maternal.deaths[which(ir$maternal.missing==TRUE)] <- NA
+    }else{
+      ir$maternal.deaths <- NA
+    }
+    
+    irKeep <- c(
+      "cluster"
+      ,"household"
+      ,"line"
+      ,"ceb"
+      ,"cdead"
+      ,"all.births"
+      ,"skilled.births"
+      ,"maternal.deaths"
+      ,"woman.weights"
+    )
+    irNames <- names(ir)
+    namesDiff <- setdiff(irKeep,irNames)
+    if(length(namesDiff)>0){
+      for(y in 1:length(namesDiff)){
+        kr[namesDiff[y]] <- NA
+        message(paste("Missing variable",namesDiff[y]))
+      } 
+    }
+    ir <- ir[irKeep]
+    
     pr_path <- paste0(country,"pr",phase,"fl.RData")
     load(pr_path)
     pr <- data.frame(data)
@@ -106,12 +461,36 @@ for(i in 2:length(rdatas)){
     names(pr)[which(names(pr)=="hv112")] <- "mother.line"
     pr$mother.line[which(pr$mother.line==99)] <- NA
     
+    #Join IR
+    pr <- merge(pr,ir,by=c("cluster","household","line"),all.x=TRUE)
+    
     #Head vars
     names(pr)[which(names(pr)=="hv219")] <- "head.sex"
     names(pr)[which(names(pr)=="hv220")] <- "head.age"
     
     #reg?
     names(pr)[which(names(pr)=="hv140")] <- "birth.cert"
+    ###Registration for Togo
+    if(country=="tg"){
+      pr$birth.cert <- NULL
+      kr_path <- paste0(country,"kr",phase,"fl.RData")
+      load(kr_path)
+      kr <- data.frame(data)
+      remove(data)
+      kr$line <- kr$s225c
+      kr$cluster <- kr$v001
+      kr$household <- kr$v002
+      kr$birth.cert <- NA
+      kr$birth.reg <- NA
+      kr$birth.reg[which(kr$s225f==1)] <- "yes, birth certificate seen"
+      kr$birth.reg[which(kr$s225f==2)] <- "yes, birth certificate not seen"
+      kr$birth.reg[which(kr$s225f==3)] <- "no"
+      kr$birth.cert <- NA
+      kr$birth.cert[which(kr$s225e==0)] <- "no"
+      kr$birth.cert[which(kr$s225e==1)] <- "yes"
+      keep <- c("cluster","household","line","birth.reg","birth.cert")
+      pr <- merge(pr,kr,by=c("cluster","household","line"),all.x=TRUE)
+    }
     
     #nutrition
     names(pr)[which(names(pr)=="ha40")] <- "woman.bmi"
@@ -157,7 +536,7 @@ for(i in 2:length(rdatas)){
     
     keep <- c("wealth","weights","urban","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","attended.births","maternal.deaths","woman.weights"
     )
     prNames <- names(pr)
     namesDiff <- setdiff(keep,prNames)
@@ -174,26 +553,26 @@ for(i in 2:length(rdatas)){
   }
 }
 
-# setwd("D:/Documents/Data/MICSmeta")
-# varNames <- read.csv("mics_meta_vars_complete.csv",as.is=TRUE,na.strings="")
-# classes <- read.csv("global_mics_classes.csv",as.is=TRUE,na.strings="NAN")
-# 
-# wd <- "D:/Documents/Data/MICSauto/"
-# setwd(wd)
-# 
-# # List out all the directories in our wd, this is where our data is contained
-# dirs <- list.dirs(wd,full.names=TRUE)
-# 
-# # dir <- "D:/Documents/Data/MICSauto/Somalia MICS 2006 SPSS Datasets"
-# # dir <- "D:/Documents/Data/MICSauto/Algeria_MICS4_Datasets"
-# # dir <- "D:/Documents/Data/MICSauto//Georgia MICS 2005 SPSS Datasets"
-# 
+setwd("C:/Users/Alex/Documents/Data/P20/Meta")
+varNames <- read.csv("mics_meta_vars_complete.csv",as.is=TRUE,na.strings="")
+classes <- read.csv("global_mics_classes.csv",as.is=TRUE,na.strings="NAN")
+
+wd <- "C:/Users/Alex/Documents/Data/P20/MICS"
+setwd(wd)
+
+# List out all the directories in our wd, this is where our data is contained
+dirs <- list.dirs(wd,full.names=TRUE)
+
+# dir <- "D:/Documents/Data/MICSauto/Somalia MICS 2006 SPSS Datasets"
+# dir <- "D:/Documents/Data/MICSauto/Algeria_MICS4_Datasets"
+# dir <- "D:/Documents/Data/MICSauto//Georgia MICS 2005 SPSS Datasets"
+
 # for(i in 2:length(dirs)){
 #   dir <- dirs[i]
 #   hrBase <- basename(dir)
 #   if(hrBase %in% povcalcuts$filename){
-#     
-#     message(hrBase) 
+# 
+#     message(hrBase)
 #     if(exists("hh")){rm(hh)}
 #     if(exists("hl")){rm(hl)}
 #     if(exists("ch")){rm(ch)}
@@ -210,33 +589,33 @@ for(i in 2:length(rdatas)){
 #     names(hl) <- tolower(names(hl))
 #     names(ch) <- tolower(names(ch))
 #     names(wm) <- tolower(names(wm))
-#     
+# 
 #     file.varName <- subset(varNames,filename==hrBase)
-#     
+# 
 #     attendedVar <- subset(file.varName,match=="attended")$varName
 #     gradeVar <- subset(file.varName,match=="grade")$varName
 #     schoolVar <- subset(file.varName,match=="school")$varName
-#     
+# 
 #     ynm.classes <- subset(classes,filename==hrBase & type=="ynm")
 #     attended.classes <- subset(classes,filename==hrBase & type=="attended")
 #     urban.rural.classes <- subset(classes,filename==hrBase & type=="urban.rural")
 #     school.classes <- subset(classes,filename==hrBase & type=="school")
-#     
+# 
 #     missing.vals <- subset(ynm.classes,is.na(ynm))$value
 #     no.vals <- subset(ynm.classes,ynm==0)$value
 #     yes.vals <- subset(ynm.classes,ynm==1)$value
-#     
+# 
 #     missing.attended <- subset(attended.classes,is.na(attended))$value
 #     no.attended <- subset(attended.classes,attended==0)$value
 #     yes.attended <- subset(attended.classes,attended==1)$value
-#     
+# 
 #     missing.level <- subset(school.classes,is.na(level))$value
 #     none.level <- subset(school.classes,level=="none")$value
 #     preschool.level <- subset(school.classes,level=="preschool")$value
 #     primary.level <- subset(school.classes,level=="primary")$value
 #     secondary.level <- subset(school.classes,level=="secondary")$value
 #     higher.level <- subset(school.classes,level=="higher")$value
-#     
+# 
 #     #Rename wealth var
 #     if(typeof(hh$wlthscor)=="NULL" | typeof(hh$wlthscor)=="logical" | length(hh$wlthscor[which(!is.na(hh$wlthscor))])==0){
 #       if(typeof(hh$wscore)=="NULL" | typeof(hh$wscore)=="logical" | length(hh$wscore[which(!is.na(hh$wscore))])==0){
@@ -247,33 +626,33 @@ for(i in 2:length(rdatas)){
 #     }else{
 #       names(hh)[which(names(hh)=="wlthscor")] <- "wealth"
 #     }
-#     
+# 
 #     #Rename sample.weights var
 #     names(hh)[which(names(hh)=="hhweight")] <- "weights"
-#     
+# 
 #     #Rename urban var
 #     names(hh)[which(names(hh)=="hh6")] <- "urban.rural"
 #     if(typeof(hh$urban.rural)=="NULL"){message("No urban.rural!");hh$urban.rural<-NA;urban.missing<-TRUE}else{urban.missing<-FALSE}
-#     
+# 
 #     #Rename educ var
 #     names(hl)[which(names(hl)==attendedVar)] <- "attended"
 #     names(hl)[which(names(hl)==schoolVar)] <- "school"
 #     names(hl)[which(names(hl)==gradeVar)] <- "grade"
-#     
+# 
 #     #Rename age var
 #     if(max(hl$hl6,na.rm=TRUE)<45){
 #       names(hl)[which(names(hl)=="hl5")] <- "age"
 #     }else{
 #       names(hl)[which(names(hl)=="hl6")] <- "age"
 #     }
-#     
-#     
+# 
+# 
 #     #Rename sex var
 #     names(hl)[which(names(hl)=="hl4")] <- "sex"
-#     
+# 
 #     #Rename head var
 #     hl$head <- tolower(substr(hl$hl3,1,4)) %in% c("chef","head")
-#     
+# 
 #     #Rename child vars
 #     names(ch)[which(names(ch)=="br1")] <- "birth.cert"
 #     names(ch)[which(names(ch)=="br2")] <- "birth.reg"
@@ -282,15 +661,15 @@ for(i in 2:length(rdatas)){
 #     names(ch)[which(names(ch)=="an3")] <- "weight.kg"
 #     names(ch)[which(names(ch)=="an4a")] <- "standing.lying"
 #     names(ch)[which(names(ch)=="haz2")] <- "child.height.age"
-#     
+# 
 #     #code female bmi
 #     if(typeof(wm$anw4)!="NULL" & typeof(wm$anw5)!="NULL"){
 #       wm$anw4[which(wm$anw4==99.9)] <- NA
 #       wm$anw5[which(wm$anw5==999.9)] <- NA
 #       wm$anw5 <- wm$anw5/100
-#       wm$woman.bmi <- wm$anw4/(wm$anw5*wm$anw5) 
+#       wm$woman.bmi <- wm$anw4/(wm$anw5*wm$anw5)
 #     }
-#     
+# 
 #     #Rename cluster/hh var
 #     names(hl)[which(names(hl)=="hh1")] <- "cluster"
 #     names(hl)[which(names(hl)=="hh2")] <- "household"
@@ -306,7 +685,7 @@ for(i in 2:length(rdatas)){
 #     names(wm)[which(names(wm)=="hh1")] <- "cluster"
 #     names(wm)[which(names(wm)=="hh2")] <- "household"
 #     names(wm)[which(names(wm)=="ln")] <- "line"
-#     
+# 
 #     recode.educ <- function(attendedV,schoolV,gradeV){
 #       educV <- c()
 #       for(i in 1:length(attendedV)){
@@ -433,9 +812,9 @@ for(i in 2:length(rdatas)){
 #       }
 #       return(educV)
 #     }
-#     
+# 
 #     hl$educ <- recode.educ(hl$attended,hl$school,hl$grade)
-#     
+# 
 #     head <- subset(hl,head==1)
 #     names(head)[which(names(head)=="sex")] <- "head.sex"
 #     names(head)[which(names(head)=="age")] <- "head.age"
@@ -446,26 +825,26 @@ for(i in 2:length(rdatas)){
 #       ,head
 #       ,by=c("cluster","household")
 #     )
-#     
+# 
 #     recode.urban.rural <- function(x){
 #       item <- subset(urban.rural.classes,value==tolower(x))
 #       if(nrow(item)==0){return(NA)}
 #       else{item$urban[1]}
 #     }
 #     hh$urban.rural <- sapply(hh$urban.rural,recode.urban.rural)
-#     
+# 
 #     povcalcut <- subset(povcalcuts,filename==hrBase)$hc
 #     np20cut <- 0.2
 #     nplcut <- subset(povcalcuts,filename==hrBase)$pl.hc
 #     extcut <- subset(povcalcuts,filename==hrBase)$extreme
 #     cuts <- c(povcalcut,np20cut,nplcut,extcut)
 #     povperc <- weighted.percentile(hh$wealth,hh$weights,prob=cuts)
-#     
+# 
 #     hh$p20 <- (hh$wealth < povperc[1])
 #     hh$np20 <- (hh$wealth < povperc[2])
 #     hh$npl <- (hh$wealth < povperc[3])
 #     hh$ext <- (hh$wealth < povperc[4])
-#     
+# 
 #     wmkeep <- c("household","cluster","line","woman.bmi")
 #     wmNames <- names(wm)
 #     namesDiff <- setdiff(wmkeep,wmNames)
@@ -473,24 +852,24 @@ for(i in 2:length(rdatas)){
 #       for(y in 1:length(namesDiff)){
 #         wm[namesDiff[y]] <- NA
 #         message(paste("Missing variable",namesDiff[y]))
-#       } 
+#       }
 #     }
 #     wm <- wm[wmkeep]
-#     
+# 
 #     hl <- join(
 #       hl
 #       ,wm
 #       ,by=c("cluster","household","line")
 #     )
-#     
+# 
 #     names(wm) <- c("household","cluster","mother.line","mother.bmi")
-#     
+# 
 #     ch <- join(
 #       ch
 #       ,wm
 #       ,by=c("cluster","household","mother.line")
 #     )
-#     
+# 
 #     chkeep <- c("household","cluster","line","birth.cert","birth.reg","age.months","child.weights","weight.kg","standing.lying"
 #                 ,"child.height.age","mother.bmi")
 #     chNames <- names(ch)
@@ -499,17 +878,17 @@ for(i in 2:length(rdatas)){
 #       for(y in 1:length(namesDiff)){
 #         ch[namesDiff[y]] <- NA
 #         message(paste("Missing variable",namesDiff[y]))
-#       } 
+#       }
 #     }
 #     ch <- ch[chkeep]
-#     
+# 
 #     hl <- join(
 #       hl
 #       ,ch
 #       ,by=c("cluster","household","line")
 #     )
-#     
-#     
+# 
+# 
 #     hhkeep <- c("wealth","weights","urban.rural","region","cluster","household","head.sex","head.age","p20","np20","npl","ext")
 #     hhNames <- names(hh)
 #     namesDiff <- setdiff(hhkeep,hhNames)
@@ -517,7 +896,7 @@ for(i in 2:length(rdatas)){
 #       for(y in 1:length(namesDiff)){
 #         hh[namesDiff[y]] <- NA
 #         message(paste("Missing variable",namesDiff[y]))
-#       } 
+#       }
 #     }
 #     hh <- hh[hhkeep]
 #     hl <- join(
@@ -536,7 +915,7 @@ for(i in 2:length(rdatas)){
 #       for(y in 1:length(namesDiff)){
 #         hl[namesDiff[y]] <- NA
 #         message(paste("Missing variable",namesDiff[y]))
-#       } 
+#       }
 #     }
 #     hl <- hl[keep]
 #     hl$filename <- hrBase
@@ -544,9 +923,6 @@ for(i in 2:length(rdatas)){
 #     dataIndex <- dataIndex + 1
 #   }
 # }
-# 
-# wd <- "D:/Documents/Data/MICSmeta"
-# setwd(wd)
 
 data.total <- rbindlist(dataList)
 
@@ -622,9 +998,9 @@ birth.cert.missing <- c(NA,"dk","don't know",6,8,9,"missing","nsp","manquant","n
 birth.cert.no <- c("registered",0,2,3,"neither certificate or registered","no","non","has only hospital card")
 birth.cert.yes <- setdiff(unique(tolower(data.total$birth.cert)),c(birth.cert.no,birth.cert.missing))
 
-birth.reg.missing <- c(NA,"dk","missing","nsp","manquant")
-birth.reg.no <- c("no","non")
-birth.reg.yes <- c("yes","oui","sí")
+birth.reg.missing <- c(NA,"dk","missing","nsp","manquant",8)
+birth.reg.no <- c("no","non",0)
+birth.reg.yes <- c("yes","oui","sí",1)
 #count registrations if birth.cert var reveals it to be so
 birth.cert.registered <- c(1,2,3,"registered","has only hospital card",birth.cert.yes)
 birth.cert.not.registered <- c(0,"neither certificate or registered","no","non")
@@ -973,10 +1349,10 @@ data$filename <- "Brazil"
 brazil.data.total <- data
 data.total <- rbind(brazil.data.total,data.total,fill=TRUE)
 
-wd <- "D:/Documents/Data/ChinaSurvey/"
+wd <- "C:/Users/Alex/Documents/Data/P20/CFPS"
 setwd(wd)
 
-load("dat2012.RData")
+load("dat2014.RData")
 load("wealth.RData")
 
 hr <- dat
@@ -984,28 +1360,28 @@ ir <- famros
 ch <- data.frame(child,as.is=TRUE,check.names=FALSE)
 
 #Rename sample.weights var
-names(hr)[which(names(hr)=="fswt_natcs12")] <- "sample.weights"
+names(hr)[which(names(hr)=="fswt_natcs14")] <- "sample.weights"
 hr$weights <- hr$sample.weights/100000
 
 #Rename urban var
-names(hr)[which(names(hr)=="urban12")] <- "urban.rural"
+names(hr)[which(names(hr)=="urban14")] <- "urban.rural"
 recode.urban.rural <- function(x){
   if(is.null(x)){return(NA)}
-  else if(is.na(x)){return(NA)}
-  else if(tolower(x)=="urban" | x==1){return(1)}
-  else if(tolower(x)=="rural" | x==2){return(0)}
+  else if(is.na(x) | x==-9){return(NA)}
+  else if(x==1){return(1)}
+  else if(x==0){return(0)}
   else{return(NA)}
 }
 hr$urban <- sapply(hr$urban.rural,recode.urban.rural)
 
 #Rename educ var
-names(ir)[which(names(ir)=="tb4_a12_p")] <- "educ"
+names(ir)[which(names(ir)=="tb4_a14_p")] <- "educ"
 recode.educ <- function(x){
   if(is.na(x)){return(NA)}
-  else if(tolower(x)=="na" | tolower(x)=="unknown"){return(NA)}
-  else if(tolower(x)=="illiterate/semi-literate"){return("No education, preschool")}
-  else if(tolower(x)=="primary school"){return("Primary")}
-  else if(tolower(x)=="junior high school"){return("Secondary")}
+  else if(x<0 | x>8){return(NA)}
+  else if(x==1){return("No education, preschool")}
+  else if(x==2){return("Primary")}
+  else if(x==3 | x==4){return("Secondary")}
   else{return("Higher")}
 }
 ir$educ <- sapply(ir$educ,recode.educ)
@@ -1014,26 +1390,30 @@ ir$educ <- factor(ir$educ
 )
 
 #Rename age/sex var
-names(ir)[which(names(ir)=="tb1b_a_p")] <- "age"
-ir$age[which(ir$age<0)] <- NA
+names(ir)[which(names(ir)=="tb1y_a_p")] <- "birth.year"
+ir$birth.year[which(ir$birth.year<=0 | ir$birth.year>=2015)] <- NA
+ir$age <- 2014-ir$birth.year
 names(ir)[which(names(ir)=="tb2_a_p")] <- "sex"
-ir$sex[which(ir$sex=="NA")] <- NA
+ir$sex[which(ir$sex<0)] <- NA
+ir$sex[which(ir$sex==0)] <- "female"
+ir$sex[which(ir$sex==1)] <- "male"
+
 
 #Registration
-names(ir)[which(names(ir)=="qa301_a12_p")] <- "birth.reg.raw"
-registered <- c("Agricultural","non-agricultural","Non-Chinese nationality")
-nonregistered <- c("NA","Unknown","No registration")
+names(ir)[which(names(ir)=="qa301_a14_p")] <- "birth.reg.raw"
+registered <- c(1,3,79)
+nonregistered <- c(5)
 ir$birth.reg <- NA
 ir$birth.reg[which(ir$birth.reg.raw %in% registered)] <- 1
 ir$birth.reg[which(ir$birth.reg.raw %in% nonregistered)] <- 0
 
 #Weight and height
-famros.birthdays <- famros[c("pid","fid12","tb1y_a_p","tb1m_a_p")]
+famros.birthdays <- famros[c("pid","fid14","tb1y_a_p","tb1m_a_p")]
 ch <- data.frame(child,as.is=TRUE,check.names=FALSE)
 ch <- join(
   ch
   ,famros.birthdays
-  ,by=c("pid","fid12")
+  ,by=c("pid","fid14")
 )
 
 code.age.months <- function(cyearV,cmonthV,byearV,bmonthV,ageV){
@@ -1064,8 +1444,8 @@ code.age.months <- function(cyearV,cmonthV,byearV,bmonthV,ageV){
   return(age.monthsV)
 }
 ch$tb1m_a_p[which(ch$tb1m_a_p<0)] <- NA
-ch$cfps2012_age[which(ch$cfps2012_age<0)] <- NA
-ch$age.months <- code.age.months(ch$cyear,ch$cmonth,ch$cfps2012_birthy_best,ch$tb1m_a_p,ch$cfps2012_age)
+ch$cfps2014_age[which(ch$cfps2014_age<0)] <- NA
+ch$age.months <- code.age.months(ch$cyear,ch$cmonth,ch$tb1y_a_p,ch$tb1m_a_p,ch$cfps2014_age)
 
 names(ch)[which(names(ch)=="wa103")] <- "weight.kg"
 ch$weight.kg[which(ch$weight.kg<0)] <- NA
@@ -1073,20 +1453,19 @@ ch$weight.kg <- ch$weight.kg/2
 names(ch)[which(names(ch)=="wa104")] <- "height.cm"
 ch$height.cm[which(ch$height.cm<0)] <- NA
 ch <- subset(ch,age.months<=60)
-names(ch)[which(names(ch)=="cfps2012_gender")] <- "gender"
-ch$gender <- unfactor(ch$gender)
-ch$gender[which(ch$gender=="NA")] <- NA
-ch$gender[which(ch$gender=="Male")] <- 1
-ch$gender[which(ch$gender=="Female")] <- 2
-names(ch)[which(names(ch)=="rswt_natcs12")] <- "weights"
+names(ch)[which(names(ch)=="cfps_gender")] <- "sex"
+ch$gender<- NA
+ch$gender[which(ch$sex==1)] <- 1
+ch$gender[which(ch$sex==0)] <- 2
+names(ch)[which(names(ch)=="rswt_natcs14")] <- "weights"
 ch$weights <- ch$weights/100000
-names(ch)[which(names(ch)=="cid")] <- "cluster"
-names(ch)[which(names(ch)=="fid12")] <- "household"
+names(ch)[which(names(ch)=="cid14")] <- "cluster"
+names(ch)[which(names(ch)=="fid14")] <- "household"
 ch <- ch[complete.cases(ch[c("weight.kg","height.cm","age.months","gender","weights")]),]
 keep <- c("cluster","household","pid","weight.kg","height.cm","age.months","gender","weights")
 ch <- ch[keep]
 
-igu.dir <- "D:/Documents/igrowup_R/"
+igu.dir <- "C:/Users/Alex/Documents/Data/P20/igrowup_R/"
 weianthro<-read.table(paste0(igu.dir,"/weianthro.txt"),header=T,sep="",skip=0)
 lenanthro<-read.table(paste0(igu.dir,"/lenanthro.txt"),header=T,sep="",skip=0)
 bmianthro<-read.table(paste0(igu.dir,"/bmianthro.txt"),header=T,sep="",skip=0)
@@ -1115,23 +1494,23 @@ names(zscores)[which(names(zscores)=="zwei")] <- "child.weight.age"
 #Rename cluster/hh var
 # names(hr)[which(names(hr)=="provcd")] <- "province"
 # names(hr)[which(names(hr)=="countyid")] <- "county"
-names(ir)[which(names(ir)=="fid12")] <- "household"
-names(hr)[which(names(hr)=="cid")] <- "cluster"
-names(hr)[which(names(hr)=="fid12")] <- "household"
+names(ir)[which(names(ir)=="fid14")] <- "household"
+names(hr)[which(names(hr)=="cid14")] <- "cluster"
+names(hr)[which(names(hr)=="fid14")] <- "household"
 
 #Household head
-hh.heads <- unique(ir$tf10pid)
-head <- subset(ir,pid %in% hh.heads)
-names(head)[which(names(head)=="age")] <- "head.age"
-names(head)[which(names(head)=="sex")] <- "head.sex"
-keep <- c("household","head.age","head.sex")
-head <- head[keep]
-
-ir <- join(
-  ir
-  ,head
-  ,by=c("household")
-)
+# hh.heads <- unique(ir$tf10pid)
+# head <- subset(ir,pid %in% hh.heads)
+# names(head)[which(names(head)=="age")] <- "head.age"
+# names(head)[which(names(head)=="sex")] <- "head.sex"
+# keep <- c("household","head.age","head.sex")
+# head <- head[keep]
+# 
+# ir <- join(
+#   ir
+#   ,head
+#   ,by=c("household")
+# )
 
 keep <- c("cluster","household","wealth","weights","urban")
 hr <- hr[keep]
@@ -1200,13 +1579,13 @@ ir$ageCategory <- factor(ir$ageCategory,
                                     ,"95+","missing")                          
 )
 
-ir$head.ageCategory <- vapply(ir$head.age,codeAgeCat,character(1))
-ir$head.ageCategory <- factor(ir$head.ageCategory,
-                              levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34"
-                                         ,"35-39","40-44","45-49","50-54","55-59","60-64"
-                                         ,"65-69","70-74","75-79","80-84","85-89","90-94"
-                                         ,"95+","missing")                          
-)
+# ir$head.ageCategory <- vapply(ir$head.age,codeAgeCat,character(1))
+# ir$head.ageCategory <- factor(ir$head.ageCategory,
+#                               levels = c("0-4","5-9","10-14","15-19","20-24","25-29","30-34"
+#                                          ,"35-39","40-44","45-49","50-54","55-59","60-64"
+#                                          ,"65-69","70-74","75-79","80-84","85-89","90-94"
+#                                          ,"95+","missing")                          
+# )
 
 #Not really stunting, do we want to just call this "nutrition"?
 ir$stunting <- NA
@@ -1227,33 +1606,6 @@ ir$stunting <- factor(ir$stunting
 ir$filename <- "China"
 china.data.total <- ir
 data.total <- rbind(china.data.total,data.total,fill=TRUE)
-
-# setwd("D:/Documents/Data/MICSmeta/")
-# load("child.maternal.RData")
-# setnames(child.health,"skilled.attendant","ch.skilled.attendant")
-# valid.vacc <- c(TRUE,"TRUE","Yes","Oui","Sí")
-# no.vacc <- c(FALSE,"FALSE","No","Non","No sabe")
-# missing.vacc <- c("DK",NA,"Missing","NSP","Manquant")
-# recode.vacc <- function(x){
-#   if(is.na(x)){return(NA)}
-#   else if(x %in% valid.vacc){return(1)}
-#   else if(x %in% no.vacc){return(0)}
-#   else if(x %in% missing.vacc){return(NA)}
-#   return(NA)
-# }
-# child.health$vacc <- sapply(child.health$any.vacc,recode.vacc)
-# child.health.tab <- child.health[,.(
-#   ch.skilled.attendant=sum(ch.skilled.attendant==TRUE,na.rm=TRUE)>=1
-#   ,any.vacc=sum(vacc,na.rm=TRUE)>=1
-# ),by=.(filename,cluster,household)]
-# maternal.health.tab <- maternal.health[,.(
-#   ceb=sum(ceb,na.rm=TRUE)
-#   ,cdead=sum(cdead,na.rm=TRUE)
-#   ,skilled.attendant=sum(skilled.attendant,na.rm=TRUE)>=1
-#   ,maternal.deaths=sum(maternal.deaths,na.rm=TRUE)
-# ),by=.(filename,cluster,household)]
-# data.total <- join(data.total,child.health.tab,by=c("filename","cluster","household"))
-# data.total <- join(data.total,maternal.health.tab,by=c("filename","cluster","household"))
 
 wd <- "C:/Users/Alex/Documents/Data/P20/Meta"
 setwd(wd)

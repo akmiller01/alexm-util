@@ -273,15 +273,15 @@ for(i in 1:length(filenames)){
       countryMeta$ext.male.head[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["Male","TRUE"]},error=function(e){0})
       countryMeta$ext.female.head[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["Female","TRUE"]},error=function(e){0}) 
     }
-    # #Maternal deaths
-    # dat$maternal <- dat$maternal.deaths > 0 
-    # if(length(dat$maternal[which(!is.na(dat$maternal))])!=0){
-    #   confidence.tab <- pop.confidence(dat$maternal,dat$p20,dat$weights,this.pop)
-    #   countryMeta$p80.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
-    #   countryMeta$p80.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
-    #   countryMeta$p20.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})
-    #   countryMeta$p20.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0}) 
-    # }
+    #Maternal deaths
+    dat$maternal <- dat$maternal.deaths > 0
+    if(length(dat$maternal[which(!is.na(dat$maternal))])!=0){
+      confidence.tab <- pop.confidence(dat$maternal,dat$p20,dat$weights,this.pop)
+      countryMeta$p80.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
+      countryMeta$p80.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
+      countryMeta$p20.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})
+      countryMeta$p20.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
+    }
     #Under5 registration
     if(length(under5$birth.reg[which(!is.na(under5$birth.reg))])!=0){
       confidence.tab <- pop.confidence(under5$birth.reg,under5$p20,under5$weights,this.pop.under5)
