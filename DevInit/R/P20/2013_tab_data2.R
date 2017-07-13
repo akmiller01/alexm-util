@@ -115,7 +115,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_1)
           ,is.na(ir$m3e_1)
           ,is.na(ir$m3f_1)
-        )>=skilled.sum_1
+        )>skilled.sum_1
         ir$skilled.attendant_1[which(ir$skilled.attendant.missing_1==TRUE)] <- NA
       }else{
         ir$skilled.attendant_1 <- NA
@@ -156,7 +156,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_2)
           ,is.na(ir$m3e_2)
           ,is.na(ir$m3f_2)
-        )>=skilled.sum_2
+        )>skilled.sum_2
         ir$skilled.attendant_2[which(ir$skilled.attendant.missing_2==TRUE)] <- NA
       }else{
         ir$skilled.attendant_2 <- NA
@@ -197,7 +197,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_3)
           ,is.na(ir$m3e_3)
           ,is.na(ir$m3f_3)
-        )>=skilled.sum_3
+        )>skilled.sum_3
         ir$skilled.attendant_3[which(ir$skilled.attendant.missing_3==TRUE)] <- NA
       }else{
         ir$skilled.attendant_3 <- NA
@@ -238,7 +238,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_4)
           ,is.na(ir$m3e_4)
           ,is.na(ir$m3f_4)
-        )>=skilled.sum_4
+        )>skilled.sum_4
         ir$skilled.attendant_4[which(ir$skilled.attendant.missing_4==TRUE)] <- NA
       }else{
         ir$skilled.attendant_4 <- NA
@@ -279,7 +279,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_5)
           ,is.na(ir$m3e_5)
           ,is.na(ir$m3f_5)
-        )>=skilled.sum_5
+        )>skilled.sum_5
         ir$skilled.attendant_5[which(ir$skilled.attendant.missing_5==TRUE)] <- NA
       }else{
         ir$skilled.attendant_5 <- NA
@@ -320,7 +320,7 @@ for(i in 2:length(rdatas)){
           ,is.na(ir$m3d_6)
           ,is.na(ir$m3e_6)
           ,is.na(ir$m3f_6)
-        )>=skilled.sum_6
+        )>skilled.sum_6
         ir$skilled.attendant_6[which(ir$skilled.attendant.missing_6==TRUE)] <- NA
       }else{
         ir$skilled.attendant_6 <- NA
