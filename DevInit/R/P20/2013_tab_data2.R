@@ -329,7 +329,7 @@ for(i in 2:length(rdatas)){
     }
     ir$all.births <- psum(!is.na(ir$skilled.attendant_1),!is.na(ir$skilled.attendant_2),!is.na(ir$skilled.attendant_3),!is.na(ir$skilled.attendant_4)
                           ,!is.na(ir$skilled.attendant_5),!is.na(ir$skilled.attendant_6))
-    ir$attended.births <- psum(ir$skilled.attendant_1,ir$skilled.attendant_2,ir$skilled.attendant_3,ir$skilled.attendant_4
+    ir$skilled.births <- psum(ir$skilled.attendant_1,ir$skilled.attendant_2,ir$skilled.attendant_3,ir$skilled.attendant_4
                           ,ir$skilled.attendant_5,ir$skilled.attendant_6,na.rm=TRUE)
     maternal.deaths <- function(df){
       maternal.deathsV <- c()
@@ -481,13 +481,20 @@ for(i in 2:length(rdatas)){
       kr$cluster <- kr$v001
       kr$household <- kr$v002
       kr$birth.cert <- NA
+      kr$birth.cert[which(kr$s225e==1)] <- "yes, birth certificate seen"
+      kr$birth.cert[which(kr$s225e==2)] <- "yes, birth certificate not seen"
+      kr$birth.cert[which(kr$s225e==3)] <- "no"
+      kr$birth.cert[which(kr$s225e==8)] <- "no"
+      kr$birth.cert[which(is.na(kr$s225e))] <- "no"
+      
       kr$birth.reg <- NA
-      kr$birth.reg[which(kr$s225f==1)] <- "yes, birth certificate seen"
-      kr$birth.reg[which(kr$s225f==2)] <- "yes, birth certificate not seen"
-      kr$birth.reg[which(kr$s225f==3)] <- "no"
-      kr$birth.cert <- NA
-      kr$birth.cert[which(kr$s225e==0)] <- "no"
-      kr$birth.cert[which(kr$s225e==1)] <- "yes"
+      kr$birth.reg[which(kr$s225f==0)] <- "no"
+      kr$birth.reg[which(kr$s225f==1)] <- "yes"
+      kr$birth.reg[which(kr$s225f==8)] <- "no"
+      kr$birth.reg[which(is.na(kr$s225f))] <- "no"
+      #Registered by virtue of having certificate
+      kr$birth.reg[which(kr$s225e==1)] <- "yes"
+      kr$birth.reg[which(kr$s225e==2)] <- "yes"
       keep <- c("cluster","household","line","birth.reg","birth.cert")
       pr <- merge(pr,kr,by=c("cluster","household","line"),all.x=TRUE)
     }
@@ -994,16 +1001,18 @@ data.total$head.sex[which(tolower(data.total$head.sex) %in% sex.female)] <- "Fem
 #3 - registered
 #6 - other
 #8 - dk
-birth.cert.missing <- c(NA,"dk","don't know",6,8,9,"missing","nsp","manquant","no sabe")
-birth.cert.no <- c("registered",0,2,3,"neither certificate or registered","no","non","has only hospital card")
+# birth.cert.missing <- c(NA,"dk","don't know",6,8,9,"missing","nsp","manquant","no sabe")
+# birth.cert.no <- c("registered",0,2,3,"neither certificate or registered","no","non","has only hospital card")
+birth.cert.missing <- c(NA)
+birth.cert.no <- c("registered",0,2,3,"neither certificate or registered","no","non","has only hospital card","dk","don't know",6,8,9,"missing","nsp","manquant","no sabe")
 birth.cert.yes <- setdiff(unique(tolower(data.total$birth.cert)),c(birth.cert.no,birth.cert.missing))
 
-birth.reg.missing <- c(NA,"dk","missing","nsp","manquant",8)
-birth.reg.no <- c("no","non",0)
+birth.reg.missing <- c(NA)
+birth.reg.no <- c("no","non",0,"dk","missing","nsp","manquant",8)
 birth.reg.yes <- c("yes","oui","sí",1)
 #count registrations if birth.cert var reveals it to be so
 birth.cert.registered <- c(1,2,3,"registered","has only hospital card",birth.cert.yes)
-birth.cert.not.registered <- c(0,"neither certificate or registered","no","non")
+birth.cert.not.registered <- c(0,"neither certificate or registered","no","non","dk","don't know",6,8,9,"missing","nsp","manquant","no sabe")
 if(is.factor(data.total$birth.reg)){
   data.total$birth.reg.coded <- unfactor(data.total$birth.reg)
 }else{
@@ -1018,7 +1027,7 @@ data.total$birth.reg.coded[which(tolower(data.total$birth.reg.coded) %in% birth.
 data.total$birth.reg.coded[which(tolower(data.total$birth.reg.coded) %in% birth.reg.yes)] <- 1
 data.total$birth.reg.coded[which(substr(data.total$birth.reg.coded,1,1)=="S")] <- 1
 
-data.total$birth.reg <- data.total$birth.reg.coded
+data.total$birth.reg <- as.numeric(data.total$birth.reg.coded)
 
 if(is.factor(data.total$birth.cert)){
   data.total$birth.cert <- unfactor(data.total$birth.cert)
