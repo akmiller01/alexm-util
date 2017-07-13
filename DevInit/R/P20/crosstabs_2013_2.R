@@ -145,13 +145,16 @@ newNames <- c("p20.rural"
               ,"p80.female.stunted"
               ,"p80.male.notstunted"
               ,"p80.female.notstunted"
-              # ,"p80.maternal.deaths"
-              # ,"p80.no.maternal.deaths"
-              # ,"p20.maternal.deaths"
-              # ,"p20.no.maternal.deaths"
+              ,"p80.maternal.deaths"
+              ,"p80.no.maternal.deaths"
+              ,"p20.maternal.deaths"
+              ,"p20.no.maternal.deaths"
+              ,"p80.one.skilled"
+              ,"p80.not.one.skilled"
+              ,"p20.one.skilled"
+              ,"p20.not.one.skilled"
               ,"male.stunted"
               ,"female.stunted"
-              ,"male.notstunted"
               ,"female.notstunted"
               ,"surveyed.pop"
               ,"surveyed.households"
@@ -201,6 +204,7 @@ for(i in 1:length(filenames)){
     this.pop.over25.male <- subset(countryMeta,filename==this.filename)$male.25.plus
     this.pop.over25.female <- subset(countryMeta,filename==this.filename)$female.25.plus
     this.pop.over25 <- this.pop.over25.male + this.pop.over25.female
+    this.pop.maternal <- subset(countryMeta,filename==this.filename)$female.15.49
     #Urban-P20
     if(length(dat$urban[which(!is.na(dat$urban))])!=0){
       confidence.tab <- pop.confidence(dat$urban,dat$p20,dat$weights,this.pop)
@@ -267,7 +271,7 @@ for(i in 1:length(filenames)){
     }
     #Head-sex-ext
     if(length(dat$head.sex[which(!is.na(dat$head.sex))])!=0){
-      confidence.tab <- pop.confidence(dat$head.sex,dat$ext,dat$weights,this.pop)
+      confidence.tab <- pop.confidence(dat$head.sex,dat$ext,dat$weights,this.pop.maternal)
       countryMeta$n.ext.male.head[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["Male","FALSE"]},error=function(e){0})
       countryMeta$n.ext.female.head[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["Female","FALSE"]},error=function(e){0})
       countryMeta$ext.male.head[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["Male","TRUE"]},error=function(e){0})
@@ -276,11 +280,22 @@ for(i in 1:length(filenames)){
     #Maternal deaths
     dat$maternal <- dat$maternal.deaths > 0
     if(length(dat$maternal[which(!is.na(dat$maternal))])!=0){
-      confidence.tab <- pop.confidence(dat$maternal,dat$p20,dat$weights,this.pop)
+      confidence.tab <- pop.confidence(dat$maternal,dat$p20,dat$woman.weights,this.pop.maternal)
       countryMeta$p80.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
       countryMeta$p80.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
       countryMeta$p20.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})
       countryMeta$p20.no.maternal.deaths[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
+    }
+    #Skilled births
+    dat$one.skilled <- NA
+    dat$one.skilled[which(dat$all.births>0)] <- FALSE
+    dat$one.skilled[which(dat$skilled.births>0)] <- TRUE
+    if(length(dat$one.skilled[which(!is.na(dat$one.skilled))])!=0){
+      confidence.tab <- pop.confidence(dat$one.skilled,dat$p20,dat$woman.weights,this.pop)
+      countryMeta$p80.one.skilled[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","FALSE"]},error=function(e){0})
+      countryMeta$p80.not.one.skilled[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","FALSE"]},error=function(e){0})
+      countryMeta$p20.one.skilled[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["TRUE","TRUE"]},error=function(e){0})
+      countryMeta$p20.not.one.skilled[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["FALSE","TRUE"]},error=function(e){0})
     }
     #Under5 registration
     if(length(under5$birth.reg[which(!is.na(under5$birth.reg))])!=0){
@@ -290,7 +305,7 @@ for(i in 1:length(filenames)){
       countryMeta$p20.unregistered[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["0","TRUE"]},error=function(e){0})
       countryMeta$p20.registered[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["1","TRUE"]},error=function(e){0})  
     }
-    #Under5 registration
+    #Under5 registration extreme
     if(length(under5$birth.reg[which(!is.na(under5$birth.reg))])!=0){
       confidence.tab <- pop.confidence(under5$birth.reg,under5$ext,under5$weights,this.pop.under5)
       countryMeta$n.ext.unregistered[which(countryMeta$filename==this.filename)] <- tryCatch({confidence.tab$estimate["0","FALSE"]},error=function(e){0})

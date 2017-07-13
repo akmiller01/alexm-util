@@ -363,32 +363,32 @@ for(i in 2:length(rdatas)){
     }
     ir$maternal.deaths <- maternal.deaths(ir)
     maternal.sum <- 20-psum(
-      typeof(ir$mm1_01)=="NULL" | sum(is.na(ir$mm1_01))==nrow(ir),
-      typeof(ir$mm1_02)=="NULL" | sum(is.na(ir$mm1_02))==nrow(ir),
-      typeof(ir$mm1_03)=="NULL" | sum(is.na(ir$mm1_03))==nrow(ir),
-      typeof(ir$mm1_04)=="NULL" | sum(is.na(ir$mm1_04))==nrow(ir),
-      typeof(ir$mm1_05)=="NULL" | sum(is.na(ir$mm1_05))==nrow(ir),
-      typeof(ir$mm1_06)=="NULL" | sum(is.na(ir$mm1_06))==nrow(ir),
-      typeof(ir$mm1_07)=="NULL" | sum(is.na(ir$mm1_07))==nrow(ir),
-      typeof(ir$mm1_08)=="NULL" | sum(is.na(ir$mm1_08))==nrow(ir),
-      typeof(ir$mm1_09)=="NULL" | sum(is.na(ir$mm1_09))==nrow(ir),
-      typeof(ir$mm1_10)=="NULL" | sum(is.na(ir$mm1_10))==nrow(ir),
-      typeof(ir$mm1_11)=="NULL" | sum(is.na(ir$mm1_11))==nrow(ir),
-      typeof(ir$mm1_12)=="NULL" | sum(is.na(ir$mm1_12))==nrow(ir),
-      typeof(ir$mm1_13)=="NULL" | sum(is.na(ir$mm1_13))==nrow(ir),
-      typeof(ir$mm1_14)=="NULL" | sum(is.na(ir$mm1_14))==nrow(ir),
-      typeof(ir$mm1_15)=="NULL" | sum(is.na(ir$mm1_15))==nrow(ir),
-      typeof(ir$mm1_16)=="NULL" | sum(is.na(ir$mm1_16))==nrow(ir),
-      typeof(ir$mm1_17)=="NULL" | sum(is.na(ir$mm1_17))==nrow(ir),
-      typeof(ir$mm1_18)=="NULL" | sum(is.na(ir$mm1_18))==nrow(ir),
-      typeof(ir$mm1_19)=="NULL" | sum(is.na(ir$mm1_19))==nrow(ir),
-      typeof(ir$mm1_20)=="NULL" | sum(is.na(ir$mm1_20))==nrow(ir)
+      typeof(ir$mm9_01)=="NULL" | sum(is.na(ir$mm9_01))==nrow(ir),
+      typeof(ir$mm9_02)=="NULL" | sum(is.na(ir$mm9_02))==nrow(ir),
+      typeof(ir$mm9_03)=="NULL" | sum(is.na(ir$mm9_03))==nrow(ir),
+      typeof(ir$mm9_04)=="NULL" | sum(is.na(ir$mm9_04))==nrow(ir),
+      typeof(ir$mm9_05)=="NULL" | sum(is.na(ir$mm9_05))==nrow(ir),
+      typeof(ir$mm9_06)=="NULL" | sum(is.na(ir$mm9_06))==nrow(ir),
+      typeof(ir$mm9_07)=="NULL" | sum(is.na(ir$mm9_07))==nrow(ir),
+      typeof(ir$mm9_08)=="NULL" | sum(is.na(ir$mm9_08))==nrow(ir),
+      typeof(ir$mm9_09)=="NULL" | sum(is.na(ir$mm9_09))==nrow(ir),
+      typeof(ir$mm9_10)=="NULL" | sum(is.na(ir$mm9_10))==nrow(ir),
+      typeof(ir$mm9_11)=="NULL" | sum(is.na(ir$mm9_11))==nrow(ir),
+      typeof(ir$mm9_12)=="NULL" | sum(is.na(ir$mm9_12))==nrow(ir),
+      typeof(ir$mm9_13)=="NULL" | sum(is.na(ir$mm9_13))==nrow(ir),
+      typeof(ir$mm9_14)=="NULL" | sum(is.na(ir$mm9_14))==nrow(ir),
+      typeof(ir$mm9_15)=="NULL" | sum(is.na(ir$mm9_15))==nrow(ir),
+      typeof(ir$mm9_16)=="NULL" | sum(is.na(ir$mm9_16))==nrow(ir),
+      typeof(ir$mm9_17)=="NULL" | sum(is.na(ir$mm9_17))==nrow(ir),
+      typeof(ir$mm9_18)=="NULL" | sum(is.na(ir$mm9_18))==nrow(ir),
+      typeof(ir$mm9_19)=="NULL" | sum(is.na(ir$mm9_19))==nrow(ir),
+      typeof(ir$mm9_20)=="NULL" | sum(is.na(ir$mm9_20))==nrow(ir)
     )
     if(maternal.sum>0){
       ir$maternal.missing <- psum(
-        is.na(ir$mm1_01),is.na(ir$mm1_02),is.na(ir$mm1_03),is.na(ir$mm1_04),is.na(ir$mm1_05),is.na(ir$mm1_06),is.na(ir$mm1_07),is.na(ir$mm1_08),
-        is.na(ir$mm1_09),is.na(ir$mm1_10),is.na(ir$mm1_11),is.na(ir$mm1_12),is.na(ir$mm1_13),is.na(ir$mm1_14),is.na(ir$mm1_15),is.na(ir$mm1_16),
-        is.na(ir$mm1_17),is.na(ir$mm1_18),is.na(ir$mm1_19),is.na(ir$mm1_20)
+        is.na(ir$mm9_01),is.na(ir$mm9_02),is.na(ir$mm9_03),is.na(ir$mm9_04),is.na(ir$mm9_05),is.na(ir$mm9_06),is.na(ir$mm9_07),is.na(ir$mm9_08),
+        is.na(ir$mm9_09),is.na(ir$mm9_10),is.na(ir$mm9_11),is.na(ir$mm9_12),is.na(ir$mm9_13),is.na(ir$mm9_14),is.na(ir$mm9_15),is.na(ir$mm9_16),
+        is.na(ir$mm9_17),is.na(ir$mm9_18),is.na(ir$mm9_19),is.na(ir$mm9_20)
       )>=maternal.sum
       ir$maternal.deaths[which(ir$maternal.missing==TRUE)] <- NA
     }else{
@@ -410,7 +410,7 @@ for(i in 2:length(rdatas)){
     namesDiff <- setdiff(irKeep,irNames)
     if(length(namesDiff)>0){
       for(y in 1:length(namesDiff)){
-        kr[namesDiff[y]] <- NA
+        ir[namesDiff[y]] <- NA
         message(paste("Missing variable",namesDiff[y]))
       } 
     }
@@ -536,7 +536,7 @@ for(i in 2:length(rdatas)){
     
     keep <- c("wealth","weights","urban","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","attended.births","maternal.deaths","woman.weights"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","skilled.births","maternal.deaths","woman.weights"
     )
     prNames <- names(pr)
     namesDiff <- setdiff(keep,prNames)

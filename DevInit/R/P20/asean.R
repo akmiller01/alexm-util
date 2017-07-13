@@ -317,3 +317,9 @@ laos <- subset(asean.hh.wealth,filename=="Lao People's Democratic Republic LSIS 
 View(laos[c(catvars,numvars,"wealth","r20","weight")])
 indo <- subset(asean.hh.wealth,filename=="idhr63dt")
 View(indo[c(catvars,numvars,"wealth","r20","weight")])
+
+# Woman BMI
+# Electrification
+# Toilets
+# Schooling for 18+
+

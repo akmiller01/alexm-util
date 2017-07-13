@@ -5,8 +5,8 @@ library(Hmisc)
 require(gtools)
 library(varhandle)
 
-setwd("D:/Documents/Data/P20_2013/meta")
-load("total_triple.RData")
+setwd("C:/Users/Alex/Documents/Data/P20/Meta")
+load("total_tab_data.RData")
 
 surveyless <- read.csv("C:/git/alexm-util/DevInit/P20-vis/venn/raw_povcalnet.csv",na.strings="",as.is=TRUE)
 # data_total_blank = data.total[0,]
@@ -154,7 +154,7 @@ for(i in 1:length(filenames)){
       ,ext = dat$ext
       ,no.birth.reg = dat$birth.reg==0
       ,stunted = dat$stunting!="Not stunted"
-      ,no.skilled.attendant = dat$skilled.attendant==0
+      ,no.skilled.attendant = dat$skilled.births==0
       ,blank1 = TRUE
       ,blank2 = TRUE
     ))
@@ -176,7 +176,7 @@ for(i in 1:length(filenames)){
       ,ext = TRUE
       ,no.birth.reg = dat$age<5
       ,stunted = dat$age<5
-      ,no.skilled.attendant = dat$sex=="Female"&dat$age>=15&dat$age<=49
+      ,no.skilled.attendant = dat$sex=="Female"&dat$age>=15&dat$age<=49&dat$all.births>0
       ,blank1 = TRUE
       ,blank2 = TRUE
       ,weights = !is.na(dat$weights)
@@ -250,7 +250,10 @@ all.venn.joined <- transform(all.venn.joined,
 )
 names(all.venn.joined) <- c("filename","indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop","iso2","year")
 
-write.csv(all.venn.joined,"C:/git/alexm-util/DevInit/P20-vis/venn/all.venn.joined2.csv",row.names=FALSE,na="")
+# setwd("C:/git/alexm-util/DevInit/P20-vis/venn/")
+setwd("C:/Users/Alex/Documents/Data/P20/Meta/venn/")
+
+write.csv(all.venn.joined,"all.venn.joined2.csv",row.names=FALSE,na="")
 
 missing_x <- data.table(all.venn.joined)[,.(missing=mean(is.na(X))),by=.(iso2,indicator1)]
 setnames(missing_x,"indicator1","indicator")
@@ -279,13 +282,13 @@ for(iso in isos){
   missing_index <- missing_index +1
 }
 all_missing <- rbindlist(missing_list)
-write.csv(all_missing,"C:/git/alexm-util/DevInit/P20-vis/venn/missing_data.csv",row.names=FALSE,na="")
+write.csv(all_missing,"missing_data.csv",row.names=FALSE,na="")
 
-dat <- read.csv("C:/git/alexm-util/DevInit/P20-vis/venn/all.venn.joined2.csv",na.strings="",check.names=FALSE)
+dat <- read.csv("all.venn.joined2.csv",na.strings="",check.names=FALSE)
 isos <- unique(dat$iso2)
 for(iso in isos){
   sub <- subset(dat,iso2==iso)
   sub$iso2 <- NULL
   sub$year <- NULL
-  write.csv(sub,paste0("C:/git/alexm-util/DevInit/P20-vis/venn/upload_individual/data/",iso,".csv"),na="",row.names=FALSE)
+  write.csv(sub,paste0("upload_individual/data/",iso,".csv"),na="",row.names=FALSE)
 }
