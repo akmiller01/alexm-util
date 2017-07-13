@@ -1159,7 +1159,21 @@ function changeVenn() {
             values.splice(i, 1);
         }
     };
-    d3.csv('data/'+iso2+'.csv',function(data){
+    d3.csv('data/'+iso2+'.csv',function(d){
+        return {
+            "X": +d["X"],
+            "Y": +d["Y"],
+            "Z": +d["Z"],
+            "X,Y": +d["X,Y"],
+            "X,Y,Z": +d["X,Y,Z"],
+            "X,Z": +d["X,Z"],
+            "Y,Z": +d["Y,Z"],
+            "pop": +d.pop,
+            "indicator1": d.indicator1,
+            "indicator2": d.indicator2,
+            "indicator3": d.indicator3
+          };
+        },function(data){
         //Display percentages
         if(toggleVal=="perc"){
             //One choice
