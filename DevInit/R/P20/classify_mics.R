@@ -4,7 +4,7 @@ library(plyr)
 library(foreign)
 library(data.table)
 
-setwd("C:/git/alexm-util/DevInit/R/P20")
+setwd("C:/Users/Alex/Documents/Data/P20/Meta")
 varNames <- read.csv("mics_meta_vars_complete.csv",as.is=TRUE,na.strings="")
 
 cwi.class <- function(hh,hl){
@@ -173,7 +173,7 @@ cwi.class <- function(hh,hl){
 }
 ####Run function####
 # set our working directory, change this if using on another machine
-wd <- "D:/Documents/Data/MICSauto/"
+wd <- "C:/Users/Alex/Documents/Data/P20/MICS"
 setwd(wd)
 
 # List out all the directories in our wd, this is where our data is contained
@@ -198,7 +198,7 @@ for(i in 2:length(dirs)){
   }
 }
 
-wd <- "D:/Documents/Data/MICSmeta"
+wd <- "C:/Users/Alex/Documents/Data/P20/Meta"
 setwd(wd)
 metaData <- rbindlist(dataList,fill=TRUE)
 write.csv(metaData,"global_mics_classes.csv",row.names=FALSE,na="NAN")

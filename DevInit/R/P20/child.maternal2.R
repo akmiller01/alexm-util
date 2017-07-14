@@ -354,7 +354,7 @@ for(i in 2:length(dirs)){
 wd <- "D:/Documents/Data/MICSauto/"
 setwd(wd)
 
-varNames <- read.csv("D:/Documents/Data/MICSmeta/mics_child_vars.csv",as.is=TRUE,na.strings="")
+varNames <- read.csv("C:/Users/Alex/Documents/Data/P20/Meta/mics_child_vars.csv",as.is=TRUE,na.strings="")
 
 # List out all the directories in our wd, this is where our data is contained
 dirs <- list.dirs(wd,full.names=TRUE)
