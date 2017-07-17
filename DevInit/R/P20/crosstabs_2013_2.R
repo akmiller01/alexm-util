@@ -64,6 +64,7 @@ pop.confidence <- function(x,y,w,pop){
 }
 
 countryMeta <- read.csv("headcounts.csv",as.is=TRUE)
+countryMeta <- subset(countryMeta,filename!="mmhr71dt")
 
 newNames <- c("p20.rural"
               ,"p20.urban"
