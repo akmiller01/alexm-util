@@ -1,1141 +1,1141 @@
-"indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop"
-"blank1","blank2","ext",100,100,39,100,39,39,39,10268157
-"blank1","blank2","female",100,100,50,100,50,50,50,10268157
-"blank1","blank2","fifteento49",100,100,0,100,0,0,0,10268157
-"blank1","blank2","fiveto14",100,100,3,100,3,3,3,10268157
-"blank1","blank2","gt49",100,100,0,100,0,0,0,10268157
-"blank1","blank2","higher",,,,,,,,3419801
-"blank1","blank2","male",100,100,50,100,50,50,50,10268157
-"blank1","blank2","no.birth.reg",100,100,97,100,97,97,97,1909997
-"blank1","blank2","no.educ",,,,,,,,3419801
-"blank1","blank2","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"blank1","blank2","non.p20",100,100,47,100,47,47,47,10268157
-"blank1","blank2","p20",100,100,53,100,53,53,53,10268157
-"blank1","blank2","primary",,,,,,,,3419801
-"blank1","blank2","rural",100,100,62,100,62,62,62,10268157
-"blank1","blank2","secondary",,,,,,,,3419801
-"blank1","blank2","stunted",100,100,,100,,,,1909997
-"blank1","blank2","under5",100,100,97,100,97,97,97,10268157
-"blank1","blank2","urban",100,100,38,100,38,38,38,10268157
-"blank1","ext","female",100,39,50,39,19,50,19,10268157
-"blank1","ext","fifteento49",100,39,0,39,0,0,0,10268157
-"blank1","ext","fiveto14",100,39,3,39,1,3,1,10268157
-"blank1","ext","gt49",100,39,0,39,0,0,0,10268157
-"blank1","ext","higher",,,,,,,,3419801
-"blank1","ext","male",100,39,50,39,20,50,20,10268157
-"blank1","ext","no.birth.reg",100,40,97,40,11,97,11,1909997
-"blank1","ext","no.educ",,,,,,,,3419801
-"blank1","ext","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank1","ext","non.p20",100,39,47,39,0,47,0,10268157
-"blank1","ext","p20",100,39,53,39,39,53,39,10268157
-"blank1","ext","primary",,,,,,,,3419801
-"blank1","ext","rural",100,39,62,39,39,62,39,10268157
-"blank1","ext","secondary",,,,,,,,3419801
-"blank1","ext","stunted",100,40,,40,0,,0,1909997
-"blank1","ext","under5",100,39,97,39,39,97,39,10268157
-"blank1","ext","urban",100,39,38,39,1,38,1,10268157
-"blank1","female","fifteento49",100,50,0,50,0,0,0,10268157
-"blank1","female","fiveto14",100,50,3,50,3,3,3,10268157
-"blank1","female","gt49",100,50,0,50,0,0,0,10268157
-"blank1","female","higher",,,,,,,,3419801
-"blank1","female","male",100,50,50,50,0,50,0,10268157
-"blank1","female","no.birth.reg",100,48,97,48,15,97,15,1909997
-"blank1","female","no.educ",,,,,,,,3419801
-"blank1","female","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"blank1","female","non.p20",100,50,47,50,24,47,24,10268157
-"blank1","female","p20",100,50,53,50,26,53,26,10268157
-"blank1","female","primary",,,,,,,,3419801
-"blank1","female","rural",100,50,62,50,31,62,31,10268157
-"blank1","female","secondary",,,,,,,,3419801
-"blank1","female","stunted",100,48,,48,0,,0,1909997
-"blank1","female","under5",100,50,97,50,47,97,47,10268157
-"blank1","female","urban",100,50,38,50,19,38,19,10268157
-"blank1","fifteento49","fiveto14",100,0,3,0,0,3,0,10268157
-"blank1","fifteento49","gt49",100,0,0,0,0,0,0,10268157
-"blank1","fifteento49","higher",,,,,,,,3419801
-"blank1","fifteento49","male",100,0,50,0,0,50,0,10268157
-"blank1","fifteento49","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank1","fifteento49","no.educ",,,,,,,,3419801
-"blank1","fifteento49","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"blank1","fifteento49","non.p20",100,0,47,0,0,47,0,10268157
-"blank1","fifteento49","p20",100,0,53,0,0,53,0,10268157
-"blank1","fifteento49","primary",,,,,,,,3419801
-"blank1","fifteento49","rural",100,0,62,0,0,62,0,10268157
-"blank1","fifteento49","secondary",,,,,,,,3419801
-"blank1","fifteento49","stunted",100,0,,0,0,,0,1909997
-"blank1","fifteento49","under5",100,0,97,0,0,97,0,10268157
-"blank1","fifteento49","urban",100,0,38,0,0,38,0,10268157
-"blank1","fiveto14","gt49",100,3,0,3,0,0,0,10268157
-"blank1","fiveto14","higher",,,,,,,,3419801
-"blank1","fiveto14","male",100,3,50,3,0,50,0,10268157
-"blank1","fiveto14","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank1","fiveto14","no.educ",,,,,,,,3419801
-"blank1","fiveto14","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank1","fiveto14","non.p20",100,3,47,3,2,47,2,10268157
-"blank1","fiveto14","p20",100,3,53,3,1,53,1,10268157
-"blank1","fiveto14","primary",,,,,,,,3419801
-"blank1","fiveto14","rural",100,3,62,3,1,62,1,10268157
-"blank1","fiveto14","secondary",,,,,,,,3419801
-"blank1","fiveto14","stunted",100,0,,0,0,,0,1909997
-"blank1","fiveto14","under5",100,3,97,3,0,97,0,10268157
-"blank1","fiveto14","urban",100,3,38,3,2,38,2,10268157
-"blank1","gt49","higher",,,,,,,,3419801
-"blank1","gt49","male",100,0,50,0,0,50,0,10268157
-"blank1","gt49","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank1","gt49","no.educ",,,,,,,,3419801
-"blank1","gt49","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank1","gt49","non.p20",100,0,47,0,0,47,0,10268157
-"blank1","gt49","p20",100,0,53,0,0,53,0,10268157
-"blank1","gt49","primary",,,,,,,,3419801
-"blank1","gt49","rural",100,0,62,0,0,62,0,10268157
-"blank1","gt49","secondary",,,,,,,,3419801
-"blank1","gt49","stunted",100,0,,0,0,,0,1909997
-"blank1","gt49","under5",100,0,97,0,0,97,0,10268157
-"blank1","gt49","urban",100,0,38,0,0,38,0,10268157
-"blank1","higher","male",,,,,,,,3419801
-"blank1","higher","no.birth.reg",,,,,,,,3419801
-"blank1","higher","no.educ",,,,,,,,3419801
-"blank1","higher","no.skilled.attendant",,,,,,,,1253997
-"blank1","higher","non.p20",,,,,,,,3419801
-"blank1","higher","p20",,,,,,,,3419801
-"blank1","higher","primary",,,,,,,,3419801
-"blank1","higher","rural",,,,,,,,3419801
-"blank1","higher","secondary",,,,,,,,3419801
-"blank1","higher","stunted",,,,,,,,3419801
-"blank1","higher","under5",,,,,,,,3419801
-"blank1","higher","urban",,,,,,,,3419801
-"blank1","male","no.birth.reg",100,52,97,52,17,97,17,1909997
-"blank1","male","no.educ",,,,,,,,3419801
-"blank1","male","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank1","male","non.p20",100,50,47,50,23,47,23,10268157
-"blank1","male","p20",100,50,53,50,27,53,27,10268157
-"blank1","male","primary",,,,,,,,3419801
-"blank1","male","rural",100,50,62,50,31,62,31,10268157
-"blank1","male","secondary",,,,,,,,3419801
-"blank1","male","stunted",100,52,,52,0,,0,1909997
-"blank1","male","under5",100,50,97,50,50,97,50,10268157
-"blank1","male","urban",100,50,38,50,19,38,19,10268157
-"blank1","no.birth.reg","no.educ",,,,,,,,3419801
-"blank1","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"blank1","no.birth.reg","non.p20",100,97,46,97,13,46,13,1909997
-"blank1","no.birth.reg","p20",100,97,54,97,19,54,19,1909997
-"blank1","no.birth.reg","primary",,,,,,,,3419801
-"blank1","no.birth.reg","rural",100,97,63,97,25,63,25,1909997
-"blank1","no.birth.reg","secondary",,,,,,,,3419801
-"blank1","no.birth.reg","stunted",100,97,,97,0,,0,1909997
-"blank1","no.birth.reg","under5",100,97,100,97,97,100,97,1909997
-"blank1","no.birth.reg","urban",100,97,37,97,9,37,9,1909997
-"blank1","no.educ","no.skilled.attendant",,,,,,,,1253997
-"blank1","no.educ","non.p20",,,,,,,,3419801
-"blank1","no.educ","p20",,,,,,,,3419801
-"blank1","no.educ","primary",,,,,,,,3419801
-"blank1","no.educ","rural",,,,,,,,3419801
-"blank1","no.educ","secondary",,,,,,,,3419801
-"blank1","no.educ","stunted",,,,,,,,3419801
-"blank1","no.educ","under5",,,,,,,,3419801
-"blank1","no.educ","urban",,,,,,,,3419801
-"blank1","no.skilled.attendant","non.p20",100,100,100,100,100,100,100,2256287
-"blank1","no.skilled.attendant","p20",100,100,0,100,0,0,0,2256287
-"blank1","no.skilled.attendant","primary",,,,,,,,1253997
-"blank1","no.skilled.attendant","rural",100,100,0,100,0,0,0,2256287
-"blank1","no.skilled.attendant","secondary",,,,,,,,1253997
-"blank1","no.skilled.attendant","stunted",,,,,,,,1909997
-"blank1","no.skilled.attendant","under5",100,100,0,100,0,0,0,2256287
-"blank1","no.skilled.attendant","urban",100,100,100,100,100,100,100,2256287
-"blank1","non.p20","p20",100,47,53,47,0,53,0,10268157
-"blank1","non.p20","primary",,,,,,,,3419801
-"blank1","non.p20","rural",100,47,62,47,12,62,12,10268157
-"blank1","non.p20","secondary",,,,,,,,3419801
-"blank1","non.p20","stunted",100,46,,46,0,,0,1909997
-"blank1","non.p20","under5",100,47,97,47,45,97,45,10268157
-"blank1","non.p20","urban",100,47,38,47,35,38,35,10268157
-"blank1","p20","primary",,,,,,,,3419801
-"blank1","p20","rural",100,53,62,53,50,62,50,10268157
-"blank1","p20","secondary",,,,,,,,3419801
-"blank1","p20","stunted",100,54,,54,0,,0,1909997
-"blank1","p20","under5",100,53,97,53,52,97,52,10268157
-"blank1","p20","urban",100,53,38,53,3,38,3,10268157
-"blank1","primary","rural",,,,,,,,3419801
-"blank1","primary","secondary",,,,,,,,3419801
-"blank1","primary","stunted",,,,,,,,3419801
-"blank1","primary","under5",,,,,,,,3419801
-"blank1","primary","urban",,,,,,,,3419801
-"blank1","rural","secondary",,,,,,,,3419801
-"blank1","rural","stunted",100,63,,63,0,,0,1909997
-"blank1","rural","under5",100,62,97,62,61,97,61,10268157
-"blank1","rural","urban",100,62,38,62,0,38,0,10268157
-"blank1","secondary","stunted",,,,,,,,3419801
-"blank1","secondary","under5",,,,,,,,3419801
-"blank1","secondary","urban",,,,,,,,3419801
-"blank1","stunted","under5",100,,100,,,100,,1909997
-"blank1","stunted","urban",100,,37,,0,37,0,1909997
-"blank1","under5","urban",100,97,38,97,36,38,36,10268157
-"blank2","ext","female",100,39,50,39,19,50,19,10268157
-"blank2","ext","fifteento49",100,39,0,39,0,0,0,10268157
-"blank2","ext","fiveto14",100,39,3,39,1,3,1,10268157
-"blank2","ext","gt49",100,39,0,39,0,0,0,10268157
-"blank2","ext","higher",,,,,,,,3419801
-"blank2","ext","male",100,39,50,39,20,50,20,10268157
-"blank2","ext","no.birth.reg",100,40,97,40,11,97,11,1909997
-"blank2","ext","no.educ",,,,,,,,3419801
-"blank2","ext","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank2","ext","non.p20",100,39,47,39,0,47,0,10268157
-"blank2","ext","p20",100,39,53,39,39,53,39,10268157
-"blank2","ext","primary",,,,,,,,3419801
-"blank2","ext","rural",100,39,62,39,39,62,39,10268157
-"blank2","ext","secondary",,,,,,,,3419801
-"blank2","ext","stunted",100,40,,40,0,,0,1909997
-"blank2","ext","under5",100,39,97,39,39,97,39,10268157
-"blank2","ext","urban",100,39,38,39,1,38,1,10268157
-"blank2","female","fifteento49",100,50,0,50,0,0,0,10268157
-"blank2","female","fiveto14",100,50,3,50,3,3,3,10268157
-"blank2","female","gt49",100,50,0,50,0,0,0,10268157
-"blank2","female","higher",,,,,,,,3419801
-"blank2","female","male",100,50,50,50,0,50,0,10268157
-"blank2","female","no.birth.reg",100,48,97,48,15,97,15,1909997
-"blank2","female","no.educ",,,,,,,,3419801
-"blank2","female","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"blank2","female","non.p20",100,50,47,50,24,47,24,10268157
-"blank2","female","p20",100,50,53,50,26,53,26,10268157
-"blank2","female","primary",,,,,,,,3419801
-"blank2","female","rural",100,50,62,50,31,62,31,10268157
-"blank2","female","secondary",,,,,,,,3419801
-"blank2","female","stunted",100,48,,48,0,,0,1909997
-"blank2","female","under5",100,50,97,50,47,97,47,10268157
-"blank2","female","urban",100,50,38,50,19,38,19,10268157
-"blank2","fifteento49","fiveto14",100,0,3,0,0,3,0,10268157
-"blank2","fifteento49","gt49",100,0,0,0,0,0,0,10268157
-"blank2","fifteento49","higher",,,,,,,,3419801
-"blank2","fifteento49","male",100,0,50,0,0,50,0,10268157
-"blank2","fifteento49","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank2","fifteento49","no.educ",,,,,,,,3419801
-"blank2","fifteento49","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"blank2","fifteento49","non.p20",100,0,47,0,0,47,0,10268157
-"blank2","fifteento49","p20",100,0,53,0,0,53,0,10268157
-"blank2","fifteento49","primary",,,,,,,,3419801
-"blank2","fifteento49","rural",100,0,62,0,0,62,0,10268157
-"blank2","fifteento49","secondary",,,,,,,,3419801
-"blank2","fifteento49","stunted",100,0,,0,0,,0,1909997
-"blank2","fifteento49","under5",100,0,97,0,0,97,0,10268157
-"blank2","fifteento49","urban",100,0,38,0,0,38,0,10268157
-"blank2","fiveto14","gt49",100,3,0,3,0,0,0,10268157
-"blank2","fiveto14","higher",,,,,,,,3419801
-"blank2","fiveto14","male",100,3,50,3,0,50,0,10268157
-"blank2","fiveto14","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank2","fiveto14","no.educ",,,,,,,,3419801
-"blank2","fiveto14","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank2","fiveto14","non.p20",100,3,47,3,2,47,2,10268157
-"blank2","fiveto14","p20",100,3,53,3,1,53,1,10268157
-"blank2","fiveto14","primary",,,,,,,,3419801
-"blank2","fiveto14","rural",100,3,62,3,1,62,1,10268157
-"blank2","fiveto14","secondary",,,,,,,,3419801
-"blank2","fiveto14","stunted",100,0,,0,0,,0,1909997
-"blank2","fiveto14","under5",100,3,97,3,0,97,0,10268157
-"blank2","fiveto14","urban",100,3,38,3,2,38,2,10268157
-"blank2","gt49","higher",,,,,,,,3419801
-"blank2","gt49","male",100,0,50,0,0,50,0,10268157
-"blank2","gt49","no.birth.reg",100,0,97,0,0,97,0,1909997
-"blank2","gt49","no.educ",,,,,,,,3419801
-"blank2","gt49","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank2","gt49","non.p20",100,0,47,0,0,47,0,10268157
-"blank2","gt49","p20",100,0,53,0,0,53,0,10268157
-"blank2","gt49","primary",,,,,,,,3419801
-"blank2","gt49","rural",100,0,62,0,0,62,0,10268157
-"blank2","gt49","secondary",,,,,,,,3419801
-"blank2","gt49","stunted",100,0,,0,0,,0,1909997
-"blank2","gt49","under5",100,0,97,0,0,97,0,10268157
-"blank2","gt49","urban",100,0,38,0,0,38,0,10268157
-"blank2","higher","male",,,,,,,,3419801
-"blank2","higher","no.birth.reg",,,,,,,,3419801
-"blank2","higher","no.educ",,,,,,,,3419801
-"blank2","higher","no.skilled.attendant",,,,,,,,1253997
-"blank2","higher","non.p20",,,,,,,,3419801
-"blank2","higher","p20",,,,,,,,3419801
-"blank2","higher","primary",,,,,,,,3419801
-"blank2","higher","rural",,,,,,,,3419801
-"blank2","higher","secondary",,,,,,,,3419801
-"blank2","higher","stunted",,,,,,,,3419801
-"blank2","higher","under5",,,,,,,,3419801
-"blank2","higher","urban",,,,,,,,3419801
-"blank2","male","no.birth.reg",100,52,97,52,17,97,17,1909997
-"blank2","male","no.educ",,,,,,,,3419801
-"blank2","male","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"blank2","male","non.p20",100,50,47,50,23,47,23,10268157
-"blank2","male","p20",100,50,53,50,27,53,27,10268157
-"blank2","male","primary",,,,,,,,3419801
-"blank2","male","rural",100,50,62,50,31,62,31,10268157
-"blank2","male","secondary",,,,,,,,3419801
-"blank2","male","stunted",100,52,,52,0,,0,1909997
-"blank2","male","under5",100,50,97,50,50,97,50,10268157
-"blank2","male","urban",100,50,38,50,19,38,19,10268157
-"blank2","no.birth.reg","no.educ",,,,,,,,3419801
-"blank2","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"blank2","no.birth.reg","non.p20",100,97,46,97,13,46,13,1909997
-"blank2","no.birth.reg","p20",100,97,54,97,19,54,19,1909997
-"blank2","no.birth.reg","primary",,,,,,,,3419801
-"blank2","no.birth.reg","rural",100,97,63,97,25,63,25,1909997
-"blank2","no.birth.reg","secondary",,,,,,,,3419801
-"blank2","no.birth.reg","stunted",100,97,,97,0,,0,1909997
-"blank2","no.birth.reg","under5",100,97,100,97,97,100,97,1909997
-"blank2","no.birth.reg","urban",100,97,37,97,9,37,9,1909997
-"blank2","no.educ","no.skilled.attendant",,,,,,,,1253997
-"blank2","no.educ","non.p20",,,,,,,,3419801
-"blank2","no.educ","p20",,,,,,,,3419801
-"blank2","no.educ","primary",,,,,,,,3419801
-"blank2","no.educ","rural",,,,,,,,3419801
-"blank2","no.educ","secondary",,,,,,,,3419801
-"blank2","no.educ","stunted",,,,,,,,3419801
-"blank2","no.educ","under5",,,,,,,,3419801
-"blank2","no.educ","urban",,,,,,,,3419801
-"blank2","no.skilled.attendant","non.p20",100,100,100,100,100,100,100,2256287
-"blank2","no.skilled.attendant","p20",100,100,0,100,0,0,0,2256287
-"blank2","no.skilled.attendant","primary",,,,,,,,1253997
-"blank2","no.skilled.attendant","rural",100,100,0,100,0,0,0,2256287
-"blank2","no.skilled.attendant","secondary",,,,,,,,1253997
-"blank2","no.skilled.attendant","stunted",,,,,,,,1909997
-"blank2","no.skilled.attendant","under5",100,100,0,100,0,0,0,2256287
-"blank2","no.skilled.attendant","urban",100,100,100,100,100,100,100,2256287
-"blank2","non.p20","p20",100,47,53,47,0,53,0,10268157
-"blank2","non.p20","primary",,,,,,,,3419801
-"blank2","non.p20","rural",100,47,62,47,12,62,12,10268157
-"blank2","non.p20","secondary",,,,,,,,3419801
-"blank2","non.p20","stunted",100,46,,46,0,,0,1909997
-"blank2","non.p20","under5",100,47,97,47,45,97,45,10268157
-"blank2","non.p20","urban",100,47,38,47,35,38,35,10268157
-"blank2","p20","primary",,,,,,,,3419801
-"blank2","p20","rural",100,53,62,53,50,62,50,10268157
-"blank2","p20","secondary",,,,,,,,3419801
-"blank2","p20","stunted",100,54,,54,0,,0,1909997
-"blank2","p20","under5",100,53,97,53,52,97,52,10268157
-"blank2","p20","urban",100,53,38,53,3,38,3,10268157
-"blank2","primary","rural",,,,,,,,3419801
-"blank2","primary","secondary",,,,,,,,3419801
-"blank2","primary","stunted",,,,,,,,3419801
-"blank2","primary","under5",,,,,,,,3419801
-"blank2","primary","urban",,,,,,,,3419801
-"blank2","rural","secondary",,,,,,,,3419801
-"blank2","rural","stunted",100,63,,63,0,,0,1909997
-"blank2","rural","under5",100,62,97,62,61,97,61,10268157
-"blank2","rural","urban",100,62,38,62,0,38,0,10268157
-"blank2","secondary","stunted",,,,,,,,3419801
-"blank2","secondary","under5",,,,,,,,3419801
-"blank2","secondary","urban",,,,,,,,3419801
-"blank2","stunted","under5",100,,100,,,100,,1909997
-"blank2","stunted","urban",100,,37,,0,37,0,1909997
-"blank2","under5","urban",100,97,38,97,36,38,36,10268157
-"ext","female","fifteento49",39,50,0,19,0,0,0,10268157
-"ext","female","fiveto14",39,50,3,19,3,1,1,10268157
-"ext","female","gt49",39,50,0,19,0,0,0,10268157
-"ext","female","higher",,,,,,,,3419801
-"ext","female","male",39,50,50,19,0,20,0,10268157
-"ext","female","no.birth.reg",40,48,97,19,15,11,4,1909997
-"ext","female","no.educ",,,,,,,,3419801
-"ext","female","no.skilled.attendant",0,100,100,0,100,0,0,2256287
-"ext","female","non.p20",39,50,47,19,24,0,0,10268157
-"ext","female","p20",39,50,53,19,26,39,19,10268157
-"ext","female","primary",,,,,,,,3419801
-"ext","female","rural",39,50,62,19,31,39,19,10268157
-"ext","female","secondary",,,,,,,,3419801
-"ext","female","stunted",40,48,,19,0,0,0,1909997
-"ext","female","under5",39,50,97,19,47,39,19,10268157
-"ext","female","urban",39,50,38,19,19,1,0,10268157
-"ext","fifteento49","fiveto14",39,0,3,0,0,1,0,10268157
-"ext","fifteento49","gt49",39,0,0,0,0,0,0,10268157
-"ext","fifteento49","higher",,,,,,,,3419801
-"ext","fifteento49","male",39,0,50,0,0,20,0,10268157
-"ext","fifteento49","no.birth.reg",40,0,97,0,0,11,0,1909997
-"ext","fifteento49","no.educ",,,,,,,,3419801
-"ext","fifteento49","no.skilled.attendant",0,100,100,0,100,0,0,2256287
-"ext","fifteento49","non.p20",39,0,47,0,0,0,0,10268157
-"ext","fifteento49","p20",39,0,53,0,0,39,0,10268157
-"ext","fifteento49","primary",,,,,,,,3419801
-"ext","fifteento49","rural",39,0,62,0,0,39,0,10268157
-"ext","fifteento49","secondary",,,,,,,,3419801
-"ext","fifteento49","stunted",40,0,,0,0,0,0,1909997
-"ext","fifteento49","under5",39,0,97,0,0,39,0,10268157
-"ext","fifteento49","urban",39,0,38,0,0,1,0,10268157
-"ext","fiveto14","gt49",39,3,0,1,0,0,0,10268157
-"ext","fiveto14","higher",,,,,,,,3419801
-"ext","fiveto14","male",39,3,50,1,0,20,0,10268157
-"ext","fiveto14","no.birth.reg",40,0,97,0,0,11,0,1909997
-"ext","fiveto14","no.educ",,,,,,,,3419801
-"ext","fiveto14","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"ext","fiveto14","non.p20",39,3,47,1,2,0,0,10268157
-"ext","fiveto14","p20",39,3,53,1,1,39,1,10268157
-"ext","fiveto14","primary",,,,,,,,3419801
-"ext","fiveto14","rural",39,3,62,1,1,39,1,10268157
-"ext","fiveto14","secondary",,,,,,,,3419801
-"ext","fiveto14","stunted",40,0,,0,0,0,0,1909997
-"ext","fiveto14","under5",39,3,97,1,0,39,0,10268157
-"ext","fiveto14","urban",39,3,38,1,2,1,0,10268157
-"ext","gt49","higher",,,,,,,,3419801
-"ext","gt49","male",39,0,50,0,0,20,0,10268157
-"ext","gt49","no.birth.reg",40,0,97,0,0,11,0,1909997
-"ext","gt49","no.educ",,,,,,,,3419801
-"ext","gt49","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"ext","gt49","non.p20",39,0,47,0,0,0,0,10268157
-"ext","gt49","p20",39,0,53,0,0,39,0,10268157
-"ext","gt49","primary",,,,,,,,3419801
-"ext","gt49","rural",39,0,62,0,0,39,0,10268157
-"ext","gt49","secondary",,,,,,,,3419801
-"ext","gt49","stunted",40,0,,0,0,0,0,1909997
-"ext","gt49","under5",39,0,97,0,0,39,0,10268157
-"ext","gt49","urban",39,0,38,0,0,1,0,10268157
-"ext","higher","male",,,,,,,,3419801
-"ext","higher","no.birth.reg",,,,,,,,3419801
-"ext","higher","no.educ",,,,,,,,3419801
-"ext","higher","no.skilled.attendant",,,,,,,,1253997
-"ext","higher","non.p20",,,,,,0,0,3419801
-"ext","higher","p20",,,,,,,,3419801
-"ext","higher","primary",,,,,,,,3419801
-"ext","higher","rural",,,,,,,,3419801
-"ext","higher","secondary",,,,,,,,3419801
-"ext","higher","stunted",,,,,,,,3419801
-"ext","higher","under5",,,,,,,,3419801
-"ext","higher","urban",,,,,,,,3419801
-"ext","male","no.birth.reg",40,52,97,21,17,11,5,1909997
-"ext","male","no.educ",,,,,,,,3419801
-"ext","male","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"ext","male","non.p20",39,50,47,20,23,0,0,10268157
-"ext","male","p20",39,50,53,20,27,39,20,10268157
-"ext","male","primary",,,,,,,,3419801
-"ext","male","rural",39,50,62,20,31,39,20,10268157
-"ext","male","secondary",,,,,,,,3419801
-"ext","male","stunted",40,52,,21,0,0,0,1909997
-"ext","male","under5",39,50,97,20,50,39,20,10268157
-"ext","male","urban",39,50,38,20,19,1,0,10268157
-"ext","no.birth.reg","no.educ",,,,,,,,3419801
-"ext","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"ext","no.birth.reg","non.p20",40,97,46,11,13,0,0,1909997
-"ext","no.birth.reg","p20",40,97,54,11,19,40,11,1909997
-"ext","no.birth.reg","primary",,,,,,,,3419801
-"ext","no.birth.reg","rural",40,97,63,11,25,39,11,1909997
-"ext","no.birth.reg","secondary",,,,,,,,3419801
-"ext","no.birth.reg","stunted",40,97,,11,0,0,0,1909997
-"ext","no.birth.reg","under5",40,97,100,11,97,40,11,1909997
-"ext","no.birth.reg","urban",40,97,37,11,9,1,0,1909997
-"ext","no.educ","no.skilled.attendant",,,,,,,,1253997
-"ext","no.educ","non.p20",,,,,,0,0,3419801
-"ext","no.educ","p20",,,,,,,,3419801
-"ext","no.educ","primary",,,,,,,,3419801
-"ext","no.educ","rural",,,,,,,,3419801
-"ext","no.educ","secondary",,,,,,,,3419801
-"ext","no.educ","stunted",,,,,,,,3419801
-"ext","no.educ","under5",,,,,,,,3419801
-"ext","no.educ","urban",,,,,,,,3419801
-"ext","no.skilled.attendant","non.p20",0,100,100,0,100,0,0,2256287
-"ext","no.skilled.attendant","p20",0,100,0,0,0,0,0,2256287
-"ext","no.skilled.attendant","primary",,,,,,,,1253997
-"ext","no.skilled.attendant","rural",0,100,0,0,0,0,0,2256287
-"ext","no.skilled.attendant","secondary",,,,,,,,1253997
-"ext","no.skilled.attendant","stunted",,,,,,,,1909997
-"ext","no.skilled.attendant","under5",0,100,0,0,0,0,0,2256287
-"ext","no.skilled.attendant","urban",0,100,100,0,100,0,0,2256287
-"ext","non.p20","p20",39,47,53,0,0,39,0,10268157
-"ext","non.p20","primary",,,,0,,,0,3419801
-"ext","non.p20","rural",39,47,62,0,12,39,0,10268157
-"ext","non.p20","secondary",,,,0,,,0,3419801
-"ext","non.p20","stunted",40,46,,0,0,0,0,1909997
-"ext","non.p20","under5",39,47,97,0,45,39,0,10268157
-"ext","non.p20","urban",39,47,38,0,35,1,0,10268157
-"ext","p20","primary",,,,,,,,3419801
-"ext","p20","rural",39,53,62,39,50,39,39,10268157
-"ext","p20","secondary",,,,,,,,3419801
-"ext","p20","stunted",40,54,,40,0,0,0,1909997
-"ext","p20","under5",39,53,97,39,52,39,39,10268157
-"ext","p20","urban",39,53,38,39,3,1,1,10268157
-"ext","primary","rural",,,,,,,,3419801
-"ext","primary","secondary",,,,,,,,3419801
-"ext","primary","stunted",,,,,,,,3419801
-"ext","primary","under5",,,,,,,,3419801
-"ext","primary","urban",,,,,,,,3419801
-"ext","rural","secondary",,,,,,,,3419801
-"ext","rural","stunted",40,63,,39,0,0,0,1909997
-"ext","rural","under5",39,62,97,39,61,39,38,10268157
-"ext","rural","urban",39,62,38,39,0,1,0,10268157
-"ext","secondary","stunted",,,,,,,,3419801
-"ext","secondary","under5",,,,,,,,3419801
-"ext","secondary","urban",,,,,,,,3419801
-"ext","stunted","under5",40,,100,0,,40,0,1909997
-"ext","stunted","urban",40,,37,0,0,1,0,1909997
-"ext","under5","urban",39,97,38,39,36,1,1,10268157
-"female","fifteento49","fiveto14",50,0,3,0,0,3,0,10268157
-"female","fifteento49","gt49",50,0,0,0,0,0,0,10268157
-"female","fifteento49","higher",,,,,,,,3419801
-"female","fifteento49","male",50,0,50,0,0,0,0,10268157
-"female","fifteento49","no.birth.reg",48,0,97,0,0,15,0,1909997
-"female","fifteento49","no.educ",,,,,,,,3419801
-"female","fifteento49","no.skilled.attendant",100,100,100,100,100,100,100,2256287
-"female","fifteento49","non.p20",50,0,47,0,0,24,0,10268157
-"female","fifteento49","p20",50,0,53,0,0,26,0,10268157
-"female","fifteento49","primary",,,,,,,,3419801
-"female","fifteento49","rural",50,0,62,0,0,31,0,10268157
-"female","fifteento49","secondary",,,,,,,,3419801
-"female","fifteento49","stunted",48,0,,0,0,0,0,1909997
-"female","fifteento49","under5",50,0,97,0,0,47,0,10268157
-"female","fifteento49","urban",50,0,38,0,0,19,0,10268157
-"female","fiveto14","gt49",50,3,0,3,0,0,0,10268157
-"female","fiveto14","higher",,,,,,,,3419801
-"female","fiveto14","male",50,3,50,3,0,0,0,10268157
-"female","fiveto14","no.birth.reg",48,0,97,0,0,15,0,1909997
-"female","fiveto14","no.educ",,,,,,,,3419801
-"female","fiveto14","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"female","fiveto14","non.p20",50,3,47,3,2,24,2,10268157
-"female","fiveto14","p20",50,3,53,3,1,26,1,10268157
-"female","fiveto14","primary",,,,,,,,3419801
-"female","fiveto14","rural",50,3,62,3,1,31,1,10268157
-"female","fiveto14","secondary",,,,,,,,3419801
-"female","fiveto14","stunted",48,0,,0,0,0,0,1909997
-"female","fiveto14","under5",50,3,97,3,0,47,0,10268157
-"female","fiveto14","urban",50,3,38,3,2,19,2,10268157
-"female","gt49","higher",,,,,,,,3419801
-"female","gt49","male",50,0,50,0,0,0,0,10268157
-"female","gt49","no.birth.reg",48,0,97,0,0,15,0,1909997
-"female","gt49","no.educ",,,,,,,,3419801
-"female","gt49","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"female","gt49","non.p20",50,0,47,0,0,24,0,10268157
-"female","gt49","p20",50,0,53,0,0,26,0,10268157
-"female","gt49","primary",,,,,,,,3419801
-"female","gt49","rural",50,0,62,0,0,31,0,10268157
-"female","gt49","secondary",,,,,,,,3419801
-"female","gt49","stunted",48,0,,0,0,0,0,1909997
-"female","gt49","under5",50,0,97,0,0,47,0,10268157
-"female","gt49","urban",50,0,38,0,0,19,0,10268157
-"female","higher","male",,,,,,,,3419801
-"female","higher","no.birth.reg",,,,,,,,3419801
-"female","higher","no.educ",,,,,,,,3419801
-"female","higher","no.skilled.attendant",,,,,,,,1253997
-"female","higher","non.p20",,,,,,,,3419801
-"female","higher","p20",,,,,,,,3419801
-"female","higher","primary",,,,,,,,3419801
-"female","higher","rural",,,,,,,,3419801
-"female","higher","secondary",,,,,,,,3419801
-"female","higher","stunted",,,,,,,,3419801
-"female","higher","under5",,,,,,,,3419801
-"female","higher","urban",,,,,,,,3419801
-"female","male","no.birth.reg",48,52,97,0,17,15,0,1909997
-"female","male","no.educ",,,,,,,,3419801
-"female","male","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"female","male","non.p20",50,50,47,0,23,24,0,10268157
-"female","male","p20",50,50,53,0,27,26,0,10268157
-"female","male","primary",,,,,,,,3419801
-"female","male","rural",50,50,62,0,31,31,0,10268157
-"female","male","secondary",,,,,,,,3419801
-"female","male","stunted",48,52,,0,0,0,0,1909997
-"female","male","under5",50,50,97,0,50,47,0,10268157
-"female","male","urban",50,50,38,0,19,19,0,10268157
-"female","no.birth.reg","no.educ",,,,,,,,3419801
-"female","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"female","no.birth.reg","non.p20",48,97,46,15,13,22,5,1909997
-"female","no.birth.reg","p20",48,97,54,15,19,26,6,1909997
-"female","no.birth.reg","primary",,,,,,,,3419801
-"female","no.birth.reg","rural",48,97,63,15,25,30,8,1909997
-"female","no.birth.reg","secondary",,,,,,,,3419801
-"female","no.birth.reg","stunted",48,97,,15,0,0,0,1909997
-"female","no.birth.reg","under5",48,97,100,15,97,48,15,1909997
-"female","no.birth.reg","urban",48,97,37,15,9,18,4,1909997
-"female","no.educ","no.skilled.attendant",,,,,,,,1253997
-"female","no.educ","non.p20",,,,,,,,3419801
-"female","no.educ","p20",,,,,,,,3419801
-"female","no.educ","primary",,,,,,,,3419801
-"female","no.educ","rural",,,,,,,,3419801
-"female","no.educ","secondary",,,,,,,,3419801
-"female","no.educ","stunted",,,,,,,,3419801
-"female","no.educ","under5",,,,,,,,3419801
-"female","no.educ","urban",,,,,,,,3419801
-"female","no.skilled.attendant","non.p20",100,100,100,100,100,100,100,2256287
-"female","no.skilled.attendant","p20",100,100,0,100,0,0,0,2256287
-"female","no.skilled.attendant","primary",,,,,,,,1253997
-"female","no.skilled.attendant","rural",100,100,0,100,0,0,0,2256287
-"female","no.skilled.attendant","secondary",,,,,,,,1253997
-"female","no.skilled.attendant","stunted",,,,,,,,1909997
-"female","no.skilled.attendant","under5",100,100,0,100,0,0,0,2256287
-"female","no.skilled.attendant","urban",100,100,100,100,100,100,100,2256287
-"female","non.p20","p20",50,47,53,24,0,26,0,10268157
-"female","non.p20","primary",,,,,,,,3419801
-"female","non.p20","rural",50,47,62,24,12,31,6,10268157
-"female","non.p20","secondary",,,,,,,,3419801
-"female","non.p20","stunted",48,46,,22,0,0,0,1909997
-"female","non.p20","under5",50,47,97,24,45,47,22,10268157
-"female","non.p20","urban",50,47,38,24,35,19,18,10268157
-"female","p20","primary",,,,,,,,3419801
-"female","p20","rural",50,53,62,26,50,31,25,10268157
-"female","p20","secondary",,,,,,,,3419801
-"female","p20","stunted",48,54,,26,0,0,0,1909997
-"female","p20","under5",50,53,97,26,52,47,25,10268157
-"female","p20","urban",50,53,38,26,3,19,2,10268157
-"female","primary","rural",,,,,,,,3419801
-"female","primary","secondary",,,,,,,,3419801
-"female","primary","stunted",,,,,,,,3419801
-"female","primary","under5",,,,,,,,3419801
-"female","primary","urban",,,,,,,,3419801
-"female","rural","secondary",,,,,,,,3419801
-"female","rural","stunted",48,63,,30,0,0,0,1909997
-"female","rural","under5",50,62,97,31,61,47,29,10268157
-"female","rural","urban",50,62,38,31,0,19,0,10268157
-"female","secondary","stunted",,,,,,,,3419801
-"female","secondary","under5",,,,,,,,3419801
-"female","secondary","urban",,,,,,,,3419801
-"female","stunted","under5",48,,100,0,,48,0,1909997
-"female","stunted","urban",48,,37,0,0,18,0,1909997
-"female","under5","urban",50,97,38,47,36,19,18,10268157
-"fifteento49","fiveto14","gt49",0,3,0,0,0,0,0,10268157
-"fifteento49","fiveto14","higher",,,,,,,,3419801
-"fifteento49","fiveto14","male",0,3,50,0,0,0,0,10268157
-"fifteento49","fiveto14","no.birth.reg",0,0,97,0,0,0,0,1909997
-"fifteento49","fiveto14","no.educ",,,,,,,,3419801
-"fifteento49","fiveto14","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"fifteento49","fiveto14","non.p20",0,3,47,0,2,0,0,10268157
-"fifteento49","fiveto14","p20",0,3,53,0,1,0,0,10268157
-"fifteento49","fiveto14","primary",,,,,,,,3419801
-"fifteento49","fiveto14","rural",0,3,62,0,1,0,0,10268157
-"fifteento49","fiveto14","secondary",,,,,,,,3419801
-"fifteento49","fiveto14","stunted",0,0,,0,0,0,0,1909997
-"fifteento49","fiveto14","under5",0,3,97,0,0,0,0,10268157
-"fifteento49","fiveto14","urban",0,3,38,0,2,0,0,10268157
-"fifteento49","gt49","higher",,,,,,,,3419801
-"fifteento49","gt49","male",0,0,50,0,0,0,0,10268157
-"fifteento49","gt49","no.birth.reg",0,0,97,0,0,0,0,1909997
-"fifteento49","gt49","no.educ",,,,,,,,3419801
-"fifteento49","gt49","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"fifteento49","gt49","non.p20",0,0,47,0,0,0,0,10268157
-"fifteento49","gt49","p20",0,0,53,0,0,0,0,10268157
-"fifteento49","gt49","primary",,,,,,,,3419801
-"fifteento49","gt49","rural",0,0,62,0,0,0,0,10268157
-"fifteento49","gt49","secondary",,,,,,,,3419801
-"fifteento49","gt49","stunted",0,0,,0,0,0,0,1909997
-"fifteento49","gt49","under5",0,0,97,0,0,0,0,10268157
-"fifteento49","gt49","urban",0,0,38,0,0,0,0,10268157
-"fifteento49","higher","male",,,,,,,,3419801
-"fifteento49","higher","no.birth.reg",,,,,,,,3419801
-"fifteento49","higher","no.educ",,,,,,,,3419801
-"fifteento49","higher","no.skilled.attendant",,,,,,,,1253997
-"fifteento49","higher","non.p20",,,,,,,,3419801
-"fifteento49","higher","p20",,,,,,,,3419801
-"fifteento49","higher","primary",,,,,,,,3419801
-"fifteento49","higher","rural",,,,,,,,3419801
-"fifteento49","higher","secondary",,,,,,,,3419801
-"fifteento49","higher","stunted",,,,,,,,3419801
-"fifteento49","higher","under5",,,,,,,,3419801
-"fifteento49","higher","urban",,,,,,,,3419801
-"fifteento49","male","no.birth.reg",0,52,97,0,17,0,0,1909997
-"fifteento49","male","no.educ",,,,,,,,3419801
-"fifteento49","male","no.skilled.attendant",100,0,100,0,0,100,0,2256287
-"fifteento49","male","non.p20",0,50,47,0,23,0,0,10268157
-"fifteento49","male","p20",0,50,53,0,27,0,0,10268157
-"fifteento49","male","primary",,,,,,,,3419801
-"fifteento49","male","rural",0,50,62,0,31,0,0,10268157
-"fifteento49","male","secondary",,,,,,,,3419801
-"fifteento49","male","stunted",0,52,,0,0,0,0,1909997
-"fifteento49","male","under5",0,50,97,0,50,0,0,10268157
-"fifteento49","male","urban",0,50,38,0,19,0,0,10268157
-"fifteento49","no.birth.reg","no.educ",,,,,,,,3419801
-"fifteento49","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"fifteento49","no.birth.reg","non.p20",0,97,46,0,13,0,0,1909997
-"fifteento49","no.birth.reg","p20",0,97,54,0,19,0,0,1909997
-"fifteento49","no.birth.reg","primary",,,,,,,,3419801
-"fifteento49","no.birth.reg","rural",0,97,63,0,25,0,0,1909997
-"fifteento49","no.birth.reg","secondary",,,,,,,,3419801
-"fifteento49","no.birth.reg","stunted",0,97,,0,0,0,0,1909997
-"fifteento49","no.birth.reg","under5",0,97,100,0,97,0,0,1909997
-"fifteento49","no.birth.reg","urban",0,97,37,0,9,0,0,1909997
-"fifteento49","no.educ","no.skilled.attendant",,,,,,,,1253997
-"fifteento49","no.educ","non.p20",,,,,,,,3419801
-"fifteento49","no.educ","p20",,,,,,,,3419801
-"fifteento49","no.educ","primary",,,,,,,,3419801
-"fifteento49","no.educ","rural",,,,,,,,3419801
-"fifteento49","no.educ","secondary",,,,,,,,3419801
-"fifteento49","no.educ","stunted",,,,,,,,3419801
-"fifteento49","no.educ","under5",,,,,,,,3419801
-"fifteento49","no.educ","urban",,,,,,,,3419801
-"fifteento49","no.skilled.attendant","non.p20",100,100,100,100,100,100,100,2256287
-"fifteento49","no.skilled.attendant","p20",100,100,0,100,0,0,0,2256287
-"fifteento49","no.skilled.attendant","primary",,,,,,,,1253997
-"fifteento49","no.skilled.attendant","rural",100,100,0,100,0,0,0,2256287
-"fifteento49","no.skilled.attendant","secondary",,,,,,,,1253997
-"fifteento49","no.skilled.attendant","stunted",,,,,,,,1909997
-"fifteento49","no.skilled.attendant","under5",100,100,0,100,0,0,0,2256287
-"fifteento49","no.skilled.attendant","urban",100,100,100,100,100,100,100,2256287
-"fifteento49","non.p20","p20",0,47,53,0,0,0,0,10268157
-"fifteento49","non.p20","primary",,,,,,,,3419801
-"fifteento49","non.p20","rural",0,47,62,0,12,0,0,10268157
-"fifteento49","non.p20","secondary",,,,,,,,3419801
-"fifteento49","non.p20","stunted",0,46,,0,0,0,0,1909997
-"fifteento49","non.p20","under5",0,47,97,0,45,0,0,10268157
-"fifteento49","non.p20","urban",0,47,38,0,35,0,0,10268157
-"fifteento49","p20","primary",,,,,,,,3419801
-"fifteento49","p20","rural",0,53,62,0,50,0,0,10268157
-"fifteento49","p20","secondary",,,,,,,,3419801
-"fifteento49","p20","stunted",0,54,,0,0,0,0,1909997
-"fifteento49","p20","under5",0,53,97,0,52,0,0,10268157
-"fifteento49","p20","urban",0,53,38,0,3,0,0,10268157
-"fifteento49","primary","rural",,,,,,,,3419801
-"fifteento49","primary","secondary",,,,,,,,3419801
-"fifteento49","primary","stunted",,,,,,,,3419801
-"fifteento49","primary","under5",,,,,,,,3419801
-"fifteento49","primary","urban",,,,,,,,3419801
-"fifteento49","rural","secondary",,,,,,,,3419801
-"fifteento49","rural","stunted",0,63,,0,0,0,0,1909997
-"fifteento49","rural","under5",0,62,97,0,61,0,0,10268157
-"fifteento49","rural","urban",0,62,38,0,0,0,0,10268157
-"fifteento49","secondary","stunted",,,,,,,,3419801
-"fifteento49","secondary","under5",,,,,,,,3419801
-"fifteento49","secondary","urban",,,,,,,,3419801
-"fifteento49","stunted","under5",0,,100,0,,0,0,1909997
-"fifteento49","stunted","urban",0,,37,0,0,0,0,1909997
-"fifteento49","under5","urban",0,97,38,0,36,0,0,10268157
-"fiveto14","gt49","higher",,,,,,,,3419801
-"fiveto14","gt49","male",3,0,50,0,0,0,0,10268157
-"fiveto14","gt49","no.birth.reg",0,0,97,0,0,0,0,1909997
-"fiveto14","gt49","no.educ",,,,,,,,3419801
-"fiveto14","gt49","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"fiveto14","gt49","non.p20",3,0,47,0,0,2,0,10268157
-"fiveto14","gt49","p20",3,0,53,0,0,1,0,10268157
-"fiveto14","gt49","primary",,,,,,,,3419801
-"fiveto14","gt49","rural",3,0,62,0,0,1,0,10268157
-"fiveto14","gt49","secondary",,,,,,,,3419801
-"fiveto14","gt49","stunted",0,0,,0,0,0,0,1909997
-"fiveto14","gt49","under5",3,0,97,0,0,0,0,10268157
-"fiveto14","gt49","urban",3,0,38,0,0,2,0,10268157
-"fiveto14","higher","male",,,,,,,,3419801
-"fiveto14","higher","no.birth.reg",,,,,,,,3419801
-"fiveto14","higher","no.educ",,,,,,,,3419801
-"fiveto14","higher","no.skilled.attendant",,,,,,,,1253997
-"fiveto14","higher","non.p20",,,,,,,,3419801
-"fiveto14","higher","p20",,,,,,,,3419801
-"fiveto14","higher","primary",,,,,,,,3419801
-"fiveto14","higher","rural",,,,,,,,3419801
-"fiveto14","higher","secondary",,,,,,,,3419801
-"fiveto14","higher","stunted",,,,,,,,3419801
-"fiveto14","higher","under5",,,,,,,,3419801
-"fiveto14","higher","urban",,,,,,,,3419801
-"fiveto14","male","no.birth.reg",0,52,97,0,17,0,0,1909997
-"fiveto14","male","no.educ",,,,,,,,3419801
-"fiveto14","male","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"fiveto14","male","non.p20",3,50,47,0,23,2,0,10268157
-"fiveto14","male","p20",3,50,53,0,27,1,0,10268157
-"fiveto14","male","primary",,,,,,,,3419801
-"fiveto14","male","rural",3,50,62,0,31,1,0,10268157
-"fiveto14","male","secondary",,,,,,,,3419801
-"fiveto14","male","stunted",0,52,,0,0,0,0,1909997
-"fiveto14","male","under5",3,50,97,0,50,0,0,10268157
-"fiveto14","male","urban",3,50,38,0,19,2,0,10268157
-"fiveto14","no.birth.reg","no.educ",,,,,,,,3419801
-"fiveto14","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"fiveto14","no.birth.reg","non.p20",0,97,46,0,13,0,0,1909997
-"fiveto14","no.birth.reg","p20",0,97,54,0,19,0,0,1909997
-"fiveto14","no.birth.reg","primary",,,,,,,,3419801
-"fiveto14","no.birth.reg","rural",0,97,63,0,25,0,0,1909997
-"fiveto14","no.birth.reg","secondary",,,,,,,,3419801
-"fiveto14","no.birth.reg","stunted",0,97,,0,0,0,0,1909997
-"fiveto14","no.birth.reg","under5",0,97,100,0,97,0,0,1909997
-"fiveto14","no.birth.reg","urban",0,97,37,0,9,0,0,1909997
-"fiveto14","no.educ","no.skilled.attendant",,,,,,,,1253997
-"fiveto14","no.educ","non.p20",,,,,,,,3419801
-"fiveto14","no.educ","p20",,,,,,,,3419801
-"fiveto14","no.educ","primary",,,,,,,,3419801
-"fiveto14","no.educ","rural",,,,,,,,3419801
-"fiveto14","no.educ","secondary",,,,,,,,3419801
-"fiveto14","no.educ","stunted",,,,,,,,3419801
-"fiveto14","no.educ","under5",,,,,,,,3419801
-"fiveto14","no.educ","urban",,,,,,,,3419801
-"fiveto14","no.skilled.attendant","non.p20",0,100,100,0,100,0,0,2256287
-"fiveto14","no.skilled.attendant","p20",0,100,0,0,0,0,0,2256287
-"fiveto14","no.skilled.attendant","primary",,,,,,,,1253997
-"fiveto14","no.skilled.attendant","rural",0,100,0,0,0,0,0,2256287
-"fiveto14","no.skilled.attendant","secondary",,,,,,,,1253997
-"fiveto14","no.skilled.attendant","stunted",,,,,,,,1909997
-"fiveto14","no.skilled.attendant","under5",0,100,0,0,0,0,0,2256287
-"fiveto14","no.skilled.attendant","urban",0,100,100,0,100,0,0,2256287
-"fiveto14","non.p20","p20",3,47,53,2,0,1,0,10268157
-"fiveto14","non.p20","primary",,,,,,,,3419801
-"fiveto14","non.p20","rural",3,47,62,2,12,1,0,10268157
-"fiveto14","non.p20","secondary",,,,,,,,3419801
-"fiveto14","non.p20","stunted",0,46,,0,0,0,0,1909997
-"fiveto14","non.p20","under5",3,47,97,2,45,0,0,10268157
-"fiveto14","non.p20","urban",3,47,38,2,35,2,2,10268157
-"fiveto14","p20","primary",,,,,,,,3419801
-"fiveto14","p20","rural",3,53,62,1,50,1,1,10268157
-"fiveto14","p20","secondary",,,,,,,,3419801
-"fiveto14","p20","stunted",0,54,,0,0,0,0,1909997
-"fiveto14","p20","under5",3,53,97,1,52,0,0,10268157
-"fiveto14","p20","urban",3,53,38,1,3,2,0,10268157
-"fiveto14","primary","rural",,,,,,,,3419801
-"fiveto14","primary","secondary",,,,,,,,3419801
-"fiveto14","primary","stunted",,,,,,,,3419801
-"fiveto14","primary","under5",,,,,,,,3419801
-"fiveto14","primary","urban",,,,,,,,3419801
-"fiveto14","rural","secondary",,,,,,,,3419801
-"fiveto14","rural","stunted",0,63,,0,0,0,0,1909997
-"fiveto14","rural","under5",3,62,97,1,61,0,0,10268157
-"fiveto14","rural","urban",3,62,38,1,0,2,0,10268157
-"fiveto14","secondary","stunted",,,,,,,,3419801
-"fiveto14","secondary","under5",,,,,,,,3419801
-"fiveto14","secondary","urban",,,,,,,,3419801
-"fiveto14","stunted","under5",0,,100,0,,0,0,1909997
-"fiveto14","stunted","urban",0,,37,0,0,0,0,1909997
-"fiveto14","under5","urban",3,97,38,0,36,2,0,10268157
-"gt49","higher","male",,,,,,,,3419801
-"gt49","higher","no.birth.reg",,,,,,,,3419801
-"gt49","higher","no.educ",,,,,,,,3419801
-"gt49","higher","no.skilled.attendant",,,,,,,,1253997
-"gt49","higher","non.p20",,,,,,,,3419801
-"gt49","higher","p20",,,,,,,,3419801
-"gt49","higher","primary",,,,,,,,3419801
-"gt49","higher","rural",,,,,,,,3419801
-"gt49","higher","secondary",,,,,,,,3419801
-"gt49","higher","stunted",,,,,,,,3419801
-"gt49","higher","under5",,,,,,,,3419801
-"gt49","higher","urban",,,,,,,,3419801
-"gt49","male","no.birth.reg",0,52,97,0,17,0,0,1909997
-"gt49","male","no.educ",,,,,,,,3419801
-"gt49","male","no.skilled.attendant",0,0,100,0,0,0,0,2256287
-"gt49","male","non.p20",0,50,47,0,23,0,0,10268157
-"gt49","male","p20",0,50,53,0,27,0,0,10268157
-"gt49","male","primary",,,,,,,,3419801
-"gt49","male","rural",0,50,62,0,31,0,0,10268157
-"gt49","male","secondary",,,,,,,,3419801
-"gt49","male","stunted",0,52,,0,0,0,0,1909997
-"gt49","male","under5",0,50,97,0,50,0,0,10268157
-"gt49","male","urban",0,50,38,0,19,0,0,10268157
-"gt49","no.birth.reg","no.educ",,,,,,,,3419801
-"gt49","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"gt49","no.birth.reg","non.p20",0,97,46,0,13,0,0,1909997
-"gt49","no.birth.reg","p20",0,97,54,0,19,0,0,1909997
-"gt49","no.birth.reg","primary",,,,,,,,3419801
-"gt49","no.birth.reg","rural",0,97,63,0,25,0,0,1909997
-"gt49","no.birth.reg","secondary",,,,,,,,3419801
-"gt49","no.birth.reg","stunted",0,97,,0,0,0,0,1909997
-"gt49","no.birth.reg","under5",0,97,100,0,97,0,0,1909997
-"gt49","no.birth.reg","urban",0,97,37,0,9,0,0,1909997
-"gt49","no.educ","no.skilled.attendant",,,,,,,,1253997
-"gt49","no.educ","non.p20",,,,,,,,3419801
-"gt49","no.educ","p20",,,,,,,,3419801
-"gt49","no.educ","primary",,,,,,,,3419801
-"gt49","no.educ","rural",,,,,,,,3419801
-"gt49","no.educ","secondary",,,,,,,,3419801
-"gt49","no.educ","stunted",,,,,,,,3419801
-"gt49","no.educ","under5",,,,,,,,3419801
-"gt49","no.educ","urban",,,,,,,,3419801
-"gt49","no.skilled.attendant","non.p20",0,100,100,0,100,0,0,2256287
-"gt49","no.skilled.attendant","p20",0,100,0,0,0,0,0,2256287
-"gt49","no.skilled.attendant","primary",,,,,,,,1253997
-"gt49","no.skilled.attendant","rural",0,100,0,0,0,0,0,2256287
-"gt49","no.skilled.attendant","secondary",,,,,,,,1253997
-"gt49","no.skilled.attendant","stunted",,,,,,,,1909997
-"gt49","no.skilled.attendant","under5",0,100,0,0,0,0,0,2256287
-"gt49","no.skilled.attendant","urban",0,100,100,0,100,0,0,2256287
-"gt49","non.p20","p20",0,47,53,0,0,0,0,10268157
-"gt49","non.p20","primary",,,,,,,,3419801
-"gt49","non.p20","rural",0,47,62,0,12,0,0,10268157
-"gt49","non.p20","secondary",,,,,,,,3419801
-"gt49","non.p20","stunted",0,46,,0,0,0,0,1909997
-"gt49","non.p20","under5",0,47,97,0,45,0,0,10268157
-"gt49","non.p20","urban",0,47,38,0,35,0,0,10268157
-"gt49","p20","primary",,,,,,,,3419801
-"gt49","p20","rural",0,53,62,0,50,0,0,10268157
-"gt49","p20","secondary",,,,,,,,3419801
-"gt49","p20","stunted",0,54,,0,0,0,0,1909997
-"gt49","p20","under5",0,53,97,0,52,0,0,10268157
-"gt49","p20","urban",0,53,38,0,3,0,0,10268157
-"gt49","primary","rural",,,,,,,,3419801
-"gt49","primary","secondary",,,,,,,,3419801
-"gt49","primary","stunted",,,,,,,,3419801
-"gt49","primary","under5",,,,,,,,3419801
-"gt49","primary","urban",,,,,,,,3419801
-"gt49","rural","secondary",,,,,,,,3419801
-"gt49","rural","stunted",0,63,,0,0,0,0,1909997
-"gt49","rural","under5",0,62,97,0,61,0,0,10268157
-"gt49","rural","urban",0,62,38,0,0,0,0,10268157
-"gt49","secondary","stunted",,,,,,,,3419801
-"gt49","secondary","under5",,,,,,,,3419801
-"gt49","secondary","urban",,,,,,,,3419801
-"gt49","stunted","under5",0,,100,0,,0,0,1909997
-"gt49","stunted","urban",0,,37,0,0,0,0,1909997
-"gt49","under5","urban",0,97,38,0,36,0,0,10268157
-"higher","male","no.birth.reg",,,,,,,,3419801
-"higher","male","no.educ",,,,,,,,3419801
-"higher","male","no.skilled.attendant",,,,,,,,1253997
-"higher","male","non.p20",,,,,,,,3419801
-"higher","male","p20",,,,,,,,3419801
-"higher","male","primary",,,,,,,,3419801
-"higher","male","rural",,,,,,,,3419801
-"higher","male","secondary",,,,,,,,3419801
-"higher","male","stunted",,,,,,,,3419801
-"higher","male","under5",,,,,,,,3419801
-"higher","male","urban",,,,,,,,3419801
-"higher","no.birth.reg","no.educ",,,,,,,,3419801
-"higher","no.birth.reg","no.skilled.attendant",,,,,,,,1253997
-"higher","no.birth.reg","non.p20",,,,,,,,3419801
-"higher","no.birth.reg","p20",,,,,,,,3419801
-"higher","no.birth.reg","primary",,,,,,,,3419801
-"higher","no.birth.reg","rural",,,,,,,,3419801
-"higher","no.birth.reg","secondary",,,,,,,,3419801
-"higher","no.birth.reg","stunted",,,,,,,,3419801
-"higher","no.birth.reg","under5",,,,,,,,3419801
-"higher","no.birth.reg","urban",,,,,,,,3419801
-"higher","no.educ","no.skilled.attendant",,,,,,,,1253997
-"higher","no.educ","non.p20",,,,,,,,3419801
-"higher","no.educ","p20",,,,,,,,3419801
-"higher","no.educ","primary",,,,,,,,3419801
-"higher","no.educ","rural",,,,,,,,3419801
-"higher","no.educ","secondary",,,,,,,,3419801
-"higher","no.educ","stunted",,,,,,,,3419801
-"higher","no.educ","under5",,,,,,,,3419801
-"higher","no.educ","urban",,,,,,,,3419801
-"higher","no.skilled.attendant","non.p20",,,,,,,,1253997
-"higher","no.skilled.attendant","p20",,,,,,,,1253997
-"higher","no.skilled.attendant","primary",,,,,,,,1253997
-"higher","no.skilled.attendant","rural",,,,,,,,1253997
-"higher","no.skilled.attendant","secondary",,,,,,,,1253997
-"higher","no.skilled.attendant","stunted",,,,,,,,1253997
-"higher","no.skilled.attendant","under5",,,,,,,,1253997
-"higher","no.skilled.attendant","urban",,,,,,,,1253997
-"higher","non.p20","p20",,,,,0,,0,3419801
-"higher","non.p20","primary",,,,,,,,3419801
-"higher","non.p20","rural",,,,,,,,3419801
-"higher","non.p20","secondary",,,,,,,,3419801
-"higher","non.p20","stunted",,,,,,,,3419801
-"higher","non.p20","under5",,,,,,,,3419801
-"higher","non.p20","urban",,,,,,,,3419801
-"higher","p20","primary",,,,,,,,3419801
-"higher","p20","rural",,,,,,,,3419801
-"higher","p20","secondary",,,,,,,,3419801
-"higher","p20","stunted",,,,,,,,3419801
-"higher","p20","under5",,,,,,,,3419801
-"higher","p20","urban",,,,,,,,3419801
-"higher","primary","rural",,,,,,,,3419801
-"higher","primary","secondary",,,,,,,,3419801
-"higher","primary","stunted",,,,,,,,3419801
-"higher","primary","under5",,,,,,,,3419801
-"higher","primary","urban",,,,,,,,3419801
-"higher","rural","secondary",,,,,,,,3419801
-"higher","rural","stunted",,,,,,,,3419801
-"higher","rural","under5",,,,,,,,3419801
-"higher","rural","urban",,,,,,,,3419801
-"higher","secondary","stunted",,,,,,,,3419801
-"higher","secondary","under5",,,,,,,,3419801
-"higher","secondary","urban",,,,,,,,3419801
-"higher","stunted","under5",,,,,,,,3419801
-"higher","stunted","urban",,,,,,,,3419801
-"higher","under5","urban",,,,,,,,3419801
-"male","no.birth.reg","no.educ",,,,,,,,3419801
-"male","no.birth.reg","no.skilled.attendant",,,,,,,,1909997
-"male","no.birth.reg","non.p20",52,97,46,17,13,24,5,1909997
-"male","no.birth.reg","p20",52,97,54,17,19,28,7,1909997
-"male","no.birth.reg","primary",,,,,,,,3419801
-"male","no.birth.reg","rural",52,97,63,17,25,32,9,1909997
-"male","no.birth.reg","secondary",,,,,,,,3419801
-"male","no.birth.reg","stunted",52,97,,17,0,0,0,1909997
-"male","no.birth.reg","under5",52,97,100,17,97,52,17,1909997
-"male","no.birth.reg","urban",52,97,37,17,9,19,4,1909997
-"male","no.educ","no.skilled.attendant",,,,,,,,1253997
-"male","no.educ","non.p20",,,,,,,,3419801
-"male","no.educ","p20",,,,,,,,3419801
-"male","no.educ","primary",,,,,,,,3419801
-"male","no.educ","rural",,,,,,,,3419801
-"male","no.educ","secondary",,,,,,,,3419801
-"male","no.educ","stunted",,,,,,,,3419801
-"male","no.educ","under5",,,,,,,,3419801
-"male","no.educ","urban",,,,,,,,3419801
-"male","no.skilled.attendant","non.p20",0,100,100,0,100,0,0,2256287
-"male","no.skilled.attendant","p20",0,100,0,0,0,0,0,2256287
-"male","no.skilled.attendant","primary",,,,,,,,1253997
-"male","no.skilled.attendant","rural",0,100,0,0,0,0,0,2256287
-"male","no.skilled.attendant","secondary",,,,,,,,1253997
-"male","no.skilled.attendant","stunted",,,,,,,,1909997
-"male","no.skilled.attendant","under5",0,100,0,0,0,0,0,2256287
-"male","no.skilled.attendant","urban",0,100,100,0,100,0,0,2256287
-"male","non.p20","p20",50,47,53,23,0,27,0,10268157
-"male","non.p20","primary",,,,,,,,3419801
-"male","non.p20","rural",50,47,62,23,12,31,6,10268157
-"male","non.p20","secondary",,,,,,,,3419801
-"male","non.p20","stunted",52,46,,24,0,0,0,1909997
-"male","non.p20","under5",50,47,97,23,45,50,23,10268157
-"male","non.p20","urban",50,47,38,23,35,19,17,10268157
-"male","p20","primary",,,,,,,,3419801
-"male","p20","rural",50,53,62,27,50,31,25,10268157
-"male","p20","secondary",,,,,,,,3419801
-"male","p20","stunted",52,54,,28,0,0,0,1909997
-"male","p20","under5",50,53,97,27,52,50,27,10268157
-"male","p20","urban",50,53,38,27,3,19,2,10268157
-"male","primary","rural",,,,,,,,3419801
-"male","primary","secondary",,,,,,,,3419801
-"male","primary","stunted",,,,,,,,3419801
-"male","primary","under5",,,,,,,,3419801
-"male","primary","urban",,,,,,,,3419801
-"male","rural","secondary",,,,,,,,3419801
-"male","rural","stunted",52,63,,32,0,0,0,1909997
-"male","rural","under5",50,62,97,31,61,50,31,10268157
-"male","rural","urban",50,62,38,31,0,19,0,10268157
-"male","secondary","stunted",,,,,,,,3419801
-"male","secondary","under5",,,,,,,,3419801
-"male","secondary","urban",,,,,,,,3419801
-"male","stunted","under5",52,,100,0,,52,0,1909997
-"male","stunted","urban",52,,37,0,0,19,0,1909997
-"male","under5","urban",50,97,38,50,36,19,19,10268157
-"no.birth.reg","no.educ","no.skilled.attendant",,,,,,,,1253997
-"no.birth.reg","no.educ","non.p20",,,,,,,,3419801
-"no.birth.reg","no.educ","p20",,,,,,,,3419801
-"no.birth.reg","no.educ","primary",,,,,,,,3419801
-"no.birth.reg","no.educ","rural",,,,,,,,3419801
-"no.birth.reg","no.educ","secondary",,,,,,,,3419801
-"no.birth.reg","no.educ","stunted",,,,,,,,3419801
-"no.birth.reg","no.educ","under5",,,,,,,,3419801
-"no.birth.reg","no.educ","urban",,,,,,,,3419801
-"no.birth.reg","no.skilled.attendant","non.p20",,,,,,,,1909997
-"no.birth.reg","no.skilled.attendant","p20",,,,,,,,1909997
-"no.birth.reg","no.skilled.attendant","primary",,,,,,,,1253997
-"no.birth.reg","no.skilled.attendant","rural",,,,,,,,1909997
-"no.birth.reg","no.skilled.attendant","secondary",,,,,,,,1253997
-"no.birth.reg","no.skilled.attendant","stunted",,,,,,,,1909997
-"no.birth.reg","no.skilled.attendant","under5",,,,,,,,1909997
-"no.birth.reg","no.skilled.attendant","urban",,,,,,,,1909997
-"no.birth.reg","non.p20","p20",97,46,54,13,0,19,0,1909997
-"no.birth.reg","non.p20","primary",,,,,,,,3419801
-"no.birth.reg","non.p20","rural",97,46,63,13,12,25,3,1909997
-"no.birth.reg","non.p20","secondary",,,,,,,,3419801
-"no.birth.reg","non.p20","stunted",97,46,,13,0,0,0,1909997
-"no.birth.reg","non.p20","under5",97,46,100,13,46,97,13,1909997
-"no.birth.reg","non.p20","urban",97,46,37,13,34,9,8,1909997
-"no.birth.reg","p20","primary",,,,,,,,3419801
-"no.birth.reg","p20","rural",97,54,63,19,50,25,17,1909997
-"no.birth.reg","p20","secondary",,,,,,,,3419801
-"no.birth.reg","p20","stunted",97,54,,19,0,0,0,1909997
-"no.birth.reg","p20","under5",97,54,100,19,54,97,19,1909997
-"no.birth.reg","p20","urban",97,54,37,19,3,9,1,1909997
-"no.birth.reg","primary","rural",,,,,,,,3419801
-"no.birth.reg","primary","secondary",,,,,,,,3419801
-"no.birth.reg","primary","stunted",,,,,,,,3419801
-"no.birth.reg","primary","under5",,,,,,,,3419801
-"no.birth.reg","primary","urban",,,,,,,,3419801
-"no.birth.reg","rural","secondary",,,,,,,,3419801
-"no.birth.reg","rural","stunted",97,63,,25,0,0,0,1909997
-"no.birth.reg","rural","under5",97,63,100,25,63,97,25,1909997
-"no.birth.reg","rural","urban",97,63,37,25,0,9,0,1909997
-"no.birth.reg","secondary","stunted",,,,,,,,3419801
-"no.birth.reg","secondary","under5",,,,,,,,3419801
-"no.birth.reg","secondary","urban",,,,,,,,3419801
-"no.birth.reg","stunted","under5",97,,100,0,,97,0,1909997
-"no.birth.reg","stunted","urban",97,,37,0,0,9,0,1909997
-"no.birth.reg","under5","urban",97,100,37,97,37,9,9,1909997
-"no.educ","no.skilled.attendant","non.p20",,,,,,,,1253997
-"no.educ","no.skilled.attendant","p20",,,,,,,,1253997
-"no.educ","no.skilled.attendant","primary",,,,,,,,1253997
-"no.educ","no.skilled.attendant","rural",,,,,,,,1253997
-"no.educ","no.skilled.attendant","secondary",,,,,,,,1253997
-"no.educ","no.skilled.attendant","stunted",,,,,,,,1253997
-"no.educ","no.skilled.attendant","under5",,,,,,,,1253997
-"no.educ","no.skilled.attendant","urban",,,,,,,,1253997
-"no.educ","non.p20","p20",,,,,0,,0,3419801
-"no.educ","non.p20","primary",,,,,,,,3419801
-"no.educ","non.p20","rural",,,,,,,,3419801
-"no.educ","non.p20","secondary",,,,,,,,3419801
-"no.educ","non.p20","stunted",,,,,,,,3419801
-"no.educ","non.p20","under5",,,,,,,,3419801
-"no.educ","non.p20","urban",,,,,,,,3419801
-"no.educ","p20","primary",,,,,,,,3419801
-"no.educ","p20","rural",,,,,,,,3419801
-"no.educ","p20","secondary",,,,,,,,3419801
-"no.educ","p20","stunted",,,,,,,,3419801
-"no.educ","p20","under5",,,,,,,,3419801
-"no.educ","p20","urban",,,,,,,,3419801
-"no.educ","primary","rural",,,,,,,,3419801
-"no.educ","primary","secondary",,,,,,,,3419801
-"no.educ","primary","stunted",,,,,,,,3419801
-"no.educ","primary","under5",,,,,,,,3419801
-"no.educ","primary","urban",,,,,,,,3419801
-"no.educ","rural","secondary",,,,,,,,3419801
-"no.educ","rural","stunted",,,,,,,,3419801
-"no.educ","rural","under5",,,,,,,,3419801
-"no.educ","rural","urban",,,,,,,,3419801
-"no.educ","secondary","stunted",,,,,,,,3419801
-"no.educ","secondary","under5",,,,,,,,3419801
-"no.educ","secondary","urban",,,,,,,,3419801
-"no.educ","stunted","under5",,,,,,,,3419801
-"no.educ","stunted","urban",,,,,,,,3419801
-"no.educ","under5","urban",,,,,,,,3419801
-"no.skilled.attendant","non.p20","p20",100,100,0,100,0,0,0,2256287
-"no.skilled.attendant","non.p20","primary",,,,,,,,1253997
-"no.skilled.attendant","non.p20","rural",100,100,0,100,0,0,0,2256287
-"no.skilled.attendant","non.p20","secondary",,,,,,,,1253997
-"no.skilled.attendant","non.p20","stunted",,,,,,,,1909997
-"no.skilled.attendant","non.p20","under5",100,100,0,100,0,0,0,2256287
-"no.skilled.attendant","non.p20","urban",100,100,100,100,100,100,100,2256287
-"no.skilled.attendant","p20","primary",,,,,,,,1253997
-"no.skilled.attendant","p20","rural",100,0,0,0,0,0,0,2256287
-"no.skilled.attendant","p20","secondary",,,,,,,,1253997
-"no.skilled.attendant","p20","stunted",,,,,,,,1909997
-"no.skilled.attendant","p20","under5",100,0,0,0,0,0,0,2256287
-"no.skilled.attendant","p20","urban",100,0,100,0,0,100,0,2256287
-"no.skilled.attendant","primary","rural",,,,,,,,1253997
-"no.skilled.attendant","primary","secondary",,,,,,,,1253997
-"no.skilled.attendant","primary","stunted",,,,,,,,1253997
-"no.skilled.attendant","primary","under5",,,,,,,,1253997
-"no.skilled.attendant","primary","urban",,,,,,,,1253997
-"no.skilled.attendant","rural","secondary",,,,,,,,1253997
-"no.skilled.attendant","rural","stunted",,,,,,,,1909997
-"no.skilled.attendant","rural","under5",100,0,0,0,0,0,0,2256287
-"no.skilled.attendant","rural","urban",100,0,100,0,0,100,0,2256287
-"no.skilled.attendant","secondary","stunted",,,,,,,,1253997
-"no.skilled.attendant","secondary","under5",,,,,,,,1253997
-"no.skilled.attendant","secondary","urban",,,,,,,,1253997
-"no.skilled.attendant","stunted","under5",,,,,,,,1909997
-"no.skilled.attendant","stunted","urban",,,,,,,,1909997
-"no.skilled.attendant","under5","urban",100,0,100,0,0,100,0,2256287
-"non.p20","p20","primary",,,,0,,,0,3419801
-"non.p20","p20","rural",47,53,62,0,50,12,0,10268157
-"non.p20","p20","secondary",,,,0,,,0,3419801
-"non.p20","p20","stunted",46,54,,0,0,0,0,1909997
-"non.p20","p20","under5",47,53,97,0,52,45,0,10268157
-"non.p20","p20","urban",47,53,38,0,3,35,0,10268157
-"non.p20","primary","rural",,,,,,,,3419801
-"non.p20","primary","secondary",,,,,,,,3419801
-"non.p20","primary","stunted",,,,,,,,3419801
-"non.p20","primary","under5",,,,,,,,3419801
-"non.p20","primary","urban",,,,,,,,3419801
-"non.p20","rural","secondary",,,,,,,,3419801
-"non.p20","rural","stunted",46,63,,12,0,0,0,1909997
-"non.p20","rural","under5",47,62,97,12,61,45,12,10268157
-"non.p20","rural","urban",47,62,38,12,0,35,0,10268157
-"non.p20","secondary","stunted",,,,,,,,3419801
-"non.p20","secondary","under5",,,,,,,,3419801
-"non.p20","secondary","urban",,,,,,,,3419801
-"non.p20","stunted","under5",46,,100,0,,46,0,1909997
-"non.p20","stunted","urban",46,,37,0,0,34,0,1909997
-"non.p20","under5","urban",47,97,38,45,36,35,33,10268157
-"p20","primary","rural",,,,,,,,3419801
-"p20","primary","secondary",,,,,,,,3419801
-"p20","primary","stunted",,,,,,,,3419801
-"p20","primary","under5",,,,,,,,3419801
-"p20","primary","urban",,,,,,,,3419801
-"p20","rural","secondary",,,,,,,,3419801
-"p20","rural","stunted",54,63,,50,0,0,0,1909997
-"p20","rural","under5",53,62,97,50,61,52,49,10268157
-"p20","rural","urban",53,62,38,50,0,3,0,10268157
-"p20","secondary","stunted",,,,,,,,3419801
-"p20","secondary","under5",,,,,,,,3419801
-"p20","secondary","urban",,,,,,,,3419801
-"p20","stunted","under5",54,,100,0,,54,0,1909997
-"p20","stunted","urban",54,,37,0,0,3,0,1909997
-"p20","under5","urban",53,97,38,52,36,3,3,10268157
-"primary","rural","secondary",,,,,,,,3419801
-"primary","rural","stunted",,,,,,,,3419801
-"primary","rural","under5",,,,,,,,3419801
-"primary","rural","urban",,,,,,,,3419801
-"primary","secondary","stunted",,,,,,,,3419801
-"primary","secondary","under5",,,,,,,,3419801
-"primary","secondary","urban",,,,,,,,3419801
-"primary","stunted","under5",,,,,,,,3419801
-"primary","stunted","urban",,,,,,,,3419801
-"primary","under5","urban",,,,,,,,3419801
-"rural","secondary","stunted",,,,,,,,3419801
-"rural","secondary","under5",,,,,,,,3419801
-"rural","secondary","urban",,,,,,,,3419801
-"rural","stunted","under5",63,,100,0,,63,0,1909997
-"rural","stunted","urban",63,,37,0,0,0,0,1909997
-"rural","under5","urban",62,97,38,61,36,0,0,10268157
-"secondary","stunted","under5",,,,,,,,3419801
-"secondary","stunted","urban",,,,,,,,3419801
-"secondary","under5","urban",,,,,,,,3419801
-"stunted","under5","urban",,100,37,,37,0,0,1909997
+"filename","indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop"
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","ext",100,100,39,100,39,39,39,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","female",100,100,50,100,50,50,50,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","fifteento49",100,100,41,100,41,41,41,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","fiveto14",100,100,30,100,30,30,30,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","gt49",100,100,10,100,10,10,10,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","higher",100,100,2,100,2,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","male",100,100,50,100,50,50,50,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","no.birth.reg",100,100,97,100,97,97,97,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","no.educ",100,100,55,100,55,55,55,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","non.p20",100,100,47,100,47,47,47,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","p20",100,100,53,100,53,53,53,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","primary",100,100,45,100,45,45,45,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","rural",100,100,,100,,,,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","secondary",100,100,9,100,9,9,9,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","stunted",100,100,,100,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","under5",100,100,19,100,19,19,19,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","blank2","urban",100,100,,100,,,,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","female",100,39,50,39,19,50,19,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","fifteento49",100,39,41,39,15,41,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","fiveto14",100,39,30,39,12,30,12,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","gt49",100,39,10,39,4,10,4,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","higher",100,40,2,40,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","male",100,39,50,39,20,50,20,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","no.birth.reg",100,40,97,40,40,97,40,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","no.educ",100,40,55,40,25,55,25,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","no.skilled.attendant",100,38,70,38,34,70,34,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","non.p20",100,39,47,39,0,47,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","p20",100,39,53,39,39,53,39,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","primary",100,40,45,40,15,45,15,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","rural",100,39,,39,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","secondary",100,40,9,40,1,9,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","stunted",100,40,,40,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","under5",100,39,19,39,8,19,8,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","ext","urban",100,39,,39,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","fifteento49",100,50,41,50,21,41,21,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","fiveto14",100,50,30,50,15,30,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","gt49",100,50,10,50,4,10,4,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","higher",100,50,2,50,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","male",100,50,50,50,0,50,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","no.birth.reg",100,48,97,48,47,97,47,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","no.educ",100,50,55,50,36,55,36,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","non.p20",100,50,47,50,24,47,24,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","p20",100,50,53,50,26,53,26,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","primary",100,50,45,50,14,45,14,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","rural",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","secondary",100,50,9,50,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","stunted",100,48,,48,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","under5",100,50,19,50,9,19,9,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","female","urban",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","fiveto14",100,41,30,41,0,30,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","gt49",100,41,10,41,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","higher",100,69,2,69,2,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","male",100,41,50,41,19,50,19,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","no.educ",100,69,55,69,35,55,35,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","non.p20",100,41,47,41,20,47,20,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","p20",100,41,53,41,21,53,21,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","primary",100,69,45,69,33,45,33,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","rural",100,41,,41,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","secondary",100,69,9,69,7,9,7,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","under5",100,41,19,41,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fifteento49","urban",100,41,,41,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","gt49",100,30,10,30,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","higher",100,0,2,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","male",100,30,50,30,15,50,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","no.educ",100,0,55,0,0,55,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","non.p20",100,30,47,30,14,47,14,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","p20",100,30,53,30,16,53,16,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","primary",100,0,45,0,0,45,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","rural",100,30,,30,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","secondary",100,0,9,0,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","under5",100,30,19,30,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","fiveto14","urban",100,30,,30,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","higher",100,31,2,31,1,2,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","male",100,10,50,10,6,50,6,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","no.educ",100,31,55,31,19,55,19,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","non.p20",100,10,47,10,5,47,5,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","p20",100,10,53,10,6,53,6,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","primary",100,31,45,31,11,45,11,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","rural",100,10,,10,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","secondary",100,31,9,31,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","under5",100,10,19,10,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","gt49","urban",100,10,,10,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","male",100,2,50,2,2,50,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","no.educ",100,2,55,2,0,55,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","no.skilled.attendant",100,1,69,1,0,69,0,1623000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","non.p20",100,2,46,2,2,46,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","p20",100,2,54,2,0,54,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","primary",100,2,45,2,2,45,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","rural",100,2,,2,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","secondary",100,2,9,2,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","under5",100,2,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","higher","urban",100,2,,2,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","no.birth.reg",100,52,97,52,50,97,50,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","no.educ",100,50,55,50,19,55,19,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","non.p20",100,50,47,50,23,47,23,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","p20",100,50,53,50,27,53,27,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","primary",100,50,45,50,31,45,31,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","rural",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","secondary",100,50,9,50,7,9,7,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","stunted",100,52,,52,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","under5",100,50,19,50,10,19,10,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","male","urban",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","non.p20",100,97,45,97,43,45,43,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","p20",100,97,55,97,54,55,54,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","rural",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","stunted",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","under5",100,97,100,97,97,100,97,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.birth.reg","urban",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","no.skilled.attendant",100,69,69,69,52,69,52,1623000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","non.p20",100,55,46,55,21,46,21,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","p20",100,55,54,55,34,54,34,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","primary",100,55,45,55,0,45,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","rural",100,55,,55,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","secondary",100,55,9,55,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","under5",100,55,0,55,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.educ","urban",100,55,,55,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","non.p20",100,70,47,70,23,47,23,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","p20",100,70,53,70,47,53,47,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","primary",100,69,31,69,17,31,17,1623000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","rural",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","secondary",100,69,4,69,1,4,1,1623000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","under5",100,70,0,70,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","urban",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","p20",100,47,53,47,0,53,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","primary",100,46,45,46,24,45,24,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","rural",100,47,,47,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","secondary",100,46,9,46,8,9,8,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","stunted",100,45,,45,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","under5",100,47,19,47,9,19,9,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","non.p20","urban",100,47,,47,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","primary",100,54,45,54,20,45,20,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","rural",100,53,,53,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","secondary",100,54,9,54,1,9,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","stunted",100,55,,55,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","under5",100,53,19,53,10,19,10,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","p20","urban",100,53,,53,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","primary","rural",100,45,,45,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","primary","secondary",100,45,9,45,9,9,9,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","primary","under5",100,45,0,45,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","primary","urban",100,45,,45,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","rural","secondary",100,,9,,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","rural","stunted",100,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","rural","under5",100,,19,,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","rural","urban",100,,,,,,,13131000
+"Somalia MICS 2006 SPSS Datasets","blank1","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","secondary","under5",100,9,0,9,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","secondary","urban",100,9,,9,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank1","stunted","under5",100,,100,,,100,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","stunted","urban",100,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank1","under5","urban",100,19,,19,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","female",100,39,50,39,19,50,19,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","fifteento49",100,39,41,39,15,41,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","fiveto14",100,39,30,39,12,30,12,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","gt49",100,39,10,39,4,10,4,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","higher",100,40,2,40,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","male",100,39,50,39,20,50,20,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","no.birth.reg",100,40,97,40,40,97,40,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","no.educ",100,40,55,40,25,55,25,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","no.skilled.attendant",100,38,70,38,34,70,34,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","non.p20",100,39,47,39,0,47,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","p20",100,39,53,39,39,53,39,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","primary",100,40,45,40,15,45,15,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","rural",100,39,,39,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","secondary",100,40,9,40,1,9,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","stunted",100,40,,40,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","under5",100,39,19,39,8,19,8,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","ext","urban",100,39,,39,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","fifteento49",100,50,41,50,21,41,21,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","fiveto14",100,50,30,50,15,30,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","gt49",100,50,10,50,4,10,4,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","higher",100,50,2,50,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","male",100,50,50,50,0,50,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","no.birth.reg",100,48,97,48,47,97,47,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","no.educ",100,50,55,50,36,55,36,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","non.p20",100,50,47,50,24,47,24,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","p20",100,50,53,50,26,53,26,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","primary",100,50,45,50,14,45,14,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","rural",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","secondary",100,50,9,50,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","stunted",100,48,,48,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","under5",100,50,19,50,9,19,9,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","female","urban",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","fiveto14",100,41,30,41,0,30,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","gt49",100,41,10,41,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","higher",100,69,2,69,2,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","male",100,41,50,41,19,50,19,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","no.educ",100,69,55,69,35,55,35,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","non.p20",100,41,47,41,20,47,20,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","p20",100,41,53,41,21,53,21,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","primary",100,69,45,69,33,45,33,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","rural",100,41,,41,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","secondary",100,69,9,69,7,9,7,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","under5",100,41,19,41,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fifteento49","urban",100,41,,41,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","gt49",100,30,10,30,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","higher",100,0,2,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","male",100,30,50,30,15,50,15,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","no.educ",100,0,55,0,0,55,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","non.p20",100,30,47,30,14,47,14,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","p20",100,30,53,30,16,53,16,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","primary",100,0,45,0,0,45,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","rural",100,30,,30,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","secondary",100,0,9,0,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","under5",100,30,19,30,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","fiveto14","urban",100,30,,30,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","higher",100,31,2,31,1,2,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","male",100,10,50,10,6,50,6,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","no.birth.reg",100,0,97,0,0,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","no.educ",100,31,55,31,19,55,19,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","non.p20",100,10,47,10,5,47,5,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","p20",100,10,53,10,6,53,6,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","primary",100,31,45,31,11,45,11,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","rural",100,10,,10,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","secondary",100,31,9,31,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","stunted",100,0,,0,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","under5",100,10,19,10,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","gt49","urban",100,10,,10,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","male",100,2,50,2,2,50,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","no.educ",100,2,55,2,0,55,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","no.skilled.attendant",100,1,69,1,0,69,0,1623000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","non.p20",100,2,46,2,2,46,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","p20",100,2,54,2,0,54,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","primary",100,2,45,2,2,45,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","rural",100,2,,2,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","secondary",100,2,9,2,2,9,2,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","under5",100,2,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","higher","urban",100,2,,2,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","no.birth.reg",100,52,97,52,50,97,50,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","no.educ",100,50,55,50,19,55,19,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","non.p20",100,50,47,50,23,47,23,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","p20",100,50,53,50,27,53,27,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","primary",100,50,45,50,31,45,31,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","rural",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","secondary",100,50,9,50,7,9,7,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","stunted",100,52,,52,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","under5",100,50,19,50,10,19,10,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","male","urban",100,50,,50,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","non.p20",100,97,45,97,43,45,43,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","p20",100,97,55,97,54,55,54,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","rural",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","stunted",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","under5",100,97,100,97,97,100,97,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.birth.reg","urban",100,97,,97,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","no.skilled.attendant",100,69,69,69,52,69,52,1623000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","non.p20",100,55,46,55,21,46,21,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","p20",100,55,54,55,34,54,34,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","primary",100,55,45,55,0,45,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","rural",100,55,,55,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","secondary",100,55,9,55,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","under5",100,55,0,55,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.educ","urban",100,55,,55,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","non.p20",100,70,47,70,23,47,23,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","p20",100,70,53,70,47,53,47,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","primary",100,69,31,69,17,31,17,1623000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","rural",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","secondary",100,69,4,69,1,4,1,1623000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","under5",100,70,0,70,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","urban",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","p20",100,47,53,47,0,53,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","primary",100,46,45,46,24,45,24,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","rural",100,47,,47,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","secondary",100,46,9,46,8,9,8,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","stunted",100,45,,45,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","under5",100,47,19,47,9,19,9,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","non.p20","urban",100,47,,47,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","primary",100,54,45,54,20,45,20,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","rural",100,53,,53,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","secondary",100,54,9,54,1,9,1,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","stunted",100,55,,55,0,,0,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","under5",100,53,19,53,10,19,10,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","p20","urban",100,53,,53,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","primary","rural",100,45,,45,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","primary","secondary",100,45,9,45,9,9,9,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","primary","under5",100,45,0,45,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","primary","urban",100,45,,45,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","rural","secondary",100,,9,,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","rural","stunted",100,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","rural","under5",100,,19,,0,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","rural","urban",100,,,,,,,13131000
+"Somalia MICS 2006 SPSS Datasets","blank2","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","secondary","under5",100,9,0,9,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","secondary","urban",100,9,,9,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","blank2","stunted","under5",100,,100,,,100,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","stunted","urban",100,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","blank2","under5","urban",100,19,,19,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","fifteento49",39,50,41,19,21,15,8,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","fiveto14",39,50,30,19,15,12,6,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","gt49",39,50,10,19,4,4,2,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","higher",40,50,2,20,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","female","male",39,50,50,19,0,20,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","no.birth.reg",40,48,97,19,47,40,18,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","female","no.educ",40,50,55,20,36,25,16,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","female","no.skilled.attendant",38,100,70,38,70,34,34,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","female","non.p20",39,50,47,19,24,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","p20",39,50,53,19,26,39,19,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","primary",40,50,45,20,14,15,3,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","female","rural",39,50,,19,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","secondary",40,50,9,20,2,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","female","stunted",40,48,,19,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","female","under5",39,50,19,19,9,8,4,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","female","urban",39,50,,19,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","fiveto14",39,41,30,15,0,12,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","gt49",39,41,10,15,0,4,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","higher",40,69,2,28,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","male",39,41,50,15,19,20,7,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","no.birth.reg",40,0,97,0,0,40,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","no.educ",40,69,55,28,35,25,17,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","no.skilled.attendant",38,100,70,38,70,34,34,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","non.p20",39,41,47,15,20,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","p20",39,41,53,15,21,39,15,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","primary",40,69,45,28,33,15,11,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","rural",39,41,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","secondary",40,69,9,28,7,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","stunted",40,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","under5",39,41,19,15,0,8,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fifteento49","urban",39,41,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","gt49",39,30,10,12,0,4,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","higher",40,0,2,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","male",39,30,50,12,15,20,6,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","no.birth.reg",40,0,97,0,0,40,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","no.educ",40,0,55,0,0,25,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","no.skilled.attendant",38,0,70,0,0,34,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","non.p20",39,30,47,12,14,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","p20",39,30,53,12,16,39,12,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","primary",40,0,45,0,0,15,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","rural",39,30,,12,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","secondary",40,0,9,0,0,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","stunted",40,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","under5",39,30,19,12,0,8,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","fiveto14","urban",39,30,,12,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","higher",40,31,2,13,1,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","male",39,10,50,4,6,20,2,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","no.birth.reg",40,0,97,0,0,40,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","no.educ",40,31,55,13,19,25,8,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","no.skilled.attendant",38,0,70,0,0,34,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","non.p20",39,10,47,4,5,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","p20",39,10,53,4,6,39,4,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","primary",40,31,45,13,11,15,4,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","rural",39,10,,4,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","secondary",40,31,9,13,2,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","stunted",40,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","under5",39,10,19,4,0,8,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","gt49","urban",39,10,,4,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","male",40,2,50,0,2,20,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","no.educ",40,2,55,0,0,25,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","no.skilled.attendant",40,1,69,0,0,36,0,1623000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","non.p20",40,2,46,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","p20",40,2,54,0,0,40,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","primary",40,2,45,0,2,15,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","rural",40,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","secondary",40,2,9,0,2,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","under5",40,2,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","higher","urban",40,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","male","no.birth.reg",40,52,97,21,50,40,21,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","male","no.educ",40,50,55,20,19,25,9,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","male","no.skilled.attendant",38,0,70,0,0,34,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","male","non.p20",39,50,47,20,23,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","male","p20",39,50,53,20,27,39,20,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","male","primary",40,50,45,20,31,15,11,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","male","rural",39,50,,20,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","male","secondary",40,50,9,20,7,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","male","stunted",40,52,,21,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","male","under5",39,50,19,20,10,8,4,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","male","urban",39,50,,20,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","non.p20",40,97,45,40,43,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","p20",40,97,55,40,54,40,40,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","rural",40,97,,40,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","stunted",40,97,,40,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","under5",40,97,100,40,97,40,40,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.birth.reg","urban",40,97,,40,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","no.skilled.attendant",40,69,69,32,52,36,30,1623000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","non.p20",40,55,46,25,21,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","p20",40,55,54,25,34,40,25,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","primary",40,55,45,25,0,15,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","rural",40,55,,25,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","secondary",40,55,9,25,0,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","under5",40,55,0,25,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.educ","urban",40,55,,25,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","non.p20",38,70,47,34,23,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","p20",38,70,53,34,47,38,34,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","primary",40,69,31,36,17,7,6,1623000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","rural",38,70,,34,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","secondary",40,69,4,36,1,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","under5",38,70,0,34,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","no.skilled.attendant","urban",38,70,,34,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","p20",39,47,53,0,0,39,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","primary",40,46,45,0,24,15,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","rural",39,47,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","secondary",40,46,9,0,8,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","stunted",40,45,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","under5",39,47,19,0,9,8,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","non.p20","urban",39,47,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","primary",40,54,45,40,20,15,15,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","rural",39,53,,39,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","secondary",40,54,9,40,1,1,1,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","stunted",40,55,,40,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","under5",39,53,19,39,10,8,8,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","p20","urban",39,53,,39,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","primary","rural",40,45,,15,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","primary","secondary",40,45,9,15,9,1,1,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","primary","under5",40,45,0,15,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","primary","urban",40,45,,15,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","rural","secondary",40,,9,0,0,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","rural","stunted",40,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","rural","under5",39,,19,0,0,8,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","rural","urban",39,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","ext","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","secondary","under5",40,9,0,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","secondary","urban",40,9,,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","ext","stunted","under5",40,,100,0,,40,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","stunted","urban",40,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","ext","under5","urban",39,19,,8,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","fiveto14",50,41,30,21,0,15,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","gt49",50,41,10,21,0,4,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","higher",50,69,2,36,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","male",50,41,50,21,19,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","no.birth.reg",48,0,97,0,0,47,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","no.educ",50,69,55,36,35,36,25,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","no.skilled.attendant",100,100,70,100,70,70,70,2915000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","non.p20",50,41,47,21,20,24,11,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","p20",50,41,53,21,21,26,11,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","primary",50,69,45,36,33,14,12,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","rural",50,41,,21,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","secondary",50,69,9,36,7,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","stunted",48,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","under5",50,41,19,21,0,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fifteento49","urban",50,41,,21,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","gt49",50,30,10,15,0,4,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","higher",50,0,2,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","male",50,30,50,15,15,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","no.birth.reg",48,0,97,0,0,47,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","no.educ",50,0,55,0,0,36,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","non.p20",50,30,47,15,14,24,7,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","p20",50,30,53,15,16,26,8,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","primary",50,0,45,0,0,14,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","rural",50,30,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","secondary",50,0,9,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","stunted",48,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","under5",50,30,19,15,0,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","fiveto14","urban",50,30,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","higher",50,31,2,14,1,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","male",50,10,50,4,6,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","no.birth.reg",48,0,97,0,0,47,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","no.educ",50,31,55,14,19,36,12,4369000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","non.p20",50,10,47,4,5,24,2,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","p20",50,10,53,4,6,26,2,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","primary",50,31,45,14,11,14,2,4369000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","rural",50,10,,4,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","secondary",50,31,9,14,2,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","stunted",48,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","under5",50,10,19,4,0,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","gt49","urban",50,10,,4,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","higher","male",50,2,50,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","no.educ",50,2,55,0,0,36,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","no.skilled.attendant",100,1,69,1,0,69,0,1623000
+"Somalia MICS 2006 SPSS Datasets","female","higher","non.p20",50,2,46,0,2,23,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","p20",50,2,54,0,0,27,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","primary",50,2,45,0,2,14,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","rural",50,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","secondary",50,2,9,0,2,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","under5",50,2,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","higher","urban",50,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","male","no.birth.reg",48,52,97,0,50,47,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","male","no.educ",50,50,55,0,19,36,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","male","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","male","non.p20",50,50,47,0,23,24,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","male","p20",50,50,53,0,27,26,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","male","primary",50,50,45,0,31,14,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","male","rural",50,50,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","male","secondary",50,50,9,0,7,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","male","stunted",48,52,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","male","under5",50,50,19,0,10,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","male","urban",50,50,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","non.p20",48,97,45,47,43,22,21,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","p20",48,97,55,47,54,26,26,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","rural",48,97,,47,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","stunted",48,97,,47,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","under5",48,97,100,47,97,48,47,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.birth.reg","urban",48,97,,47,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","no.skilled.attendant",100,69,69,69,52,69,52,1623000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","non.p20",50,55,46,36,21,23,14,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","p20",50,55,54,36,34,27,22,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","primary",50,55,45,36,0,14,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","rural",50,55,,36,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","secondary",50,55,9,36,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","under5",50,55,0,36,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.educ","urban",50,55,,36,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","non.p20",100,70,47,70,23,47,23,2915000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","p20",100,70,53,70,47,53,47,2915000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","primary",100,69,31,69,17,31,17,1623000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","rural",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","secondary",100,69,4,69,1,4,1,1623000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","under5",100,70,0,70,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","no.skilled.attendant","urban",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","p20",50,47,53,24,0,26,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","primary",50,46,45,23,24,14,9,4369000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","rural",50,47,,24,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","secondary",50,46,9,23,8,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","stunted",48,45,,22,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","under5",50,47,19,24,9,9,4,13131000
+"Somalia MICS 2006 SPSS Datasets","female","non.p20","urban",50,47,,24,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","p20","primary",50,54,45,27,20,14,5,4369000
+"Somalia MICS 2006 SPSS Datasets","female","p20","rural",50,53,,26,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","p20","secondary",50,54,9,27,1,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","p20","stunted",48,55,,26,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","p20","under5",50,53,19,26,10,9,5,13131000
+"Somalia MICS 2006 SPSS Datasets","female","p20","urban",50,53,,26,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","primary","rural",50,45,,14,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","primary","secondary",50,45,9,14,9,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","female","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","primary","under5",50,45,0,14,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","primary","urban",50,45,,14,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","rural","secondary",50,,9,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","rural","stunted",48,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","rural","under5",50,,19,0,0,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","rural","urban",50,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","female","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","female","secondary","under5",50,9,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","secondary","urban",50,9,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","female","stunted","under5",48,,100,0,,48,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","stunted","urban",48,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","female","under5","urban",50,19,,9,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","gt49",41,30,10,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","higher",69,0,2,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","male",41,30,50,0,15,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.birth.reg",0,0,97,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.educ",69,0,55,0,0,35,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","non.p20",41,30,47,0,14,20,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","p20",41,30,53,0,16,21,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","primary",69,0,45,0,0,33,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","rural",41,30,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","secondary",69,0,9,0,0,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","stunted",0,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","under5",41,30,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","fiveto14","urban",41,30,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","higher",69,31,2,0,1,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","male",41,10,50,0,6,19,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","no.birth.reg",0,0,97,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","no.educ",69,31,55,0,19,35,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","non.p20",41,10,47,0,5,20,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","p20",41,10,53,0,6,21,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","primary",69,31,45,0,11,33,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","rural",41,10,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","secondary",69,31,9,0,2,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","stunted",0,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","under5",41,10,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","gt49","urban",41,10,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","male",69,2,50,2,2,33,1,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","no.educ",69,2,55,2,0,35,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","no.skilled.attendant",100,1,69,1,0,69,0,1623000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","non.p20",69,2,46,2,2,32,1,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","p20",69,2,54,2,0,37,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","primary",69,2,45,2,2,33,2,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","rural",69,2,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","secondary",69,2,9,2,2,7,2,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","under5",69,2,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","higher","urban",69,2,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","no.birth.reg",0,52,97,0,50,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","no.educ",69,50,55,33,19,35,11,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","no.skilled.attendant",100,0,70,0,0,70,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","non.p20",41,50,47,19,23,20,9,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","p20",41,50,53,19,27,21,10,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","primary",69,50,45,33,31,33,22,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","rural",41,50,,19,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","secondary",69,50,9,33,7,7,5,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","stunted",0,52,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","under5",41,50,19,19,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","male","urban",41,50,,19,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","non.p20",0,97,45,0,43,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","p20",0,97,55,0,54,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","rural",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","stunted",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","under5",0,97,100,0,97,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","urban",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","no.skilled.attendant",100,69,69,69,52,69,52,1623000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","non.p20",69,55,46,35,21,32,13,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","p20",69,55,54,35,34,37,22,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","primary",69,55,45,35,0,33,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","rural",69,55,,35,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","secondary",69,55,9,35,0,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","under5",69,55,0,35,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.educ","urban",69,55,,35,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","non.p20",100,70,47,70,23,47,23,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","p20",100,70,53,70,47,53,47,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","primary",100,69,31,69,17,31,17,1623000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","rural",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","secondary",100,69,4,69,1,4,1,1623000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","under5",100,70,0,70,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","urban",100,70,,70,0,,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","p20",41,47,53,20,0,21,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","primary",69,46,45,32,24,33,19,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","rural",41,47,,20,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","secondary",69,46,9,32,8,7,6,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","stunted",0,45,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","under5",41,47,19,20,9,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","non.p20","urban",41,47,,20,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","primary",69,54,45,37,20,33,15,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","rural",41,53,,21,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","secondary",69,54,9,37,1,7,1,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","stunted",0,55,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","under5",41,53,19,21,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","p20","urban",41,53,,21,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","primary","rural",69,45,,33,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","primary","secondary",69,45,9,33,9,7,7,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","primary","under5",69,45,0,33,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","primary","urban",69,45,,33,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","rural","secondary",69,,9,0,0,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","rural","stunted",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","rural","under5",41,,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","rural","urban",41,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","secondary","under5",69,9,0,7,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","secondary","urban",69,9,,7,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","stunted","under5",0,,100,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","stunted","urban",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fifteento49","under5","urban",41,19,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","higher",0,31,2,0,1,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","male",30,10,50,0,6,15,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","no.birth.reg",0,0,97,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","no.educ",0,31,55,0,19,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","no.skilled.attendant",0,0,70,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","non.p20",30,10,47,0,5,14,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","p20",30,10,53,0,6,16,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","primary",0,31,45,0,11,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","rural",30,10,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","secondary",0,31,9,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","stunted",0,0,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","under5",30,10,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","gt49","urban",30,10,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","male",0,2,50,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","no.educ",0,2,55,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","no.skilled.attendant",0,1,69,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","non.p20",0,2,46,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","p20",0,2,54,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","primary",0,2,45,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","rural",0,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","secondary",0,2,9,0,2,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","under5",0,2,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","higher","urban",0,2,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","no.birth.reg",0,52,97,0,50,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","no.educ",0,50,55,0,19,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","no.skilled.attendant",0,0,70,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","non.p20",30,50,47,15,23,14,7,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","p20",30,50,53,15,27,16,8,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","primary",0,50,45,0,31,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","rural",30,50,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","secondary",0,50,9,0,7,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","stunted",0,52,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","under5",30,50,19,15,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","male","urban",30,50,,15,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","non.p20",0,97,45,0,43,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","p20",0,97,55,0,54,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","rural",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","stunted",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","under5",0,97,100,0,97,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","urban",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","no.skilled.attendant",0,69,69,0,52,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","non.p20",0,55,46,0,21,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","p20",0,55,54,0,34,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","primary",0,55,45,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","rural",0,55,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","secondary",0,55,9,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","under5",0,55,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.educ","urban",0,55,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","non.p20",0,70,47,0,23,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","p20",0,70,53,0,47,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","primary",0,69,31,0,17,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","rural",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","secondary",0,69,4,0,1,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","under5",0,70,0,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","urban",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","p20",30,47,53,14,0,16,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","primary",0,46,45,0,24,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","rural",30,47,,14,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","secondary",0,46,9,0,8,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","stunted",0,45,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","under5",30,47,19,14,9,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","non.p20","urban",30,47,,14,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","primary",0,54,45,0,20,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","rural",30,53,,16,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","secondary",0,54,9,0,1,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","stunted",0,55,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","under5",30,53,19,16,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","p20","urban",30,53,,16,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","primary","rural",0,45,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","primary","secondary",0,45,9,0,9,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","primary","under5",0,45,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","primary","urban",0,45,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","rural","secondary",0,,9,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","rural","stunted",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","rural","under5",30,,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","rural","urban",30,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","secondary","under5",0,9,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","secondary","urban",0,9,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","stunted","under5",0,,100,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","stunted","urban",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","fiveto14","under5","urban",30,19,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","male",31,2,50,1,2,17,1,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","no.educ",31,2,55,1,0,19,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","no.skilled.attendant",0,1,69,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","non.p20",31,2,46,1,2,14,1,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","p20",31,2,54,1,0,17,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","primary",31,2,45,1,2,11,1,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","rural",31,2,,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","secondary",31,2,9,1,2,2,1,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","under5",31,2,0,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","higher","urban",31,2,,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","no.birth.reg",0,52,97,0,50,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","no.educ",31,50,55,17,19,19,8,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","no.skilled.attendant",0,0,70,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","non.p20",10,50,47,6,23,5,2,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","p20",10,50,53,6,27,6,3,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","primary",31,50,45,17,31,11,9,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","rural",10,50,,6,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","secondary",31,50,9,17,7,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","stunted",0,52,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","under5",10,50,19,6,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","male","urban",10,50,,6,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","non.p20",0,97,45,0,43,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","p20",0,97,55,0,54,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","rural",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","stunted",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","under5",0,97,100,0,97,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.birth.reg","urban",0,97,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","no.skilled.attendant",0,69,69,0,52,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","non.p20",31,55,46,19,21,14,8,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","p20",31,55,54,19,34,17,11,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","primary",31,55,45,19,0,11,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","rural",31,55,,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","secondary",31,55,9,19,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","under5",31,55,0,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.educ","urban",31,55,,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","non.p20",0,70,47,0,23,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","p20",0,70,53,0,47,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","primary",0,69,31,0,17,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","rural",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","secondary",0,69,4,0,1,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","under5",0,70,0,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","urban",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","p20",10,47,53,5,0,6,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","primary",31,46,45,14,24,11,6,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","rural",10,47,,5,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","secondary",31,46,9,14,8,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","stunted",0,45,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","under5",10,47,19,5,9,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","non.p20","urban",10,47,,5,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","primary",31,54,45,17,20,11,6,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","rural",10,53,,6,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","secondary",31,54,9,17,1,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","stunted",0,55,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","under5",10,53,19,6,10,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","p20","urban",10,53,,6,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","primary","rural",31,45,,11,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","primary","secondary",31,45,9,11,9,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","primary","under5",31,45,0,11,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","primary","urban",31,45,,11,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","rural","secondary",31,,9,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","rural","stunted",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","rural","under5",10,,19,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","rural","urban",10,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","gt49","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","secondary","under5",31,9,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","secondary","urban",31,9,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","gt49","stunted","under5",0,,100,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","stunted","urban",0,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","gt49","under5","urban",10,19,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","higher","male","no.birth.reg",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","no.educ",2,50,55,2,19,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","no.skilled.attendant",1,0,69,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","male","non.p20",2,50,46,2,22,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","p20",2,50,54,2,28,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","primary",2,50,45,2,31,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","rural",2,50,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","secondary",2,50,9,2,7,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","under5",2,50,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","male","urban",2,50,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","no.skilled.attendant",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","non.p20",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","p20",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","rural",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.birth.reg","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","no.skilled.attendant",1,69,69,0,52,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","non.p20",2,55,46,0,21,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","p20",2,55,54,0,34,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","primary",2,55,45,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","rural",2,55,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","secondary",2,55,9,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","under5",2,55,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.educ","urban",2,55,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","non.p20",1,69,47,0,23,1,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","p20",1,69,53,0,47,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","primary",1,69,31,0,17,1,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","rural",1,69,,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","secondary",1,69,4,0,1,1,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","stunted",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","under5",1,69,0,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","no.skilled.attendant","urban",1,69,,0,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","p20",2,46,54,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","primary",2,46,45,2,24,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","rural",2,46,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","secondary",2,46,9,2,8,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","under5",2,46,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","non.p20","urban",2,46,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","primary",2,54,45,0,20,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","rural",2,54,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","secondary",2,54,9,0,1,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","under5",2,54,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","p20","urban",2,54,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","primary","rural",2,45,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","primary","secondary",2,45,9,2,9,2,2,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","primary","under5",2,45,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","primary","urban",2,45,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","rural","secondary",2,,9,0,0,2,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","rural","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","rural","under5",2,,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","rural","urban",2,,,0,,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","secondary","under5",2,9,0,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","secondary","urban",2,9,,2,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","stunted","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","stunted","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","higher","under5","urban",2,0,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","no.educ",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","no.skilled.attendant",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","non.p20",52,97,45,50,43,23,22,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","p20",52,97,55,50,54,29,28,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","rural",52,97,,50,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","stunted",52,97,,50,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","under5",52,97,100,50,97,52,50,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.birth.reg","urban",52,97,,50,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","no.skilled.attendant",0,69,69,0,52,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","non.p20",50,55,46,19,21,22,7,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","p20",50,55,54,19,34,28,12,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","primary",50,55,45,19,0,31,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","rural",50,55,,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","secondary",50,55,9,19,0,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","under5",50,55,0,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.educ","urban",50,55,,19,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","non.p20",0,70,47,0,23,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","p20",0,70,53,0,47,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","primary",0,69,31,0,17,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","rural",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","secondary",0,69,4,0,1,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","under5",0,70,0,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","male","no.skilled.attendant","urban",0,70,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","p20",50,47,53,23,0,27,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","primary",50,46,45,22,24,31,15,4369000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","rural",50,47,,23,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","secondary",50,46,9,22,8,7,6,4369000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","stunted",52,45,,23,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","under5",50,47,19,23,9,10,4,13131000
+"Somalia MICS 2006 SPSS Datasets","male","non.p20","urban",50,47,,23,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","p20","primary",50,54,45,28,20,31,15,4369000
+"Somalia MICS 2006 SPSS Datasets","male","p20","rural",50,53,,27,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","p20","secondary",50,54,9,28,1,7,1,4369000
+"Somalia MICS 2006 SPSS Datasets","male","p20","stunted",52,55,,29,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","p20","under5",50,53,19,27,10,10,5,13131000
+"Somalia MICS 2006 SPSS Datasets","male","p20","urban",50,53,,27,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","primary","rural",50,45,,31,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","primary","secondary",50,45,9,31,9,7,7,4369000
+"Somalia MICS 2006 SPSS Datasets","male","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","primary","under5",50,45,0,31,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","primary","urban",50,45,,31,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","rural","secondary",50,,9,0,0,7,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","rural","stunted",52,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","rural","under5",50,,19,0,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","rural","urban",50,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","male","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","male","secondary","under5",50,9,0,7,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","secondary","urban",50,9,,7,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","male","stunted","under5",52,,100,0,,52,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","stunted","urban",52,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","male","under5","urban",50,19,,10,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","no.skilled.attendant",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","non.p20",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","p20",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","rural",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.educ","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","non.p20",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","p20",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","primary",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","rural",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","secondary",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","under5",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","urban",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","p20",97,45,55,43,0,54,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","rural",97,45,,43,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","stunted",97,45,,43,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","under5",97,45,100,43,45,97,43,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","non.p20","urban",97,45,,43,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","primary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","rural",97,55,,54,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","stunted",97,55,,54,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","under5",97,55,100,54,55,97,54,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","p20","urban",97,55,,54,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","primary","rural",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","primary","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","primary","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","primary","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","rural","secondary",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","rural","stunted",97,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","rural","under5",97,,100,0,,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","rural","urban",97,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","secondary","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","secondary","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","stunted","under5",97,,100,0,,97,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","stunted","urban",97,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.birth.reg","under5","urban",97,100,,97,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","non.p20",69,69,47,52,23,27,15,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","p20",69,69,53,52,47,42,38,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","primary",69,69,31,52,17,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","rural",69,69,,52,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","secondary",69,69,4,52,1,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","stunted",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","under5",69,69,0,52,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","urban",69,69,,52,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","p20",55,46,54,21,0,34,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","primary",55,46,45,21,24,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","rural",55,46,,21,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","secondary",55,46,9,21,8,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","under5",55,46,0,21,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","non.p20","urban",55,46,,21,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","primary",55,54,45,34,20,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","rural",55,54,,34,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","secondary",55,54,9,34,1,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","under5",55,54,0,34,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","p20","urban",55,54,,34,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","primary","rural",55,45,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","primary","secondary",55,45,9,0,9,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","primary","under5",55,45,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","primary","urban",55,45,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","rural","secondary",55,,9,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","rural","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","rural","under5",55,,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","rural","urban",55,,,0,,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","secondary","under5",55,9,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","secondary","urban",55,9,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","stunted","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","stunted","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","no.educ","under5","urban",55,0,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","p20",70,47,53,23,0,47,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","primary",69,47,31,23,20,17,8,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","rural",70,47,,23,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","secondary",69,47,4,23,4,1,1,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","under5",70,47,0,23,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","urban",70,47,,23,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","primary",69,53,31,47,11,17,9,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","rural",70,53,,47,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","secondary",69,53,4,47,0,1,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","under5",70,53,0,47,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","p20","urban",70,53,,47,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","primary","rural",69,31,,17,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","primary","secondary",69,31,4,17,4,1,1,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","primary","stunted",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","primary","under5",69,31,0,17,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","primary","urban",69,31,,17,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","rural","secondary",69,,4,0,0,1,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","rural","stunted",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","rural","under5",70,,0,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","rural","urban",70,,,0,,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","stunted",,,,,,,,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","under5",69,4,0,1,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","urban",69,4,,1,0,0,0,1623000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","stunted","under5",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","stunted","urban",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","no.skilled.attendant","under5","urban",70,0,,0,0,0,0,2915000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","primary",46,54,45,0,20,24,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","rural",47,53,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","secondary",46,54,9,0,1,8,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","stunted",45,55,,0,0,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","under5",47,53,19,0,10,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","non.p20","p20","urban",47,53,,0,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","non.p20","primary","rural",46,45,,24,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","primary","secondary",46,45,9,24,9,8,8,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","primary","under5",46,45,0,24,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","primary","urban",46,45,,24,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","rural","secondary",46,,9,0,0,8,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","rural","stunted",45,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","non.p20","rural","under5",47,,19,0,0,9,0,13131000
+"Somalia MICS 2006 SPSS Datasets","non.p20","rural","urban",47,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","non.p20","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","secondary","under5",46,9,0,8,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","secondary","urban",46,9,,8,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","non.p20","stunted","under5",45,,100,0,,45,0,2452000
+"Somalia MICS 2006 SPSS Datasets","non.p20","stunted","urban",45,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","non.p20","under5","urban",47,19,,9,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","p20","primary","rural",54,45,,20,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","primary","secondary",54,45,9,20,9,1,1,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","primary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","primary","under5",54,45,0,20,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","primary","urban",54,45,,20,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","rural","secondary",54,,9,0,0,1,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","rural","stunted",55,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","p20","rural","under5",53,,19,0,0,10,0,13131000
+"Somalia MICS 2006 SPSS Datasets","p20","rural","urban",53,,,0,,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","p20","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","secondary","under5",54,9,0,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","secondary","urban",54,9,,1,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","p20","stunted","under5",55,,100,0,,55,0,2452000
+"Somalia MICS 2006 SPSS Datasets","p20","stunted","urban",55,,,0,,0,0,2452000
+"Somalia MICS 2006 SPSS Datasets","p20","under5","urban",53,19,,10,0,0,0,13131000
+"Somalia MICS 2006 SPSS Datasets","primary","rural","secondary",45,,9,0,0,9,0,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","rural","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","rural","under5",45,,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","rural","urban",45,,,0,,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","secondary","under5",45,9,0,9,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","secondary","urban",45,9,,9,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","stunted","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","stunted","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","primary","under5","urban",45,0,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","rural","secondary","stunted",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","rural","secondary","under5",,9,0,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","rural","secondary","urban",,9,,0,0,,0,4369000
+"Somalia MICS 2006 SPSS Datasets","rural","stunted","under5",,,100,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","rural","stunted","urban",,,,,,,,2452000
+"Somalia MICS 2006 SPSS Datasets","rural","under5","urban",,19,,0,0,,0,13131000
+"Somalia MICS 2006 SPSS Datasets","secondary","stunted","under5",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","secondary","stunted","urban",,,,,,,,4369000
+"Somalia MICS 2006 SPSS Datasets","secondary","under5","urban",9,0,,0,0,0,0,4369000
+"Somalia MICS 2006 SPSS Datasets","stunted","under5","urban",,100,,,,,,2452000

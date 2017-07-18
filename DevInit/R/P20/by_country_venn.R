@@ -7,18 +7,11 @@ library(varhandle)
 
 setwd("C:/Users/Alex/Documents/Data/P20/Meta")
 load("total_tab_data.RData")
-asean <- c(
-  "idhr63dt"
-  ,"khhr72dt"
-  ,"mmhr71dt"
-  ,"phhr61dt"
-)
-data.total <- subset(data.total,filename %in% asean)
 
 surveyless <- read.csv("C:/git/alexm-util/DevInit/P20-vis/venn/raw_povcalnet.csv",na.strings="",as.is=TRUE)
 # data_total_blank = data.total[0,]
 # surveyless_survey <- rbind(surveyless,data_total_blank,fill=TRUE)
-# data.total <- rbind(data.total,surveyless,fill=TRUE)
+data.total <- rbind(data.total,surveyless,fill=TRUE)
 
 data.total$sex <- factor(data.total$sex,levels=c("Male","Female"))
 
@@ -30,7 +23,7 @@ countryMeta <- transform(countryMeta,
                          )
 # countryMeta_blank = data.table(countryMeta[0,])
 # surveyless_meta <- rbind(surveyless,countryMeta_blank,fill=TRUE)
-# countryMeta <- data.frame(rbind(data.table(countryMeta),surveyless,fill=TRUE))
+countryMeta <- data.frame(rbind(data.table(countryMeta),surveyless,fill=TRUE))
 
 weighted.percentile <- function(x,w,prob,na.rm=TRUE){
   df <- data.frame(x,w)
@@ -136,8 +129,7 @@ opposite = function(x){
 venn.data <- list()
 venn.data.index <- 1
 
-# filenames <- countryMeta$filename
-filenames <- asean
+filenames <- countryMeta$filename
 for(i in 1:length(filenames)){
   this.filename <- filenames[i]
   popset <- subset(countryMeta,filename==this.filename)[c("pop.total","under5","over25","female.25.49","female.15.49")]
@@ -238,7 +230,7 @@ all.venn <- rbindlist(venn.data)
 # all.venn <- rbind(all.venn,world)
 
 all.isos <- read.csv("C:/Users/Alex/Documents/Data/P20/Meta/all.isos.csv",na.strings="")
-# all.isos <- rbind(all.isos,data.table(surveyless),fill=TRUE)
+all.isos <- rbind(all.isos,data.table(surveyless),fill=TRUE)
 
 all.isos <- data.frame(all.isos)[c("filename","iso2","year")]
 
@@ -258,8 +250,8 @@ all.venn.joined <- transform(all.venn.joined,
 )
 names(all.venn.joined) <- c("filename","indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop","iso2","year")
 
-# setwd("C:/git/alexm-util/DevInit/P20-vis/venn/")
-setwd("C:/Users/Alex/Documents/Data/P20/Meta/venn/")
+setwd("C:/git/alexm-util/DevInit/P20-vis/venn/")
+# setwd("C:/Users/Alex/Documents/Data/P20/Meta/venn/")
 
 write.csv(all.venn.joined,"all.venn.joined2.csv",row.names=FALSE,na="")
 

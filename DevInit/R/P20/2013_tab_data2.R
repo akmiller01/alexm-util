@@ -1118,9 +1118,10 @@ data.total$head.ageCategory <- factor(data.total$head.ageCategory,
                                                  ,"95+","missing")                          
 )
 
-sex.missing = c(NA,"missing",9)
-sex.male = c(1,"male","masculin","hombre")
-sex.female = c(2, "female","feminin","mujer")
+sex.missing = c(NA,"missing",9,"omitido")
+sex.male = c(1,"male","masculin","hombre","varã³n",3)
+sex.female = c(2, "female","feminin","mujer","hembra",4)
+if(is.factor(data.total$sex)){data.total$sex<-unfactor(data.total$sex)}
 data.total$sex[which(tolower(data.total$sex) %in% sex.missing)] <- NA
 data.total$sex[which(tolower(data.total$sex) %in% sex.male)] <- "Male"
 data.total$sex[which(tolower(data.total$sex) %in% sex.female)] <- "Female"

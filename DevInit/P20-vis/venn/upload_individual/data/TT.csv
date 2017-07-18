@@ -1,1141 +1,1141 @@
-"indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop"
-"blank1","blank2","ext",100,100,0,100,0,0,0,1348240
-"blank1","blank2","female",100,100,49,100,49,49,49,1348240
-"blank1","blank2","fifteento49",100,100,0,100,0,0,0,1348240
-"blank1","blank2","fiveto14",100,100,3,100,3,3,3,1348240
-"blank1","blank2","gt49",100,100,0,100,0,0,0,1348240
-"blank1","blank2","higher",,,,,,,,873271
-"blank1","blank2","male",100,100,51,100,51,51,51,1348240
-"blank1","blank2","no.birth.reg",100,100,4,100,4,4,4,97581
-"blank1","blank2","no.educ",,,,,,,,873271
-"blank1","blank2","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"blank1","blank2","non.p20",100,100,100,100,100,100,100,1348240
-"blank1","blank2","p20",100,100,0,100,0,0,0,1348240
-"blank1","blank2","primary",,,,,,,,873271
-"blank1","blank2","rural",100,100,,100,,,,1348240
-"blank1","blank2","secondary",,,,,,,,873271
-"blank1","blank2","stunted",100,100,,100,,,,97581
-"blank1","blank2","under5",100,100,97,100,97,97,97,1348240
-"blank1","blank2","urban",100,100,,100,,,,1348240
-"blank1","ext","female",100,0,49,0,0,49,0,1348240
-"blank1","ext","fifteento49",100,0,0,0,0,0,0,1348240
-"blank1","ext","fiveto14",100,0,3,0,0,3,0,1348240
-"blank1","ext","gt49",100,0,0,0,0,0,0,1348240
-"blank1","ext","higher",,,,,,,,873271
-"blank1","ext","male",100,0,51,0,0,51,0,1348240
-"blank1","ext","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank1","ext","no.educ",,,,,,,,873271
-"blank1","ext","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank1","ext","non.p20",100,0,100,0,0,100,0,1348240
-"blank1","ext","p20",100,0,0,0,0,0,0,1348240
-"blank1","ext","primary",,,,,,,,873271
-"blank1","ext","rural",100,0,,0,0,,0,1348240
-"blank1","ext","secondary",,,,,,,,873271
-"blank1","ext","stunted",100,0,,0,0,,0,97581
-"blank1","ext","under5",100,0,97,0,0,97,0,1348240
-"blank1","ext","urban",100,0,,0,0,,0,1348240
-"blank1","female","fifteento49",100,49,0,49,0,0,0,1348240
-"blank1","female","fiveto14",100,49,3,49,3,3,3,1348240
-"blank1","female","gt49",100,49,0,49,0,0,0,1348240
-"blank1","female","higher",,,,,,,,873271
-"blank1","female","male",100,49,51,49,0,51,0,1348240
-"blank1","female","no.birth.reg",100,48,4,48,0,4,0,97581
-"blank1","female","no.educ",,,,,,,,873271
-"blank1","female","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"blank1","female","non.p20",100,49,100,49,49,100,49,1348240
-"blank1","female","p20",100,49,0,49,0,0,0,1348240
-"blank1","female","primary",,,,,,,,873271
-"blank1","female","rural",100,49,,49,0,,0,1348240
-"blank1","female","secondary",,,,,,,,873271
-"blank1","female","stunted",100,48,,48,0,,0,97581
-"blank1","female","under5",100,49,97,49,47,97,47,1348240
-"blank1","female","urban",100,49,,49,0,,0,1348240
-"blank1","fifteento49","fiveto14",100,0,3,0,0,3,0,1348240
-"blank1","fifteento49","gt49",100,0,0,0,0,0,0,1348240
-"blank1","fifteento49","higher",,,,,,,,873271
-"blank1","fifteento49","male",100,0,51,0,0,51,0,1348240
-"blank1","fifteento49","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank1","fifteento49","no.educ",,,,,,,,873271
-"blank1","fifteento49","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"blank1","fifteento49","non.p20",100,0,100,0,0,100,0,1348240
-"blank1","fifteento49","p20",100,0,0,0,0,0,0,1348240
-"blank1","fifteento49","primary",,,,,,,,873271
-"blank1","fifteento49","rural",100,0,,0,0,,0,1348240
-"blank1","fifteento49","secondary",,,,,,,,873271
-"blank1","fifteento49","stunted",100,0,,0,0,,0,97581
-"blank1","fifteento49","under5",100,0,97,0,0,97,0,1348240
-"blank1","fifteento49","urban",100,0,,0,0,,0,1348240
-"blank1","fiveto14","gt49",100,3,0,3,0,0,0,1348240
-"blank1","fiveto14","higher",,,,,,,,873271
-"blank1","fiveto14","male",100,3,51,3,0,51,0,1348240
-"blank1","fiveto14","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank1","fiveto14","no.educ",,,,,,,,873271
-"blank1","fiveto14","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank1","fiveto14","non.p20",100,3,100,3,3,100,3,1348240
-"blank1","fiveto14","p20",100,3,0,3,0,0,0,1348240
-"blank1","fiveto14","primary",,,,,,,,873271
-"blank1","fiveto14","rural",100,3,,3,0,,0,1348240
-"blank1","fiveto14","secondary",,,,,,,,873271
-"blank1","fiveto14","stunted",100,0,,0,0,,0,97581
-"blank1","fiveto14","under5",100,3,97,3,0,97,0,1348240
-"blank1","fiveto14","urban",100,3,,3,0,,0,1348240
-"blank1","gt49","higher",,,,,,,,873271
-"blank1","gt49","male",100,0,51,0,0,51,0,1348240
-"blank1","gt49","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank1","gt49","no.educ",,,,,,,,873271
-"blank1","gt49","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank1","gt49","non.p20",100,0,100,0,0,100,0,1348240
-"blank1","gt49","p20",100,0,0,0,0,0,0,1348240
-"blank1","gt49","primary",,,,,,,,873271
-"blank1","gt49","rural",100,0,,0,0,,0,1348240
-"blank1","gt49","secondary",,,,,,,,873271
-"blank1","gt49","stunted",100,0,,0,0,,0,97581
-"blank1","gt49","under5",100,0,97,0,0,97,0,1348240
-"blank1","gt49","urban",100,0,,0,0,,0,1348240
-"blank1","higher","male",,,,,,,,873271
-"blank1","higher","no.birth.reg",,,,,,,,873271
-"blank1","higher","no.educ",,,,,,,,873271
-"blank1","higher","no.skilled.attendant",,,,,,,,261647
-"blank1","higher","non.p20",,,,,,,,873271
-"blank1","higher","p20",,,,,,,,873271
-"blank1","higher","primary",,,,,,,,873271
-"blank1","higher","rural",,,,,,,,873271
-"blank1","higher","secondary",,,,,,,,873271
-"blank1","higher","stunted",,,,,,,,873271
-"blank1","higher","under5",,,,,,,,873271
-"blank1","higher","urban",,,,,,,,873271
-"blank1","male","no.birth.reg",100,52,4,52,0,4,0,97581
-"blank1","male","no.educ",,,,,,,,873271
-"blank1","male","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank1","male","non.p20",100,51,100,51,50,100,50,1348240
-"blank1","male","p20",100,51,0,51,0,0,0,1348240
-"blank1","male","primary",,,,,,,,873271
-"blank1","male","rural",100,51,,51,0,,0,1348240
-"blank1","male","secondary",,,,,,,,873271
-"blank1","male","stunted",100,52,,52,0,,0,97581
-"blank1","male","under5",100,51,97,51,51,97,51,1348240
-"blank1","male","urban",100,51,,51,0,,0,1348240
-"blank1","no.birth.reg","no.educ",,,,,,,,873271
-"blank1","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"blank1","no.birth.reg","non.p20",100,4,100,4,4,100,4,97581
-"blank1","no.birth.reg","p20",100,4,0,4,0,0,0,97581
-"blank1","no.birth.reg","primary",,,,,,,,873271
-"blank1","no.birth.reg","rural",100,4,,4,0,,0,97581
-"blank1","no.birth.reg","secondary",,,,,,,,873271
-"blank1","no.birth.reg","stunted",100,4,,4,0,,0,97581
-"blank1","no.birth.reg","under5",100,4,100,4,4,100,4,97581
-"blank1","no.birth.reg","urban",100,4,,4,0,,0,97581
-"blank1","no.educ","no.skilled.attendant",,,,,,,,261647
-"blank1","no.educ","non.p20",,,,,,,,873271
-"blank1","no.educ","p20",,,,,,,,873271
-"blank1","no.educ","primary",,,,,,,,873271
-"blank1","no.educ","rural",,,,,,,,873271
-"blank1","no.educ","secondary",,,,,,,,873271
-"blank1","no.educ","stunted",,,,,,,,873271
-"blank1","no.educ","under5",,,,,,,,873271
-"blank1","no.educ","urban",,,,,,,,873271
-"blank1","no.skilled.attendant","non.p20",100,0,100,0,0,100,0,358190
-"blank1","no.skilled.attendant","p20",100,0,0,0,0,0,0,358190
-"blank1","no.skilled.attendant","primary",,,,,,,,261647
-"blank1","no.skilled.attendant","rural",100,0,,0,,,,358190
-"blank1","no.skilled.attendant","secondary",,,,,,,,261647
-"blank1","no.skilled.attendant","stunted",,,,,,,,97581
-"blank1","no.skilled.attendant","under5",100,0,0,0,0,0,0,358190
-"blank1","no.skilled.attendant","urban",100,0,,0,,,,358190
-"blank1","non.p20","p20",100,100,0,100,0,0,0,1348240
-"blank1","non.p20","primary",,,,,,,,873271
-"blank1","non.p20","rural",100,100,,100,0,,0,1348240
-"blank1","non.p20","secondary",,,,,,,,873271
-"blank1","non.p20","stunted",100,100,,100,0,,0,97581
-"blank1","non.p20","under5",100,100,97,100,97,97,97,1348240
-"blank1","non.p20","urban",100,100,,100,0,,0,1348240
-"blank1","p20","primary",,,,,,,,873271
-"blank1","p20","rural",100,0,,0,0,,0,1348240
-"blank1","p20","secondary",,,,,,,,873271
-"blank1","p20","stunted",100,0,,0,0,,0,97581
-"blank1","p20","under5",100,0,97,0,0,97,0,1348240
-"blank1","p20","urban",100,0,,0,0,,0,1348240
-"blank1","primary","rural",,,,,,,,873271
-"blank1","primary","secondary",,,,,,,,873271
-"blank1","primary","stunted",,,,,,,,873271
-"blank1","primary","under5",,,,,,,,873271
-"blank1","primary","urban",,,,,,,,873271
-"blank1","rural","secondary",,,,,,,,873271
-"blank1","rural","stunted",100,,,,,,,97581
-"blank1","rural","under5",100,,97,,0,97,0,1348240
-"blank1","rural","urban",100,,,,,,,1348240
-"blank1","secondary","stunted",,,,,,,,873271
-"blank1","secondary","under5",,,,,,,,873271
-"blank1","secondary","urban",,,,,,,,873271
-"blank1","stunted","under5",100,,100,,,100,,97581
-"blank1","stunted","urban",100,,,,,,,97581
-"blank1","under5","urban",100,97,,97,0,,0,1348240
-"blank2","ext","female",100,0,49,0,0,49,0,1348240
-"blank2","ext","fifteento49",100,0,0,0,0,0,0,1348240
-"blank2","ext","fiveto14",100,0,3,0,0,3,0,1348240
-"blank2","ext","gt49",100,0,0,0,0,0,0,1348240
-"blank2","ext","higher",,,,,,,,873271
-"blank2","ext","male",100,0,51,0,0,51,0,1348240
-"blank2","ext","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank2","ext","no.educ",,,,,,,,873271
-"blank2","ext","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank2","ext","non.p20",100,0,100,0,0,100,0,1348240
-"blank2","ext","p20",100,0,0,0,0,0,0,1348240
-"blank2","ext","primary",,,,,,,,873271
-"blank2","ext","rural",100,0,,0,0,,0,1348240
-"blank2","ext","secondary",,,,,,,,873271
-"blank2","ext","stunted",100,0,,0,0,,0,97581
-"blank2","ext","under5",100,0,97,0,0,97,0,1348240
-"blank2","ext","urban",100,0,,0,0,,0,1348240
-"blank2","female","fifteento49",100,49,0,49,0,0,0,1348240
-"blank2","female","fiveto14",100,49,3,49,3,3,3,1348240
-"blank2","female","gt49",100,49,0,49,0,0,0,1348240
-"blank2","female","higher",,,,,,,,873271
-"blank2","female","male",100,49,51,49,0,51,0,1348240
-"blank2","female","no.birth.reg",100,48,4,48,0,4,0,97581
-"blank2","female","no.educ",,,,,,,,873271
-"blank2","female","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"blank2","female","non.p20",100,49,100,49,49,100,49,1348240
-"blank2","female","p20",100,49,0,49,0,0,0,1348240
-"blank2","female","primary",,,,,,,,873271
-"blank2","female","rural",100,49,,49,0,,0,1348240
-"blank2","female","secondary",,,,,,,,873271
-"blank2","female","stunted",100,48,,48,0,,0,97581
-"blank2","female","under5",100,49,97,49,47,97,47,1348240
-"blank2","female","urban",100,49,,49,0,,0,1348240
-"blank2","fifteento49","fiveto14",100,0,3,0,0,3,0,1348240
-"blank2","fifteento49","gt49",100,0,0,0,0,0,0,1348240
-"blank2","fifteento49","higher",,,,,,,,873271
-"blank2","fifteento49","male",100,0,51,0,0,51,0,1348240
-"blank2","fifteento49","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank2","fifteento49","no.educ",,,,,,,,873271
-"blank2","fifteento49","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"blank2","fifteento49","non.p20",100,0,100,0,0,100,0,1348240
-"blank2","fifteento49","p20",100,0,0,0,0,0,0,1348240
-"blank2","fifteento49","primary",,,,,,,,873271
-"blank2","fifteento49","rural",100,0,,0,0,,0,1348240
-"blank2","fifteento49","secondary",,,,,,,,873271
-"blank2","fifteento49","stunted",100,0,,0,0,,0,97581
-"blank2","fifteento49","under5",100,0,97,0,0,97,0,1348240
-"blank2","fifteento49","urban",100,0,,0,0,,0,1348240
-"blank2","fiveto14","gt49",100,3,0,3,0,0,0,1348240
-"blank2","fiveto14","higher",,,,,,,,873271
-"blank2","fiveto14","male",100,3,51,3,0,51,0,1348240
-"blank2","fiveto14","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank2","fiveto14","no.educ",,,,,,,,873271
-"blank2","fiveto14","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank2","fiveto14","non.p20",100,3,100,3,3,100,3,1348240
-"blank2","fiveto14","p20",100,3,0,3,0,0,0,1348240
-"blank2","fiveto14","primary",,,,,,,,873271
-"blank2","fiveto14","rural",100,3,,3,0,,0,1348240
-"blank2","fiveto14","secondary",,,,,,,,873271
-"blank2","fiveto14","stunted",100,0,,0,0,,0,97581
-"blank2","fiveto14","under5",100,3,97,3,0,97,0,1348240
-"blank2","fiveto14","urban",100,3,,3,0,,0,1348240
-"blank2","gt49","higher",,,,,,,,873271
-"blank2","gt49","male",100,0,51,0,0,51,0,1348240
-"blank2","gt49","no.birth.reg",100,0,4,0,0,4,0,97581
-"blank2","gt49","no.educ",,,,,,,,873271
-"blank2","gt49","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank2","gt49","non.p20",100,0,100,0,0,100,0,1348240
-"blank2","gt49","p20",100,0,0,0,0,0,0,1348240
-"blank2","gt49","primary",,,,,,,,873271
-"blank2","gt49","rural",100,0,,0,0,,0,1348240
-"blank2","gt49","secondary",,,,,,,,873271
-"blank2","gt49","stunted",100,0,,0,0,,0,97581
-"blank2","gt49","under5",100,0,97,0,0,97,0,1348240
-"blank2","gt49","urban",100,0,,0,0,,0,1348240
-"blank2","higher","male",,,,,,,,873271
-"blank2","higher","no.birth.reg",,,,,,,,873271
-"blank2","higher","no.educ",,,,,,,,873271
-"blank2","higher","no.skilled.attendant",,,,,,,,261647
-"blank2","higher","non.p20",,,,,,,,873271
-"blank2","higher","p20",,,,,,,,873271
-"blank2","higher","primary",,,,,,,,873271
-"blank2","higher","rural",,,,,,,,873271
-"blank2","higher","secondary",,,,,,,,873271
-"blank2","higher","stunted",,,,,,,,873271
-"blank2","higher","under5",,,,,,,,873271
-"blank2","higher","urban",,,,,,,,873271
-"blank2","male","no.birth.reg",100,52,4,52,0,4,0,97581
-"blank2","male","no.educ",,,,,,,,873271
-"blank2","male","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"blank2","male","non.p20",100,51,100,51,50,100,50,1348240
-"blank2","male","p20",100,51,0,51,0,0,0,1348240
-"blank2","male","primary",,,,,,,,873271
-"blank2","male","rural",100,51,,51,0,,0,1348240
-"blank2","male","secondary",,,,,,,,873271
-"blank2","male","stunted",100,52,,52,0,,0,97581
-"blank2","male","under5",100,51,97,51,51,97,51,1348240
-"blank2","male","urban",100,51,,51,0,,0,1348240
-"blank2","no.birth.reg","no.educ",,,,,,,,873271
-"blank2","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"blank2","no.birth.reg","non.p20",100,4,100,4,4,100,4,97581
-"blank2","no.birth.reg","p20",100,4,0,4,0,0,0,97581
-"blank2","no.birth.reg","primary",,,,,,,,873271
-"blank2","no.birth.reg","rural",100,4,,4,0,,0,97581
-"blank2","no.birth.reg","secondary",,,,,,,,873271
-"blank2","no.birth.reg","stunted",100,4,,4,0,,0,97581
-"blank2","no.birth.reg","under5",100,4,100,4,4,100,4,97581
-"blank2","no.birth.reg","urban",100,4,,4,0,,0,97581
-"blank2","no.educ","no.skilled.attendant",,,,,,,,261647
-"blank2","no.educ","non.p20",,,,,,,,873271
-"blank2","no.educ","p20",,,,,,,,873271
-"blank2","no.educ","primary",,,,,,,,873271
-"blank2","no.educ","rural",,,,,,,,873271
-"blank2","no.educ","secondary",,,,,,,,873271
-"blank2","no.educ","stunted",,,,,,,,873271
-"blank2","no.educ","under5",,,,,,,,873271
-"blank2","no.educ","urban",,,,,,,,873271
-"blank2","no.skilled.attendant","non.p20",100,0,100,0,0,100,0,358190
-"blank2","no.skilled.attendant","p20",100,0,0,0,0,0,0,358190
-"blank2","no.skilled.attendant","primary",,,,,,,,261647
-"blank2","no.skilled.attendant","rural",100,0,,0,,,,358190
-"blank2","no.skilled.attendant","secondary",,,,,,,,261647
-"blank2","no.skilled.attendant","stunted",,,,,,,,97581
-"blank2","no.skilled.attendant","under5",100,0,0,0,0,0,0,358190
-"blank2","no.skilled.attendant","urban",100,0,,0,,,,358190
-"blank2","non.p20","p20",100,100,0,100,0,0,0,1348240
-"blank2","non.p20","primary",,,,,,,,873271
-"blank2","non.p20","rural",100,100,,100,0,,0,1348240
-"blank2","non.p20","secondary",,,,,,,,873271
-"blank2","non.p20","stunted",100,100,,100,0,,0,97581
-"blank2","non.p20","under5",100,100,97,100,97,97,97,1348240
-"blank2","non.p20","urban",100,100,,100,0,,0,1348240
-"blank2","p20","primary",,,,,,,,873271
-"blank2","p20","rural",100,0,,0,0,,0,1348240
-"blank2","p20","secondary",,,,,,,,873271
-"blank2","p20","stunted",100,0,,0,0,,0,97581
-"blank2","p20","under5",100,0,97,0,0,97,0,1348240
-"blank2","p20","urban",100,0,,0,0,,0,1348240
-"blank2","primary","rural",,,,,,,,873271
-"blank2","primary","secondary",,,,,,,,873271
-"blank2","primary","stunted",,,,,,,,873271
-"blank2","primary","under5",,,,,,,,873271
-"blank2","primary","urban",,,,,,,,873271
-"blank2","rural","secondary",,,,,,,,873271
-"blank2","rural","stunted",100,,,,,,,97581
-"blank2","rural","under5",100,,97,,0,97,0,1348240
-"blank2","rural","urban",100,,,,,,,1348240
-"blank2","secondary","stunted",,,,,,,,873271
-"blank2","secondary","under5",,,,,,,,873271
-"blank2","secondary","urban",,,,,,,,873271
-"blank2","stunted","under5",100,,100,,,100,,97581
-"blank2","stunted","urban",100,,,,,,,97581
-"blank2","under5","urban",100,97,,97,0,,0,1348240
-"ext","female","fifteento49",0,49,0,0,0,0,0,1348240
-"ext","female","fiveto14",0,49,3,0,3,0,0,1348240
-"ext","female","gt49",0,49,0,0,0,0,0,1348240
-"ext","female","higher",,,,,,,,873271
-"ext","female","male",0,49,51,0,0,0,0,1348240
-"ext","female","no.birth.reg",0,48,4,0,0,0,0,97581
-"ext","female","no.educ",,,,,,,,873271
-"ext","female","no.skilled.attendant",0,100,0,0,0,0,0,358190
-"ext","female","non.p20",0,49,100,0,49,0,0,1348240
-"ext","female","p20",0,49,0,0,0,0,0,1348240
-"ext","female","primary",,,,,,,,873271
-"ext","female","rural",0,49,,0,0,0,0,1348240
-"ext","female","secondary",,,,,,,,873271
-"ext","female","stunted",0,48,,0,0,0,0,97581
-"ext","female","under5",0,49,97,0,47,0,0,1348240
-"ext","female","urban",0,49,,0,0,0,0,1348240
-"ext","fifteento49","fiveto14",0,0,3,0,0,0,0,1348240
-"ext","fifteento49","gt49",0,0,0,0,0,0,0,1348240
-"ext","fifteento49","higher",,,,,,,,873271
-"ext","fifteento49","male",0,0,51,0,0,0,0,1348240
-"ext","fifteento49","no.birth.reg",0,0,4,0,0,0,0,97581
-"ext","fifteento49","no.educ",,,,,,,,873271
-"ext","fifteento49","no.skilled.attendant",0,100,0,0,0,0,0,358190
-"ext","fifteento49","non.p20",0,0,100,0,0,0,0,1348240
-"ext","fifteento49","p20",0,0,0,0,0,0,0,1348240
-"ext","fifteento49","primary",,,,,,,,873271
-"ext","fifteento49","rural",0,0,,0,0,0,0,1348240
-"ext","fifteento49","secondary",,,,,,,,873271
-"ext","fifteento49","stunted",0,0,,0,0,0,0,97581
-"ext","fifteento49","under5",0,0,97,0,0,0,0,1348240
-"ext","fifteento49","urban",0,0,,0,0,0,0,1348240
-"ext","fiveto14","gt49",0,3,0,0,0,0,0,1348240
-"ext","fiveto14","higher",,,,,,,,873271
-"ext","fiveto14","male",0,3,51,0,0,0,0,1348240
-"ext","fiveto14","no.birth.reg",0,0,4,0,0,0,0,97581
-"ext","fiveto14","no.educ",,,,,,,,873271
-"ext","fiveto14","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"ext","fiveto14","non.p20",0,3,100,0,3,0,0,1348240
-"ext","fiveto14","p20",0,3,0,0,0,0,0,1348240
-"ext","fiveto14","primary",,,,,,,,873271
-"ext","fiveto14","rural",0,3,,0,0,0,0,1348240
-"ext","fiveto14","secondary",,,,,,,,873271
-"ext","fiveto14","stunted",0,0,,0,0,0,0,97581
-"ext","fiveto14","under5",0,3,97,0,0,0,0,1348240
-"ext","fiveto14","urban",0,3,,0,0,0,0,1348240
-"ext","gt49","higher",,,,,,,,873271
-"ext","gt49","male",0,0,51,0,0,0,0,1348240
-"ext","gt49","no.birth.reg",0,0,4,0,0,0,0,97581
-"ext","gt49","no.educ",,,,,,,,873271
-"ext","gt49","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"ext","gt49","non.p20",0,0,100,0,0,0,0,1348240
-"ext","gt49","p20",0,0,0,0,0,0,0,1348240
-"ext","gt49","primary",,,,,,,,873271
-"ext","gt49","rural",0,0,,0,0,0,0,1348240
-"ext","gt49","secondary",,,,,,,,873271
-"ext","gt49","stunted",0,0,,0,0,0,0,97581
-"ext","gt49","under5",0,0,97,0,0,0,0,1348240
-"ext","gt49","urban",0,0,,0,0,0,0,1348240
-"ext","higher","male",,,,,,,,873271
-"ext","higher","no.birth.reg",,,,,,,,873271
-"ext","higher","no.educ",,,,,,,,873271
-"ext","higher","no.skilled.attendant",,,,,,,,261647
-"ext","higher","non.p20",,,,,,0,0,873271
-"ext","higher","p20",,,,,,,,873271
-"ext","higher","primary",,,,,,,,873271
-"ext","higher","rural",,,,,,,,873271
-"ext","higher","secondary",,,,,,,,873271
-"ext","higher","stunted",,,,,,,,873271
-"ext","higher","under5",,,,,,,,873271
-"ext","higher","urban",,,,,,,,873271
-"ext","male","no.birth.reg",0,52,4,0,0,0,0,97581
-"ext","male","no.educ",,,,,,,,873271
-"ext","male","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"ext","male","non.p20",0,51,100,0,50,0,0,1348240
-"ext","male","p20",0,51,0,0,0,0,0,1348240
-"ext","male","primary",,,,,,,,873271
-"ext","male","rural",0,51,,0,0,0,0,1348240
-"ext","male","secondary",,,,,,,,873271
-"ext","male","stunted",0,52,,0,0,0,0,97581
-"ext","male","under5",0,51,97,0,51,0,0,1348240
-"ext","male","urban",0,51,,0,0,0,0,1348240
-"ext","no.birth.reg","no.educ",,,,,,,,873271
-"ext","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"ext","no.birth.reg","non.p20",0,4,100,0,4,0,0,97581
-"ext","no.birth.reg","p20",0,4,0,0,0,0,0,97581
-"ext","no.birth.reg","primary",,,,,,,,873271
-"ext","no.birth.reg","rural",0,4,,0,0,0,0,97581
-"ext","no.birth.reg","secondary",,,,,,,,873271
-"ext","no.birth.reg","stunted",0,4,,0,0,0,0,97581
-"ext","no.birth.reg","under5",0,4,100,0,4,0,0,97581
-"ext","no.birth.reg","urban",0,4,,0,0,0,0,97581
-"ext","no.educ","no.skilled.attendant",,,,,,,,261647
-"ext","no.educ","non.p20",,,,,,0,0,873271
-"ext","no.educ","p20",,,,,,,,873271
-"ext","no.educ","primary",,,,,,,,873271
-"ext","no.educ","rural",,,,,,,,873271
-"ext","no.educ","secondary",,,,,,,,873271
-"ext","no.educ","stunted",,,,,,,,873271
-"ext","no.educ","under5",,,,,,,,873271
-"ext","no.educ","urban",,,,,,,,873271
-"ext","no.skilled.attendant","non.p20",0,0,100,0,0,0,0,358190
-"ext","no.skilled.attendant","p20",0,0,0,0,0,0,0,358190
-"ext","no.skilled.attendant","primary",,,,,,,,261647
-"ext","no.skilled.attendant","rural",0,0,,0,,,,358190
-"ext","no.skilled.attendant","secondary",,,,,,,,261647
-"ext","no.skilled.attendant","stunted",,,,,,,,97581
-"ext","no.skilled.attendant","under5",0,0,0,0,0,0,0,358190
-"ext","no.skilled.attendant","urban",0,0,,0,,,,358190
-"ext","non.p20","p20",0,100,0,0,0,0,0,1348240
-"ext","non.p20","primary",,,,0,,,0,873271
-"ext","non.p20","rural",0,100,,0,0,0,0,1348240
-"ext","non.p20","secondary",,,,0,,,0,873271
-"ext","non.p20","stunted",0,100,,0,0,0,0,97581
-"ext","non.p20","under5",0,100,97,0,97,0,0,1348240
-"ext","non.p20","urban",0,100,,0,0,0,0,1348240
-"ext","p20","primary",,,,,,,,873271
-"ext","p20","rural",0,0,,0,0,0,0,1348240
-"ext","p20","secondary",,,,,,,,873271
-"ext","p20","stunted",0,0,,0,0,0,0,97581
-"ext","p20","under5",0,0,97,0,0,0,0,1348240
-"ext","p20","urban",0,0,,0,0,0,0,1348240
-"ext","primary","rural",,,,,,,,873271
-"ext","primary","secondary",,,,,,,,873271
-"ext","primary","stunted",,,,,,,,873271
-"ext","primary","under5",,,,,,,,873271
-"ext","primary","urban",,,,,,,,873271
-"ext","rural","secondary",,,,,,,,873271
-"ext","rural","stunted",0,,,0,,0,0,97581
-"ext","rural","under5",0,,97,0,0,0,0,1348240
-"ext","rural","urban",0,,,0,,0,0,1348240
-"ext","secondary","stunted",,,,,,,,873271
-"ext","secondary","under5",,,,,,,,873271
-"ext","secondary","urban",,,,,,,,873271
-"ext","stunted","under5",0,,100,0,,0,0,97581
-"ext","stunted","urban",0,,,0,,0,0,97581
-"ext","under5","urban",0,97,,0,0,0,0,1348240
-"female","fifteento49","fiveto14",49,0,3,0,0,3,0,1348240
-"female","fifteento49","gt49",49,0,0,0,0,0,0,1348240
-"female","fifteento49","higher",,,,,,,,873271
-"female","fifteento49","male",49,0,51,0,0,0,0,1348240
-"female","fifteento49","no.birth.reg",48,0,4,0,0,0,0,97581
-"female","fifteento49","no.educ",,,,,,,,873271
-"female","fifteento49","no.skilled.attendant",100,100,0,100,0,0,0,358190
-"female","fifteento49","non.p20",49,0,100,0,0,49,0,1348240
-"female","fifteento49","p20",49,0,0,0,0,0,0,1348240
-"female","fifteento49","primary",,,,,,,,873271
-"female","fifteento49","rural",49,0,,0,0,0,0,1348240
-"female","fifteento49","secondary",,,,,,,,873271
-"female","fifteento49","stunted",48,0,,0,0,0,0,97581
-"female","fifteento49","under5",49,0,97,0,0,47,0,1348240
-"female","fifteento49","urban",49,0,,0,0,0,0,1348240
-"female","fiveto14","gt49",49,3,0,3,0,0,0,1348240
-"female","fiveto14","higher",,,,,,,,873271
-"female","fiveto14","male",49,3,51,3,0,0,0,1348240
-"female","fiveto14","no.birth.reg",48,0,4,0,0,0,0,97581
-"female","fiveto14","no.educ",,,,,,,,873271
-"female","fiveto14","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"female","fiveto14","non.p20",49,3,100,3,3,49,3,1348240
-"female","fiveto14","p20",49,3,0,3,0,0,0,1348240
-"female","fiveto14","primary",,,,,,,,873271
-"female","fiveto14","rural",49,3,,3,0,0,0,1348240
-"female","fiveto14","secondary",,,,,,,,873271
-"female","fiveto14","stunted",48,0,,0,0,0,0,97581
-"female","fiveto14","under5",49,3,97,3,0,47,0,1348240
-"female","fiveto14","urban",49,3,,3,0,0,0,1348240
-"female","gt49","higher",,,,,,,,873271
-"female","gt49","male",49,0,51,0,0,0,0,1348240
-"female","gt49","no.birth.reg",48,0,4,0,0,0,0,97581
-"female","gt49","no.educ",,,,,,,,873271
-"female","gt49","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"female","gt49","non.p20",49,0,100,0,0,49,0,1348240
-"female","gt49","p20",49,0,0,0,0,0,0,1348240
-"female","gt49","primary",,,,,,,,873271
-"female","gt49","rural",49,0,,0,0,0,0,1348240
-"female","gt49","secondary",,,,,,,,873271
-"female","gt49","stunted",48,0,,0,0,0,0,97581
-"female","gt49","under5",49,0,97,0,0,47,0,1348240
-"female","gt49","urban",49,0,,0,0,0,0,1348240
-"female","higher","male",,,,,,,,873271
-"female","higher","no.birth.reg",,,,,,,,873271
-"female","higher","no.educ",,,,,,,,873271
-"female","higher","no.skilled.attendant",,,,,,,,261647
-"female","higher","non.p20",,,,,,,,873271
-"female","higher","p20",,,,,,,,873271
-"female","higher","primary",,,,,,,,873271
-"female","higher","rural",,,,,,,,873271
-"female","higher","secondary",,,,,,,,873271
-"female","higher","stunted",,,,,,,,873271
-"female","higher","under5",,,,,,,,873271
-"female","higher","urban",,,,,,,,873271
-"female","male","no.birth.reg",48,52,4,0,0,0,0,97581
-"female","male","no.educ",,,,,,,,873271
-"female","male","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"female","male","non.p20",49,51,100,0,50,49,0,1348240
-"female","male","p20",49,51,0,0,0,0,0,1348240
-"female","male","primary",,,,,,,,873271
-"female","male","rural",49,51,,0,0,0,0,1348240
-"female","male","secondary",,,,,,,,873271
-"female","male","stunted",48,52,,0,0,0,0,97581
-"female","male","under5",49,51,97,0,51,47,0,1348240
-"female","male","urban",49,51,,0,0,0,0,1348240
-"female","no.birth.reg","no.educ",,,,,,,,873271
-"female","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"female","no.birth.reg","non.p20",48,4,100,0,4,48,0,97581
-"female","no.birth.reg","p20",48,4,0,0,0,0,0,97581
-"female","no.birth.reg","primary",,,,,,,,873271
-"female","no.birth.reg","rural",48,4,,0,0,0,0,97581
-"female","no.birth.reg","secondary",,,,,,,,873271
-"female","no.birth.reg","stunted",48,4,,0,0,0,0,97581
-"female","no.birth.reg","under5",48,4,100,0,4,48,0,97581
-"female","no.birth.reg","urban",48,4,,0,0,0,0,97581
-"female","no.educ","no.skilled.attendant",,,,,,,,261647
-"female","no.educ","non.p20",,,,,,,,873271
-"female","no.educ","p20",,,,,,,,873271
-"female","no.educ","primary",,,,,,,,873271
-"female","no.educ","rural",,,,,,,,873271
-"female","no.educ","secondary",,,,,,,,873271
-"female","no.educ","stunted",,,,,,,,873271
-"female","no.educ","under5",,,,,,,,873271
-"female","no.educ","urban",,,,,,,,873271
-"female","no.skilled.attendant","non.p20",100,0,100,0,0,100,0,358190
-"female","no.skilled.attendant","p20",100,0,0,0,0,0,0,358190
-"female","no.skilled.attendant","primary",,,,,,,,261647
-"female","no.skilled.attendant","rural",100,0,,0,,,,358190
-"female","no.skilled.attendant","secondary",,,,,,,,261647
-"female","no.skilled.attendant","stunted",,,,,,,,97581
-"female","no.skilled.attendant","under5",100,0,0,0,0,0,0,358190
-"female","no.skilled.attendant","urban",100,0,,0,,,,358190
-"female","non.p20","p20",49,100,0,49,0,0,0,1348240
-"female","non.p20","primary",,,,,,,,873271
-"female","non.p20","rural",49,100,,49,0,0,0,1348240
-"female","non.p20","secondary",,,,,,,,873271
-"female","non.p20","stunted",48,100,,48,0,0,0,97581
-"female","non.p20","under5",49,100,97,49,97,47,47,1348240
-"female","non.p20","urban",49,100,,49,0,0,0,1348240
-"female","p20","primary",,,,,,,,873271
-"female","p20","rural",49,0,,0,0,0,0,1348240
-"female","p20","secondary",,,,,,,,873271
-"female","p20","stunted",48,0,,0,0,0,0,97581
-"female","p20","under5",49,0,97,0,0,47,0,1348240
-"female","p20","urban",49,0,,0,0,0,0,1348240
-"female","primary","rural",,,,,,,,873271
-"female","primary","secondary",,,,,,,,873271
-"female","primary","stunted",,,,,,,,873271
-"female","primary","under5",,,,,,,,873271
-"female","primary","urban",,,,,,,,873271
-"female","rural","secondary",,,,,,,,873271
-"female","rural","stunted",48,,,0,,0,0,97581
-"female","rural","under5",49,,97,0,0,47,0,1348240
-"female","rural","urban",49,,,0,,0,0,1348240
-"female","secondary","stunted",,,,,,,,873271
-"female","secondary","under5",,,,,,,,873271
-"female","secondary","urban",,,,,,,,873271
-"female","stunted","under5",48,,100,0,,48,0,97581
-"female","stunted","urban",48,,,0,,0,0,97581
-"female","under5","urban",49,97,,47,0,0,0,1348240
-"fifteento49","fiveto14","gt49",0,3,0,0,0,0,0,1348240
-"fifteento49","fiveto14","higher",,,,,,,,873271
-"fifteento49","fiveto14","male",0,3,51,0,0,0,0,1348240
-"fifteento49","fiveto14","no.birth.reg",0,0,4,0,0,0,0,97581
-"fifteento49","fiveto14","no.educ",,,,,,,,873271
-"fifteento49","fiveto14","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"fifteento49","fiveto14","non.p20",0,3,100,0,3,0,0,1348240
-"fifteento49","fiveto14","p20",0,3,0,0,0,0,0,1348240
-"fifteento49","fiveto14","primary",,,,,,,,873271
-"fifteento49","fiveto14","rural",0,3,,0,0,0,0,1348240
-"fifteento49","fiveto14","secondary",,,,,,,,873271
-"fifteento49","fiveto14","stunted",0,0,,0,0,0,0,97581
-"fifteento49","fiveto14","under5",0,3,97,0,0,0,0,1348240
-"fifteento49","fiveto14","urban",0,3,,0,0,0,0,1348240
-"fifteento49","gt49","higher",,,,,,,,873271
-"fifteento49","gt49","male",0,0,51,0,0,0,0,1348240
-"fifteento49","gt49","no.birth.reg",0,0,4,0,0,0,0,97581
-"fifteento49","gt49","no.educ",,,,,,,,873271
-"fifteento49","gt49","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"fifteento49","gt49","non.p20",0,0,100,0,0,0,0,1348240
-"fifteento49","gt49","p20",0,0,0,0,0,0,0,1348240
-"fifteento49","gt49","primary",,,,,,,,873271
-"fifteento49","gt49","rural",0,0,,0,0,0,0,1348240
-"fifteento49","gt49","secondary",,,,,,,,873271
-"fifteento49","gt49","stunted",0,0,,0,0,0,0,97581
-"fifteento49","gt49","under5",0,0,97,0,0,0,0,1348240
-"fifteento49","gt49","urban",0,0,,0,0,0,0,1348240
-"fifteento49","higher","male",,,,,,,,873271
-"fifteento49","higher","no.birth.reg",,,,,,,,873271
-"fifteento49","higher","no.educ",,,,,,,,873271
-"fifteento49","higher","no.skilled.attendant",,,,,,,,261647
-"fifteento49","higher","non.p20",,,,,,,,873271
-"fifteento49","higher","p20",,,,,,,,873271
-"fifteento49","higher","primary",,,,,,,,873271
-"fifteento49","higher","rural",,,,,,,,873271
-"fifteento49","higher","secondary",,,,,,,,873271
-"fifteento49","higher","stunted",,,,,,,,873271
-"fifteento49","higher","under5",,,,,,,,873271
-"fifteento49","higher","urban",,,,,,,,873271
-"fifteento49","male","no.birth.reg",0,52,4,0,0,0,0,97581
-"fifteento49","male","no.educ",,,,,,,,873271
-"fifteento49","male","no.skilled.attendant",100,0,0,0,0,0,0,358190
-"fifteento49","male","non.p20",0,51,100,0,50,0,0,1348240
-"fifteento49","male","p20",0,51,0,0,0,0,0,1348240
-"fifteento49","male","primary",,,,,,,,873271
-"fifteento49","male","rural",0,51,,0,0,0,0,1348240
-"fifteento49","male","secondary",,,,,,,,873271
-"fifteento49","male","stunted",0,52,,0,0,0,0,97581
-"fifteento49","male","under5",0,51,97,0,51,0,0,1348240
-"fifteento49","male","urban",0,51,,0,0,0,0,1348240
-"fifteento49","no.birth.reg","no.educ",,,,,,,,873271
-"fifteento49","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"fifteento49","no.birth.reg","non.p20",0,4,100,0,4,0,0,97581
-"fifteento49","no.birth.reg","p20",0,4,0,0,0,0,0,97581
-"fifteento49","no.birth.reg","primary",,,,,,,,873271
-"fifteento49","no.birth.reg","rural",0,4,,0,0,0,0,97581
-"fifteento49","no.birth.reg","secondary",,,,,,,,873271
-"fifteento49","no.birth.reg","stunted",0,4,,0,0,0,0,97581
-"fifteento49","no.birth.reg","under5",0,4,100,0,4,0,0,97581
-"fifteento49","no.birth.reg","urban",0,4,,0,0,0,0,97581
-"fifteento49","no.educ","no.skilled.attendant",,,,,,,,261647
-"fifteento49","no.educ","non.p20",,,,,,,,873271
-"fifteento49","no.educ","p20",,,,,,,,873271
-"fifteento49","no.educ","primary",,,,,,,,873271
-"fifteento49","no.educ","rural",,,,,,,,873271
-"fifteento49","no.educ","secondary",,,,,,,,873271
-"fifteento49","no.educ","stunted",,,,,,,,873271
-"fifteento49","no.educ","under5",,,,,,,,873271
-"fifteento49","no.educ","urban",,,,,,,,873271
-"fifteento49","no.skilled.attendant","non.p20",100,0,100,0,0,100,0,358190
-"fifteento49","no.skilled.attendant","p20",100,0,0,0,0,0,0,358190
-"fifteento49","no.skilled.attendant","primary",,,,,,,,261647
-"fifteento49","no.skilled.attendant","rural",100,0,,0,,,,358190
-"fifteento49","no.skilled.attendant","secondary",,,,,,,,261647
-"fifteento49","no.skilled.attendant","stunted",,,,,,,,97581
-"fifteento49","no.skilled.attendant","under5",100,0,0,0,0,0,0,358190
-"fifteento49","no.skilled.attendant","urban",100,0,,0,,,,358190
-"fifteento49","non.p20","p20",0,100,0,0,0,0,0,1348240
-"fifteento49","non.p20","primary",,,,,,,,873271
-"fifteento49","non.p20","rural",0,100,,0,0,0,0,1348240
-"fifteento49","non.p20","secondary",,,,,,,,873271
-"fifteento49","non.p20","stunted",0,100,,0,0,0,0,97581
-"fifteento49","non.p20","under5",0,100,97,0,97,0,0,1348240
-"fifteento49","non.p20","urban",0,100,,0,0,0,0,1348240
-"fifteento49","p20","primary",,,,,,,,873271
-"fifteento49","p20","rural",0,0,,0,0,0,0,1348240
-"fifteento49","p20","secondary",,,,,,,,873271
-"fifteento49","p20","stunted",0,0,,0,0,0,0,97581
-"fifteento49","p20","under5",0,0,97,0,0,0,0,1348240
-"fifteento49","p20","urban",0,0,,0,0,0,0,1348240
-"fifteento49","primary","rural",,,,,,,,873271
-"fifteento49","primary","secondary",,,,,,,,873271
-"fifteento49","primary","stunted",,,,,,,,873271
-"fifteento49","primary","under5",,,,,,,,873271
-"fifteento49","primary","urban",,,,,,,,873271
-"fifteento49","rural","secondary",,,,,,,,873271
-"fifteento49","rural","stunted",0,,,0,,0,0,97581
-"fifteento49","rural","under5",0,,97,0,0,0,0,1348240
-"fifteento49","rural","urban",0,,,0,,0,0,1348240
-"fifteento49","secondary","stunted",,,,,,,,873271
-"fifteento49","secondary","under5",,,,,,,,873271
-"fifteento49","secondary","urban",,,,,,,,873271
-"fifteento49","stunted","under5",0,,100,0,,0,0,97581
-"fifteento49","stunted","urban",0,,,0,,0,0,97581
-"fifteento49","under5","urban",0,97,,0,0,0,0,1348240
-"fiveto14","gt49","higher",,,,,,,,873271
-"fiveto14","gt49","male",3,0,51,0,0,0,0,1348240
-"fiveto14","gt49","no.birth.reg",0,0,4,0,0,0,0,97581
-"fiveto14","gt49","no.educ",,,,,,,,873271
-"fiveto14","gt49","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"fiveto14","gt49","non.p20",3,0,100,0,0,3,0,1348240
-"fiveto14","gt49","p20",3,0,0,0,0,0,0,1348240
-"fiveto14","gt49","primary",,,,,,,,873271
-"fiveto14","gt49","rural",3,0,,0,0,0,0,1348240
-"fiveto14","gt49","secondary",,,,,,,,873271
-"fiveto14","gt49","stunted",0,0,,0,0,0,0,97581
-"fiveto14","gt49","under5",3,0,97,0,0,0,0,1348240
-"fiveto14","gt49","urban",3,0,,0,0,0,0,1348240
-"fiveto14","higher","male",,,,,,,,873271
-"fiveto14","higher","no.birth.reg",,,,,,,,873271
-"fiveto14","higher","no.educ",,,,,,,,873271
-"fiveto14","higher","no.skilled.attendant",,,,,,,,261647
-"fiveto14","higher","non.p20",,,,,,,,873271
-"fiveto14","higher","p20",,,,,,,,873271
-"fiveto14","higher","primary",,,,,,,,873271
-"fiveto14","higher","rural",,,,,,,,873271
-"fiveto14","higher","secondary",,,,,,,,873271
-"fiveto14","higher","stunted",,,,,,,,873271
-"fiveto14","higher","under5",,,,,,,,873271
-"fiveto14","higher","urban",,,,,,,,873271
-"fiveto14","male","no.birth.reg",0,52,4,0,0,0,0,97581
-"fiveto14","male","no.educ",,,,,,,,873271
-"fiveto14","male","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"fiveto14","male","non.p20",3,51,100,0,50,3,0,1348240
-"fiveto14","male","p20",3,51,0,0,0,0,0,1348240
-"fiveto14","male","primary",,,,,,,,873271
-"fiveto14","male","rural",3,51,,0,0,0,0,1348240
-"fiveto14","male","secondary",,,,,,,,873271
-"fiveto14","male","stunted",0,52,,0,0,0,0,97581
-"fiveto14","male","under5",3,51,97,0,51,0,0,1348240
-"fiveto14","male","urban",3,51,,0,0,0,0,1348240
-"fiveto14","no.birth.reg","no.educ",,,,,,,,873271
-"fiveto14","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"fiveto14","no.birth.reg","non.p20",0,4,100,0,4,0,0,97581
-"fiveto14","no.birth.reg","p20",0,4,0,0,0,0,0,97581
-"fiveto14","no.birth.reg","primary",,,,,,,,873271
-"fiveto14","no.birth.reg","rural",0,4,,0,0,0,0,97581
-"fiveto14","no.birth.reg","secondary",,,,,,,,873271
-"fiveto14","no.birth.reg","stunted",0,4,,0,0,0,0,97581
-"fiveto14","no.birth.reg","under5",0,4,100,0,4,0,0,97581
-"fiveto14","no.birth.reg","urban",0,4,,0,0,0,0,97581
-"fiveto14","no.educ","no.skilled.attendant",,,,,,,,261647
-"fiveto14","no.educ","non.p20",,,,,,,,873271
-"fiveto14","no.educ","p20",,,,,,,,873271
-"fiveto14","no.educ","primary",,,,,,,,873271
-"fiveto14","no.educ","rural",,,,,,,,873271
-"fiveto14","no.educ","secondary",,,,,,,,873271
-"fiveto14","no.educ","stunted",,,,,,,,873271
-"fiveto14","no.educ","under5",,,,,,,,873271
-"fiveto14","no.educ","urban",,,,,,,,873271
-"fiveto14","no.skilled.attendant","non.p20",0,0,100,0,0,0,0,358190
-"fiveto14","no.skilled.attendant","p20",0,0,0,0,0,0,0,358190
-"fiveto14","no.skilled.attendant","primary",,,,,,,,261647
-"fiveto14","no.skilled.attendant","rural",0,0,,0,,,,358190
-"fiveto14","no.skilled.attendant","secondary",,,,,,,,261647
-"fiveto14","no.skilled.attendant","stunted",,,,,,,,97581
-"fiveto14","no.skilled.attendant","under5",0,0,0,0,0,0,0,358190
-"fiveto14","no.skilled.attendant","urban",0,0,,0,,,,358190
-"fiveto14","non.p20","p20",3,100,0,3,0,0,0,1348240
-"fiveto14","non.p20","primary",,,,,,,,873271
-"fiveto14","non.p20","rural",3,100,,3,0,0,0,1348240
-"fiveto14","non.p20","secondary",,,,,,,,873271
-"fiveto14","non.p20","stunted",0,100,,0,0,0,0,97581
-"fiveto14","non.p20","under5",3,100,97,3,97,0,0,1348240
-"fiveto14","non.p20","urban",3,100,,3,0,0,0,1348240
-"fiveto14","p20","primary",,,,,,,,873271
-"fiveto14","p20","rural",3,0,,0,0,0,0,1348240
-"fiveto14","p20","secondary",,,,,,,,873271
-"fiveto14","p20","stunted",0,0,,0,0,0,0,97581
-"fiveto14","p20","under5",3,0,97,0,0,0,0,1348240
-"fiveto14","p20","urban",3,0,,0,0,0,0,1348240
-"fiveto14","primary","rural",,,,,,,,873271
-"fiveto14","primary","secondary",,,,,,,,873271
-"fiveto14","primary","stunted",,,,,,,,873271
-"fiveto14","primary","under5",,,,,,,,873271
-"fiveto14","primary","urban",,,,,,,,873271
-"fiveto14","rural","secondary",,,,,,,,873271
-"fiveto14","rural","stunted",0,,,0,,0,0,97581
-"fiveto14","rural","under5",3,,97,0,0,0,0,1348240
-"fiveto14","rural","urban",3,,,0,,0,0,1348240
-"fiveto14","secondary","stunted",,,,,,,,873271
-"fiveto14","secondary","under5",,,,,,,,873271
-"fiveto14","secondary","urban",,,,,,,,873271
-"fiveto14","stunted","under5",0,,100,0,,0,0,97581
-"fiveto14","stunted","urban",0,,,0,,0,0,97581
-"fiveto14","under5","urban",3,97,,0,0,0,0,1348240
-"gt49","higher","male",,,,,,,,873271
-"gt49","higher","no.birth.reg",,,,,,,,873271
-"gt49","higher","no.educ",,,,,,,,873271
-"gt49","higher","no.skilled.attendant",,,,,,,,261647
-"gt49","higher","non.p20",,,,,,,,873271
-"gt49","higher","p20",,,,,,,,873271
-"gt49","higher","primary",,,,,,,,873271
-"gt49","higher","rural",,,,,,,,873271
-"gt49","higher","secondary",,,,,,,,873271
-"gt49","higher","stunted",,,,,,,,873271
-"gt49","higher","under5",,,,,,,,873271
-"gt49","higher","urban",,,,,,,,873271
-"gt49","male","no.birth.reg",0,52,4,0,0,0,0,97581
-"gt49","male","no.educ",,,,,,,,873271
-"gt49","male","no.skilled.attendant",0,0,0,0,0,0,0,358190
-"gt49","male","non.p20",0,51,100,0,50,0,0,1348240
-"gt49","male","p20",0,51,0,0,0,0,0,1348240
-"gt49","male","primary",,,,,,,,873271
-"gt49","male","rural",0,51,,0,0,0,0,1348240
-"gt49","male","secondary",,,,,,,,873271
-"gt49","male","stunted",0,52,,0,0,0,0,97581
-"gt49","male","under5",0,51,97,0,51,0,0,1348240
-"gt49","male","urban",0,51,,0,0,0,0,1348240
-"gt49","no.birth.reg","no.educ",,,,,,,,873271
-"gt49","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"gt49","no.birth.reg","non.p20",0,4,100,0,4,0,0,97581
-"gt49","no.birth.reg","p20",0,4,0,0,0,0,0,97581
-"gt49","no.birth.reg","primary",,,,,,,,873271
-"gt49","no.birth.reg","rural",0,4,,0,0,0,0,97581
-"gt49","no.birth.reg","secondary",,,,,,,,873271
-"gt49","no.birth.reg","stunted",0,4,,0,0,0,0,97581
-"gt49","no.birth.reg","under5",0,4,100,0,4,0,0,97581
-"gt49","no.birth.reg","urban",0,4,,0,0,0,0,97581
-"gt49","no.educ","no.skilled.attendant",,,,,,,,261647
-"gt49","no.educ","non.p20",,,,,,,,873271
-"gt49","no.educ","p20",,,,,,,,873271
-"gt49","no.educ","primary",,,,,,,,873271
-"gt49","no.educ","rural",,,,,,,,873271
-"gt49","no.educ","secondary",,,,,,,,873271
-"gt49","no.educ","stunted",,,,,,,,873271
-"gt49","no.educ","under5",,,,,,,,873271
-"gt49","no.educ","urban",,,,,,,,873271
-"gt49","no.skilled.attendant","non.p20",0,0,100,0,0,0,0,358190
-"gt49","no.skilled.attendant","p20",0,0,0,0,0,0,0,358190
-"gt49","no.skilled.attendant","primary",,,,,,,,261647
-"gt49","no.skilled.attendant","rural",0,0,,0,,,,358190
-"gt49","no.skilled.attendant","secondary",,,,,,,,261647
-"gt49","no.skilled.attendant","stunted",,,,,,,,97581
-"gt49","no.skilled.attendant","under5",0,0,0,0,0,0,0,358190
-"gt49","no.skilled.attendant","urban",0,0,,0,,,,358190
-"gt49","non.p20","p20",0,100,0,0,0,0,0,1348240
-"gt49","non.p20","primary",,,,,,,,873271
-"gt49","non.p20","rural",0,100,,0,0,0,0,1348240
-"gt49","non.p20","secondary",,,,,,,,873271
-"gt49","non.p20","stunted",0,100,,0,0,0,0,97581
-"gt49","non.p20","under5",0,100,97,0,97,0,0,1348240
-"gt49","non.p20","urban",0,100,,0,0,0,0,1348240
-"gt49","p20","primary",,,,,,,,873271
-"gt49","p20","rural",0,0,,0,0,0,0,1348240
-"gt49","p20","secondary",,,,,,,,873271
-"gt49","p20","stunted",0,0,,0,0,0,0,97581
-"gt49","p20","under5",0,0,97,0,0,0,0,1348240
-"gt49","p20","urban",0,0,,0,0,0,0,1348240
-"gt49","primary","rural",,,,,,,,873271
-"gt49","primary","secondary",,,,,,,,873271
-"gt49","primary","stunted",,,,,,,,873271
-"gt49","primary","under5",,,,,,,,873271
-"gt49","primary","urban",,,,,,,,873271
-"gt49","rural","secondary",,,,,,,,873271
-"gt49","rural","stunted",0,,,0,,0,0,97581
-"gt49","rural","under5",0,,97,0,0,0,0,1348240
-"gt49","rural","urban",0,,,0,,0,0,1348240
-"gt49","secondary","stunted",,,,,,,,873271
-"gt49","secondary","under5",,,,,,,,873271
-"gt49","secondary","urban",,,,,,,,873271
-"gt49","stunted","under5",0,,100,0,,0,0,97581
-"gt49","stunted","urban",0,,,0,,0,0,97581
-"gt49","under5","urban",0,97,,0,0,0,0,1348240
-"higher","male","no.birth.reg",,,,,,,,873271
-"higher","male","no.educ",,,,,,,,873271
-"higher","male","no.skilled.attendant",,,,,,,,261647
-"higher","male","non.p20",,,,,,,,873271
-"higher","male","p20",,,,,,,,873271
-"higher","male","primary",,,,,,,,873271
-"higher","male","rural",,,,,,,,873271
-"higher","male","secondary",,,,,,,,873271
-"higher","male","stunted",,,,,,,,873271
-"higher","male","under5",,,,,,,,873271
-"higher","male","urban",,,,,,,,873271
-"higher","no.birth.reg","no.educ",,,,,,,,873271
-"higher","no.birth.reg","no.skilled.attendant",,,,,,,,261647
-"higher","no.birth.reg","non.p20",,,,,,,,873271
-"higher","no.birth.reg","p20",,,,,,,,873271
-"higher","no.birth.reg","primary",,,,,,,,873271
-"higher","no.birth.reg","rural",,,,,,,,873271
-"higher","no.birth.reg","secondary",,,,,,,,873271
-"higher","no.birth.reg","stunted",,,,,,,,873271
-"higher","no.birth.reg","under5",,,,,,,,873271
-"higher","no.birth.reg","urban",,,,,,,,873271
-"higher","no.educ","no.skilled.attendant",,,,,,,,261647
-"higher","no.educ","non.p20",,,,,,,,873271
-"higher","no.educ","p20",,,,,,,,873271
-"higher","no.educ","primary",,,,,,,,873271
-"higher","no.educ","rural",,,,,,,,873271
-"higher","no.educ","secondary",,,,,,,,873271
-"higher","no.educ","stunted",,,,,,,,873271
-"higher","no.educ","under5",,,,,,,,873271
-"higher","no.educ","urban",,,,,,,,873271
-"higher","no.skilled.attendant","non.p20",,,,,,,,261647
-"higher","no.skilled.attendant","p20",,,,,,,,261647
-"higher","no.skilled.attendant","primary",,,,,,,,261647
-"higher","no.skilled.attendant","rural",,,,,,,,261647
-"higher","no.skilled.attendant","secondary",,,,,,,,261647
-"higher","no.skilled.attendant","stunted",,,,,,,,261647
-"higher","no.skilled.attendant","under5",,,,,,,,261647
-"higher","no.skilled.attendant","urban",,,,,,,,261647
-"higher","non.p20","p20",,,,,0,,0,873271
-"higher","non.p20","primary",,,,,,,,873271
-"higher","non.p20","rural",,,,,,,,873271
-"higher","non.p20","secondary",,,,,,,,873271
-"higher","non.p20","stunted",,,,,,,,873271
-"higher","non.p20","under5",,,,,,,,873271
-"higher","non.p20","urban",,,,,,,,873271
-"higher","p20","primary",,,,,,,,873271
-"higher","p20","rural",,,,,,,,873271
-"higher","p20","secondary",,,,,,,,873271
-"higher","p20","stunted",,,,,,,,873271
-"higher","p20","under5",,,,,,,,873271
-"higher","p20","urban",,,,,,,,873271
-"higher","primary","rural",,,,,,,,873271
-"higher","primary","secondary",,,,,,,,873271
-"higher","primary","stunted",,,,,,,,873271
-"higher","primary","under5",,,,,,,,873271
-"higher","primary","urban",,,,,,,,873271
-"higher","rural","secondary",,,,,,,,873271
-"higher","rural","stunted",,,,,,,,873271
-"higher","rural","under5",,,,,,,,873271
-"higher","rural","urban",,,,,,,,873271
-"higher","secondary","stunted",,,,,,,,873271
-"higher","secondary","under5",,,,,,,,873271
-"higher","secondary","urban",,,,,,,,873271
-"higher","stunted","under5",,,,,,,,873271
-"higher","stunted","urban",,,,,,,,873271
-"higher","under5","urban",,,,,,,,873271
-"male","no.birth.reg","no.educ",,,,,,,,873271
-"male","no.birth.reg","no.skilled.attendant",,,,,,,,97581
-"male","no.birth.reg","non.p20",52,4,100,0,4,52,0,97581
-"male","no.birth.reg","p20",52,4,0,0,0,0,0,97581
-"male","no.birth.reg","primary",,,,,,,,873271
-"male","no.birth.reg","rural",52,4,,0,0,0,0,97581
-"male","no.birth.reg","secondary",,,,,,,,873271
-"male","no.birth.reg","stunted",52,4,,0,0,0,0,97581
-"male","no.birth.reg","under5",52,4,100,0,4,52,0,97581
-"male","no.birth.reg","urban",52,4,,0,0,0,0,97581
-"male","no.educ","no.skilled.attendant",,,,,,,,261647
-"male","no.educ","non.p20",,,,,,,,873271
-"male","no.educ","p20",,,,,,,,873271
-"male","no.educ","primary",,,,,,,,873271
-"male","no.educ","rural",,,,,,,,873271
-"male","no.educ","secondary",,,,,,,,873271
-"male","no.educ","stunted",,,,,,,,873271
-"male","no.educ","under5",,,,,,,,873271
-"male","no.educ","urban",,,,,,,,873271
-"male","no.skilled.attendant","non.p20",0,0,100,0,0,0,0,358190
-"male","no.skilled.attendant","p20",0,0,0,0,0,0,0,358190
-"male","no.skilled.attendant","primary",,,,,,,,261647
-"male","no.skilled.attendant","rural",0,0,,0,,,,358190
-"male","no.skilled.attendant","secondary",,,,,,,,261647
-"male","no.skilled.attendant","stunted",,,,,,,,97581
-"male","no.skilled.attendant","under5",0,0,0,0,0,0,0,358190
-"male","no.skilled.attendant","urban",0,0,,0,,,,358190
-"male","non.p20","p20",51,100,0,50,0,0,0,1348240
-"male","non.p20","primary",,,,,,,,873271
-"male","non.p20","rural",51,100,,50,0,0,0,1348240
-"male","non.p20","secondary",,,,,,,,873271
-"male","non.p20","stunted",52,100,,52,0,0,0,97581
-"male","non.p20","under5",51,100,97,50,97,51,50,1348240
-"male","non.p20","urban",51,100,,50,0,0,0,1348240
-"male","p20","primary",,,,,,,,873271
-"male","p20","rural",51,0,,0,0,0,0,1348240
-"male","p20","secondary",,,,,,,,873271
-"male","p20","stunted",52,0,,0,0,0,0,97581
-"male","p20","under5",51,0,97,0,0,51,0,1348240
-"male","p20","urban",51,0,,0,0,0,0,1348240
-"male","primary","rural",,,,,,,,873271
-"male","primary","secondary",,,,,,,,873271
-"male","primary","stunted",,,,,,,,873271
-"male","primary","under5",,,,,,,,873271
-"male","primary","urban",,,,,,,,873271
-"male","rural","secondary",,,,,,,,873271
-"male","rural","stunted",52,,,0,,0,0,97581
-"male","rural","under5",51,,97,0,0,51,0,1348240
-"male","rural","urban",51,,,0,,0,0,1348240
-"male","secondary","stunted",,,,,,,,873271
-"male","secondary","under5",,,,,,,,873271
-"male","secondary","urban",,,,,,,,873271
-"male","stunted","under5",52,,100,0,,52,0,97581
-"male","stunted","urban",52,,,0,,0,0,97581
-"male","under5","urban",51,97,,51,0,0,0,1348240
-"no.birth.reg","no.educ","no.skilled.attendant",,,,,,,,261647
-"no.birth.reg","no.educ","non.p20",,,,,,,,873271
-"no.birth.reg","no.educ","p20",,,,,,,,873271
-"no.birth.reg","no.educ","primary",,,,,,,,873271
-"no.birth.reg","no.educ","rural",,,,,,,,873271
-"no.birth.reg","no.educ","secondary",,,,,,,,873271
-"no.birth.reg","no.educ","stunted",,,,,,,,873271
-"no.birth.reg","no.educ","under5",,,,,,,,873271
-"no.birth.reg","no.educ","urban",,,,,,,,873271
-"no.birth.reg","no.skilled.attendant","non.p20",,,,,,,,97581
-"no.birth.reg","no.skilled.attendant","p20",,,,,,,,97581
-"no.birth.reg","no.skilled.attendant","primary",,,,,,,,261647
-"no.birth.reg","no.skilled.attendant","rural",,,,,,,,97581
-"no.birth.reg","no.skilled.attendant","secondary",,,,,,,,261647
-"no.birth.reg","no.skilled.attendant","stunted",,,,,,,,97581
-"no.birth.reg","no.skilled.attendant","under5",,,,,,,,97581
-"no.birth.reg","no.skilled.attendant","urban",,,,,,,,97581
-"no.birth.reg","non.p20","p20",4,100,0,4,0,0,0,97581
-"no.birth.reg","non.p20","primary",,,,,,,,873271
-"no.birth.reg","non.p20","rural",4,100,,4,0,0,0,97581
-"no.birth.reg","non.p20","secondary",,,,,,,,873271
-"no.birth.reg","non.p20","stunted",4,100,,4,0,0,0,97581
-"no.birth.reg","non.p20","under5",4,100,100,4,100,4,4,97581
-"no.birth.reg","non.p20","urban",4,100,,4,0,0,0,97581
-"no.birth.reg","p20","primary",,,,,,,,873271
-"no.birth.reg","p20","rural",4,0,,0,0,0,0,97581
-"no.birth.reg","p20","secondary",,,,,,,,873271
-"no.birth.reg","p20","stunted",4,0,,0,0,0,0,97581
-"no.birth.reg","p20","under5",4,0,100,0,0,4,0,97581
-"no.birth.reg","p20","urban",4,0,,0,0,0,0,97581
-"no.birth.reg","primary","rural",,,,,,,,873271
-"no.birth.reg","primary","secondary",,,,,,,,873271
-"no.birth.reg","primary","stunted",,,,,,,,873271
-"no.birth.reg","primary","under5",,,,,,,,873271
-"no.birth.reg","primary","urban",,,,,,,,873271
-"no.birth.reg","rural","secondary",,,,,,,,873271
-"no.birth.reg","rural","stunted",4,,,0,,0,0,97581
-"no.birth.reg","rural","under5",4,,100,0,,4,0,97581
-"no.birth.reg","rural","urban",4,,,0,,0,0,97581
-"no.birth.reg","secondary","stunted",,,,,,,,873271
-"no.birth.reg","secondary","under5",,,,,,,,873271
-"no.birth.reg","secondary","urban",,,,,,,,873271
-"no.birth.reg","stunted","under5",4,,100,0,,4,0,97581
-"no.birth.reg","stunted","urban",4,,,0,,0,0,97581
-"no.birth.reg","under5","urban",4,100,,4,,0,0,97581
-"no.educ","no.skilled.attendant","non.p20",,,,,,,,261647
-"no.educ","no.skilled.attendant","p20",,,,,,,,261647
-"no.educ","no.skilled.attendant","primary",,,,,,,,261647
-"no.educ","no.skilled.attendant","rural",,,,,,,,261647
-"no.educ","no.skilled.attendant","secondary",,,,,,,,261647
-"no.educ","no.skilled.attendant","stunted",,,,,,,,261647
-"no.educ","no.skilled.attendant","under5",,,,,,,,261647
-"no.educ","no.skilled.attendant","urban",,,,,,,,261647
-"no.educ","non.p20","p20",,,,,0,,0,873271
-"no.educ","non.p20","primary",,,,,,,,873271
-"no.educ","non.p20","rural",,,,,,,,873271
-"no.educ","non.p20","secondary",,,,,,,,873271
-"no.educ","non.p20","stunted",,,,,,,,873271
-"no.educ","non.p20","under5",,,,,,,,873271
-"no.educ","non.p20","urban",,,,,,,,873271
-"no.educ","p20","primary",,,,,,,,873271
-"no.educ","p20","rural",,,,,,,,873271
-"no.educ","p20","secondary",,,,,,,,873271
-"no.educ","p20","stunted",,,,,,,,873271
-"no.educ","p20","under5",,,,,,,,873271
-"no.educ","p20","urban",,,,,,,,873271
-"no.educ","primary","rural",,,,,,,,873271
-"no.educ","primary","secondary",,,,,,,,873271
-"no.educ","primary","stunted",,,,,,,,873271
-"no.educ","primary","under5",,,,,,,,873271
-"no.educ","primary","urban",,,,,,,,873271
-"no.educ","rural","secondary",,,,,,,,873271
-"no.educ","rural","stunted",,,,,,,,873271
-"no.educ","rural","under5",,,,,,,,873271
-"no.educ","rural","urban",,,,,,,,873271
-"no.educ","secondary","stunted",,,,,,,,873271
-"no.educ","secondary","under5",,,,,,,,873271
-"no.educ","secondary","urban",,,,,,,,873271
-"no.educ","stunted","under5",,,,,,,,873271
-"no.educ","stunted","urban",,,,,,,,873271
-"no.educ","under5","urban",,,,,,,,873271
-"no.skilled.attendant","non.p20","p20",0,100,0,0,0,0,0,358190
-"no.skilled.attendant","non.p20","primary",,,,,,,,261647
-"no.skilled.attendant","non.p20","rural",0,100,,0,,,,358190
-"no.skilled.attendant","non.p20","secondary",,,,,,,,261647
-"no.skilled.attendant","non.p20","stunted",,,,,,,,97581
-"no.skilled.attendant","non.p20","under5",0,100,0,0,0,0,0,358190
-"no.skilled.attendant","non.p20","urban",0,100,,0,,,,358190
-"no.skilled.attendant","p20","primary",,,,,,,,261647
-"no.skilled.attendant","p20","rural",0,0,,0,,,,358190
-"no.skilled.attendant","p20","secondary",,,,,,,,261647
-"no.skilled.attendant","p20","stunted",,,,,,,,97581
-"no.skilled.attendant","p20","under5",0,0,0,0,0,0,0,358190
-"no.skilled.attendant","p20","urban",0,0,,0,,,,358190
-"no.skilled.attendant","primary","rural",,,,,,,,261647
-"no.skilled.attendant","primary","secondary",,,,,,,,261647
-"no.skilled.attendant","primary","stunted",,,,,,,,261647
-"no.skilled.attendant","primary","under5",,,,,,,,261647
-"no.skilled.attendant","primary","urban",,,,,,,,261647
-"no.skilled.attendant","rural","secondary",,,,,,,,261647
-"no.skilled.attendant","rural","stunted",,,,,,,,97581
-"no.skilled.attendant","rural","under5",0,,0,,,0,,358190
-"no.skilled.attendant","rural","urban",0,,,,,,,358190
-"no.skilled.attendant","secondary","stunted",,,,,,,,261647
-"no.skilled.attendant","secondary","under5",,,,,,,,261647
-"no.skilled.attendant","secondary","urban",,,,,,,,261647
-"no.skilled.attendant","stunted","under5",,,,,,,,97581
-"no.skilled.attendant","stunted","urban",,,,,,,,97581
-"no.skilled.attendant","under5","urban",0,0,,0,,,,358190
-"non.p20","p20","primary",,,,0,,,0,873271
-"non.p20","p20","rural",100,0,,0,0,0,0,1348240
-"non.p20","p20","secondary",,,,0,,,0,873271
-"non.p20","p20","stunted",100,0,,0,0,0,0,97581
-"non.p20","p20","under5",100,0,97,0,0,97,0,1348240
-"non.p20","p20","urban",100,0,,0,0,0,0,1348240
-"non.p20","primary","rural",,,,,,,,873271
-"non.p20","primary","secondary",,,,,,,,873271
-"non.p20","primary","stunted",,,,,,,,873271
-"non.p20","primary","under5",,,,,,,,873271
-"non.p20","primary","urban",,,,,,,,873271
-"non.p20","rural","secondary",,,,,,,,873271
-"non.p20","rural","stunted",100,,,0,,0,0,97581
-"non.p20","rural","under5",100,,97,0,0,97,0,1348240
-"non.p20","rural","urban",100,,,0,,0,0,1348240
-"non.p20","secondary","stunted",,,,,,,,873271
-"non.p20","secondary","under5",,,,,,,,873271
-"non.p20","secondary","urban",,,,,,,,873271
-"non.p20","stunted","under5",100,,100,0,,100,0,97581
-"non.p20","stunted","urban",100,,,0,,0,0,97581
-"non.p20","under5","urban",100,97,,97,0,0,0,1348240
-"p20","primary","rural",,,,,,,,873271
-"p20","primary","secondary",,,,,,,,873271
-"p20","primary","stunted",,,,,,,,873271
-"p20","primary","under5",,,,,,,,873271
-"p20","primary","urban",,,,,,,,873271
-"p20","rural","secondary",,,,,,,,873271
-"p20","rural","stunted",0,,,0,,0,0,97581
-"p20","rural","under5",0,,97,0,0,0,0,1348240
-"p20","rural","urban",0,,,0,,0,0,1348240
-"p20","secondary","stunted",,,,,,,,873271
-"p20","secondary","under5",,,,,,,,873271
-"p20","secondary","urban",,,,,,,,873271
-"p20","stunted","under5",0,,100,0,,0,0,97581
-"p20","stunted","urban",0,,,0,,0,0,97581
-"p20","under5","urban",0,97,,0,0,0,0,1348240
-"primary","rural","secondary",,,,,,,,873271
-"primary","rural","stunted",,,,,,,,873271
-"primary","rural","under5",,,,,,,,873271
-"primary","rural","urban",,,,,,,,873271
-"primary","secondary","stunted",,,,,,,,873271
-"primary","secondary","under5",,,,,,,,873271
-"primary","secondary","urban",,,,,,,,873271
-"primary","stunted","under5",,,,,,,,873271
-"primary","stunted","urban",,,,,,,,873271
-"primary","under5","urban",,,,,,,,873271
-"rural","secondary","stunted",,,,,,,,873271
-"rural","secondary","under5",,,,,,,,873271
-"rural","secondary","urban",,,,,,,,873271
-"rural","stunted","under5",,,100,,,,,97581
-"rural","stunted","urban",,,,,,,,97581
-"rural","under5","urban",,97,,0,0,,0,1348240
-"secondary","stunted","under5",,,,,,,,873271
-"secondary","stunted","urban",,,,,,,,873271
-"secondary","under5","urban",,,,,,,,873271
-"stunted","under5","urban",,100,,,,,,97581
+"filename","indicator1","indicator2","indicator3","X","Y","Z","X,Y","Y,Z","X,Z","X,Y,Z","pop"
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","ext",100,100,0,100,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","female",100,100,49,100,49,49,49,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","fifteento49",100,100,54,100,54,54,54,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","fiveto14",100,100,15,100,15,15,15,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","gt49",100,100,25,100,25,25,25,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","higher",100,100,17,100,17,17,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","male",100,100,51,100,51,51,51,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","no.birth.reg",100,100,3,100,3,3,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","no.educ",100,100,4,100,4,4,4,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","non.p20",100,100,100,100,100,100,100,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","p20",100,100,0,100,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","primary",100,100,96,100,96,96,96,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","rural",100,100,,100,,,,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","secondary",100,100,60,100,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","stunted",100,100,,100,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","under5",100,100,6,100,6,6,6,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","blank2","urban",100,100,,100,,,,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","female",100,0,49,0,0,49,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","fifteento49",100,0,54,0,0,54,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","fiveto14",100,0,15,0,0,15,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","gt49",100,0,25,0,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","higher",100,0,17,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","male",100,0,51,0,0,51,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","no.educ",100,0,4,0,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","non.p20",100,0,100,0,0,100,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","p20",100,0,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","rural",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","under5",100,0,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","ext","urban",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","fifteento49",100,49,54,49,26,54,26,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","fiveto14",100,49,15,49,7,15,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","gt49",100,49,25,49,13,25,13,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","higher",100,50,17,50,8,17,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","male",100,49,51,49,0,51,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","no.birth.reg",100,49,3,49,2,3,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","no.educ",100,50,4,50,2,4,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","non.p20",100,49,100,49,49,100,49,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","p20",100,49,0,49,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","primary",100,50,96,50,47,96,47,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","rural",100,49,,49,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","secondary",100,50,60,50,29,60,29,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","stunted",100,49,,49,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","under5",100,49,6,49,3,6,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","female","urban",100,49,,49,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","fiveto14",100,54,15,54,0,15,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","gt49",100,54,25,54,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","higher",100,59,17,59,11,17,11,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","male",100,54,51,54,28,51,28,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","no.educ",100,59,4,59,1,4,1,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","non.p20",100,54,100,54,54,100,54,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","p20",100,54,0,54,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","primary",100,59,96,59,58,96,58,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","rural",100,54,,54,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","secondary",100,59,60,59,44,60,44,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","under5",100,54,6,54,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fifteento49","urban",100,54,,54,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","gt49",100,15,25,15,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","higher",100,0,17,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","male",100,15,51,15,7,51,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","no.educ",100,0,4,0,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","non.p20",100,15,100,15,15,100,15,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","p20",100,15,0,15,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","rural",100,15,,15,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","under5",100,15,6,15,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","fiveto14","urban",100,15,,15,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","higher",100,41,17,41,6,17,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","male",100,25,51,25,12,51,12,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","no.educ",100,41,4,41,3,4,3,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","non.p20",100,25,100,25,25,100,25,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","p20",100,25,0,25,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","primary",100,41,96,41,37,96,37,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","rural",100,25,,25,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","secondary",100,41,60,41,15,60,15,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","under5",100,25,6,25,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","gt49","urban",100,25,,25,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","male",100,17,50,17,8,50,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","no.educ",100,17,4,17,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","no.skilled.attendant",100,23,4,23,1,4,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","non.p20",100,17,100,17,17,100,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","p20",100,17,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","primary",100,17,96,17,17,96,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","rural",100,17,,17,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","secondary",100,17,60,17,17,60,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","under5",100,17,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","higher","urban",100,17,,17,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","no.birth.reg",100,51,3,51,2,3,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","no.educ",100,50,4,50,2,4,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","non.p20",100,51,100,51,50,100,50,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","p20",100,51,0,51,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","primary",100,50,96,50,48,96,48,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","rural",100,51,,51,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","secondary",100,50,60,50,30,60,30,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","stunted",100,51,,51,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","under5",100,51,6,51,3,6,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","male","urban",100,51,,51,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","non.p20",100,3,99,3,3,99,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","p20",100,3,1,3,0,1,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","rural",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","stunted",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","under5",100,3,100,3,3,100,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.birth.reg","urban",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","no.skilled.attendant",100,0,4,0,0,4,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","non.p20",100,4,100,4,4,100,4,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","p20",100,4,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","primary",100,4,96,4,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","rural",100,4,,4,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","secondary",100,4,60,4,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","under5",100,4,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.educ","urban",100,4,,4,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","non.p20",100,4,99,4,4,99,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","p20",100,4,1,4,0,1,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","primary",100,4,100,4,4,100,4,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","rural",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","secondary",100,4,86,4,3,86,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","under5",100,4,0,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","no.skilled.attendant","urban",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","p20",100,100,0,100,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","primary",100,100,96,100,96,96,96,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","rural",100,100,,100,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","secondary",100,100,60,100,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","stunted",100,99,,99,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","under5",100,100,6,100,6,6,6,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","non.p20","urban",100,100,,100,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","rural",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","stunted",100,1,,1,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","under5",100,0,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","p20","urban",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","primary","rural",100,96,,96,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","primary","secondary",100,96,60,96,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","primary","under5",100,96,0,96,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","primary","urban",100,96,,96,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","rural","secondary",100,,60,,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","rural","stunted",100,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","rural","under5",100,,6,,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","rural","urban",100,,,,,,,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","secondary","under5",100,60,0,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","secondary","urban",100,60,,60,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","stunted","under5",100,,100,,,100,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","stunted","urban",100,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank1","under5","urban",100,6,,6,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","female",100,0,49,0,0,49,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","fifteento49",100,0,54,0,0,54,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","fiveto14",100,0,15,0,0,15,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","gt49",100,0,25,0,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","higher",100,0,17,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","male",100,0,51,0,0,51,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","no.educ",100,0,4,0,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","non.p20",100,0,100,0,0,100,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","p20",100,0,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","rural",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","under5",100,0,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","ext","urban",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","fifteento49",100,49,54,49,26,54,26,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","fiveto14",100,49,15,49,7,15,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","gt49",100,49,25,49,13,25,13,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","higher",100,50,17,50,8,17,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","male",100,49,51,49,0,51,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","no.birth.reg",100,49,3,49,2,3,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","no.educ",100,50,4,50,2,4,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","non.p20",100,49,100,49,49,100,49,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","p20",100,49,0,49,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","primary",100,50,96,50,47,96,47,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","rural",100,49,,49,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","secondary",100,50,60,50,29,60,29,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","stunted",100,49,,49,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","under5",100,49,6,49,3,6,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","female","urban",100,49,,49,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","fiveto14",100,54,15,54,0,15,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","gt49",100,54,25,54,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","higher",100,59,17,59,11,17,11,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","male",100,54,51,54,28,51,28,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","no.educ",100,59,4,59,1,4,1,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","non.p20",100,54,100,54,54,100,54,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","p20",100,54,0,54,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","primary",100,59,96,59,58,96,58,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","rural",100,54,,54,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","secondary",100,59,60,59,44,60,44,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","under5",100,54,6,54,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fifteento49","urban",100,54,,54,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","gt49",100,15,25,15,0,25,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","higher",100,0,17,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","male",100,15,51,15,7,51,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","no.educ",100,0,4,0,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","non.p20",100,15,100,15,15,100,15,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","p20",100,15,0,15,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","rural",100,15,,15,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","under5",100,15,6,15,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","fiveto14","urban",100,15,,15,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","higher",100,41,17,41,6,17,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","male",100,25,51,25,12,51,12,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","no.birth.reg",100,0,3,0,0,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","no.educ",100,41,4,41,3,4,3,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","non.p20",100,25,100,25,25,100,25,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","p20",100,25,0,25,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","primary",100,41,96,41,37,96,37,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","rural",100,25,,25,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","secondary",100,41,60,41,15,60,15,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","stunted",100,0,,0,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","under5",100,25,6,25,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","gt49","urban",100,25,,25,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","male",100,17,50,17,8,50,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","no.educ",100,17,4,17,0,4,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","no.skilled.attendant",100,23,4,23,1,4,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","non.p20",100,17,100,17,17,100,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","p20",100,17,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","primary",100,17,96,17,17,96,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","rural",100,17,,17,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","secondary",100,17,60,17,17,60,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","under5",100,17,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","higher","urban",100,17,,17,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","no.birth.reg",100,51,3,51,2,3,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","no.educ",100,50,4,50,2,4,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","non.p20",100,51,100,51,50,100,50,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","p20",100,51,0,51,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","primary",100,50,96,50,48,96,48,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","rural",100,51,,51,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","secondary",100,50,60,50,30,60,30,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","stunted",100,51,,51,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","under5",100,51,6,51,3,6,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","male","urban",100,51,,51,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","non.p20",100,3,99,3,3,99,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","p20",100,3,1,3,0,1,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","rural",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","stunted",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","under5",100,3,100,3,3,100,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.birth.reg","urban",100,3,,3,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","no.skilled.attendant",100,0,4,0,0,4,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","non.p20",100,4,100,4,4,100,4,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","p20",100,4,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","primary",100,4,96,4,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","rural",100,4,,4,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","secondary",100,4,60,4,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","under5",100,4,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.educ","urban",100,4,,4,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","non.p20",100,4,99,4,4,99,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","p20",100,4,1,4,0,1,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","primary",100,4,100,4,4,100,4,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","rural",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","secondary",100,4,86,4,3,86,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","under5",100,4,0,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","no.skilled.attendant","urban",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","p20",100,100,0,100,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","primary",100,100,96,100,96,96,96,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","rural",100,100,,100,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","secondary",100,100,60,100,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","stunted",100,99,,99,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","under5",100,100,6,100,6,6,6,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","non.p20","urban",100,100,,100,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","rural",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","stunted",100,1,,1,0,,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","under5",100,0,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","p20","urban",100,0,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","primary","rural",100,96,,96,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","primary","secondary",100,96,60,96,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","primary","under5",100,96,0,96,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","primary","urban",100,96,,96,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","rural","secondary",100,,60,,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","rural","stunted",100,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","rural","under5",100,,6,,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","rural","urban",100,,,,,,,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","secondary","under5",100,60,0,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","secondary","urban",100,60,,60,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","stunted","under5",100,,100,,,100,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","stunted","urban",100,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","blank2","under5","urban",100,6,,6,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","fifteento49",0,49,54,0,26,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","fiveto14",0,49,15,0,7,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","gt49",0,49,25,0,13,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","higher",0,50,17,0,8,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","male",0,49,51,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","no.birth.reg",0,49,3,0,2,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","no.educ",0,50,4,0,2,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","no.skilled.attendant",0,100,4,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","non.p20",0,49,100,0,49,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","p20",0,49,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","primary",0,50,96,0,47,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","rural",0,49,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","secondary",0,50,60,0,29,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","stunted",0,49,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","under5",0,49,6,0,3,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","female","urban",0,49,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","fiveto14",0,54,15,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","gt49",0,54,25,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","higher",0,59,17,0,11,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","male",0,54,51,0,28,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","no.educ",0,59,4,0,1,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","no.skilled.attendant",0,100,4,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","non.p20",0,54,100,0,54,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","p20",0,54,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","primary",0,59,96,0,58,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","rural",0,54,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","secondary",0,59,60,0,44,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","under5",0,54,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fifteento49","urban",0,54,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","gt49",0,15,25,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","higher",0,0,17,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","male",0,15,51,0,7,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","no.educ",0,0,4,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","non.p20",0,15,100,0,15,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","p20",0,15,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","primary",0,0,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","rural",0,15,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","secondary",0,0,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","under5",0,15,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","fiveto14","urban",0,15,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","higher",0,41,17,0,6,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","male",0,25,51,0,12,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","no.educ",0,41,4,0,3,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","non.p20",0,25,100,0,25,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","p20",0,25,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","primary",0,41,96,0,37,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","rural",0,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","secondary",0,41,60,0,15,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","under5",0,25,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","gt49","urban",0,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","male",0,17,50,0,8,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","no.educ",0,17,4,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","no.skilled.attendant",0,23,4,0,1,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","non.p20",0,17,100,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","p20",0,17,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","primary",0,17,96,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","rural",0,17,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","secondary",0,17,60,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","under5",0,17,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","higher","urban",0,17,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","no.birth.reg",0,51,3,0,2,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","no.educ",0,50,4,0,2,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","non.p20",0,51,100,0,50,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","p20",0,51,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","primary",0,50,96,0,48,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","rural",0,51,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","secondary",0,50,60,0,30,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","stunted",0,51,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","under5",0,51,6,0,3,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","male","urban",0,51,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","non.p20",0,3,99,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","p20",0,3,1,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","rural",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","stunted",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","under5",0,3,100,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.birth.reg","urban",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","no.skilled.attendant",0,0,4,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","non.p20",0,4,100,0,4,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","p20",0,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","primary",0,4,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","rural",0,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","secondary",0,4,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","under5",0,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.educ","urban",0,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","non.p20",0,4,99,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","p20",0,4,1,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","primary",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","rural",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","secondary",0,4,86,0,3,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","under5",0,4,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","no.skilled.attendant","urban",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","p20",0,100,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","primary",0,100,96,0,96,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","rural",0,100,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","secondary",0,100,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","stunted",0,99,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","under5",0,100,6,0,6,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","non.p20","urban",0,100,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","primary",0,0,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","rural",0,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","secondary",0,0,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","stunted",0,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","under5",0,0,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","p20","urban",0,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","primary","rural",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","primary","secondary",0,96,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","primary","under5",0,96,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","primary","urban",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","rural","secondary",0,,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","rural","stunted",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","rural","under5",0,,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","rural","urban",0,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","secondary","under5",0,60,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","secondary","urban",0,60,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","stunted","under5",0,,100,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","stunted","urban",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","ext","under5","urban",0,6,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","fiveto14",49,54,15,26,0,7,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","gt49",49,54,25,26,0,13,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","higher",50,59,17,28,11,8,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","male",49,54,51,26,28,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","no.birth.reg",49,0,3,0,0,2,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","no.educ",50,59,4,28,1,2,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","no.skilled.attendant",100,100,4,100,4,4,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","non.p20",49,54,100,26,54,49,26,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","p20",49,54,0,26,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","primary",50,59,96,28,58,47,28,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","rural",49,54,,26,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","secondary",50,59,60,28,44,29,21,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","stunted",49,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","under5",49,54,6,26,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fifteento49","urban",49,54,,26,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","gt49",49,15,25,7,0,13,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","higher",50,0,17,0,0,8,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","male",49,15,51,7,7,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","no.birth.reg",49,0,3,0,0,2,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","no.educ",50,0,4,0,0,2,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","non.p20",49,15,100,7,15,49,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","p20",49,15,0,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","primary",50,0,96,0,0,47,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","rural",49,15,,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","secondary",50,0,60,0,0,29,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","stunted",49,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","under5",49,15,6,7,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","fiveto14","urban",49,15,,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","higher",50,41,17,22,6,8,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","male",49,25,51,13,12,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","no.birth.reg",49,0,3,0,0,2,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","no.educ",50,41,4,22,3,2,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","non.p20",49,25,100,13,25,49,13,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","p20",49,25,0,13,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","primary",50,41,96,22,37,47,19,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","rural",49,25,,13,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","secondary",50,41,60,22,15,29,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","stunted",49,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","under5",49,25,6,13,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","gt49","urban",49,25,,13,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","male",50,17,50,8,8,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","no.educ",50,17,4,8,0,2,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","no.skilled.attendant",100,23,4,23,1,4,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","non.p20",50,17,100,8,17,50,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","p20",50,17,0,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","primary",50,17,96,8,17,47,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","rural",50,17,,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","secondary",50,17,60,8,17,29,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","under5",50,17,0,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","higher","urban",50,17,,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","no.birth.reg",49,51,3,0,2,2,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","no.educ",50,50,4,0,2,2,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","non.p20",49,51,100,0,50,49,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","p20",49,51,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","primary",50,50,96,0,48,47,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","rural",49,51,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","secondary",50,50,60,0,30,29,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","stunted",49,51,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","under5",49,51,6,0,3,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","male","urban",49,51,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","non.p20",49,3,99,2,3,49,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","p20",49,3,1,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","rural",49,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","stunted",49,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","under5",49,3,100,2,3,49,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.birth.reg","urban",49,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","no.skilled.attendant",100,0,4,0,0,4,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","non.p20",50,4,100,2,4,50,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","p20",50,4,0,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","primary",50,4,96,2,0,47,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","rural",50,4,,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","secondary",50,4,60,2,0,29,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","under5",50,4,0,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.educ","urban",50,4,,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","non.p20",100,4,99,4,4,99,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","p20",100,4,1,4,0,1,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","primary",100,4,100,4,4,100,4,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","rural",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","secondary",100,4,86,4,3,86,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","under5",100,4,0,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","no.skilled.attendant","urban",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","p20",49,100,0,49,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","primary",50,100,96,50,96,47,47,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","rural",49,100,,49,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","secondary",50,100,60,50,60,29,29,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","stunted",49,99,,49,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","under5",49,100,6,49,6,3,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","non.p20","urban",49,100,,49,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","primary",50,0,96,0,0,47,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","rural",49,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","secondary",50,0,60,0,0,29,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","stunted",49,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","under5",49,0,6,0,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","p20","urban",49,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","primary","rural",50,96,,47,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","primary","secondary",50,96,60,47,60,29,29,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","primary","under5",50,96,0,47,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","primary","urban",50,96,,47,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","rural","secondary",50,,60,0,0,29,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","rural","stunted",49,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","rural","under5",49,,6,0,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","rural","urban",49,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","secondary","under5",50,60,0,29,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","secondary","urban",50,60,,29,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","stunted","under5",49,,100,0,,49,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","stunted","urban",49,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","female","under5","urban",49,6,,3,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","gt49",54,15,25,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","higher",59,0,17,0,0,11,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","male",54,15,51,0,7,28,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.educ",59,0,4,0,0,1,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","non.p20",54,15,100,0,15,54,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","p20",54,15,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","primary",59,0,96,0,0,58,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","rural",54,15,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","secondary",59,0,60,0,0,44,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","under5",54,15,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","fiveto14","urban",54,15,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","higher",59,41,17,0,6,11,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","male",54,25,51,0,12,28,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","no.educ",59,41,4,0,3,1,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","non.p20",54,25,100,0,25,54,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","p20",54,25,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","primary",59,41,96,0,37,58,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","rural",54,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","secondary",59,41,60,0,15,44,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","under5",54,25,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","gt49","urban",54,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","male",59,17,50,11,8,31,5,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","no.educ",59,17,4,11,0,1,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","no.skilled.attendant",100,23,4,23,1,4,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","non.p20",59,17,100,11,17,58,11,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","p20",59,17,0,11,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","primary",59,17,96,11,17,58,11,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","rural",59,17,,11,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","secondary",59,17,60,11,17,44,11,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","under5",59,17,0,11,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","higher","urban",59,17,,11,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","no.birth.reg",0,51,3,0,2,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","no.educ",59,50,4,31,2,1,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","no.skilled.attendant",100,0,4,0,0,4,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","non.p20",54,51,100,28,50,54,28,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","p20",54,51,0,28,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","primary",59,50,96,31,48,58,30,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","rural",54,51,,28,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","secondary",59,50,60,31,30,44,23,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","stunted",0,51,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","under5",54,51,6,28,3,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","male","urban",54,51,,28,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","non.p20",0,3,99,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","p20",0,3,1,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","rural",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","stunted",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","under5",0,3,100,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.birth.reg","urban",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","no.skilled.attendant",100,0,4,0,0,4,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","non.p20",59,4,100,1,4,58,1,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","p20",59,4,0,1,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","primary",59,4,96,1,0,58,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","rural",59,4,,1,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","secondary",59,4,60,1,0,44,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","under5",59,4,0,1,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.educ","urban",59,4,,1,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","non.p20",100,4,99,4,4,99,4,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","p20",100,4,1,4,0,1,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","primary",100,4,100,4,4,100,4,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","rural",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","secondary",100,4,86,4,3,86,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","under5",100,4,0,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","no.skilled.attendant","urban",100,4,,4,0,,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","p20",54,100,0,54,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","primary",59,100,96,58,96,58,57,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","rural",54,100,,54,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","secondary",59,100,60,58,60,44,44,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","stunted",0,99,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","under5",54,100,6,54,6,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","non.p20","urban",54,100,,54,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","primary",59,0,96,0,0,58,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","rural",54,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","secondary",59,0,60,0,0,44,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","stunted",0,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","under5",54,0,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","p20","urban",54,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","primary","rural",59,96,,58,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","primary","secondary",59,96,60,58,60,44,44,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","primary","under5",59,96,0,58,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","primary","urban",59,96,,58,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","rural","secondary",59,,60,0,0,44,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","rural","stunted",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","rural","under5",54,,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","rural","urban",54,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","secondary","under5",59,60,0,44,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","secondary","urban",59,60,,44,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","stunted","under5",0,,100,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","stunted","urban",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fifteento49","under5","urban",54,6,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","higher",0,41,17,0,6,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","male",15,25,51,0,12,7,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","no.birth.reg",0,0,3,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","no.educ",0,41,4,0,3,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","non.p20",15,25,100,0,25,15,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","p20",15,25,0,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","primary",0,41,96,0,37,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","rural",15,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","secondary",0,41,60,0,15,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","stunted",0,0,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","under5",15,25,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","gt49","urban",15,25,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","male",0,17,50,0,8,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","no.educ",0,17,4,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","no.skilled.attendant",0,23,4,0,1,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","non.p20",0,17,100,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","p20",0,17,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","primary",0,17,96,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","rural",0,17,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","secondary",0,17,60,0,17,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","under5",0,17,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","higher","urban",0,17,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","no.birth.reg",0,51,3,0,2,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","no.educ",0,50,4,0,2,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","non.p20",15,51,100,7,50,15,7,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","p20",15,51,0,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","primary",0,50,96,0,48,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","rural",15,51,,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","secondary",0,50,60,0,30,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","stunted",0,51,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","under5",15,51,6,7,3,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","male","urban",15,51,,7,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","non.p20",0,3,99,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","p20",0,3,1,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","rural",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","stunted",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","under5",0,3,100,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.birth.reg","urban",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","no.skilled.attendant",0,0,4,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","non.p20",0,4,100,0,4,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","p20",0,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","primary",0,4,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","rural",0,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","secondary",0,4,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","under5",0,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.educ","urban",0,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","non.p20",0,4,99,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","p20",0,4,1,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","primary",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","rural",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","secondary",0,4,86,0,3,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","under5",0,4,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","no.skilled.attendant","urban",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","p20",15,100,0,15,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","primary",0,100,96,0,96,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","rural",15,100,,15,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","secondary",0,100,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","stunted",0,99,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","under5",15,100,6,15,6,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","non.p20","urban",15,100,,15,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","primary",0,0,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","rural",15,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","secondary",0,0,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","stunted",0,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","under5",15,0,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","p20","urban",15,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","primary","rural",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","primary","secondary",0,96,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","primary","under5",0,96,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","primary","urban",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","rural","secondary",0,,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","rural","stunted",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","rural","under5",15,,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","rural","urban",15,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","secondary","under5",0,60,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","secondary","urban",0,60,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","stunted","under5",0,,100,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","stunted","urban",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","fiveto14","under5","urban",15,6,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","male",41,17,50,6,8,20,3,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","no.educ",41,17,4,6,0,3,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","no.skilled.attendant",0,23,4,0,1,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","non.p20",41,17,100,6,17,41,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","p20",41,17,0,6,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","primary",41,17,96,6,17,37,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","rural",41,17,,6,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","secondary",41,17,60,6,17,15,6,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","under5",41,17,0,6,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","higher","urban",41,17,,6,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","no.birth.reg",0,51,3,0,2,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","no.educ",41,50,4,20,2,3,1,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","no.skilled.attendant",0,0,4,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","non.p20",25,51,100,12,50,25,12,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","p20",25,51,0,12,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","primary",41,50,96,20,48,37,18,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","rural",25,51,,12,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","secondary",41,50,60,20,30,15,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","stunted",0,51,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","under5",25,51,6,12,3,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","male","urban",25,51,,12,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","non.p20",0,3,99,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","p20",0,3,1,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","rural",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","stunted",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","under5",0,3,100,0,3,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.birth.reg","urban",0,3,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","no.skilled.attendant",0,0,4,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","non.p20",41,4,100,3,4,41,3,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","p20",41,4,0,3,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","primary",41,4,96,3,0,37,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","rural",41,4,,3,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","secondary",41,4,60,3,0,15,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","under5",41,4,0,3,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.educ","urban",41,4,,3,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","non.p20",0,4,99,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","p20",0,4,1,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","primary",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","rural",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","secondary",0,4,86,0,3,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","under5",0,4,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","no.skilled.attendant","urban",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","p20",25,100,0,25,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","primary",41,100,96,41,96,37,37,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","rural",25,100,,25,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","secondary",41,100,60,41,60,15,15,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","stunted",0,99,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","under5",25,100,6,25,6,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","non.p20","urban",25,100,,25,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","primary",41,0,96,0,0,37,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","rural",25,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","secondary",41,0,60,0,0,15,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","stunted",0,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","under5",25,0,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","p20","urban",25,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","primary","rural",41,96,,37,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","primary","secondary",41,96,60,37,60,15,15,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","primary","under5",41,96,0,37,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","primary","urban",41,96,,37,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","rural","secondary",41,,60,0,0,15,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","rural","stunted",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","rural","under5",25,,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","rural","urban",25,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","secondary","under5",41,60,0,15,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","secondary","urban",41,60,,15,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","stunted","under5",0,,100,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","stunted","urban",0,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","gt49","under5","urban",25,6,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","no.birth.reg",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","no.educ",17,50,4,8,2,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","no.skilled.attendant",23,0,4,0,0,1,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","non.p20",17,50,100,8,50,17,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","p20",17,50,0,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","primary",17,50,96,8,48,17,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","rural",17,50,,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","secondary",17,50,60,8,30,17,8,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","under5",17,50,0,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","male","urban",17,50,,8,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","no.skilled.attendant",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","non.p20",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","p20",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","rural",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.birth.reg","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","no.skilled.attendant",23,0,4,0,0,1,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","non.p20",17,4,100,0,4,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","p20",17,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","primary",17,4,96,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","rural",17,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","secondary",17,4,60,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","under5",17,4,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.educ","urban",17,4,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","non.p20",23,4,100,1,4,23,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","p20",23,4,0,1,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","primary",23,4,100,1,4,23,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","rural",23,4,,1,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","secondary",23,4,86,1,3,23,1,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","stunted",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","under5",23,4,0,1,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","no.skilled.attendant","urban",23,4,,1,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","p20",17,100,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","primary",17,100,96,17,96,17,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","rural",17,100,,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","secondary",17,100,60,17,60,17,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","under5",17,100,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","non.p20","urban",17,100,,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","primary",17,0,96,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","rural",17,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","secondary",17,0,60,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","under5",17,0,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","p20","urban",17,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","primary","rural",17,96,,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","primary","secondary",17,96,60,17,60,17,17,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","primary","under5",17,96,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","primary","urban",17,96,,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","rural","secondary",17,,60,0,0,17,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","rural","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","rural","under5",17,,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","rural","urban",17,,,0,,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","secondary","under5",17,60,0,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","secondary","urban",17,60,,17,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","stunted","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","stunted","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","higher","under5","urban",17,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","no.educ",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","no.skilled.attendant",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","non.p20",51,3,99,2,3,50,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","p20",51,3,1,2,0,1,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","rural",51,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","stunted",51,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","under5",51,3,100,2,3,51,2,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.birth.reg","urban",51,3,,2,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","no.skilled.attendant",0,0,4,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","non.p20",50,4,100,2,4,50,2,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","p20",50,4,0,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","primary",50,4,96,2,0,48,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","rural",50,4,,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","secondary",50,4,60,2,0,30,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","under5",50,4,0,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.educ","urban",50,4,,2,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","non.p20",0,4,99,0,4,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","p20",0,4,1,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","primary",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","rural",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","secondary",0,4,86,0,3,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","under5",0,4,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","no.skilled.attendant","urban",0,4,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","p20",51,100,0,50,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","primary",50,100,96,50,96,48,48,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","rural",51,100,,50,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","secondary",50,100,60,50,60,30,30,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","stunted",51,99,,50,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","under5",51,100,6,50,6,3,3,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","non.p20","urban",51,100,,50,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","primary",50,0,96,0,0,48,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","rural",51,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","secondary",50,0,60,0,0,30,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","stunted",51,1,,1,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","under5",51,0,6,0,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","p20","urban",51,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","primary","rural",50,96,,48,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","primary","secondary",50,96,60,48,60,30,30,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","primary","under5",50,96,0,48,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","primary","urban",50,96,,48,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","rural","secondary",50,,60,0,0,30,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","rural","stunted",51,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","rural","under5",51,,6,0,0,3,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","rural","urban",51,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","secondary","under5",50,60,0,30,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","secondary","urban",50,60,,30,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","stunted","under5",51,,100,0,,51,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","stunted","urban",51,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","male","under5","urban",51,6,,3,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","no.skilled.attendant",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","non.p20",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","p20",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","rural",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.educ","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","non.p20",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","p20",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","primary",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","rural",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","secondary",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","under5",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","no.skilled.attendant","urban",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","p20",3,99,1,3,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","rural",3,99,,3,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","stunted",3,99,,3,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","under5",3,99,100,3,99,3,3,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","non.p20","urban",3,99,,3,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","primary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","rural",3,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","stunted",3,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","under5",3,1,100,0,1,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","p20","urban",3,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","primary","rural",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","primary","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","primary","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","primary","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","rural","secondary",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","rural","stunted",3,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","rural","under5",3,,100,0,,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","rural","urban",3,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","secondary","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","secondary","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","stunted","under5",3,,100,0,,3,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","stunted","urban",3,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.birth.reg","under5","urban",3,100,,3,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","non.p20",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","p20",0,4,0,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","primary",0,4,100,0,4,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","rural",0,4,,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","secondary",0,4,86,0,3,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","stunted",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","under5",0,4,0,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","no.skilled.attendant","urban",0,4,,0,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","p20",4,100,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","primary",4,100,96,4,96,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","rural",4,100,,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","secondary",4,100,60,4,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","under5",4,100,0,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","non.p20","urban",4,100,,4,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","primary",4,0,96,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","rural",4,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","secondary",4,0,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","under5",4,0,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","p20","urban",4,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","primary","rural",4,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","primary","secondary",4,96,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","primary","under5",4,96,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","primary","urban",4,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","rural","secondary",4,,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","rural","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","rural","under5",4,,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","rural","urban",4,,,0,,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","secondary","under5",4,60,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","secondary","urban",4,60,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","stunted","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","stunted","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.educ","under5","urban",4,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","p20",4,99,1,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","primary",4,100,100,4,100,4,4,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","rural",4,99,,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","secondary",4,100,86,4,86,3,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","under5",4,99,0,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","non.p20","urban",4,99,,4,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","primary",4,0,100,0,0,4,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","rural",4,1,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","secondary",4,0,86,0,0,3,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","under5",4,1,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","p20","urban",4,1,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","primary","rural",4,100,,4,,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","primary","secondary",4,100,86,4,86,3,3,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","primary","stunted",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","primary","under5",4,100,0,4,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","primary","urban",4,100,,4,,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","rural","secondary",4,,86,0,0,3,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","rural","stunted",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","rural","under5",4,,0,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","rural","urban",4,,,0,,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","stunted",,,,,,,,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","under5",4,86,0,3,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","secondary","urban",4,86,,3,0,0,0,262000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","stunted","under5",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","stunted","urban",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","no.skilled.attendant","under5","urban",4,0,,0,0,0,0,358000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","primary",100,0,96,0,0,96,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","rural",100,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","secondary",100,0,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","stunted",99,1,,0,0,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","under5",100,0,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","p20","urban",100,0,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","primary","rural",100,96,,96,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","primary","secondary",100,96,60,96,60,60,60,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","primary","under5",100,96,0,96,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","primary","urban",100,96,,96,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","rural","secondary",100,,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","rural","stunted",99,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","rural","under5",100,,6,0,0,6,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","rural","urban",100,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","secondary","under5",100,60,0,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","secondary","urban",100,60,,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","stunted","under5",99,,100,0,,99,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","stunted","urban",99,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","non.p20","under5","urban",100,6,,6,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","primary","rural",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","primary","secondary",0,96,60,0,60,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","primary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","primary","under5",0,96,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","primary","urban",0,96,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","rural","secondary",0,,60,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","rural","stunted",1,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","rural","under5",0,,6,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","rural","urban",0,,,0,,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","secondary","under5",0,60,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","secondary","urban",0,60,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","stunted","under5",1,,100,0,,1,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","stunted","urban",1,,,0,,0,0,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","p20","under5","urban",0,6,,0,0,0,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","rural","secondary",96,,60,0,0,60,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","rural","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","rural","under5",96,,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","rural","urban",96,,,0,,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","secondary","under5",96,60,0,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","secondary","urban",96,60,,60,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","stunted","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","stunted","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","primary","under5","urban",96,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","secondary","stunted",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","secondary","under5",,60,0,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","secondary","urban",,60,,0,0,,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","stunted","under5",,,100,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","stunted","urban",,,,,,,,98000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","rural","under5","urban",,6,,0,0,,0,1348000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","secondary","stunted","under5",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","secondary","stunted","urban",,,,,,,,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","secondary","under5","urban",60,0,,0,0,0,0,874000
+"Trinidad and Tobago MICS 2006 SPSS Datasets","stunted","under5","urban",,100,,,,,,98000
