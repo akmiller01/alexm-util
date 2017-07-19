@@ -8,7 +8,13 @@ library(varhandle)
 setwd("C:/Users/Alex/Documents/Data/P20/Meta")
 load("total_tab_data.RData")
 
+all.isos <- read.csv("C:/Users/Alex/Documents/Data/P20/Meta/all.isos.csv",na.strings="")
+dat.filenames <- unique(data.frame(data.total)[c("filename")])
+dat.filenames <- merge(dat.filenames,all.isos,all.x=TRUE)
+dat.isos <- unfactor(unique(dat.filenames$iso2))
+
 surveyless <- read.csv("C:/git/alexm-util/DevInit/P20-vis/venn/raw_povcalnet.csv",na.strings="",as.is=TRUE)
+surveyless <- subset(surveyless,!(iso2 %in% dat.isos))
 # data_total_blank = data.total[0,]
 # surveyless_survey <- rbind(surveyless,data_total_blank,fill=TRUE)
 data.total <- rbind(data.total,surveyless,fill=TRUE)

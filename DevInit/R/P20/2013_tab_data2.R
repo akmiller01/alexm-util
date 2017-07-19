@@ -565,18 +565,12 @@ varNames <- read.csv("mics_meta_vars_complete.csv",as.is=TRUE,na.strings="")
 classes <- read.csv("global_mics_classes.csv",as.is=TRUE,na.strings="NAN")
 maternal.varNames <- read.csv("mics_child_vars.csv",as.is=TRUE,na.strings="")
 
+birth.missing <- c("",9,"?","missing","manquant","omidito","non concerne",NA,"NA")
+
 recode.birth.vars <- function(x,skilled){
-  # if(is.factor(x)){
-  #   str <- trimws(tolower(unfactor(x)))
-  # }else{
-    str <- trimws(tolower(x))
-  # }
-  
-  if(is.na(str)){
-    return(NA)
-  }else if(str=="" | str==9 | str=="?"){
-    return(NA)
-  }else if(str=="missing"){
+  str <- trimws(tolower(x))
+
+  if(str %in% birth.missing){
     return(FALSE)
   }else if(!skilled){
     return(FALSE)
@@ -586,7 +580,10 @@ recode.birth.vars <- function(x,skilled){
 }
 
 code.skilled <- function(skilled.column,skilled=TRUE){
-  sapply(skilled.column,recode.birth.vars,skilled)
+  if(is.factor(skilled.column)){
+    skilled.column <- unfactor(skilled.column)
+  }
+  return(sapply(skilled.column,recode.birth.vars,skilled))
 }
 
 wd <- "C:/Users/Alex/Documents/Data/P20/MICS"
@@ -668,14 +665,15 @@ for(i in 2:length(dirs)){
     wm$unskilled.attendant <- NA
     for(var in unskilledBirthVars){
       message(var)
-      wm$unskilled.attendant <- wm$unskilled.attendant & code.skilled(wm[,var],skilled=FALSE)
+      wm$unskilled.attendant <- wm$unskilled.attendant | code.skilled(wm[,var])
     }
     wm$skilled.births <- NA
     wm$skilled.births[which(wm$skilled.attendant==TRUE)] <- 1
-    wm$skilled.births[which(wm$unskilled.attendant==FALSE)] <- 0
+    wm$skilled.births[which(wm$unskilled.attendant==TRUE & is.na(wm$skilled.attendant))] <- 0
+    
     wm$all.births <- NA
     wm$all.births[which(wm$skilled.attendant==TRUE)] <- 1
-    wm$all.births[which(wm$unskilled.attendant==FALSE)] <- 1
+    wm$all.births[which(wm$unskilled.attendant==TRUE)] <- 1
     
     #Rename wealth var
     if(typeof(hh$wlthscor)=="NULL" | typeof(hh$wlthscor)=="logical" | length(hh$wlthscor[which(!is.na(hh$wlthscor))])==0){
