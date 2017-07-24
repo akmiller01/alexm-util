@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.51.0">
+<page number="1" position="absolute" top="0" left="0" height="1262" width="892">
+	<fontspec id="0" size="14" family="Times" color="#ffffff"/>
+	<fontspec id="1" size="11" family="Times" color="#ffffff"/>
+	<fontspec id="2" size="59" family="Times" color="#ffffff"/>
+	<fontspec id="3" size="13" family="Times" color="#ffffff"/>
+	<fontspec id="4" size="11" family="Times" color="#706f6f"/>
+	<fontspec id="5" size="10" family="Times" color="#575756"/>
+	<fontspec id="6" size="13" family="Times" color="#575756"/>
+	<fontspec id="7" size="10" family="Times" color="#575756"/>
+	<fontspec id="8" size="7" family="Times" color="#3c3c3b"/>
+	<fontspec id="9" size="7" family="Times" color="#706f6f"/>
+	<fontspec id="10" size="8" family="Times" color="#ffffff"/>
+	<fontspec id="11" size="6" family="Times" color="#ffffff"/>
+	<fontspec id="12" size="5" family="Times" color="#3c3c3b"/>
+	<fontspec id="13" size="8" family="Times" color="#3c3c3b"/>
+	<fontspec id="14" size="6" family="Times" color="#3c3c3b"/>
+	<fontspec id="15" size="11" family="Times" color="#575756"/>
+	<fontspec id="16" size="9" family="Times" color="#ffffff"/>
+	<fontspec id="17" size="7" family="Times" color="#ffffff"/>
+	<fontspec id="18" size="9" family="Times" color="#234c5e"/>
+<text top="54" left="768" width="71" height="20" font="0"><b>GLOBAL</b></text>
+<text top="78" left="763" width="79" height="16" font="1">NUTRITION</text>
+<text top="92" left="775" width="55" height="16" font="1">REPORT</text>
+<text top="48" left="39" width="362" height="72" font="2">Mozambique</text>
+<text top="426" left="42" width="182" height="18" font="3">CHILD ANTHROPOMETRY</text>
+<text top="713" left="41" width="329" height="18" font="3">ADOLESCENT AND ADULT NUTRITION STATUS</text>
+<text top="1115" left="43" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
+<text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
+<text top="36" left="73" width="4" height="22" font="6"> </text>
+<text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
+<text top="115" left="587" width="131" height="14" font="7">www.globalnutrition.org</text>
+<text top="1191" left="43" width="530" height="11" font="8">Sources:a Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF;b WHO 2014.</text>
+<text top="1201" left="43" width="586" height="11" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most </text>
+<text top="1212" left="43" width="557" height="11" font="8">recent data available; on/off-course calculation is based on trend data. WRA = women of reproductive age. EBF = exclusive breastfeeding</text>
+<text top="397" left="43" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
+<text top="408" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
+<text top="397" left="325" width="166" height="11" font="9"><i>Source: UN Inter-agency Group for Child </i></text>
+<text top="408" left="325" width="105" height="11" font="9"><i>Mortality Estimation 2014.</i></text>
+<text top="408" left="568" width="173" height="11" font="9"><i>Source: 2015 projections from UNPD 2013.</i></text>
+<text top="174" left="569" width="117" height="18" font="6">Income inequality</text>
+<text top="207" left="572" width="83" height="12" font="10">Gini index score*</text>
+<text top="207" left="677" width="73" height="12" font="10">Gini index rank</text>
+<text top="204" left="750" width="5" height="11" font="11">†</text>
+<text top="207" left="787" width="21" height="12" font="10">Year</text>
+<text top="224" left="607" width="12" height="12" font="10">51</text>
+<text top="224" left="709" width="17" height="12" font="10">125</text>
+<text top="224" left="789" width="23" height="12" font="10">2011</text>
+<text top="249" left="760" width="2" height="9" font="12"> </text>
+<text top="293" left="568" width="72" height="18" font="6">Population</text>
+<text top="317" left="573" width="83" height="12" font="13">Population (000) </text>
+<text top="317" left="732" width="32" height="12" font="13">12,428</text>
+<text top="317" left="792" width="23" height="12" font="13">2015</text>
+<text top="336" left="573" width="122" height="12" font="13">Under-5 population (000)</text>
+<text top="336" left="734" width="27" height="12" font="13">1,935</text>
+<text top="336" left="792" width="23" height="12" font="13">2015</text>
+<text top="356" left="573" width="47" height="12" font="13">Urban (%)</text>
+<text top="356" left="740" width="12" height="12" font="13">20</text>
+<text top="356" left="792" width="23" height="12" font="13">2015</text>
+<text top="375" left="573" width="68" height="12" font="13">&gt; 65 years (%)</text>
+<text top="375" left="743" width="6" height="12" font="13">5</text>
+<text top="375" left="792" width="23" height="12" font="13">2015</text>
+<text top="174" left="41" width="151" height="18" font="6">Poverty rates and GDP</text>
+<text top="362" left="50" width="24" height="12" font="13">2000</text>
+<text top="362" left="95" width="24" height="12" font="13">2006</text>
+<text top="362" left="186" width="23" height="12" font="13">2012</text>
+<text top="362" left="229" width="23" height="12" font="13">2013</text>
+<text top="362" left="143" width="23" height="12" font="13">2011</text>
+<text top="362" left="280" width="23" height="12" font="13">2014</text>
+<text top="203" left="54" width="76" height="12" font="13">US$1.25/day (%)</text>
+<text top="271" left="47" width="15" height="9" font="12">79.4</text>
+<text top="278" left="92" width="15" height="9" font="12">72.0</text>
+<text top="286" left="137" width="15" height="9" font="12">63.0</text>
+<text top="259" left="62" width="15" height="9" font="12">91.6</text>
+<text top="264" left="108" width="14" height="9" font="12">87.4</text>
+<text top="268" left="153" width="15" height="9" font="12">82.3</text>
+<text top="308" left="139" width="27" height="12" font="13">1,324</text>
+<text top="278" left="184" width="27" height="12" font="13">1,400</text>
+<text top="290" left="228" width="27" height="12" font="13">1,426</text>
+<text top="264" left="275" width="27" height="12" font="13">1,485</text>
+<text top="174" left="323" width="147" height="18" font="6">Under-5 mortality rate</text>
+<text top="364" left="328" width="24" height="12" font="13">2009</text>
+<text top="230" left="332" width="12" height="12" font="13">69</text>
+<text top="364" left="377" width="24" height="12" font="13">2010</text>
+<text top="238" left="382" width="12" height="12" font="13">64</text>
+<text top="364" left="426" width="23" height="12" font="13">2011</text>
+<text top="246" left="431" width="12" height="12" font="13">59</text>
+<text top="364" left="475" width="23" height="12" font="13">2012</text>
+<text top="253" left="480" width="12" height="12" font="13">55</text>
+<text top="364" left="524" width="23" height="12" font="13">2013</text>
+<text top="258" left="529" width="12" height="12" font="13">52</text>
+<text top="456" left="42" width="138" height="18" font="6">Child anthropometry</text>
+<text top="495" left="47" width="205" height="12" font="13">Number of children under 5 affected (000)</text>
+<text top="514" left="47" width="41" height="12" font="13">Stunting</text>
+<text top="513" left="87" width="5" height="11" font="8">a</text>
+<text top="514" left="91" width="3" height="12" font="13"> </text>
+<text top="514" left="173" width="18" height="12" font="13">733</text>
+<text top="514" left="235" width="23" height="12" font="13">2015</text>
+<text top="534" left="47" width="39" height="12" font="13">Wasting</text>
+<text top="532" left="86" width="5" height="11" font="8">a</text>
+<text top="534" left="89" width="3" height="12" font="13"> </text>
+<text top="534" left="176" width="12" height="12" font="13">43</text>
+<text top="534" left="235" width="23" height="12" font="13">2015</text>
+<text top="553" left="47" width="57" height="12" font="13">Overweight</text>
+<text top="552" left="103" width="5" height="11" font="8">a</text>
+<text top="553" left="102" width="3" height="12" font="13"> </text>
+<text top="553" left="173" width="17" height="12" font="13">149</text>
+<text top="553" left="235" width="23" height="12" font="13">2015</text>
+<text top="573" left="47" width="194" height="12" font="13">Percentage of children under 5 affected</text>
+<text top="592" left="47" width="39" height="12" font="13">Wasting</text>
+<text top="591" left="86" width="5" height="11" font="8">a</text>
+<text top="592" left="89" width="3" height="12" font="13"> </text>
+<text top="592" left="179" width="6" height="12" font="13">2</text>
+<text top="592" left="235" width="23" height="12" font="13">2015</text>
+<text top="612" left="47" width="73" height="12" font="13">Severe wasting</text>
+<text top="610" left="119" width="5" height="11" font="8">a</text>
+<text top="612" left="118" width="3" height="12" font="13"> </text>
+<text top="612" left="179" width="6" height="12" font="13">1</text>
+<text top="612" left="235" width="23" height="12" font="13">2015</text>
+<text top="631" left="47" width="57" height="12" font="13">Overweight</text>
+<text top="630" left="103" width="5" height="11" font="8">a</text>
+<text top="631" left="102" width="3" height="12" font="13"> </text>
+<text top="631" left="179" width="6" height="12" font="13">8</text>
+<text top="631" left="235" width="23" height="12" font="13">2015</text>
+<text top="651" left="47" width="81" height="12" font="13">Low birth weight</text>
+<text top="649" left="128" width="5" height="11" font="8">a</text>
+<text top="651" left="124" width="3" height="12" font="13"> </text>
+<text top="651" left="179" width="6" height="12" font="13">7</text>
+<text top="651" left="235" width="24" height="12" font="13">2010</text>
+<text top="687" left="47" width="212" height="11" font="9"><i>Sources: aUNICEF/WHO/WB 2015; bUNICEF 2015.  </i></text>
+<text top="671" left="84" width="3" height="11" font="8"> </text>
+<text top="671" left="174" width="3" height="11" font="8"> </text>
+<text top="666" left="647" width="133" height="11" font="8">Mean prevalence of stunting (%)</text>
+<text top="625" left="527" width="21" height="11" font="8">2000</text>
+<text top="602" left="528" width="21" height="11" font="8">2005</text>
+<text top="580" left="528" width="20" height="11" font="8">2010</text>
+<text top="650" left="557" width="12" height="12" font="13">20</text>
+<text top="650" left="629" width="12" height="12" font="13">30</text>
+<text top="650" left="701" width="12" height="12" font="13">40</text>
+<text top="650" left="773" width="12" height="12" font="13">50</text>
+<text top="650" left="834" width="12" height="12" font="13">60</text>
+<text top="651" left="309" width="23" height="12" font="13">1996</text>
+<text top="535" left="316" width="12" height="12" font="13">45</text>
+<text top="651" left="351" width="23" height="12" font="13">2000</text>
+<text top="528" left="356" width="12" height="12" font="13">48</text>
+<text top="651" left="389" width="23" height="12" font="13">2005</text>
+<text top="520" left="396" width="12" height="12" font="13">52</text>
+<text top="652" left="432" width="23" height="12" font="13">2010</text>
+<text top="537" left="437" width="12" height="12" font="13">44</text>
+<text top="651" left="471" width="23" height="12" font="13">2015</text>
+<text top="550" left="478" width="12" height="12" font="13">38</text>
+<text top="689" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015.</i></text>
+<text top="746" left="43" width="344" height="18" font="6">Adolescent and adult anthropometry (% population)</text>
+<text top="774" left="47" width="112" height="12" font="13">Adolescent overweight</text>
+<text top="771" left="159" width="5" height="11" font="8">a</text>
+<text top="774" left="138" width="3" height="12" font="13"> </text>
+<text top="774" left="295" width="16" height="12" font="13">NA</text>
+<text top="774" left="351" width="16" height="12" font="13">NA</text>
+<text top="794" left="47" width="93" height="12" font="13">Adolescent obesity</text>
+<text top="790" left="140" width="5" height="11" font="8">a</text>
+<text top="794" left="123" width="3" height="12" font="13"> </text>
+<text top="794" left="295" width="16" height="12" font="13">NA</text>
+<text top="794" left="351" width="16" height="12" font="13">NA</text>
+<text top="813" left="47" width="181" height="12" font="13">Women of reproductive age, thinness</text>
+<text top="812" left="228" width="5" height="11" font="14">b</text>
+<text top="813" left="195" width="3" height="12" font="13"> </text>
+<text top="813" left="298" width="6" height="12" font="13">5</text>
+<text top="813" left="346" width="24" height="12" font="13">2010</text>
+<text top="833" left="47" width="203" height="12" font="13">Women of reproductive age, short stature</text>
+<text top="831" left="251" width="5" height="11" font="14">b</text>
+<text top="833" left="213" width="3" height="12" font="13"> </text>
+<text top="833" left="298" width="6" height="12" font="13">2</text>
+<text top="833" left="346" width="24" height="12" font="13">2010</text>
+<text top="853" left="85" width="3" height="11" font="8"> </text>
+<text top="853" left="130" width="3" height="11" font="8"> </text>
+<text top="857" left="42" width="145" height="11" font="9"><i>Sources:a WHO 2015;b DHS 2015.  </i></text>
+<text top="868" left="42" width="103" height="11" font="9"><i>Note: NA = not available.</i></text>
+<text top="746" left="415" width="225" height="18" font="6">Micronutrient status of population</text>
+<text top="774" left="416" width="198" height="12" font="13">Women of reproductive age with anemia</text>
+<text top="772" left="614" width="5" height="11" font="14">a</text>
+<text top="774" left="602" width="3" height="12" font="13"> </text>
+<text top="793" left="422" width="150" height="12" font="13">Total population affected (000)</text>
+<text top="793" left="705" width="18" height="12" font="13">467</text>
+<text top="793" left="814" width="23" height="12" font="13">2011</text>
+<text top="813" left="422" width="140" height="12" font="13">Total population affected (%)</text>
+<text top="813" left="708" width="11" height="12" font="13">17</text>
+<text top="813" left="814" width="23" height="12" font="13">2011</text>
+<text top="832" left="633" width="3" height="12" font="13"> </text>
+<text top="832" left="708" width="12" height="12" font="13">39</text>
+<text top="832" left="814" width="23" height="12" font="13">2013</text>
+<text top="875" left="416" width="206" height="12" font="13">Population classification of iodine nutrition</text>
+<text top="888" left="416" width="80" height="12" font="13">(age group 5–19)</text>
+<text top="885" left="496" width="4" height="11" font="14">c</text>
+<text top="888" left="500" width="3" height="12" font="13"> </text>
+<text top="882" left="814" width="24" height="12" font="13">1996</text>
+<text top="1006" left="368" width="12" height="12" font="13">25</text>
+<text top="1036" left="341" width="6" height="12" font="13">6</text>
+<text top="969" left="311" width="12" height="12" font="13">48</text>
+<text top="1012" left="235" width="12" height="12" font="13">21</text>
+<text top="1035" left="208" width="6" height="12" font="13">7</text>
+<text top="964" left="176" width="12" height="12" font="13">51</text>
+<text top="1009" left="105" width="12" height="12" font="13">23</text>
+<text top="1036" left="79" width="6" height="12" font="13">6</text>
+<text top="968" left="47" width="12" height="12" font="13">49</text>
+<text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2014.</i></text>
+<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity, 2014 (%)</text>
+<text top="971" left="727" width="12" height="12" font="13">28</text>
+<text top="985" left="543" width="6" height="12" font="13">7</text>
+<text top="1002" left="585" width="11" height="12" font="13">12</text>
+<text top="1016" left="490" width="6" height="12" font="13">1</text>
+<text top="1033" left="658" width="12" height="12" font="13">20</text>
+<text top="1047" left="514" width="6" height="12" font="13">4</text>
+<text top="1075" left="414" width="80" height="11" font="9"><i>Source: WHO 2015.</i></text>
+<text top="1085" left="414" width="118" height="11" font="9"><i>Note: BMI=body mass index.</i></text>
+<text top="1080" left="456" width="3" height="11" font="8"> </text>
+<text top="220" left="54" width="63" height="12" font="13">US$2/day (%)</text>
+<text top="204" left="181" width="104" height="12" font="13">PPP($)GDP per capita</text>
+<text top="204" left="339" width="131" height="12" font="13">Deaths per 1,000 live births</text>
+<text top="241" left="570" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
+<text top="252" left="570" width="240" height="11" font="9"><i>Notes: *0 = perfect equality, 100 = perfect inequality†. The </i></text>
+<text top="263" left="570" width="250" height="11" font="9"><i>countries with a Gini index are ranked from most equal (#1) to </i></text>
+<text top="274" left="570" width="87" height="11" font="9"><i>most unequal (#145). </i></text>
+<text top="456" left="304" width="149" height="18" font="6">Prevalence of under-5 </text>
+<text top="474" left="304" width="82" height="18" font="6">stunting (%) </text>
+<text top="456" left="527" width="245" height="18" font="6">Changes in stunting prevalence over </text>
+<text top="474" left="527" width="154" height="18" font="6">time, by wealth quintile</text>
+<text top="683" left="527" width="191" height="11" font="9"><i>Source: DHS surveys 1990−2011 adapted from </i></text>
+<text top="693" left="527" width="99" height="11" font="9"><i>Bredenkamp et al. 2014.</i></text>
+<text top="520" left="543" width="49" height="12" font="13">Wealthiest</text>
+<text top="520" left="622" width="38" height="12" font="13">Second </text>
+<text top="532" left="622" width="47" height="12" font="13">wealthiest</text>
+<text top="519" left="751" width="38" height="12" font="13">Second </text>
+<text top="531" left="751" width="36" height="12" font="13">poorest</text>
+<text top="521" left="814" width="36" height="12" font="13">Poorest</text>
+<text top="520" left="690" width="33" height="12" font="13">Middle</text>
+<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related noncommunicable </text>
+<text top="903" left="42" width="109" height="16" font="15">diseases, 2008 (%)</text>
+<text top="1063" left="57" width="50" height="12" font="13">Both sexes</text>
+<text top="1040" left="417" width="50" height="12" font="13">Both sexes</text>
+<text top="929" left="52" width="103" height="12" font="13">Raised blood pressure</text>
+<text top="929" left="182" width="99" height="12" font="13">Raised blood glucose</text>
+<text top="943" left="53" width="114" height="12" font="13">Raised blood cholesterol</text>
+<text top="1032" left="743" width="104" height="12" font="13">Overweight (BMI ≥ 25)</text>
+<text top="1048" left="743" width="86" height="12" font="13">Obesity (BMI ≥ 30)</text>
+<text top="1063" left="198" width="23" height="12" font="13">Male</text>
+<text top="1008" left="417" width="23" height="12" font="13">Male</text>
+<text top="1063" left="329" width="34" height="12" font="13">Female</text>
+<text top="977" left="417" width="34" height="12" font="13">Female</text>
+<text top="921" left="417" width="230" height="11" font="9"><i>Sources: aWHO 2015; bStevens et al. 2015; cWHO 2004.</i></text>
+<text top="863" left="640" width="108" height="12" font="13">Risk of iodine-induced </text>
+<text top="875" left="640" width="157" height="12" font="13">hyperthyroidism (IIH) within 5-10 </text>
+<text top="888" left="640" width="147" height="12" font="13">years following introduction of </text>
+<text top="900" left="640" width="157" height="12" font="13">iodized salt in susceptible groups</text>
+<text top="832" left="418" width="148" height="12" font="13">Vitamin A deficiency in children </text>
+<text top="844" left="418" width="93" height="12" font="13">6-59 months old (%)</text>
+<text top="841" left="510" width="5" height="11" font="14">b</text>
+<text top="1144" left="79" width="122" height="13" font="16"><b>Under-5 stunting, 2015</b></text>
+<text top="1141" left="201" width="5" height="11" font="17"><b>a</b></text>
+<text top="1144" left="241" width="119" height="13" font="16"><b>Under-5 wasting, 2015</b></text>
+<text top="1141" left="360" width="6" height="11" font="17"><b>b</b></text>
+<text top="1144" left="397" width="139" height="13" font="16"><b>Under-5 overweight, 2015</b></text>
+<text top="1141" left="536" width="5" height="11" font="17"><b>a</b></text>
+<text top="1144" left="584" width="99" height="13" font="16"><b>WRA anemia, 2011</b></text>
+<text top="1141" left="683" width="6" height="11" font="17"><b>b</b></text>
+<text top="1144" left="741" width="80" height="13" font="16"><b>EBF, 2014-2015</b></text>
+<text top="1141" left="821" width="5" height="11" font="17"><b>a</b></text>
+<text top="1164" left="73" width="135" height="14" font="18">Off course, some progress</text>
+<text top="1164" left="274" width="53" height="14" font="18">On course</text>
+<text top="1164" left="406" width="120" height="14" font="18">Off course, no progress</text>
+<text top="1164" left="608" width="53" height="14" font="18">Off course</text>
+<text top="1164" left="756" width="53" height="14" font="18">On course</text>
+<text top="148" left="41" width="241" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="1262" width="892">
+	<fontspec id="19" size="59" family="Times" color="#de5d09"/>
+<text top="54" left="768" width="71" height="20" font="0"><b>GLOBAL</b></text>
+<text top="78" left="764" width="79" height="16" font="1">NUTRITION</text>
+<text top="92" left="776" width="55" height="16" font="1">REPORT</text>
+<text top="51" left="40" width="362" height="72" font="19">Mozambique</text>
+<text top="426" left="43" width="181" height="18" font="3">CHILD ANTHROPOMETRY</text>
+<text top="713" left="42" width="329" height="18" font="3">ADOLESCENT AND ADULT NUTRITION STATUS</text>
+<text top="1115" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
+<text top="39" left="45" width="28" height="17" font="5"><b>2017</b></text>
+<text top="36" left="73" width="4" height="22" font="6"> </text>
+<text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
+<text top="115" left="587" width="131" height="14" font="7">www.globalnutrition.org</text>
+<text top="1190" left="44" width="530" height="11" font="8">Sources:a Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF;b WHO 2014.</text>
+<text top="1201" left="44" width="585" height="11" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most </text>
+<text top="1212" left="44" width="557" height="11" font="8">recent data available; on/off-course calculation is based on trend data. WRA = women of reproductive age. EBF = exclusive breastfeeding</text>
+<text top="397" left="44" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
+<text top="408" left="44" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
+<text top="397" left="326" width="166" height="11" font="9"><i>Source: UN Inter-agency Group for Child </i></text>
+<text top="408" left="326" width="105" height="11" font="9"><i>Mortality Estimation 2014.</i></text>
+<text top="408" left="568" width="173" height="11" font="9"><i>Source: 2015 projections from UNPD 2013.</i></text>
+<text top="174" left="569" width="117" height="18" font="6">Income inequality</text>
+<text top="207" left="572" width="83" height="12" font="10">Gini index score*</text>
+<text top="206" left="677" width="73" height="12" font="10">Gini index rank</text>
+<text top="203" left="750" width="5" height="11" font="11">†</text>
+<text top="207" left="788" width="21" height="12" font="10">Year</text>
+<text top="223" left="608" width="12" height="12" font="10">51</text>
+<text top="223" left="709" width="17" height="12" font="10">125</text>
+<text top="223" left="789" width="23" height="12" font="10">2011</text>
+<text top="249" left="760" width="2" height="9" font="12"> </text>
+<text top="293" left="569" width="71" height="18" font="6">Population</text>
+<text top="317" left="573" width="82" height="12" font="13">Population (000) </text>
+<text top="317" left="732" width="32" height="12" font="13">12,428</text>
+<text top="317" left="792" width="23" height="12" font="13">2015</text>
+<text top="336" left="573" width="122" height="12" font="13">Under-5 population (000)</text>
+<text top="336" left="734" width="27" height="12" font="13">1,935</text>
+<text top="336" left="792" width="23" height="12" font="13">2015</text>
+<text top="356" left="573" width="47" height="12" font="13">Urban (%)</text>
+<text top="356" left="741" width="12" height="12" font="13">20</text>
+<text top="356" left="792" width="23" height="12" font="13">2015</text>
+<text top="375" left="573" width="68" height="12" font="13">&gt; 65 years (%)</text>
+<text top="375" left="743" width="6" height="12" font="13">5</text>
+<text top="375" left="792" width="23" height="12" font="13">2015</text>
+<text top="174" left="42" width="151" height="18" font="6">Poverty rates and GDP</text>
+<text top="362" left="50" width="24" height="12" font="13">2000</text>
+<text top="362" left="96" width="24" height="12" font="13">2006</text>
+<text top="362" left="186" width="23" height="12" font="13">2012</text>
+<text top="362" left="230" width="23" height="12" font="13">2013</text>
+<text top="362" left="143" width="23" height="12" font="13">2011</text>
+<text top="362" left="280" width="23" height="12" font="13">2014</text>
+<text top="203" left="54" width="76" height="12" font="13">US$1.25/day (%)</text>
+<text top="271" left="47" width="15" height="9" font="12">79.4</text>
+<text top="278" left="93" width="15" height="9" font="12">72.0</text>
+<text top="286" left="137" width="15" height="9" font="12">63.0</text>
+<text top="259" left="63" width="15" height="9" font="12">91.6</text>
+<text top="263" left="108" width="14" height="9" font="12">87.4</text>
+<text top="267" left="153" width="15" height="9" font="12">82.3</text>
+<text top="308" left="139" width="27" height="12" font="13">1,324</text>
+<text top="278" left="185" width="27" height="12" font="13">1,400</text>
+<text top="290" left="228" width="27" height="12" font="13">1,426</text>
+<text top="264" left="275" width="27" height="12" font="13">1,485</text>
+<text top="174" left="324" width="147" height="18" font="6">Under-5 mortality rate</text>
+<text top="364" left="328" width="24" height="12" font="13">2009</text>
+<text top="230" left="332" width="12" height="12" font="13">69</text>
+<text top="364" left="378" width="24" height="12" font="13">2010</text>
+<text top="238" left="383" width="12" height="12" font="13">64</text>
+<text top="364" left="427" width="23" height="12" font="13">2011</text>
+<text top="246" left="432" width="12" height="12" font="13">59</text>
+<text top="364" left="476" width="23" height="12" font="13">2012</text>
+<text top="253" left="480" width="12" height="12" font="13">55</text>
+<text top="364" left="524" width="23" height="12" font="13">2013</text>
+<text top="258" left="529" width="12" height="12" font="13">52</text>
+<text top="456" left="43" width="138" height="18" font="6">Child anthropometry</text>
+<text top="494" left="47" width="205" height="12" font="13">Number of children under 5 affected (000)</text>
+<text top="514" left="47" width="41" height="12" font="13">Stunting</text>
+<text top="512" left="88" width="5" height="11" font="8">a</text>
+<text top="514" left="91" width="3" height="12" font="13"> </text>
+<text top="514" left="174" width="18" height="12" font="13">733</text>
+<text top="514" left="235" width="23" height="12" font="13">2015</text>
+<text top="533" left="47" width="39" height="12" font="13">Wasting</text>
+<text top="532" left="87" width="5" height="11" font="8">a</text>
+<text top="533" left="90" width="3" height="12" font="13"> </text>
+<text top="533" left="176" width="12" height="12" font="13">43</text>
+<text top="533" left="235" width="23" height="12" font="13">2015</text>
+<text top="553" left="47" width="57" height="12" font="13">Overweight</text>
+<text top="551" left="104" width="5" height="11" font="8">a</text>
+<text top="553" left="103" width="3" height="12" font="13"> </text>
+<text top="553" left="174" width="17" height="12" font="13">149</text>
+<text top="553" left="235" width="23" height="12" font="13">2015</text>
+<text top="572" left="47" width="194" height="12" font="13">Percentage of children under 5 affected</text>
+<text top="592" left="47" width="39" height="12" font="13">Wasting</text>
+<text top="590" left="87" width="5" height="11" font="8">a</text>
+<text top="592" left="90" width="3" height="12" font="13"> </text>
+<text top="592" left="179" width="6" height="12" font="13">2</text>
+<text top="592" left="235" width="23" height="12" font="13">2015</text>
+<text top="611" left="47" width="73" height="12" font="13">Severe wasting</text>
+<text top="610" left="120" width="5" height="11" font="8">a</text>
+<text top="611" left="119" width="3" height="12" font="13"> </text>
+<text top="611" left="179" width="6" height="12" font="13">1</text>
+<text top="611" left="235" width="23" height="12" font="13">2015</text>
+<text top="631" left="47" width="57" height="12" font="13">Overweight</text>
+<text top="629" left="104" width="5" height="11" font="8">a</text>
+<text top="631" left="103" width="3" height="12" font="13"> </text>
+<text top="631" left="179" width="6" height="12" font="13">8</text>
+<text top="631" left="235" width="23" height="12" font="13">2015</text>
+<text top="650" left="47" width="81" height="12" font="13">Low birth weight</text>
+<text top="649" left="128" width="5" height="11" font="8">a</text>
+<text top="650" left="124" width="3" height="12" font="13"> </text>
+<text top="650" left="179" width="6" height="12" font="13">7</text>
+<text top="650" left="235" width="24" height="12" font="13">2010</text>
+<text top="687" left="47" width="212" height="11" font="9"><i>Sources: aUNICEF/WHO/WB 2015; bUNICEF 2015.  </i></text>
+<text top="671" left="85" width="3" height="11" font="8"> </text>
+<text top="671" left="174" width="3" height="11" font="8"> </text>
+<text top="666" left="647" width="133" height="11" font="8">Mean prevalence of stunting (%)</text>
+<text top="624" left="528" width="21" height="11" font="8">2000</text>
+<text top="602" left="528" width="21" height="11" font="8">2005</text>
+<text top="580" left="529" width="20" height="11" font="8">2010</text>
+<text top="650" left="557" width="12" height="12" font="13">20</text>
+<text top="650" left="629" width="12" height="12" font="13">30</text>
+<text top="650" left="701" width="12" height="12" font="13">40</text>
+<text top="650" left="773" width="12" height="12" font="13">50</text>
+<text top="650" left="834" width="12" height="12" font="13">60</text>
+<text top="651" left="309" width="23" height="12" font="13">1996</text>
+<text top="534" left="316" width="12" height="12" font="13">45</text>
+<text top="651" left="351" width="23" height="12" font="13">2000</text>
+<text top="528" left="356" width="12" height="12" font="13">48</text>
+<text top="651" left="389" width="23" height="12" font="13">2005</text>
+<text top="519" left="397" width="12" height="12" font="13">52</text>
+<text top="651" left="432" width="23" height="12" font="13">2010</text>
+<text top="537" left="438" width="12" height="12" font="13">44</text>
+<text top="651" left="472" width="23" height="12" font="13">2015</text>
+<text top="550" left="478" width="12" height="12" font="13">38</text>
+<text top="688" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015.</i></text>
+<text top="746" left="43" width="344" height="18" font="6">Adolescent and adult anthropometry (% population)</text>
+<text top="774" left="48" width="112" height="12" font="13">Adolescent overweight</text>
+<text top="771" left="160" width="5" height="11" font="8">a</text>
+<text top="774" left="139" width="3" height="12" font="13"> </text>
+<text top="774" left="295" width="16" height="12" font="13">NA</text>
+<text top="774" left="351" width="16" height="12" font="13">NA</text>
+<text top="793" left="48" width="93" height="12" font="13">Adolescent obesity</text>
+<text top="790" left="141" width="5" height="11" font="8">a</text>
+<text top="793" left="123" width="3" height="12" font="13"> </text>
+<text top="793" left="295" width="16" height="12" font="13">NA</text>
+<text top="793" left="351" width="16" height="12" font="13">NA</text>
+<text top="813" left="48" width="181" height="12" font="13">Women of reproductive age, thinness</text>
+<text top="811" left="229" width="5" height="11" font="14">b</text>
+<text top="813" left="196" width="3" height="12" font="13"> </text>
+<text top="813" left="298" width="6" height="12" font="13">5</text>
+<text top="813" left="347" width="24" height="12" font="13">2010</text>
+<text top="832" left="48" width="203" height="12" font="13">Women of reproductive age, short stature</text>
+<text top="831" left="251" width="5" height="11" font="14">b</text>
+<text top="832" left="214" width="3" height="12" font="13"> </text>
+<text top="832" left="298" width="6" height="12" font="13">2</text>
+<text top="832" left="347" width="24" height="12" font="13">2010</text>
+<text top="852" left="85" width="3" height="11" font="8"> </text>
+<text top="852" left="131" width="3" height="11" font="8"> </text>
+<text top="856" left="42" width="145" height="11" font="9"><i>Sources:a WHO 2015;b DHS 2015.  </i></text>
+<text top="867" left="42" width="103" height="11" font="9"><i>Note: NA = not available.</i></text>
+<text top="746" left="415" width="225" height="18" font="6">Micronutrient status of population</text>
+<text top="773" left="416" width="198" height="12" font="13">Women of reproductive age with anemia</text>
+<text top="772" left="614" width="5" height="11" font="14">a</text>
+<text top="773" left="602" width="3" height="12" font="13"> </text>
+<text top="793" left="423" width="150" height="12" font="13">Total population affected (000)</text>
+<text top="793" left="705" width="18" height="12" font="13">467</text>
+<text top="793" left="814" width="23" height="12" font="13">2011</text>
+<text top="812" left="423" width="140" height="12" font="13">Total population affected (%)</text>
+<text top="812" left="708" width="11" height="12" font="13">17</text>
+<text top="812" left="814" width="23" height="12" font="13">2011</text>
+<text top="832" left="633" width="3" height="12" font="13"> </text>
+<text top="832" left="708" width="12" height="12" font="13">39</text>
+<text top="832" left="814" width="23" height="12" font="13">2013</text>
+<text top="875" left="416" width="206" height="12" font="13">Population classification of iodine nutrition</text>
+<text top="887" left="416" width="80" height="12" font="13">(age group 5–19)</text>
+<text top="884" left="496" width="4" height="11" font="14">c</text>
+<text top="887" left="501" width="3" height="12" font="13"> </text>
+<text top="881" left="814" width="24" height="12" font="13">1996</text>
+<text top="1005" left="368" width="12" height="12" font="13">25</text>
+<text top="1036" left="342" width="6" height="12" font="13">6</text>
+<text top="969" left="312" width="12" height="12" font="13">48</text>
+<text top="1012" left="235" width="12" height="12" font="13">21</text>
+<text top="1034" left="209" width="6" height="12" font="13">7</text>
+<text top="964" left="177" width="12" height="12" font="13">51</text>
+<text top="1009" left="106" width="12" height="12" font="13">23</text>
+<text top="1036" left="80" width="6" height="12" font="13">6</text>
+<text top="967" left="48" width="12" height="12" font="13">49</text>
+<text top="1084" left="41" width="80" height="11" font="9"><i>Source: WHO 2014.</i></text>
+<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity, 2014 (%)</text>
+<text top="971" left="727" width="12" height="12" font="13">28</text>
+<text top="984" left="543" width="6" height="12" font="13">7</text>
+<text top="1002" left="586" width="11" height="12" font="13">12</text>
+<text top="1015" left="490" width="6" height="12" font="13">1</text>
+<text top="1033" left="658" width="12" height="12" font="13">20</text>
+<text top="1046" left="515" width="6" height="12" font="13">4</text>
+<text top="1074" left="415" width="80" height="11" font="9"><i>Source: WHO 2015.</i></text>
+<text top="1085" left="415" width="118" height="11" font="9"><i>Note: BMI=body mass index.</i></text>
+<text top="1079" left="456" width="3" height="11" font="8"> </text>
+<text top="220" left="55" width="63" height="12" font="13">US$2/day (%)</text>
+<text top="204" left="182" width="104" height="12" font="13">PPP($)GDP per capita</text>
+<text top="204" left="340" width="131" height="12" font="13">Deaths per 1,000 live births</text>
+<text top="241" left="571" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
+<text top="252" left="571" width="240" height="11" font="9"><i>Notes: *0 = perfect equality, 100 = perfect inequality†. The </i></text>
+<text top="263" left="571" width="250" height="11" font="9"><i>countries with a Gini index are ranked from most equal (#1) to </i></text>
+<text top="273" left="571" width="87" height="11" font="9"><i>most unequal (#145). </i></text>
+<text top="456" left="304" width="149" height="18" font="6">Prevalence of under-5 </text>
+<text top="474" left="304" width="82" height="18" font="6">stunting (%) </text>
+<text top="456" left="528" width="245" height="18" font="6">Changes in stunting prevalence over </text>
+<text top="474" left="528" width="154" height="18" font="6">time, by wealth quintile</text>
+<text top="682" left="527" width="191" height="11" font="9"><i>Source: DHS surveys 1990−2011 adapted from </i></text>
+<text top="693" left="527" width="99" height="11" font="9"><i>Bredenkamp et al. 2014.</i></text>
+<text top="520" left="543" width="49" height="12" font="13">Wealthiest</text>
+<text top="520" left="622" width="38" height="12" font="13">Second </text>
+<text top="532" left="622" width="47" height="12" font="13">wealthiest</text>
+<text top="518" left="751" width="38" height="12" font="13">Second </text>
+<text top="531" left="751" width="36" height="12" font="13">poorest</text>
+<text top="520" left="814" width="36" height="12" font="13">Poorest</text>
+<text top="519" left="690" width="33" height="12" font="13">Middle</text>
+<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related noncommunicable </text>
+<text top="903" left="42" width="108" height="16" font="15">diseases, 2008 (%)</text>
+<text top="1063" left="58" width="50" height="12" font="13">Both sexes</text>
+<text top="1039" left="417" width="50" height="12" font="13">Both sexes</text>
+<text top="929" left="53" width="103" height="12" font="13">Raised blood pressure</text>
+<text top="929" left="182" width="99" height="12" font="13">Raised blood glucose</text>
+<text top="943" left="54" width="114" height="12" font="13">Raised blood cholesterol</text>
+<text top="1031" left="743" width="104" height="12" font="13">Overweight (BMI ≥ 25)</text>
+<text top="1048" left="743" width="86" height="12" font="13">Obesity (BMI ≥ 30)</text>
+<text top="1063" left="199" width="23" height="12" font="13">Male</text>
+<text top="1008" left="417" width="23" height="12" font="13">Male</text>
+<text top="1063" left="329" width="34" height="12" font="13">Female</text>
+<text top="977" left="417" width="34" height="12" font="13">Female</text>
+<text top="920" left="418" width="229" height="11" font="9"><i>Sources: aWHO 2015; bStevens et al. 2015; cWHO 2004.</i></text>
+<text top="862" left="641" width="108" height="12" font="13">Risk of iodine-induced </text>
+<text top="875" left="641" width="157" height="12" font="13">hyperthyroidism (IIH) within 5-10 </text>
+<text top="887" left="641" width="147" height="12" font="13">years following introduction of </text>
+<text top="900" left="641" width="157" height="12" font="13">iodized salt in susceptible groups</text>
+<text top="831" left="418" width="147" height="12" font="13">Vitamin A deficiency in children </text>
+<text top="844" left="418" width="93" height="12" font="13">6-59 months old (%)</text>
+<text top="841" left="511" width="5" height="11" font="14">b</text>
+<text top="1143" left="80" width="122" height="13" font="16"><b>Under-5 stunting, 2015</b></text>
+<text top="1140" left="201" width="5" height="11" font="17"><b>a</b></text>
+<text top="1143" left="241" width="119" height="13" font="16"><b>Under-5 wasting, 2015</b></text>
+<text top="1140" left="360" width="6" height="11" font="17"><b>b</b></text>
+<text top="1143" left="398" width="139" height="13" font="16"><b>Under-5 overweight, 2015</b></text>
+<text top="1140" left="536" width="5" height="11" font="17"><b>a</b></text>
+<text top="1143" left="584" width="99" height="13" font="16"><b>WRA anemia, 2011</b></text>
+<text top="1140" left="683" width="6" height="11" font="17"><b>b</b></text>
+<text top="1143" left="741" width="80" height="13" font="16"><b>EBF, 2014-2015</b></text>
+<text top="1140" left="821" width="5" height="11" font="17"><b>a</b></text>
+<text top="1163" left="74" width="135" height="14" font="18">Off course, some progress</text>
+<text top="1163" left="274" width="53" height="14" font="18">On course</text>
+<text top="1163" left="407" width="120" height="14" font="18">Off course, no progress</text>
+<text top="1163" left="608" width="53" height="14" font="18">Off course</text>
+<text top="1163" left="756" width="53" height="14" font="18">On course</text>
+<text top="148" left="42" width="240" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
+</page>
+</pdf2xml>
