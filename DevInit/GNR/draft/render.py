@@ -9,6 +9,7 @@ from reportlab.platypus import Image, Paragraph, Table
 from xml.etree import ElementTree
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.fonts import addMapping
 from tables import dataDictionary, tableStyles
 import pdb
 # import sys
@@ -24,6 +25,11 @@ class ReportMaker(object):
     def __init__(self, pdf_file, xml_file):
         pdfmetrics.registerFont(TTFont('Arial', 'fonts/Arial.ttf'))
         pdfmetrics.registerFont(TTFont('Arial-Bold', 'fonts/Arial-Bold.ttf'))
+        pdfmetrics.registerFont(TTFont('Arial-Italic', 'fonts/Arial-Italic.ttf'))
+        addMapping('Arial',0,0,'Arial')
+        addMapping('Arial',0,1,'Arial-Italic')
+        addMapping('Arial',1,0,'Arial-Bold')
+        
         self.styles = getSampleStyleSheet()
         self.e = ElementTree.parse(xml_file).getroot()
         self.width, self.height =  int(self.e.getchildren()[0].get("width")), int(self.e.getchildren()[0].get("height"))

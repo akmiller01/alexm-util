@@ -6,9 +6,10 @@ from reportlab.platypus import Paragraph
 from reportlab.lib.enums import TA_CENTER
 
 style = getSampleStyleSheet()
+whiteParaStyle = ParagraphStyle('whiteParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
 #Normally this would be pulled in programmatically, but I'm placing it here for testing
 dataDictionary = {}
-dataDictionary["table1"] = [["Gini index score*","Gini index rank†","Year"],[51,125,2011]]
+dataDictionary["table1"] = [["Gini index score*",Paragraph("Gini index rank<super>†</super>",style=whiteParaStyle),"Year"],[51,125,2011]]
 dataDictionary["table2"] = [
     ["Population (000)",format(12428,",d"),2015]
     ,["Under-5 population (000)",format(1935,",d"),2015]
@@ -33,37 +34,37 @@ dataDictionary["table4"] = [
     ,[Paragraph("Women of reproductive age, short stature<super>b</super>",style=style["BodyText"]),format(2,"d"),2010]
 ]
 dataDictionary["table5"] = [
-    [Paragraph("<b>Women of reproductive age with anemia<super>a</super></b>",style=style["BodyText"]),"",""]
+    [Paragraph("Women of reproductive age with anemia<super>a</super>",style=style["BodyText"]),"",""]
     ,["Total population affected (000)",format(467,",d"),2011]
     ,["Total population affected (%)",format(17,"d"),2011]
     ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=style["BodyText"]),format(39,"d"),2013]
-    ,[Paragraph("Population classification of iodone nutrition (age group 6-12)<super>c</super>",style=style["BodyText"]),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=style["BodyText"]),1996]
+    ,[Paragraph("Population classification of iodone nutrition (age group 5-19)<super>c</super>",style=style["BodyText"]),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=style["BodyText"]),1996]
 ]
-table6ParaStyle = ParagraphStyle('table6ParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
 dataDictionary["table6"] = [
     [
-        Paragraph("<b>Under-5 stunting, 2012<super>a</super></b>",style=table6ParaStyle)
-        ,Paragraph("<b>Under-5 wasting, 2012<super>b</super></b>",style=table6ParaStyle)
-        ,Paragraph("<b>Under-5 overweight, 2012<super>a</super></b>",style=table6ParaStyle)
-        ,Paragraph("<b>WRA Anemia, 2011<super>b</super></b>",style=table6ParaStyle)
-        ,Paragraph("<b>EBF, 2011<super>a</super></b>",style=table6ParaStyle)
+        Paragraph("<b>Under-5 stunting, 2015<super>a</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 wasting, 2015<super>b</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 overweight, 2015<super>a</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>WRA Anemia, 2011<super>b</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>EBF, 2014-2015<super>a</super></b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
 ]
 tableStyles = {}
 tableStyles["table1"] = [
     ('TEXTCOLOR',(0,0),(-1,-1),"white")
-    ,('BACKGROUND',(0,0),(2,0),"#6dc163")
-    ,('FONTNAME',(0,0),(2,0),"Arial-Bold")
-    ,('FONTNAME',(0,1),(2,1),"Arial")
-    ,('BACKGROUND',(0,1),(2,1),"#f79c2a")
-    ,('GRID',(0,0),(-1,-1),1,"white")
+    ,('BACKGROUND',(0,0),(2,0),"#7b1059")
+    ,('FONTNAME',(0,1),(2,1),"Arial-Bold")
+    # ,('FONTNAME',(0,1),(2,1),"Arial")
+    ,('BACKGROUND',(0,1),(2,1),"#c79ec5")
+    # ,('GRID',(0,0),(-1,-1),1,"white")
+    ,('LINEAFTER',(0,0),(1,1),1,"white")
     ,('ALIGN',(0,0),(-1,-1),"CENTER")
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
     ]
 tableStyles["table2"] = [
-    ('BACKGROUND',(0,0),(-1,0),"#fee8ce")
-    ,('BACKGROUND',(0,2),(-1,2),"#fee8ce")
+    ('BACKGROUND',(0,1),(-1,1),"#fef5e7")
+    ,('BACKGROUND',(0,3),(-1,3),"#fef5e7")
     ,('ALIGN',(0,0),(0,-1),"LEFT")
     ,('ALIGN',(1,0),(2,-1),"CENTER")
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
@@ -72,10 +73,10 @@ tableStyles["table2"] = [
     ,('LINEBELOW',(0,-1),(-1,-1),1,"#f79c2a")
     ]
 tableStyles["table3"] = [
-    ('BACKGROUND',(0,1),(-1,1),"#fee8ce")
-    ,('BACKGROUND',(0,3),(-1,3),"#fee8ce")
-    ,('BACKGROUND',(0,5),(-1,5),"#fee8ce")
-    ,('BACKGROUND',(0,7),(-1,7),"#fee8ce")
+    ('BACKGROUND',(0,1),(-1,1),"#fef5e7")
+    ,('BACKGROUND',(0,3),(-1,3),"#fef5e7")
+    ,('BACKGROUND',(0,5),(-1,5),"#fef5e7")
+    ,('BACKGROUND',(0,7),(-1,7),"#fef5e7")
     ,('ALIGN',(0,0),(0,-1),"LEFT")
     ,('ALIGN',(1,0),(2,-1),"CENTER")
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
@@ -87,9 +88,9 @@ tableStyles["table3"] = [
     ,('LINEABOVE',(0,5),(-1,5),1,"#f79c2a")
     ,('LINEBELOW',(0,-1),(-1,-1),1,"#f79c2a")
     ,('SPAN',(0,0),(-1,0))
-    ,('FONTNAME',(0,0),(-1,0),"Arial-Bold")
+    # ,('FONTNAME',(0,0),(-1,0),"Arial-Bold")
     ,('SPAN',(0,4),(-1,4))
-    ,('FONTNAME',(0,4),(-1,4),"Arial-Bold")
+    # ,('FONTNAME',(0,4),(-1,4),"Arial-Bold")
     ]
 tableStyles["table4"] = tableStyles["table2"]
 tableStyles["table5"] = [
@@ -108,9 +109,9 @@ tableStyles["table5"] = [
 ]
 tableStyles["table6"] = [
     ('TEXTCOLOR',(0,0),(-1,0),"white")
-    ,('BACKGROUND',(0,0),(-1,0),"#204d5e")
-    ,('BACKGROUND',(0,1),(-1,1),"white")
-    ,('GRID',(0,0),(-1,-1),1,"#386170")
+    # ,('BACKGROUND',(0,0),(-1,0),"#204d5e")
+    # ,('BACKGROUND',(0,1),(-1,1),"white")
+    # ,('GRID',(0,0),(-1,-1),1,"#386170")
     ,('ALIGN',(0,0),(-1,-1),"CENTER")
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
     ]
