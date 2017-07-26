@@ -6,7 +6,7 @@
 	<fontspec id="0" size="14" family="Times" color="#ffffff"/>
 	<fontspec id="1" size="11" family="Times" color="#ffffff"/>
 	<fontspec id="2" size="59" family="Times" color="#ffffff"/>
-	<fontspec id="3" size="13" family="Times" color="#ffffff" background="#868f98" indent="41"/>
+	<fontspec id="3" size="13" family="Times" color="#ffffff" background="#868f98" indent="41" padding="5"/>
 	<fontspec id="4" size="11" family="Times" color="#706f6f"/>
 	<fontspec id="5" size="10" family="Times" color="#575756"/>
 	<fontspec id="6" size="13" family="Times" color="#575756"/>
@@ -26,7 +26,7 @@
 <text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
 <text top="36" left="73" width="4" height="22" font="6"> </text>
 <text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
-<text top="115" left="587" width="131" height="14" font="7"><link href="http://www.globalnutrition.org">www.globalnutrition.org</link></text>
+<text top="115" left="587" width="131" height="14" font="7"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
 <text top="48" left="39" width="362" height="72" font="2">Mozambique</text>
 <!-- Row 1 -->
 <text top="148" left="0" width="241" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
@@ -74,10 +74,10 @@
 <!-- Chart 3 -->
 <text top="456" left="304" width="149" height="18" font="6">Prevalence of under-5 </text>
 <text top="474" left="304" width="82" height="18" font="6">stunting (%) </text>
-<image top="501" left="304" width="160" height="140" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c3.png"/>
+<image top="501" left="304" width="190" height="160" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c3.png"/>
 <text top="689" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015.</i></text>
 
-<line x1="480" x2="480" y1="460" y2="700" on="1" off="3" color="grey"></line>
+<line x1="510" x2="510" y1="460" y2="700" on="1" off="3" color="grey"></line>
 
 <!-- Chart 4 -->
 <text top="456" left="527" width="245" height="18" font="6">Changes in stunting prevalence over </text>

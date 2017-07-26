@@ -7,6 +7,7 @@ from reportlab.lib.enums import TA_CENTER
 
 style = getSampleStyleSheet()
 whiteParaStyle = ParagraphStyle('whiteParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
+greyParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],textColor="#443e42")
 #Normally this would be pulled in programmatically, but I'm placing it here for testing
 dataDictionary = {}
 dataDictionary["table1"] = [["Gini index score*",Paragraph("Gini index rank<super>†</super>",style=whiteParaStyle),"Year"],[51,125,2011]]
@@ -18,27 +19,27 @@ dataDictionary["table2"] = [
     ]
 dataDictionary["table3"] = [
     ["Number of children under 5 affected (000)","",""]
-    ,[Paragraph("Stunting<super>a</super>",style=style["BodyText"]),format(733,",d"),2015]
-    ,[Paragraph("Wasting<super>a</super>",style=style["BodyText"]),format(43,",d"),2015]
-    ,[Paragraph("Overweight<super>a</super>",style=style["BodyText"]),format(149,",d"),2015]
+    ,[Paragraph("Stunting<super>a</super>",style=greyParaStyle),format(733,",d"),2015]
+    ,[Paragraph("Wasting<super>a</super>",style=greyParaStyle),format(43,",d"),2015]
+    ,[Paragraph("Overweight<super>a</super>",style=greyParaStyle),format(149,",d"),2015]
     ,["Percentage of children under 5 affected","",""]
-    ,[Paragraph("Wasting<super>a</super>",style=style["BodyText"]),format(2,"d"),2015]
-    ,[Paragraph("Severe wasting<super>a</super>",style=style["BodyText"]),format(1,"d"),2015]
-    ,[Paragraph("Overweight<super>a</super>",style=style["BodyText"]),format(8,"d"),2015]
-    ,[Paragraph("Low birth weight<super>b</super>",style=style["BodyText"]),format(7,"d"),2015]
+    ,[Paragraph("Wasting<super>a</super>",style=greyParaStyle),format(2,"d"),2015]
+    ,[Paragraph("Severe wasting<super>a</super>",style=greyParaStyle),format(1,"d"),2015]
+    ,[Paragraph("Overweight<super>a</super>",style=greyParaStyle),format(8,"d"),2015]
+    ,[Paragraph("Low birth weight<super>b</super>",style=greyParaStyle),format(7,"d"),2015]
     ]
 dataDictionary["table4"] = [
-    [Paragraph("Adolescent overweight<super>a</super>",style=style["BodyText"]),"NA","NA"]
-    ,[Paragraph("Adolescent obesity<super>a</super>",style=style["BodyText"]),"NA","NA"]
-    ,[Paragraph("Women of reproductive age, thinness<super>b</super>",style=style["BodyText"]),format(5,"d"),2010]
-    ,[Paragraph("Women of reproductive age, short stature<super>b</super>",style=style["BodyText"]),format(2,"d"),2010]
+    [Paragraph("Adolescent overweight<super>a</super>",style=greyParaStyle),"NA","NA"]
+    ,[Paragraph("Adolescent obesity<super>a</super>",style=greyParaStyle),"NA","NA"]
+    ,[Paragraph("Women of reproductive age, thinness<super>b</super>",style=greyParaStyle),format(5,"d"),2010]
+    ,[Paragraph("Women of reproductive age, short stature<super>b</super>",style=greyParaStyle),format(2,"d"),2010]
 ]
 dataDictionary["table5"] = [
-    [Paragraph("Women of reproductive age with anemia<super>a</super>",style=style["BodyText"]),"",""]
+    [Paragraph("Women of reproductive age with anemia<super>a</super>",style=greyParaStyle),"",""]
     ,["Total population affected (000)",format(467,",d"),2011]
     ,["Total population affected (%)",format(17,"d"),2011]
-    ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=style["BodyText"]),format(39,"d"),2013]
-    ,[Paragraph("Population classification of iodone nutrition (age group 5-19)<super>c</super>",style=style["BodyText"]),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=style["BodyText"]),1996]
+    ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=greyParaStyle),format(39,"d"),2013]
+    ,[Paragraph("Population classification of iodone nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
 ]
 dataDictionary["table6"] = [
     [
@@ -71,6 +72,7 @@ tableStyles["table2"] = [
     ,('BOX',(1,0),(1,-1),1,"#f79c2a")
     ,('LINEABOVE',(0,0),(-1,0),1,"#f79c2a")
     ,('LINEBELOW',(0,-1),(-1,-1),1,"#f79c2a")
+    ,('TEXTCOLOR',(0,0),(-1,-1),"#443e42")
     ]
 tableStyles["table3"] = [
     ('BACKGROUND',(0,1),(-1,1),"#fef5e7")
@@ -91,6 +93,7 @@ tableStyles["table3"] = [
     # ,('FONTNAME',(0,0),(-1,0),"Arial-Bold")
     ,('SPAN',(0,4),(-1,4))
     # ,('FONTNAME',(0,4),(-1,4),"Arial-Bold")
+    ,('TEXTCOLOR',(0,0),(-1,-1),"#443e42")
     ]
 tableStyles["table4"] = tableStyles["table2"]
 tableStyles["table5"] = [
@@ -106,6 +109,7 @@ tableStyles["table5"] = [
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
     ,('ALIGN',(0,0),(0,-1),"LEFT")
     ,('ALIGN',(1,0),(2,-1),"CENTER")
+    ,('TEXTCOLOR',(0,0),(-1,-1),"#443e42")
 ]
 tableStyles["table6"] = [
     ('TEXTCOLOR',(0,0),(-1,0),"white")
@@ -114,4 +118,5 @@ tableStyles["table6"] = [
     # ,('GRID',(0,0),(-1,-1),1,"#386170")
     ,('ALIGN',(0,0),(-1,-1),"CENTER")
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
+    ,('TEXTCOLOR',(0,1),(-1,-1),"#443e42")
     ]

@@ -45,6 +45,10 @@ class ReportMaker(object):
                     font["indent"] = fontspec.get("indent")
                 else:
                     font["indent"] = "0"
+                if fontspec.get("padding") is not None:
+                    font["padding"] = fontspec.get("padding")
+                else:
+                    font["padding"] = "0"
                 self.fonts[fontspec.get("id")] = font 
  
     #----------------------------------------------------------------------
@@ -63,8 +67,9 @@ class ReportMaker(object):
                     style = ParagraphStyle(
                         'default',
                         fontName="Arial",
-                        leading=int(font["size"])+7,
+                        leading=int(font["size"]),
                         fontSize=font["size"],
+                        borderPadding = int(font["padding"]),
                         textColor=font["color"],
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
@@ -76,8 +81,9 @@ class ReportMaker(object):
                     style = ParagraphStyle(
                         'default',
                         fontName="Arial",
-                        leading=int(font["size"])+7,
+                        leading=int(font["size"]),
                         fontSize=font["size"],
+                        borderPadding = int(font["padding"]),
                         textColor=font["color"],
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
