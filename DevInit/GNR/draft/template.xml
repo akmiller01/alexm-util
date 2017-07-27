@@ -22,19 +22,19 @@
 	<fontspec id="16" size="9" family="Times" color="#ffffff"/>
 	<fontspec id="17" size="7" family="Times" color="#ffffff"/>
 	<fontspec id="18" size="9" family="Times" color="#234c5e"/>
-<image top="0" left="0" width="892" height="148" src="banner1.png"/>
+<image top="0" left="0" width="892" height="148" path="./" variable="False" src="banner1.png"/>
 <text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
 <text top="36" left="73" width="4" height="22" font="6"> </text>
 <text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
 <text top="115" left="587" width="131" height="14" font="7"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
-<text top="48" left="39" width="362" height="72" font="2">Mozambique</text>
+<text top="48" left="39" width="362" height="72" font="2" replace="country">Mozambique</text>
 <!-- Row 1 -->
 <text top="148" left="0" width="241" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
 
 <!-- Chart 1 -->
 <text top="174" left="42" width="151" height="18" font="6">Poverty rates and GDP</text>
-<image top="201" left="42" width="230" height="170" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c1a.png"/>
-<image top="201" left="42" width="230" height="170" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c1b.png"/>
+<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1a.png"/>
+<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>
 <text top="397" left="43" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
 <text top="408" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
 
@@ -42,7 +42,7 @@
 
 <!-- Chart 2 -->
 <text top="174" left="323" width="147" height="18" font="6">Under-5 mortality rate</text>
-<image top="201" left="323" width="200" height="170" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c2.png"/>
+<image top="201" left="323" width="200" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c2.png"/>
 <text top="397" left="326" width="166" height="11" font="9"><i>Source: UN Inter-agency Group for Child </i></text>
 <text top="408" left="326" width="105" height="11" font="9"><i>Mortality Estimation 2014.</i></text>
 
@@ -74,7 +74,7 @@
 <!-- Chart 3 -->
 <text top="456" left="304" width="149" height="18" font="6">Prevalence of under-5 </text>
 <text top="474" left="304" width="82" height="18" font="6">stunting (%) </text>
-<image top="501" left="304" width="190" height="160" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c3.png"/>
+<image top="501" left="304" width="190" height="160" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c3.png"/>
 <text top="689" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015.</i></text>
 
 <line x1="510" x2="510" y1="460" y2="700" on="1" off="3" color="grey"></line>
@@ -82,7 +82,7 @@
 <!-- Chart 4 -->
 <text top="456" left="527" width="245" height="18" font="6">Changes in stunting prevalence over </text>
 <text top="474" left="527" width="154" height="18" font="6">time, by wealth quintile</text>
-<image top="501" left="525" width="331" height="170" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c4.png"/>
+<image top="501" left="525" width="331" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c4.png"/>
 <text top="683" left="527" width="191" height="11" font="9"><i>Source: DHS surveys 1990−2011 adapted from </i></text>
 <text top="693" left="527" width="99" height="11" font="9"><i>Bredenkamp et al. 2014.</i></text>
 
@@ -105,17 +105,17 @@
 <!-- Chart 5 -->
 <text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related noncommunicable </text>
 <text top="903" left="42" width="108" height="16" font="15">diseases, 2008 (%)</text>
-<image top="930" left="36" width="330" height="140" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c5.png"/>
+<image top="930" left="36" width="330" height="140" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c5.png"/>
 <text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2014.</i></text>
 
 <!-- Chart 6 -->
 <text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity, 2014 (%)</text>
-<image top="969" left="416" width="400" height="90" src="C:/Users/Alex/Documents/Data/GNR/Country profiles/Mozambique/c6.png"/>
+<image top="969" left="416" width="400" height="90" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c6.png"/>
 <text top="1075" left="414" width="80" height="11" font="9"><i>Source: WHO 2015.</i></text>
 <text top="1085" left="414" width="118" height="11" font="9"><i>Note: BMI=body mass index.</i></text>
 
 <!-- Table 6 -->
-<image top="1100" left="0" width="892" height="160" src="footer.png"/>
+<image top="1100" left="0" width="892" height="160" path="./" variable="False" src="footer.png"/>
 <text top="1115" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
 <table data="table6" top="1140" left="54" widths="165,165,165,165,130" height="30"></table>
 <text top="1190" left="44" width="530" height="11" font="8"><para>Sources: <super>a</super> Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF; <super>b</super> WHO 2014.</para></text>

@@ -22,7 +22,7 @@ class ReportMaker(object):
     """"""
  
     #----------------------------------------------------------------------
-    def __init__(self, pdf_file, xml_file):
+    def __init__(self, pdf_file, xml_file,country_name):
         pdfmetrics.registerFont(TTFont('Arial', 'fonts/Arial.ttf'))
         pdfmetrics.registerFont(TTFont('Arial-Bold', 'fonts/Arial-Bold.ttf'))
         pdfmetrics.registerFont(TTFont('Arial-Italic', 'fonts/Arial-Italic.ttf'))
@@ -30,6 +30,7 @@ class ReportMaker(object):
         addMapping('Arial',0,1,'Arial-Italic')
         addMapping('Arial',1,0,'Arial-Bold')
         
+        self.country = country_name
         self.styles = getSampleStyleSheet()
         self.e = ElementTree.parse(xml_file).getroot()
         self.width, self.height =  int(self.e.getchildren()[0].get("width")), int(self.e.getchildren()[0].get("height"))
@@ -56,7 +57,11 @@ class ReportMaker(object):
         """"""
         for page in self.e.findall("page"):
             for image in page.findall("image"):
-                logo = Image(image.get("src"))
+                if image.get("variable")=="True":
+                    src = image.get("path")+self.country+"/"+image.get("src")
+                else:
+                    src = image.get("path")+image.get("src")
+                logo = Image(src)
                 logo.drawHeight = int(image.get("height"))
                 logo.drawWidth = int(image.get("width"))
                 logo.wrapOn(self.c, self.width, self.height)
@@ -74,7 +79,11 @@ class ReportMaker(object):
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
                     )
-                    self.createParagraph(text.text, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    if text.get("replace"):
+                        replacement = dataDictionary[self.country][text.get("replace")]
+                        self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    else:
+                        self.createParagraph(text.text, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
                 else:
                     innerText = ElementTree.tostring(text.getchildren()[0])
                     font = self.fonts[text.get("font")]
@@ -88,14 +97,18 @@ class ReportMaker(object):
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
                     )
-                    self.createParagraph(innerText, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    if text.get("replace"):
+                        replacement = dataDictionary[self.country][text.get("replace")]
+                        self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    else:
+                        self.createParagraph(innerText, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
             for line in page.findall("line"):
                 self.c.setDash(int(line.get("on")),int(line.get("off")))
                 self.c.setStrokeColor(line.get("color"))
                 self.c.line(int(line.get("x1")),self.height-int(line.get("y1")),int(line.get("x2")),self.height-int(line.get("y2")))
             for table in page.findall("table"):
                 self.c.setDash(1,0)
-                tabDat = dataDictionary[table.get("data")]
+                tabDat = dataDictionary[self.country][table.get("data")]
                 if table.get("widths"):
                     colWidths = [float(width) for width in table.get("widths").split(",")]
                 else:
@@ -135,6 +148,10 @@ class ReportMaker(object):
  
 #----------------------------------------------------------------------
 if __name__ == "__main__":
-    doc = ReportMaker("example.pdf","template.xml")
-    doc.createDocument()
-    doc.savePDF()
+    countries = dataDictionary.keys()
+    for country in countries:
+        print(country)
+        # doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Country profiles\\"+country+"\\report.pdf","template.xml",country)
+        doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Reports\\"+country+".pdf","template.xml",country)
+        doc.createDocument()
+        doc.savePDF()
