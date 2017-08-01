@@ -9,6 +9,7 @@ import itertools
 import operator
 import csv
 from operator import itemgetter
+# import numpy as np
 
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="input", default="./Central govt/Draft Estimates 040417_0203_0.pdf",
@@ -78,12 +79,16 @@ def main():
     output = []
     pageLen = len(pages)
     #Cascade these down...
-    ministry = ""
     vote = ""
-    budgetType = ""
     programme = ""
+    budgetType = ""
+    sp_pj = ""
+    isTableV3 = False
+    sp_column_headers = ["Wage","Non Wage","AIA","Total","Wage","Non Wage","AIA","Total"]
+    pj_column_headers = ["GoU Dev't","External Fin","AIA","Total","GoU Dev't","External Fin","AIA","Total"]
+    year_headers = ["2016/17 Approved Budget","2016/17 Approved Budget","2016/17 Approved Budget","2016/17 Approved Budget","2017/18 Draft Estimates","2017/18 Draft Estimates","2017/18 Draft Estimates","2017/18 Draft Estimates",]
+    #Turned on for multiple pages, remember to turn of off when you spot Table V2
     for i in range(0,pageLen):
-        isTableV3 = False
         page = pages[i]
         elLen = len(page)
         for j in range(0,elLen):
@@ -94,204 +99,94 @@ def main():
                 top = int(el.attrib['top'])
                 font = int(el.attrib['font'])
                 if not isTableV3:
-                    if trytext(el)=="Table V3: Summary of Detailed Budget Estimates by Program, Project and Item ":
+                    if trytext(el)=="Table V3: Detailed Estimates by Programme, Sub Programme, Output and Item":
                         isTableV3 = True
-                        ministry = trytext(el.getprevious().getprevious())
-                        vote = trytext(el.getprevious())
-                else:
-                    if font==30:            
-                        if trytext(el)!=None:
-                            budgetType = trytext(el)
-                    elif font==32:
-                        if trytext(el)!=None:
-                            programme = trytext(el)
-                    elif abs(left-29)<4 and font==15:
-                        #Find row by going backwards and forwards...
-                        row = []
-                        elTop = int(el.attrib['top'])
+                        programme = trytext(el.getnext())
+                        budgetType = trytext(el.getnext().getnext())
+                        break
+        if isTableV3:
+            y_positioned_elements = []
+            #Put all elements into this array, and then sort it by top position
+            obj = {}
+            obj['text'] = trytext(el)
+            obj['top'] = int(el.attrib['top'])
+            obj['left'] = int(el.attrib['left'])
+            obj['right'] = int(el.attrib['left'])+int(el.attrib['width'])
+            obj['font'] = int(el.attrib['font'])
+            y_positioned_elements.append(obj)
+            #Backwards
+            prev = el.getprevious()
+            while prev is not None:
+                if prev.tag=="text":
+                    obj = {}
+                    obj['text'] = trytext(prev)
+                    obj['top'] = int(prev.attrib['top'])
+                    obj['left'] = int(prev.attrib['left'])
+                    obj['right'] = int(prev.attrib['left'])+int(prev.attrib['width'])
+                    obj['font'] = int(prev.attrib['font'])
+                    y_positioned_elements.append(obj)
+                prev = prev.getprevious()
+            #Forwards
+            nxt = el.getnext()
+            while nxt is not None:
+                if nxt.tag=="text":
+                    obj = {}
+                    obj['text'] = trytext(nxt)
+                    obj['top'] = int(nxt.attrib['top'])
+                    obj['left'] = int(nxt.attrib['left'])
+                    obj['right'] = int(nxt.attrib['left'])+int(nxt.attrib['width'])
+                    obj['font'] = int(nxt.attrib['font'])
+                    y_positioned_elements.append(obj)
+                nxt = nxt.getnext()
+            rowvals = operator.itemgetter('top','left')
+            y_positioned_elements.sort(key=rowvals)
+            ordered_texts = [item['text'] for item in y_positioned_elements]
+            if 'Table V1: Summary Of Vote Estimates by Programme  and Sub-Programme' in ordered_texts:
+                isTableV3 = False
+                next
+            vote = ordered_texts[0]+ordered_texts[1]+" "+ordered_texts[2]
+            
+            for k in range(0,len(y_positioned_elements)):
+                el = y_positioned_elements[k]
+                if el['text'].startswith("Programme"):
+                    programme = el['text']
+                elif el['text'] in ["Recurrent Budget Estimates","Development Budget Estimates"]:
+                    budgetType = el['text']
+                elif el['text'].startswith("SubProgramme"):
+                    sp_pj = el['text']
+                elif el['text'].startswith("Total Cost for SubProgramme"):
+                    totalcostsrow = ordered_texts[k+1:k+9]
+                    split_tcr = [text.split() for text in totalcostsrow]
+                    split_flat = [item for sublist in split_tcr for item in sublist][0:7]
+                    for m in range(0,len(split_flat)):
                         obj = {}
-                        obj['text'] = trytext(el)
-                        obj['top'] = int(el.attrib['top'])
-                        obj['left'] = int(el.attrib['left'])
-                        obj['right'] = int(el.attrib['left'])+int(el.attrib['width'])
-                        obj['font'] = int(el.attrib['font'])
-                        row.append(obj)
-                        #Backwards
-                        prev = el.getprevious()
-                        if prev is not None:
-                            prevTop = int(prev.attrib['top'])
-                        else:
-                            prevTop = 0
-                        while prev is not None and abs(elTop-prevTop)<4:
-                            obj = {}
-                            obj['text'] = trytext(prev)
-                            obj['top'] = int(prev.attrib['top'])
-                            obj['left'] = int(prev.attrib['left'])
-                            obj['right'] = int(prev.attrib['left'])+int(prev.attrib['width'])
-                            obj['font'] = int(prev.attrib['font'])
-                            row.append(obj)
-                            prev = prev.getprevious()
-                            if prev is not None:
-                                prevTop = int(prev.attrib['top'])
-                            else:
-                                prevTop = 0
-                        #Forwards
-                        nxt = el.getnext()
-                        if nxt is not None:
-                            nxtTop = int(nxt.attrib['top'])
-                        else:
-                            nxtTop = 0
-                        while nxt is not None and abs(elTop-nxtTop)<4:
-                            obj = {}
-                            obj['text'] = trytext(nxt)
-                            obj['top'] = int(nxt.attrib['top'])
-                            obj['left'] = int(nxt.attrib['left'])
-                            obj['right'] = int(nxt.attrib['left'])+int(nxt.attrib['width'])
-                            obj['font'] = int(nxt.attrib['font'])
-                            row.append(obj)
-                            nxt = nxt.getnext()
-                            if nxt is not None:
-                                nxtTop = int(nxt.attrib['top'])
-                            else:
-                                nxtTop = 0
-                        rowvals = operator.itemgetter('left')
-                        row.sort(key=rowvals)
-                        #Find missing pieces of data, replace them with blanks
-                        rowArr = []
-                        rowArr.append(row[0]['text'])
-                        rights = [538,808]
-                        for right in rights:
-                            textMatch = False
-                            for element in row:
-                                if abs(element['right']-right)<4:
-                                    textMatch = element['text']
-                            if textMatch:
-                                rowArr.append(textMatch)
-                            else:
-                                rowArr.append("")
-                        if rowArr[0]!="" and rowArr[1]!="":
-                            #2016/17 Approved budget
-                            obj = {}
-                            obj['year']="2016/17 Approved Budget"
-                            obj['Government']="Central Government"
-                            obj['Vote']=vote
-                            obj['District']=ministry
-                            obj['Budget Type']=budgetType
-                            obj['Programme']=programme
-                            obj['Budget']=rowArr[1]
-                            obj['Economic Function']=rowArr[0]
-                            obj['ofWhich']=""
-                            output.append(obj)
-                        if rowArr[0]!="" and rowArr[2]!="":
-                            #2017/18 Draft Estimates
-                            obj = {}
-                            obj['year']="2017/18 Draft Estimates"
-                            obj['Government']="Central Government"
-                            obj['Vote']=vote
-                            obj['District']=ministry
-                            obj['Budget Type']=budgetType
-                            obj['Programme']=programme
-                            obj['Budget']=rowArr[2]
-                            obj['Economic Function']=rowArr[0]
-                            obj['ofWhich']=""
-                            output.append(obj)
-                    #of which columns
-                    elif font==45 and trytext(el)[:3]=="o/w":
-                        #Find row by going backwards and forwards...
-                        row = []
-                        elTop = int(el.attrib['top'])
+                        obj["vote"] = vote
+                        obj["programme"] = programme
+                        obj["budgetType"] = budgetType
+                        obj["sp_pj"] = sp_pj
+                        obj["year"] = year_headers[m]
+                        obj["columnType"] = sp_column_headers[m]
+                        obj["value"] = split_flat[m]
+                        obj["page"] = i+1
+                        output.append(obj)
+                elif el['text'].startswith("Total Cost for Project"):
+                    split_tcr = [text.split() for text in totalcostsrow]
+                    split_flat = [item for sublist in split_tcr for item in sublist][0:7]
+                    for m in range(0,len(split_flat)):
                         obj = {}
-                        obj['text'] = trytext(el)
-                        obj['top'] = int(el.attrib['top'])
-                        obj['left'] = int(el.attrib['left'])
-                        obj['right'] = int(el.attrib['left'])+int(el.attrib['width'])
-                        obj['font'] = int(el.attrib['font'])
-                        row.append(obj)
-                        #Backwards
-                        prev = el.getprevious()
-                        if prev is not None:
-                            prevTop = int(prev.attrib['top'])
-                        else:
-                            prevTop = 0
-                        while prev is not None and abs(elTop-prevTop)<4:
-                            obj = {}
-                            obj['text'] = trytext(prev)
-                            obj['top'] = int(prev.attrib['top'])
-                            obj['left'] = int(prev.attrib['left'])
-                            obj['right'] = int(prev.attrib['left'])+int(prev.attrib['width'])
-                            obj['font'] = int(prev.attrib['font'])
-                            row.append(obj)
-                            prev = prev.getprevious()
-                            if prev is not None:
-                                prevTop = int(prev.attrib['top'])
-                            else:
-                                prevTop = 0
-                        #Forwards
-                        nxt = el.getnext()
-                        if nxt is not None:
-                            nxtTop = int(nxt.attrib['top'])
-                        else:
-                            nxtTop = 0
-                        while nxt is not None and abs(elTop-nxtTop)<4:
-                            obj = {}
-                            obj['text'] = trytext(nxt)
-                            obj['top'] = int(nxt.attrib['top'])
-                            obj['left'] = int(nxt.attrib['left'])
-                            obj['right'] = int(nxt.attrib['left'])+int(nxt.attrib['width'])
-                            obj['font'] = int(nxt.attrib['font'])
-                            row.append(obj)
-                            nxt = nxt.getnext()
-                            if nxt is not None:
-                                nxtTop = int(nxt.attrib['top'])
-                            else:
-                                nxtTop = 0
-                        rowvals = operator.itemgetter('left')
-                        row.sort(key=rowvals)
-                        #Find missing pieces of data, replace them with blanks
-                        rowArr = []
-                        rowArr.append(row[0]['text'])
-                        rights = [538,808]
-                        for right in rights:
-                            textMatch = False
-                            for element in row:
-                                if abs(element['right']-right)<4:
-                                    textMatch = element['text']
-                            if textMatch:
-                                rowArr.append(textMatch)
-                            else:
-                                rowArr.append("")
-                        #Find of last font 15 for 'of which'
-                        ofWhich = el.getprevious()
-                        ofWhichFont = int(ofWhich.attrib['font'])
-                        while ofWhichFont!=15:
-                            ofWhich = ofWhich.getprevious()
-                            ofWhichFont = int(ofWhich.attrib['font'])
-                        if rowArr[0]!="" and rowArr[1]!="":
-                            #2016/17 Approved Budget
-                            obj = {}
-                            obj['year']="2016/17 Approved Budget"
-                            obj['Government']="Central Government"
-                            obj['Vote']=vote
-                            obj['District']=ministry
-                            obj['Budget Type']=budgetType
-                            obj['Programme']=programme
-                            obj['Budget']=rowArr[1]
-                            obj['Economic Function']=rowArr[0]
-                            obj['ofWhich']=trytext(ofWhich)
-                            output.append(obj)
-                        if rowArr[0]!="" and rowArr[2]!="":
-                            #2017/18 Draft Estimates
-                            obj = {}
-                            obj['year']="2017/18 Draft Estimates"
-                            obj['Government']="Central Government"
-                            obj['Vote']=vote
-                            obj['District']=ministry
-                            obj['Budget Type']=budgetType
-                            obj['Programme']=programme
-                            obj['Budget']=rowArr[2]
-                            obj['Economic Function']=rowArr[0]
-                            obj['ofWhich']=trytext(ofWhich)
-                            output.append(obj)
+                        obj["vote"] = vote
+                        obj["programme"] = programme
+                        obj["budgetType"] = budgetType
+                        obj["sp_pj"] = sp_pj
+                        obj["year"] = year_headers[m]
+                        obj["columnType"] = pj_column_headers[m]
+                        obj["value"] = split_flat[m]
+                        obj["page"] = i+1
+                        output.append(obj)
+            
+            # name_locations = np.sort(np.append(np.where([el.startswith("SubProgramme") for el in ordered_texts])[0],np.where([el.startswith("Project") for el in ordered_texts])[0]))
+            # totalcost_locations = np.sort(np.append(np.where([el.startswith("Total Cost for SubProgramme") for el in ordered_texts])[0],np.where([el.startswith("Total Cost for Project") for el in ordered_texts])[0]))
+
     if options.debug:
         pdb.set_trace()
     keys = output[0].keys()
