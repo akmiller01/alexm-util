@@ -39,6 +39,15 @@
 <script src="http://d3js.org/d3.v3.min.js?2.9.1"></script>
 <script src="sankey.js"></script>
 <script>
+  
+function findWithAttr(array, attr, value) {
+  for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+          return i;
+      }
+  }
+  return -1;
+}
  
 var margin = {top: 1, right: 1, bottom: 6, left: 1},
     width = 960 - margin.left - margin.right,
@@ -61,20 +70,25 @@ var sankey = d3.sankey()
  
 var path = sankey.link();
 
-function unhighlight_all(){
-    d3.selectAll(".node").attr("data-clicked","0");
-    d3.selectAll(".link").style("stroke-opacity", 0.2);
-}
+var originalValues = {};
+var sankeyValues = {};
  
 d3.json("energy.json", function(energy) {
- 
+  
+  sankeyValues.nodes = energy.nodes;
+  sankeyValues.links = energy.links;
+  
+  //Deep copy, stupidly
+  originalValues.nodes = JSON.parse(JSON.stringify(energy.nodes));
+  originalValues.links = JSON.parse(JSON.stringify(energy.links));
+
   sankey
-      .nodes(energy.nodes)
-      .links(energy.links)
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
       .layout(32);
- 
+        
   var link = svg.append("g").selectAll(".link")
-      .data(energy.links)
+      .data(sankeyValues.links)
     .enter().append("path")
       .attr("class", "link")
       .attr("d", path)
@@ -84,21 +98,17 @@ d3.json("energy.json", function(energy) {
       })
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
       .sort(function(a, b) { return b.dy - a.dy; });
- 
+  
   link.append("title")
       .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
- 
+  
   var node = svg.append("g").selectAll(".node")
-      .data(energy.nodes)
+      .data(sankeyValues.nodes)
     .enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
       .on("click",highlight_node_links)
-    .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
- 
+  
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
@@ -106,7 +116,7 @@ d3.json("energy.json", function(energy) {
       .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
     .append("title")
       .text(function(d) { return d.name + "\n" + format(d.value); });
- 
+  
   node.append("text")
       .attr("x", -6)
       .attr("y", function(d) { return d.dy / 2; })
@@ -117,29 +127,23 @@ d3.json("energy.json", function(energy) {
     .filter(function(d) { return d.x < width / 2; })
       .attr("x", 6 + sankey.nodeWidth())
       .attr("text-anchor", "start");
- 
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
-
+  
   function highlight_node_links(node,i){
-
+  
     var remainingNodes=[],
-        nextNodes=[];
-
+        nextNodes=[],
+        uniqueNodeObj={},
+        newLinkNames = [];
+  
     var stroke_opacity = 0;
     if( d3.select(this).attr("data-clicked") == "1" ){
       d3.select(this).attr("data-clicked","0");
       stroke_opacity = 0.2;
-      unhighlight_all();
     }else{
-      unhighlight_all();
       d3.select(this).attr("data-clicked","1");
       stroke_opacity = 0.5;
     }
-
+  
     var traverse = [{
                       linkType : "sourceLinks",
                       nodeType : "target"
@@ -147,30 +151,110 @@ d3.json("energy.json", function(energy) {
                       linkType : "targetLinks",
                       nodeType : "source"
                     }];
-
+  
     traverse.forEach(function(step){
       node[step.linkType].forEach(function(link) {
         remainingNodes.push(link[step.nodeType]);
-        highlight_link(link.id, stroke_opacity);
+        uniqueNodeObj[link.source.name] = 1;
+        uniqueNodeObj[link.target.name] = 1;
+        newLinkNames.push({
+              source: link.source.name,
+              target: link.target.name,
+              value: link.value
+            });
       });
-
+  
       while (remainingNodes.length) {
         nextNodes = [];
         remainingNodes.forEach(function(node) {
           node[step.linkType].forEach(function(link) {
             nextNodes.push(link[step.nodeType]);
-            highlight_link(link.id, stroke_opacity);
+            uniqueNodeObj[link.source.name] = 1;
+            uniqueNodeObj[link.target.name] = 1;
+            newLinkNames.push({
+              source: link.source.name,
+              target: link.target.name,
+              value: link.value
+            });
           });
         });
         remainingNodes = nextNodes;
       }
     });
+    
+    var uniqueNodes = Object.keys(uniqueNodeObj);
+    var newNodes = [];
+    for(var i = 0; i < uniqueNodes.length;i++){
+      newNodes.push({"name":uniqueNodes[i]})
+    }
+    var newLinks = [];
+    for(var i = 0; i < newLinkNames.length;i++){
+      newLinks.push({"source":findWithAttr(newNodes,"name",newLinkNames[i].source),"target":findWithAttr(newNodes,"name",newLinkNames[i].target),"value":newLinkNames[i].value})
+    }
+    
+    sankeyValues.nodes = newNodes;
+    sankeyValues.links = newLinks;
+    
+    console.log(sankeyValues)
+    
+    sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+                  
+    d3.select("svg").remove();
+    
+    var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
+    var path = sankey.link();
+    
+    var link = svg.append("g").selectAll(".link")
+      .data(sankeyValues.links)
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", path)
+      .attr("id", function(d,i){
+        d.id = i;
+        return "link-"+i;
+      })
+      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+  
+  link.append("title")
+      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+  
+  var node = svg.append("g").selectAll(".node")
+      .data(sankeyValues.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .on("click",highlight_node_links)
+  
+  node.append("rect")
+      .attr("height", function(d) { return d.dy; })
+      .attr("width", sankey.nodeWidth())
+      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
+      .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
+    .append("title")
+      .text(function(d) { return d.name + "\n" + format(d.value); });
+  
+  node.append("text")
+      .attr("x", -6)
+      .attr("y", function(d) { return d.dy / 2; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .attr("transform", null)
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x < width / 2; })
+      .attr("x", 6 + sankey.nodeWidth())
+      .attr("text-anchor", "start");
+    
   }
-
-  function highlight_link(id,opacity){
-      d3.select("#link-"+id).style("stroke-opacity", opacity);
-  }
-
+  
 });
  
 </script>
