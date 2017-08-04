@@ -50,18 +50,45 @@ function findWithAttr(array, attr, value) {
   return -1;
 }
 
-function redirect_to_db(name){
-  window.location = "fake_database/"+name;
+function redirect_to_db(d){
+  //var xPosDict = [
+  //  "Indicator Framework"
+  //  ,"Indicator"
+  //  ,"Data Series"
+  //  ,"Sector"
+  //  ,"Source"
+  //  ,"Source Type"
+  //]
+  var xPosDict = [
+    "https://devinit.knack.com/dda-ug#sdgs/"
+    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
+    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
+    ,"https://devinit.knack.com/dda-ug#lookups/sector/"
+    ,"https://devinit.knack.com/dda-ug#sources/"
+    ,"https://devinit.knack.com/dda-ug#sources/"
+  ]
+  window.location = xPosDict[d.xPos];
 }
 
-var margin = {top: 1, right: 1, bottom: 6, left: 1},
-    width = 960 - margin.left - margin.right,
+var margin = {top: 1, right: 200, bottom: 6, left: 1},
+    width = 1500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
  
 var formatNumber = d3.format(",.0f"),
-    format = function(d) { return formatNumber(d) + " TWh"; },
+    format = function(d) { return formatNumber(d) + " connection(s)"; },
+    formatInput = function(d) { return formatNumber(d) + " input(s)"; },
+    formatOutput = function(d) { return formatNumber(d) + " output(s)"; },
     color = d3.scale.category20();
- 
+    
+var formatText = function(s){
+  var limit = 30;
+  if(s.length>limit){
+    return(s.substring(0,limit)+"...");
+  }else{
+    return(s);
+  }
+};
+
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -70,27 +97,53 @@ var svg = d3.select("#chart").append("svg")
  
 var sankey = d3.sankey()
     .nodeWidth(15)
-    .nodePadding(10)
+    .nodePadding(0)
     .size([width, height]);
  
 var path = sankey.link();
 var originalValues = {};
-var sankeyValues = {};
+var sankeyValues = {"nodes":[],"links":[]};
  
-d3.json("energy.json", function(energy) {
+d3.json("data.json", function(data) {
   
-  sankeyValues.nodes = energy.nodes;
-  sankeyValues.links = energy.links;
+  sankeyValues.nodes = data.nodes;
+  sankeyValues.links = data.links;
   
   //Deep copy, stupidly
-  originalValues.nodes = JSON.parse(JSON.stringify(energy.nodes));
-  originalValues.links = JSON.parse(JSON.stringify(energy.links));
+  originalValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+  originalValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
   sankey
       .nodes(sankeyValues.nodes)
       .links(sankeyValues.links)
       .layout(32);
         
-  var link = svg.append("g").selectAll(".link")
+  draw_sankey();
+  
+});
+
+function reset_data(){
+  //Deep copy, stupidly
+  sankeyValues.nodes = JSON.parse(JSON.stringify(originalValues.nodes));
+  sankeyValues.links = JSON.parse(JSON.stringify(originalValues.links));
+  
+  sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+}
+
+function draw_sankey(){
+  d3.select("svg").remove();
+    
+    var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
+    var path = sankey.link();
+    
+    var link = svg.append("g").selectAll(".link")
       .data(sankeyValues.links)
     .enter().append("path")
       .attr("class", "link")
@@ -105,7 +158,7 @@ d3.json("energy.json", function(energy) {
   link.append("title")
       .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
   
-  var node = svg.append("g").selectAll(".node")
+   var node = svg.append("g").selectAll(".node")
       .data(sankeyValues.nodes)
     .enter().append("g")
       .attr("id",function(d){return d.name})
@@ -114,41 +167,45 @@ d3.json("energy.json", function(energy) {
       .on("click",highlight_node_links)
       .on("contextmenu", function(d) {
         d3.event.preventDefault();
-        redirect_to_db(d.name);
+        redirect_to_db(d);
       })
       .call(d3.behavior.drag()
       .origin(function(d) { return d; })
       // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
       .on("drag", dragmove));
-  
+      
   node.append("rect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
       .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
     .append("title")
-      .text(function(d) { return d.name + "\n" + format(d.value); });
+      .text(function(d) {return d.name + "\n" + formatInput(d.targetLinks.length)+" and "+formatOutput(d.sourceLinks.length); });
   
   node.append("text")
-      .attr("x", -6)
+      .attr("x", 6 + sankey.nodeWidth())
       .attr("y", function(d) { return d.dy / 2; })
       .attr("dy", ".35em")
-      .attr("text-anchor", "end")
+      .attr("text-anchor", "start")
       .attr("transform", null)
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", 6 + sankey.nodeWidth())
-      .attr("text-anchor", "start");
+      .text(function(d) {return d.dy>15?formatText(d.name):""; })
+    //.filter(function(d) { return d.x < width / 2; })
+    //  .attr("x", 6 + sankey.nodeWidth())
+    //  .attr("text-anchor", "start");
       
   function dragmove(d) {
     d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
     sankey.relayout();
     link.attr("d", path);
   }
-  
-});
+}
 
-function highlight_node_links(node,i){
+//function highlight_node_links(node,i){
+function highlight_node_links(old_node,old_i){
+  var old_name = old_node.name;
+  reset_data();
+  var i = findWithAttr(sankeyValues.nodes,"name",old_name);
+  var node = sankeyValues.nodes[i];
   
     var remainingNodes=[],
         nextNodes=[],
@@ -204,12 +261,12 @@ function highlight_node_links(node,i){
     
     var uniqueNodes = Object.keys(uniqueNodeObj);
     var newNodes = [];
-    for(var i = 0; i < uniqueNodes.length;i++){
-      newNodes.push({"name":uniqueNodes[i]})
+    for(var j = 0; j < uniqueNodes.length;j++){
+      newNodes.push({"name":uniqueNodes[j]})
     }
     var newLinks = [];
-    for(var i = 0; i < newLinkNames.length;i++){
-      newLinks.push({"source":findWithAttr(newNodes,"name",newLinkNames[i].source),"target":findWithAttr(newNodes,"name",newLinkNames[i].target),"value":newLinkNames[i].value})
+    for(var j = 0; j < newLinkNames.length;j++){
+      newLinks.push({"source":findWithAttr(newNodes,"name",newLinkNames[j].source),"target":findWithAttr(newNodes,"name",newLinkNames[j].target),"value":newLinkNames[j].value})
     }
     var uniqueLinks = _.uniqBy(newLinks, function(elem) { return [elem.source, elem.target,elem.value].join(); });
     
@@ -221,150 +278,14 @@ function highlight_node_links(node,i){
       .links(sankeyValues.links)
       .layout(32);
                   
-    d3.select("svg").remove();
-    
-    var svg = d3.select("#chart").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-      
-    var path = sankey.link();
-    
-    var link = svg.append("g").selectAll(".link")
-      .data(sankeyValues.links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", path)
-      .attr("id", function(d,i){
-        d.id = i;
-        return "link-"+i;
-      })
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .sort(function(a, b) { return b.dy - a.dy; });
-  
-  link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
-  
-   var node = svg.append("g").selectAll(".node")
-      .data(sankeyValues.nodes)
-    .enter().append("g")
-      .attr("id",function(d){return d.name})
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click",highlight_node_links)
-      .on("contextmenu", function(d) {
-        d3.event.preventDefault();
-        redirect_to_db(d.name);
-      })
-      .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
-      
-  node.append("rect")
-      .attr("height", function(d) { return d.dy; })
-      .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
-      .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
-    .append("title")
-      .text(function(d) { return d.name + "\n" + format(d.value); });
-  
-  node.append("text")
-      .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .attr("transform", null)
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", 6 + sankey.nodeWidth())
-      .attr("text-anchor", "start");
-      
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
+    draw_sankey();
     
   }
 
 function resetSankey(){
-  //Deep copy, stupidly
-  sankeyValues.nodes = JSON.parse(JSON.stringify(originalValues.nodes));
-  sankeyValues.links = JSON.parse(JSON.stringify(originalValues.links));
-    
-    sankey
-      .nodes(sankeyValues.nodes)
-      .links(sankeyValues.links)
-      .layout(32);
-                  
-    d3.select("svg").remove();
-    
-    var svg = d3.select("#chart").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-      
-    var path = sankey.link();
-    
-    var link = svg.append("g").selectAll(".link")
-      .data(sankeyValues.links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", path)
-      .attr("id", function(d,i){
-        d.id = i;
-        return "link-"+i;
-      })
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .sort(function(a, b) { return b.dy - a.dy; });
-  
-  link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
-  
-  var node = svg.append("g").selectAll(".node")
-      .data(sankeyValues.nodes)
-    .enter().append("g")
-      .attr("id",function(d){return d.name})
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click",highlight_node_links)
-      .on("contextmenu", function(d) {
-        d3.event.preventDefault();
-        redirect_to_db(d.name);
-      })
-      .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
-  
-  node.append("rect")
-      .attr("height", function(d) { return d.dy; })
-      .attr("width", sankey.nodeWidth())
-      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
-      .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
-    .append("title")
-      .text(function(d) { return d.name + "\n" + format(d.value); });
-  
-  node.append("text")
-      .attr("x", -6)
-      .attr("y", function(d) { return d.dy / 2; })
-      .attr("dy", ".35em")
-      .attr("text-anchor", "end")
-      .attr("transform", null)
-      .text(function(d) { return d.name; })
-    .filter(function(d) { return d.x < width / 2; })
-      .attr("x", 6 + sankey.nodeWidth())
-      .attr("text-anchor", "start");
-      
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
-  }
+  reset_data();
+  draw_sankey();                
+}
  
 </script>
 </body>
