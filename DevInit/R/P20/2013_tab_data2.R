@@ -421,6 +421,8 @@ for(i in 1:length(rdatas)){
     pr <- data.frame(data)
     remove(data)
     
+    pr$water.time <- pr$hv204
+    
     names(pr)[which(names(pr)=="hv271")] <- "wealth"
     pr$wealth <- pr$wealth/100000
     
@@ -543,7 +545,7 @@ for(i in 1:length(rdatas)){
     
     keep <- c("wealth","weights","urban","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","skilled.births","maternal.deaths","woman.weights"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","skilled.births","maternal.deaths","woman.weights","water.time"
     )
     prNames <- names(pr)
     namesDiff <- setdiff(keep,prNames)
@@ -1045,7 +1047,7 @@ for(i in 2:length(dirs)){
     hl <- data.frame(hl,as.is=TRUE,check.names=FALSE)
     keep <- c("wealth","weights","urban","region","educ","age","sex","cluster","household","head.sex","head.age","p20"
               ,"birth.cert","birth.reg","age.months","weight.kg","height.cm","standing.lying","child.height.age"
-              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","skilled.births","maternal.deaths","woman.weights"
+              ,"woman.bmi","man.bmi","child.weights","mother.bmi","ext","all.births","skilled.births","maternal.deaths","woman.weights","water.time"
     )
     hlNames <- names(hl)
     namesDiff <- setdiff(keep,hlNames)
