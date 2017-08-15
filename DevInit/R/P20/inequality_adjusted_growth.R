@@ -16,8 +16,43 @@ plgrowth = function(pcn,this.country,base,future,povline=1.9){
   return(annualizedgrowth)
 }
 
-plgrowth(pcn,"Bangladesh",2002,2013)
-plgrowth(pcn,"Bangladesh",1993,2013)
+plgrowthrev = function(pcn,this.country,base,future,povline=1.9){
+  dat <- subset(pcn,country==this.country)
+  futurehc <- subset(dat,year==future & pl==povline)$hc
+  datbase <- subset(dat,year==base)
+  datbase <- datbase[order(datbase$pl),]
+  datbase$absdiff <- abs(datbase$hc-futurehc)
+  minabsdiff <- min(datbase$absdiff)
+  basepl <- subset(datbase,absdiff==minabsdiff)$pl[1]
+  yearsdiff <- future-base
+  annualizedgrowth <- ((povline-basepl)/basepl)/yearsdiff
+  return(annualizedgrowth)
+}
+
+plgrowth(pcn,"China*",2002,2013)
+plgrowth(pcn,"China*",1993,2013)
+plgrowthrev(pcn,"China*",2002,2013)
+plgrowthrev(pcn,"China*",1993,2013)
+
+# countries <- unique(pcn$country)
+# dataList <- list()
+# dataIndex <- 1
+# for(country in countries){
+#   message(country)
+#   dat <- tryCatch(
+#     {
+#       data.frame(country,tenyear=plgrowth(pcn,country,2002,2013),twentyyear=plgrowth(pcn,country,1993,2013))
+#     },error=function(err){
+#       message(err);
+#       return(data.frame(country,tenyear=0,twentyyear=0));
+#       }
+#     )
+#   dataList[[dataIndex]] <- dat
+#   dataIndex <- dataIndex + 1
+# }
+# 
+# all.growth <- rbindlist(dataList)
+# write.csv(all.growth,"C:/Users/Alex/Documents/Data/P20/Meta/pov.adj.growth.csv",na="",row.names=FALSE)
 
 countries <- unique(pcn$country)
 dataList <- list()
@@ -26,18 +61,18 @@ for(country in countries){
   message(country)
   dat <- tryCatch(
     {
-      data.frame(country,tenyear=plgrowth(pcn,country,2002,2013),twentyyear=plgrowth(pcn,country,1993,2013))
+      data.frame(country,tenyear=plgrowthrev(pcn,country,2002,2013),twentyyear=plgrowthrev(pcn,country,1993,2013))
     },error=function(err){
       message(err);
       return(data.frame(country,tenyear=0,twentyyear=0));
-      }
-    )
+    }
+  )
   dataList[[dataIndex]] <- dat
   dataIndex <- dataIndex + 1
 }
 
 all.growth <- rbindlist(dataList)
-write.csv(all.growth,"C:/Users/Alex/Documents/Data/P20/Meta/pov.adj.growth.csv",na="",row.names=FALSE)
+write.csv(all.growth,"C:/Users/Alex/Documents/Data/P20/Meta/pov.adj.growthrev.csv",na="",row.names=FALSE)
 
 # spl <- smooth.spline(ban2013$pl,y=ban2013$hc)
 # pred <- predict(spl)
