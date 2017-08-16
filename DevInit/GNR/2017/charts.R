@@ -10,10 +10,10 @@ library(Cairo)
 # Sys.setlocale("LC_CTYPE","russian")
 Sys.setlocale(category="LC_ALL", locale = "English_United States.1252")
 
-wd <- "C:/git/alexm-util/DevInit/GNR/draft"
+wd <- "C:/git/alexm-util/DevInit/GNR/2017"
 setwd(wd)
 
-dat <- read.csv("2015data.csv",na.strings=c("","."),as.is=TRUE)
+dat <- read.csv("data.csv",na.strings=c("","."),as.is=TRUE)
 
 countries <- unique(dat$country)
 
@@ -80,31 +80,30 @@ quintileColor <-  scale_color_manual(values=c(grey,yellow,purple,blue,orange))
 purpleOrangeBlueColor <-  scale_color_manual(values=c(purple,orange,blue))
 
 c1values <- list(
-  "US$1.25/day (%)"=list(
-  "poverty125_1"="yearpov125_1"
-  ,"poverty125_2"="yearpov125_2"
-  ,"poverty125_3"="yearpov125_3"
-  ,"poverty125_4"="yearpov125_4"
+  "US$1.90/day (%)"=list(
+  "poverty_190_1"="yearpov190_1"
+  ,"poverty190_2"="yearpov190_2"
   ),
-  "US$2/day (%)"=list("poverty2_1"="yearpov2_1"
-  ,"poverty2_2"="yearpov2_2"
-  ,"poverty2_3"="yearpov2_3"
-  ,"poverty2_4"="yearpov2_4"
+  "US$3.10/day (%)"=list("poverty310_1"="yearpov310_1"
+  ,"poverty310_2"="yearpov310_2"
   ),
-  "PPP($) GDP per capita"=list("GDP_1"="yearGDP_1"
-  ,"GDP_2"="yearGDP_2"
-  ,"GDP_3"="yearGDP_3"
-  ,"GDP_4"="yearGDP_4"
-  ,"GDP_5"="yearGDP_5"
+  "PPP($) GDP per capita"=list("gdp_1990"="gdp_1990_year"
+  ,"gdp_2000"="gdp_2000_year"
+  ,"gdp_2010"="gdp_2010_year"
+  ,"gdp_2016"="gdp_2016_year"
   )
 )
+dat$gdp_1990_year <- 1990
+dat$gdp_2000_year <- 2000
+dat$gdp_2010_year <- 2010
+dat$gdp_2016_year <- 2016
 
 c2values <- c(
-  "u5mr2009"
-  ,"u5mr2010"
-  ,"u5mr2011"
+  "u5mr2011"
   ,"u5mr2012"
   ,"u5mr2013"
+  ,"u5mr2014"
+  ,"u5mr2015"
 )
 
 c3values = list("rate_stuntingtrend1"="year_stuntingtrend1"
@@ -118,14 +117,14 @@ c4values <- NA
 
 c5values <- list(
   "Raised blood pressure"=list(
-    "BPboth" = "Both sexes"
-    ,"BPmale" = "Male"
+    "BPmale" = "Male"
     ,"BPfemale" = "Female"
+    # ,"BPboth" = "Both sexes"
   ),
   "Raised blood glucose"=list(
-    "BGboth" = "Both sexes"
-    ,"BGmale" = "Male"
+    "BGmale" = "Male"
     ,"BGfemale" = "Female"
+    # ,"BGboth" = "Both sexes"
   ),
   "Raised blood cholesterol"=list(
     "cholesterol_BOTH" = "Both sexes"
@@ -136,14 +135,14 @@ c5values <- list(
 
 c6values <- list(
   "Overweight"=list(
-    "ow_bothsexes" = "Both sexes"
-    ,"ow_male" = "Male"
+    "ow_male" = "Male"
     ,"ow_female" = "Female"
+    # ,"ow_bothsexes" = "Both sexes"
   ),
   "Obesity"=list(
-    "ob_bothsexes" = "Both sexes"
-    ,"ob_male" = "Male"
+    "ob_male" = "Male"
     ,"ob_female" = "Female"
+    # ,"ob_bothsexes" = "Both sexes"
   )
 )
 
@@ -174,7 +173,7 @@ for(this.country in countries){
     names(c1wide)[2:length(c1wide)] <- substr(names(c1wide)[2:length(c1wide)],7,nchar(names(c1wide)[2:length(c1wide)]))
     c1.melt <- melt(c1wide,id.vars="year")
     c1.melt$year <- factor(c1.melt$year)
-    c1a.melt <- subset(c1.melt,variable %in% c("US$1.25/day (%)","US$2/day (%)"))
+    c1a.melt <- subset(c1.melt,variable %in% c("US$1.90/day (%)","US$3.10/day (%)"))
     c1a.max <- max(c1a.melt$value,na.rm=TRUE)
     c1b.melt <- subset(c1.melt,variable == "PPP($) GDP per capita")
     c1b.max <- max(c1b.melt$value,na.rm=TRUE)
@@ -202,7 +201,7 @@ for(this.country in countries){
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.1f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
     c1b <- ggplot(c1b.melt,aes(year,value)) +
-      geom_line(aes(group=variable,colour=variable),size=2.4,lineend="round") +
+      geom_line(data=c1b.melt[which(!is.na(value)),],aes(group=variable,colour=variable),size=2.4,lineend="round") +
       purpleColor +
       expand_limits(y=0) +
       expand_limits(y=c1b.max*1.5) +
@@ -244,7 +243,7 @@ for(this.country in countries){
     guides(fill=guide_legend(title=element_blank())) +
     simple_style  +
     scale_y_continuous(expand = c(0,0)) +
-    scale_x_continuous(limits = c(2008.7,2013.3)) +
+    scale_x_continuous(limits = c(2010.7,2015.3)) +
     expand_limits(y=c2.max*1.1) +
     theme(
       legend.position="top"
@@ -379,10 +378,14 @@ for(this.country in countries){
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
     ) + geom_text(size=10,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(0.8),hjust=-0.2,color="#443e42") + coord_flip()
-  Cairo(file="c1a.png",width=800,height=600,units="px",bg="transparent")
+  # Cairo(file="c1a.png",width=800,height=600,units="px",bg="transparent")
+  # tryCatch({print(c1a)},error=function(e){message(e);print(cblank)})
+  # dev.off()
+  # Cairo(file="c1b.png",width=800,height=600,units="px",bg="transparent")
+  # print(c1b)
+  # dev.off()
+  Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
   tryCatch({print(c1a)},error=function(e){message(e);print(cblank)})
-  dev.off()
-  Cairo(file="c1b.png",width=800,height=600,units="px",bg="transparent")
   print(c1b)
   dev.off()
   Cairo(file="c2.png",width=800,height=700,units="px",bg="transparent")

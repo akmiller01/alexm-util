@@ -34,8 +34,8 @@
 
 <!-- Chart 1 -->
 <text top="174" left="42" width="151" height="18" font="6">Poverty rates and GDP</text>
-<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1a.png"/>
-<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>
+<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1.png"/>
+<!--<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>-->
 <text top="397" left="43" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
 <text top="408" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
 
