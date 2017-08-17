@@ -14,6 +14,14 @@ wd <- "C:/git/alexm-util/DevInit/GNR/2017"
 setwd(wd)
 
 dat <- read.csv("data.csv",na.strings=c("","."),as.is=TRUE)
+dist_data <- read.csv("dist_data.csv",na.strings=c("","."),as.is=TRUE)
+setnames(dist_data,"quin1","Poorest   ")
+setnames(dist_data,"quin2","\nSecond   \npoorest")
+setnames(dist_data,"quin3","Middle   ")
+setnames(dist_data,"quin4","\nSecond   \nwealthiest")
+setnames(dist_data,"quin5","Wealthiest   ")
+dist_data <- melt(dist_data,measure.vars=c("Poorest   ","\nSecond   \npoorest","Middle   ","\nSecond   \nwealthiest","Wealthiest   "))
+dist_data$value <- dist_data$value*100
 
 countries <- unique(dat$country)
 
@@ -76,7 +84,7 @@ yellowOrangeColor <- scale_color_manual(values=c(yellow,orange))
 purpleColor <- scale_color_manual(values=c(purple))
 orangeColor <- scale_color_manual(values=c(orange))
 blueColor <- scale_color_manual(values=c(blue))
-quintileColor <-  scale_color_manual(values=c(grey,yellow,purple,blue,orange))
+quintileColor <-  scale_color_manual(values=c(orange,blue,purple,yellow,grey))
 purpleOrangeBlueColor <-  scale_color_manual(values=c(purple,orange,blue))
 
 c1values <- list(
@@ -295,8 +303,37 @@ for(this.country in countries){
       ,legend.key.size = unit(2.5,"lines")
     ) + geom_text(size=13,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3,color="#443e42")
   #Chart 4
-  #Data missing?
-  c4 <- no.data
+  country_dist <- subset(dist_data,country==this.country)
+  if(nrow(country_dist)==0){
+    c4 <- no.data
+  }else{
+    country_dist$year <- factor(country_dist$year)
+    c4 <- ggplot(country_dist,aes(x=value,y=year)) +
+      geom_line(aes(group=year),size=1,color="#adb6c0") +
+      geom_point(size=7,aes(group=variable,colour=variable)) +
+      scale_x_continuous(breaks = scales::pretty_breaks(n = 5)) +
+      quintileColor +
+      guides(colour=guide_legend(title=element_blank())) +
+      simple_style  +
+      theme(
+        legend.position="top"
+        ,legend.text = element_text(size=22,color="#443e42")
+        ,legend.justification=c(0,0)
+        ,legend.direction="horizontal"
+        ,axis.title.y=element_blank()
+        ,axis.title.x=element_text(color="#443e42",size=20)
+        ,axis.ticks=element_blank()
+        ,axis.line.y = element_blank()
+        ,axis.line.x = element_line(color="#443e42", size = 1)
+        ,axis.text.y = element_text(size=21,color="#443e42")
+        ,axis.text.x = element_text(size=25,color="#443e42")
+        ,legend.background = element_rect(fill = "transparent", colour = "transparent")
+        ,legend.key = element_rect(fill = "transparent", colour = "transparent")
+        ,legend.key.size = unit(2.5,"lines")
+      ) +
+      xlab("Mean prevalence of stunting (%)")
+  }
+  
   #Chart 5
   c5list <- list()
   c5index <- 1
@@ -378,6 +415,46 @@ for(this.country in countries){
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
     ) + geom_text(size=10,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(0.8),hjust=-0.2,color="#443e42") + coord_flip()
+  #Chart 7
+  c7datalist <- list()
+  c7index <- 1
+  yr_anc <- countrydat$yr_anc[1]
+  yr_sab <- countrydat$year_sab[1]
+  yr_earlybf <- countrydat$yr_earlybf[1]
+  yr_contbf <- countrydat$yr_contbf[1]
+  yr_unmet_need <- countrydat$yr_unmet_need[1]
+  if(!is.null(yr_anc) & !is.na(yr_anc)){
+    anctext <- paste0("Antenatal care (4+ visits), ",yr_anc)
+    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple)
+    c7datalist[[c7index]] <- ancdat
+    c7index <- c7index + 1
+  }
+  if(!is.null(yr_sab) & !is.na(yr_sab)){
+    sabtext <- paste0("Skilled attendant at birth, ",yr_sab)
+    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple)
+    c7datalist[[c7index]] <- sabdat
+    c7index <- c7index + 1
+  }
+  if(!is.null(yr_earlybf) & !is.na(yr_earlybf)){
+    earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth, ",yr_earlybf)
+    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple)
+    c7datalist[[c7index]] <- earlybfdat
+    c7index <- c7index + 1
+  }
+  if(!is.null(yr_contbf) & !is.na(yr_contbf)){
+    contbftext <- paste0("Continued breastfeeding at 1 year, ",yr_contbf)
+    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple)
+    c7datalist[[c7index]] <- contbfdat
+    c7index <- c7index + 1
+  }
+  if(!is.null(yr_unmet_need) & !is.na(yr_unmet_need)){
+    unmet_needtext <- paste0("Unmet need for family planning, ",yr_unmet_need)
+    unmet_needdat <- data.frame(ypos=c7index,value=countrydat$unmetneed[1],label=unmet_needtext,color=orange)
+    c7datalist[[c7index]] <- unmet_needdat
+    c7index <- c7index + 1
+  }
+  c7data <- rbindlist(c7datalist)
+  c7data$ypos <- (max(c7data$ypos)+1)-c7data$ypos
   # Cairo(file="c1a.png",width=800,height=600,units="px",bg="transparent")
   # tryCatch({print(c1a)},error=function(e){message(e);print(cblank)})
   # dev.off()
