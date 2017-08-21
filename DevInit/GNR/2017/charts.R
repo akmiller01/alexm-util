@@ -229,7 +229,7 @@ c11values <- list(
 )
 
 c12values <- list(
-  "Open defecation "=list(
+  "Open defecation"=list(
     "san_open2000" = "2000"
     ,"san_open2010" = "2010"
     ,"san_open2015" = "2015"
@@ -249,7 +249,7 @@ c12values <- list(
     ,"san_basic2010" = "2010"
     ,"san_basic2015" = "2015"
   ),
-  "Safely managed"=list(
+  "Safely managed "=list(
     "san_safelymanaged2000" = "2000"
     ,"san_safelymanaged2010" = "2010"
     ,"san_safelymanaged2015" = "2015"
@@ -771,10 +771,12 @@ for(this.country in countries){
   c11.max <- max(c11data$value,na.rm=TRUE)
   c11data$year <- factor(c11data$year)
   c11data$indicator <- unfactor(c11data$indicator)
-  c11data <- c11data[complete.cases(c11data),]
-  c11data <- c11data[order(c11data$year,desc(c11data$indicator)),]
+  c11data <- c11data[complete.cases(c11data$year),]
+  c11data <- c11data[order(is.na(c11data$value),c11data$year,desc(c11data$indicator)),]
   c11data <- ddply(c11data, .(year),
-                       transform, pos = cumsum(value) - (0.5 * value))
+                       transform, pos = cumsum(value) - (0.5 * value)
+                   ,valid = sum(!is.na(value),na.rm=TRUE))
+  c11data <- subset(c11data,valid>=1)
   c11 <- ggplot(c11data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
     quintileFill +
@@ -813,10 +815,12 @@ for(this.country in countries){
   c12.max <- max(c12data$value,na.rm=TRUE)
   c12data$year <- factor(c12data$year)
   c12data$indicator <- unfactor(c12data$indicator)
-  c12data <- c12data[complete.cases(c12data),]
-  c12data <- c12data[order(c12data$year,desc(c12data$indicator)),]
+  c12data <- c12data[complete.cases(c12data$year),]
+  c12data <- c12data[order(is.na(c12data$value),c12data$year,desc(c12data$indicator)),]
   c12data <- ddply(c12data, .(year),
-                   transform, pos = cumsum(value) - (0.5 * value))
+                   transform, pos = cumsum(value) - (0.5 * value)
+                   ,valid = sum(!is.na(value),na.rm=TRUE))
+  c12data <- subset(c12data,valid>=1)
   c12 <- ggplot(c12data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
     quintileFill +
@@ -855,10 +859,12 @@ for(this.country in countries){
   c13.max <- max(c13data$value,na.rm=TRUE)
   c13data$year <- factor(c13data$year)
   c13data$indicator <- unfactor(c13data$indicator)
-  c13data <- c13data[complete.cases(c13data),]
-  c13data <- c13data[order(c13data$year,desc(c13data$indicator)),]
+  c13data <- c13data[complete.cases(c13data$year),]
+  c13data <- c13data[order(is.na(c13data$value),c13data$year,desc(c13data$indicator)),]
   c13data <- ddply(c13data, .(year),
-                   transform, pos = cumsum(value) - (0.5 * value))
+                   transform, pos = cumsum(value) - (0.5 * value)
+                   ,valid = sum(!is.na(value),na.rm=TRUE))
+  c13data <- subset(c13data,valid>=1)
   c13 <- ggplot(c13data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
     quintileFill +
