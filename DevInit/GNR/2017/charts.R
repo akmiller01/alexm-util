@@ -1,3 +1,5 @@
+#Todo: Logic for filling whole square with one chart
+#for c1 and c9 if one half/third is missing.
 ####Setup#####
 library(ggplot2)
 library(reshape2)
@@ -174,13 +176,13 @@ c9values <- list(
     ,"value_undernourishment2009"="year_2009"
     ,"value_undernourishment2014"="year_2014"
   ),
-  "Available calories\nfrom nonstaples (%)"=list(
+  "Availability of fruits and\nvegetables (grams)"=list(
     "fruitandveg_gram1990"="year_1990"
     ,"fruitandveg_gram2000"="year_2000"
     ,"fruitandveg_gram2010"="year_2010"
     ,"fruitandveg_gram2013"="year_2013"
   ),
-  "Availability of fruits and\nvegetables (grams)"=list(
+  "Available calories\nfrom nonstaples (%)"=list(
       "value_nonstaples1990"="year_1990"
        ,"value_nonstaples1999"="year_1999"
        ,"value_nonstaples2008"="year_2008"
@@ -316,8 +318,10 @@ for(this.country in countries){
     c1.melt <- melt(c1wide,id.vars="year")
     c1.melt$year <- factor(c1.melt$year)
     c1a.melt <- subset(c1.melt,variable %in% c("US$1.90/day (%)","US$3.10/day (%)"))
+    c1a.melt <- subset(c1a.melt,!is.na(value))
     c1a.max <- max(c1a.melt$value,na.rm=TRUE)
     c1b.melt <- subset(c1.melt,variable == "PPP($) GDP per capita")
+    c1b.melt <- subset(c1b.melt,!is.na(value))
     c1b.max <- max(c1b.melt$value,na.rm=TRUE)
     c1a <- ggplot(c1a.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
@@ -335,25 +339,24 @@ for(this.country in countries){
         ,axis.title.y=element_blank()
         ,axis.ticks=element_blank()
         ,axis.line.y = element_blank()
-        ,axis.line.x = element_line(color="transparent", size = 1.1)
+        ,axis.line.x = element_line(color="#443e42", size = 1.1)
         ,axis.text.y = element_blank()
-        ,axis.text.x = element_text(size=35,color="transparent",margin=margin(t=20,r=0,b=0,l=0))
+        ,axis.text.x = element_text(size=25,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.1f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
-    c1b <- ggplot(c1b.melt,aes(year,value)) +
-      geom_line(data=c1b.melt[which(!is.na(value)),],aes(group=variable,colour=variable),size=2.4,lineend="round") +
-      purpleColor +
-      expand_limits(y=0) +
-      expand_limits(y=c1b.max*1.5) +
-      guides(colour=guide_legend(title=element_blank())) +
-      simple_style +
+    c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
+      geom_bar(position="dodge",stat="identity",color="transparent") +
+      purpleFill +
+      guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
+      simple_style  +
       scale_y_continuous(expand = c(0,0)) +
+      expand_limits(y=c1b.max*1.1) +
       theme(
         legend.position="top"
         ,legend.text = element_text(size=35,color="#443e42")
-        ,legend.justification=c(1,1)
+        ,legend.justification=c(0,0)
         ,legend.direction="vertical"
         ,axis.title.x=element_blank()
         ,axis.title.y=element_blank()
@@ -361,13 +364,13 @@ for(this.country in countries){
         ,axis.line.y = element_blank()
         ,axis.line.x = element_line(color="#443e42", size = 1.1)
         ,axis.text.y = element_blank()
-        ,axis.text.x = element_text(size=35,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
+        ,axis.text.x = element_text(size=25,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
-        ,legend.key.size = unit(2.5,"lines")
-      ) + geom_text(size=12,aes(label=format(round(value, digits = 0),big.mark=",")),position=position_dodge(1),vjust=-1,color="#443e42")
+        ,legend.key.size = unit(2.2,"lines")
+      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
   }else{
-    c1a <- cblank
+    c1a <- no.data
     c1b <- no.data
   }
   
@@ -593,10 +596,12 @@ for(this.country in countries){
   }else{
     c7data$ypos <- (max(c7data$ypos)+1)-c7data$ypos
     c7max <- max(c7data$value,na.rm=TRUE)
-    c7 <- ggplot(c7data,aes(y=value,x=ypos,fill=color,colour=outline)) +
+    c7 <- ggplot(c7data,aes(y=value,x=ypos,fill=color
+                            # ,colour=outline
+                            )) +
       geom_bar(stat="identity",width=0.4) +
       scale_fill_identity() +
-      scale_color_identity() +
+      # scale_color_identity() +
       simple_style  +
       scale_y_continuous(expand = c(0,0)) +
       expand_limits(y=c7max*1.1) +
@@ -984,9 +989,11 @@ for(this.country in countries){
       geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
-  Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
-  tryCatch({print(c1a)},error=function(e){message(e);print(cblank)})
-  print(c1b)
+  Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+  tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
+  dev.off()
+  Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+  tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
   dev.off()
   Cairo(file="c2.png",width=800,height=700,units="px",bg="transparent")
   tryCatch({print(c2)},error=function(e){message(e);print(no.data)})
