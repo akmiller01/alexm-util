@@ -161,7 +161,9 @@
 <text top="401" left="0" width="329" height="18" font="3">UNDERLYING DETERMINANTS</text>
 <!--Chart 9-->
 <text top="441" left="36" width="72" height="15" font="6">Food supply</text>
-<image top="460" left="36" width="300" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9.png"/>
+<image top="460" left="36" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9a.png"/>
+<image top="460" left="136" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9b.png"/>
+<image top="460" left="236" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9c.png"/>
 <text top="667" left="36" width="28" height="10" font="9"><i>Source: <super>a</super>FAOSTAT 2015; <super>b</super>FAOSTAT 2014;</i></text>
 
 <line x1="375" x2="375" y1="440" y2="680" on="1" off="3" color="grey"></line>
