@@ -34,8 +34,9 @@
 
 <!-- Chart 1 -->
 <text top="174" left="42" width="151" height="18" font="6">Poverty rates and GDP</text>
+<image top="201" left="42" width="115" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1a.png"/>
+<image top="201" left="157" width="115" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>
 <image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1.png"/>
-<!--<image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>-->
 <text top="397" left="43" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
 <text top="408" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
 
@@ -150,11 +151,13 @@
 
 <!--Table 7-->
 <text top="135" left="525" width="160" height="15" font="6">Intervention coverage (%)</text>
+<table top="155" left="525" height="100" data="table7" widths="220,57.5,57.5"></table>
 <text top="256" left="525" width="32" height="10" font="9"><i>Sources: <super>a</super>UNICEF/Coverage Monitoring Network/ACF International 2012; <super>b</super>UNICEF 2015.</i></text>
 <text top="267" left="525" width="321" height="10" font="9"><i>Note: ORS = oral rehydration salts; DTP3 = 3 doses of combined diphtheria/tetanus/pertussis</i></text>
 <text top="277" left="525" width="28" height="10" font="9"><i>vaccine.</i></text>
 <!--Table 8-->
 <text top="301" left="525" width="326" height="15" font="6">Infant and young-child feeding practices (% 6–23 months)</text>
+<table top="321" left="525" height="40" data="table8" widths="180,77.5,77.5"></table>
 <text top="373" left="525" width="76" height="10" font="9"><i>Source: UNICEF 2015.</i></text>
 
 <!--Row 2-->
@@ -164,17 +167,22 @@
 <image top="460" left="36" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9a.png"/>
 <image top="460" left="136" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9b.png"/>
 <image top="460" left="236" width="100" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9c.png"/>
+<image top="460" left="36" width="150" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9d.png"/>
+<image top="460" left="186" width="150" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9e.png"/>
+<image top="460" left="36" width="300" height="200" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c9.png"/>
 <text top="667" left="36" width="28" height="10" font="9"><i>Source: <super>a</super>FAOSTAT 2015; <super>b</super>FAOSTAT 2014;</i></text>
 
 <line x1="375" x2="375" y1="440" y2="680" on="1" off="3" color="grey"></line>
 
 <!--Table 9-->
 <text top="441" left="386" width="183" height="15" font="6">Gender-related determinants</text>
+<table top="461" left="380" height="60" data="table9" widths="195,30,30"></table>
 <text top="526" left="386" width="32" height="10" font="9"><i>Sources: <super>a</super>UNICEF 2015; <super>b</super>UNDP 2014.</i></text>
 <text top="537" left="386" width="152" height="10" font="9">Note:  *0 = low  inequality,  1 = high  inequality.</text>
 <!--Table 10-->
 <text top="561" left="386" width="236" height="15" font="6">Population density of health workers</text>
 <text top="576" left="386" width="96" height="15" font="6">per 1,000 people</text>
+<table top="596" left="380" height="60" data="table10" widths="150,52.5,52.5"></table>
 <text top="667" left="386" width="67" height="10" font="9">Source: WHO 2015.</text>
 
 <line x1="640" x2="640" y1="440" y2="680" on="1" off="3" color="grey"></line>
@@ -206,22 +214,24 @@
 <!--Chart 14-->
 <text top="989" left="36" width="212" height="15" font="6">Scaling Up Nutrition (SUN) country</text>
 <text top="1004" left="36" width="242" height="15" font="6">institutional transformations, 2014 (%)</text>
-<image top="1030" left="36" width="270" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c14.png"/>
+<image top="1030" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c14.png"/>
 <text top="1210" left="36" width="65" height="10" font="9"><i>Source: SUN 2014.</i></text>
 
-<line x1="300" x2="300" y1="990" y2="1180" on="1" off="3" color="grey"></line>
+<line x1="300" x2="300" y1="990" y2="1220" on="1" off="3" color="grey"></line>
+
+<!--Table 11-->
+<text top="989" left="316" width="200" height="15" font="6">Policy and legislative provisions</text>
+<table top="1009" left="306" height="200" data="table11" widths="200,70,55"></table>
+<text top="1210" left="316" width="32" height="10" font="9"><i>Sources: <super>a</super>UNICEF 2014; <super>b</super>FAO 2003; <super>c</super>ILO 2013; <super>d</super>FFI 2015; <super>e</super>IDS 2015.</i></text>
+
+<line x1="640" x2="640" y1="990" y2="1220" on="1" off="3" color="grey"></line>
 
 <!--Table 12-->
-<text top="989" left="316" width="200" height="15" font="6">Policy and legislative provisions</text>
-<text top="1167" left="316" width="32" height="10" font="9"><i>Sources: <super>a</super>UNICEF 2014; <super>b</super>FAO 2003; <super>c</super>ILO 2013; <super>d</super>FFI 2015; <super>e</super>IDS 2015.</i></text>
-
-<line x1="640" x2="640" y1="990" y2="1180" on="1" off="3" color="grey"></line>
-
-<!--Table 13-->
 <text top="989" left="665" width="153" height="15" font="6">Availability and stage of</text>
 <text top="1004" left="665" width="181" height="15" font="6">implementation of guidelines/</text>
 <text top="1019" left="665" width="184" height="15" font="6">protocols/standards for the</text>
 <text top="1034" left="665" width="125" height="15" font="6">management of NCDs</text>
+<table top="1054" left="665" height="80" data="table12" widths="70,70,40"></table>
 <text top="1122" left="665" width="67" height="10" font="9"><i>Source: WHO 2014.</i></text>
 <text top="1132" left="665" width="145" height="10" font="9"><i>Note:  NCDs = noncommunicable  diseases.</i></text>
 

@@ -1,5 +1,3 @@
-#Todo: Logic for filling whole square with one chart
-#for c1 and c9 if one half/third is missing.
 ####Setup#####
 library(ggplot2)
 library(reshape2)
@@ -346,6 +344,7 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.1f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+    if(nrow(c1a.melt)==0){c1a.missing<-TRUE}else{c1a.missing<-FALSE}
     c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
       purpleFill +
@@ -369,9 +368,10 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+    if(nrow(c1b.melt)==0){c1b.missing<-TRUE}else{c1b.missing<-FALSE}
   }else{
-    c1a <- no.data
-    c1b <- no.data
+    c1a.missing <- TRUE
+    c1b.missing <- TRUE
   }
   
   #Chart 2
@@ -586,7 +586,7 @@ for(this.country in countries){
   }
   if(!is.null(yr_unmet_need) & !is.na(yr_unmet_need)){
     unmet_needtext <- paste0("Unmet need for family planning, ",yr_unmet_need)
-    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,95-countrydat$unmetneed[1]))
+    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]))
     c7datalist[[c7index]] <- unmet_needdat
     c7index <- c7index + 1
   }
@@ -711,8 +711,10 @@ for(this.country in countries){
           ,legend.key = element_rect(fill = "transparent", colour = "transparent")
           ,legend.key.size = unit(2.2,"lines")
         ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      c9a.missing <- FALSE
     }else{
       c9a <- no.data
+      c9a.missing <- TRUE
     }
     if(nrow(c9b.data)!=0){
     c9b <- ggplot(c9b.data,aes(year,value,fill=variable)) +
@@ -738,8 +740,10 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      c9b.missing <- FALSE
     }else{
       c9b <- no.data
+      c9b.missing <- TRUE
     }
     if(nrow(c9c.data)!=0){
     c9c <- ggplot(c9c.data,aes(year,value,fill=variable)) +
@@ -765,13 +769,18 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
       ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      c9c.missing <- FALSE
     }else{
       c9c <- no.data
+      c9c.missing <- TRUE
     }
   }else{
     c9a <- no.data
     c9b <- no.data
     c9c <- no.data
+    c9a.missing <- TRUE
+    c9b.missing <- TRUE
+    c9c.missing <- TRUE
   }
   #Chart 10
   indicator <- "Female secondary enrolment"
@@ -989,12 +998,54 @@ for(this.country in countries){
       geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
-  Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
-  tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
-  dev.off()
-  Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
-  tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
-  dev.off()
+  #Have both c1a and c1b
+  if(!c1a.missing && !c1b.missing){
+    Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+    tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+    tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+  }
+  #Have only c1a
+  if(!c1a.missing && c1b.missing){
+    Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+  }
+  #Have only c1b
+  if(c1a.missing && !c1b.missing){
+    Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+  }
+  #Have neither c1a or c1b
+  if(c1a.missing && c1b.missing){
+    Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    print(no.data)
+    dev.off()
+  }
   Cairo(file="c2.png",width=800,height=700,units="px",bg="transparent")
   tryCatch({print(c2)},error=function(e){message(e);print(no.data)})
   dev.off()
@@ -1016,15 +1067,174 @@ for(this.country in countries){
   Cairo(file="c8.png",width=800,height=700,units="px",bg="transparent")
   tryCatch({print(c8)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
-  tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
-  dev.off()
-  Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
-  tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
-  dev.off()
-  Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
-  tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
-  dev.off()
+  #Have c9a, c9b, and c9c
+  if(!c9a.missing && !c9b.missing && !c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+  }
+  #Have c9a and c9b only
+  if(!c9a.missing && !c9b.missing && c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+  }
+  #Have c9a and c9c only
+  if(!c9a.missing && c9b.missing && !c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+  }
+  #Have c9b and c9c only
+  if(c9a.missing && !c9b.missing && !c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+  }
+  #have c9a only
+  if(!c9a.missing && c9b.missing && c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
+    dev.off()
+  }
+  #Have c9b only
+  if(c9a.missing && !c9b.missing && c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
+    dev.off()
+  }
+  #have c9c only
+  if(c9a.missing && c9b.missing && !c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
+    dev.off()
+  }
+  #Have none of c9s
+  if(c9a.missing && c9b.missing && c9c.missing){
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    print(cblank)
+    dev.off()
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    print(no.data)
+    dev.off()
+  }
   Cairo(file="c10.png",width=800,height=700,units="px",bg="transparent")
   tryCatch({print(c10)},error=function(e){message(e);print(no.data)})
   dev.off()

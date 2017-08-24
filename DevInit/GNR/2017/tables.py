@@ -53,6 +53,39 @@ dataDictionary["Mozambique"]["table6"] = [
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
 ]
+dataDictionary["Mozambique"]["table7"] = [
+    [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
+    ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
+    ,[Paragraph("Children under 5 with diarrhea receiving ORS<super>b</super>",style=greyParaStyle),"44","2011"]
+    ,[Paragraph("Immunization coverage, DTP3<super>b</super>",style=greyParaStyle),"78","2013"]
+    ,[Paragraph("Iodized salt consumption<super>b</super>",style=greyParaStyle),"87","2006"]
+]
+dataDictionary["Mozambique"]["table8"] = [
+    ["Minimum acceptable diet","6","2011"]
+    ,["Minimum dietary diversity","13","2011"]
+]
+dataDictionary["Mozambique"]["table9"] = [
+    [Paragraph("Early childbearing: births by age 18 (%)<super>a</super>",style=greyParaStyle),"33","2011"]
+    ,[Paragraph("Gender Inequality Index (score*)<super>b</super>",style=greyParaStyle),"0.529","2013"]
+    ,[Paragraph("Gender Inequality Index (country rank)<super>b</super>",style=greyParaStyle),"155","2013"]
+]
+dataDictionary["Mozambique"]["table10"] = [
+    ["Physicians","0.117","2005"]
+    ,["Nurses and midwives","1.306","2005"]
+    ,["Community health workers","0.188","2005"]
+]
+dataDictionary["Mozambique"]["table11"] = [
+    [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>a</super>",style=greyParaStyle),"Law","2014"]
+    ,[Paragraph("Extent of constitutional right to food<super>b</super>",style=greyParaStyle),"High","2003"]
+    ,[Paragraph("Maternity protection (Convention 183)<super>c</super>",style=greyParaStyle),"No","2011"]
+    ,[Paragraph("Wheat fortification legislation<super>d</super>",style=greyParaStyle),"Mandatory","2015"]
+    ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
+    ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
+]
+dataDictionary["Mozambique"]["table12"] = [
+    ["Diabetes","Not available","2010"]
+    ,["Hypertension",Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
+]
 
 dataDictionary["Afghanistan"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Albania"] = copy.deepcopy(dataDictionary["Mozambique"])
@@ -333,6 +366,81 @@ for country in dataDictionary.keys():
     #     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
     # ]
     dataDictionary[country]["table6"][1] = ["Off course, some progress","On course","Off course, no progress","Off course","On course"]
+    # dataDictionary["Mozambique"]["table7"] = [
+    #     [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
+    #     ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
+    #     ,[Paragraph("Children under 5 with diarrhea receiving ORS<super>b</super>",style=greyParaStyle),"44","2011"]
+    #     ,[Paragraph("Immunization coverage, DTP3<super>b</super>",style=greyParaStyle),"78","2013"]
+    #     ,[Paragraph("Iodized salt consumption<super>b</super>",style=greyParaStyle),"87","2006"]
+    # ]
+    dataDictionary[country]["table7"][0][1] = 9
+    dataDictionary[country]["table7"][0][2] = 2012
+    dataDictionary[country]["table7"][1][1] = 65
+    dataDictionary[country]["table7"][1][2] = 2013
+    dataDictionary[country]["table7"][2][1] = 44
+    dataDictionary[country]["table7"][2][2] = 2011
+    dataDictionary[country]["table7"][3][1] = 78
+    dataDictionary[country]["table7"][3][2] = 2013
+    dataDictionary[country]["table7"][4][1] = 87
+    dataDictionary[country]["table7"][4][2] = 2006
+    # dataDictionary["Mozambique"]["table8"] = [
+    #     ["Minimum acceptable diet","6","2011"]
+    #     ,["Minimum dietary diversity","13","2011"]
+    # ]
+    dataDictionary[country]["table8"][0][1] = 6
+    dataDictionary[country]["table8"][0][2] = 2011
+    dataDictionary[country]["table8"][1][1] = 13
+    dataDictionary[country]["table8"][1][2] = 2011
+    # dataDictionary["Mozambique"]["table9"] = [
+    #     [Paragraph("Early childbearing: births by age 18 (%)<super>a</super>",style=greyParaStyle),"33","2011"]
+    #     ,[Paragraph("Gender Inequality Index (score*)<super>b</super>",style=greyParaStyle),"0.529","2013"]
+    #     ,[Paragraph("Gender Inequality Index (country rank)<super>b</super>",style=greyParaStyle),"155","2013"]
+    # ]
+    dataDictionary[country]["table9"][0][1] = 33
+    dataDictionary[country]["table9"][0][2] = 2011
+    dataDictionary[country]["table9"][1][1] = 0.529
+    dataDictionary[country]["table9"][1][2] = 2013
+    dataDictionary[country]["table9"][2][1] = 115
+    dataDictionary[country]["table9"][2][2] = 2013
+    # dataDictionary["Mozambique"]["table10"] = [
+    #     ["Physicians","0.117","2005"]
+    #     ,["Nurses and midwives","1.306","2005"]
+    #     ,["Community health workers","0.188","2005"]
+    # ]
+    dataDictionary[country]["table10"][0][1] = 0.117
+    dataDictionary[country]["table10"][0][2] = 2005
+    dataDictionary[country]["table10"][1][1] = 1.306
+    dataDictionary[country]["table10"][1][2] = 2005
+    dataDictionary[country]["table10"][2][1] = 0.188
+    dataDictionary[country]["table10"][2][2] = 2005
+    # dataDictionary["Mozambique"]["table11"] = [
+    #     [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>a</super>",style=greyParaStyle),"Law","2014"]
+    #     ,[Paragraph("Extent of constitutional right to food<super>b</super>",style=greyParaStyle),"High","2003"]
+    #     ,[Paragraph("Maternity protection (Convention 183)<super>c</super>",style=greyParaStyle),"No","2011"]
+    #     ,[Paragraph("Wheat fortification legislation<super>d</super>",style=greyParaStyle),"Mandatory","2015"]
+    #     ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
+    #     ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
+    # ]
+    dataDictionary[country]["table11"][0][1] = "Law"
+    dataDictionary[country]["table11"][0][2] = 2014
+    dataDictionary[country]["table11"][1][1] = "High"
+    dataDictionary[country]["table11"][1][2] = 2003
+    dataDictionary[country]["table11"][2][1] = "No"
+    dataDictionary[country]["table11"][2][2] = 2011
+    dataDictionary[country]["table11"][3][1] = "Mandatory"
+    dataDictionary[country]["table11"][3][2] = 2015
+    dataDictionary[country]["table11"][4][1] = "Rank: 39/126"
+    dataDictionary[country]["table11"][4][2] = "2010-2015"
+    dataDictionary[country]["table11"][5][1] = "Rank: 57/116"
+    dataDictionary[country]["table11"][5][2] = "2010-2015"
+    # dataDictionary["Mozambique"]["table12"] = [
+    #     ["Diabetes","Not available","2010"]
+    #     ,["Hypertension",Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
+    # ]
+    dataDictionary[country]["table12"][0][1] = "Not available"
+    dataDictionary[country]["table12"][0][2] = 2010
+    dataDictionary[country]["table12"][1][1] = Paragraph("Available, partially implemented",style=greyParaStyle)
+    dataDictionary[country]["table12"][1][2] = 2010
 
 tableStyles = {}
 tableStyles["table1"] = [
@@ -403,3 +511,29 @@ tableStyles["table6"] = [
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
     ,('TEXTCOLOR',(0,1),(-1,-1),"#443e42")
     ]
+tableStyles["table7"] = tableStyles["table2"]
+tableStyles["table8"] = [
+    ('BACKGROUND',(0,1),(-1,1),"#fef5e7")
+    ,('ALIGN',(0,0),(0,-1),"LEFT")
+    ,('ALIGN',(1,0),(2,-1),"CENTER")
+    ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
+    ,('BOX',(1,0),(1,-1),1,"#f79c2a")
+    ,('LINEABOVE',(0,0),(-1,0),1,"#f79c2a")
+    ,('LINEBELOW',(0,-1),(-1,-1),1,"#f79c2a")
+    ,('TEXTCOLOR',(0,0),(-1,-1),"#443e42")
+    ]
+tableStyles["table9"] = tableStyles["table8"]
+tableStyles["table10"] = tableStyles["table8"]
+tableStyles["table11"] = [
+    ('BACKGROUND',(0,1),(-1,1),"#fef5e7")
+    ,('BACKGROUND',(0,3),(-1,3),"#fef5e7")
+    ,('BACKGROUND',(0,5),(-1,5),"#fef5e7")
+    ,('ALIGN',(0,0),(0,-1),"LEFT")
+    ,('ALIGN',(1,0),(2,-1),"CENTER")
+    ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
+    ,('BOX',(1,0),(1,-1),1,"#f79c2a")
+    ,('LINEABOVE',(0,0),(-1,0),1,"#f79c2a")
+    ,('LINEBELOW',(0,-1),(-1,-1),1,"#f79c2a")
+    ,('TEXTCOLOR',(0,0),(-1,-1),"#443e42")
+    ]
+tableStyles["table12"] = tableStyles["table8"]
