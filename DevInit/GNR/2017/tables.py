@@ -5,10 +5,14 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.platypus import Paragraph
 from reportlab.lib.enums import TA_CENTER
 import copy
+import pandas as pd
+import pdb
+import numbers
 
 style = getSampleStyleSheet()
 whiteParaStyle = ParagraphStyle('whiteParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
 greyParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],textColor="#443e42")
+greyCenterParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],textColor="#443e42",alignment=TA_CENTER)
 #Read a CSV to make this data?
 dataDictionary = {"Mozambique":{}}
 dataDictionary["Mozambique"]["country"] = "Mozambique"
@@ -17,7 +21,7 @@ dataDictionary["Mozambique"]["table2"] = [
     ["Population (000)",format(12428,",d"),2015]
     ,["Under-5 population (000)",format(1935,",d"),2015]
     ,["Urban (%)",format(20,",d"),2015]
-    ,[">65 years (%)",format(5,",d"),2015]
+    ,[">65 years (000)",format(5,",d"),2015]
     ]
 dataDictionary["Mozambique"]["table3"] = [
     ["Number of children under 5 affected (000)","",""]
@@ -41,7 +45,7 @@ dataDictionary["Mozambique"]["table5"] = [
     ,["Total population affected (000)",format(467,",d"),2011]
     ,["Total population affected (%)",format(17,"d"),2011]
     ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=greyParaStyle),format(39,"d"),2013]
-    ,[Paragraph("Population classification of iodone nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
+    ,[Paragraph("Population classification of iodine nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
 ]
 dataDictionary["Mozambique"]["table6"] = [
     [
@@ -83,8 +87,7 @@ dataDictionary["Mozambique"]["table11"] = [
     ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
 ]
 dataDictionary["Mozambique"]["table12"] = [
-    ["Diabetes","Not available","2010"]
-    ,["Hypertension",Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
+    [Paragraph("All major NCDs",style=greyParaStyle),Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
 ]
 
 dataDictionary["Afghanistan"] = copy.deepcopy(dataDictionary["Mozambique"])
@@ -281,26 +284,45 @@ dataDictionary["Yemen"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zambia"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zimbabwe"] = copy.deepcopy(dataDictionary["Mozambique"])
 
+missingVals = [" ",".",""]
+def safeFormat(x,commas=False,precision=0):
+    if pd.isnull(x):
+        return "NA"
+    elif x in missingVals:
+        return "NA"
+    else:
+        if not isinstance(x,numbers.Number):
+            return x
+        if precision == 0:
+            x = int(x)
+        else:
+            x = round(x,precision)
+        if commas:
+            return format(x,",")
+        else:
+            return x
+
 for country in dataDictionary.keys():
+    dat = pd.read_csv("data.csv")
+    row = dat.loc[(dat.country==country)].iloc[0]
     dataDictionary[country]["country"] = country
     
     # dataDictionary["Mozambique"]["table1"] = [["Gini index score*",Paragraph("Gini index rank<super>†</super>",style=whiteParaStyle),"Year"],[51,125,2011]]
-    dataDictionary[country]["table1"][1] = [51,125,2011]
-    
+    dataDictionary[country]["table1"][1] = [safeFormat(row["value_gini"]),safeFormat(row["rank_gini"]),safeFormat(row["year_gini"])]
     # dataDictionary["Mozambique"]["table2"] = [
     #     ["Population (000)",format(12428,",d"),2015]
     #     ,["Under-5 population (000)",format(1935,",d"),2015]
     #     ,["Urban (%)",format(20,",d"),2015]
     #     ,[">65 years (%)",format(5,",d"),2015]
     #     ]
-    dataDictionary[country]["table2"][0][1] = format(12428,",d")
-    dataDictionary[country]["table2"][0][2] = 2015
-    dataDictionary[country]["table2"][1][1] = format(1935,",d")
-    dataDictionary[country]["table2"][1][2] = 2015
-    dataDictionary[country]["table2"][2][1] = format(20,",d")
-    dataDictionary[country]["table2"][2][2] = 2015
-    dataDictionary[country]["table2"][3][1] = format(5,",d")
-    dataDictionary[country]["table2"][3][2] = 2015
+    dataDictionary[country]["table2"][0][1] = safeFormat(row["totalpop2017"],True)
+    dataDictionary[country]["table2"][0][2] = safeFormat(2017)
+    dataDictionary[country]["table2"][1][1] = safeFormat(row["under5pop"],True)
+    dataDictionary[country]["table2"][1][2] = safeFormat(2017)
+    dataDictionary[country]["table2"][2][1] = safeFormat(row["urbanpop"])
+    dataDictionary[country]["table2"][2][2] = safeFormat(2017)
+    dataDictionary[country]["table2"][3][1] = safeFormat(row["over65pop"],True)
+    dataDictionary[country]["table2"][3][2] = safeFormat(2017)
     # dataDictionary["Mozambique"]["table3"] = [
     #     ["Number of children under 5 affected (000)","",""]
     #     ,[Paragraph("Stunting<super>a</super>",style=greyParaStyle),format(733,",d"),2015]
@@ -312,49 +334,49 @@ for country in dataDictionary.keys():
     #     ,[Paragraph("Overweight<super>a</super>",style=greyParaStyle),format(8,"d"),2015]
     #     ,[Paragraph("Low birth weight<super>b</super>",style=greyParaStyle),format(7,"d"),2015]
     #     ]
-    dataDictionary[country]["table3"][1][1] = format(733,",d")
-    dataDictionary[country]["table3"][1][2] = 2015
-    dataDictionary[country]["table3"][2][1] = format(43,",d")
-    dataDictionary[country]["table3"][2][2] = 2015
-    dataDictionary[country]["table3"][3][1] = format(149,",d")
-    dataDictionary[country]["table3"][3][2] = 2015
-    dataDictionary[country]["table3"][5][1] = format(2,",d")
-    dataDictionary[country]["table3"][5][2] = 2015
-    dataDictionary[country]["table3"][6][1] = format(1,",d")
-    dataDictionary[country]["table3"][6][2] = 2015
-    dataDictionary[country]["table3"][7][1] = format(8,",d")
-    dataDictionary[country]["table3"][7][2] = 2015
-    dataDictionary[country]["table3"][8][1] = format(7,",d")
-    dataDictionary[country]["table3"][8][2] = 2015
+    dataDictionary[country]["table3"][1][1] = safeFormat(row["number_stunting_current"],True)
+    dataDictionary[country]["table3"][1][2] = safeFormat(row["year_stunting_current"])
+    dataDictionary[country]["table3"][2][1] = safeFormat(row["number_wasting"],True)
+    dataDictionary[country]["table3"][2][2] = safeFormat(row["year_wasting"])
+    dataDictionary[country]["table3"][3][1] = safeFormat(row["number_u5overweight"],True)
+    dataDictionary[country]["table3"][3][2] = safeFormat(row["year_u5overweight"])
+    dataDictionary[country]["table3"][5][1] = safeFormat(row["prev_wasting"])
+    dataDictionary[country]["table3"][5][2] = safeFormat(row["year_wasting"])
+    dataDictionary[country]["table3"][6][1] = safeFormat(row["prev_sev_wasting"])
+    dataDictionary[country]["table3"][6][2] = safeFormat(row["year_sev_wasting"])
+    dataDictionary[country]["table3"][7][1] = safeFormat(row["prev_u5overweight"])
+    dataDictionary[country]["table3"][7][2] = safeFormat(row["year_u5overweight"])
+    dataDictionary[country]["table3"][8][1] = safeFormat(row["LBW"])
+    dataDictionary[country]["table3"][8][2] = safeFormat(row["year_lbw"])
     # dataDictionary["Mozambique"]["table4"] = [
     #     [Paragraph("Adolescent overweight<super>a</super>",style=greyParaStyle),"NA","NA"]
     #     ,[Paragraph("Adolescent obesity<super>a</super>",style=greyParaStyle),"NA","NA"]
     #     ,[Paragraph("Women of reproductive age, thinness<super>b</super>",style=greyParaStyle),format(5,"d"),2010]
     #     ,[Paragraph("Women of reproductive age, short stature<super>b</super>",style=greyParaStyle),format(2,"d"),2010]
     # ]
-    dataDictionary[country]["table4"][0][1] = "NA"
-    dataDictionary[country]["table4"][0][2] = "NA"
-    dataDictionary[country]["table4"][1][1] = "NA"
-    dataDictionary[country]["table4"][1][2] = "NA"
-    dataDictionary[country]["table4"][2][1] = format(5,",d")
-    dataDictionary[country]["table4"][2][2] = 2010
-    dataDictionary[country]["table4"][3][1] = format(2,",d")
-    dataDictionary[country]["table4"][3][2] = 2010
+    dataDictionary[country]["table4"][0][1] = safeFormat(row["AdolOW"])
+    dataDictionary[country]["table4"][0][2] = safeFormat(row["year_adolOWOB"])
+    dataDictionary[country]["table4"][1][1] = safeFormat(row["AdolOB"])
+    dataDictionary[country]["table4"][1][2] = safeFormat(row["year_adolOWOB"])
+    dataDictionary[country]["table4"][2][1] = safeFormat(row["prev_BMI185"])
+    dataDictionary[country]["table4"][2][2] = safeFormat(row["year_BMI185"])
+    dataDictionary[country]["table4"][3][1] = safeFormat(row["prev_height145"])
+    dataDictionary[country]["table4"][3][2] = safeFormat(row["year_height145"])
     # dataDictionary["Mozambique"]["table5"] = [
     #     [Paragraph("Women of reproductive age with anemia<super>a</super>",style=greyParaStyle),"",""]
     #     ,["Total population affected (000)",format(467,",d"),2011]
     #     ,["Total population affected (%)",format(17,"d"),2011]
     #     ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=greyParaStyle),format(39,"d"),2013]
-    #     ,[Paragraph("Population classification of iodone nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
+    #     ,[Paragraph("Population classification of iodine nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
     # ]
-    dataDictionary[country]["table5"][1][1] = format(467,",d")
-    dataDictionary[country]["table5"][1][2] = 2011
-    dataDictionary[country]["table5"][2][1] = format(17,",d")
-    dataDictionary[country]["table5"][2][2] = 2011
-    dataDictionary[country]["table5"][3][1] = format(39,",d")
-    dataDictionary[country]["table5"][3][2] = 2013
-    dataDictionary[country]["table5"][4][1] = Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle)
-    dataDictionary[country]["table5"][4][2] = 1996
+    dataDictionary[country]["table5"][1][1] = safeFormat(row["WRAanaemia_NUMBER"],True)
+    dataDictionary[country]["table5"][1][2] = safeFormat(row["year_WRAanaemia"])
+    dataDictionary[country]["table5"][2][1] = safeFormat(row["WRAanaemia_RATE"])
+    dataDictionary[country]["table5"][2][2] = safeFormat(row["year_WRAanaemia"])
+    dataDictionary[country]["table5"][3][1] = safeFormat(row["prevalence_vita"])
+    dataDictionary[country]["table5"][3][2] = safeFormat(row["year_vitA_def"])
+    dataDictionary[country]["table5"][4][1] = Paragraph(safeFormat(row["Class_IodineNutrition"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table5"][4][2] = safeFormat(row["year_IodineNutrition"])
     # dataDictionary["Mozambique"]["table6"] = [
     #     [
     #         Paragraph("<b>Under-5 stunting, 2015<super>a</super></b>",style=whiteParaStyle)
@@ -365,7 +387,14 @@ for country in dataDictionary.keys():
     #      ]
     #     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
     # ]
-    dataDictionary[country]["table6"][1] = ["Off course, some progress","On course","Off course, no progress","Off course","On course"]
+    dataDictionary[country]["table6"][0] = [
+        Paragraph("<b>Under-5 stunting, %s<super>a</super></b>" % safeFormat(row["year_stunting_current"]),style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 wasting, %s<super>b</super></b>" % safeFormat(row["year_wasting"]),style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 overweight, %s<super>a</super></b>" % safeFormat(row["year_u5overweight"]),style=whiteParaStyle)
+        ,Paragraph("<b>WRA Anemia, %s<super>b</super></b>" % safeFormat(row["year_WRAanaemia"]),style=whiteParaStyle)
+        ,Paragraph("<b>EBF, %s<super>a</super></b>" % safeFormat(row["year_ebf_current"]),style=whiteParaStyle)
+    ]
+    dataDictionary[country]["table6"][1] = [safeFormat(row["stunting_progress"]),safeFormat(row["wasting_progress"]),safeFormat(row["u5overweight_progress"]),safeFormat(row["progress_WRAanaemia"]),safeFormat(row["EBF_progress"])]
     # dataDictionary["Mozambique"]["table7"] = [
     #     [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
     #     ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
@@ -373,46 +402,46 @@ for country in dataDictionary.keys():
     #     ,[Paragraph("Immunization coverage, DTP3<super>b</super>",style=greyParaStyle),"78","2013"]
     #     ,[Paragraph("Iodized salt consumption<super>b</super>",style=greyParaStyle),"87","2006"]
     # ]
-    dataDictionary[country]["table7"][0][1] = 9
-    dataDictionary[country]["table7"][0][2] = 2012
-    dataDictionary[country]["table7"][1][1] = 65
-    dataDictionary[country]["table7"][1][2] = 2013
-    dataDictionary[country]["table7"][2][1] = 44
-    dataDictionary[country]["table7"][2][2] = 2011
-    dataDictionary[country]["table7"][3][1] = 78
-    dataDictionary[country]["table7"][3][2] = 2013
-    dataDictionary[country]["table7"][4][1] = 87
-    dataDictionary[country]["table7"][4][2] = 2006
+    dataDictionary[country]["table7"][0][1] = safeFormat(row["SAMcoverage_rate"])
+    dataDictionary[country]["table7"][0][2] = safeFormat(row["year_SAM"])
+    dataDictionary[country]["table7"][1][1] = safeFormat(row["vitA_supp"])
+    dataDictionary[country]["table7"][1][2] = safeFormat(row["year_vitA_supp"])
+    dataDictionary[country]["table7"][2][1] = safeFormat(row["ors"])
+    dataDictionary[country]["table7"][2][2] = safeFormat(row["yr_ors"])
+    dataDictionary[country]["table7"][3][1] = safeFormat(row["DTP3"])
+    dataDictionary[country]["table7"][3][2] = safeFormat(row["year_DTP"])
+    dataDictionary[country]["table7"][4][1] = safeFormat(row["householdconsumingsalt"])
+    dataDictionary[country]["table7"][4][2] = safeFormat(row["year_Iodised"])
     # dataDictionary["Mozambique"]["table8"] = [
     #     ["Minimum acceptable diet","6","2011"]
     #     ,["Minimum dietary diversity","13","2011"]
     # ]
-    dataDictionary[country]["table8"][0][1] = 6
-    dataDictionary[country]["table8"][0][2] = 2011
-    dataDictionary[country]["table8"][1][1] = 13
-    dataDictionary[country]["table8"][1][2] = 2011
+    dataDictionary[country]["table8"][0][1] = safeFormat(row["mad"])
+    dataDictionary[country]["table8"][0][2] = safeFormat(row["yr_mad"])
+    dataDictionary[country]["table8"][1][1] = safeFormat(row["mdd"])
+    dataDictionary[country]["table8"][1][2] = safeFormat(row["yr_mdd"])
     # dataDictionary["Mozambique"]["table9"] = [
     #     [Paragraph("Early childbearing: births by age 18 (%)<super>a</super>",style=greyParaStyle),"33","2011"]
     #     ,[Paragraph("Gender Inequality Index (score*)<super>b</super>",style=greyParaStyle),"0.529","2013"]
     #     ,[Paragraph("Gender Inequality Index (country rank)<super>b</super>",style=greyParaStyle),"155","2013"]
     # ]
-    dataDictionary[country]["table9"][0][1] = 33
-    dataDictionary[country]["table9"][0][2] = 2011
-    dataDictionary[country]["table9"][1][1] = 0.529
-    dataDictionary[country]["table9"][1][2] = 2013
-    dataDictionary[country]["table9"][2][1] = 115
-    dataDictionary[country]["table9"][2][2] = 2013
+    dataDictionary[country]["table9"][0][1] = safeFormat(row["earlychild"])
+    dataDictionary[country]["table9"][0][2] = safeFormat(row["year_early_child"])
+    dataDictionary[country]["table9"][1][1] = safeFormat(row["index_genderinequality"],False,3)
+    dataDictionary[country]["table9"][1][2] = safeFormat(row["year_genderinequality"])
+    dataDictionary[country]["table9"][2][1] = safeFormat(row["rank_genderinequality"])
+    dataDictionary[country]["table9"][2][2] = safeFormat(row["year_genderinequality"])
     # dataDictionary["Mozambique"]["table10"] = [
     #     ["Physicians","0.117","2005"]
     #     ,["Nurses and midwives","1.306","2005"]
     #     ,["Community health workers","0.188","2005"]
     # ]
-    dataDictionary[country]["table10"][0][1] = 0.117
-    dataDictionary[country]["table10"][0][2] = 2005
-    dataDictionary[country]["table10"][1][1] = 1.306
-    dataDictionary[country]["table10"][1][2] = 2005
-    dataDictionary[country]["table10"][2][1] = 0.188
-    dataDictionary[country]["table10"][2][2] = 2005
+    dataDictionary[country]["table10"][0][1] = safeFormat(row["valuephysician"],False,3)
+    dataDictionary[country]["table10"][0][2] = safeFormat(row["yearphysician"])
+    dataDictionary[country]["table10"][1][1] = safeFormat(row["valuenurse"],False,3)
+    dataDictionary[country]["table10"][1][2] = safeFormat(row["yearnurse"])
+    dataDictionary[country]["table10"][2][1] = safeFormat(row["valuehealthworker"],False,3)
+    dataDictionary[country]["table10"][2][2] = safeFormat(row["yearhealthworker"])
     # dataDictionary["Mozambique"]["table11"] = [
     #     [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>a</super>",style=greyParaStyle),"Law","2014"]
     #     ,[Paragraph("Extent of constitutional right to food<super>b</super>",style=greyParaStyle),"High","2003"]
@@ -421,26 +450,23 @@ for country in dataDictionary.keys():
     #     ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
     #     ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
     # ]
-    dataDictionary[country]["table11"][0][1] = "Law"
-    dataDictionary[country]["table11"][0][2] = 2014
-    dataDictionary[country]["table11"][1][1] = "High"
-    dataDictionary[country]["table11"][1][2] = 2003
-    dataDictionary[country]["table11"][2][1] = "No"
-    dataDictionary[country]["table11"][2][2] = 2011
-    dataDictionary[country]["table11"][3][1] = "Mandatory"
-    dataDictionary[country]["table11"][3][2] = 2015
-    dataDictionary[country]["table11"][4][1] = "Rank: 39/126"
-    dataDictionary[country]["table11"][4][2] = "2010-2015"
-    dataDictionary[country]["table11"][5][1] = "Rank: 57/116"
-    dataDictionary[country]["table11"][5][2] = "2010-2015"
+    dataDictionary[country]["table11"][0][1] = Paragraph(safeFormat(row["Code_breastfeeding"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table11"][0][2] = safeFormat(row["year_code_bf"])
+    dataDictionary[country]["table11"][1][1] = Paragraph(safeFormat(row["RTF_level1"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table11"][1][2] = safeFormat(row["year_RTF"])
+    dataDictionary[country]["table11"][2][1] = Paragraph(safeFormat(row["cat_maternityprotection"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table11"][2][2] = safeFormat(row["year_maternityprotection"])
+    dataDictionary[country]["table11"][3][1] = Paragraph(safeFormat(row["Fortification"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table11"][3][2] = safeFormat(row["year_FFI"])
+    dataDictionary[country]["table11"][4][1] = safeFormat(row["undernutritionrank_1to126"])
+    dataDictionary[country]["table11"][4][2] = safeFormat(row["year_policyrank"])
+    dataDictionary[country]["table11"][5][1] = safeFormat(row["overnutritionrank_1to116"])
+    dataDictionary[country]["table11"][5][2] = safeFormat(row["year_policyrank"])
     # dataDictionary["Mozambique"]["table12"] = [
-    #     ["Diabetes","Not available","2010"]
-    #     ,["Hypertension",Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
+    #     ["All major NCDs",Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
     # ]
-    dataDictionary[country]["table12"][0][1] = "Not available"
-    dataDictionary[country]["table12"][0][2] = 2010
-    dataDictionary[country]["table12"][1][1] = Paragraph("Available, partially implemented",style=greyParaStyle)
-    dataDictionary[country]["table12"][1][2] = 2010
+    dataDictionary[country]["table12"][0][1] = Paragraph(safeFormat(row["ncd_policy"]),style=greyCenterParaStyle)
+    dataDictionary[country]["table12"][0][2] = safeFormat(row["year_ncdpolicy"])
 
 tableStyles = {}
 tableStyles["table1"] = [

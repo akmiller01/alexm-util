@@ -23,7 +23,7 @@
 	<fontspec id="17" size="7" family="Times" color="#ffffff"/>
 	<fontspec id="18" size="9" family="Times" color="#234c5e"/>
 
-<image top="0" left="0" width="892" height="148" path="./" variable="False" src="banner1.png"/>
+<image top="0" left="0" width="892" height="148" path="./" variable="False" src="banner3.png"/>
 <text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
 <text top="36" left="73" width="4" height="22" font="6"> </text>
 <text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
@@ -128,7 +128,7 @@
 	<fontspec id="24" size="10" family="Times" color="#575756"/>
 	<fontspec id="25" size="10" family="Times" color="#0000ff"/>
 	
-<image top="0" left="0" width="892" height="91" path="./" variable="False" src="banner1_nologo.png"/>
+<image top="0" left="0" width="892" height="91" path="./" variable="False" src="banner3_nologo.png"/>
 
 <text top="0" left="39" width="362" height="72" font="2" replace="country">Mozambique</text>
 
@@ -232,8 +232,8 @@
 <text top="1019" left="665" width="184" height="15" font="6">protocols/standards for the</text>
 <text top="1034" left="665" width="125" height="15" font="6">management of NCDs</text>
 <table top="1054" left="665" height="80" data="table12" widths="70,70,40"></table>
-<text top="1122" left="665" width="67" height="10" font="9"><i>Source: WHO 2014.</i></text>
-<text top="1132" left="665" width="145" height="10" font="9"><i>Note:  NCDs = noncommunicable  diseases.</i></text>
+<text top="1135" left="665" width="67" height="10" font="9"><i>Source: WHO 2014.</i></text>
+<text top="1145" left="665" width="145" height="10" font="9"><i>Note:  NCDs = noncommunicable  diseases.</i></text>
 
 <text top="1222" left="36" width="150" height="14" font="24"><i>For complete source information: </i></text>
 <text top="1222" left="186" width="254" height="14" font="25"><link href="http://globalnutritionreport.org/the-report/technical-notes"><i>http://globalnutritionreport.org/the-report/technical-notes</i></link></text>
