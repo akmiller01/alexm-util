@@ -57,6 +57,15 @@ dataDictionary["Mozambique"]["table6"] = [
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
 ]
+dataDictionary["Mozambique"]["table6a"] = [
+    [
+        Paragraph("<b>Adult female obesity, 2015<super>a</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male obesity, 2015<super>a</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult female diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
+     ]
+    ,["Off course, some progress","On course","Off course, no progress","Off course"]
+]
 dataDictionary["Mozambique"]["table7"] = [
     [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
     ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
@@ -395,6 +404,22 @@ for country in dataDictionary.keys():
         ,Paragraph("<b>EBF, %s<super>a</super></b>" % safeFormat(row["year_ebf_current"]),style=whiteParaStyle)
     ]
     dataDictionary[country]["table6"][1] = [safeFormat(row["stunting_progress"]),safeFormat(row["wasting_progress"]),safeFormat(row["u5overweight_progress"]),safeFormat(row["progress_WRAanaemia"]),safeFormat(row["EBF_progress"])]
+    # dataDictionary["Mozambique"]["table6a"] = [
+    #     [
+    #         Paragraph("<b>Adult female obesity, 2015<super>a</super></b>",style=whiteParaStyle)
+    #         ,Paragraph("<b>Adult male obesity, 2015<super>a</super></b>",style=whiteParaStyle)
+    #         ,Paragraph("<b>Adult female diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
+    #         ,Paragraph("<b>Adult male diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
+    #      ]
+    #     ,["Off course, some progress","On course","Off course, no progress","Off course"]
+    # ]
+    dataDictionary[country]["table6a"][0] = [
+        Paragraph("<b>Adult female obesity, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult male obesity, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult female diabetes, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult male diabetes, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
+    ]
+    dataDictionary[country]["table6a"][1] = [safeFormat(row["ob_female_progress"]),safeFormat(row["ob_male_progress"]),safeFormat(row["dm_female_progress"]),safeFormat(row["dm_male_progress"])]
     # dataDictionary["Mozambique"]["table7"] = [
     #     [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
     #     ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
@@ -537,6 +562,7 @@ tableStyles["table6"] = [
     ,('VALIGN',(0,0),(-1,-1),"MIDDLE")
     ,('TEXTCOLOR',(0,1),(-1,-1),"#443e42")
     ]
+tableStyles["table6a"] = tableStyles["table6"]
 tableStyles["table7"] = tableStyles["table2"]
 tableStyles["table8"] = [
     ('BACKGROUND',(0,1),(-1,1),"#fef5e7")

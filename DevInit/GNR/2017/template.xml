@@ -117,12 +117,13 @@
 <text top="1085" left="414" width="118" height="11" font="9"><i>Note: BMI=body mass index.</i></text>
 
 <!-- Table 6 -->
-<image top="1100" left="0" width="892" height="160" path="./" variable="False" src="footer.png"/>
-<text top="1115" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
-<table data="table6" top="1140" left="54" widths="165,165,165,165,130" height="30"></table>
-<text top="1190" left="44" width="530" height="11" font="8"><para>Sources: <super>a</super> Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF; <super>b</super> WHO 2014.</para></text>
-<text top="1201" left="44" width="585" height="11" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most </text>
-<text top="1212" left="44" width="557" height="11" font="8">recent data available; on/off-course calculation is based on trend data. WRA = women of reproductive age. EBF = exclusive breastfeeding</text>
+<image top="1100" left="0" width="892" height="160" path="./" variable="False" src="double_footer.png"/>
+<text top="1100" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
+<table data="table6" top="1122" left="54" widths="165,165,165,165,130" height="30"></table>
+<table data="table6a" top="1172" left="113" widths="165,165,165,165" height="30"></table>
+<text top="1210" left="44" width="530" height="11" font="8"><para>Sources: <super>a</super> Definitions of progress developed by GNR’s Independent Expert Group with guidance from WHO/UNICEF; <super>b</super> WHO 2014.</para></text>
+<text top="1221" left="44" width="585" height="11" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most </text>
+<text top="1232" left="44" width="557" height="11" font="8">recent data available; on/off-course calculation is based on trend data. WRA = women of reproductive age. EBF = exclusive breastfeeding</text>
 </page>
 <page number="2" position="absolute" top="0" left="0" height="1262" width="892">
 	<fontspec id="24" size="10" family="Times" color="#575756"/>
