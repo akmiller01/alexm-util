@@ -311,8 +311,8 @@ def safeFormat(x,commas=False,precision=0):
         else:
             return x
 
+dat = pd.read_csv("data.csv")
 for country in dataDictionary.keys():
-    dat = pd.read_csv("data.csv")
     row = dat.loc[(dat.country==country)].iloc[0]
     dataDictionary[country]["country"] = country
     
