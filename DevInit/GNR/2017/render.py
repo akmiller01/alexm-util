@@ -69,39 +69,67 @@ class ReportMaker(object):
             for text in page.findall("text"):
                 if len(text.getchildren())==0:
                     font = self.fonts[text.get("font")]
+                    if text.get("replace"):
+                        replacement = dataDictionary[self.country][text.get("replace")]
+                    else:
+                        replacement = text.text
+                        
+                    if text.get("shrink"):
+                        fontSize = float(font["size"])
+                        height = int(text.get("height"))
+                        textLen = float(len(replacement))
+                        divisor = max(((textLen/30.0)+(2.0/3.0)),1)
+                        fontSizeAdj = int(fontSize / divisor)
+                        fontSizeDiff = int(float(fontSize-fontSizeAdj)/2.0)
+                        heightAdj = height-fontSizeDiff
+                    else:
+                        fontSizeAdj = int(font["size"])
+                        heightAdj = int(text.get("height"))
+                        
                     style = ParagraphStyle(
                         'default',
                         fontName="Arial",
-                        leading=int(font["size"]),
-                        fontSize=font["size"],
+                        leading=fontSizeAdj,
+                        fontSize=fontSizeAdj,
                         borderPadding = int(font["padding"]),
                         textColor=font["color"],
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
                     )
-                    if text.get("replace"):
-                        replacement = dataDictionary[self.country][text.get("replace")]
-                        self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
-                    else:
-                        self.createParagraph(text.text, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    
+                    self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+heightAdj),style)
                 else:
                     innerText = ElementTree.tostring(text.getchildren()[0])
                     font = self.fonts[text.get("font")]
+                    if text.get("replace"):
+                        replacement = dataDictionary[self.country][text.get("replace")]
+                    else:
+                        replacement = innerText
+                        
+                    if text.get("shrink"):
+                        fontSize = float(font["size"])
+                        height = int(text.get("height"))
+                        textLen = float(len(replacement))
+                        divisor = max(((textLen/30.0)+(2.0/3.0)),1)
+                        fontSizeAdj = int(fontSize / divisor)
+                        fontSizeDiff = int(float(fontSize-fontSizeAdj)/2.0)
+                        heightAdj = height-fontSizeDiff
+                    else:
+                        fontSizeAdj = int(font["size"])
+                        heightAdj = int(text.get("height"))
+                        
                     style = ParagraphStyle(
                         'default',
                         fontName="Arial",
-                        leading=int(font["size"]),
-                        fontSize=font["size"],
+                        leading=fontSizeAdj,
+                        fontSize=fontSizeAdj,
                         borderPadding = int(font["padding"]),
                         textColor=font["color"],
                         backColor=font["background"],
                         firstLineIndent=int(font["indent"]),
                     )
-                    if text.get("replace"):
-                        replacement = dataDictionary[self.country][text.get("replace")]
-                        self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
-                    else:
-                        self.createParagraph(innerText, int(text.get("left")), (int(text.get("top"))+int(text.get("height"))),style)
+                    
+                    self.createParagraph(replacement, int(text.get("left")), (int(text.get("top"))+heightAdj),style)
             for line in page.findall("line"):
                 self.c.setDash(int(line.get("on")),int(line.get("off")))
                 self.c.setStrokeColor(line.get("color"))
@@ -157,5 +185,9 @@ if __name__ == "__main__":
         doc.savePDF()
     # country = "Mozambique"
     # doc = ReportMaker("Mozambique.pdf","template.xml","Mozambique")
+    # doc.createDocument()
+    # doc.savePDF()
+    # country = "The former Yugoslav Republic of Macedonia"
+    # doc = ReportMaker("Yugo.pdf","template.xml",country)
     # doc.createDocument()
     # doc.savePDF()

@@ -28,7 +28,7 @@
 <text top="36" left="73" width="4" height="22" font="6"> </text>
 <text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
 <text top="115" left="587" width="131" height="14" font="7"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
-<text top="48" left="39" width="362" height="72" font="2" replace="country">Mozambique</text>
+<text top="45" left="39" width="362" height="72" font="2" replace="country" shrink="True">Mozambique</text>
 <!-- Row 1 -->
 <text top="148" left="0" width="241" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
 
@@ -131,7 +131,7 @@
 	
 <image top="0" left="0" width="892" height="91" path="./" variable="False" src="banner3_nologo.png"/>
 
-<text top="0" left="39" width="362" height="72" font="2" replace="country">Mozambique</text>
+<text top="0" left="39" width="362" height="72" font="2" replace="country" shrink="True">Mozambique</text>
 
 <!--Row 1-->
 <text top="91" left="0" width="329" height="18" font="3">INTERVENTION COVERAGE AND CHILD-FEEDING PRACTICES</text>
