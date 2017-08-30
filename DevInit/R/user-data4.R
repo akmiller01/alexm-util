@@ -1,62 +1,63 @@
 library(openxlsx)
 library(reshape)
 library(utils)
+source("C:/git/alexm-util/DevInit/R/ddw/connect.R")
 
 wd <- "C:/git/digital-platform/user-data/"
 setwd(wd)
 refPath <- "https://raw.githubusercontent.com/devinit/digital-platform/master/reference/"
-refMap <- list("data_series.domestic"="budget-type,domestic-budget-level,domestic-sources,currency,fiscal-year")
-refMap <- c(refMap,"data_series.domestic-sectors"="budget-type,domestic-budget-level,domestic-sources,currency,fiscal-year")
-refMap <- c(refMap,"data_series.domestic-netlending"="budget-type,domestic-budget-level,domestic-sources,currency,fiscal-year")
-refMap <- c(refMap,"data_series.intl-flows-donors"="flow-type,flow-name")
-refMap <- c(refMap,"data_series.intl-flows-recipients"="flow-type,flow-name")
-refMap <- c(refMap,"data_series.intl-flows-donors-wide"="flow-type,flow-name")
-refMap <- c(refMap,"data_series.intl-flows-recipients-wide"="flow-type,flow-name")
-refMap <- c(refMap,"data_series.largest-intl-flow"="largest-intl-flow")
-refMap <- c(refMap,"data_series.fragile-states"="fragile-states")
-refMap <- c(refMap,"data_series.long-term-debt"="debt-flow,destination-institution-type,creditor-type,creditor-institution,financing-type")
-refMap <- c(refMap,"data_series.oda"="sector,bundle,channel")
-refMap <- c(refMap,"data_series.oof"="sector,oof-bundle,channel")
-refMap <- c(refMap,"data_series.fdi-out"="financing-type")
-refMap <- c(refMap,"data_series.dfis-out-dev"="financing-type")
-refMap <- c(refMap,"data_series.ssc-out"="financing-type")
+refMap <- list("data_series.domestic"="di_budget_type,di_domestic_budget_level,di_currency")
+refMap <- c(refMap,"data_series.domestic-sectors"="di_budget_type,di_domestic_budget_level,di_currency")
+refMap <- c(refMap,"data_series.domestic-netlending"="di_budget_type,di_domestic_budget_level,di_currency")
+refMap <- c(refMap,"data_series.intl-flows-donors"="di_flow_type,di_flow_name")
+refMap <- c(refMap,"data_series.intl-flows-recipients"="di_flow_type,di_flow_name")
+refMap <- c(refMap,"data_series.intl-flows-donors-wide"="di_flow_type,di_flow_name")
+refMap <- c(refMap,"data_series.intl-flows-recipients-wide"="di_flow_type,di_flow_name")
+refMap <- c(refMap,"data_series.largest-intl-flow"="di_largest_intl_flow")
+refMap <- c(refMap,"data_series.fragile-states"="di_fragile_state")
+refMap <- c(refMap,"data_series.long-term-debt"="di_destination_institution_type,di_financing_type")
+refMap <- c(refMap,"data_series.oda"="di_sector,di_oof_bundle,di_channel")
+refMap <- c(refMap,"data_series.oof"="di_sector,di_oof_bundle,di_channel")
+refMap <- c(refMap,"data_series.fdi-out"="di_financing_type")
+refMap <- c(refMap,"data_series.dfis-out-dev"="di_financing_type")
+refMap <- c(refMap,"data_series.ssc-out"="di_financing_type")
 
 #Delete everything in user-data
 unlink(dir(wd, full.names = TRUE),recursive=TRUE)
 
-countryProfileConcept <- read.csv("https://raw.githubusercontent.com/devinit/datahub-cms/master/country-profile/concept.csv")
+all.entities <- ddw("reference.di_entity")
 
-userDat <- function(data,basename,concepts){
+userDat <- function(data,basename){
   #Read Data
   names <- colnames(data)
   fwd = paste0(wd,basename)
   
   #Add country names
-  entities <- read.csv(paste(refPath,"entity.csv",sep="/"),as.is=TRUE,na.strings="")[c("id","name")]
-  names(entities) <- c("id","entity-name")
-  if("id" %in% names){
+  entities <- all.entities[c("id","name")]
+  names(entities) <- c("di_id","entity_name")
+  if("di_id" %in% names){
     data <- merge(
       entities
       ,data
-      ,by=c("id")
+      ,by=c("di_id")
       ,all.y=TRUE
     ) 
   }else{
-    if("id-to" %in% names){
-      names(entities) <- c("id-to","entity-to-name")
+    if("to_di_id" %in% names){
+      names(entities) <- c("to_di_id","entity_to_name")
       data <- merge(
         entities
         ,data
-        ,by=c("id-to")
+        ,by=c("to_di_id")
         ,all.y=TRUE
       ) 
     }
-    if("id-from" %in% names){
-      names(entities) <- c("id-from","entity-from-name")
+    if("from_di_id" %in% names){
+      names(entities) <- c("from_di_id","entity_from_name")
       data <- merge(
         entities
         ,data
-        ,by=c("id-from")
+        ,by=c("from_di_id")
         ,all.y=TRUE
       ) 
     }
@@ -64,29 +65,29 @@ userDat <- function(data,basename,concepts){
   
   #Try and sort by entity name, failing that: id, failing that: year, failing that, the first column.
   names <- colnames(data)
-  if("entity-name" %in% names){
+  if("entity_name" %in% names){
     if("year" %in% names){
-      data <- data[order(data["entity-name"],data$year),]
+      data <- data[order(data["entity_name"],data$year),]
     }else{
-      data <- data[order(data["entity-name"]),]
+      data <- data[order(data["entity_name"]),]
     }
-  }else if("entity-to-name" %in% names){
+  }else if("entity_to_name" %in% names){
     if("year" %in% names){
-      data <- data[order(data["entity-to-name"],data$year),]
+      data <- data[order(data["entity_to_name"],data$year),]
     }else{
-      data <- data[order(data["entity-to-name"]),]
+      data <- data[order(data["entity_to_name"]),]
     }
-  }else if("entity-from-name" %in% names){
+  }else if("entity_from_name" %in% names){
     if("year" %in% names){
-      data <- data[order(data["entity-from-name"],data$year),]
+      data <- data[order(data["entity_from_name"],data$year),]
     }else{
-      data <- data[order(data["entity-from-name"]),]
+      data <- data[order(data["entity_from_name"]),]
     }
-  }else if("id" %in% names){
+  }else if("di_id" %in% names){
     if("year" %in% names){
-      data <- data[order(data["id"],data$year),]
+      data <- data[order(data["di_id"],data$year),]
     }else{
-      data <- data[order(data["id"]),]
+      data <- data[order(data["di_id"]),]
     }
   }else{
     if("year" %in% names){
@@ -122,7 +123,7 @@ userDat <- function(data,basename,concepts){
       ,""
     )
   }
-  if("value-ncu" %in% names){
+  if("value_ncu" %in% names){
     notesList<-c(
       notesList
       ,"This data contains information that has been converted from current native currency units (NCU) to constant US Dollars. The NCU values are contained in the 'value-ncu' column, while the converted and deflated values are contained in the 'value' column."
@@ -137,11 +138,11 @@ userDat <- function(data,basename,concepts){
   writeData(wb,sheet="Data",data,colNames=TRUE,rowNames=FALSE)    
   
   #If we have an ID, a year to widen it by and it's simple, provide wide
-  if("id" %in% names & "year" %in% names & "value" %in% names)  {
-    if("entity-name" %in% names){
-      wdata <- reshape(data[c("id","entity-name","year","value")],idvar=c("id","entity-name"),timevar="year",direction="wide")
+  if("di_id" %in% names & "year" %in% names & "value" %in% names)  {
+    if("entity_name" %in% names){
+      wdata <- reshape(data[c("di_id","entity_name","year","value")],idvar=c("di_id","entity_name"),timevar="year",direction="wide")
     }else{
-      wdata <- reshape(data[c("id","year","value")],idvar=c("id"),timevar="year",direction="wide")
+      wdata <- reshape(data[c("di_id","year","value")],idvar=c("di_id"),timevar="year",direction="wide")
     }
     wnames <- names(wdata)
     for(j in 1:length(wnames)){
@@ -160,16 +161,16 @@ userDat <- function(data,basename,concepts){
     write.csv(wdata,paste(cwd,"/",basename,"-wide-value",".csv",sep=""),row.names=FALSE,na="")
   }
   #Wide for original-value
-  if("id" %in% names & "year" %in% names & "original-value" %in% names)  {
+  if("di_id" %in% names & "year" %in% names & "original_value" %in% names)  {
     if("entity-name" %in% names){
-      wdata <- reshape(data[c("id","entity-name","year","original-value")],idvar=c("id","entity-name"),timevar="year",direction="wide")
+      wdata <- reshape(data[c("di_id","entity_name","year","original_value")],idvar=c("di_id","entity_name"),timevar="year",direction="wide")
     }else{
-      wdata <- reshape(data[c("id","year","original-value")],idvar=c("id"),timevar="year",direction="wide")
+      wdata <- reshape(data[c("di_id","year","original_value")],idvar=c("di_id"),timevar="year",direction="wide")
     }
     wnames <- names(wdata)
     for(j in 1:length(wnames)){
       wname = wnames[j]
-      if(substr(wname,1,14)=="original-value"){
+      if(substr(wname,1,14)=="original_value"){
         names(wdata)[names(wdata) == wname] <- substr(wname,16,nchar(wname))
       }
     }
@@ -185,7 +186,7 @@ userDat <- function(data,basename,concepts){
   
   #Reference
   #Copy entity.csv
-  download.file(paste(refPath,"entity.csv",sep=""),paste(cwd,"entity.csv",sep="/"))
+  write.csv(all.entities,paste(cwd,"entity.csv",sep="/"),row.names=FALSE,na='')
   if(basename %in% names(refMap)){
     refNames = strsplit(refMap[[basename]],",")[[1]]
     notesList<-c(
@@ -196,12 +197,13 @@ userDat <- function(data,basename,concepts){
     )
     for(j in 1:length(refNames)){
       refBaseName = refNames[j]
-      refName = paste(refPath,refBaseName,".csv",sep="")
       #Copy the reference files
-      download.file(refName,paste(cwd,"/",refBaseName,".csv",sep=""))
-      refData <- read.csv(refName,as.is=TRUE,na.strings="")
-      addWorksheet(wb,refBaseName)
-      writeData(wb,sheet=refBaseName,refData,colNames=TRUE,rowNames=FALSE)   
+      refData <- ddw(paste0("reference.",refBaseName))
+      if(nrow(refData)>0){
+        write.csv(refData,paste0(cwd,"/",refBaseName,".csv"),row.names=FALSE,na="")
+        addWorksheet(wb,refBaseName)
+        writeData(wb,sheet=refBaseName,refData,colNames=TRUE,rowNames=FALSE) 
+      }
     }
   }
   
@@ -225,15 +227,22 @@ userDat <- function(data,basename,concepts){
   setwd(wd)
 }
 
-for(id in unique(countryProfileConcept$id)){
+concepts <- read.csv("https://raw.githubusercontent.com/devinit/datahub-cms/master/country-profile/concept.csv")
+
+for(id in unique(concepts$id)){
   message(id)
-  split <- strsplit(id,".",fixed=TRUE)[[1]]
-  if(length(split)==2){
-    folder <- split[1]
-    file <- split[2]
-    csv <- paste0("https://raw.githubusercontent.com/devinit/digital-platform/master/country-year/warehouse/",folder,"/",file,".csv")
-    data = tryCatch({read.csv(csv,na.strings="")},error=function(e){message("Cannot find ",csv);data.frame()})
-    if(nrow(data)>0){userDat(data,id,countryProfileConcept)}
+  dat <- ddw(id)
+  if(nrow(dat)>0){
+    userDat(dat,id)
   }
 }
 
+concepts <- read.csv("https://raw.githubusercontent.com/devinit/datahub-cms/master/global-picture/concept.csv")
+
+for(id in unique(concepts$id)){
+  message(id)
+  dat <- ddw(id)
+  if(nrow(dat)>0){
+    userDat(dat,id)
+  }
+}
