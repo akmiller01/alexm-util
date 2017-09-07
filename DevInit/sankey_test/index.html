@@ -35,17 +35,14 @@ button{margin:10px;}
  
 </style>
 <body>
-  <form>
-    <label>Filter: </label><input type="text" id="filter"></input>
-    <select id="xPos">
-      <option value=0>Indicator framework</option>
-      <option value=1>Indicator</option>
-      <option value=2>Data series</option>
-      <option value=3>Sector</option>
-      <option value=4>Source</option>
-      <option value=5>Source Type</option>
-    </select>
-  </form>
+  <table>
+    <tr><td><label>Filter indicator framework: </label></td><td><input type="text" class="filter" id="filter0"></input></td></tr>
+    <tr><td><label>Filter indicator: </label></td><td><input type="text" class="filter" id="filter1"></input></td></tr>
+    <tr><td><label>Filter data series: </label></td><td><input type="text" class="filter" id="filter2"></input></td></tr>
+    <tr><td><label>Filter sector: </label></td><td><input type="text" class="filter" id="filter3"></input></td></tr>
+    <tr><td><label>Filter source: </label></td><td><input type="text" class="filter" id="filter4"></input></td></tr>
+    <tr><td><label>Filter source type: </label></td><td><input type="text" class="filter" id="filter5"></input></td></tr>
+  </table>
   <button onclick="resetSankey()">Reset</button>
 <div id="chart"></div>
 
@@ -117,6 +114,8 @@ var sankey = d3.sankey()
 var path = sankey.link();
 var originalValues = {};
 var sankeyValues = {"nodes":[],"links":[]};
+var filteredValues = {"nodes":[],"links":[]};
+var linchNodes = [];
  
 d3.json("data.json", function(data) {
   
@@ -126,6 +125,8 @@ d3.json("data.json", function(data) {
   //Deep copy, stupidly
   originalValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
   originalValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
+  filteredValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+  filteredValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
   sankey
       .nodes(sankeyValues.nodes)
       .links(sankeyValues.links)
@@ -217,14 +218,15 @@ function draw_sankey(){
 //function highlight_node_links(node,i){
 function highlight_node_links(old_node,old_i){
   var old_name = old_node.name;
-  reset_data(originalValues);
+  reset_data(filteredValues);
   var i = findWithAttr(sankeyValues.nodes,"name",old_name);
   var node = sankeyValues.nodes[i];
   
     var remainingNodes=[],
         nextNodes=[],
         uniqueNodeObj={},
-        newLinkNames = [];
+        newNodes = [],
+        newLinks = [];
   
     var stroke_opacity = 0;
     if( d3.select(this).attr("data-clicked") == "1" ){
@@ -242,50 +244,117 @@ function highlight_node_links(old_node,old_i){
                       linkType : "targetLinks",
                       nodeType : "source"
                     }];
+    
+    uniqueNodeObj[node.name] = 1;
+    var newNode = {"name":node.name,"xPos":node.xPos};
+    newNodes.push(newNode);
   
     traverse.forEach(function(step){
       node[step.linkType].forEach(function(link) {
         remainingNodes.push(link[step.nodeType]);
-        uniqueNodeObj[link.source.name] = 1;
-        uniqueNodeObj[link.target.name] = 1;
-        newLinkNames.push({
-              source: link.source.name,
-              target: link.target.name,
-              value: link.value
-            });
       });
   
       while (remainingNodes.length) {
         nextNodes = [];
         remainingNodes.forEach(function(node) {
+          if (!uniqueNodeObj[node.name]){
+            uniqueNodeObj[node.name] = 1;
+            var newNode = {"name":node.name,"xPos":node.xPos};
+            newNodes.push(newNode);
+          }
           node[step.linkType].forEach(function(link) {
             nextNodes.push(link[step.nodeType]);
-            uniqueNodeObj[link.source.name] = 1;
-            uniqueNodeObj[link.target.name] = 1;
-            newLinkNames.push({
-              source: link.source.name,
-              target: link.target.name,
-              value: link.value
-            });
           });
         });
         remainingNodes = nextNodes;
       }
     });
     
-    var uniqueNodes = Object.keys(uniqueNodeObj);
-    var newNodes = [];
-    for(var j = 0; j < uniqueNodes.length;j++){
-      newNodes.push({"name":uniqueNodes[j]})
-    }
-    var newLinks = [];
-    for(var j = 0; j < newLinkNames.length;j++){
-      newLinks.push({"source":findWithAttr(newNodes,"name",newLinkNames[j].source),"target":findWithAttr(newNodes,"name",newLinkNames[j].target),"value":newLinkNames[j].value})
-    }
-    var uniqueLinks = _.uniqBy(newLinks, function(elem) { return [elem.source, elem.target,elem.value].join(); });
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(newNodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(newNodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        newLinks.push(link);
+      }
+    });
     
     sankeyValues.nodes = newNodes;
-    sankeyValues.links = uniqueLinks;
+    sankeyValues.links = newLinks;
+    
+    sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+                  
+    draw_sankey();
+    
+  }
+
+function highlight_linch_nodes(linchNodes){
+  reset_data(filteredValues);
+  var uniqueNodeObj={},
+        newNodes = [],
+        newLinks = [];
+  
+  for(var k = 0; k < linchNodes.length; k++){
+    var old_name = linchNodes[k].name;
+    var i = findWithAttr(sankeyValues.nodes,"name",old_name);
+    var node = sankeyValues.nodes[i];
+  
+  
+    var remainingNodes=[],
+        nextNodes=[];
+  
+    var traverse = [{
+                      linkType : "sourceLinks",
+                      nodeType : "target"
+                    },{
+                      linkType : "targetLinks",
+                      nodeType : "source"
+                    }];
+    
+    uniqueNodeObj[node.name] = 1;
+    var newNode = {"name":node.name,"xPos":node.xPos};
+    newNodes.push(newNode);
+  
+    traverse.forEach(function(step){
+      node[step.linkType].forEach(function(link) {
+        remainingNodes.push(link[step.nodeType]);
+      });
+  
+      while (remainingNodes.length) {
+        nextNodes = [];
+        remainingNodes.forEach(function(node) {
+          if (!uniqueNodeObj[node.name]){
+            uniqueNodeObj[node.name] = 1;
+            var newNode = {"name":node.name,"xPos":node.xPos};
+            newNodes.push(newNode);
+          }
+          node[step.linkType].forEach(function(link) {
+            nextNodes.push(link[step.nodeType]);
+          });
+        });
+        remainingNodes = nextNodes;
+      }
+    });
+  }
+    
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(newNodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(newNodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        newLinks.push(link);
+      }
+    });
+    
+    sankeyValues.nodes = newNodes;
+    sankeyValues.links = newLinks;
     
     sankey
       .nodes(sankeyValues.nodes)
@@ -297,43 +366,75 @@ function highlight_node_links(old_node,old_i){
   }
 
 function resetSankey(){
+  $('#filter').val("");
   reset_data(originalValues);
   draw_sankey();                
 }
 
-function filterSankey(){
-  var newVal = $('#filter').val();
-  var xPos = parseInt($('#xPos').val());
+function filterSankey(filters){
+  var linchNodes = [];
   
-  var filteredValues = {"nodes":[],"links":[]};
+  filteredValues.nodes = JSON.parse(JSON.stringify(originalValues.nodes));
+  filteredValues.links = [];
   
-  filteredValues.nodes = originalValues.nodes.filter(function(d){
-    if(d.xPos!=xPos){
-      return true;
+  
+   filteredValues.nodes = filteredValues.nodes.filter(function(d){
+    var neverInXPos = true;
+    var linch = true;
+    for(var i = 0; i < filters.length; i++){
+      var newVal = filters[i].newVal,
+      xPos = filters[i].xPos;
+      if(d.xPos==xPos){
+        neverInXPos = false;
+        if(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1){
+          //Matching XPos and text
+          linch = linch && true;
+        }else{
+          //Matching XPos, unmatching text
+          linch = linch && false;
+        }
+      }
+    }
+    if(neverInXPos){
+      return(true);
     }else{
-      return(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1);
+      if(linch){
+        linchNodes.push(d);
+        return(true);
+      }
+      return(false);
     }
     });
-  
-  originalValues.links.forEach(function(d){
-    var sourceName = originalValues.nodes[d.source].name,
-    targetName = originalValues.nodes[d.target].name,
-    newSourceIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == sourceName;}),
-    newTargetIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == targetName;});
-    if(newSourceIndex > -1 && newTargetIndex > -1){
-      var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
-      filteredValues.links.push(link);
-    }
-  });
-    reset_data(filteredValues);
-    draw_sankey();
+   
+    
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        filteredValues.links.push(link);
+      }
+    }); 
+
+  //Detect whether links run through linchNodes;
+  console.log(linchNodes);
+  highlight_linch_nodes(linchNodes);
 }
 
-$("#filter").on("input",function(e){
-    filterSankey();
-  });
-$("#xPos").on("change",function(e){
-    filterSankey();
+$(".filter").on("input",function(e){
+    var filterVals = [
+       {"newVal":$('#filter0').val(),"xPos":0}
+       ,{"newVal":$('#filter1').val(),"xPos":1}
+       ,{"newVal":$('#filter2').val(),"xPos":2}
+       ,{"newVal":$('#filter3').val(),"xPos":3}
+       ,{"newVal":$('#filter4').val(),"xPos":4}
+       ,{"newVal":$('#filter5').val(),"xPos":5}
+       ];
+    filterSankey(
+      filterVals.filter(function(d){return d.newVal!="";})
+      );
   });
  
 </script>
