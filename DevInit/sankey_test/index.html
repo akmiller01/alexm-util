@@ -30,15 +30,29 @@
 .link:hover {
   stroke-opacity: .5 !important;
 }
+
+button{margin:10px;}
  
 </style>
 <body>
-
+  <form>
+    <label>Filter: </label><input type="text" id="filter"></input>
+    <select id="xPos">
+      <option value=0>Indicator framework</option>
+      <option value=1>Indicator</option>
+      <option value=2>Data series</option>
+      <option value=3>Sector</option>
+      <option value=4>Source</option>
+      <option value=5>Source Type</option>
+    </select>
+  </form>
+  <button onclick="resetSankey()">Reset</button>
 <div id="chart"></div>
-<button onclick="resetSankey()">Reset</button>
-<script src="http://d3js.org/d3.v3.min.js?2.9.1"></script>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="d3.v3.min.js"></script>
 <script src="sankey.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+<script src="lodash.min.js"></script>
 <script>
   
 function findWithAttr(array, attr, value) {
@@ -121,10 +135,10 @@ d3.json("data.json", function(data) {
   
 });
 
-function reset_data(){
+function reset_data(values){
   //Deep copy, stupidly
-  sankeyValues.nodes = JSON.parse(JSON.stringify(originalValues.nodes));
-  sankeyValues.links = JSON.parse(JSON.stringify(originalValues.links));
+  sankeyValues.nodes = JSON.parse(JSON.stringify(values.nodes));
+  sankeyValues.links = JSON.parse(JSON.stringify(values.links));
   
   sankey
       .nodes(sankeyValues.nodes)
@@ -203,7 +217,7 @@ function draw_sankey(){
 //function highlight_node_links(node,i){
 function highlight_node_links(old_node,old_i){
   var old_name = old_node.name;
-  reset_data();
+  reset_data(originalValues);
   var i = findWithAttr(sankeyValues.nodes,"name",old_name);
   var node = sankeyValues.nodes[i];
   
@@ -283,9 +297,44 @@ function highlight_node_links(old_node,old_i){
   }
 
 function resetSankey(){
-  reset_data();
+  reset_data(originalValues);
   draw_sankey();                
 }
+
+function filterSankey(){
+  var newVal = $('#filter').val();
+  var xPos = parseInt($('#xPos').val());
+  
+  var filteredValues = {"nodes":[],"links":[]};
+  
+  filteredValues.nodes = originalValues.nodes.filter(function(d){
+    if(d.xPos!=xPos){
+      return true;
+    }else{
+      return(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1);
+    }
+    });
+  
+  originalValues.links.forEach(function(d){
+    var sourceName = originalValues.nodes[d.source].name,
+    targetName = originalValues.nodes[d.target].name,
+    newSourceIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == sourceName;}),
+    newTargetIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == targetName;});
+    if(newSourceIndex > -1 && newTargetIndex > -1){
+      var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+      filteredValues.links.push(link);
+    }
+  });
+    reset_data(filteredValues);
+    draw_sankey();
+}
+
+$("#filter").on("input",function(e){
+    filterSankey();
+  });
+$("#xPos").on("change",function(e){
+    filterSankey();
+  });
  
 </script>
 </body>
