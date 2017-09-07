@@ -366,7 +366,7 @@ function highlight_linch_nodes(linchNodes){
   }
 
 function resetSankey(){
-  $('#filter').val("");
+  $('.filter').val("");
   reset_data(originalValues);
   draw_sankey();                
 }
@@ -432,10 +432,18 @@ $(".filter").on("input",function(e){
        ,{"newVal":$('#filter4').val(),"xPos":4}
        ,{"newVal":$('#filter5').val(),"xPos":5}
        ];
-    filterSankey(
-      filterVals.filter(function(d){return d.newVal!="";})
-      );
+    var filters = filterVals.filter(function(d){return d.newVal!=="";});
+    if(filters.length>0){
+      filterSankey(filters);
+    }
+    
   });
+
+  //Notes:
+  //Interesting behavior right now. Filters additively as we would expect
+  //except when there's a gap of at least a column between filters. Includes nodes
+  //inbetween filtered columns even if there's no connection. But we can't assume a connection should exist
+  //and remove those nodes, can we?
  
 </script>
 </body>
