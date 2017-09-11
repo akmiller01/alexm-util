@@ -32,34 +32,18 @@
 }
 
 button{margin:10px;}
-
-#headers{margin-left:100px;border-spacing:0px;}
-
-#headers th {text-align:left;}
-
-#chart{margin-left:100px;}
  
 </style>
 <body>
   <table>
     <tr><td><label>Filter indicator framework: </label></td><td><input type="text" class="filter" id="filter0"></input></td></tr>
-    <tr><td><label>Filter goal: </label></td><td><input type="text" class="filter" id="filter1"></input></td></tr>
-    <tr><td><label>Filter indicator: </label></td><td><input type="text" class="filter" id="filter2"></input></td></tr>
-    <tr><td><label>Filter data series: </label></td><td><input type="text" class="filter" id="filter3"></input></td></tr>
-    <tr><td><label>Filter sector: </label></td><td><input type="text" class="filter" id="filter4"></input></td></tr>
-    <tr><td><label>Filter source: </label></td><td><input type="text" class="filter" id="filter5"></input></td></tr>
+    <tr><td><label>Filter indicator: </label></td><td><input type="text" class="filter" id="filter1"></input></td></tr>
+    <tr><td><label>Filter data series: </label></td><td><input type="text" class="filter" id="filter2"></input></td></tr>
+    <tr><td><label>Filter sector: </label></td><td><input type="text" class="filter" id="filter3"></input></td></tr>
+    <tr><td><label>Filter source: </label></td><td><input type="text" class="filter" id="filter4"></input></td></tr>
+    <tr><td><label>Filter source type: </label></td><td><input type="text" class="filter" id="filter5"></input></td></tr>
   </table>
   <button onclick="resetSankey()">Reset</button>
-  <table id="headers">
-    <tr>
-      <th><div>Indicator framework</div></th>
-      <th><div>Goal</div></th>
-      <th><div>Indicator</div></th>
-      <th><div>Data series</div></th>
-      <th><div>Sector</div></th>
-      <th><div>Source</div></th>
-    </tr>
-  </table>
 <div id="chart"></div>
 
 <script src="jquery-3.2.1.min.js"></script>
@@ -88,10 +72,10 @@ function redirect_to_db(d){
   //]
   var xPosDict = [
     "https://devinit.knack.com/dda-ug#sdgs/"
-    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-goals/"
     ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
     ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
     ,"https://devinit.knack.com/dda-ug#lookups/sector/"
+    ,"https://devinit.knack.com/dda-ug#sources/"
     ,"https://devinit.knack.com/dda-ug#sources/"
   ]
   window.location = xPosDict[d.xPos];
@@ -133,36 +117,22 @@ var sankeyValues = {"nodes":[],"links":[]};
 var filteredValues = {"nodes":[],"links":[]};
 var linchNodes = [];
  
-d3.csv("nodes.csv", function(nodes) {
-  d3.csv("links.csv",function(links){
-    
-    nodes.forEach(function(d){d.xPos = +d.xPos;});
-    
-    links.forEach(function(d){
-      var sourceName = d.source,
-      targetName = d.target,
-      newSourceIndex = _.findIndex(nodes,function(node){return node.name == sourceName;}),
-      newTargetIndex = _.findIndex(nodes,function(node){return node.name == targetName;});
-      if(newSourceIndex > -1 && newTargetIndex > -1){
-        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":1};
-        sankeyValues.links.push(link);
-      }
-    }); 
-    
-    sankeyValues.nodes = nodes;
+d3.json("data.json", function(data) {
   
-    //Deep copy, stupidly
-    originalValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
-    originalValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
-    filteredValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
-    filteredValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
-    sankey
-        .nodes(sankeyValues.nodes)
-        .links(sankeyValues.links)
-        .layout(32);
-          
-    draw_sankey();
-  });
+  sankeyValues.nodes = data.nodes;
+  sankeyValues.links = data.links;
+  
+  //Deep copy, stupidly
+  originalValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+  originalValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
+  filteredValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+  filteredValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
+  sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+        
+  draw_sankey();
   
 });
 
@@ -449,6 +419,7 @@ function filterSankey(filters){
     }); 
 
   //Detect whether links run through linchNodes;
+  console.log(linchNodes);
   highlight_linch_nodes(linchNodes);
 }
 
@@ -464,8 +435,6 @@ $(".filter").on("input",function(e){
     var filters = filterVals.filter(function(d){return d.newVal!=="";});
     if(filters.length>0){
       filterSankey(filters);
-    }else{
-      resetSankey();
     }
     
   });

@@ -110,15 +110,19 @@ d3.sankey = function() {
   function computeNodeBreadths() {
     var remainingNodes = nodes,
         nextNodes,
-        x = 0;
+        x = 0,
+        positions = {};
 
     while (remainingNodes.length) {
       nextNodes = [];
       remainingNodes.forEach(function(node) {
-        if (node.xPos)
+        if (node.xPos!==undefined){
             node.x = node.xPos;
-        else
+            positions[node.xPos] = 1;
+        }
+        else{
             node.x = x;
+        }
         node.dx = nodeWidth;
         node.sourceLinks.forEach(function(link) {
           nextNodes.push(link.target);
@@ -129,8 +133,20 @@ d3.sankey = function() {
     }
 
     //
-    moveSinksRight(x);
+    relabelTitles(Object.keys(positions));
+    //moveSinksRight(x);
     scaleNodeBreadths((width - nodeWidth) / (x - 1));
+  }
+  
+  function relabelTitles(positions){
+    console.log(positions);
+    $("#headers th").hide();
+    $("#headers th div").width(
+      42.83*positions.length*positions.length - 513.8*positions.length + 1796
+    );
+    for(var i = 0; i < positions.length; i++){
+      $($("#headers th")[positions[i]]).show();
+    }
   }
 
   function moveSourcesRight() {
