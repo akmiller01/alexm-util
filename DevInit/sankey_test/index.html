@@ -42,13 +42,32 @@ button{margin:10px;}
 </style>
 <body>
   <table>
-    <tr><td><label>Filter indicator framework: </label></td><td><input type="text" class="filter" id="filter0"></input></td></tr>
-    <tr><td><label>Filter goal: </label></td><td><input type="text" class="filter" id="filter1"></input></td></tr>
-    <tr><td><label>Filter indicator: </label></td><td><input type="text" class="filter" id="filter2"></input></td></tr>
-    <tr><td><label>Filter data series: </label></td><td><input type="text" class="filter" id="filter3"></input></td></tr>
-    <tr><td><label>Filter sector: </label></td><td><input type="text" class="filter" id="filter4"></input></td></tr>
-    <tr><td><label>Filter source: </label></td><td><input type="text" class="filter" id="filter5"></input></td></tr>
+    <tr>
+      <td><label>Text filter: </label></td>
+      <td><input type="text" class="filter resettable" id="textFilter"></input></td>
+      <td>
+        <select class="filter" id="xPosTextFilter">
+          <option value=0>Indicator framework</option>
+          <option value=1>Goal</option>
+          <option value=2>Indicator</option>
+          <option value=3>Data series</option>
+          <option value=4>Sector</option>
+          <option value=5>Source</option>
+        </select>
+      </td>
+    </tr>
+    <tr><td><label>Data series questionnaire</label></td><td></td><td><select xPos=3 class="filter resettable" id="questionnaire"></select></td></tr>
+    <tr><td><label>Data series age disaggregation</label></td><td></td><td><select xPos=3 class="filter resettable" id="disaggregationAge"></select></td></tr>
+    <tr><td><label>Data series location disaggregation</label></td><td></td><td><select xPos=3 class="filter resettable" id="disaggregationLocation"></select></td></tr>
+    <tr><td><label>Source access</label></td><td></td><td><select xPos=5 class="filter resettable" id="access"></select></td></tr>
+    <tr><td><label>Source latest</label></td><td></td><td><select xPos=5 class="filter resettable" id="latest"></select></td></tr>
+    <tr><td><label>Source owner</label></td><td></td><td><select xPos=5 class="filter resettable" id="owner"></select></td></tr>
+    <tr><td><label>Source statistical sector</label></td><td></td><td><select xPos=5 class="filter resettable" id="statisticalSector"></select></td></tr>
+    <tr><td><label>Source geographic coverage</label></td><td></td><td><select xPos=5 class="filter resettable" id="geographicCoverage"></select></td></tr>
+    <tr><td><label>Source sample size</label></td><td></td><td><select xPos=5 class="filter resettable" id="sampleSize"></select></td></tr>
+    <tr><td><label>Source source type</label></td><td></td><td><select xPos=5 class="filter resettable" id="sourceType"></select></td></tr>
   </table>
+  
   <button onclick="resetSankey()">Reset</button>
   <table id="headers">
     <tr>
@@ -97,7 +116,7 @@ function redirect_to_db(d){
   window.location = xPosDict[d.xPos];
 }
 
-var margin = {top: 1, right: 200, bottom: 6, left: 1},
+var margin = {top: 1, right: 250, bottom: 6, left: 1},
     width = 1500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
  
@@ -132,12 +151,45 @@ var originalValues = {};
 var sankeyValues = {"nodes":[],"links":[]};
 var filteredValues = {"nodes":[],"links":[]};
 var linchNodes = [];
+var filterVals = {};
  
 d3.csv("nodes.csv", function(nodes) {
   d3.csv("links.csv",function(links){
     
-    nodes.forEach(function(d){d.xPos = +d.xPos;});
+    var uniqueMetas = {};
     
+    nodes.forEach(function(d){
+      d.xPos = +d.xPos;
+      meta = {},
+      metas = Object.keys(d);
+      for(var i = 0; i < metas.length; i++){
+        var metaKey = metas[i];
+        meta[metaKey] = d[metaKey];
+        if(metaKey != "name" && metaKey!="xPos"){
+          if(!uniqueMetas[metaKey]){
+            uniqueMetas[metaKey] = {};
+          }else{
+            uniqueMetas[metaKey][d[metaKey]] = 1;
+          }
+          delete d[metaKey];
+          }
+        }
+      d.meta = meta;
+      });
+    var metaKeys = Object.keys(uniqueMetas);
+    for(var i = 0; i < metaKeys.length; i++){
+      var metaKey = metaKeys[i],
+      uniqueVals = Object.keys(uniqueMetas[metaKey]);
+      for(var j = 0; j < uniqueVals.length; j++){
+        var uniqueVal = uniqueVals[j],
+        uniqueName = uniqueVal !== "" ? uniqueVal : "None";
+        $("#"+metaKey).append(
+          "<option value='"+uniqueVal+"'>"+uniqueName+"</option>"
+        );
+      }
+    }
+    $('.resettable').val("");
+
     links.forEach(function(d){
       var sourceName = d.source,
       targetName = d.target,
@@ -170,6 +222,8 @@ function reset_data(values){
   //Deep copy, stupidly
   sankeyValues.nodes = JSON.parse(JSON.stringify(values.nodes));
   sankeyValues.links = JSON.parse(JSON.stringify(values.links));
+  filteredValues.nodes = JSON.parse(JSON.stringify(values.nodes));
+  filteredValues.links = JSON.parse(JSON.stringify(values.links));
   
   sankey
       .nodes(sankeyValues.nodes)
@@ -276,7 +330,7 @@ function highlight_node_links(old_node,old_i){
                     }];
     
     uniqueNodeObj[node.name] = 1;
-    var newNode = {"name":node.name,"xPos":node.xPos};
+    var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
     newNodes.push(newNode);
   
     traverse.forEach(function(step){
@@ -289,7 +343,7 @@ function highlight_node_links(old_node,old_i){
         remainingNodes.forEach(function(node) {
           if (!uniqueNodeObj[node.name]){
             uniqueNodeObj[node.name] = 1;
-            var newNode = {"name":node.name,"xPos":node.xPos};
+            var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
             newNodes.push(newNode);
           }
           node[step.linkType].forEach(function(link) {
@@ -347,7 +401,7 @@ function highlight_linch_nodes(linchNodes){
                     }];
     
     uniqueNodeObj[node.name] = 1;
-    var newNode = {"name":node.name,"xPos":node.xPos};
+    var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
     newNodes.push(newNode);
   
     traverse.forEach(function(step){
@@ -360,7 +414,7 @@ function highlight_linch_nodes(linchNodes){
         remainingNodes.forEach(function(node) {
           if (!uniqueNodeObj[node.name]){
             uniqueNodeObj[node.name] = 1;
-            var newNode = {"name":node.name,"xPos":node.xPos};
+            var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
             newNodes.push(newNode);
           }
           node[step.linkType].forEach(function(link) {
@@ -383,6 +437,7 @@ function highlight_linch_nodes(linchNodes){
       }
     });
     
+    
     sankeyValues.nodes = newNodes;
     sankeyValues.links = newLinks;
     
@@ -396,7 +451,7 @@ function highlight_linch_nodes(linchNodes){
   }
 
 function resetSankey(){
-  $('.filter').val("");
+  $('.resettable').val("");
   reset_data(originalValues);
   draw_sankey();                
 }
@@ -411,17 +466,31 @@ function filterSankey(filters){
    filteredValues.nodes = filteredValues.nodes.filter(function(d){
     var neverInXPos = true;
     var linch = true;
-    for(var i = 0; i < filters.length; i++){
-      var newVal = filters[i].newVal,
-      xPos = filters[i].xPos;
-      if(d.xPos==xPos){
-        neverInXPos = false;
-        if(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1){
-          //Matching XPos and text
-          linch = linch && true;
-        }else{
-          //Matching XPos, unmatching text
-          linch = linch && false;
+    for(var i = 0; i < Object.keys(filters).length; i++){
+      var filterKey = Object.keys(filters)[i],
+      newVal = filters[filterKey].newVal,
+      xPos = filters[filterKey].xPos;
+      if(filterKey == "text"){
+        if(d.xPos==xPos){
+          neverInXPos = false;
+          if(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1){
+            //Matching XPos and text
+            linch = linch && true;
+          }else{
+            //Matching XPos, unmatching text
+            linch = linch && false;
+          }
+        }
+      }else{
+        if(d.xPos==xPos){
+          neverInXPos = false;
+          if(d.meta[filterKey] == newVal){
+            //Matching XPos and value
+            linch = linch && true;
+          }else{
+            //Matching XPos, unmatching value
+            linch = linch && false;
+          }
         }
       }
     }
@@ -450,23 +519,35 @@ function filterSankey(filters){
 
   //Detect whether links run through linchNodes;
   highlight_linch_nodes(linchNodes);
+  console.log(sankeyValues);
 }
 
 $(".filter").on("input",function(e){
-    var filterVals = [
-       {"newVal":$('#filter0').val(),"xPos":0}
-       ,{"newVal":$('#filter1').val(),"xPos":1}
-       ,{"newVal":$('#filter2').val(),"xPos":2}
-       ,{"newVal":$('#filter3').val(),"xPos":3}
-       ,{"newVal":$('#filter4').val(),"xPos":4}
-       ,{"newVal":$('#filter5').val(),"xPos":5}
-       ];
-    var filters = filterVals.filter(function(d){return d.newVal!=="";});
-    if(filters.length>0){
-      filterSankey(filters);
+  var filterId = $(this).attr("id"),
+  filterObj = {};
+  if(filterId == "xPosTextFilter" || filterId == "textFilter"){
+    var filterVal = $('#textFilter').val();
+    if(filterVal !== ""){
+      filterObj = {"newVal":filterVal,"xPos":parseInt($("#xPosTextFilter").val())};
+      filterVals.text = filterObj;
     }else{
-      resetSankey();
+      delete filterVals.text;
     }
+  }else{
+    var filterVal = $(this).val();
+    if(filterVal !== ""){
+      filterObj = {"newVal":filterVal,"xPos":parseInt($(this).attr("xPos"))};
+      filterVals[filterId] = filterObj;
+    }else{
+      delete filterVals[filterId];
+    }
+  }  
+  
+  if(Object.keys(filterVals).length>0){
+    filterSankey(filterVals);
+  }else{
+    resetSankey();
+  }
     
   });
 

@@ -99,6 +99,7 @@ d3.sankey = function() {
       node.value = Math.max(
         d3.sum(node.sourceLinks, value),
         d3.sum(node.targetLinks, value)
+        ,0.1
       );
     });
   }
@@ -112,7 +113,6 @@ d3.sankey = function() {
         nextNodes,
         x = 0,
         positions = {};
-
     while (remainingNodes.length) {
       nextNodes = [];
       remainingNodes.forEach(function(node) {
@@ -135,14 +135,22 @@ d3.sankey = function() {
     //
     relabelTitles(Object.keys(positions));
     //moveSinksRight(x);
-    scaleNodeBreadths((width - nodeWidth) / (x - 1));
+    //scaleNodeBreadths((width - nodeWidth) / (x - 1));
+    var posLength = Object.keys(positions).length,
+    minLength = d3.min(Object.keys(positions));
+    if(posLength>1){
+      scaleNodeBreadths((width - nodeWidth) / (posLength - 1),minLength); 
+    }else{
+      scaleNodeBreadths(1,minLength);
+    }
+    
   }
   
   function relabelTitles(positions){
-    console.log(positions);
+    var posLength = positions.length;
     $("#headers th").hide();
     $("#headers th div").width(
-      42.83*positions.length*positions.length - 513.8*positions.length + 1796
+      posLength > 1 ?  (width - nodeWidth*2) / (posLength - 1) : (width - nodeWidth*2)
     );
     for(var i = 0; i < positions.length; i++){
       $($("#headers th")[positions[i]]).show();
@@ -165,8 +173,9 @@ d3.sankey = function() {
     });
   }
 
-  function scaleNodeBreadths(kx) {
+  function scaleNodeBreadths(kx,minLength) {
     nodes.forEach(function(node) {
+      node.x -= minLength;
       node.x *= kx;
     });
   }
@@ -181,8 +190,8 @@ d3.sankey = function() {
     //
     initializeNodeDepth();
     resolveCollisions();
-    for (var alpha = 1; iterations > 0; --iterations) {
-      relaxRightToLeft(alpha *= .99);
+    for (var alpha = 0; iterations > 0; --iterations) {
+      relaxRightToLeft(alpha *= 0.99);
       resolveCollisions();
       relaxLeftToRight(alpha);
       resolveCollisions();
