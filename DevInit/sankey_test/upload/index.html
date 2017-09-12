@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>Sankey Diagram</title>
+<style>
+ 
+@import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
+ 
+#chart {
+  height: 500px;
+}
+ 
+.node rect {
+  cursor: pointer;
+  fill-opacity: .9;
+  /*shape-rendering: crispEdges;*/
+}
+ 
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+ 
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+ 
+.link:hover {
+  stroke-opacity: .5 !important;
+}
+
+button{margin:10px;}
+
+#headers{margin-left:100px;border-spacing:0px;}
+
+#headers th {text-align:left;}
+
+#chart{margin-left:100px;}
+ 
+</style>
+<body>
+  <table>
+    <tr>
+      <td><label>Text filter: </label></td>
+      <td><input type="text" class="filter resettable" id="textFilter"></input></td>
+      <td>
+        <select class="filter" id="xPosTextFilter">
+          <option value=0>Indicator framework</option>
+          <option value=1>Goal</option>
+          <option value=2>Indicator</option>
+          <option value=3>Data series</option>
+          <option value=4>Sector</option>
+          <option value=5>Source</option>
+        </select>
+      </td>
+    </tr>
+    <tr><td><label>Data series questionnaire</label></td><td></td><td><select xPos=3 class="filter resettable" id="questionnaire"></select></td></tr>
+    <tr><td><label>Data series age disaggregation</label></td><td></td><td><select xPos=3 class="filter resettable" id="disaggregationAge"></select></td></tr>
+    <tr><td><label>Data series location disaggregation</label></td><td></td><td><select xPos=3 class="filter resettable" id="disaggregationLocation"></select></td></tr>
+    <tr><td><label>Source access</label></td><td></td><td><select xPos=5 class="filter resettable" id="access"></select></td></tr>
+    <tr><td><label>Source latest</label></td><td></td><td><select xPos=5 class="filter resettable" id="latest"></select></td></tr>
+    <tr><td><label>Source owner</label></td><td></td><td><select xPos=5 class="filter resettable" id="owner"></select></td></tr>
+    <tr><td><label>Source statistical sector</label></td><td></td><td><select xPos=5 class="filter resettable" id="statisticalSector"></select></td></tr>
+    <tr><td><label>Source geographic coverage</label></td><td></td><td><select xPos=5 class="filter resettable" id="geographicCoverage"></select></td></tr>
+    <tr><td><label>Source sample size</label></td><td></td><td><select xPos=5 class="filter resettable" id="sampleSize"></select></td></tr>
+    <tr><td><label>Source source type</label></td><td></td><td><select xPos=5 class="filter resettable" id="sourceType"></select></td></tr>
+  </table>
+  
+  <button onclick="resetSankey()">Reset</button>
+  <table id="headers">
+    <tr>
+      <th><div>Indicator framework</div></th>
+      <th><div>Goal</div></th>
+      <th><div>Indicator</div></th>
+      <th><div>Data series</div></th>
+      <th><div>Sector</div></th>
+      <th><div>Source</div></th>
+    </tr>
+  </table>
+<div id="chart"></div>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="d3.v3.min.js"></script>
+<script src="sankey.js"></script>
+<script src="lodash.min.js"></script>
+<script>
+  
+function findWithAttr(array, attr, value) {
+  for(var i = 0; i < array.length; i += 1) {
+      if(array[i][attr] === value) {
+          return i;
+      }
+  }
+  return -1;
+}
+
+function redirect_to_db(d){
+  //var xPosDict = [
+  //  "Indicator Framework"
+  //  ,"Indicator"
+  //  ,"Data Series"
+  //  ,"Sector"
+  //  ,"Source"
+  //  ,"Source Type"
+  //]
+  var xPosDict = [
+    "https://devinit.knack.com/dda-ug#sdgs/"
+    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-goals/"
+    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
+    ,"https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/"
+    ,"https://devinit.knack.com/dda-ug#lookups/sector/"
+    ,"https://devinit.knack.com/dda-ug#sources/"
+  ]
+  window.location = xPosDict[d.xPos];
+}
+
+var margin = {top: 1, right: 250, bottom: 6, left: 1},
+    width = 1500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+ 
+var formatNumber = d3.format(",.0f"),
+    format = function(d) { return formatNumber(d) + " connection(s)"; },
+    formatInput = function(d) { return formatNumber(d) + " input(s)"; },
+    formatOutput = function(d) { return formatNumber(d) + " output(s)"; },
+    color = d3.scale.category20();
+    
+var formatText = function(s){
+  var limit = 30;
+  if(s.length>limit){
+    return(s.substring(0,limit)+"...");
+  }else{
+    return(s);
+  }
+};
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+var sankey = d3.sankey()
+    .nodeWidth(15)
+    .nodePadding(0)
+    .size([width, height]);
+ 
+var path = sankey.link();
+var originalValues = {};
+var sankeyValues = {"nodes":[],"links":[]};
+var filteredValues = {"nodes":[],"links":[]};
+var linchNodes = [];
+var filterVals = {};
+ 
+d3.csv("nodes.csv", function(nodes) {
+  d3.csv("links.csv",function(links){
+    
+    var uniqueMetas = {};
+    
+    nodes.forEach(function(d){
+      d.xPos = +d.xPos;
+      meta = {},
+      metas = Object.keys(d);
+      for(var i = 0; i < metas.length; i++){
+        var metaKey = metas[i];
+        meta[metaKey] = d[metaKey];
+        if(metaKey != "name" && metaKey!="xPos"){
+          if(!uniqueMetas[metaKey]){
+            uniqueMetas[metaKey] = {};
+          }else{
+            uniqueMetas[metaKey][d[metaKey]] = 1;
+          }
+          delete d[metaKey];
+          }
+        }
+      d.meta = meta;
+      });
+    var metaKeys = Object.keys(uniqueMetas);
+    for(var i = 0; i < metaKeys.length; i++){
+      var metaKey = metaKeys[i],
+      uniqueVals = Object.keys(uniqueMetas[metaKey]);
+      for(var j = 0; j < uniqueVals.length; j++){
+        var uniqueVal = uniqueVals[j],
+        uniqueName = uniqueVal !== "" ? uniqueVal : "None";
+        $("#"+metaKey).append(
+          "<option value='"+uniqueVal+"'>"+uniqueName+"</option>"
+        );
+      }
+    }
+    $('.resettable').val("");
+
+    links.forEach(function(d){
+      var sourceName = d.source,
+      targetName = d.target,
+      newSourceIndex = _.findIndex(nodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(nodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":1};
+        sankeyValues.links.push(link);
+      }
+    }); 
+    
+    sankeyValues.nodes = nodes;
+  
+    //Deep copy, stupidly
+    originalValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+    originalValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
+    filteredValues.nodes = JSON.parse(JSON.stringify(sankeyValues.nodes));
+    filteredValues.links = JSON.parse(JSON.stringify(sankeyValues.links));
+    sankey
+        .nodes(sankeyValues.nodes)
+        .links(sankeyValues.links)
+        .layout(32);
+          
+    draw_sankey();
+  });
+  
+});
+
+function reset_data(values){
+  //Deep copy, stupidly
+  sankeyValues.nodes = JSON.parse(JSON.stringify(values.nodes));
+  sankeyValues.links = JSON.parse(JSON.stringify(values.links));
+  filteredValues.nodes = JSON.parse(JSON.stringify(values.nodes));
+  filteredValues.links = JSON.parse(JSON.stringify(values.links));
+  
+  sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+}
+
+function draw_sankey(){
+  d3.select("svg").remove();
+    
+    var svg = d3.select("#chart").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      
+    var path = sankey.link();
+    
+    var link = svg.append("g").selectAll(".link")
+      .data(sankeyValues.links)
+    .enter().append("path")
+      .attr("class", "link")
+      .attr("d", path)
+      .attr("id", function(d,i){
+        d.id = i;
+        return "link-"+i;
+      })
+      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+  
+  link.append("title")
+      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+  
+   var node = svg.append("g").selectAll(".node")
+      .data(sankeyValues.nodes)
+    .enter().append("g")
+      .attr("id",function(d){return d.name})
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+      .on("click",highlight_node_links)
+      .on("contextmenu", function(d) {
+        d3.event.preventDefault();
+        redirect_to_db(d);
+      })
+      .call(d3.behavior.drag()
+      .origin(function(d) { return d; })
+      // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
+      .on("drag", dragmove));
+      
+  node.append("rect")
+      .attr("height", function(d) { return d.dy; })
+      .attr("width", sankey.nodeWidth())
+      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
+      .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
+    .append("title")
+      .text(function(d) {return d.name + "\n" + formatInput(d.targetLinks.length)+" and "+formatOutput(d.sourceLinks.length); });
+  
+  node.append("text")
+      .attr("x", 6 + sankey.nodeWidth())
+      .attr("y", function(d) { return d.dy / 2; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "start")
+      .attr("transform", null)
+      .text(function(d) {return d.dy>15?formatText(d.name):""; })
+    //.filter(function(d) { return d.x < width / 2; })
+    //  .attr("x", 6 + sankey.nodeWidth())
+    //  .attr("text-anchor", "start");
+      
+  function dragmove(d) {
+    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+    sankey.relayout();
+    link.attr("d", path);
+  }
+}
+
+//function highlight_node_links(node,i){
+function highlight_node_links(old_node,old_i){
+  var old_name = old_node.name;
+  reset_data(filteredValues);
+  var i = findWithAttr(sankeyValues.nodes,"name",old_name);
+  var node = sankeyValues.nodes[i];
+  
+    var remainingNodes=[],
+        nextNodes=[],
+        uniqueNodeObj={},
+        newNodes = [],
+        newLinks = [];
+  
+    var stroke_opacity = 0;
+    if( d3.select(this).attr("data-clicked") == "1" ){
+      d3.select(this).attr("data-clicked","0");
+      stroke_opacity = 0.2;
+    }else{
+      d3.select(this).attr("data-clicked","1");
+      stroke_opacity = 0.5;
+    }
+  
+    var traverse = [{
+                      linkType : "sourceLinks",
+                      nodeType : "target"
+                    },{
+                      linkType : "targetLinks",
+                      nodeType : "source"
+                    }];
+    
+    uniqueNodeObj[node.name] = 1;
+    var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
+    newNodes.push(newNode);
+  
+    traverse.forEach(function(step){
+      node[step.linkType].forEach(function(link) {
+        remainingNodes.push(link[step.nodeType]);
+      });
+  
+      while (remainingNodes.length) {
+        nextNodes = [];
+        remainingNodes.forEach(function(node) {
+          if (!uniqueNodeObj[node.name]){
+            uniqueNodeObj[node.name] = 1;
+            var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
+            newNodes.push(newNode);
+          }
+          node[step.linkType].forEach(function(link) {
+            nextNodes.push(link[step.nodeType]);
+          });
+        });
+        remainingNodes = nextNodes;
+      }
+    });
+    
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(newNodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(newNodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        newLinks.push(link);
+      }
+    });
+    
+    sankeyValues.nodes = newNodes;
+    sankeyValues.links = newLinks;
+    
+    sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+                  
+    draw_sankey();
+    
+  }
+
+function highlight_linch_nodes(linchNodes){
+  reset_data(filteredValues);
+  var uniqueNodeObj={},
+        newNodes = [],
+        newLinks = [];
+  
+  for(var k = 0; k < linchNodes.length; k++){
+    var old_name = linchNodes[k].name;
+    var i = findWithAttr(sankeyValues.nodes,"name",old_name);
+    var node = sankeyValues.nodes[i];
+  
+  
+    var remainingNodes=[],
+        nextNodes=[];
+  
+    var traverse = [{
+                      linkType : "sourceLinks",
+                      nodeType : "target"
+                    },{
+                      linkType : "targetLinks",
+                      nodeType : "source"
+                    }];
+    
+    uniqueNodeObj[node.name] = 1;
+    var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
+    newNodes.push(newNode);
+  
+    traverse.forEach(function(step){
+      node[step.linkType].forEach(function(link) {
+        remainingNodes.push(link[step.nodeType]);
+      });
+  
+      while (remainingNodes.length) {
+        nextNodes = [];
+        remainingNodes.forEach(function(node) {
+          if (!uniqueNodeObj[node.name]){
+            uniqueNodeObj[node.name] = 1;
+            var newNode = {"name":node.name,"xPos":node.xPos,"meta":node.meta};
+            newNodes.push(newNode);
+          }
+          node[step.linkType].forEach(function(link) {
+            nextNodes.push(link[step.nodeType]);
+          });
+        });
+        remainingNodes = nextNodes;
+      }
+    });
+  }
+    
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(newNodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(newNodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        newLinks.push(link);
+      }
+    });
+    
+    
+    sankeyValues.nodes = newNodes;
+    sankeyValues.links = newLinks;
+    
+    sankey
+      .nodes(sankeyValues.nodes)
+      .links(sankeyValues.links)
+      .layout(32);
+                  
+    draw_sankey();
+    
+  }
+
+function resetSankey(){
+  $('.resettable').val("");
+  reset_data(originalValues);
+  draw_sankey();                
+}
+
+function filterSankey(filters){
+  var linchNodes = [];
+  
+  filteredValues.nodes = JSON.parse(JSON.stringify(originalValues.nodes));
+  filteredValues.links = [];
+  
+  
+   filteredValues.nodes = filteredValues.nodes.filter(function(d){
+    var neverInXPos = true;
+    var linch = true;
+    for(var i = 0; i < Object.keys(filters).length; i++){
+      var filterKey = Object.keys(filters)[i],
+      newVal = filters[filterKey].newVal,
+      xPos = filters[filterKey].xPos;
+      if(filterKey == "text"){
+        if(d.xPos==xPos){
+          neverInXPos = false;
+          if(d.name.toLowerCase().indexOf(newVal.toLowerCase()) > -1){
+            //Matching XPos and text
+            linch = linch && true;
+          }else{
+            //Matching XPos, unmatching text
+            linch = linch && false;
+          }
+        }
+      }else{
+        if(d.xPos==xPos){
+          neverInXPos = false;
+          if(d.meta[filterKey] == newVal){
+            //Matching XPos and value
+            linch = linch && true;
+          }else{
+            //Matching XPos, unmatching value
+            linch = linch && false;
+          }
+        }
+      }
+    }
+    if(neverInXPos){
+      return(true);
+    }else{
+      if(linch){
+        linchNodes.push(d);
+        return(true);
+      }
+      return(false);
+    }
+    });
+   
+    
+    originalValues.links.forEach(function(d){
+      var sourceName = originalValues.nodes[d.source].name,
+      targetName = originalValues.nodes[d.target].name,
+      newSourceIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(filteredValues.nodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":d.value};
+        filteredValues.links.push(link);
+      }
+    }); 
+
+  //Detect whether links run through linchNodes;
+  highlight_linch_nodes(linchNodes);
+  console.log(sankeyValues);
+}
+
+$(".filter").on("input",function(e){
+  var filterId = $(this).attr("id"),
+  filterObj = {};
+  if(filterId == "xPosTextFilter" || filterId == "textFilter"){
+    var filterVal = $('#textFilter').val();
+    if(filterVal !== ""){
+      filterObj = {"newVal":filterVal,"xPos":parseInt($("#xPosTextFilter").val())};
+      filterVals.text = filterObj;
+    }else{
+      delete filterVals.text;
+    }
+  }else{
+    var filterVal = $(this).val();
+    if(filterVal !== ""){
+      filterObj = {"newVal":filterVal,"xPos":parseInt($(this).attr("xPos"))};
+      filterVals[filterId] = filterObj;
+    }else{
+      delete filterVals[filterId];
+    }
+  }  
+  
+  if(Object.keys(filterVals).length>0){
+    filterSankey(filterVals);
+  }else{
+    resetSankey();
+  }
+    
+  });
+
+  //Notes:
+  //Interesting behavior right now. Filters additively as we would expect
+  //except when there's a gap of at least a column between filters. Includes nodes
+  //inbetween filtered columns even if there's no connection. But we can't assume a connection should exist
+  //and remove those nodes, can we?
+ 
+</script>
+</body>
+</html>

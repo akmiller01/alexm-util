@@ -1,0 +1,1165 @@
+name,xPos,xposName,access,latest,owner,statisticalSector,questionnaire,geographicCoverage,sampleSize,disaggregationAge,disaggregationLocation,sourceType,url
+National Development Plan,0,Indicator Framework,,,,,,,,,,,
+Africa 2063,0,Indicator Framework,,,,,,,,,,,
+SDGs,0,Indicator Framework,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/
+World Development Indicators,0,Indicator Framework,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+1: no poverty,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+2: zero hunger,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+3: good heath and well-being,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+4: quality education,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+5: gender equality,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+6: clean water and sanitation,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+7: affordable and clean energy,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+8: decent work and economic growth,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+9: industry innovation and infrastructure,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+10: reduced inequality,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+11: sustainable cities and communities,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+12: responsible consumption and production,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+13: climate action,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+14: life below water,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+15: life on land,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+16: peace justice and strong institutions,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+17: partnerships for the goals,1,Goal,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-goals/
+1.a.3: Sum of total grants and non-debt-creating inflows directly allocated to poverty reduction programmes as a proportion of GDP,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"1.b.1: Proportion of government recurrent and capital spending to sectors that disproportionately benefit women, the poor and vulnerable groups",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"1.5.1: Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+1.5.3: Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+1.5.4: Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.1.1: Prevalence of undernourishment,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"2.1.2: Prevalence of moderate or severe food insecurity in the population, based on the Food Insecurity Experience Scale (FIES)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.2.1: Prevalence of stunting (height for age <-2 standard deviation from the median of the World Health Organization (WHO) Child Growth Standards) among children under 5 years of age,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"2.2.2: Prevalence of malnutrition (weight for height >+2 or <-2 standard deviation from the median of the WHO Child Growth Standards) among children under 5 years of age, by type (wasting and overweight)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.3.1: Volume of production per labour unit by classes of farming/pastoral/forestry enterprise size,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"2.3.2: Average income of small-scale food producers, by sex and indigenous status",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.4.1: Proportion of agricultural area under productive and sustainable agriculture,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.5.1: Number of plant and animal genetic resources for food and agriculture secured in either medium or long-term conservation facilities,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"2.5.2: Proportion of local breeds classified as being at risk, not-at-risk or at unknown level of risk of extinction",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.a.1: The agriculture orientation index for government expenditures,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.a.2: Total official flows (official development assistance plus other official flows) to the agriculture sector,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.b.1: Agricultural export subsidies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+2.c.1: Indicator of food price anomalies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.1.1: Maternal mortality ratio,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.1.2: Proportion of births attended by skilled health personnel,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.2.1: Under-five mortality rate,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.2.2: Neonatal mortality rate,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.3.1: Number of new HIV infections per 1,000 uninfected population, by sex, age and key populations",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.3.2: Tuberculosis incidence per 100,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.3.3: Malaria incidence per 1,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.3.4: Hepatitis B incidence per 100,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.3.5: Number of people requiring interventions against neglected tropical diseases,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.4.1: Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.4.2: Suicide mortality rate,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.5.1: Coverage of treatment interventions (pharmacological, psychosocial and rehabilitation and aftercare services) for substance use disorders",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.5.2: Harmful use of alcohol, defined according to the national context as alcohol per capita consumption (aged 15 years and older) within a calendar year in litres of pure alcohol",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.6.1: Death rate due to road traffic injuries,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.7.1: Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.7.2: Adolescent birth rate (aged 10-14 years; aged 15-19 years) per 1,000 women in that age group",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.8.1: Coverage of essential health services (defined as the average coverage of essential services based on tracer interventions that include reproductive, maternal, newborn and child health, infectious diseases, non-communicable diseases and service capacity and access, among the general and the most disadvantaged population)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.8.2: Proportion of population with large household expenditures on health as a share of total household expenditure or income,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.9.1: Mortality rate attributed to household and ambient air pollution,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"3.9.2: Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene (exposure to unsafe Water, Sanitation and Hygiene for All (WASH) services)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.9.3: Mortality rate attributed to unintentional poisoning,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.a.1: Age-standardized prevalence of current tobacco use among persons aged 15 years and older,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.b.1: Proportion of the target population covered by all vaccines included in their national programme,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.b.2: Total net official development assistance to medical research and basic health sectors,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.b.3: Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.c.1: Health worker density and distribution,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+3.d.1: International Health Regulations (IHR) capacity and health emergency preparedness,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.1.1: Proportion of children and young people: (a) in grades 2/3; (b) at the end of primary; and (c) at the end of lower secondary achieving at least a minimum proficiency level in (i) reading and (ii) mathematics, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.2.1: Proportion of children under 5 years of age who are developmentally on track in health, learning and psychosocial well-being, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.2.2: Participation rate in organized learning (one year before the official primary entry age), by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.3.1: Participation rate of youth and adults in formal and non-formal education and training in the previous 12 months, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.4.1: Proportion of youth and adults with information and communications technology (ICT) skills, by type of skill",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.5.1: Parity indices (female/male, rural/urban, bottom/top wealth quintile and others such as disability status, indigenous peoples and conflict-affected, as data become available) for all education indicators on this list that can be disaggregated",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.6.1: Proportion of population in a given age group achieving at least a fixed level of proficiency in functional (a) literacy and (b) numeracy skills, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"4.7.1: Extent to which (i) global citizenship education and (ii) education for sustainable development, including gender equality and human rights, are mainstreamed at all levels in: (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+4.a.1: Proportion of schools with access to: (a) electricity; (b) the Internet for pedagogical purposes; (c) computers for pedagogical purposes; (d) adapted infrastructure and materials for students with disabilities; (e) basic drinking water; (f) single-sex basic sanitation facilities; and (g) basic handwashing facilities (as per the WASH indicator definitions),2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+4.b.1: Volume of official development assistance flows for scholarships by sector and type of study,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+4.c.1: Proportion of teachers in: (a) pre-primary; (b) primary; (c) lower secondary; and (d) upper secondary education who have received at least the minimum organized teacher training (e.g. pedagogical training) pre-service or in-service required for teaching at the relevant level in a given country,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.1.1: Whether or not legal frameworks are in place to promote, enforce and monitor equality and non?discrimination on the basis of sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.2.1: Proportion of ever-partnered women and girls aged 15 years and older subjected to physical, sexual or psychological violence by a current or former intimate partner in the previous 12 months, by form of violence and by age",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.2.2: Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months, by age and place of occurrence",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+5.3.1: Proportion of women aged 20-24 years who were married or in a union before age 15 and before age 18,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.3.2: Proportion of girls and women aged 15-49 years who have undergone female genital mutilation/cutting, by age",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.4.1: Proportion of time spent on unpaid domestic and care work, by sex, age and location",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+5.5.1: Proportion of seats held by women in (a) national parliaments and (b) local governments,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+5.5.2: Proportion of women in managerial positions,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.6.1: Proportion of women aged 15-49 years who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.6.2: Number of countries with laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.a.1: (a) Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex; and (b) share of women among owners or rights-bearers of agricultural land, by type of tenure",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+5.a.2: Proportion of countries where the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"5.b.1: Proportion of individuals who own a mobile telephone, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+5.c.1: Proportion of countries with systems to track and make public allocations for gender equality and women’s empowerment,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.1.1: Proportion of population using safely managed drinking water services,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"6.2.1: Proportion of population using safely managed sanitation services, including a hand-washing facility with soap and water",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.3.1: Proportion of wastewater safely treated,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.3.2: Proportion of bodies of water with good ambient water quality,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.4.1: Change in water-use efficiency over time,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.4.2: Level of water stress: freshwater withdrawal as a proportion of available freshwater resources,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.5.1: Degree of integrated water resources management implementation (0-100),2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.5.2: Proportion of transboundary basin area with an operational arrangement for water cooperation,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.6.1: Change in the extent of water-related ecosystems over time,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.a.1: Amount of water- and sanitation-related official development assistance that is part of a government-coordinated spending plan,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+6.b.1: Proportion of local administrative units with established and operational policies and procedures for participation of local communities in water and sanitation management,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+7.1.1: Proportion of population with access to electricity,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+7.1.2: Proportion of population with primary reliance on clean fuels and technology,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+7.2.1: Renewable energy share in the total final energy consumption,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+7.3.1: Energy intensity measured in terms of primary energy and GDP,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"7.a.1: International financial flows to developing countries in support of clean energy research and development and renewable energy production, including in hybrid systems",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+7.b.1: Investments in energy efficiency as a proportion of GDP and the amount of foreign direct investment in financial transfer for infrastructure and technology to sustainable development services,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.1.1: Annual growth rate of real GDP per capita,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.2.1: Annual growth rate of real GDP per employed person,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.3.1: Proportion of informal employment in non?agriculture employment, by sex",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.5.1: Average hourly earnings of female and male employees, by occupation, age and persons with disabilities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.5.2: Unemployment rate, by sex, age and persons with disabilities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.6.1: Proportion of youth (aged 15-24 years) not in education, employment or training",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.7.1: Proportion and number of children aged 5?17 years engaged in child labour, by sex and age",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.8.1: Frequency rates of fatal and non-fatal occupational injuries, by sex and migrant status",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.8.2: Level of national compliance of labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation, by sex and migrant status",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.9.1: Tourism direct GDP as a proportion of total GDP and in growth rate,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.9.2: Proportion of jobs in sustainable tourism industries out of total tourism jobs,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.a.1: Aid for Trade commitments and disbursements,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.b.1: Existence of a developed and operationalized national strategy for youth employment, as a distinct strategy or as part of a national employment strategy",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.10.1: (a) Number of commercial bank branches per 100,000 adults and (b) number of automated teller machines (ATMs) per 100,000 adults",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+8.10.2: Proportion of adults (15 years and older) with an account at a bank or other financial institution or with a mobile-money-service provider,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.4.1: Material footprint, material footprint per capita, and material footprint per GDP",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"8.4.2: Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.1.1: Proportion of the rural population who live within 2 km of an all-season road,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"9.1.2: Passenger and freight volumes, by mode of transport",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.2.1: Manufacturing value added as a proportion of GDP and per capita,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.2.2: Manufacturing employment as a proportion of total employment,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.3.1: Proportion of small-scale industries in total industry value added,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.3.2: Proportion of small-scale industries with a loan or line of credit,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.4.1: CO2 emission per unit of value added,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.5.1: Research and development expenditure as a proportion of GDP,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.5.2: Researchers (in full-time equivalent) per million inhabitants,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.a.1: Total official international support (official development assistance plus other official flows) to infrastructure,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+9.b.1: Proportion of medium and high-tech industry value added in total value added,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"9.c.1: Proportion of population covered by a mobile network, by technology",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.1.1: Growth rates of household expenditure or income per capita among the bottom 40 per cent of the population and the total population,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"10.2.1: Proportion of people living below 50 per cent of median income, by sex, age and persons with disabilities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"10.4.1: Labour share of GDP, comprising wages and social protection transfers",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.5.1: Financial Soundness Indicators,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.7.1: Recruitment cost borne by employee as a proportion of yearly income earned in country of destination,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.7.2: Number of countries that have implemented well-managed migration policies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.a.1: Proportion of tariff lines applied to imports from least developed countries and developing countries with zero-tariff,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"10.b.1: Total resource flows for development, by recipient and donor countries and type of flow (e.g. official development assistance, foreign direct investment and other flows)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.c.1: Remittance costs as a proportion of the amount remitted,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.3.1: Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+10.6.1: Proportion of members and voting rights of developing countries in international organizations,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.1.1: Proportion of urban population living in slums, informal settlements or inadequate housing",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.2.1: Proportion of population that has convenient access to public transport, by sex, age and persons with disabilities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+11.3.1: Ratio of land consumption rate to population growth rate,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+11.3.2: Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.4.1: Total expenditure (public and private) per capita spent on the preservation, protection and conservation of all cultural and natural heritage, by type of heritage (cultural, natural, mixed and World Heritage Centre designation), level of government (national, regional and local/municipal), type of expenditure (operating expenditure/investment) and type of private funding (donations in kind, private non-profit sector and sponsorship)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.5.2: Direct economic loss in relation to global GDP, damage to critical infrastructure and number of disruptions to basic services, attributed to disasters",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.6.1: Proportion of urban solid waste regularly collected and with adequate final discharge out of total urban solid waste generated, by cities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+11.6.2: Annual mean levels of fine particulate matter (e.g. PM2.5 and PM10) in cities (population weighted),2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.7.1: Average share of the built-up area of cities that is open space for public use for all, by sex, age and persons with disabilities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.7.2: Proportion of persons victim of physical or sexual harassment, by sex, age, disability status and place of occurrence, in the previous 12 months",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.a.1: Proportion of population living in cities that implement urban and regional development plans integrating population projections and resource needs, by size of city",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.c.1: Proportion of financial support to the least developed countries that is allocated to the construction and retrofitting of sustainable, resilient and resource-efficient buildings utilizing local materials",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"11.5.1: Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+11.b.1: Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+11.b.2: Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.1.1: Number of countries with sustainable consumption and production (SCP) national action plans or SCP mainstreamed as a priority or a target into national policies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.3.1: Global food loss index,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"12.4.1: Number of parties to international multilateral environmental agreements on hazardous waste, and other chemicals that meet their commitments and obligations in transmitting information as required by each relevant agreement",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"12.4.2: Hazardous waste generated per capita and proportion of hazardous waste treated, by type of treatment",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"12.5.1: National recycling rate, tons of material recycled",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.6.1: Number of companies publishing sustainability reports,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.7.1: Number of countries implementing sustainable public procurement policies and action plans,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.8.1: Extent to which (i) global citizenship education and (ii) education for sustainable development (including climate change education) are mainstreamed in (a) national education policies; (b) curricula; (c) teacher education; and (d) student assessment,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.a.1: Amount of support to developing countries on research and development for sustainable consumption and production and environmentally sound technologies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.b.1: Number of sustainable tourism strategies or policies and implemented action plans with agreed monitoring and evaluation tools,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+12.c.1: Amount of fossil-fuel subsidies per unit of GDP (production and consumption) and as a proportion of total national expenditure on fossil fuels,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"12.2.1: Material footprint, material footprint per capita, and material footprint per GDP",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"12.2.2: Domestic material consumption, domestic material consumption per capita, and domestic material consumption per GDP",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"13.2.1: Number of countries that have communicated the establishment or operationalization of an integrated policy/strategy/plan which increases their ability to adapt to the adverse impacts of climate change, and foster climate resilience and low greenhouse gas emissions development in a manner that does not threaten food production (including a national adaptation plan, nationally determined contribution, national communication, biennial update report or other)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"13.3.1: Number of countries that have integrated mitigation, adaptation, impact reduction and early warning into primary, secondary and tertiary curricula",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"13.3.2: Number of countries that have communicated the strengthening of institutional, systemic and individual capacity-building to implement adaptation, mitigation and technology transfer, and development actions",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+13.a.1: Mobilized amount of United States dollars per year between 2020 and 2025 accountable towards the $100 billion commitment,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"13.b.1: Number of least developed countries and small island developing States that are receiving specialized support, and amount of support, including finance, technology and capacity-building, for mechanisms for raising capacities for effective climate change-related planning and management, including focusing on women, youth and local and marginalized communities",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"13.1.1: Number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+13.1.2: Number of countries that adopt and implement national disaster risk reduction strategies in line with the Sendai Framework for Disaster Risk Reduction 2015-2030,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+13.1.3: Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.1.1: Index of coastal eutrophication and floating plastic debris density,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.2.1: Proportion of national exclusive economic zones managed using ecosystem-based approaches,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.3.1: Average marine acidity (pH) measured at agreed suite of representative sampling stations,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.4.1: Proportion of fish stocks within biologically sustainable levels,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.5.1: Coverage of protected areas in relation to marine areas,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"14.6.1: Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"14.7.1: Sustainable fisheries as a proportion of GDP in small island developing States, least developed countries and all countries",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.a.1: Proportion of total research budget allocated to research in the field of marine technology,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+14.b.1: Progress by countries in the degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"14.c.1: Number of countries making progress in ratifying, accepting and implementing through legal, policy and institutional frameworks, ocean-related instruments that implement international law, as reflected in the United Nation Convention on the Law of the Sea, for the conservation and sustainable use of the oceans and their resources",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.1.1: Forest area as a proportion of total land area,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"15.1.2: Proportion of important sites for terrestrial and freshwater biodiversity that are covered by protected areas, by ecosystem type",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.2.1: Progress towards sustainable forest management,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.3.1: Proportion of land that is degraded over total land area,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.4.1: Coverage by protected areas of important sites for mountain biodiversity,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.4.2: Mountain Green Cover Index,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.5.1: Red List Index,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"15.6.1: Number of countries that have adopted legislative, administrative and policy frameworks to ensure fair and equitable sharing of benefits",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.8.1: Proportion of countries adopting relevant national legislation and adequately resourcing the prevention or control of invasive alien species,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.9.1: Progress towards national targets established in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011-2020,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.7.1: Proportion of traded wildlife that was poached or illicitly trafficked,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.c.1: Proportion of traded wildlife that was poached or illicitly trafficked,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.a.1: Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+15.b.1: Official development assistance and public expenditure on conservation and sustainable use of biodiversity and ecosystems,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.1.1: Number of victims of intentional homicide per 100,000 population, by sex and age",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.1.2: Conflict-related deaths per 100,000 population, by sex, age and cause",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.1.3: Proportion of population subjected to physical, psychological or sexual violence in the previous 12 months",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.1.4: Proportion of population that feel safe walking alone around the area they live,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.2.1: Proportion of children aged 1-17 years who experienced any physical punishment and/or psychological aggression by caregivers in the past month,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.2.2: Number of victims of human trafficking per 100,000 population, by sex, age and form of exploitation",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.2.3: Proportion of young women and men aged 18?29 years who experienced sexual violence by age 18,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.3.1: Proportion of victims of violence in the previous 12 months who reported their victimization to competent authorities or other officially recognized conflict resolution mechanisms,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.3.2: Unsentenced detainees as a proportion of overall prison population,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.4.1: Total value of inward and outward illicit financial flows (in current United States dollars),2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.4.2: Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.5.1: Proportion of persons who had at least one contact with a public official and who paid a bribe to a public official, or were asked for a bribe by those public officials, during the previous 12 months",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.5.2: Proportion of businesses that had at least one contact with a public official and that paid a bribe to a public official, or were asked for a bribe by those public officials during the previous 12 months",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.6.1: Primary government expenditures as a proportion of original approved budget, by sector (or by budget codes or similar)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.6.2: Proportion of population satisfied with their last experience of public services,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.7.1: Proportions of positions (by sex, age, persons with disabilities and population groups) in public institutions (national and local legislatures, public service, and judiciary) compared to national distributions",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.7.2: Proportion of population who believe decision-making is inclusive and responsive, by sex, age, disability and population group",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.9.1: Proportion of children under 5 years of age whose births have been registered with a civil authority, by age",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.a.1: Existence of independent national human rights institutions in compliance with the Paris Principles,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.10.1: Number of verified cases of killing, kidnapping, enforced disappearance, arbitrary detention and torture of journalists, associated media personnel, trade unionists and human rights advocates in the previous 12 months",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"16.10.2: Number of countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.b.1: Proportion of population reporting having personally felt discriminated against or harassed in the previous 12 months on the basis of a ground of discrimination prohibited under international human rights law,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+16.8.1: Proportion of members and voting rights of developing countries in international organizations,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.1.1: Total government revenue as a proportion of GDP, by source",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.1.2: Proportion of domestic budget funded by domestic taxes,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.2.1: Net official development assistance, total and to least developed countries, as a proportion of the Organization for Economic Cooperation and Development (OECD) Development Assistance Committee donors’ gross national income (GNI)",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.3.1: Foreign direct investments (FDI), official development assistance and South-South Cooperation as a proportion of total domestic budget",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.3.2: Volume of remittances (in United States dollars) as a proportion of total GDP,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.4.1: Debt service as a proportion of exports of goods and services,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.5.1: Number of countries that adopt and implement investment promotion regimes for least developed countries,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.6.1: Number of science and/or technology cooperation agreements and programmes between countries, by type of cooperation",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.6.2: Fixed Internet broadband subscriptions per 100 inhabitants, by speed",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.7.1: Total amount of approved funding for developing countries to promote the development, transfer, dissemination and diffusion of environmentally sound technologies",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.8.1: Proportion of individuals using the Internet,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.9.1: Dollar value of financial and technical assistance (including through North-South, South-South and triangular cooperation) committed to developing countries",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.10.1: Worldwide weighted tariff-average,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.11.1: Developing countries’ and least developed countries’ share of global exports,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.12.1: Average tariffs faced by developing countries, least developed countries and small island developing States",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.13.1: Macroeconomic Dashboard,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.14.1: Number of countries with mechanisms in place to enhance policy coherence of sustainable development,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.15.1: Extent of use of country-owned results frameworks and planning tools by providers of development cooperation,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.16.1: Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.17.1: Amount of United States dollars committed to public-private and civil society partnerships,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.18.1: Proportion of sustainable development indicators produced at the national level with full disaggregation when relevant to the target, in accordance with the Fundamental Principles of Official Statistics",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.18.2: Number of countries that have national statistical legislation that complies with the Fundamental Principles of Official Statistics,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+"17.18.3: Number of countries with a national statistical plan that is fully funded and under implementation, by source of funding",2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.19.1: Dollar value of all resources made available to strengthen statistical capacity in developing countries,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+17.19.2: Proportion of countries that (a) have conducted at least one population and housing census in the last 10 years; and (b) have achieved 100 per cent birth registration and 80 per cent death registration,2,Indicator,,,,,,,,,,,https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/
+Community services availability (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Community services provider (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Distance to a community service (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Common transport means (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Time to get to the community service (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Quality of services (CSD),3,Data Series,,,,,CSECTION2A: Community services,,,,,,
+Commonly used type of health facility (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Handling of patients by health facilities (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Health facility ease of access - reception (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Health facility ease of access - information and guidance (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Health facility ease of access - flow of care (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Health facility ease of access - sign posts (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Treatment or handling of patients by healthworkers (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Health facilities access issues (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Minimising health facilities access issues (CSD),3,Data Series,,,,,CSECTION2B: Health facilities,,,,,,
+Improvement in access to safe water (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Ever protected water catchment areas (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Activities to protect water catchment areas (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Payment for water (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Amount paid for water (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Quantity of water used (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Purpose of the water payments (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Usual monthly cost of water (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Affordability of the water costs (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Households using safe water facilities (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+reasons for incomplete latrine or toilet coverage (CSD),3,Data Series,,,,,CSECTION2C: Water facilities,,,,,,
+Availability of school faciities (CSD),3,Data Series,,,,,CSECTION3A: School facilities,,,,,,
+Adquancy of eduction facilities at the school (CSD),3,Data Series,,,,,CSECTION3A: School facilities,,,,,,
+Type of buidings at school (CSD),3,Data Series,,,,,CSECTION3A: School facilities,,,,,,
+Condition of the facilities  at school (CSD),3,Data Series,,,,,CSECTION3A: School facilities,,,,,,
+Number of facilities built in the last 3 years  at school (CSD),3,Data Series,,,,,CSECTION3A: School facilities,,,,,,
+Number of stances for boys  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Number of stances for girls  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Handwashing facilities  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Separate toilet facilities for teachers  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Number of stances for male teachers  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Number of stances for female teachers  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Number of shared stances  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Toilet facility carters for physically impaired children  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+First aid facilities  at school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Whoadministers First Aid at the school (CSD),3,Data Series,,,,,CSECTION3B: Shool sanitation and safety,,,,,,
+Source of drinking water at the school (CSD),3,Data Series,,,,,CSECTION3C: School water,,,,,,
+Source of drinking water at the school ranked (CSD),3,Data Series,,,,,CSECTION3C: School water,,,,,,
+Distance to each important drinking water source (CSD),3,Data Series,,,,,CSECTION3C: School water,,,,,,
+How reliable are these important water sources? (CSD),3,Data Series,,,,,CSECTION3C: School water,,,,,,
+Items provided to students (CSD),3,Data Series,,,,,CSECTION3D: School items,,,,,,
+Are items provided to students charged (CSD),3,Data Series,,,,,CSECTION3D: School items,,,,,,
+Average amount charged per child per item (CSD),3,Data Series,,,,,CSECTION3D: School items,,,,,,
+Frequency of payment per item (CSD),3,Data Series,,,,,CSECTION3D: School items,,,,,,
+Total number of candidates examined - boys (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Total number of candidates examined - girls (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade one (1) - boys (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade one (1) - girls (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade two (2) - boys (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade two (2) - girls (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade three (3) - boys (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Number who passed with grade three (3) - girl (CSD),3,Data Series,,,,,CSECTION3E: Students performance,,,,,,
+Are there any pupils who left school before completing P.7 (CSD),3,Data Series,,,,,CSECTION3F: School dropouts,,,,,,
+Number who left before completing P.7 per year - boys (CSD),3,Data Series,,,,,CSECTION3F: School dropouts,,,,,,
+Number who left before completing P.7 per year - girls (CSD),3,Data Series,,,,,CSECTION3F: School dropouts,,,,,,
+MOST common reason for leaving school - boys (CSD),3,Data Series,,,,,CSECTION3F: School dropouts,,,,,,
+MOST common reason for leaving school - girls (CSD),3,Data Series,,,,,CSECTION3F: School dropouts,,,,,,
+Does the school hold meetings (CSD),3,Data Series,,,,,CSECTION3G: School meetings,,,,,,
+When was the last school meeting held - month (CSD),3,Data Series,,,,,CSECTION3G: School meetings,,,,,,
+When was the last school meeting held - year (CSD),3,Data Series,,,,,CSECTION3G: School meetings,,,,,,
+Minutes kept for the school meetings (CSD),3,Data Series,,,,,CSECTION3G: School meetings,,,,,,
+School meetings frequency (CSD),3,Data Series,,,,,CSECTION3G: School meetings,,,,,,
+Additional teachers required in school to meet the government ceilings - number of teachers (CSD),3,Data Series,,,,,CSECTION3H: School staffing,,,,,,
+Additional teachers required in school to meet the government ceilings - additional number required (CSD),3,Data Series,,,,,CSECTION3H: School staffing,,,,,,
+Does someone supervise or monitor the school (CSD),3,Data Series,,,,,CSECTION3I: School supervision,,,,,,
+Last visit by a school supervisor- month (CSD),3,Data Series,,,,,CSECTION3I: School supervision,,,,,,
+Last visit by a school supervisor- year (CSD),3,Data Series,,,,,CSECTION3I: School supervision,,,,,,
+Frequency of school supervision/monitoring (CSD),3,Data Series,,,,,CSECTION3I: School supervision,,,,,,
+Marital Status (WIS),3,Data Series,,,,,SECTION 1: Household Roster,,,Actual,2nd level admin area,,
+Relationship to head of household (WIS),3,Data Series,,,,,SECTION 1: Household Roster,,,Actual,2nd level admin area,,
+Household usual member (WIS),3,Data Series,,,,,SECTION 1: Household Roster,,,Actual,2nd level admin area,,
+Eligible female respondent (WIS),3,Data Series,,,,,SECTION 1: Household Roster,,,Actual,2nd level admin area,,
+Usual members who spent the night (WIS),3,Data Series,,,,,SECTION 1: Household Roster,,,Actual,2nd level admin area,,
+Place to wash  hands (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Place to wash hands - observed (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Water souces used on a regular basis (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Source of drinking water (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Water source for other purposes (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Uses of the water source (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Availability of the water source (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Availability of the water source at specific time (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Period to and from water source (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Ownership of a garden (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Toilet facility used  (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Main toilet facilty used (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Frequency of toilet facilty usage (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Toilet facilty sharing (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Number of households that share a toilet facility (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Number of people regularly using the bush / field at home or at work (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+Disposal of under-5 children's fecal waste (WIS),3,Data Series,,,,,"SECTION 4: Water, Sanitation and Hygiene ",,,Actual,2nd level admin area,,
+District (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Constituency (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Sub-County (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Parish (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Polling station (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Voter names (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Voter's Age (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Voter's Sex (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Voter's village (VR),3,Data Series,,,,,Voter registration form,,,Actual,2nd level admin area,,
+Water Source Location - rural(UWASA),3,Data Series,,,,,2: Water source location,,,Varied,Actual location,,
+Water Source Location - urban(UWASA),3,Data Series,,,,,2: Water source location,,,Varied,Actual location,,
+Period of water source construction(UWASA),3,Data Series,,,,,3: General information,,,Varied,Actual location,,
+Source of funding for the water source(UWASA),3,Data Series,,,,,3: General information,,,Varied,Actual location,,
+Ownership of watersource(UWASA),3,Data Series,,,,,3: General information,,,Varied,Actual location,,
+Number of users of watersource(UWASA),3,Data Series,,,,,3: General information,,,Varied,Actual location,,
+Type of watersource(UWASA),3,Data Series,,,,,4: Type of source,,,Varied,Actual location,,
+Management of watersource(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) established(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) trained(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) functionality(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) reasons for not functioning(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) members(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) active members(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water and Sanitation Committee (WSC) women members(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+No. of women holding key positions in the Water and Sanitation Committee (WSC)(UWASA),3,Data Series,,,,,5: Operation and maintenance,,,Varied,Actual location,,
+Water source functionality(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Water source last functionality(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Reasons for water source not functioning(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Reasons (explained) for water source not functioning(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Water source last repair(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Water source last repair (details)(UWASA),3,Data Series,,,,,6: Operational status (functionality),,,Varied,Actual location,,
+Information for District Water Officer (DWO)(UWASA),3,Data Series,,,,,7: Other info as required,,,Varied,Actual location,,
+Births registration (BDR),3,Data Series,,,,,Section 1: NOTICE OF BIRTH OF A CHILD ,,,Actual,2nd level admin area,,
+Direction Uganda is headed,3,Data Series,,,,,SECTION A: GENERAL ISSUES FACING UGANDA,,,,,,
+Important development priorities ,3,Data Series,,,,,,,,,,,
+Development contributing to poverty reduction,3,Data Series,,,,,,,,,,,
+Factors genarating Economic growth,3,Data Series,,,,,,,,,,,
+Achievement of shared prosperity,3,Data Series,,,,,,,,,,,
+Familiarity with world bank group work,3,Data Series,,,,,,,,,,,
+Effectiveness of world bank group,3,Data Series,,,,,,,,,,,
+staff's preparation extent in solving complicated development challenges,3,Data Series,,,,,,,,,,,
+Availability of information,3,Data Series,,,,,,,,,,,
+Responsiveness to requests,3,Data Series,,,,,,,,,,,
+Current position,3,Data Series,,,,,,,,,,,
+Your work's primary specialisation ,3,Data Series,,,,,,,,,,,
+Collaborate/ work proffessionally with,3,Data Series,,,,,,,,,,,
+Agencies you work with,3,Data Series,,,,,,,,,,,
+Description of most exposure activity,3,Data Series,,,,,,,,,,,
+Geographic location,3,Data Series,,,,,,,,,,,
+Birth certificate ownership (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Ethnicity (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Religion (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Orphan hood - mother (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Orphan hood - father (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Migration status (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Length of continuous stay (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Disability - seeing (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Disability - hearing (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Disability - walking (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Disability - rembering (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+School dropout status (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Formal education grade completed (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Field of specialisation (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Ability to read and write (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Employment status (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Occupation (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Mobile phone ownership (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Internet use (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Marital status (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Children ever born (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Ever given birth (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Children alive (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Children dead (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Latest birth (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Sex of the last live birth (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Survival status of the last live birth (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Age at death of the last birth  (NHPC),3,Data Series,,,,,Section 1: Demographics,,,Actual,2nd level admin area,,
+Occupancy tenure (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Dwelling unit type (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Number of rooms in the dwelling unit (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Roof material type (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Wall material type (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Floor material type (NHPC),3,Data Series,,,,,Section 2: Housing Conditions,,,Actual,2nd level admin area,,
+Public Health Facility (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Private Health Facility (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Public Primary School (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Private Primary School (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Public Secondary School (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Private Secondary School (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Police Station/Police Post (NHPC),3,Data Series,,,,,Section 3: Community services,,,None,2nd level admin area,,
+Energy for lighting (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Energy for cooking (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Drinking water source (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Drinking water source distance (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Toilet facility type (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Toilet facility sharing (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Solid waste disposal method (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Bathroom  (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Kitchen (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Assets owned (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Information sources (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Postal services usage (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Mosquito nets ownership (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Mosquito nets source (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Livelihood source (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Remittances received (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Remittances - country of origin (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Bank account functioning (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Meals for under 5 (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Soap usage (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Sugar usage (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Salt usage (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Clothing sets owned (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Shoes pairs owned (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Blankets for children (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Household based enterprise (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Enterprise type (NHPC),3,Data Series,,,,,Section 4: Household characteristics,,,Actual,2nd level admin area,,
+Agricultural activities (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Production use (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Crops grown (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Farm ownership (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Irrigation use (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Land ownership (NHPC),3,Data Series,,,,,Section 5: Agriculture,,,Actual,2nd level admin area,,
+Mortality (NHPC),3,Data Series,,,,,Section 6: Deaths,,,Actual,2nd level admin area,,
+Deceased identification (NHPC),3,Data Series,,,,,Section 6: Deaths,,,Actual,2nd level admin area,,
+Deceased's sex (NHPC),3,Data Series,,,,,Section 6: Deaths,,,Actual,2nd level admin area,,
+Deceased's age at death (NHPC),3,Data Series,,,,,Section 6: Deaths,,,Actual,2nd level admin area,,
+Cause of death (NHPC),3,Data Series,,,,,Section 6: Deaths,,,Actual,2nd level admin area,,
+Pregnant mothers mortality (NHPC),3,Data Series,,,,,Section 6: Deaths (Females 12 to 54 years),,,Actual,2nd level admin area,,
+Maternal mortality - during birth (NHPC),3,Data Series,,,,,Section 6: Deaths (Females 12 to 54 years),,,Actual,2nd level admin area,,
+Maternal mortality - within 6 weeks after delivery (NHPC),3,Data Series,,,,,Section 6: Deaths (Females 12 to 54 years),,,Actual,2nd level admin area,,
+Smoking frequency (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Drinking water source (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Water source location (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Time to water source (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Safe drinking water usage (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Safe drinking water process (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Toilet facility used (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Toilet facility sharing (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Toilet facility sharing size (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Toilet facility hand washing equipment (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Assets ownership (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Fuel for cooking (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Cooking area location (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Kitchen ownership (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+House floor material (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+House roof material (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+House wall material (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Size of rooms in the house (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Household assets owned (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Agricultural land ownership (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Size of agricultural land owned (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Livestock ownership (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Types of livestock owned (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Spraying against mosquitoes (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Who sprayed against mosquitoes (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Mosquito nets ownership (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Number of mosquito nets owned (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Mosquito nets observed in the house (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Mosquito nets ownership period (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Owned mosquito nets brand (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Ever soaked mosquito nets in a mosquito repelant liquid (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Period the mosquito nets got soaked in a mosquito repelant liquid (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Sslept under a mosquito net the previous night (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Who slept under a mosquito net the previous night (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Handwashing equipment (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Presence of water for handwashing (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Cleansing agent for handwashing (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Presence of salt (UDHS),3,Data Series,,,,,HOUSEHOLD QUESTIONNAIRE; HOUSEHOLD CHARACTERISTICS,,,Actual,1st level admin area,,
+Ever attended school (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Highest school grade completed (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Highest year at the completed school grade  (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Highest school grade completed 2 (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Ability to read and write (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Newspaper or magazine reading frequency (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Radio listening frequency (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Television watching frequency (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Religion (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Tribe (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Movement away from home for morethan a night (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Movement away from home for morethan a month (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 1: BACKGROUND,,,Actual,1st level admin area,,
+Ever given birth (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Presence of children living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Number of sons living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Number of daughters living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Presence of children not living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Number of sons not living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Number of daughters not living with their mother (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Children mortality (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Children mortality - male (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Children mortality - female (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Children ever born (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Number of live births (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Pregnant (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Length of the pregnancy (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Did the pregnant woman want to get pregnant (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Did the pregnant woman want more children (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Ever had a miscarriage (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Latest miscarriage (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Length of the pregnancy when it ended (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Counselling when the pregnancy ended (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Other non live births in the past 5 years (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Length of non-live birth pregnancy (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Non live births before 2006 (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Period when the non-live birth got terminated before 2006 (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Last menstrual period (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Pregnancy during menstrual period (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Pregnancy during menstrual period (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 2: REPRODUCTION,,,Actual,1st level admin area,,
+Family planning methods knowledge (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Family planning used (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Family planning methods being used (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Brand name of Family planning pills being used (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Brand name of condoms being used (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Facility that provided sterilisation (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Year of using sterilisation (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Period of using sterilisation (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Ever used (or tried) aything (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Current family planning method sources (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Rhytm contraceptive method sources (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Was told side effects of a contraceptive method (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Was told side effects of a sterilization (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Was told problems of using a family planning method (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Ever experienced sideeffects of family planning (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Told about other forms of family planning (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Source of current family planning method (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Knowledge of family planning methods access (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Knowledge of family planning methods access type (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Recent visit by a healthwork to discuss family planning (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Recent visit to a health facility (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Anyone spoke about family planning during a health facility visit (UDHS),3,Data Series,,,,,WOMEN'S QUESTIONNAIRE; SECTION 3: CONTRACEPTION,,,Actual,1st level admin area,,
+Circumcision status (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Age at circumcision (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Who performed the circumcision (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Circumcision location (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Ever been injected (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Who performed the injection (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Use of new syringe and needle during injection (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Any complications due to an injection (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Current smoking status (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Number of cigarettes smoked in the past 24 hours (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Smoking any form of tobacco (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Other forms of tobacco used (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Health insurance coverage (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Type of health insurance cover (UDHS),3,Data Series,,,,,MEN'S QUESTIONNAIRE; SECTION 8: OTHER HEALTH ISSUES,,,Actual,1st level admin area,,
+Name (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Age (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Religion (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Ethinicity (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Education level (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Ability to read and write (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Main econoic activity (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Leisure ways (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Access to information (UGBVS),3,Data Series,,,,,SECTION A: Personal Data,,,Actual,2nd level admin area,,
+Forms of gender based violence (UGBVS),3,Data Series,,,,,SECTION B: Knowledge on Violence with special reference to GBV,,,Actual,2nd level admin area,,
+Examples of gender based violence (UGBVS),3,Data Series,,,,,SECTION C: Community Attitude to Violence,,,Actual,2nd level admin area,,
+Wife must obey husband (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Family problems only discussed in family (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Wife must show husband who is boss (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Wife should choose her friends (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Wife is obliged to have sex with husband (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+People should intervene GBV in a family (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Reason for a man to hit his wife (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+When can wife refuse to have sex with husband (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Influence of political conflict on GBV in homes (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+How can a woman cope with GBV (UGBVS),3,Data Series,,,,,SECTION D:  Practices / Norms on Violent Behavior within Families,,,Actual,2nd level admin area,,
+Ever been married (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+How many times has one ever been married (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Current marital status (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Reason for divorce (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Form of marriage (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Dowry/ bride price paymemnt (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Type of marriage (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+How long one has been married (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Does partner have other partners? (UGBVS),3,Data Series,,,,,SECTION E: Marriage / Partnership,,,Actual,2nd level admin area,,
+Highest level of partner's education (UGBVS),3,Data Series,,,,,SECTION F: Background information of wife or partner,,,Actual,2nd level admin area,,
+Source of income for spouse (UGBVS),3,Data Series,,,,,SECTION F: Background information of wife or partner,,,Actual,2nd level admin area,,
+Frequency of couple's conflict (UGBVS),3,Data Series,,,,,SECTION F: Background information of wife or partner,,,Actual,2nd level admin area,,
+Main causes of conflict (UGBVS),3,Data Series,,,,,SECTION F: Background information of wife or partner,,,Actual,2nd level admin area,,
+Characteristics of wife/ partner,3,Data Series,,,,,SECTION F: Background information of wife or partner,,,Actual,2nd level admin area,,
+Has any of these ever occurred? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Who did it? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Which injuries were experienced? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Sought for medical care? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Reason for seeking medical care (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Who did you tell about it? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+What was their reaction? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Who was most helpful? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+From whom did you get legal support? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Given safety when waiting for support? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+How were cases solved? (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Reason for unsolved cases (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+Community services to prevent GBV (UGBVS),3,Data Series,,,,,SECTION G: Gender-Based Violence,,,Actual,2nd level admin area,,
+MANUFACTURER (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+DRUG NAME (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+REGISTRATION NUMBER(NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+GENERIC NAME(NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+DRUG STRENGTH (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+DOSAGE  FORM (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+Name of APPLICANT (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+Drug PACK SIZES (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+DRUG LICENCE HOLDER (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+COUNTRY OF MAKE (NDA),3,Data Series,,,,,Drug registration form,,,None,None,,
+Commodity (IMIS),3,Data Series,,,,,,,,None,1st level admin area,,
+Commodity Units (IMIS),3,Data Series,,,,,,,,None,2nd level admin area,,
+Commodity values (IMIS),3,Data Series,,,,,,,,None,3rd level admin area,,
+Unit price (IMIS),3,Data Series,,,,,,,,None,4th level admin area,,
+Establishment name(UEES),3,Data Series,,,,,Section 1A: Identification,,,None,2nd level admin area,,
+Address(UEES),3,Data Series,,,,,Section 1A: Identification,,,None,3rd level admin area,,
+Economic activity(UEES),3,Data Series,,,,,Section 1A: Identification,,,None,4th level admin area,,
+Payment methods(UEES),3,Data Series,,,,,Section 1B: Labour,,,None,5th level admin area,,
+Employees - male(UEES),3,Data Series,,,,,Section 1B: Labour,,,None,6th level admin area,,
+Employees - female(UEES),3,Data Series,,,,,Section 1B: Labour,,,None,7th level admin area,,
+Employees - total(UEES),3,Data Series,,,,,Section 1B: Labour,,,None,8th level admin area,,
+Earnings(UEES),3,Data Series,,,,,Section 1B: Labour,,,None,9th level admin area,,
+BusinessID,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+EstablishmentName,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+Activity,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+MalesEmployed,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+FemalesEmployed,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+TotalEmployed,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+Ownership type,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+FemaleOwners,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+MaleOwners,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+nationality,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+YearStarted,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+EnterpriseID,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+ExistedIn1989,3,Data Series,,,,,Main questionnaire,,,None,Actual location,,
+collaboration and partnership between CSO and HLGs,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,1st level admin area,,
+support to local governments (both HLGs and LLGs) in the previous three years,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,1st level admin area,,
+received support from local government,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,1st level admin area,,
+target beneficiaries get the intended benefits from LGDP II investment/projects,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,1st level admin area,,
+access to the investments by LGDP II,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,1st level admin area,,
+LGDP II processes effect on CSO's service delivery,3,Data Series,,,,,This file contains data from the Civil Society Organisations' Checklist.,,,None,2nd level admin area,,
+name of the health facility,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+government designated level of facility,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+patients treated per day during week days,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Number of Doctors,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Number of Nurses or Midwives,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Other Health Workers,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+ health facility admits in-patients,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+bed capacity of health facility,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+health facility receives assistance under LGDP I,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Construction of Outpatient Dept,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Construction of Maternity Ward,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Construction of General Ward,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Hospital Beds,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Hospital Matress,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Other Hospital Equipment,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Bicycle Ambulance,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Construction of Staff Quarters,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Qty Recieved for Others,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+who decided on the type of assistance,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+to what extent did the assistance address health facility needs,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+rating of assistance received under LGDP II,3,Data Series,,,,,Community questionnaire section 1,,,None,2nd level admin area,,
+Distance from village centre,3,Data Series,,,,,This file contains data from section 3: 'Community Services' of the Community Questionnaire.,,,None,2nd level admin area,,
+Common means of transport,3,Data Series,,,,,This file contains data from section 3: 'Community Services' of the Community Questionnaire.,,,None,2nd level admin area,,
+Tme taken to get there from village centre,3,Data Series,,,,,This file contains data from section 3: 'Community Services' of the Community Questionnaire.,,,None,2nd level admin area,,
+projects implemented in the community,3,Data Series,,,,,This file contains data from section 5: 'Community Participation in LGDP II Activities' of the Community Questionnaire.,,,None,2nd level admin area,,
+status of the project,3,Data Series,,,,,This file contains data from section 5: 'Community Participation in LGDP II Activities' of the Community Questionnaire.,,,None,2nd level admin area,,
+project addressed community needs,3,Data Series,,,,,This file contains data from section 5: 'Community Participation in LGDP II Activities' of the Community Questionnaire.,,,None,2nd level admin area,,
+investment in Education,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+decision making processes of education projects,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+project management committee PMC formed,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+How often does management committee meet,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+communication of the committees decisions,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+How well are the committees decisions adhered to,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+use of management committee beyond the life of the project,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+extending lessons to other initiatives,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+changes in the performance of parish Council,3,Data Series,,,,,This file contains data from section 6: 'Education Infrastructure' of the Community Questionnaire.,,,None,2nd level admin area,,
+Bank,3,Data Series,,,,,,,,None,Urban/Rural,,
+Money transfer,3,Data Series,,,,,,,,None,Urban/Rural,,
+Microfinance,3,Data Series,,,,,,,,None,Urban/Rural,,
+Forex bureau,3,Data Series,,,,,,,,None,Urban/Rural,,
+Post office,3,Data Series,,,,,,,,None,Urban/Rural,,
+Friends,3,Data Series,,,,,,,,None,Urban/Rural,,
+Traders,3,Data Series,,,,,,,,None,Urban/Rural,,
+Others,3,Data Series,,,,,,,,None,Urban/Rural,,
+Bank,3,Data Series,,,,,,,,None,Urban/Rural,,
+Money transfer,3,Data Series,,,,,,,,None,Urban/Rural,,
+Microfinance,3,Data Series,,,,,,,,None,Urban/Rural,,
+Forex bureau,3,Data Series,,,,,,,,None,Urban/Rural,,
+Post office,3,Data Series,,,,,,,,None,Urban/Rural,,
+Friends,3,Data Series,,,,,,,,None,Urban/Rural,,
+Traders,3,Data Series,,,,,,,,None,Urban/Rural,,
+Others,3,Data Series,,,,,,,,None,Urban/Rural,,
+Consumption r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Child care r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Education r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Travel r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Farming r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Business r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Building r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Land purchase r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Health r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Ceremony r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Other r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Consumption s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Child care s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Education s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Travel s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Farming s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Business s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Building s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Land purchase s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Health s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Ceremony s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Other s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Consumption r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Child care r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Education r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Travel r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Farming r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Business r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Building r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Land purchase r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Health r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Ceremony r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Other r,3,Data Series,,,,,,,,None,Urban/Rural,,
+Consumption s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Child care s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Education s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Travel s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Farming s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Business s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Building s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Land purchase s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Health s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Ceremony s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Other s,3,Data Series,,,,,,,,None,Urban/Rural,,
+Commodity Units (IMIS),3,Data Series,,,,,,,,None,2nd level admin area,,
+Commodity values (IMIS),3,Data Series,,,,,,,,None,3rd level admin area,,
+Unit price (IMIS),3,Data Series,,,,,,,,None,4th level admin area,,
+Date of recording,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Day of recording,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Time of recording,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Vehicle Registration number,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Vehicle Type,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Vehicle Tonnage,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Country Code,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Border Post,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+URA Assessment Number,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Flow ,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Transit,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Town of Origin,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Town of Destination,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Transport Cost of Cargo,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Item Name,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Unit Code ,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Quantity in Packaging,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Quantity on Truck,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Quantity declared to URA,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+ICBT Quantity,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Value declared to URA,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+Price,3,Data Series,,,,,VEHICLE FORM A,,,None,Actual location,,
+RecNr,3,Data Series,,,,,,,,Actual,2nd level admin area,,
+CountryId,3,Data Series,,,,,,,,Actual,3rd level admin area,,
+CentreId,3,Data Series,,,,,,,,Actual,4th level admin area,,
+IndividualId,3,Data Series,,,,,,,,Actual,5th level admin area,,
+Sex,3,Data Series,,,,,,,,Actual,6th level admin area,,
+DoB,3,Data Series,,,,,,,,Actual,7th level admin area,,
+EventCount,3,Data Series,,,,,,,,Actual,8th level admin area,,
+EventNr,3,Data Series,,,,,,,,Actual,9th level admin area,,
+EventCode,3,Data Series,,,,,,,,Actual,10th level admin area,,
+EventDate,3,Data Series,,,,,,,,Actual,11th level admin area,,
+ObservationDate,3,Data Series,,,,,,,,Actual,12th level admin area,,
+LocationId,3,Data Series,,,,,,,,Actual,13th level admin area,,
+MotherId,3,Data Series,,,,,,,,Actual,14th level admin area,,
+DeliveryId,3,Data Series,,,,,,,,Actual,15th level admin area,,
+Visa Type,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Entry permit Type,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Certificate of residence Reason,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Dependant pass Type ,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Special pass,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Student pass ,3,Data Series,,,,,SECTION 1: SELECT TYPE OF APPLICATION/ CATEGORY,,,Actual,None,,
+Given names,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Surnames,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Date of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Gender,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Marital Status,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Current nationality,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Dual nationality ,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Former nationality ,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Place of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Country of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Immigration status in Country of Residence ,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+City of Residence,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Current residential address,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Phone number,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Current place of work,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+E-mail address,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Colour of hair,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Colour of eyes,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Height (feet),3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Height (Inches),3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Do you have any children ,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Do you have any other dependants?,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Passport Type ,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Passport Number,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Issuing Country,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Place of Issue,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Date of Issue,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Date of Expiry,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Previous passport (if any) number,3,Data Series,,,,,SECTION 3: PASSPORT DATA,,,Actual,None,,
+Contact in Uganda ,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Name and telephone number of contact,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Duration of stay requested,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Purpose of Visit ,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Date of Arrival,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Point of entry,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Denied a Visa before ,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Deported before,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Convicted in any country,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+Any criminal proceedings against you,3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+"Suffering from any infectious, contagious or mental illness",3,Data Series,,,,,SECTION 4: OTHER DATA,,,Actual,None,,
+INDIVIDUAL REGISTRATION,3,Data Series,,,,,SECTION 1: REGISTER FOR TAXES,,,None,1st level admin area,,
+NON-INDIVIDUAL REGISTRATION,3,Data Series,,,,,SECTION 1: REGISTER FOR TAXES,,,None,1st level admin area,,
+GROUP REGISTRATION,3,Data Series,,,,,SECTION 1: REGISTER FOR TAXES,,,None,1st level admin area,,
+PAYMENT REGISTRATION,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+PAYMENT RE-REGISTRATION,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+PRINT PAYMENT RECEIPT,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+PAYMENT RE-GENERATION,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+PRINT INCOME TAX PAYMENT CERTIFICATE,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+PAY VISA/ MASTERCARD PRN,3,Data Series,,,,,SECTION 2: PAYMENTS,,,None,1st level admin area,,
+SEARCH AND CERTIFICATION,3,Data Series,,,,,SECTION 3: MOTOR VEHICLE,,,None,1st level admin area,,
+MOTOR VEHICLE SEARCH DETAILS,3,Data Series,,,,,SECTION 3: MOTOR VEHICLE,,,None,1st level admin area,,
+BULK REGISTRATION,3,Data Series,,,,,SECTION 4: STAMP DUTY,,,None,1st level admin area,,
+STAMP CERTIFICATE ISSUANCE,3,Data Series,,,,,SECTION 4: STAMP DUTY,,,None,1st level admin area,,
+STAMP CERTIFICATE ISSUANCE FOR BULK ASSESSMENT,3,Data Series,,,,,SECTION 4: STAMP DUTY,,,None,1st level admin area,,
+DUPLICATE CERTIFICATE ISSUANCE,3,Data Series,,,,,SECTION 4: STAMP DUTY,,,None,1st level admin area,,
+DECLARATION OF INSTRUMENT,3,Data Series,,,,,SECTION 4: STAMP DUTY,,,None,1st level admin area,,
+Title ,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Acquired Name ,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Family/Father's Surname,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Mother's Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Marital Status Of Applicant,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Have you previously applied for or been issued a TIN? ,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Postal address where notices and correspondence should be sent,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Home address in Uganda ,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Plot Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Street Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Building Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Trading Center  ,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+District/City,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+County/Municipality,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Sub-County/Town Council/Division,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Village/Local Council/Zone,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Landline Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Email Address,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Country of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Place of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+District,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+City,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+State,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+Sub-County,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+Sex,3,Data Series,,,,,,,,Actual,6th level admin area,,
+Date of Birth,3,Data Series,,,,,SECTION 2: PERSONAL DATA,,,Actual,None,,
+Citizenship ,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+Are you Minor?,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+Another name other than the Maiden Name,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+Why do you need a TIN? ,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+a) Income Tax,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+b) VAT ,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+c) Stamp Duty,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+d) Imports/Exports,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+e) Local Excise ,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+f) Gaming Tax Registration ,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+g) Motor Vehicle Registration/Transfer,3,Data Series,,,,,Section B - Birth and Citizenship and Purpose of Registration,,,Actual,Urban/Rural,,
+National ID,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+NSSF Card,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Passport,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Employees ID,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Voters Card,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Drivers Permit,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Work Permit,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Village Identity Card,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Current Bank Statement (Past 90 days),3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Visa,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Diplomatic Foreign Affairs ID,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Financial Card,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Refugee ID,3,Data Series,,,,,Section C - Identification Documents,,,None,Urban/Rural,,
+Entity Type,3,Data Series,,,,,"Section D - Partnership, Corporate and Trusts Information",,,None,Urban/Rural,,
+"Business Name of Partnership, Corporation or Trust",3,Data Series,,,,,"Section D - Partnership, Corporate and Trusts Information",,,None,Urban/Rural,,
+Registration Number,3,Data Series,,,,,"Section D - Partnership, Corporate and Trusts Information",,,None,Urban/Rural,,
+TIN ,3,Data Series,,,,,"Section D - Partnership, Corporate and Trusts Information",,,None,Urban/Rural,,
+Employment,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Principal Employer's Name,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Is Employer Ugandan Resident?,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Employer's TIN,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Property Income,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Rental Income,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Business Income from a sole Proprietorship or Family Run Business,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Business Name ,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Business Registration Certificate Number,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Date Business Started,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Is your business address the same as your home address,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Plot Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Street Number,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Building Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Trading Center,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+District/ City,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+County/ Municipality,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Sub-county/ Town Council/ Division,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Village/ Local Council/ Zone,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Description of Activity,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Activity Code,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Division,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Class,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Do you have additional places of business?,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Do you qualify to withhold tax ?,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+"If you have an existing TIN, Enter Number",3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Designation/ Relationship,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Land Line Number,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Email,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Surname/ Maiden name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Referee's TIN,3,Data Series,,,,,Section G - Referee,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Designation/ Relationship,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Land Line Number,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Email,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Tax Type,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Agent Legal Name,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Agent TIN ,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Mobile Number,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Land Line Number,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Email ID,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+"If you have an existing TIN Number, Enter TIN Number",3,Data Series,,,,,Schedule 1: Guardian of Minor,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mother's Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Title (Others Specify),3,Data Series,,,,,Schedule 2: Other Names Used,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Employees for salary and wages,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Contractor/ Sub-contractor,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Suppliers,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Foreign Payments,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Gaming,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+What date will withholding commence?,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Title (Others specify),3,Data Series,,,,,Schedule 2: Other Names Used,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mother's Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Entity's Legal Name,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Main Trading/ Business Name,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Business Registration Certificate Number,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Date Entity was Established/ Started,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Previously issued a TIN,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+"If yes, please enter your TIN",3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Previous TIN obtained under a different name,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Postal address where notices and correspondence should be sent,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Post Office Box Number,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Box Location,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Principal Business Address in Uganda ,3,Data Series,,,,,Section A - Contact Information About Legal Entity,,,None,Urban/Rural,,
+Plot Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Street Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Building Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Trading Center,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+District/ City,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+County/ Municipality,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Sub-County/ Town Council/ Division,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Village/ Local Council/ Zone,3,Data Series,,,,,Section E - Sources of Income and Type of Business Activity,,,None,Urban/Rural,,
+Landline Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Email,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Registering a subsidiary,3,Data Series,,,,,Section B - Registering a Subsidiary,,,None,Urban/Rural,,
+Principle holding company resident in Uganda,3,Data Series,,,,,Section B - Registering a Subsidiary,,,None,Urban/Rural,,
+Holding company TIN,3,Data Series,,,,,Section B - Registering a Subsidiary,,,None,Urban/Rural,,
+Registered company name,3,Data Series,,,,,Section B - Registering a Subsidiary,,,None,Urban/Rural,,
+Entity Type,3,Data Series,,,,,"Section D - Partnership, Corporate and Trusts Information",,,None,Urban/Rural,,
+Entity Subtype,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+NGO Registration Certificate Number,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+NGO Effective Date,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+NGO Expiry Date,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Why do you need a TIN;,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Income Tax,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+VAT,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Stamp Duty,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Imports/ Exports,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Local Excise,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Gaming Tax Registration,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Motor Vehicle Registration/ Transfer,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+Any authorized tax exemptions,3,Data Series,,,,,Section C - Type of Applicant and Tax Type,,,None,Urban/Rural,,
+ Income Sources ,3,Data Series,,,,,Section D - Sources Of Income And Business Activity,,,None,Urban/Rural,,
+ Activity that most closely matches Business Activity,3,Data Series,,,,,Section D - Sources Of Income And Business Activity,,,None,Urban/Rural,,
+Additional place of business,3,Data Series,,,,,Section D - Sources Of Income And Business Activity,,,None,Urban/Rural,,
+Qualify to withhold tax ,3,Data Series,,,,,Section D - Sources Of Income And Business Activity,,,None,Urban/Rural,,
+Name of Attatchment,3,Data Series,,,,,Section E - Attatchments,,,None,Urban/Rural,,
+Number of Documents,3,Data Series,,,,,Section E - Attatchments,,,None,Urban/Rural,,
+Title,3,Data Series,,,,,Serction F - Primary Authorised Contact Person for Entity,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mother's Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Position Held,3,Data Series,,,,,Serction F - Primary Authorised Contact Person for Entity,,,None,Urban/Rural,,
+Landline Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Email,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Surname/ Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Enter Referee's TIN,3,Data Series,,,,,Section G - Referee ( This application must be referenced by a taxpayer whose TIN is active),,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Designation/ Registration,3,Data Series,,,,,Section G - Referee ( This application must be referenced by a taxpayer whose TIN is active),,,None,Urban/Rural,,
+Mobile Phone Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Landline Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Email,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Have a tax agent,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Tax type,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Agent Name,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Agent TIN,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Mobile Number,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Landline Number,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Email ID,3,Data Series,,,,,Section H - Tax Agent,,,None,Urban/Rural,,
+Account Holder Name,3,Data Series,,,,,Section I - Appllicant's Financial Institution,,,None,Urban/Rural,,
+Account Number,3,Data Series,,,,,Section I - Appllicant's Financial Institution,,,None,Urban/Rural,,
+Bank Name,3,Data Series,,,,,Section I - Appllicant's Financial Institution,,,None,Urban/Rural,,
+Branch Name,3,Data Series,,,,,Section I - Appllicant's Financial Institution,,,None,Urban/Rural,,
+Income Tax Exemption,3,Data Series,,,,,Schedule 1: Tax Exemptions,,,None,Urban/Rural,,
+Gaming Tax Exemption,3,Data Series,,,,,Schedule 1: Tax Exemptions,,,None,Urban/Rural,,
+Entity a resident of Uganda for tax Purposes,3,Data Series,,,,,Schedule 1: Tax Exemptions,,,None,Urban/Rural,,
+Entity an NGO,3,Data Series,,,,,Schedule 1: Tax Exemptions,,,None,Urban/Rural,,
+Employees for salary and Wages,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Contractor or Sub-Contractor ,3,Data Series,,,,,Schedule 2: Registration for PAYE and withholdind of tax,,,None,Urban/Rural,,
+Interest in dividends,3,Data Series,,,,,Schedule 2: Registration for PAYE and withholdind of tax,,,None,Urban/Rural,,
+Suppliers,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Foreign Payments,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Gaming,3,Data Series,,,,,Schedule 3: Registration of PAYE and withholding tax,,,None,Urban/Rural,,
+Withholding tax begins,3,Data Series,,,,,Schedule 2: Registration for PAYE and withholdind of tax,,,None,Urban/Rural,,
+Individuals,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+Nature of Association,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+Title,3,Data Series,,,,,Serction F - Primary Authorised Contact Person for Entity,,,None,Urban/Rural,,
+First Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Middle Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Acquired Name,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Family/ Father's Surname,3,Data Series,,,,,Section F - Alternate Contact,,,None,Urban/Rural,,
+Mother's Maiden Name,3,Data Series,,,,,Section A - Name and Address,,,None,Urban/Rural,,
+Personal TIN of Office Holder,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+Official Designantion in an Entity,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+Organisations,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+Name of Association,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+ Full Name of Associated Organisation,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+TIN of Organisation,3,Data Series,,,,,Schedule 3: Persons associated with Entity,,,None,Urban/Rural,,
+ Family and children,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Public health services,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ General services,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Water supply,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+" General economic, commercial and labour affairs",4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+" Recreation, culture and religion",4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Sickness and disability,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Education,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Unemployment,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Economic affairs n.e.c.,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Housing and community amenities,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Health n.e.c.,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Pre-primary and primary education,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Secondary education,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Police services,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Fuel and energy,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Waste management,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Communication,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+" Medical products, appliances and equipment",4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Social protection,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Housing,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+" Agriculture, forestry, fishing and hunting",4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+"Gender, Labour and Social Affairs",4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ General public services n.e.c.,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Hospital services,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+ Housing and community amenities n.e.c.,4,Sector,,,,,,,,,,,https://devinit.knack.com/dda-ug#lookups/sector/
+Community Service Database,5,Source,Institution wide,,Ministry of Internal Affairs,Political and other community activities,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+Water Information System,5,Source,Institution wide,,Ministry of Water and Environment,"Living conditions, poverty and cross-cutting social issues",,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+Voters' register,5,Source,Publicly,2016,Electoral Commision ,Political and other community activities,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+Uganda Water Supply Atlas,5,Source,Institution wide,,Ministry of Water and Environment,"Living conditions, poverty and cross-cutting social issues",,100,100,,,Remotely sensed data,https://devinit.knack.com/dda-ug#sources/
+Births and Deaths register,5,Source,Institution wide,,National Identification and Registration Authority,Population and migration,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+Uganda World Bank Group Country Survey,5,Source,Publicly,2014,World Bank,Globalisation,,100,,,,Business and agricultural surveys,https://devinit.knack.com/dda-ug#sources/
+National Housing and Population Census,5,Source,Confidential,2014,Uganda Bureau of Statistics,Population and migration,,100,100,,,Population and housing censuses,https://devinit.knack.com/dda-ug#sources/
+Uganda Demographic and Health Survey,5,Source,Publicly,2016,Uganda Bureau of Statistics,Health,,100,,,,Household surveys,https://devinit.knack.com/dda-ug#sources/
+Uganda Gender Based Violence Survey,5,Source,Government wide,2009,Uganda Bureau of Statistics,Gender and special population groups,,100,,,,Household surveys,https://devinit.knack.com/dda-ug#sources/
+National Drug Authority Drug Register,5,Source,Publicly,2017,National Drug Authority,Health,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+ Infotrade Market Information Services,5,Source,Institution wide,2016,Infotrade,Prices,,100,,,,Remotely sensed data,https://devinit.knack.com/dda-ug#sources/
+Uganda Employment and Earnings Survey,5,Source,Confidential,2008,Uganda Bureau of Statistics,Labour,,100,,,,Business and agricultural surveys,https://devinit.knack.com/dda-ug#sources/
+Uganda Business Register,5,Source,Confidential,2007,Uganda Bureau of Statistics,Business statistics,,100,,,,Business and agricultural surveys,https://devinit.knack.com/dda-ug#sources/
+Uganda Assessment of Beneficiary Participation and Accountability under second Local Government Development Programme,5,Source,,,,,,,,,,,https://devinit.knack.com/dda-ug#sources/
+Uganda Survey on Remittances 2007,5,Source,Government wide,2007,Uganda Bureau of Statistics,"Banking, insurance, financial statistics",,100,,,,Business and agricultural surveys,https://devinit.knack.com/dda-ug#sources/
+Informal Cross Border Trade (ICBT) Survey (continous - annual reports),5,Source,Government wide,2014,Bank of Uganda,International trade and balance of payments,,100,,,,Business and agricultural surveys,https://devinit.knack.com/dda-ug#sources/
+Indepth surveys,5,Source,Confidential,2015,Indepth Network,"Living conditions, poverty and cross-cutting social issues",,49,,,,Remotely sensed data,https://devinit.knack.com/dda-ug#sources/
+Uganda E-Immigration System,5,Source,Confidential,,Ministry of Internal Affairs,Population and migration,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+eServices system,5,Source,Confidential,,Uganda Revenue Authority,Economic accounts,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
+eTax system,5,Source,Confidential,,Uganda Revenue Authority,Economic accounts,,100,100,,,Other administrative sources,https://devinit.knack.com/dda-ug#sources/
