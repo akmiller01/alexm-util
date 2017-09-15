@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body, html {
+    margin: 0;
+  }
+canvas {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+}
+svg {
+  position: absolute;
+  width:500px;
+  height:500px;
+}
+path.country {
+    fill: gray;
+    stroke-width: 1;
+    stroke: black;
+    opacity: .5;
+}
+path.sample {
+    stroke: black;
+    stroke-width: 1px;
+    fill: red;
+    fill-opacity: .5;
+}
+line.link {
+      stroke-width: 1px;
+      stroke: black;
+      stroke-opacity: .5;
+}
+circle.node {
+  fill: red;
+  stroke: white;
+  stroke-width: 1px;
+}
+circle.xy {
+  fill: pink;
+  stroke: black;
+  stroke-width: 1px;
+}
+
+</style>
+<body>
+    <canvas height="500" width="500"></canvas>
+    <div id="viz">
+        <svg></svg>
+    </div>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="lodash.min.js"></script>
+<script>
+    
+var min_zoom = 0.1;
+var max_zoom = 7;
+var nominal_base_node_size = 3;
+var nominal_stroke = 1.5;
+var max_stroke = 4.5;
+var min_base_node_size = 1;
+var max_base_node_size = 10;
+var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom]);
+var svg = d3.select("svg");
+var g = svg.append("g");
+var context = d3.select("canvas").node().getContext("2d");
+var transform = [1, 0, 0, 1, 0, 0];
+var strokeWidth = 1;
+svg.style("cursor","move");
+
+var palette = [
+{"hex":"#e84439","color":"red","number":0},
+{"hex":"#f8c1b2","color":"red","number":1},
+{"hex":"#f0826d","color":"red","number":2},
+{"hex":"#bc2629","color":"red","number":3},
+{"hex":"#8f1b13","color":"red","number":4},
+{"hex":"#fce3dc","color":"red","number":5},
+{"hex":"#fbd7cb","color":"red","number":6},
+{"hex":"#f6b0a0","color":"red","number":7},
+{"hex":"#ec6250","color":"red","number":8},
+{"hex":"#dc372d","color":"red","number":9},
+{"hex":"#cd2b2a","color":"red","number":10},
+{"hex":"#a21e25","color":"red","number":11},
+{"hex":"#6b120a","color":"red","number":12},
+{"hex":"#eb642b","color":"orange","number":0},
+{"hex":"#f6bb9d","color":"orange","number":1},
+{"hex":"#f18e5e","color":"orange","number":2},
+{"hex":"#d85b31","color":"orange","number":3},
+{"hex":"#973915","color":"orange","number":4},
+{"hex":"#fde5d4","color":"orange","number":5},
+{"hex":"#fcdbbf","color":"orange","number":6},
+{"hex":"#facbad","color":"orange","number":7},
+{"hex":"#f3a47c","color":"orange","number":8},
+{"hex":"#ee7644","color":"orange","number":9},
+{"hex":"#cb5730","color":"orange","number":10},
+{"hex":"#ac4622","color":"orange","number":11},
+{"hex":"#7a2e05","color":"orange","number":12},
+{"hex":"#f49b21","color":"yellow","number":0},
+{"hex":"#fccc8e","color":"yellow","number":1},
+{"hex":"#f9b865","color":"yellow","number":2},
+{"hex":"#e48a00","color":"yellow","number":3},
+{"hex":"#a85d00","color":"yellow","number":4},
+{"hex":"#feedd4","color":"yellow","number":5},
+{"hex":"#fee7c1","color":"yellow","number":6},
+{"hex":"#fedcab","color":"yellow","number":7},
+{"hex":"#fac47e","color":"yellow","number":8},
+{"hex":"#f7a838","color":"yellow","number":9},
+{"hex":"#df8000","color":"yellow","number":10},
+{"hex":"#ba6b15","color":"yellow","number":11},
+{"hex":"#7d4712","color":"yellow","number":12},
+{"hex":"#c2135b","color":"pink","number":0},
+{"hex":"#e4819b","color":"pink","number":1},
+{"hex":"#d64278","color":"pink","number":2},
+{"hex":"#ad1257","color":"pink","number":3},
+{"hex":"#7e1850","color":"pink","number":4},
+{"hex":"#f9cdd0","color":"pink","number":5},
+{"hex":"#f6b8c1","color":"pink","number":6},
+{"hex":"#f3a5b6","color":"pink","number":7},
+{"hex":"#e05c86","color":"pink","number":8},
+{"hex":"#d12568","color":"pink","number":9},
+{"hex":"#9f1459","color":"pink","number":10},
+{"hex":"#8d0e56","color":"pink","number":11},
+{"hex":"#65093d","color":"pink","number":12},
+{"hex":"#893f90","color":"purple","number":0},
+{"hex":"#c189bb","color":"purple","number":1},
+{"hex":"#a45ea1","color":"purple","number":2},
+{"hex":"#7b3b89","color":"purple","number":3},
+{"hex":"#551f65","color":"purple","number":4},
+{"hex":"#ebcfe5","color":"purple","number":5},
+{"hex":"#deb5d6","color":"purple","number":6},
+{"hex":"#cb98c4","color":"purple","number":7},
+{"hex":"#af73ae","color":"purple","number":8},
+{"hex":"#994d98","color":"purple","number":9},
+{"hex":"#732c85","color":"purple","number":10},
+{"hex":"#632572","color":"purple","number":11},
+{"hex":"#42184c","color":"purple","number":12},
+{"hex":"#0089cc","color":"blue","number":0},
+{"hex":"#88bae5","color":"blue","number":1},
+{"hex":"#5da3d9","color":"blue","number":2},
+{"hex":"#0071b1","color":"blue","number":3},
+{"hex":"#0c457b","color":"blue","number":4},
+{"hex":"#d3e0f4","color":"blue","number":5},
+{"hex":"#bcd4f0","color":"blue","number":6},
+{"hex":"#a3c7eb","color":"blue","number":7},
+{"hex":"#77adde","color":"blue","number":8},
+{"hex":"#4397d3","color":"blue","number":9},
+{"hex":"#105fa3","color":"blue","number":10},
+{"hex":"#00538e","color":"blue","number":11},
+{"hex":"#0a3a64","color":"blue","number":12},
+{"hex":"#109e68","color":"green","number":0},
+{"hex":"#92cba9","color":"green","number":1},
+{"hex":"#5ab88a","color":"green","number":2},
+{"hex":"#1e8259","color":"green","number":3},
+{"hex":"#16513a","color":"green","number":4},
+{"hex":"#c5e1cb","color":"green","number":5},
+{"hex":"#b1d8bb","color":"green","number":6},
+{"hex":"#a2d1b0","color":"green","number":7},
+{"hex":"#74bf93","color":"green","number":8},
+{"hex":"#3b8c61","color":"green","number":9},
+{"hex":"#00694a","color":"green","number":10},
+{"hex":"#005b3e","color":"green","number":11},
+{"hex":"#07482e","color":"green","number":12},
+{"hex":"#6a6569","color":"grey","number":0},
+{"hex":"#a9a6aa","color":"grey","number":1},
+{"hex":"#847e84","color":"grey","number":2},
+{"hex":"#555053","color":"grey","number":3},
+{"hex":"#443e42","color":"grey","number":4},
+{"hex":"#d9d4da","color":"grey","number":5},
+{"hex":"#cac5cb","color":"grey","number":6},
+{"hex":"#b3b0b7","color":"grey","number":7},
+{"hex":"#b9b5bb","color":"grey","number":8},
+{"hex":"#5a545a","color":"grey","number":9},
+{"hex":"#736e73","color":"grey","number":10},
+{"hex":"#4e484c","color":"grey","number":11},
+{"hex":"#302b2e","color":"grey","number":12}
+],
+paletteMap = [
+  "red",
+  "blue",
+  "orange",
+  "green",
+  "yellow",
+  "purple"
+];
+var color = function(xPos,i){
+      var number = i % 13,
+      colorType = paletteMap[xPos],
+      color = palette.filter(function(d){return d.color==colorType && d.number==number;});
+      return color[0].hex;
+    };
+    
+var xPos = d3.scale.linear().domain([0,5]).range([-1000,1000]);
+
+var graph = {};
+
+d3.csv("nodes.csv", function(nodes) {
+  d3.csv("links.csv",function(links) {
+    
+    nodes.forEach(function(d,i){
+        d.x = xPos(d.xPos);
+        d.y = i;
+    });
+    
+    graph.nodes = nodes;
+    graph.links = [];
+    
+    links.forEach(function(d){
+      var sourceName = d.source,
+      targetName = d.target,
+      newSourceIndex = _.findIndex(nodes,function(node){return node.name == sourceName;}),
+      newTargetIndex = _.findIndex(nodes,function(node){return node.name == targetName;});
+      if(newSourceIndex > -1 && newTargetIndex > -1){
+        var link = {"source":newSourceIndex,"target":newTargetIndex,"value":1};
+        graph.links.push(link);
+      }
+    });
+
+    var linkScale = d3.scale.linear().domain([0,.9,.95,1]).range([0,10,100,1000]);
+    
+    force = d3.layout.force()
+    .size([500,500])
+    .gravity(.5)
+    .nodes(graph.nodes)
+    .links(graph.links)
+    //.linkDistance(60)
+    .charge(-300)
+    .on("tick", forceTick);
+    
+    force.start();
+    
+    var size = d3.scale.pow().exponent(1)
+        .domain(d3.extent(graph.nodes.map(function(d){return d.weight;})))
+        .range([min_base_node_size,max_base_node_size]);
+    
+    g.selectAll("circle.node")
+    .data(graph.nodes)
+    .enter()
+    .append("circle")
+    .attr("r", function(d) { return size(d.weight)*nominal_base_node_size||min_base_node_size*nominal_base_node_size; })
+    .attr("cx",function(d){ return xPos(d.xPos);})
+    .style("fill", function(d,i){return color(d.xPos,i);})
+    .attr("class", "node")
+    .style("stroke", "white")
+    .style("stroke-width", "1px")
+    .append("title")
+      .text(function(d) {return d.name + "\n" + d.xposName + "\n" + d.weight + " connection(s)";});
+    
+    
+    
+    function forceTick() {
+        // Use the identity matrix while clearing the canvas
+        context.setTransform(1, 0, 0, 1, 0, 0);
+        context.clearRect(0, 0, 500, 500);
+        //Then set the new transform
+        context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
+      
+        context.lineWidth = strokeWidth;
+        context.strokeStyle = "rgba(106,101,105,0.3)";
+    
+        graph.links.forEach(function (link) {
+            context.beginPath();
+            context.moveTo(xPos(link.source.xPos),link.source.y);
+            context.lineTo(xPos(link.target.xPos),link.target.y);
+            context.stroke();
+        });
+    
+        d3.selectAll("circle.node")
+            //.attr("cx", function(d) {return d.x})
+            .attr("cy", function(d) {return d.y});
+        };
+    
+    zoom.on("zoom", function() {
+  
+        var stroke = nominal_stroke;
+        if (nominal_stroke*zoom.scale()>max_stroke) stroke = max_stroke/zoom.scale();
+            strokeWidth = stroke;
+           
+        var base_radius = nominal_base_node_size;
+        if (nominal_base_node_size*zoom.scale()>max_base_node_size) base_radius = max_base_node_size/zoom.scale();
+            
+        d3.selectAll("circle.node")
+        .attr("r", function(d) { return size(d.weight)*base_radius||min_base_node_size*base_radius; })
+        .style("stroke-width",strokeWidth);
+    
+        g.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+        transform = [d3.event.scale,0,0,d3.event.scale,d3.event.translate[0],d3.event.translate[1]];
+        // Use the identity matrix while clearing the canvas
+        context.setTransform(1, 0, 0, 1, 0, 0);
+        context.clearRect(0, 0, 500, 500);
+        //Then set the new transform
+        context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
+      
+        context.lineWidth = strokeWidth;
+        context.lineWidth = strokeWidth;
+        context.strokeStyle = "rgba(106,101,105,0.3)";
+    
+        graph.links.forEach(function (link) {
+            context.beginPath();
+            context.moveTo(xPos(link.source.xPos),link.source.y);
+            context.lineTo(xPos(link.target.xPos),link.target.y);
+            context.stroke();
+        });
+	});
+    
+    svg.call(zoom);
+    
+  });
+});
+
+
+</script>
