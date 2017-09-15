@@ -7,13 +7,13 @@ body, html {
   }
 canvas {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 svg {
   position: absolute;
-  width:500px;
-  height:500px;
+  width:100%;
+  height:100%;
 }
 path.country {
     fill: gray;
@@ -45,14 +45,32 @@ circle.xy {
 
 </style>
 <body>
-    <canvas height="500" width="500"></canvas>
+    <canvas id="canvas"></canvas>
     <div id="viz">
-        <svg></svg>
+        <svg id="svg"></svg>
     </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="lodash.min.js"></script>
 <script>
     
+    
+var width = window.innerWidth;
+var height = window.innerHeight;
+
+document.getElementById("canvas").setAttribute("width",width);
+document.getElementById("canvas").setAttribute("height",height);
+document.getElementById("svg").setAttribute("width",width);
+document.getElementById("svg").setAttribute("height",height);
+    
+window.onresize = function(event) {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    
+    document.getElementById("canvas").setAttribute("width",width);
+    document.getElementById("canvas").setAttribute("height",height);
+    document.getElementById("svg").setAttribute("width",width);
+    document.getElementById("svg").setAttribute("height",height);
+};    
 var min_zoom = 0.1;
 var max_zoom = 7;
 var nominal_base_node_size = 3;
@@ -183,13 +201,12 @@ paletteMap = [
   "purple"
 ];
 var color = function(xPos,i){
-      var number = i % 13,
+      //var number = i % 13,
+      var number = 0,
       colorType = paletteMap[xPos],
       color = palette.filter(function(d){return d.color==colorType && d.number==number;});
       return color[0].hex;
     };
-    
-var xPos = d3.scale.linear().domain([0,5]).range([-5000,5000]);
 
 var graph = {};
 
@@ -197,9 +214,8 @@ d3.csv("nodes.csv", function(nodes) {
   d3.csv("links.csv",function(links) {
     
     nodes.forEach(function(d,i){
-        //d.x = xPos(d.xPos);
-        d.x = i;
-        d.y = i;
+        d.x = Math.random()*width;
+        d.y = Math.random()*height;
     });
     
     graph.nodes = nodes;
@@ -219,11 +235,11 @@ d3.csv("nodes.csv", function(nodes) {
     var linkScale = d3.scale.linear().domain([0,.9,.95,1]).range([0,10,100,1000]);
     
     force = d3.layout.force()
-    .size([500,500])
+    .size([width,height])
     .gravity(.5)
     .nodes(graph.nodes)
     .links(graph.links)
-    //.linkDistance(60)
+    .linkDistance(60)
     .charge(-300)
     .on("tick", forceTick);
     
@@ -251,7 +267,7 @@ d3.csv("nodes.csv", function(nodes) {
     function forceTick() {
         // Use the identity matrix while clearing the canvas
         context.setTransform(1, 0, 0, 1, 0, 0);
-        context.clearRect(0, 0, 500, 500);
+        context.clearRect(0, 0, width, height);
         //Then set the new transform
         context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
       
@@ -287,7 +303,7 @@ d3.csv("nodes.csv", function(nodes) {
         transform = [d3.event.scale,0,0,d3.event.scale,d3.event.translate[0],d3.event.translate[1]];
         // Use the identity matrix while clearing the canvas
         context.setTransform(1, 0, 0, 1, 0, 0);
-        context.clearRect(0, 0, 500, 500);
+        context.clearRect(0, 0, width, height);
         //Then set the new transform
         context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
       
