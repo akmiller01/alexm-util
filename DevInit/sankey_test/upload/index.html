@@ -8,6 +8,7 @@
  
 #chart {
   height: 500px;
+  float:left;
 }
  
 .node rect {
@@ -21,7 +22,7 @@
   text-shadow: 0 1px 0 #fff;
 }
  
-.link {
+/*.link {
   fill: none;
   stroke: #000;
   stroke-opacity: .2;
@@ -30,7 +31,7 @@
 .link:hover {
   stroke-opacity: .5 !important;
 }
-
+*/
 button{margin:10px;}
 
 #headers{border-spacing:0px;}
@@ -38,9 +39,21 @@ button{margin:10px;}
 #headers th {text-align:left;}
 
 .filterTable{border:solid black 1px;float:left;margin:5px;}
+
+svg{cursor:move;}
+canvas {
+  position: absolute;
+}
+svg {
+  position: absolute;
+  border:solid 1px black;
+}
+
+#contentWrap{width:100px;}
  
 </style>
 <body>
+  <div id="contentWrap">
   <div class="tableWrap">
   <table class="filterTable">
     <tr><th colspan="2">Source filters</th></tr>
@@ -75,17 +88,9 @@ button{margin:10px;}
     <tr><td><label>Location disaggregation</label></td><td><select xPos=3 class="filter resettable" id="disaggregationLocation"></select></td></tr>
   </table>
   </div>
-  <table id="headers">
-    <tr>
-      <th><div>Indicator framework</div></th>
-      <th><div>Goal</div></th>
-      <th><div>Indicator</div></th>
-      <th><div>Data series</div></th>
-      <th><div>Sector</div></th>
-      <th><div>Source</div></th>
-    </tr>
-  </table>
-<div id="chart"></div>
+
+<div id="chart"><canvas></canvas><svg></svg></div>
+</div>
 <button onclick="resetSankey()">Reset</button>
 
 <script src="jquery-3.2.1.min.js"></script>
@@ -115,12 +120,28 @@ function redirect_to_db(d){
   window.location = xPosDict[d.xPos];
 }
 
-var margin = {top: 1, right: 250, bottom: 6, left: 1},
+var margin = {top: 40, right: 250, bottom: 6, left: 1},
     width = 1500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    height = 500 - margin.top - margin.bottom,
+    clearWidth = 1500,
+    clearHeight = 500,
+    min_zoom = 0.5,
+    max_zoom = 14,
+    zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom]),
+    originTransform = [1, 0, 0, 1, 0, 0],
+    transform = [1, 0, 0, 1, margin.left, margin.top],
+    context = d3.select("canvas").node().getContext("2d"),
+    strokeWidth = 1,
+    maxFont = 20,
+    minFont = 5,
+    defaultFont = 12,
+    maxFontHeader = 25,
+    minFontHeader = 8,
+    defaultFontHeader = 15,
+    BGpadding = 5,
+    positions = {};
     
 $('.tableWrap').width(width + margin.right + margin.left);
-$('#headers').css("margin-left",margin.left);
     
 var palette = [
 {"hex":"#e84439","color":"red","number":0},
@@ -236,6 +257,7 @@ paletteMap = [
   "yellow",
   "purple"
 ];
+var headers = [{"name":"Indicator framework"},{"name":"Goal"},{"name":"Indicator"},{"name":"Data series"},{"name":"Sector"},{"name":"Source"}]
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " connection(s)"; },
     formatInput = function(d) { return formatNumber(d) + " input(s)"; },
@@ -248,8 +270,7 @@ var formatNumber = d3.format(",.0f"),
     };
     
     
-var formatText = function(s){
-  var limit = 30;
+var formatText = function(s,limit=30){
   if(s.length>limit){
     return(s.substring(0,limit)+"...");
   }else{
@@ -257,11 +278,63 @@ var formatText = function(s){
   }
 };
 
-var svg = d3.select("#chart").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+var svg = d3.select("#chart svg");
+svg
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom);
+  
+var canvas = d3.select("#chart canvas");
+canvas
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom);
+  
+var g = svg
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
+  
+zoom.on("zoom", function() {
+  var scaleInverse = (1/d3.event.scale);
+  g.attr("transform", "translate(" + (d3.event.translate[0]+margin.left) +","+ (d3.event.translate[1]+margin.top) + ")scale(" + d3.event.scale + ")");
+  d3.select(".headers")
+  .attr("transform","translate(0,"+(d3.event.translate[1]*scaleInverse*-1)+")")
+  d3.selectAll(".header")
+  .style("font-size",defaultFontHeader*d3.event.scale>maxFontHeader?maxFontHeader*scaleInverse:defaultFontHeader*d3.event.scale<minFontHeader?minFontHeader*scaleInverse:defaultFontHeader)
+  .each(function(d){d.bbox = this.getBBox();});
+  d3.selectAll(".headerBG")
+  .attr("x", function(d){return d.bbox.x - BGpadding;})
+  .attr("y",  function(d){return d.bbox.y - BGpadding;})
+  .attr("width",  function(d){return d.bbox.width + (BGpadding*2);})
+  .attr("height",  function(d){return d.bbox.height + (BGpadding*2);});
+  d3.selectAll(".nodeRect").style("stroke-width",scaleInverse);
+  var textLimit = (positions[Object.keys(positions)[1]]*Math.pow(d3.event.scale,0.15)/(defaultFont/2)) || 500;
+  if(defaultFont*d3.event.scale>maxFont){
+    textLimit *= maxFont/defaultFont;
+  }
+  d3.selectAll(".nodeText")
+  .text(function(d) {return (d.dy*d3.event.scale>15)?formatText(d.name,textLimit):""; })
+  .style("font-size",defaultFont*d3.event.scale>maxFont?maxFont*scaleInverse:defaultFont*d3.event.scale<minFont?minFont*scaleInverse:defaultFont);
+  
+  transform = [d3.event.scale,0,0,d3.event.scale,d3.event.translate[0]+margin.left,d3.event.translate[1]+margin.top];
+  // Use the identity matrix while clearing the canvas
+  context.setTransform(originTransform[0],originTransform[1],originTransform[2],originTransform[3],originTransform[4],originTransform[5]);
+  context.clearRect(0, 0, clearWidth, clearHeight);
+  //Then set the new transform
+  context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
+
+  context.lineWidth = strokeWidth;
+  context.strokeStyle = "rgba(106,101,105,0.3)";
+
+  sankeyValues.links.forEach(function (d) {
+      context.beginPath();
+      context.moveTo(d.source.x+d.source.dx,d.source.y+(d.source.dy/2));
+      context.lineTo(d.target.x,d.target.y+(d.target.dy/2));
+      context.stroke();
+  });
+  
+});
+    
+svg.call(zoom);
  
 var sankey = d3.sankey()
     .nodeWidth(15)
@@ -354,32 +427,33 @@ function reset_data(values){
 }
 
 function draw_sankey(){
-  d3.select("svg").remove();
-    
-    var svg = d3.select("#chart").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-      
-    var path = sankey.link();
-    
-    var link = svg.append("g").selectAll(".link")
-      .data(sankeyValues.links)
-    .enter().append("path")
-      .attr("class", "link")
-      .attr("d", path)
-      .attr("id", function(d,i){
-        d.id = i;
-        return "link-"+i;
-      })
-      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
-      .sort(function(a, b) { return b.dy - a.dy; });
+  d3.select(".links").remove();
+  d3.select(".nodes").remove();
+  d3.select(".headers").remove();
   
-  link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+  var positionsUnique = _.uniqBy(sankeyValues.nodes,function(d){return d.xPos});
+  positions = {};
+  positionsUnique.forEach(function(d){
+    positions[d.xPos] = d.x;
+    });
   
-   var node = svg.append("g").selectAll(".node")
+  // Use the identity matrix while clearing the canvas
+  context.setTransform(originTransform[0],originTransform[1],originTransform[2],originTransform[3],originTransform[4],originTransform[5]);
+  context.clearRect(0, 0, clearWidth, clearHeight);
+  //Then set the new transform
+  context.setTransform(transform[0],transform[1],transform[2],transform[3],transform[4],transform[5]);
+
+  context.lineWidth = strokeWidth;
+  context.strokeStyle = "rgba(106,101,105,0.3)";
+
+  sankeyValues.links.forEach(function (d) {
+      context.beginPath();
+      context.moveTo(d.source.x+d.source.dx,d.source.y+(d.source.dy/2));
+      context.lineTo(d.target.x,d.target.y+(d.target.dy/2));
+      context.stroke();
+  });
+  
+   var node = g.append("g").attr("class","nodes").selectAll(".node")
       .data(sankeyValues.nodes)
     .enter().append("g")
       .attr("id",function(d){return d.name;})
@@ -389,13 +463,10 @@ function draw_sankey(){
       .on("contextmenu", function(d) {
         d3.event.preventDefault();
         redirect_to_db(d);
-      })
-      .call(d3.behavior.drag()
-      .origin(function(d) { return d; })
-      // interfering with click .on("dragstart", function() { this.parentNode.appendChild(this); })
-      .on("drag", dragmove));
+      });
       
   node.append("rect")
+      .attr("class","nodeRect")
       .attr("height", function(d) { return d.dy; })
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d,i) { d.color = color(d.xPos,i); return d.color; })
@@ -403,22 +474,41 @@ function draw_sankey(){
     .append("title")
       .text(function(d) {return d.name + "\n" + formatInput(d.targetLinks.length)+" and "+formatOutput(d.sourceLinks.length); });
   
+  var textLimit = positions[Object.keys(positions)[1]]/(defaultFont/2) || 500/(defaultFont/2);
+  
   node.append("text")
+      .attr("class","nodeText")
       .attr("x", 6 + sankey.nodeWidth())
       .attr("y", function(d) { return d.dy / 2; })
       .attr("dy", ".35em")
       .attr("text-anchor", "start")
       .attr("transform", null)
-      .text(function(d) {return d.dy>15?formatText(d.name):""; });
-    //.filter(function(d) { return d.x < width / 2; })
-    //  .attr("x", 6 + sankey.nodeWidth())
-    //  .attr("text-anchor", "start");
+      .style("font-size",defaultFont)
+      .text(function(d) {return d.dy>15?formatText(d.name,textLimit):""; });
+    
+    var header = g.append("g").attr("class","headers")
+    .selectAll(".header")
+    .data(headers)
+    .enter().append("text")
+    .attr("class","header")
+    .attr("x",function(d,i){return positions[i];})
+    .attr("y",-5)
+    .style("font-size",defaultFontHeader)
+    .each(function(d,i){d.visible = Object.keys(positions).indexOf(i.toString())>-1;})
+    .text(function(d){return d.visible?d.name:"";})
+    .each(function(d){d.bbox = this.getBBox();});
+    d3.select(".headers")
+    .selectAll("rect.headerBG")
+    .data(headers)
+    .enter().insert("rect","text.header")
+    .attr("class","headerBG")
+    .attr("fill","white")
+    .attr("x", function(d){return d.bbox.x - BGpadding;})
+    .attr("y",  function(d){return d.bbox.y - BGpadding;})
+    .attr("opacity",function(d){return d.visible?0.8:0;})
+    .attr("width",  function(d){return d.bbox.width + (BGpadding*2);})
+    .attr("height",  function(d){return d.bbox.height + (BGpadding*2);});
       
-  function dragmove(d) {
-    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
-    sankey.relayout();
-    link.attr("d", path);
-  }
 }
 
 //function highlight_node_links(node,i){

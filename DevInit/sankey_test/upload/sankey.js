@@ -133,7 +133,6 @@ d3.sankey = function() {
     }
 
     //
-    relabelTitles(Object.keys(positions));
     //moveSinksRight(x);
     //scaleNodeBreadths((width - nodeWidth) / (x - 1));
     var posLength = Object.keys(positions).length,
@@ -144,17 +143,6 @@ d3.sankey = function() {
       scaleNodeBreadths(1,minLength);
     }
     
-  }
-  
-  function relabelTitles(positions){
-    var posLength = positions.length;
-    $("#headers th").hide();
-    $("#headers th div").width(
-      posLength > 1 ?  (width - nodeWidth*2) / (posLength - 1) : (width - nodeWidth*2)
-    );
-    for(var i = 0; i < positions.length; i++){
-      $($("#headers th")[positions[i]]).show();
-    }
   }
 
   function moveSourcesRight() {
@@ -190,7 +178,7 @@ d3.sankey = function() {
     //
     initializeNodeDepth();
     resolveCollisions();
-    for (var alpha = 0; iterations > 0; --iterations) {
+    for (var alpha = 1; iterations > 0; --iterations) {
       relaxRightToLeft(alpha *= 0.99);
       resolveCollisions();
       relaxLeftToRight(alpha);
