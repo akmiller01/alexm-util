@@ -99,7 +99,7 @@ d3.sankey = function() {
       node.value = Math.max(
         d3.sum(node.sourceLinks, value),
         d3.sum(node.targetLinks, value)
-        ,0.1
+        ,1
       );
     });
   }
@@ -178,7 +178,7 @@ d3.sankey = function() {
     //
     initializeNodeDepth();
     resolveCollisions();
-    for (var alpha = 1; iterations > 0; --iterations) {
+    for (var alpha = 0; iterations > 0; --iterations) {
       relaxRightToLeft(alpha *= 0.99);
       resolveCollisions();
       relaxLeftToRight(alpha);
@@ -189,11 +189,18 @@ d3.sankey = function() {
       var ky = d3.min(nodesByBreadth, function(nodes) {
         return (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value);
       });
+      var kyScaled = {};
+      nodesByBreadth.forEach(function(nodes){
+        var xPos = nodes[0].xPos;
+        kyScaled[xPos] = (size[1] - (nodes.length - 1) * nodePadding) / d3.sum(nodes, value);
+      });
 
       nodesByBreadth.forEach(function(nodes) {
         nodes.forEach(function(node, i) {
           node.y = i;
-          node.dy = node.value * ky;
+          var thisKy = kyScaled[node.xPos.toString()];
+          node.dy = node.value * thisKy;
+          //node.dy = node.value * ky;
         });
       });
 

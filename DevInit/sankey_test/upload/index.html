@@ -57,13 +57,13 @@ svg {
   <div class="tableWrap">
   <table class="filterTable">
     <tr><th colspan="2">Source filters</th></tr>
-    <tr><td><label>Access</label></td><td><select xPos=5 class="filter resettable" id="access"></select></td></tr>
-    <tr><td><label>Latest</label></td><td><select xPos=5 class="filter resettable" id="latest"></select></td></tr>
-    <tr><td><label>Owner</label></td><td><select xPos=5 class="filter resettable" id="owner"></select></td></tr>
-    <tr><td><label>Statistical sector</label></td><td><select xPos=5 class="filter resettable" id="statisticalSector"></select></td></tr>
-    <tr><td><label>Geographic coverage</label></td><td><select xPos=5 class="filter resettable" id="geographicCoverage"></select></td></tr>
-    <tr><td><label>Sample size</label></td><td><select xPos=5 class="filter resettable" id="sampleSize"></select></td></tr>
-    <tr><td><label>Source type</label></td><td><select xPos=5 class="filter resettable" id="sourceType"></select></td></tr>
+    <tr><td><label>Access</label></td><td><select xPos=4 class="filter resettable" id="access"></select></td></tr>
+    <tr><td><label>Latest</label></td><td><select xPos=4 class="filter resettable" id="latest"></select></td></tr>
+    <tr><td><label>Owner</label></td><td><select xPos=4 class="filter resettable" id="owner"></select></td></tr>
+    <tr><td><label>Statistical sector</label></td><td><select xPos=4 class="filter resettable" id="statisticalSector"></select></td></tr>
+    <tr><td><label>Geographic coverage</label></td><td><select xPos=4 class="filter resettable" id="geographicCoverage"></select></td></tr>
+    <tr><td><label>Sample size</label></td><td><select xPos=4 class="filter resettable" id="sampleSize"></select></td></tr>
+    <tr><td><label>Source type</label></td><td><select xPos=4 class="filter resettable" id="sourceType"></select></td></tr>
   </table>
   <table class="filterTable">
     <tr><th colspan="2">Text filter</th></tr>
@@ -75,8 +75,7 @@ svg {
           <option value=1>Goal</option>
           <option value=2>Indicator</option>
           <option value=3>Data series</option>
-          <option value=4>Sector</option>
-          <option value=5>Source</option>
+          <option value=4>Source</option>
         </select>
       </td>
     </tr>
@@ -114,7 +113,6 @@ function redirect_to_db(d){
     "https://devinit.knack.com/dda-ug#sdgs/sdg-goals/",
     "https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/",
     "https://devinit.knack.com/dda-ug#sdgs/sdg-indicators/",
-    "https://devinit.knack.com/dda-ug#lookups/sector/",
     "https://devinit.knack.com/dda-ug#sources/"
   ];
   window.location = xPosDict[d.xPos];
@@ -254,10 +252,9 @@ paletteMap = [
   "blue",
   "orange",
   "green",
-  "yellow",
   "purple"
 ];
-var headers = [{"name":"Indicator framework"},{"name":"Goal"},{"name":"Indicator"},{"name":"Data series"},{"name":"Sector"},{"name":"Source"}]
+var headers = [{"name":"Indicator framework"},{"name":"Goal"},{"name":"Indicator"},{"name":"Data series"},{"name":"Source"}]
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return formatNumber(d) + " connection(s)"; },
     formatInput = function(d) { return formatNumber(d) + " input(s)"; },
@@ -297,7 +294,7 @@ zoom.on("zoom", function() {
   var scaleInverse = (1/d3.event.scale);
   g.attr("transform", "translate(" + (d3.event.translate[0]+margin.left) +","+ (d3.event.translate[1]+margin.top) + ")scale(" + d3.event.scale + ")");
   d3.select(".headers")
-  .attr("transform","translate(0,"+(d3.event.translate[1]*scaleInverse*-1)+")")
+  .attr("transform","translate(0,"+(d3.event.translate[1]*scaleInverse*-1)+")");
   d3.selectAll(".header")
   .style("font-size",defaultFontHeader*d3.event.scale>maxFontHeader?maxFontHeader*scaleInverse:defaultFontHeader*d3.event.scale<minFontHeader?minFontHeader*scaleInverse:defaultFontHeader)
   .each(function(d){d.bbox = this.getBBox();});
@@ -307,13 +304,11 @@ zoom.on("zoom", function() {
   .attr("width",  function(d){return d.bbox.width + (BGpadding*2);})
   .attr("height",  function(d){return d.bbox.height + (BGpadding*2);});
   d3.selectAll(".nodeRect").style("stroke-width",scaleInverse);
-  var textLimit = (positions[Object.keys(positions)[1]]*Math.pow(d3.event.scale,0.15)/(defaultFont/2)) || 500;
-  if(defaultFont*d3.event.scale>maxFont){
-    textLimit *= maxFont/defaultFont;
-  }
   d3.selectAll(".nodeText")
-  .text(function(d) {return (d.dy*d3.event.scale>15)?formatText(d.name,textLimit):""; })
-  .style("font-size",defaultFont*d3.event.scale>maxFont?maxFont*scaleInverse:defaultFont*d3.event.scale<minFont?minFont*scaleInverse:defaultFont);
+  .style("font-size",defaultFont*d3.event.scale>maxFont?maxFont*scaleInverse:defaultFont*d3.event.scale<minFont?minFont*scaleInverse:defaultFont)
+  .text(function(d){return d.name;})
+  .each(function(d){var chars = d.name.length;var textWidth = this.getBBox().width;d.allowedChars = (chars/textWidth)*positions[Object.keys(positions)[1]];})
+  .text(function(d) {return (d.dy*d3.event.scale>15)?formatText(d.name,d.allowedChars-10):""; });
   
   transform = [d3.event.scale,0,0,d3.event.scale,d3.event.translate[0]+margin.left,d3.event.translate[1]+margin.top];
   // Use the identity matrix while clearing the canvas
@@ -350,7 +345,6 @@ var filterVals = {};
  
 d3.csv("nodes.csv", function(nodes) {
   d3.csv("links.csv",function(links){
-    
     var uniqueMetas = {};
     
     nodes.forEach(function(d){
@@ -473,9 +467,7 @@ function draw_sankey(){
       .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
     .append("title")
       .text(function(d) {return d.name + "\n" + formatInput(d.targetLinks.length)+" and "+formatOutput(d.sourceLinks.length); });
-  
-  var textLimit = positions[Object.keys(positions)[1]]/(defaultFont/2) || 500/(defaultFont/2);
-  
+      
   node.append("text")
       .attr("class","nodeText")
       .attr("x", 6 + sankey.nodeWidth())
@@ -484,7 +476,9 @@ function draw_sankey(){
       .attr("text-anchor", "start")
       .attr("transform", null)
       .style("font-size",defaultFont)
-      .text(function(d) {return d.dy>15?formatText(d.name,textLimit):""; });
+      .text(function(d){return d.name;})
+      .each(function(d){var chars = d.name.length;var textWidth = this.getBBox().width;d.allowedChars = (chars/textWidth)*positions[Object.keys(positions)[1]];})
+      .text(function(d) {return (d.dy>15)?formatText(d.name,d.allowedChars-10):""; });
     
     var header = g.append("g").attr("class","headers")
     .selectAll(".header")
@@ -492,7 +486,7 @@ function draw_sankey(){
     .enter().append("text")
     .attr("class","header")
     .attr("x",function(d,i){return positions[i];})
-    .attr("y",-5)
+    .attr("y",-10)
     .style("font-size",defaultFontHeader)
     .each(function(d,i){d.visible = Object.keys(positions).indexOf(i.toString())>-1;})
     .text(function(d){return d.visible?d.name:"";})
