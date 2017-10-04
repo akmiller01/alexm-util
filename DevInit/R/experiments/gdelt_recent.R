@@ -58,6 +58,7 @@ wgdelt.tab$SQLDATE <- NULL
 gdelt <- wgdelt.tab
 setwd(wd)
 save(gdelt,file=paste0(today,"-",i,".RData"))
+load("20171002-30.RData")
 
 sp500 <- new.env()
 getSymbols("^GSPC", env = sp500, src = "yahoo",
