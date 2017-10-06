@@ -12,7 +12,7 @@
 
 require(data.table)
 
-wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
+wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA,pcaorder=1,filters=c("0","NA","missing")){
   
   #Function to name dummies nicely if only column numbers are provided
   name.i <- function(i,df){
@@ -76,25 +76,23 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
   }
   colnames(dummies) <- paste0("dum",colnames(dummies))
   
-  ## In case there are categories you don't want generated, edit this and uncomment it
-    # dummy.columns <- colnames(dummies)
-    # deleted <- 0
-    # 
-    # for(i in 1:length(dummy.columns)){
-    #   dummy.column <- dummy.columns[i]
-    #   if(
-    #     grepl("FALSE",dummy.column,ignore.case=TRUE) 
-    #     | grepl("9",dummy.column)
-    #     |  grepl("0",dummy.column,ignore.case=TRUE)
-    #     |  grepl("DK",dummy.column)
-    #     |  grepl("missing",dummy.column,ignore.case=TRUE)
-    #     |  grepl("manquant",dummy.column,ignore.case=TRUE)
-    #   ){
-    #     index <- i-deleted
-    #     dummies <- dummies[,-index]
-    #     deleted <- deleted + 1
-    #   }
-    # }
+  ## In case there are categories you don't want generated, filter out
+    dummy.columns <- colnames(dummies)
+    deleted <- 0
+
+    for(i in 1:length(dummy.columns)){
+      dummy.column <- dummy.columns[i]
+      for(filter in filters){
+        if(
+          grepl(filter,dummy.column)
+        ){
+          index <- i-deleted
+          dummies <- dummies[,-index]
+          deleted <- deleted + 1
+          break
+        } 
+      }
+    }
   
   if(length(catvars)>0){
     dataf <- cbindlist(list(dataf,dummies))
@@ -126,7 +124,7 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
   
   dat.pca <- prcomp(dat.asset.cap)
   
-  pca1 <- dat.pca$rotation[,1]
+  pca1 <- dat.pca$rotation[,pcaorder]
   
   pca.vars <- names(pca1)
   
@@ -158,7 +156,7 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
     
     dat.pca <- prcomp(dat.asset.cap[which(dataf[,urbanvar]==1),])
     
-    pca1 <- dat.pca$rotation[,1]
+    pca1 <- dat.pca$rotation[,pcaorder]
     
     pca.vars <- names(pca1)
     
@@ -193,7 +191,7 @@ wealth <- function(dataf,catvars=NULL,numvars=NULL,urbanvar=NA){
     
     dat.pca <- prcomp(dat.asset.cap[which(dataf[,urbanvar]==0),])
     
-    pca1 <- dat.pca$rotation[,1]
+    pca1 <- dat.pca$rotation[,pcaorder]
     
     pca.vars <- names(pca1)
     
