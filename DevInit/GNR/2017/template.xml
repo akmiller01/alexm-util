@@ -23,7 +23,7 @@
 	<fontspec id="17" size="7" family="Times" color="#ffffff"/>
 	<fontspec id="18" size="9" family="Times" color="#234c5e"/>
 
-<image top="0" left="0" width="892" height="148" path="./" variable="False" src="banner3.png"/>
+<image top="0" left="0" width="892" height="148" path="./" variable="False" src="banner_final.png"/>
 <text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
 <text top="36" left="73" width="4" height="22" font="6"> </text>
 <text top="39" left="77" width="178" height="17" font="7">NUTRITION COUNTRY PROFILE</text>
@@ -129,7 +129,7 @@
 	<fontspec id="24" size="10" family="Times" color="#575756"/>
 	<fontspec id="25" size="10" family="Times" color="#0000ff"/>
 	
-<image top="0" left="0" width="892" height="91" path="./" variable="False" src="banner3_nologo.png"/>
+<image top="0" left="0" width="892" height="91" path="./" variable="False" src="banner_final_arrow.png"/>
 
 <text top="0" left="39" width="362" height="72" font="2" replace="country" shrink="True">Mozambique</text>
 
