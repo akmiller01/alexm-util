@@ -43,3 +43,10 @@ agg <- agg[order(-agg$year,agg$pl,agg$country),]
 pcn <- agg
 save(pcn,file="pcn.RData")
 # load("pcn.RData")
+
+years <- unique(pcn$year)
+for(this.year in years){
+  filename <- paste0("years/pcn",this.year,".csv")
+  message(filename)
+  write.csv(subset(pcn,year==this.year),filename,na="",row.names=FALSE)
+}
