@@ -2,14 +2,14 @@ library(data.table)
 library(reshape2)
 library(zoo)
 
-setwd("C:/Users/Alex/Desktop/data/PovCal_Increment")
+setwd("C:/Users/Alex/Documents/Data/PovCal_Increment")
 load("pcn.RData")
 
 dat <- data.table(pcn)[,.(pl=max(pl)),by=.(country,year,hc)]
 dat <- subset(dat,hc>0)
 mdat <- melt(dat,id.vars=c("country","hc","year"))
 wdat <- dcast(mdat,country+hc~year+variable,value.var="value")
-names(wdat)[3:32] <- paste0("x",names(wdat)[3:32])
+names(wdat)[3:length(wdat)] <- paste0("x",names(wdat)[3:length(wdat)])
 
 wdat <- subset(wdat,!is.na(x2013_pl) & !is.na(x1999_pl))
 keep <- c("country","hc","x1999_pl","x2013_pl")
@@ -45,5 +45,5 @@ plot(annual_growth~hc,data=subset(interp,country=="South Sudan"))
 plot(hc~x1999_pl,data=subset(interp,country=="Uganda"))
 
 setwd("C:/Users/Alex/Documents/Data/P20/Meta/")
-write.csv(interpTab,"povcal_interpTab.csv",na="",row.names=FALSE)
-write.csv(interp,"povcal_interp.csv",na="",row.names=FALSE)
+write.csv(interpTab,"povcal_interpTab2.csv",na="",row.names=FALSE)
+write.csv(interp,"povcal_interp2.csv",na="",row.names=FALSE)
