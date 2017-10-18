@@ -78,7 +78,7 @@ class ReportMaker(object):
                         fontSize = float(font["size"])
                         height = int(text.get("height"))
                         textLen = float(len(replacement))
-                        divisor = max(((textLen/30.0)+(2.0/3.0)),1)
+                        divisor = max(((textLen/25.0)+(2.0/3.0)),1)
                         fontSizeAdj = int(fontSize / divisor)
                         fontSizeDiff = int(float(fontSize-fontSizeAdj)/2.0)
                         heightAdj = height-fontSizeDiff
@@ -110,7 +110,7 @@ class ReportMaker(object):
                         fontSize = float(font["size"])
                         height = int(text.get("height"))
                         textLen = float(len(replacement))
-                        divisor = max(((textLen/30.0)+(2.0/3.0)),1)
+                        divisor = max(((textLen/25.0)+(2.0/3.0)),1)
                         fontSizeAdj = int(fontSize / divisor)
                         fontSizeDiff = int(float(fontSize-fontSizeAdj)/2.0)
                         heightAdj = height-fontSizeDiff
@@ -178,15 +178,15 @@ class ReportMaker(object):
 if __name__ == "__main__":
     countries = dataDictionary.keys()
     countries.sort()
-    # for country in countries:
-    #     print(country)
-    #     doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Country profiles\\"+country+"\\report.pdf","template.xml",country)
-    #     doc.createDocument()
-    #     doc.savePDF()
-    country = "Mozambique"
-    doc = ReportMaker("Mozambique.pdf","template.xml","Mozambique")
-    doc.createDocument()
-    doc.savePDF()
+    for country in countries:
+        print(country)
+        doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Country profiles\\"+country+"\\report.pdf","template.xml",country)
+        doc.createDocument()
+        doc.savePDF()
+    # country = "Mozambique"
+    # doc = ReportMaker("Mozambique.pdf","template.xml","Mozambique")
+    # doc.createDocument()
+    # doc.savePDF()
     # country = "The former Yugoslav Republic of Macedonia"
     # doc = ReportMaker("Yugo.pdf","template.xml",country)
     # doc.createDocument()
