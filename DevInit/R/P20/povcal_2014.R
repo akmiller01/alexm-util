@@ -128,3 +128,11 @@ sum(subset(pop,year==2014 & iso3c %in% pov2014$iso3c)$SP.POP.TOTL)/global.pop
 sum(pov2014$poor.pop)/global.pop
 
 save(pcn2014,pov2014,global.pop,file="pcn2014.RData")
+
+agg.means <- unique(subset(agg,year %in% c(2012,2013) & svyYear %in% c(2012,2013) & year==svyYear)[,c("country","year","type","iso3c","mean","svyYear")])
+agg.means$id <- paste0(agg.means$iso3c,agg.means$type) 
+agg.means <- agg.means[,c("id","year","mean")]
+library(reshape)
+agw <- reshape(agg.means,direction="wide",idvar="id",timevar="year")
+agw <- agw[complete.cases(agw),]
+agw$delta.percent <- 100*((agw$mean.2013-agw$mean.2012)/agw$mean.2012)

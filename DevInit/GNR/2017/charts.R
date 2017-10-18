@@ -68,11 +68,11 @@ simple_style = theme_bw() +
     ,panel.grid.minor = element_blank()
     ,axis.line = element_line(colour = "black"))
 
-yellow <- "#cdd500"
+yellow <- "#bfc200"
 orange <- "#de5d09"
-purple <- "#7b1059"
-blue <- "#9ed5d7"
-grey <- "#879099"
+purple <- "#71105f"
+blue <- "#93cac9"
+grey <- "#a0adbb"
 white <- "#ffffff"
 black <- "#443e42"
 
@@ -94,11 +94,11 @@ purpleOrangeBlueColor <-  scale_color_manual(values=c(purple,orange,blue))
 textQuintileOffset <- scale_color_manual(values=c(black,black,white,black,black))
 
 c1values <- list(
-  "US$1.90/day (%)"=list(
+  "US$1.90/day (% pop)"=list(
   "poverty_190_1"="yearpov190_1"
   ,"poverty190_2"="yearpov190_2"
   ),
-  "US$3.10/day (%)"=list("poverty310_1"="yearpov310_1"
+  "US$3.10/day (% pop)"=list("poverty310_1"="yearpov310_1"
   ,"poverty310_2"="yearpov310_2"
   ),
   "PPP($) GDP per capita"=list("gdp_1990"="gdp_1990_year"
@@ -168,13 +168,13 @@ c8values = list("ebf_trend1"="yr_ebf_trend1"
 )
 
 c9values <- list(
-  "Undernourishment (%)"=list(
+  "Undernourishment\n(% population)"=list(
     "value_undernourishment1990"="year_1990"
     ,"value_undernourishment1999"="year_1999"
     ,"value_undernourishment2009"="year_2009"
     ,"value_undernourishment2014"="year_2014"
   ),
-  "Availability of fruits and\nvegetables (grams)"=list(
+  "Availability of fruit and\nvegetables (grams)"=list(
     "fruitandveg_gram1990"="year_1990"
     ,"fruitandveg_gram2000"="year_2000"
     ,"fruitandveg_gram2010"="year_2010"
@@ -315,7 +315,7 @@ for(this.country in countries){
     names(c1wide)[2:length(c1wide)] <- substr(names(c1wide)[2:length(c1wide)],7,nchar(names(c1wide)[2:length(c1wide)]))
     c1.melt <- melt(c1wide,id.vars="year")
     c1.melt$year <- factor(c1.melt$year)
-    c1a.melt <- subset(c1.melt,variable %in% c("US$1.90/day (%)","US$3.10/day (%)"))
+    c1a.melt <- subset(c1.melt,variable %in% c("US$1.90/day (% pop)","US$3.10/day (% pop)"))
     c1a.melt <- subset(c1a.melt,!is.na(value))
     c1a.max <- max(c1a.melt$value,na.rm=TRUE)
     c1b.melt <- subset(c1.melt,variable == "PPP($) GDP per capita")
@@ -343,7 +343,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=sprintf("%0.1f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1a.melt)==0){c1a.missing<-TRUE}else{c1a.missing<-FALSE}
     c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
@@ -468,7 +468,7 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.5,"lines")
       ) +
-      xlab("Mean prevalence of stunting (%)")
+      xlab("Stunting prevalence (% pop)")
   }
   
   #Chart 5
@@ -523,7 +523,7 @@ for(this.country in countries){
   }
   c6data <- rbindlist(c6list)
   c6.max <- max(c6data$value,na.rm=TRUE)
-  c6data$sex <- factor(c6data$sex,levels=c("Both sexes","Male","Female"))
+  c6data$sex <- factor(c6data$sex,levels=c("Female","Male","Both sexes"))
   c6 <- ggplot(c6data,aes(sex,value,fill=indicator)) +
     geom_bar(position=position_dodge(0.8),stat="identity",width=0.8,color="transparent") +
     scale_fill_manual(
@@ -562,31 +562,31 @@ for(this.country in countries){
   yr_unmet_need <- countrydat$yr_unmet_need[1]
   if(!is.null(yr_anc) & !is.na(yr_anc)){
     anctext <- paste0("Antenatal care (4+ visits), ",yr_anc)
-    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1])
+    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1],superscript="1",sspos=46)
     c7datalist[[c7index]] <- ancdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_sab) & !is.na(yr_sab)){
     sabtext <- paste0("Skilled attendant at birth, ",yr_sab)
-    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1])
+    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1],superscript="1",sspos=45)
     c7datalist[[c7index]] <- sabdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_earlybf) & !is.na(yr_earlybf)){
     earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth, ",yr_earlybf)
-    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1])
+    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1],superscript="1",sspos=81)
     c7datalist[[c7index]] <- earlybfdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_contbf) & !is.na(yr_contbf)){
     contbftext <- paste0("Continued breastfeeding at 1 year, ",yr_contbf)
-    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1])
+    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1],superscript="1",sspos=59)
     c7datalist[[c7index]] <- contbfdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_unmet_need) & !is.na(yr_unmet_need)){
     unmet_needtext <- paste0("Unmet need for family planning, ",yr_unmet_need)
-    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]))
+    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]),superscript=c("2",""),sspos=c(55,0))
     c7datalist[[c7index]] <- unmet_needdat
     c7index <- c7index + 1
   }
@@ -623,6 +623,7 @@ for(this.country in countries){
         ,legend.key.size = unit(2.5,"lines")
       ) + geom_text(size=10,aes(label=vallab,y=valpos),hjust=-0.2,color="#443e42") +
       geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
+      geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.35),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
   #Chart 8
@@ -690,7 +691,12 @@ for(this.country in countries){
     if(nrow(c9a.data)!=0){
       c9a <- ggplot(c9a.data,aes(year,value,fill=variable)) +
         geom_bar(position="dodge",stat="identity",color="transparent") +
-        yellowOrangePurpleFill +
+        scale_fill_manual(
+          labels=c(bquote(atop('Undernourishment' ^ 1,'(% population)')))
+          ,breaks=c(names(c9values)[1])
+          ,values=c(yellow)
+        ) +
+        # yellowOrangePurpleFill +
         guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
         simple_style  +
         scale_y_continuous(expand = c(0,0)) +
@@ -719,7 +725,12 @@ for(this.country in countries){
     if(nrow(c9b.data)!=0){
     c9b <- ggplot(c9b.data,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
-      orangeFill +
+      scale_fill_manual(
+        labels=c(bquote(atop('Availability of fruit and' ^ 1,'vegetables (grams)')))
+        ,breaks=c(names(c9values)[2])
+        ,values=c(orange)
+      ) +
+      # orangeFill +
       guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
       simple_style  +
       scale_y_continuous(expand = c(0,0)) +
@@ -748,7 +759,12 @@ for(this.country in countries){
     if(nrow(c9c.data)!=0){
     c9c <- ggplot(c9c.data,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
-      purpleFill +
+      scale_fill_manual(
+        labels=c(bquote(atop('Available calories' ^ 2,'from nonstaples (%)')))
+        ,breaks=c(names(c9values)[3])
+        ,values=c(purple)
+      ) +
+      # purpleFill +
       guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
       simple_style  +
       scale_y_continuous(expand = c(0,0)) +

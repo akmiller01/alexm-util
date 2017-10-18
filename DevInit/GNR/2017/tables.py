@@ -16,7 +16,7 @@ greyCenterParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],te
 #Read a CSV to make this data?
 dataDictionary = {"Mozambique":{}}
 dataDictionary["Mozambique"]["country"] = "Mozambique"
-dataDictionary["Mozambique"]["table1"] = [["Gini index score*",Paragraph("Gini index rank<super>†</super>",style=whiteParaStyle),"Year"],[51,125,2011]]
+dataDictionary["Mozambique"]["table1"] = [["Gini index score*",Paragraph("Gini index rank**",style=whiteParaStyle),"Year"],[51,125,2011]]
 dataDictionary["Mozambique"]["table2"] = [
     ["Population (000)",format(12428,",d"),2015]
     ,["Under-5 population (000)",format(1935,",d"),2015]
@@ -24,63 +24,63 @@ dataDictionary["Mozambique"]["table2"] = [
     ,[">65 years (000)",format(5,",d"),2015]
     ]
 dataDictionary["Mozambique"]["table3"] = [
-    ["Number of children under 5 affected (000)","",""]
-    ,[Paragraph("Stunting<super>a</super>",style=greyParaStyle),format(733,",d"),2015]
-    ,[Paragraph("Wasting<super>a</super>",style=greyParaStyle),format(43,",d"),2015]
-    ,[Paragraph("Overweight<super>a</super>",style=greyParaStyle),format(149,",d"),2015]
+    ["Number of children under 5 affected (thousands)","",""]
+    ,[Paragraph("Stunting<super>1</super>",style=greyParaStyle),format(733,",d"),2015]
+    ,[Paragraph("Wasting<super>1</super>",style=greyParaStyle),format(43,",d"),2015]
+    ,[Paragraph("Overweight<super>1</super>",style=greyParaStyle),format(149,",d"),2015]
     ,["Percentage of children under 5 affected","",""]
-    ,[Paragraph("Wasting<super>a</super>",style=greyParaStyle),format(2,"d"),2015]
-    ,[Paragraph("Severe wasting<super>a</super>",style=greyParaStyle),format(1,"d"),2015]
-    ,[Paragraph("Overweight<super>a</super>",style=greyParaStyle),format(8,"d"),2015]
-    ,[Paragraph("Low birth weight<super>b</super>",style=greyParaStyle),format(7,"d"),2015]
+    ,[Paragraph("Wasting<super>1</super>",style=greyParaStyle),format(2,"d"),2015]
+    ,[Paragraph("Severe wasting<super>1</super>",style=greyParaStyle),format(1,"d"),2015]
+    ,[Paragraph("Overweight<super>1</super>",style=greyParaStyle),format(8,"d"),2015]
+    ,[Paragraph("Low birth weight<super>2</super>",style=greyParaStyle),format(7,"d"),2015]
     ]
 dataDictionary["Mozambique"]["table4"] = [
-    [Paragraph("Adolescent overweight<super>a</super>",style=greyParaStyle),"NA","NA"]
-    ,[Paragraph("Adolescent obesity<super>a</super>",style=greyParaStyle),"NA","NA"]
-    ,[Paragraph("Women of reproductive age, thinness<super>b</super>",style=greyParaStyle),format(5,"d"),2010]
-    ,[Paragraph("Women of reproductive age, short stature<super>b</super>",style=greyParaStyle),format(2,"d"),2010]
+    [Paragraph("Adolescent overweight<super>1</super>",style=greyParaStyle),"NA","NA"]
+    ,[Paragraph("Adolescent obesity<super>1</super>",style=greyParaStyle),"NA","NA"]
+    ,[Paragraph("Women of reproductive age, thinness<super>2</super>",style=greyParaStyle),format(5,"d"),2010]
+    ,[Paragraph("Women of reproductive age, short stature<super>2</super>",style=greyParaStyle),format(2,"d"),2010]
 ]
 dataDictionary["Mozambique"]["table5"] = [
-    [Paragraph("Women of reproductive age with anemia<super>a</super>",style=greyParaStyle),"",""]
-    ,["Total population affected (000)",format(467,",d"),2011]
+    [Paragraph("Women of reproductive age with anaemia<super>1</super>",style=greyParaStyle),"",""]
+    ,["Total population affected (thousands of people)",format(467,",d"),2011]
     ,["Total population affected (%)",format(17,"d"),2011]
-    ,[Paragraph("Vitamin A deficiency in children 6-59 months old (%)<super>b</super>",style=greyParaStyle),format(39,"d"),2013]
-    ,[Paragraph("Population classification of iodine nutrition (age group 5-19)<super>c</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
+    ,[Paragraph(u"Vitamin A deficiency in children 6\u201359 months old (%)<super>2</super>",style=greyParaStyle),format(39,"d"),2013]
+    ,[Paragraph(u"Population classification of iodine nutrition (age group 5\u201319 years old)<super>3</super>",style=greyParaStyle),Paragraph("Risk of iodine-induced hyperthyroidism (IIH) within 5-10 years following introduction of iodized salt in susceptible groups)",style=greyParaStyle),1996]
 ]
 dataDictionary["Mozambique"]["table6"] = [
     [
-        Paragraph("<b>Under-5 stunting, 2015<super>a</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 wasting, 2015<super>b</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 overweight, 2015<super>a</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>WRA Anemia, 2011<super>b</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>EBF, 2014-2015<super>a</super></b>",style=whiteParaStyle)
+        Paragraph("<b>Under-5 stunting, 2015<super>1</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 wasting, 2015<super>2</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 overweight, 2015<super>1</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>WRA Anaemia, 2011<super>2</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>EBF, 2014-2015<super>1</super></b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
 ]
 dataDictionary["Mozambique"]["table6a"] = [
     [
-        Paragraph("<b>Adult female obesity, 2015<super>a</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult male obesity, 2015<super>a</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult female diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult male diabetes, 2015<super>a</super></b>",style=whiteParaStyle)
+        Paragraph("<b>Adult female obesity, 2015<super>1</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male obesity, 2015<super>1</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult female diabetes, 2015<super>1</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male diabetes, 2015<super>1</super></b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course"]
 ]
 dataDictionary["Mozambique"]["table7"] = [
-    [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
-    ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]
-    ,[Paragraph("Children under 5 with diarrhea receiving ORS<super>b</super>",style=greyParaStyle),"44","2011"]
-    ,[Paragraph("Immunization coverage, DTP3<super>b</super>",style=greyParaStyle),"78","2013"]
-    ,[Paragraph("Iodized salt consumption<super>b</super>",style=greyParaStyle),"87","2006"]
+    [Paragraph("Severe acute malnutrition, geographic coverage<super>1</super>",style=greyParaStyle),"9","2012"]
+    ,[Paragraph("Vitamin A supplementation, full coverage<super>2</super>",style=greyParaStyle),"65","2013"]
+    ,[Paragraph("Children under 5 with diarrhoea receiving ORS<super>2</super>",style=greyParaStyle),"44","2011"]
+    ,[Paragraph("Immunisation coverage, DTP3<super>2</super>",style=greyParaStyle),"78","2013"]
+    ,[Paragraph("Iodised salt consumption<super>2</super>",style=greyParaStyle),"87","2006"]
 ]
 dataDictionary["Mozambique"]["table8"] = [
     ["Minimum acceptable diet","6","2011"]
     ,["Minimum dietary diversity","13","2011"]
 ]
 dataDictionary["Mozambique"]["table9"] = [
-    [Paragraph("Early childbearing: births by age 18 (%)<super>a</super>",style=greyParaStyle),"33","2011"]
-    ,[Paragraph("Gender Inequality Index (score*)<super>b</super>",style=greyParaStyle),"0.529","2013"]
-    ,[Paragraph("Gender Inequality Index (country rank)<super>b</super>",style=greyParaStyle),"155","2013"]
+    [Paragraph("Early childbearing: births by age 18 (%)<super>1</super>",style=greyParaStyle),"33","2011"]
+    ,[Paragraph("Gender Inequality Index (score*)<super>2</super>",style=greyParaStyle),"0.529","2013"]
+    ,[Paragraph("Gender Inequality Index (country rank)<super>2</super>",style=greyParaStyle),"155","2013"]
 ]
 dataDictionary["Mozambique"]["table10"] = [
     ["Physicians","0.117","2005"]
@@ -88,12 +88,12 @@ dataDictionary["Mozambique"]["table10"] = [
     ,["Community health workers","0.188","2005"]
 ]
 dataDictionary["Mozambique"]["table11"] = [
-    [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>a</super>",style=greyParaStyle),"Law","2014"]
-    ,[Paragraph("Extent of constitutional right to food<super>b</super>",style=greyParaStyle),"High","2003"]
-    ,[Paragraph("Maternity protection (Convention 183)<super>c</super>",style=greyParaStyle),"No","2011"]
-    ,[Paragraph("Wheat fortification legislation<super>d</super>",style=greyParaStyle),"Mandatory","2015"]
-    ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
-    ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>e</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
+    [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>1</super>",style=greyParaStyle),"Law","2014"]
+    ,[Paragraph("Extent of constitutional right to food<super>2</super>",style=greyParaStyle),"High","2003"]
+    ,[Paragraph("Maternity protection (Convention 183)<super>3</super>",style=greyParaStyle),"No","2011"]
+    ,[Paragraph("Wheat fortification legislation<super>4</super>",style=greyParaStyle),"Mandatory","2015"]
+    ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>5</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
+    ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>5</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
 ]
 dataDictionary["Mozambique"]["table12"] = [
     [Paragraph("All major NCDs",style=greyParaStyle),Paragraph("Available, partially implemented",style=greyParaStyle),"2010"]
