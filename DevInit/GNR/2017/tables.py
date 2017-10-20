@@ -13,22 +13,41 @@ style = getSampleStyleSheet()
 whiteParaStyle = ParagraphStyle('whiteParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
 greyParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],textColor="#443e42")
 greyCenterParaStyle = ParagraphStyle('greyParaStyle',parent=style['BodyText'],textColor="#443e42",alignment=TA_CENTER)
+# offCourseStyle = ParagraphStyle('offCourseStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER,backColor="#d83110")
+# progressStyle = ParagraphStyle('progressStyle',parent=style['BodyText'],textColor="#443e42",alignment=TA_CENTER,backColor="#f39000")
+# onCourseStyle = ParagraphStyle('onCourseStyle',parent=style['BodyText'],textColor="#443e42",alignment=TA_CENTER,backColor="#d8da00")
+offCourseStyle = ParagraphStyle('offCourseStyle',parent=style['BodyText'],textColor="#d83110",alignment=TA_CENTER)
+progressStyle = ParagraphStyle('progressStyle',parent=style['BodyText'],textColor="#f39000",alignment=TA_CENTER)
+onCourseStyle = ParagraphStyle('onCourseStyle',parent=style['BodyText'],textColor="#d8da00",alignment=TA_CENTER)
+
+def condStyle(progress):
+    if progress=="On course":
+        return onCourseStyle
+    elif progress=="No progress or worsening":
+        return offCourseStyle
+    elif progress=="Some progress":
+        return progressStyle
+    elif progress=="Off course":
+        return offCourseStyle
+    else:
+        return greyCenterParaStyle
+        
 #Read a CSV to make this data?
 dataDictionary = {"Mozambique":{}}
 dataDictionary["Mozambique"]["country"] = "Mozambique"
 dataDictionary["Mozambique"]["table1"] = [["Gini index score*",Paragraph("Gini index rank**",style=whiteParaStyle),"Year"],[51,125,2011]]
 dataDictionary["Mozambique"]["table2"] = [
-    ["Population (000)",format(12428,",d"),2015]
-    ,["Under-5 population (000)",format(1935,",d"),2015]
+    ["Population (thousands)",format(12428,",d"),2015]
+    ,["Under-5 population (thousands)",format(1935,",d"),2015]
     ,["Urban (%)",format(20,",d"),2015]
-    ,[">65 years (000)",format(5,",d"),2015]
+    ,[">65 years (thousands)",format(5,",d"),2015]
     ]
 dataDictionary["Mozambique"]["table3"] = [
     ["Number of children under 5 affected (thousands)","",""]
     ,[Paragraph("Stunting<super>1</super>",style=greyParaStyle),format(733,",d"),2015]
     ,[Paragraph("Wasting<super>1</super>",style=greyParaStyle),format(43,",d"),2015]
     ,[Paragraph("Overweight<super>1</super>",style=greyParaStyle),format(149,",d"),2015]
-    ,["Percentage of children under 5 affected","",""]
+    ,["% of children under 5 affected","",""]
     ,[Paragraph("Wasting<super>1</super>",style=greyParaStyle),format(2,"d"),2015]
     ,[Paragraph("Severe wasting<super>1</super>",style=greyParaStyle),format(1,"d"),2015]
     ,[Paragraph("Overweight<super>1</super>",style=greyParaStyle),format(8,"d"),2015]
@@ -52,7 +71,7 @@ dataDictionary["Mozambique"]["table6"] = [
         Paragraph("<b>Under-5 stunting, 2015<super>1</super></b>",style=whiteParaStyle)
         ,Paragraph("<b>Under-5 wasting, 2015<super>2</super></b>",style=whiteParaStyle)
         ,Paragraph("<b>Under-5 overweight, 2015<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>WRA Anaemia, 2011<super>2</super></b>",style=whiteParaStyle)
+        ,Paragraph("<b>WRA anaemia, 2011<super>2</super></b>",style=whiteParaStyle)
         ,Paragraph("<b>EBF, 2014-2015<super>1</super></b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
@@ -90,7 +109,7 @@ dataDictionary["Mozambique"]["table10"] = [
 dataDictionary["Mozambique"]["table11"] = [
     [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>1</super>",style=greyParaStyle),"Law","2014"]
     ,[Paragraph("Extent of constitutional right to food<super>2</super>",style=greyParaStyle),"High","2003"]
-    ,[Paragraph("Maternity protection (Convention 183)<super>3</super>",style=greyParaStyle),"No","2011"]
+    ,[Paragraph("Maternity Protection Convention 183<super>3</super>",style=greyParaStyle),"No","2011"]
     ,[Paragraph("Wheat fortification legislation<super>4</super>",style=greyParaStyle),"Mandatory","2015"]
     ,[Paragraph("Undernutrition mentioned in national development plans and economic growth strategies<super>5</super>",style=greyParaStyle),"Rank: 39/126","2010-2015"]
     ,[Paragraph("Overnutrition mentioned in national development plans and economic growth strategies<super>5</super>",style=greyParaStyle),"Rank: 57/116","2010-2015"]
@@ -293,7 +312,7 @@ dataDictionary["Yemen"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zambia"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zimbabwe"] = copy.deepcopy(dataDictionary["Mozambique"])
 
-missingVals = [" ",".",""]
+missingVals = [" ",".","","Insufficient data to make assessment"]
 def safeFormat(x,commas=False,precision=0):
     if pd.isnull(x):
         return "NA"
@@ -397,13 +416,19 @@ for country in dataDictionary.keys():
     #     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
     # ]
     dataDictionary[country]["table6"][0] = [
-        Paragraph("<b>Under-5 stunting, %s<super>a</super></b>" % safeFormat(row["year_stunting_current"]),style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 wasting, %s<super>b</super></b>" % safeFormat(row["year_wasting"]),style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 overweight, %s<super>a</super></b>" % safeFormat(row["year_u5overweight"]),style=whiteParaStyle)
-        ,Paragraph("<b>WRA Anemia, %s<super>b</super></b>" % safeFormat(row["year_WRAanaemia"]),style=whiteParaStyle)
-        ,Paragraph("<b>EBF, %s<super>a</super></b>" % safeFormat(row["year_ebf_current"]),style=whiteParaStyle)
+        Paragraph("<b>Under-5 stunting, %s<super>1</super></b>" % safeFormat(row["year_stunting_current"]),style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 wasting, %s<super>2</super></b>" % safeFormat(row["year_wasting"]),style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 overweight, %s<super>1</super></b>" % safeFormat(row["year_u5overweight"]),style=whiteParaStyle)
+        ,Paragraph("<b>WRA anaemia, %s<super>2</super></b>" % safeFormat(row["year_WRAanaemia"]),style=whiteParaStyle)
+        ,Paragraph("<b>EBF, %s<super>1</super></b>" % safeFormat(row["year_ebf_current"]),style=whiteParaStyle)
     ]
-    dataDictionary[country]["table6"][1] = [safeFormat(row["stunting_progress"]),safeFormat(row["wasting_progress"]),safeFormat(row["u5overweight_progress"]),safeFormat(row["progress_WRAanaemia"]),safeFormat(row["EBF_progress"])]
+    dataDictionary[country]["table6"][1] = [
+        Paragraph(safeFormat(row["stunting_progress"]),style=condStyle(row["stunting_progress"]))
+        ,Paragraph(safeFormat(row["wasting_progress"]),style=condStyle(row["wasting_progress"]))
+        ,Paragraph(safeFormat(row["u5overweight_progress"]),style=condStyle(row["u5overweight_progress"]))
+        ,Paragraph(safeFormat(row["progress_WRAanaemia"]),style=condStyle(row["progress_WRAanaemia"]))
+        ,Paragraph(safeFormat(row["EBF_progress"]),style=condStyle(row["EBF_progress"]))
+        ]
     # dataDictionary["Mozambique"]["table6a"] = [
     #     [
     #         Paragraph("<b>Adult female obesity, 2015<super>a</super></b>",style=whiteParaStyle)
@@ -414,12 +439,17 @@ for country in dataDictionary.keys():
     #     ,["Off course, some progress","On course","Off course, no progress","Off course"]
     # ]
     dataDictionary[country]["table6a"][0] = [
-        Paragraph("<b>Adult female obesity, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
-        ,Paragraph("<b>Adult male obesity, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
-        ,Paragraph("<b>Adult female diabetes, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
-        ,Paragraph("<b>Adult male diabetes, %s<super>a</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        Paragraph("<b>Adult female obesity, %s<super>1</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult male obesity, %s<super>1</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult female diabetes, %s<super>1</super></b>" % safeFormat(2017),style=whiteParaStyle)
+        ,Paragraph("<b>Adult male diabetes, %s<super>1</super></b>" % safeFormat(2017),style=whiteParaStyle)
     ]
-    dataDictionary[country]["table6a"][1] = [safeFormat(row["ob_female_progress"]),safeFormat(row["ob_male_progress"]),safeFormat(row["dm_female_progress"]),safeFormat(row["dm_male_progress"])]
+    dataDictionary[country]["table6a"][1] = [
+        Paragraph(safeFormat(row["ob_female_progress"]),style=condStyle(row["ob_female_progress"]))
+        ,Paragraph(safeFormat(row["ob_male_progress"]),style=condStyle(row["ob_male_progress"]))
+        ,Paragraph(safeFormat(row["dm_female_progress"]),style=condStyle(row["dm_female_progress"]))
+        ,Paragraph(safeFormat(row["dm_male_progress"]),style=condStyle(row["dm_male_progress"]))
+        ]
     # dataDictionary["Mozambique"]["table7"] = [
     #     [Paragraph("Severe acute malnutrition, geographic coverage<super>a</super>",style=greyParaStyle),"9","2012"]
     #     ,[Paragraph("Vitamin A supplementation, full coverage<super>b</super>",style=greyParaStyle),"65","2013"]

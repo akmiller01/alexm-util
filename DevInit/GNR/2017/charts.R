@@ -94,11 +94,11 @@ purpleOrangeBlueColor <-  scale_color_manual(values=c(purple,orange,blue))
 textQuintileOffset <- scale_color_manual(values=c(black,black,white,black,black))
 
 c1values <- list(
-  "US$1.90/day (% pop)"=list(
+  "$1.90/day (% pop)"=list(
   "poverty_190_1"="yearpov190_1"
   ,"poverty190_2"="yearpov190_2"
   ),
-  "US$3.10/day (% pop)"=list("poverty310_1"="yearpov310_1"
+  "$3.10/day (% pop)"=list("poverty310_1"="yearpov310_1"
   ,"poverty310_2"="yearpov310_2"
   ),
   "PPP($) GDP per capita"=list("gdp_1990"="gdp_1990_year"
@@ -131,31 +131,31 @@ c4values <- NA
 
 c5values <- list(
   "Raised blood pressure (%), 2015"=list(
-    "BPmale" = "Male"
-    ,"BPfemale" = "Female"
+    "BPmale" = "Men"
+    ,"BPfemale" = "Women"
     # ,"BPboth" = "Both sexes"
   ),
   "Raised blood glucose (%), 2014"=list(
-    "BGmale" = "Male"
-    ,"BGfemale" = "Female"
+    "BGmale" = "Men"
+    ,"BGfemale" = "Women"
     # ,"BGboth" = "Both sexes"
   ),
   "Raised blood cholesterol (%), 2008"=list(
-    "cholesterol_MALE" = "Male"
-    ,"cholesterol_FEMALE" = "Female"
+    "cholesterol_MALE" = "Men"
+    ,"cholesterol_FEMALE" = "Women"
     # ,"cholesterol_BOTH" = "Both sexes"
   )
 )
 
 c6values <- list(
   "Overweight"=list(
-    "ow_male" = "Male"
-    ,"ow_female" = "Female"
+    "ow_male" = "Men"
+    ,"ow_female" = "Women"
     # ,"ow_bothsexes" = "Both sexes"
   ),
   "Obesity"=list(
-    "ob_male" = "Male"
-    ,"ob_female" = "Female"
+    "ob_male" = "Men"
+    ,"ob_female" = "Women"
     # ,"ob_bothsexes" = "Both sexes"
   )
 )
@@ -180,7 +180,7 @@ c9values <- list(
     ,"fruitandveg_gram2010"="year_2010"
     ,"fruitandveg_gram2013"="year_2013"
   ),
-  "Available calories\nfrom nonstaples (%)"=list(
+  "Available calories\nfrom non-staples (%)"=list(
       "value_nonstaples1990"="year_1990"
        ,"value_nonstaples1999"="year_1999"
        ,"value_nonstaples2008"="year_2008"
@@ -288,8 +288,41 @@ c13values <- list(
   )
 )
 
+# t6values=c(
+#   "stunting_progress"
+#   ,"wasting_progress"
+#   ,"u5overweight_progress"
+#   ,"progress_WRAanaemia"
+#   ,"EBF_progress"
+# )
+# 
+# t6avalues=c(
+#   "ob_female_progress"
+#   ,"ob_male_progress"
+#   ,"dm_female_progress"
+#   ,"dm_male_progress"
+# )
+
+# colorProgress = function(progress){
+#   if(progress=="NA"){
+#     return(grey)
+#   }else if(progress=="On course"){
+#     return("#d8da00")
+#   }else if(progress=="No progress or worsening"){
+#     return("#d83110")
+#   }else if(progress=="Some progress"){
+#     return("#f39000")
+#   }else if(progress=="Off course"){
+#     return("#d83110")
+#   }else if(progress=="Insufficient data to make assessment"){
+#     return(grey)
+#   }
+# }
+
 ####End setup####
 ####Loop####
+countries <- c("Japan","Mozambique","The former Yugoslav Republic of Macedonia")
+this.country <- "The former Yugoslav Republic of Macedonia"
 for(this.country in countries){
   message(this.country)
   dir.create(paste(wd,this.country,sep="/"))
@@ -315,7 +348,7 @@ for(this.country in countries){
     names(c1wide)[2:length(c1wide)] <- substr(names(c1wide)[2:length(c1wide)],7,nchar(names(c1wide)[2:length(c1wide)]))
     c1.melt <- melt(c1wide,id.vars="year")
     c1.melt$year <- factor(c1.melt$year)
-    c1a.melt <- subset(c1.melt,variable %in% c("US$1.90/day (% pop)","US$3.10/day (% pop)"))
+    c1a.melt <- subset(c1.melt,variable %in% c("$1.90/day (% pop)","$3.10/day (% pop)"))
     c1a.melt <- subset(c1a.melt,!is.na(value))
     c1a.max <- max(c1a.melt$value,na.rm=TRUE)
     c1b.melt <- subset(c1.melt,variable == "PPP($) GDP per capita")
@@ -343,7 +376,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=format(round(value, digits = 0),format="d",big.mark=",")),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1a.melt)==0){c1a.missing<-TRUE}else{c1a.missing<-FALSE}
     c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
@@ -367,7 +400,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=format(round(value, digits = 0),format="d",big.mark=",")),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1b.melt)==0){c1b.missing<-TRUE}else{c1b.missing<-FALSE}
   }else{
     c1a.missing <- TRUE
@@ -468,7 +501,7 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.5,"lines")
       ) +
-      xlab("Stunting prevalence (% pop)")
+      xlab("Stunting prevalence (% population)")
   }
   
   #Chart 5
@@ -485,7 +518,7 @@ for(this.country in countries){
   }
   c5data <- rbindlist(c5list)
   c5.max <- max(c5data$value,na.rm=TRUE)
-  c5data$sex <- factor(c5data$sex,levels=c("Both sexes","Male","Female"))
+  c5data$sex <- factor(c5data$sex,levels=c("Both sexes","Men","Women"))
   c5 <- ggplot(c5data,aes(sex,value,fill=indicator)) +
     geom_bar(position=position_dodge(0.8),stat="identity",width=0.7,color="transparent") +
     purpleOrangeBlueFill +
@@ -523,7 +556,7 @@ for(this.country in countries){
   }
   c6data <- rbindlist(c6list)
   c6.max <- max(c6data$value,na.rm=TRUE)
-  c6data$sex <- factor(c6data$sex,levels=c("Female","Male","Both sexes"))
+  c6data$sex <- factor(c6data$sex,levels=c("Women","Men","Both sexes"))
   c6 <- ggplot(c6data,aes(sex,value,fill=indicator)) +
     geom_bar(position=position_dodge(0.8),stat="identity",width=0.8,color="transparent") +
     scale_fill_manual(
@@ -562,31 +595,31 @@ for(this.country in countries){
   yr_unmet_need <- countrydat$yr_unmet_need[1]
   if(!is.null(yr_anc) & !is.na(yr_anc)){
     anctext <- paste0("Antenatal care (4+ visits), ",yr_anc)
-    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1],superscript="1",sspos=46)
+    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1],superscript="1",sspos=52/100)
     c7datalist[[c7index]] <- ancdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_sab) & !is.na(yr_sab)){
     sabtext <- paste0("Skilled attendant at birth, ",yr_sab)
-    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1],superscript="1",sspos=45)
+    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1],superscript="1",sspos=51/100)
     c7datalist[[c7index]] <- sabdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_earlybf) & !is.na(yr_earlybf)){
     earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth, ",yr_earlybf)
-    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1],superscript="1",sspos=81)
+    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1],superscript="1",sspos=91/100)
     c7datalist[[c7index]] <- earlybfdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_contbf) & !is.na(yr_contbf)){
     contbftext <- paste0("Continued breastfeeding at 1 year, ",yr_contbf)
-    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1],superscript="1",sspos=59)
+    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1],superscript="1",sspos=67/100)
     c7datalist[[c7index]] <- contbfdat
     c7index <- c7index + 1
   }
   if(!is.null(yr_unmet_need) & !is.na(yr_unmet_need)){
     unmet_needtext <- paste0("Unmet need for family planning, ",yr_unmet_need)
-    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]),superscript=c("2",""),sspos=c(55,0))
+    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]),superscript=c("2",""),sspos=c(63/100,0))
     c7datalist[[c7index]] <- unmet_needdat
     c7index <- c7index + 1
   }
@@ -596,6 +629,8 @@ for(this.country in countries){
   }else{
     c7data$ypos <- (max(c7data$ypos)+1)-c7data$ypos
     c7max <- max(c7data$value,na.rm=TRUE)
+    ss.adj = max(c7max*1.1,100)
+    c7data$sspos = c7data$sspos * ss.adj
     c7 <- ggplot(c7data,aes(y=value,x=ypos,fill=color
                             # ,colour=outline
                             )) +
@@ -622,7 +657,7 @@ for(this.country in countries){
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.5,"lines")
       ) + geom_text(size=10,aes(label=vallab,y=valpos),hjust=-0.2,color="#443e42") +
-      geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
+      geom_text(size=10,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
       geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.35),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
@@ -703,8 +738,8 @@ for(this.country in countries){
         expand_limits(y=c9a.max*1.1) +
         theme(
           legend.position="top"
-          ,legend.text = element_text(size=25,color="#443e42")
-          ,legend.justification=c(0,0)
+          ,legend.text = element_text(size=22,color="#443e42")
+          ,legend.justification=c(0.08,0)
           ,legend.direction="vertical"
           ,axis.title.x=element_blank()
           ,axis.title.y=element_blank()
@@ -737,8 +772,8 @@ for(this.country in countries){
       expand_limits(y=c9b.max*1.1) +
       theme(
         legend.position="top"
-        ,legend.text = element_text(size=25,color="#443e42")
-        ,legend.justification=c(0,0)
+        ,legend.text = element_text(size=22,color="#443e42")
+        ,legend.justification=c(0.08,0)
         ,legend.direction="vertical"
         ,axis.title.x=element_blank()
         ,axis.title.y=element_blank()
@@ -760,7 +795,7 @@ for(this.country in countries){
     c9c <- ggplot(c9c.data,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
       scale_fill_manual(
-        labels=c(bquote(atop('Available calories' ^ 2,'from nonstaples (%)')))
+        labels=c(bquote(atop('Available calories' ^ 2,'from non-staples (%)')))
         ,breaks=c(names(c9values)[3])
         ,values=c(purple)
       ) +
@@ -771,8 +806,8 @@ for(this.country in countries){
       expand_limits(y=c9c.max*1.1) +
       theme(
         legend.position="top"
-        ,legend.text = element_text(size=25,color="#443e42")
-        ,legend.justification=c(0,0)
+        ,legend.text = element_text(size=22,color="#443e42")
+        ,legend.justification=c(0.08,0)
         ,legend.direction="vertical"
         ,axis.title.x=element_blank()
         ,axis.title.y=element_blank()
@@ -874,7 +909,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
   #Chart 12
   c12list <- list()
   c12index <- 1
@@ -918,7 +953,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
   #Chart 13
   c13list <- list()
   c13index <- 1
@@ -941,6 +976,9 @@ for(this.country in countries){
                    transform, pos = cumsum(value) - (0.5 * value)
                    ,valid = sum(!is.na(value),na.rm=TRUE))
   c13data <- subset(c13data,valid>=1)
+  if(nrow(c13data)>0){
+    
+  
   c13 <- ggplot(c13data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
     quintileFill +
@@ -963,6 +1001,9 @@ for(this.country in countries){
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
     ) + geom_text(size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+  }else{
+    c13 <- no.data
+  }
   #Chart 14
   c14data <- data.frame(
     value = c(
@@ -1014,6 +1055,35 @@ for(this.country in countries){
       geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
+  # t6data <- countrydat[t6values]
+  # t6data.l <- data.frame(names(t6data),t(t6data[1,]))
+  # names(t6data.l) <- c("var","value")
+  # t6data.l$value <- unfactor(t6data.l$value)
+  # t6data.l$value[which(is.na(t6data.l$value))] <- "NA"
+  # t6data.l$xvar <- c(1:nrow(t6data.l))
+  # t6data.l$color <- sapply(t6data.l$value,colorProgress)
+  # ggplot(t6data.l) + 
+  #   geom_label(size=10,aes(label=value,y=1,x=xvar,fill=color),color="#443e42") +
+  #   scale_fill_identity() +
+  #   simple_style  +
+  #   scale_y_continuous(expand = c(0,0)) +
+  #   theme(
+  #     legend.position="right"
+  #     ,legend.text = element_text(size=35,color="#443e42")
+  #     ,legend.text.align=0
+  #     ,legend.justification=c(1,0)
+  #     ,legend.direction="horizontal"
+  #     ,axis.title.x=element_blank()
+  #     ,axis.title.y=element_blank()
+  #     ,axis.ticks=element_blank()
+  #     ,axis.line.x = element_blank()
+  #     ,axis.line.y = element_blank()
+  #     ,axis.text.x = element_blank()
+  #     ,axis.text.y = element_blank()
+  #     ,legend.background = element_rect(fill = "transparent", colour = "transparent")
+  #     ,legend.key = element_rect(fill = "transparent", colour = "transparent")
+  #     ,legend.key.size = unit(2.5,"lines")
+  #   )
   #Have both c1a and c1b
   if(!c1a.missing && !c1b.missing){
     Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")

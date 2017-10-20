@@ -38,7 +38,7 @@
 <image top="201" left="157" width="115" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1b.png"/>
 <image top="201" left="42" width="230" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c1.png"/>
 <text top="397" left="43" width="104" height="11" font="9"><i>Source: World Bank 2015.</i></text>
-<text top="408" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
+<text top="408" left="43" width="150" height="11" font="9"><i>Note: pop: population; PPP: purchasing power parity.</i></text>
 
 <line x1="290" x2="290" y1="175" y2="420" on="1" off="3" color="grey"></line>
 
@@ -61,7 +61,7 @@
 <!-- Table 2 -->
 <text top="293" left="568" width="72" height="18" font="6">Population</text>
 <table top="320" left="568" height="75" data="table2" widths="160,57.5,57.5"></table>
-<text top="408" left="568" width="173" height="11" font="9"><i>Source: 2015 projections from UNPD 2013.</i></text>
+<text top="408" left="568" width="173" height="11" font="9"><i>Source: 2015 projections from UN Population Division 2013.</i></text>
 
 <!-- Row 2 -->
 <text top="426" left="0" width="181" height="18" font="3">CHILD ANTHROPOMETRY</text>
@@ -69,7 +69,7 @@
 <!-- Table 3 -->
 <text top="456" left="43" width="138" height="18" font="6">Child anthropometry</text>
 <table top="483" left="43" widths="140,50,50" height="175" data="table3"></table>
-<text top="687" left="47" width="212" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015;<super>1</super> UNICEF 2015.<super>2</super></i></text>
+<text top="687" left="47" width="212" height="11" font="9"><i>Source: UNICEF/WHO/World Bank 2015;<super>1</super> UNICEF 2015.<super>2</super></i></text>
 
 <line x1="290" x2="290" y1="460" y2="700" on="1" off="3" color="grey"></line>
 
@@ -77,7 +77,7 @@
 <text top="456" left="304" width="149" height="18" font="6">Prevalence of stunting </text>
 <text top="474" left="304" width="82" height="18" font="6">among children under 5 (%)</text>
 <image top="501" left="304" width="190" height="160" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c3.png"/>
-<text top="689" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/WB 2015.</i></text>
+<text top="689" left="305" width="133" height="11" font="9"><i>Source: UNICEF/WHO/World Bank 2015.</i></text>
 
 <line x1="510" x2="510" y1="460" y2="700" on="1" off="3" color="grey"></line>
 
@@ -85,8 +85,8 @@
 <text top="456" left="527" width="245" height="18" font="6">Changes in stunting prevalence over </text>
 <text top="474" left="527" width="154" height="18" font="6">time, by wealth quintile</text>
 <image top="501" left="525" width="331" height="170" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c4.png"/>
-<text top="683" left="527" width="191" height="11" font="9"><i>Source: DHS surveys 1990−2011 adapted from </i></text>
-<text top="693" left="527" width="99" height="11" font="9"><i>Bredenkamp et al. 2014.</i></text>
+<text top="683" left="527" width="191" height="11" font="9"><i>Source: DHS surveys 1990−2011 adapted from Bredenkamp et al. 2014.</i></text>
+<!--<text top="693" left="527" width="99" height="11" font="9"><i>Bredenkamp et al. 2014.</i></text>-->
 
 <!-- Row 3 -->
 <text top="713" left="0" width="329" height="18" font="3">ADOLESCENT AND ADULT NUTRITION STATUS</text>
@@ -105,7 +105,7 @@
 <text top="920" left="418" width="229" height="11" font="9"><i>Source: WHO 2015;<super>1</super> Stevens et al. 2015;<super>2</super> WHO 2004.<super>3</super></i></text>
 
 <!-- Chart 5 -->
-<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related noncommunicable </text>
+<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related non-communicable </text>
 <text top="903" left="42" width="108" height="16" font="15">diseases, 2008 (%)</text>
 <image top="930" left="36" width="330" height="140" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c5.png"/>
 <text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2014.</i></text>
@@ -118,16 +118,16 @@
 
 <!-- Table 6 -->
 <image top="1100" left="0" width="892" height="160" path="./" variable="False" src="double_footer.png"/>
-<text top="1100" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL WHA TARGETS</text>
+<text top="1100" left="44" width="552" height="16" font="4">WORLD HEALTH ASSEMBLY INDICATORS: PROGRESS AGAINST GLOBAL World Health Assembly TARGETS</text>
 <table data="table6" top="1122" left="54" widths="165,165,165,165,130" height="30"></table>
-<table data="table6a" top="1172" left="113" widths="165,165,165,165" height="30"></table>
-<text top="1210" left="44" width="530" height="11" font="8"><para>Source:  Definitions of progress developed by the Global Nutrition Report’s Independent Expert Group with guidance from WHO/UNICEF;<super>1</super>  WHO 2014.<super>2</super></para></text>
-<text top="1221" left="44" width="585" height="11" font="8">Notes: Currently it is only possible to determine whether a country is on or off course for five of the six WHA targets. The year refers to the most </text>
-<text top="1232" left="44" width="557" height="11" font="8">recent data available; on/off-course calculation is based on trend data. WRA: women of reproductive age. EBF: exclusive breastfeeding.</text>
+<table data="table6a" top="1172" left="125" widths="161,161,161,161" height="30"></table>
+<text top="1210" left="44" width="530" height="11" font="8"><para><i>Source:  Definitions of progress developed by the Global Nutrition Report’s Independent Expert Group with guidance from WHO/UNICEF;<super>1</super>  WHO 2014.<super>2</super></i></para></text>
+<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Currently it is only possible to determine whether a country is on or off course for five of the six World Health Assembly targets. The year refers to the most </i></text>
+<text top="1232" left="44" width="557" height="11" font="8"><i>recent data available; on/off-course calculation is based on trend data. EBF: exclusive breastfeeding; NA: not available; WRA: women of reproductive age.</i></text>
 </page>
 <page number="2" position="absolute" top="0" left="0" height="1262" width="892">
 	<fontspec id="24" size="10" family="Times" color="#575756"/>
-	<fontspec id="25" size="10" family="Times" color="#0000ff"/>
+	<fontspec id="25" size="10" family="Times" color="#575756"/>
 	
 <image top="-30" left="0" width="892" height="132" path="./" variable="False" src="banner_final_shrink.png"/>
 
@@ -154,10 +154,10 @@
 <text top="135" left="525" width="160" height="15" font="6">Intervention coverage (%)</text>
 <table top="155" left="525" height="100" data="table7" widths="220,57.5,57.5"></table>
 <text top="256" left="525" width="32" height="10" font="9"><i>Source: UNICEF/Coverage Monitoring Network/ACF International 2012;<super>1</super> UNICEF 2015.<super>2</super></i></text>
-<text top="267" left="525" width="321" height="10" font="9"><i>Note: ORS: oral rehydration salts; DTP3: 3 doses of combined diphtheria/tetanus/pertussis</i></text>
-<text top="277" left="525" width="28" height="10" font="9"><i>vaccine.</i></text>
+<text top="267" left="525" width="321" height="10" font="9"><i>Note: DTP3: 3 doses of combined diphtheria/tetanus/pertussis vaccine; ORS: oral</i></text>
+<text top="277" left="525" width="28" height="10" font="9"><i>rehydration salts.</i></text>
 <!--Table 8-->
-<text top="301" left="525" width="326" height="15" font="6">Infant and young-child (6–23 months) feeding practices (%)</text>
+<text top="301" left="525" width="326" height="15" font="6">Infant and young child (6–23 months) feeding practices (%)</text>
 <table top="321" left="525" height="40" data="table8" widths="180,77.5,77.5"></table>
 <text top="373" left="525" width="76" height="10" font="9"><i>Source: UNICEF 2015.</i></text>
 
@@ -179,35 +179,35 @@
 <text top="441" left="386" width="183" height="15" font="6">Gender-related determinants</text>
 <table top="461" left="380" height="60" data="table9" widths="195,30,30"></table>
 <text top="526" left="386" width="32" height="10" font="9"><i>Source: UNICEF 2015;<super>1</super> UNDP 2014.<super>2</super></i></text>
-<text top="537" left="386" width="152" height="10" font="9">Note:  *0: low inequality,  1: high  inequality.</text>
+<text top="537" left="386" width="152" height="10" font="9"><i>Note:  *0: low inequality,  1: high  inequality.</i></text>
 <!--Table 10-->
 <text top="561" left="386" width="236" height="15" font="6">Population density of health workers</text>
 <text top="576" left="386" width="96" height="15" font="6">per 1,000 people</text>
 <table top="596" left="380" height="60" data="table10" widths="150,52.5,52.5"></table>
-<text top="667" left="386" width="67" height="10" font="9">Source: WHO 2015.</text>
+<text top="667" left="386" width="67" height="10" font="9"><i>Source: WHO 2015.</i></text>
 
 <line x1="640" x2="640" y1="440" y2="680" on="1" off="3" color="grey"></line>
 
 <!--Chart 10-->
 <text top="441" left="665" width="113" height="15" font="6">Female secondary education</text>
-<text top="456" left="665" width="156" height="15" font="6">enrollment (% population)</text>
+<text top="456" left="665" width="156" height="15" font="6">enrolment (% population)</text>
 <image top="475" left="660" width="200" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c10.png"/>
 <text top="667" left="665" width="156" height="10" font="9"><i>Source: UNESCO Institute for Statistics 2015.</i></text>
 
 <!--Row 3-->
 <!--Chart 11-->
 <text top="700" left="54" width="229" height="15" font="6">Drinking water coverage (% population)</text>
-<image top="725" left="54" width="200" height="190" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c11.png"/>
-<text top="912" left="54" width="114" height="10" font="9"><i>Source: WHO/UNICEF JMP 2015.</i></text>
+<image top="725" left="54" width="200" height="185" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c11.png"/>
+<text top="912" left="54" width="114" height="10" font="9"><i>Source: WHO/UNICEF Joint Monitoring Programme 2015.</i></text>
 <text top="923" left="54" width="196" height="10" font="9"><i>Note: Due to rounding, numbers might not add up to 100.</i></text>
 <!--Chart 12-->
 <text top="700" left="316" width="201" height="15" font="6">Sanitation coverage (% population)</text>
-<image top="725" left="316" width="200" height="190" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c12.png"/>
-<text top="912" left="316" width="114" height="10" font="9"><i>Source: WHO/UNICEF JMP 2015.</i></text>
+<image top="725" left="316" width="200" height="185" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c12.png"/>
+<text top="912" left="316" width="114" height="10" font="9"><i>Source: WHO/UNICEF Joint Monitoring Programme 2015.</i></text>
 <text top="923" left="316" width="196" height="10" font="9"><i>Note: Due to rounding, numbers might not add up to 100.</i></text>
 <!--Chart 13-->
 <text top="700" left="595" width="177" height="15" font="6">Government expenditures (% total)</text>
-<image top="725" left="595" width="220" height="190" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c13.png"/>
+<image top="725" left="595" width="220" height="185" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c13.png"/>
 <text top="921" left="595" width="68" height="10" font="9"><i>Source: IFPRI 2015.</i></text>
 
 <!--Row 4-->
@@ -234,7 +234,7 @@
 <text top="1034" left="665" width="125" height="15" font="6">management of NCDs</text>
 <table top="1054" left="665" height="80" data="table12" widths="70,70,40"></table>
 <text top="1135" left="665" width="67" height="10" font="9"><i>Source: WHO 2014.</i></text>
-<text top="1145" left="665" width="145" height="10" font="9"><i>Note:  NCDs: noncommunicable  diseases.</i></text>
+<text top="1145" left="665" width="145" height="10" font="9"><i>Note:  NCDs: non-communicable  diseases.</i></text>
 
 <text top="1222" left="36" width="150" height="14" font="24"><i>For complete source information: </i></text>
 <text top="1222" left="186" width="254" height="14" font="25"><link href="http://globalnutritionreport.org/the-report/technical-notes"><i>http://globalnutritionreport.org/the-report/technical-notes</i></link></text>
