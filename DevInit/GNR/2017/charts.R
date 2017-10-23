@@ -322,7 +322,7 @@ c13values <- list(
 ####End setup####
 ####Loop####
 countries <- c("Japan","Mozambique","The former Yugoslav Republic of Macedonia")
-this.country <- "The former Yugoslav Republic of Macedonia"
+# this.country <- "Japan"
 for(this.country in countries){
   message(this.country)
   dir.create(paste(wd,this.country,sep="/"))
@@ -631,6 +631,8 @@ for(this.country in countries){
     c7max <- max(c7data$value,na.rm=TRUE)
     ss.adj = max(c7max*1.1,100)
     c7data$sspos = c7data$sspos * ss.adj
+    c7yposmax <- max(c7data$ypos)
+    ss.y.adj = 0.1/(6-c7yposmax)
     c7 <- ggplot(c7data,aes(y=value,x=ypos,fill=color
                             # ,colour=outline
                             )) +
@@ -658,7 +660,7 @@ for(this.country in countries){
         ,legend.key.size = unit(2.5,"lines")
       ) + geom_text(size=10,aes(label=vallab,y=valpos),hjust=-0.2,color="#443e42") +
       geom_text(size=10,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
-      geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.35),hjust=0,vjust=0,color="#443e42") +
+      geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.25+ss.y.adj),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
   #Chart 8
