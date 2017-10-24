@@ -103,12 +103,12 @@
 
 <!-- Table 5 -->
 <text top="746" left="415" width="225" height="18" font="6">Micronutrient status of population</text>
-<table top="773" left="415" heights="15,15,15,15,75" height="135" data="table5" widths="250,115,37"></table>
+<table top="773" left="415" heights="15,15,15,15,75" height="135" data="table5" widths="250,115,50"></table>
 <text top="920" left="418" width="229" height="11" font="9"><i>Source: WHO 2017;<super>1</super> Stevens et al. 2015;<super>2</super> WHO 2004.<super>3</super></i></text>
 
 <!-- Chart 5 -->
 <text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related non-communicable </text>
-<text top="903" left="42" width="108" height="16" font="15">diseases, 2008 (%)</text>
+<text top="903" left="42" width="108" height="16" font="15">diseases (%)</text>
 <image top="930" left="36" width="330" height="140" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c5.png"/>
 <text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
 
@@ -158,9 +158,10 @@
 <!--Table 7-->
 <text top="135" left="525" width="160" height="15" font="6">Intervention coverage (%)</text>
 <table top="155" left="525" height="100" data="table7" widths="220,57.5,57.5"></table>
-<text top="256" left="525" width="32" height="10" font="9"><i>Source: UNICEF/Coverage Monitoring Network/ACF International 2012;<super>1</super> UNICEF 2016;<super>2</super></i></text>
-<text top="267" left="525" width="321" height="10" font="9"><i>WHO 2016.<super>3</super> Note: DTP3: 3 doses of combined diphtheria/tetanus/pertussis vaccine; ORS: oral</i></text>
-<text top="277" left="525" width="28" height="10" font="9"><i>rehydration salts.</i></text>
+<text top="256" left="525" width="32" height="10" font="9"><i>Source: UNICEF/Coverage Monitoring Network/ACF International 2012;<super>1</super> UNICEF 2016;<super>2</super> WHO</i></text>
+<text top="267" left="525" width="321" height="10" font="9"><i>2016.<super>3</super> Note: Geographical coverage is defined as the % of physical facilities that provide inter-</i></text>
+<text top="277" left="525" width="28" height="10" font="9"><i>vention. Full coverage is defined as the % of children that receive the full intervention (two doses).</i></text>
+<text top="287" left="525" width="28" height="10" font="9"><i>DTP3: 3 doses of combined diphtheria/tetanus/pertussis vaccine; ORS: oral rehydration salts.</i></text>
 <!--Table 8-->
 <text top="301" left="525" width="326" height="15" font="6">Infant and young child (6–23 months) feeding practices (%)</text>
 <table top="321" left="525" height="40" data="table8" widths="180,77.5,77.5"></table>
@@ -221,7 +222,7 @@
 <text top="989" left="36" width="212" height="15" font="6">Scaling Up Nutrition (SUN) country</text>
 <text top="1004" left="36" width="242" height="15" font="6">institutional transformations, 2017 (%)</text>
 <image top="1030" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c14.png"/>
-<text top="1210" left="36" width="65" height="10" font="9"><i>Source: SUN 2014.</i></text>
+<text top="1210" left="36" width="65" height="10" font="9"><i>Source: SUN 2017.</i></text>
 
 <line x1="300" x2="300" y1="990" y2="1220" on="1" off="3" color="grey"></line>
 

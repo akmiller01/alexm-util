@@ -14,7 +14,7 @@ Sys.setlocale(category="LC_ALL", locale = "English_United States.1252")
 wd <- "C:/git/alexm-util/DevInit/GNR/2017"
 setwd(wd)
 
-dat <- read.csv("data.csv",na.strings=c("","."),as.is=TRUE)
+dat <- read.csv("data.csv",na.strings=c("","."," "),as.is=TRUE)
 dist_data <- read.csv("dist_data.csv",na.strings=c("","."),as.is=TRUE)
 setnames(dist_data,"quin1","Poorest   ")
 setnames(dist_data,"quin2","\nSecond   \npoorest")
@@ -83,6 +83,8 @@ orangeFill <- scale_fill_manual(values=c(orange))
 blueFill <- scale_fill_manual(values=c(blue))
 quintileFill <-  scale_fill_manual(values=c(grey,yellow,purple,blue,orange))
 purpleOrangeBlueFill <-  scale_fill_manual(values=c(purple,orange,blue))
+
+quintileFillValues <- c(grey,yellow,purple,blue,orange)
 
 yellowOrangeColor <- scale_color_manual(values=c(yellow,orange))
 purpleColor <- scale_color_manual(values=c(purple))
@@ -321,8 +323,24 @@ c13values <- list(
 
 ####End setup####
 ####Loop####
-countries <- c("Japan","Mozambique","The former Yugoslav Republic of Macedonia")
-# this.country <- "Japan"
+# countries <- c("India","Japan","Mozambique","The former Yugoslav Republic of Macedonia")
+smallCeiling <- function(vec){
+  result <- c()
+  for(x in vec){
+    if(is.na(x)){
+      result <- c(result,"NA")
+    }else if(x<=0){
+      result <- c(result,round(x))
+    }else if(x<1){
+      result <- c(result,"<1")
+    } else{
+      result <- c(result,round(x))
+    }
+  }
+  return(result)
+}
+
+
 for(this.country in countries){
   message(this.country)
   dir.create(paste(wd,this.country,sep="/"))
@@ -359,8 +377,8 @@ for(this.country in countries){
       yellowOrangeFill +
       guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
       simple_style  +
-      scale_y_continuous(expand = c(0,0)) +
-      expand_limits(y=c1a.max*1.1) +
+      scale_y_continuous(expand = c(0,0),limits=c(0,max(c1a.max*1.1,1))) +
+      # expand_limits(y=c1a.max*1.1) +
       theme(
         legend.position="top"
         ,legend.text = element_text(size=35,color="#443e42")
@@ -376,7 +394,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=format(round(value, digits = 0),format="d",big.mark=",")),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=smallCeiling(value)),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1a.melt)==0){c1a.missing<-TRUE}else{c1a.missing<-FALSE}
     c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
@@ -445,7 +463,7 @@ for(this.country in countries){
   value <- sapply(countrydat[value.names],'[[',index=1)
   year <- sapply(countrydat[1,sapply(c3values,'[[',index=1)],'[[',index=1)
   c3data <- data.frame(indicator,year,value)
-  c3data <- subset(c3data,!is.na(year))
+  c3data <- subset(c3data,!is.na(year) & !is.na(value))
   c3data <- c3data[order(c3data$year),]
   c3data$year <- factor(c3data$year)
   c3.max <- max(c3data$value,na.rm=TRUE)
@@ -593,38 +611,94 @@ for(this.country in countries){
   yr_earlybf <- countrydat$yr_earlybf[1]
   yr_contbf <- countrydat$yr_contbf[1]
   yr_unmet_need <- countrydat$yr_unmet_need[1]
+  c7missing <- 0
   if(!is.null(yr_anc) & !is.na(yr_anc)){
-    anctext <- paste0("Antenatal care (4+ visits), ",yr_anc)
-    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1],superscript="1",sspos=52/100)
+    if(nchar(yr_anc)>4){
+      yr.adj <- 9
+    }else{
+      yr.adj <- 0
+    }
+    anctext <- paste0("Antenatal care (4+ visits) ",yr_anc)
+    ancdat <- data.frame(ypos=c7index,value=countrydat$anc4[1],label=anctext,color=purple,outline=purple,vallab=countrydat$anc4[1],valpos=countrydat$anc4[1],superscript="1",sspos=(51+yr.adj)/100)
     c7datalist[[c7index]] <- ancdat
     c7index <- c7index + 1
+  }else{
+    anctext <- paste0("Antenatal care (4+ visits)")
+    ancdat <- data.frame(ypos=c7index,value=NA,label=anctext,color=purple,outline=purple,vallab="No data",valpos=0,superscript="1",sspos=42/100)
+    c7datalist[[c7index]] <- ancdat
+    c7index <- c7index + 1
+    c7missing <- c7missing + 1
   }
   if(!is.null(yr_sab) & !is.na(yr_sab)){
-    sabtext <- paste0("Skilled attendant at birth, ",yr_sab)
-    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1],superscript="1",sspos=51/100)
+    if(nchar(yr_sab)>4){
+      yr.adj <- 9
+    }else{
+      yr.adj <- 0
+    }
+    sabtext <- paste0("Skilled attendant at birth ",yr_sab)
+    sabdat <- data.frame(ypos=c7index,value=countrydat$sab[1],label=sabtext,color=purple,outline=purple,vallab=countrydat$sab[1],valpos=countrydat$sab[1],superscript="1",sspos=(50+yr.adj)/100)
     c7datalist[[c7index]] <- sabdat
     c7index <- c7index + 1
+  }else{
+    sabtext <- paste0("Skilled attendant at birth")
+    sabdat <- data.frame(ypos=c7index,value=NA,label=sabtext,color=purple,outline=purple,vallab="No data",valpos=0,superscript="1",sspos=41/100)
+    c7datalist[[c7index]] <- sabdat
+    c7index <- c7index + 1
+    c7missing <- c7missing + 1
   }
   if(!is.null(yr_earlybf) & !is.na(yr_earlybf)){
-    earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth, ",yr_earlybf)
-    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1],superscript="1",sspos=91/100)
+    if(nchar(yr_earlybf)>4){
+      yr.adj <- 8
+    }else{
+      yr.adj <- 0
+    }
+    earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth ",yr_earlybf)
+    earlybfdat <- data.frame(ypos=c7index,value=countrydat$earlybf[1],label=earlybftext,color=purple,outline=purple,vallab=countrydat$earlybf[1],valpos=countrydat$earlybf[1],superscript="1",sspos=(91+yr.adj)/100)
     c7datalist[[c7index]] <- earlybfdat
     c7index <- c7index + 1
+  }else{
+    earlybftext <- paste0("Initiation of breastfeeding within 1 hour after birth")
+    earlybfdat <- data.frame(ypos=c7index,value=NA,label=earlybftext,color=purple,outline=purple,vallab="No data",valpos=0,superscript="1",sspos=81/100)
+    c7datalist[[c7index]] <- earlybfdat
+    c7index <- c7index + 1
+    c7missing <- c7missing + 1
   }
   if(!is.null(yr_contbf) & !is.na(yr_contbf)){
-    contbftext <- paste0("Continued breastfeeding at 1 year, ",yr_contbf)
-    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1],superscript="1",sspos=67/100)
+    if(nchar(yr_contbf)>4){
+      yr.adj <- 9
+    }else{
+      yr.adj <- 0
+    }
+    contbftext <- paste0("Continued breastfeeding at 1 year ",yr_contbf)
+    contbfdat <- data.frame(ypos=c7index,value=countrydat$contbf[1],label=contbftext,color=purple,outline=purple,vallab=countrydat$contbf[1],valpos=countrydat$contbf[1],superscript="1",sspos=(66+yr.adj)/100)
     c7datalist[[c7index]] <- contbfdat
     c7index <- c7index + 1
+  }else{
+    contbftext <- paste0("Continued breastfeeding at 1 year")
+    contbfdat <- data.frame(ypos=c7index,value=NA,label=contbftext,color=purple,outline=purple,vallab="No data",valpos=0,superscript="1",sspos=57/100)
+    c7datalist[[c7index]] <- contbfdat
+    c7index <- c7index + 1
+    c7missing <- c7missing + 1
   }
   if(!is.null(yr_unmet_need) & !is.na(yr_unmet_need)){
-    unmet_needtext <- paste0("Unmet need for family planning, ",yr_unmet_need)
-    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]),superscript=c("2",""),sspos=c(63/100,0))
+    if(nchar(yr_unmet_need)>4){
+      yr.adj <- 9
+    }else{
+      yr.adj <- 0
+    }
+    unmet_needtext <- paste0("Unmet need for family planning ",yr_unmet_need)
+    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(100-countrydat$unmetneed[1],countrydat$unmetneed[1]),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("",countrydat$unmetneed[1]),valpos=c(NA,92-countrydat$unmetneed[1]),superscript=c("2",""),sspos=c((62+yr.adj)/100,0))
     c7datalist[[c7index]] <- unmet_needdat
     c7index <- c7index + 1
+  }else{
+    unmet_needtext <- paste0("Unmet need for family planning")
+    unmet_needdat <- data.frame(ypos=c(c7index,c7index),value=c(NA,NA),label=c(unmet_needtext,""),color=c("transparent",orange),outline=c(purple,orange),vallab=c("No data",""),valpos=c(0,NA),superscript=c("2",""),sspos=c(53/100,0))
+    c7datalist[[c7index]] <- unmet_needdat
+    c7index <- c7index + 1
+    c7missing <- c7missing + 1
   }
   c7data <- rbindlist(c7datalist)
-  if(nrow(c7data)==0){
+  if(nrow(c7data)==0 | c7missing==5){
     c7 = no.data
   }else{
     c7data$ypos <- (max(c7data$ypos)+1)-c7data$ypos
@@ -797,7 +871,7 @@ for(this.country in countries){
     c9c <- ggplot(c9c.data,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
       scale_fill_manual(
-        labels=c(bquote(atop('Available calories' ^ 2,'from non-staples (%)')))
+        labels=c(bquote(atop('% of total calories' ^ 2,'from non-staples')))
         ,breaks=c(names(c9values)[3])
         ,values=c(purple)
       ) +
@@ -883,7 +957,7 @@ for(this.country in countries){
   c11data <- rbindlist(c11list)
   c11.max <- max(c11data$value,na.rm=TRUE)
   c11data$year <- factor(c11data$year)
-  c11data$indicator <- unfactor(c11data$indicator)
+  c11data$indicator <- factor(c11data$indicator)
   c11data <- c11data[complete.cases(c11data$year),]
   c11data <- c11data[order(is.na(c11data$value),c11data$year,desc(c11data$indicator)),]
   c11data <- ddply(c11data, .(year),
@@ -892,7 +966,11 @@ for(this.country in countries){
   c11data <- subset(c11data,valid>=1)
   c11 <- ggplot(c11data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
-    quintileFill +
+    scale_fill_manual(
+      labels=names(c11values)
+      ,values=quintileFillValues
+      ,drop = FALSE
+    ) +
     guides(fill=guide_legend(title=element_blank(),nrow=2,byrow=TRUE)) +
     simple_style  +
     scale_y_continuous(expand = c(0,0)) +
@@ -911,7 +989,8 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    scale_color_manual(breaks=names(c11values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 12
   c12list <- list()
   c12index <- 1
@@ -927,7 +1006,7 @@ for(this.country in countries){
   c12data <- rbindlist(c12list)
   c12.max <- max(c12data$value,na.rm=TRUE)
   c12data$year <- factor(c12data$year)
-  c12data$indicator <- unfactor(c12data$indicator)
+  c12data$indicator <- factor(c12data$indicator)
   c12data <- c12data[complete.cases(c12data$year),]
   c12data <- c12data[order(is.na(c12data$value),c12data$year,desc(c12data$indicator)),]
   c12data <- ddply(c12data, .(year),
@@ -936,7 +1015,11 @@ for(this.country in countries){
   c12data <- subset(c12data,valid>=1)
   c12 <- ggplot(c12data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
-    quintileFill +
+    scale_fill_manual(
+      labels=names(c12values)
+      ,values=quintileFillValues
+      ,drop = FALSE
+    ) +
     guides(fill=guide_legend(title=element_blank(),nrow=2,byrow=TRUE)) +
     simple_style  +
     scale_y_continuous(expand = c(0,0)) +
@@ -955,7 +1038,8 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    scale_color_manual(breaks=names(c12values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 13
   c13list <- list()
   c13index <- 1
@@ -971,7 +1055,7 @@ for(this.country in countries){
   c13data <- rbindlist(c13list)
   c13.max <- max(c13data$value,na.rm=TRUE)
   c13data$year <- factor(c13data$year)
-  c13data$indicator <- unfactor(c13data$indicator)
+  c13data$indicator <- factor(c13data$indicator)
   c13data <- c13data[complete.cases(c13data$year),]
   c13data <- c13data[order(is.na(c13data$value),c13data$year,desc(c13data$indicator)),]
   c13data <- ddply(c13data, .(year),
@@ -983,7 +1067,11 @@ for(this.country in countries){
   
   c13 <- ggplot(c13data,aes(year,value,fill=indicator)) +
     geom_bar(stat="identity",width=0.7,color="transparent") +
-    quintileFill +
+    scale_fill_manual(
+      labels=names(c13values)
+      ,values=quintileFillValues
+      ,drop = FALSE
+    ) +
     guides(fill=guide_legend(title=element_blank(),nrow=2,byrow=TRUE)) +
     simple_style  +
     scale_y_continuous(expand = c(0,0)) +
@@ -1002,7 +1090,8 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) + textQuintileOffset
+    ) + geom_text(data=subset(c13data,value>0),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    scale_color_manual(breaks=names(c13values),values=c(black,black,white,black,black),drop=FALSE)
   }else{
     c13 <- no.data
   }

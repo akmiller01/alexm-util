@@ -12,6 +12,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.fonts import addMapping
 from tables import dataDictionary, tableStyles
 import pdb
+import re
 # import sys
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
@@ -178,20 +179,25 @@ class ReportMaker(object):
 if __name__ == "__main__":
     countries = dataDictionary.keys()
     countries.sort()
-    # for country in countries:
-    #     print(country)
-    #     doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Country profiles\\"+country+"\\report.pdf","template.xml",country)
-    #     doc.createDocument()
-    #     doc.savePDF()
-    country = "Mozambique"
-    doc = ReportMaker("Mozambique.pdf","template.xml","Mozambique")
-    doc.createDocument()
-    doc.savePDF()
-    country = "The former Yugoslav Republic of Macedonia"
-    doc = ReportMaker("Yugo.pdf","template.xml",country)
-    doc.createDocument()
-    doc.savePDF()
-    country = "Japan"
-    doc = ReportMaker("Japan.pdf","template.xml",country)
-    doc.createDocument()
-    doc.savePDF()
+    for country in countries:
+        print(country)
+        safeFileName = "".join([c for c in country.replace(" ", "_") if re.match(r'\w', c)])
+        doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Country profile PDFs\\"+safeFileName+".pdf","template.xml",country)
+        doc.createDocument()
+        doc.savePDF()
+    # country = "Mozambique"
+    # doc = ReportMaker("Mozambique.pdf","template.xml","Mozambique")
+    # doc.createDocument()
+    # doc.savePDF()
+    # country = "The former Yugoslav Republic of Macedonia"
+    # doc = ReportMaker("Yugo.pdf","template.xml",country)
+    # doc.createDocument()
+    # doc.savePDF()
+    # country = "Japan"
+    # doc = ReportMaker("Japan.pdf","template.xml",country)
+    # doc.createDocument()
+    # doc.savePDF()
+    # country = "India"
+    # doc = ReportMaker("India.pdf","template.xml",country)
+    # doc.createDocument()
+    # doc.savePDF()
