@@ -77,7 +77,7 @@ dataDictionary["Eastern Africa"]["table8"] = [
         Paragraph("<b>Under-5 stunting</b>",style=whiteParaStyle)
         ,Paragraph("<b>Under-5 wasting</b>",style=whiteParaStyle)
         ,Paragraph("<b>Under-5 overweight</b>",style=whiteParaStyle)
-        ,Paragraph("<b>WRA anaemia</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Anaemia</b>",style=whiteParaStyle)
         ,Paragraph("<b>EBF</b>",style=whiteParaStyle)
      ]
     ,["1/18 on course","5/18 on course","4/18 on course","0/18 on course","4/18 on course"]
