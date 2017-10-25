@@ -180,6 +180,6 @@ if __name__ == "__main__":
     regions.sort()
     for region in regions:
         print(region)
-        doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Region profiles\\"+region+"\\report.pdf","regional_template.xml",region)
+        doc = ReportMaker("C:\\Users\\Alex\\Documents\\Data\\GNR\\Aggregate profile PDFs\\"+region+".pdf","regional_template.xml",region)
         doc.createDocument()
         doc.savePDF()

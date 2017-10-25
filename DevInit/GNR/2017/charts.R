@@ -95,6 +95,39 @@ purpleOrangeBlueColor <-  scale_color_manual(values=c(purple,orange,blue))
 
 textQuintileOffset <- scale_color_manual(values=c(black,black,white,black,black))
 
+safeFormat <- function(vec){
+  results <- c()
+  for(x in vec){
+    #Missing
+    if(is.na(x)){
+      result <- ""
+      #Large Negative
+    }else if(x<= -1000){
+      result <- format(round(x, digits = 0),format="d",big.mark=",")
+      #Middle Negative
+    }else if(x< -1){
+      result <- round(x,digits=0)
+      #Small negative
+    }else if(x<0){
+      result <- round(x,digits=1)
+      #Zero
+    }else if(x==0){
+      result <- "0"
+      #Small positive
+    }else if(x<1){
+      result <- round(x,digits=1)
+      #Middle positive
+    }else if(x<1000){
+      result <- round(x,digits=0)
+      #Large positive
+    }else{
+      result <- format(round(x, digits = 0),format="d",big.mark=",")
+    }
+    results <- c(results,result)
+  }
+  return(results)
+}
+
 c1values <- list(
   "$1.90/day (% pop)"=list(
   "poverty_190_1"="yearpov190_1"
@@ -290,56 +323,10 @@ c13values <- list(
   )
 )
 
-# t6values=c(
-#   "stunting_progress"
-#   ,"wasting_progress"
-#   ,"u5overweight_progress"
-#   ,"progress_WRAanaemia"
-#   ,"EBF_progress"
-# )
-# 
-# t6avalues=c(
-#   "ob_female_progress"
-#   ,"ob_male_progress"
-#   ,"dm_female_progress"
-#   ,"dm_male_progress"
-# )
-
-# colorProgress = function(progress){
-#   if(progress=="NA"){
-#     return(grey)
-#   }else if(progress=="On course"){
-#     return("#d8da00")
-#   }else if(progress=="No progress or worsening"){
-#     return("#d83110")
-#   }else if(progress=="Some progress"){
-#     return("#f39000")
-#   }else if(progress=="Off course"){
-#     return("#d83110")
-#   }else if(progress=="Insufficient data to make assessment"){
-#     return(grey)
-#   }
-# }
-
 ####End setup####
 ####Loop####
 # countries <- c("India","Japan","Mozambique","The former Yugoslav Republic of Macedonia")
-smallCeiling <- function(vec){
-  result <- c()
-  for(x in vec){
-    if(is.na(x)){
-      result <- c(result,"NA")
-    }else if(x<=0){
-      result <- c(result,round(x))
-    }else if(x<1){
-      result <- c(result,"<1")
-    } else{
-      result <- c(result,round(x))
-    }
-  }
-  return(result)
-}
-
+# countries <- c("Mozambique")
 
 for(this.country in countries){
   message(this.country)
@@ -394,7 +381,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=smallCeiling(value)),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1a.melt)==0){c1a.missing<-TRUE}else{c1a.missing<-FALSE}
     c1b <- ggplot(c1b.melt,aes(year,value,fill=variable)) +
       geom_bar(position="dodge",stat="identity",color="transparent") +
@@ -418,7 +405,7 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=format(round(value, digits = 0),format="d",big.mark=",")),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3)
     if(nrow(c1b.melt)==0){c1b.missing<-TRUE}else{c1b.missing<-FALSE}
   }else{
     c1a.missing <- TRUE
@@ -456,7 +443,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=13,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3,color="#443e42")
+    ) + geom_text(size=13,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3,color="#443e42")
   #Chart 3
   indicator <- "Under-5 stunting"
   value.names <- names(c3values)
@@ -489,7 +476,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=13,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3,color="#443e42")
+    ) + geom_text(size=13,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3,color="#443e42")
   #Chart 4
   country_dist <- subset(dist_data,country==this.country)
   if(nrow(country_dist)==0){
@@ -559,7 +546,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=10,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(0.8),vjust=-0.3,color="#443e42")
+    ) + geom_text(size=10,aes(label=safeFormat(value)),position=position_dodge(0.8),vjust=-0.3,color="#443e42")
   #Chart 6
   c6list <- list()
   c6index <- 1
@@ -602,7 +589,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=10,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(0.8),hjust=-0.2,color="#443e42") + coord_flip()
+    ) + geom_text(size=10,aes(label=safeFormat(value)),position=position_dodge(0.8),hjust=-0.2,color="#443e42") + coord_flip()
   #Chart 7
   c7datalist <- list()
   c7index <- 1
@@ -769,7 +756,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=13,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3,color="#443e42")
+    ) + geom_text(size=13,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3,color="#443e42")
   #Chart 9 part a and b
   c9list <- list()
   c9index <- 1
@@ -801,14 +788,14 @@ for(this.country in countries){
     c9c.max <- max(c9c.data$value,na.rm=TRUE)
     if(nrow(c9a.data)!=0){
       c9a <- ggplot(c9a.data,aes(year,value,fill=variable)) +
-        geom_bar(position="dodge",stat="identity",color="transparent") +
+        geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
+        geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
         scale_fill_manual(
           labels=c(bquote(atop('Undernourishment' ^ 1,'(% population)')))
           ,breaks=c(names(c9values)[1])
           ,values=c(yellow)
         ) +
-        # yellowOrangePurpleFill +
-        guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
+        guides(fill = guide_legend(title=element_blank(),byrow=TRUE,override.aes = list(alpha = 1))) +
         simple_style  +
         scale_y_continuous(expand = c(0,0)) +
         expand_limits(y=c9a.max*1.1) +
@@ -826,8 +813,7 @@ for(this.country in countries){
           ,axis.text.x = element_text(size=25,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
           ,legend.background = element_rect(fill = "transparent", colour = "transparent")
           ,legend.key = element_rect(fill = "transparent", colour = "transparent")
-          ,legend.key.size = unit(2.2,"lines")
-        ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+        ) + geom_text(size=9,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3)
       c9a.missing <- FALSE
     }else{
       c9a <- no.data
@@ -835,14 +821,14 @@ for(this.country in countries){
     }
     if(nrow(c9b.data)!=0){
     c9b <- ggplot(c9b.data,aes(year,value,fill=variable)) +
-      geom_bar(position="dodge",stat="identity",color="transparent") +
+      geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
+      geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
       scale_fill_manual(
         labels=c(bquote(atop('Availability of fruit and' ^ 1,'vegetables (grams)')))
         ,breaks=c(names(c9values)[2])
         ,values=c(orange)
       ) +
-      # orangeFill +
-      guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
+      guides(fill = guide_legend(title=element_blank(),byrow=TRUE,override.aes = list(alpha = 1))) +
       simple_style  +
       scale_y_continuous(expand = c(0,0)) +
       expand_limits(y=c9b.max*1.1) +
@@ -860,8 +846,7 @@ for(this.country in countries){
         ,axis.text.x = element_text(size=25,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
-        ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3)
       c9b.missing <- FALSE
     }else{
       c9b <- no.data
@@ -869,14 +854,14 @@ for(this.country in countries){
     }
     if(nrow(c9c.data)!=0){
     c9c <- ggplot(c9c.data,aes(year,value,fill=variable)) +
-      geom_bar(position="dodge",stat="identity",color="transparent") +
+      geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
+      geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
       scale_fill_manual(
         labels=c(bquote(atop('% of total calories' ^ 2,'from non-staples')))
         ,breaks=c(names(c9values)[3])
         ,values=c(purple)
       ) +
-      # purpleFill +
-      guides(fill=guide_legend(title=element_blank(),byrow=TRUE)) +
+      guides(fill = guide_legend(title=element_blank(),byrow=TRUE,override.aes = list(alpha = 1))) +
       simple_style  +
       scale_y_continuous(expand = c(0,0)) +
       expand_limits(y=c9c.max*1.1) +
@@ -894,8 +879,7 @@ for(this.country in countries){
         ,axis.text.x = element_text(size=25,color="#443e42",margin=margin(t=20,r=0,b=0,l=0))
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
-        ,legend.key.size = unit(2.2,"lines")
-      ) + geom_text(size=9,aes(label=sprintf("%0.0f", round(value, digits = 1))),position=position_dodge(1),vjust=-0.3)
+      ) + geom_text(size=9,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3)
       c9c.missing <- FALSE
     }else{
       c9c <- no.data
@@ -941,7 +925,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.5,"lines")
-    ) + geom_text(size=13,aes(label=sprintf("%0.0f", round(value, digits = 0))),position=position_dodge(1),vjust=-0.3,color="#443e42")
+    ) + geom_text(size=13,aes(label=safeFormat(value)),position=position_dodge(1),vjust=-0.3,color="#443e42")
   #Chart 11
   c11list <- list()
   c11index <- 1
@@ -989,7 +973,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c11values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 12
   c12list <- list()
@@ -1038,7 +1022,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c12values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 13
   c13list <- list()
@@ -1090,7 +1074,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c13data,value>0),size=10,aes(y=pos,label=value,color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c13data,value>0),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c13values),values=c(black,black,white,black,black),drop=FALSE)
   }else{
     c13 <- no.data
@@ -1142,45 +1126,16 @@ for(this.country in countries){
         ,legend.background = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key = element_rect(fill = "transparent", colour = "transparent")
         ,legend.key.size = unit(2.5,"lines")
-      ) + geom_text(size=10,aes(y=100,x=ypos+0.25,label=sprintf("%0.0f", round(value, digits = 0))),hjust=1,vjust=0,color="#443e42") +
+      ) + geom_text(size=10,aes(y=100,x=ypos+0.25,label=safeFormat(value)),hjust=1,vjust=0,color="#443e42") +
       geom_text(size=9,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
-  # t6data <- countrydat[t6values]
-  # t6data.l <- data.frame(names(t6data),t(t6data[1,]))
-  # names(t6data.l) <- c("var","value")
-  # t6data.l$value <- unfactor(t6data.l$value)
-  # t6data.l$value[which(is.na(t6data.l$value))] <- "NA"
-  # t6data.l$xvar <- c(1:nrow(t6data.l))
-  # t6data.l$color <- sapply(t6data.l$value,colorProgress)
-  # ggplot(t6data.l) + 
-  #   geom_label(size=10,aes(label=value,y=1,x=xvar,fill=color),color="#443e42") +
-  #   scale_fill_identity() +
-  #   simple_style  +
-  #   scale_y_continuous(expand = c(0,0)) +
-  #   theme(
-  #     legend.position="right"
-  #     ,legend.text = element_text(size=35,color="#443e42")
-  #     ,legend.text.align=0
-  #     ,legend.justification=c(1,0)
-  #     ,legend.direction="horizontal"
-  #     ,axis.title.x=element_blank()
-  #     ,axis.title.y=element_blank()
-  #     ,axis.ticks=element_blank()
-  #     ,axis.line.x = element_blank()
-  #     ,axis.line.y = element_blank()
-  #     ,axis.text.x = element_blank()
-  #     ,axis.text.y = element_blank()
-  #     ,legend.background = element_rect(fill = "transparent", colour = "transparent")
-  #     ,legend.key = element_rect(fill = "transparent", colour = "transparent")
-  #     ,legend.key.size = unit(2.5,"lines")
-  #   )
   #Have both c1a and c1b
   if(!c1a.missing && !c1b.missing){
-    Cairo(file="c1a.png",width=400,height=600,units="px",bg="transparent")
+    Cairo(file="c1a.png",width=400,height=600,units="px",bg="white")
     tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
+    Cairo(file="c1b.png",width=400,height=600,units="px",bg="white")
     tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
     dev.off()
     Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
@@ -1195,7 +1150,7 @@ for(this.country in countries){
     Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="white")
     tryCatch({print(c1a)},error=function(e){message(e);print(no.data)})
     dev.off()
   }
@@ -1207,7 +1162,7 @@ for(this.country in countries){
     Cairo(file="c1b.png",width=400,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c1.png",width=800,height=600,units="px",bg="transparent")
+    Cairo(file="c1.png",width=800,height=600,units="px",bg="white")
     tryCatch({print(c1b)},error=function(e){message(e);print(no.data)})
     dev.off()
   }
@@ -1223,36 +1178,36 @@ for(this.country in countries){
     print(no.data)
     dev.off()
   }
-  Cairo(file="c2.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c2.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c2)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c3.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c3.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c3)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c4.png",width=800,height=400,units="px",bg="transparent")
+  Cairo(file="c4.png",width=800,height=400,units="px",bg="white")
   tryCatch({print(c4)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c5.png",width=1000,height=400,units="px",bg="transparent")
+  Cairo(file="c5.png",width=1000,height=400,units="px",bg="white")
   tryCatch({print(c5)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c6.png",width=1200,height=280,units="px",bg="transparent")
+  Cairo(file="c6.png",width=1200,height=280,units="px",bg="white")
   tryCatch({print(c6)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c7.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c7.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c7)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c8.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c8.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c8)},error=function(e){message(e);print(no.data)})
   dev.off()
   #Have c9a, c9b, and c9c
   if(!c9a.missing && !c9b.missing && !c9c.missing){
-    Cairo(file="c9a.png",width=300,height=600,units="px",bg="transparent")
+    Cairo(file="c9a.png",width=300,height=600,units="px",bg="white")
     tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c9b.png",width=300,height=600,units="px",bg="transparent")
+    Cairo(file="c9b.png",width=300,height=600,units="px",bg="white")
     tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
+    Cairo(file="c9c.png",width=300,height=600,units="px",bg="white")
     tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
     dev.off()
     Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
@@ -1276,10 +1231,10 @@ for(this.country in countries){
     Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
     dev.off()
     Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
@@ -1297,10 +1252,10 @@ for(this.country in countries){
     Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
     dev.off()
     Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
@@ -1318,10 +1273,10 @@ for(this.country in countries){
     Cairo(file="c9c.png",width=300,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9d.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9d.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
     dev.off()
-    Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
+    Cairo(file="c9e.png",width=450,height=600,units="px",bg="white")
     tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
     dev.off()
     Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
@@ -1345,7 +1300,7 @@ for(this.country in countries){
     Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="white")
     tryCatch({print(c9a)},error=function(e){message(e);print(no.data)})
     dev.off()
   }
@@ -1366,7 +1321,7 @@ for(this.country in countries){
     Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="white")
     tryCatch({print(c9b)},error=function(e){message(e);print(no.data)})
     dev.off()
   }
@@ -1387,7 +1342,7 @@ for(this.country in countries){
     Cairo(file="c9e.png",width=450,height=600,units="px",bg="transparent")
     print(cblank)
     dev.off()
-    Cairo(file="c9.png",width=900,height=600,units="px",bg="transparent")
+    Cairo(file="c9.png",width=900,height=600,units="px",bg="white")
     tryCatch({print(c9c)},error=function(e){message(e);print(no.data)})
     dev.off()
   }
@@ -1412,19 +1367,19 @@ for(this.country in countries){
     print(no.data)
     dev.off()
   }
-  Cairo(file="c10.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c10.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c10)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c11.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c11.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c11)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c12.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c12.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c12)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c13.png",width=800,height=700,units="px",bg="transparent")
+  Cairo(file="c13.png",width=800,height=700,units="px",bg="white")
   tryCatch({print(c13)},error=function(e){message(e);print(no.data)})
   dev.off()
-  Cairo(file="c14.png",width=800,height=500,units="px",bg="transparent")
+  Cairo(file="c14.png",width=800,height=500,units="px",bg="white")
   tryCatch({print(c14)},error=function(e){message(e);print(no.data)})
   dev.off()
 }

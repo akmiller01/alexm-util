@@ -68,20 +68,20 @@ dataDictionary["Mozambique"]["table5"] = [
 ]
 dataDictionary["Mozambique"]["table6"] = [
     [
-        Paragraph("<b>Under-5 stunting<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 wasting<super>2</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Under-5 overweight<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>WRA anaemia<super>2</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>EBF<super>1</super></b>",style=whiteParaStyle)
+        Paragraph("<b>Under-5 stunting</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 wasting</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Under-5 overweight</b>",style=whiteParaStyle)
+        ,Paragraph("<b>WRA anaemia</b>",style=whiteParaStyle)
+        ,Paragraph("<b>EBF</b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course","On course"]
 ]
 dataDictionary["Mozambique"]["table6a"] = [
     [
-        Paragraph("<b>Adult female obesity<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult male obesity<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult female diabetes<super>1</super></b>",style=whiteParaStyle)
-        ,Paragraph("<b>Adult male diabetes<super>1</super></b>",style=whiteParaStyle)
+        Paragraph("<b>Adult female obesity</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male obesity</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult female diabetes</b>",style=whiteParaStyle)
+        ,Paragraph("<b>Adult male diabetes</b>",style=whiteParaStyle)
      ]
     ,["Off course, some progress","On course","Off course, no progress","Off course"]
 ]

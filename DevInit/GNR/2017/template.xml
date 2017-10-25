@@ -227,8 +227,8 @@
 <line x1="300" x2="300" y1="990" y2="1220" on="1" off="3" color="grey"></line>
 
 <!--Table 11-->
-<text top="989" left="316" width="200" height="15" font="6">Policy and legislative provisions</text>
-<table top="1009" left="306" height="200" data="table11" widths="200,70,55"></table>
+<text top="974" left="316" width="200" height="15" font="6">Policy and legislative provisions</text>
+<table top="994" left="306" height="216" heights="42,30,30,30,42,42" data="table11" widths="200,70,55"></table>
 <text top="1210" left="316" width="32" height="10" font="9"><i>Source: WHO/UNICEF and IBFAN 2016;<super>1</super> FAO 2003;<super>2</super> ILO 2013;<super>3</super> FFI 2015;<super>4</super> IDS 2015.<super>5</super></i></text>
 
 <line x1="640" x2="640" y1="990" y2="1220" on="1" off="3" color="grey"></line>
