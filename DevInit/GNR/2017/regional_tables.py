@@ -214,6 +214,8 @@ def safeFormat(x,commas=False,precision=0):
             return x
         
 def safeFloat(x):
+    if pd.isnull(x):
+        return 0
     try:
         return float(x)
     except:
@@ -378,39 +380,39 @@ for region in dataDictionary.keys():
     row3 = regionDat.loc[(regionDat.indicator=="Stunting.Some progress")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="Stunting.Insufficient data to make assessment")].iloc[0]
     
-    stuntingN = safeFloat(row2["value"])
-    stuntingD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])
+    stuntingN = safeFloat(row2["value"])+safeFloat(row2["n"])
+    stuntingD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])+safeFloat(row4["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Wasting.No progress or worsening")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Wasting.On course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Wasting.Some progress")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="Wasting.Insufficient data to make assessment")].iloc[0]
     
-    wastingN = safeFloat(row2["value"])
-    wastingD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])
+    wastingN = safeFloat(row2["value"])+safeFloat(row2["n"])
+    wastingD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])+safeFloat(row4["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Overweight.Off course")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Overweight.On course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Overweight.Insufficient data to make assessment")].iloc[0]
     
-    overweightN = safeFloat(row2["value"])
-    overweightD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])
+    overweightN = safeFloat(row2["value"])+safeFloat(row2["n"])
+    overweightD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Anaemia.No progress or worsening")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Anaemia.On course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Anaemia.Some progress")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="Anaemia.Insufficient data to make assessment")].iloc[0]
     
-    anaemiaN = safeFloat(row2["value"])
-    anaemiaD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])
+    anaemiaN = safeFloat(row2["value"])+safeFloat(row2["n"])
+    anaemiaD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])+safeFloat(row4["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="EBF.No progress or worsening")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="EBF.On course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="EBF.Some progress")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="EBF.Insufficient data to make assessment")].iloc[0]
     
-    ebfN = safeFloat(row2["value"])
-    ebfD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])
+    ebfN = safeFloat(row2["value"])+safeFloat(row2["n"])
+    ebfD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row4["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])+safeFloat(row4["n"])
     
     dataDictionary[region]["table8"] = [
         [
@@ -441,29 +443,29 @@ for region in dataDictionary.keys():
     row2 = regionDat.loc[(regionDat.indicator=="Adult obesity, female.Off course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Adult obesity, female.On course")].iloc[0]
     
-    aofN = safeFloat(row3["value"])
-    aofD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])
+    aofN = safeFloat(row3["value"])+safeFloat(row3["n"])
+    aofD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Adult obesity, male.Insufficient data to make assessment")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Adult obesity, male.Off course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Adult obesity, male.On course")].iloc[0]
     
-    aomN = safeFloat(row3["value"])
-    aomD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])
+    aomN = safeFloat(row3["value"])+safeFloat(row3["n"])
+    aomD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Adult diabetes, female.Insufficient data to make assessment")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Adult diabetes, female.Off course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Adult diabetes, female.On course")].iloc[0]
     
-    adfN = safeFloat(row3["value"])
-    adfD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])
+    adfN = safeFloat(row3["value"])+safeFloat(row3["n"])
+    adfD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])
     
     row1 = regionDat.loc[(regionDat.indicator=="Adult diabetes male.Insufficient data to make assessment")].iloc[0]
     row2 = regionDat.loc[(regionDat.indicator=="Adult diabetes male.Off course")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Adult diabetes male.On course")].iloc[0]
     
-    admN = safeFloat(row3["value"])
-    admD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])
+    admN = safeFloat(row3["value"])+safeFloat(row3["n"])
+    admD = safeFloat(row1["value"])+safeFloat(row2["value"])+safeFloat(row3["value"])+safeFloat(row1["n"])+safeFloat(row2["n"])+safeFloat(row3["n"])
     
     dataDictionary[region]["table8a"] = [
         [
