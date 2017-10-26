@@ -113,7 +113,7 @@
 <text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
 
 <!-- Chart 6 -->
-<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity, 2014 (%)</text>
+<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity (%), 2014</text>
 <image top="969" left="416" width="400" height="90" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c6.png"/>
 <text top="1075" left="414" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
 <text top="1085" left="414" width="118" height="11" font="9"><i>Note: BMI: body mass index.</i></text>
@@ -124,7 +124,7 @@
 <table data="table6" top="1122" left="54" widths="165,165,165,165,130" height="30"></table>
 <table data="table6a" top="1172" left="125" widths="161,161,161,161" height="30"></table>
 <text top="1210" left="44" width="530" height="11" font="8"><para><i>Source:  UNICEF/WHO/World Bank Group Joint Child Malnutrition Estimates 2017, WHO 2017, Stevens GA et al 2013, and NCD Risk Factor Collaboration 2017.</i></para></text>
-<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Some targets are excluded from analysis as data needs further strengthening or methodological work before they can be used: low birth weight, adolescent obesity,</i></text>
+<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Some targets are excluded from analysis as data needs further strengthening or methodological work before it can be used, these are: low birth weight, adolescent obesity,</i></text>
 <text top="1232" left="44" width="557" height="11" font="8"><i>hypertension and salt intake. See Global Nutrition Report 2017, Appendix 1 for more information. EBF: exclusive breastfeeding; NA: not available; WRA: women of reproductive age.</i></text>
 <!--<text top="1210" left="44" width="530" height="11" font="8"><para><i>Source:  Definitions of progress developed by the Global Nutrition Report’s Independent Expert Group with guidance from WHO/UNICEF;<super>1</super>  WHO 2014.<super>2</super></i></para></text>-->
 <!--<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Currently it is only possible to determine whether a country is on or off course for five of the six World Health Assembly targets. The year refers to the most </i></text>-->
@@ -199,6 +199,8 @@
 <text top="456" left="665" width="156" height="15" font="6">enrolment (% population)</text>
 <image top="475" left="660" width="200" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c10.png"/>
 <text top="667" left="665" width="156" height="10" font="9"><i>Source: UNESCO Institute for Statistics 2017.</i></text>
+<text top="677" left="665" width="156" height="10" font="9"><i>Note: Enrolment can be larger than 100% when women/girls</i></text>
+<text top="687" left="665" width="156" height="10" font="9"><i>enroled exceeds the secondary school age group.</i></text>
 
 <!--Row 3-->
 <!--Chart 11-->
@@ -220,7 +222,7 @@
 <text top="950" left="0" width="329" height="18" font="3">FINANCIAL RESOURCES AND POLICY, LEGISLATION, AND INSTITUTIONAL ARRANGEMENTS</text>
 <!--Chart 14-->
 <text top="989" left="36" width="212" height="15" font="6">Scaling Up Nutrition (SUN) country</text>
-<text top="1004" left="36" width="242" height="15" font="6">institutional transformations, 2017 (%)</text>
+<text top="1004" left="36" width="242" height="15" font="6">institutional transformations (%), 2017</text>
 <image top="1030" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Country profiles/" variable="True" src="c14.png"/>
 <text top="1210" left="36" width="65" height="10" font="9"><i>Source: SUN 2017.</i></text>
 

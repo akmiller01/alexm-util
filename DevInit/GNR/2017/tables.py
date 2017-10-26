@@ -8,6 +8,7 @@ import copy
 import pandas as pd
 import pdb
 import numbers
+import re
 
 style = getSampleStyleSheet()
 whiteParaStyle = ParagraphStyle('whiteParaStyle',parent=style['BodyText'],textColor="white",alignment=TA_CENTER)
@@ -312,6 +313,10 @@ dataDictionary["Yemen"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zambia"] = copy.deepcopy(dataDictionary["Mozambique"])
 dataDictionary["Zimbabwe"] = copy.deepcopy(dataDictionary["Mozambique"])
 
+def replaceDash(x):
+    x = str(x)
+    y = re.sub(r"((?:^|[^{])\d+)-(\d+[^}])",u"\\1\u2013\\2", x)
+    return y
 missingVals = [" ",".","","Insufficient data to make assessment"]
 def safeFormat(x,commas=False,precision=0):
     if pd.isnull(x):
@@ -320,7 +325,7 @@ def safeFormat(x,commas=False,precision=0):
         return "NA"
     else:
         if not isinstance(x,numbers.Number):
-            return x
+            return replaceDash(x)
         if precision == 0:
             x = int(x)
         else:

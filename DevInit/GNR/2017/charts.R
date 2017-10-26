@@ -327,7 +327,7 @@ c13values <- list(
 ####Loop####
 # countries <- c("India","Japan","Mozambique","The former Yugoslav Republic of Macedonia")
 # countries <- c("Mozambique")
-
+# countries <- c("Burundi","Djibouti","Sudan")
 for(this.country in countries){
   message(this.country)
   dir.create(paste(wd,this.country,sep="/"))
@@ -454,8 +454,14 @@ for(this.country in countries){
   c3data <- c3data[order(c3data$year),]
   c3data$year <- factor(c3data$year)
   c3.max <- max(c3data$value,na.rm=TRUE)
+  uniqueYears <- length(unique(c3data$year))
+  if(uniqueYears>1){
+    barWidth = 0.6
+  }else{
+    barWidth = 0.3
+  }
   c3 <- ggplot(c3data,aes(year,value,fill="Blue")) +
-    geom_bar(stat="identity",width=0.6,color="transparent") +
+    geom_bar(stat="identity",width=barWidth,color="transparent") +
     blueFill +
     guides(fill=FALSE) +
     simple_style  +
@@ -734,8 +740,16 @@ for(this.country in countries){
   c8data <- c8data[order(c8data$year),]
   c8data$year <- factor(c8data$year)
   c8.max <- max(c8data$value,na.rm=TRUE)
+  
+  uniqueYears <- length(unique(c8data$year))
+  if(uniqueYears>1){
+    barWidth = 0.6
+  }else{
+    barWidth = 0.3
+  }
+  
   c8 <- ggplot(c8data,aes(year,value,fill="Blue")) +
-    geom_bar(stat="identity",width=0.6,color="transparent") +
+    geom_bar(stat="identity",width=barWidth,color="transparent") +
     blueFill +
     guides(fill=FALSE) +
     simple_style  +
@@ -820,8 +834,14 @@ for(this.country in countries){
       c9a.missing <- TRUE
     }
     if(nrow(c9b.data)!=0){
+      uniqueYears <- length(unique(c9b.data$year))
+      if(uniqueYears>1){
+        barWidth = 0.9
+      }else{
+        barWidth = 0.5
+      }
     c9b <- ggplot(c9b.data,aes(year,value,fill=variable)) +
-      geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
+      geom_bar(position="dodge",stat="identity",color="transparent",width=barWidth,show.legend=FALSE) +
       geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
       scale_fill_manual(
         labels=c(bquote(atop('Availability of fruit and' ^ 1,'vegetables (grams)')))
@@ -973,7 +993,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c11data,value>3),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c11values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 12
   c12list <- list()
@@ -1022,7 +1042,7 @@ for(this.country in countries){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c12data,value>3),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c12values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 13
   c13list <- list()
@@ -1048,9 +1068,14 @@ for(this.country in countries){
   c13data <- subset(c13data,valid>=1)
   if(nrow(c13data)>0){
     
-  
+  uniqueYears <- length(unique(c13data$year))
+  if(uniqueYears>1){
+    barWidth = 0.7
+  }else{
+    barWidth = 0.4
+  }
   c13 <- ggplot(c13data,aes(year,value,fill=indicator)) +
-    geom_bar(stat="identity",width=0.7,color="transparent") +
+    geom_bar(stat="identity",width=barWidth,color="transparent") +
     scale_fill_manual(
       labels=names(c13values)
       ,values=quintileFillValues

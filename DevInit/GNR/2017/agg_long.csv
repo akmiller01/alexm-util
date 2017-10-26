@@ -180,7 +180,7 @@ Population classification of iodine status,1996-2001,Australia and New Zealand,2
 "Raised blood glucose, Male (%)",2014,Australia and New Zealand,2,7
 "Raised blood glucose, Female (%)",2014,Australia and New Zealand,2,5
 "Raised blood cholesterol, Male (%)",2008,Australia and New Zealand,2,55
-"Raised blood cholesterold, Female (%)",2008,Australia and New Zealand,2,55
+"Raised blood cholesterol, Female (%)",2008,Australia and New Zealand,2,55
 "Adult overweight and obesity, Male (%)",2014,Australia and New Zealand,2,69
 "Adult overweight and obesity, Female (%)",2014,Australia and New Zealand,2,58
 "Adult obesity, Male (%)",2014,Australia and New Zealand,2,28
@@ -332,7 +332,7 @@ Population classification of iodine status,1996-2001,Caribbean,3,Mild iodine def
 "Raised blood glucose, Male (%)",2014,Caribbean,13,8
 "Raised blood glucose, Female (%)",2014,Caribbean,13,10
 "Raised blood cholesterol, Male (%)",2008,Caribbean,13,26
-"Raised blood cholesterold, Female (%)",2008,Caribbean,13,33
+"Raised blood cholesterol, Female (%)",2008,Caribbean,13,33
 "Adult overweight and obesity, Male (%)",2014,Caribbean,13,45
 "Adult overweight and obesity, Female (%)",2014,Caribbean,13,56
 "Adult obesity, Male (%)",2014,Caribbean,13,14
@@ -484,7 +484,7 @@ Population classification of iodine status,1996-2001,Central America,8,Risk of i
 "Raised blood glucose, Male (%)",2014,Central America,8,10
 "Raised blood glucose, Female (%)",2014,Central America,8,11
 "Raised blood cholesterol, Male (%)",2008,Central America,8,42
-"Raised blood cholesterold, Female (%)",2008,Central America,8,49
+"Raised blood cholesterol, Female (%)",2008,Central America,8,49
 "Adult overweight and obesity, Male (%)",2014,Central America,8,60
 "Adult overweight and obesity, Female (%)",2014,Central America,8,63
 "Adult obesity, Male (%)",2014,Central America,8,21
@@ -636,7 +636,7 @@ Population classification of iodine status,1996-2001,Central Asia,4,Moderate iod
 "Raised blood glucose, Male (%)",2014,Central Asia,5,11
 "Raised blood glucose, Female (%)",2014,Central Asia,5,11
 "Raised blood cholesterol, Male (%)",2008,Central Asia,5,30
-"Raised blood cholesterold, Female (%)",2008,Central Asia,5,33
+"Raised blood cholesterol, Female (%)",2008,Central Asia,5,33
 "Adult overweight and obesity, Male (%)",2014,Central Asia,5,50
 "Adult overweight and obesity, Female (%)",2014,Central Asia,5,51
 "Adult obesity, Male (%)",2014,Central Asia,5,15
@@ -782,13 +782,13 @@ Adolescent obesity (%),2003-2014,Eastern Africa,0,
 Women of reproductive age with anaemia (000),2016,Eastern Africa,18,30054
 Women of reproductive age with anaemia (%),2016,Eastern Africa,18,31
 Vitamin A deficiency in children 6-59 months (%),2013,Eastern Africa,17,48
-Population classification of iodine status,1996-2001,Eastern Africa,10,Mild iodine deficience
+Population classification of iodine status,1996-2001,Eastern Africa,10,Mild iodine deficiency
 "Raised blood pressure, Male (%)",2015,Eastern Africa,17,28
 "Raised blood pressure, Female (%)",2015,Eastern Africa,17,29
 "Raised blood glucose, Male (%)",2014,Eastern Africa,17,6
 "Raised blood glucose, Female (%)",2014,Eastern Africa,17,6
 "Raised blood cholesterol, Male (%)",2008,Eastern Africa,17,23
-"Raised blood cholesterold, Female (%)",2008,Eastern Africa,17,25
+"Raised blood cholesterol, Female (%)",2008,Eastern Africa,17,25
 "Adult overweight and obesity, Male (%)",2014,Eastern Africa,17,13
 "Adult overweight and obesity, Female (%)",2014,Eastern Africa,17,29
 "Adult obesity, Male (%)",2014,Eastern Africa,17,2
@@ -940,7 +940,7 @@ Population classification of iodine status,1996-2001,Eastern Asia,2,Risk of iodi
 "Raised blood glucose, Male (%)",2014,Eastern Asia,5,10
 "Raised blood glucose, Female (%)",2014,Eastern Asia,5,7
 "Raised blood cholesterol, Male (%)",2008,Eastern Asia,5,34
-"Raised blood cholesterold, Female (%)",2008,Eastern Asia,5,37
+"Raised blood cholesterol, Female (%)",2008,Eastern Asia,5,37
 "Adult overweight and obesity, Male (%)",2014,Eastern Asia,5,38
 "Adult overweight and obesity, Female (%)",2014,Eastern Asia,5,32
 "Adult obesity, Male (%)",2014,Eastern Asia,5,7
@@ -1092,7 +1092,7 @@ Population classification of iodine status,1996-2001,Eastern Europe,9,Mild iodin
 "Raised blood glucose, Male (%)",2014,Eastern Europe,10,8
 "Raised blood glucose, Female (%)",2014,Eastern Europe,10,7
 "Raised blood cholesterol, Male (%)",2008,Eastern Europe,10,49
-"Raised blood cholesterold, Female (%)",2008,Eastern Europe,10,50
+"Raised blood cholesterol, Female (%)",2008,Eastern Europe,10,50
 "Adult overweight and obesity, Male (%)",2014,Eastern Europe,10,61
 "Adult overweight and obesity, Female (%)",2014,Eastern Europe,10,53
 "Adult obesity, Male (%)",2014,Eastern Europe,10,20
@@ -1244,7 +1244,7 @@ Population classification of iodine status,1996-2001,Melanesia,2,Optimal iodine 
 "Raised blood glucose, Male (%)",2014,Melanesia,4,15
 "Raised blood glucose, Female (%)",2014,Melanesia,4,15
 "Raised blood cholesterol, Male (%)",2008,Melanesia,4,38
-"Raised blood cholesterold, Female (%)",2008,Melanesia,4,40
+"Raised blood cholesterol, Female (%)",2008,Melanesia,4,40
 "Adult overweight and obesity, Male (%)",2014,Melanesia,4,45
 "Adult overweight and obesity, Female (%)",2014,Melanesia,4,57
 "Adult obesity, Male (%)",2014,Melanesia,4,15
@@ -1396,7 +1396,7 @@ Population classification of iodine status,1996-2001,Micronesia,,
 "Raised blood glucose, Male (%)",2014,Micronesia,5,22
 "Raised blood glucose, Female (%)",2014,Micronesia,5,23
 "Raised blood cholesterol, Male (%)",2008,Micronesia,5,42
-"Raised blood cholesterold, Female (%)",2008,Micronesia,5,45
+"Raised blood cholesterol, Female (%)",2008,Micronesia,5,45
 "Adult overweight and obesity, Male (%)",2014,Micronesia,5,71
 "Adult overweight and obesity, Female (%)",2014,Micronesia,5,79
 "Adult obesity, Male (%)",2014,Micronesia,5,36
@@ -1548,7 +1548,7 @@ Population classification of iodine status,1996-2001,Middle Africa,5,Moderate io
 "Raised blood glucose, Male (%)",2014,Middle Africa,9,7
 "Raised blood glucose, Female (%)",2014,Middle Africa,9,7
 "Raised blood cholesterol, Male (%)",2008,Middle Africa,9,19
-"Raised blood cholesterold, Female (%)",2008,Middle Africa,9,22
+"Raised blood cholesterol, Female (%)",2008,Middle Africa,9,22
 "Adult overweight and obesity, Male (%)",2014,Middle Africa,9,16
 "Adult overweight and obesity, Female (%)",2014,Middle Africa,9,32
 "Adult obesity, Male (%)",2014,Middle Africa,9,3
@@ -1700,7 +1700,7 @@ Population classification of iodine status,1996-2001,Northern Africa,5,Optimal i
 "Raised blood glucose, Male (%)",2014,Northern Africa,6,13
 "Raised blood glucose, Female (%)",2014,Northern Africa,6,15
 "Raised blood cholesterol, Male (%)",2008,Northern Africa,6,35
-"Raised blood cholesterold, Female (%)",2008,Northern Africa,6,41
+"Raised blood cholesterol, Female (%)",2008,Northern Africa,6,41
 "Adult overweight and obesity, Male (%)",2014,Northern Africa,6,48
 "Adult overweight and obesity, Female (%)",2014,Northern Africa,6,60
 "Adult obesity, Male (%)",2014,Northern Africa,6,16
@@ -1852,7 +1852,7 @@ Population classification of iodine status,1996-2001,Northern America,1,Risk of 
 "Raised blood glucose, Male (%)",2014,Northern America,2,8
 "Raised blood glucose, Female (%)",2014,Northern America,2,6
 "Raised blood cholesterol, Male (%)",2008,Northern America,2,53
-"Raised blood cholesterold, Female (%)",2008,Northern America,2,54
+"Raised blood cholesterol, Female (%)",2008,Northern America,2,54
 "Adult overweight and obesity, Male (%)",2014,Northern America,2,72
 "Adult overweight and obesity, Female (%)",2014,Northern America,2,63
 "Adult obesity, Male (%)",2014,Northern America,2,33
@@ -2004,7 +2004,7 @@ Population classification of iodine status,1996-2001,Northern Europe,7,Mild iodi
 "Raised blood glucose, Male (%)",2014,Northern Europe,10,7
 "Raised blood glucose, Female (%)",2014,Northern Europe,10,5
 "Raised blood cholesterol, Male (%)",2008,Northern Europe,10,63
-"Raised blood cholesterold, Female (%)",2008,Northern Europe,10,59
+"Raised blood cholesterol, Female (%)",2008,Northern Europe,10,59
 "Adult overweight and obesity, Male (%)",2014,Northern Europe,10,66
 "Adult overweight and obesity, Female (%)",2014,Northern Europe,10,56
 "Adult obesity, Male (%)",2014,Northern Europe,10,25
@@ -2156,7 +2156,7 @@ Population classification of iodine status,1996-2001,Polynesia,,
 "Raised blood glucose, Male (%)",2014,Polynesia,3,22
 "Raised blood glucose, Female (%)",2014,Polynesia,3,26
 "Raised blood cholesterol, Male (%)",2008,Polynesia,2,39
-"Raised blood cholesterold, Female (%)",2008,Polynesia,2,40
+"Raised blood cholesterol, Female (%)",2008,Polynesia,2,40
 "Adult overweight and obesity, Male (%)",2014,Polynesia,3,74
 "Adult overweight and obesity, Female (%)",2014,Polynesia,3,82
 "Adult obesity, Male (%)",2014,Polynesia,3,40
@@ -2308,7 +2308,7 @@ Population classification of iodine status,1996-2001,South America,9,Risk of adv
 "Raised blood glucose, Male (%)",2014,South America,12,8
 "Raised blood glucose, Female (%)",2014,South America,12,9
 "Raised blood cholesterol, Male (%)",2008,South America,12,43
-"Raised blood cholesterold, Female (%)",2008,South America,12,44
+"Raised blood cholesterol, Female (%)",2008,South America,12,44
 "Adult overweight and obesity, Male (%)",2014,South America,12,57
 "Adult overweight and obesity, Female (%)",2014,South America,12,57
 "Adult obesity, Male (%)",2014,South America,12,18
@@ -2460,7 +2460,7 @@ Population classification of iodine status,1996-2001,South-Eastern Asia,7,Mild i
 "Raised blood glucose, Male (%)",2014,South-Eastern Asia,11,7
 "Raised blood glucose, Female (%)",2014,South-Eastern Asia,11,8
 "Raised blood cholesterol, Male (%)",2008,South-Eastern Asia,11,37
-"Raised blood cholesterold, Female (%)",2008,South-Eastern Asia,11,42
+"Raised blood cholesterol, Female (%)",2008,South-Eastern Asia,11,42
 "Adult overweight and obesity, Male (%)",2014,South-Eastern Asia,11,21
 "Adult overweight and obesity, Female (%)",2014,South-Eastern Asia,11,27
 "Adult obesity, Male (%)",2014,South-Eastern Asia,11,4
@@ -2612,7 +2612,7 @@ Population classification of iodine status,1996-2001,Southern Africa,4,Optimal i
 "Raised blood glucose, Male (%)",2014,Southern Africa,5,9
 "Raised blood glucose, Female (%)",2014,Southern Africa,5,12
 "Raised blood cholesterol, Male (%)",2008,Southern Africa,5,31
-"Raised blood cholesterold, Female (%)",2008,Southern Africa,5,37
+"Raised blood cholesterol, Female (%)",2008,Southern Africa,5,37
 "Adult overweight and obesity, Male (%)",2014,Southern Africa,5,38
 "Adult overweight and obesity, Female (%)",2014,Southern Africa,5,63
 "Adult obesity, Male (%)",2014,Southern Africa,5,14
@@ -2764,7 +2764,7 @@ Population classification of iodine status,1996-2001,Southern Asia,9,Optimal iod
 "Raised blood glucose, Male (%)",2014,Southern Asia,9,10
 "Raised blood glucose, Female (%)",2014,Southern Asia,9,9
 "Raised blood cholesterol, Male (%)",2008,Southern Asia,9,28
-"Raised blood cholesterold, Female (%)",2008,Southern Asia,9,31
+"Raised blood cholesterol, Female (%)",2008,Southern Asia,9,31
 "Adult overweight and obesity, Male (%)",2014,Southern Asia,9,18
 "Adult overweight and obesity, Female (%)",2014,Southern Asia,9,24
 "Adult obesity, Male (%)",2014,Southern Asia,9,3
@@ -2916,7 +2916,7 @@ Population classification of iodine status,1996-2001,Southern Europe,5,Mild iodi
 "Raised blood glucose, Male (%)",2014,Southern Europe,13,8
 "Raised blood glucose, Female (%)",2014,Southern Europe,13,5
 "Raised blood cholesterol, Male (%)",2008,Southern Europe,13,58
-"Raised blood cholesterold, Female (%)",2008,Southern Europe,13,55
+"Raised blood cholesterol, Female (%)",2008,Southern Europe,13,55
 "Adult overweight and obesity, Male (%)",2014,Southern Europe,13,65
 "Adult overweight and obesity, Female (%)",2014,Southern Europe,13,52
 "Adult obesity, Male (%)",2014,Southern Europe,13,21
@@ -3068,7 +3068,7 @@ Population classification of iodine status,1996-2001,Western Africa,14,Optimal i
 "Raised blood glucose, Male (%)",2014,Western Africa,16,7
 "Raised blood glucose, Female (%)",2014,Western Africa,16,6
 "Raised blood cholesterol, Male (%)",2008,Western Africa,16,15
-"Raised blood cholesterold, Female (%)",2008,Western Africa,16,20
+"Raised blood cholesterol, Female (%)",2008,Western Africa,16,20
 "Adult overweight and obesity, Male (%)",2014,Western Africa,16,21
 "Adult overweight and obesity, Female (%)",2014,Western Africa,16,37
 "Adult obesity, Male (%)",2014,Western Africa,16,4
@@ -3220,7 +3220,7 @@ Population classification of iodine status,1996-2001,Western Asia,13,Optimal iod
 "Raised blood glucose, Male (%)",2014,Western Asia,17,14
 "Raised blood glucose, Female (%)",2014,Western Asia,17,14
 "Raised blood cholesterol, Male (%)",2008,Western Asia,17,40
-"Raised blood cholesterold, Female (%)",2008,Western Asia,17,43
+"Raised blood cholesterol, Female (%)",2008,Western Asia,17,43
 "Adult overweight and obesity, Male (%)",2014,Western Asia,17,59
 "Adult overweight and obesity, Female (%)",2014,Western Asia,17,65
 "Adult obesity, Male (%)",2014,Western Asia,17,21
@@ -3372,7 +3372,7 @@ Population classification of iodine status,1996-2001,Western Europe,7,Optimal io
 "Raised blood glucose, Male (%)",2014,Western Europe,7,6
 "Raised blood glucose, Female (%)",2014,Western Europe,7,4
 "Raised blood cholesterol, Male (%)",2008,Western Europe,7,66
-"Raised blood cholesterold, Female (%)",2008,Western Europe,7,60
+"Raised blood cholesterol, Female (%)",2008,Western Europe,7,60
 "Adult overweight and obesity, Male (%)",2014,Western Europe,7,65
 "Adult overweight and obesity, Female (%)",2014,Western Europe,7,50
 "Adult obesity, Male (%)",2014,Western Europe,7,22
@@ -3524,7 +3524,7 @@ Population classification of iodine status,1996-2001,Africa,38,Optimal iodine nu
 "Raised blood glucose, Male (%)",2014,Africa,53,8
 "Raised blood glucose, Female (%)",2014,Africa,53,8
 "Raised blood cholesterol, Male (%)",2008,Africa,53,23
-"Raised blood cholesterold, Female (%)",2008,Africa,53,27
+"Raised blood cholesterol, Female (%)",2008,Africa,53,27
 "Adult overweight and obesity, Male (%)",2014,Africa,53,24
 "Adult overweight and obesity, Female (%)",2014,Africa,53,40
 "Adult obesity, Male (%)",2014,Africa,53,6
@@ -3676,7 +3676,7 @@ Population classification of iodine status,1996-2001,Asia,34,Optimal iodine nutr
 "Raised blood glucose, Male (%)",2014,Asia,47,10
 "Raised blood glucose, Female (%)",2014,Asia,47,9
 "Raised blood cholesterol, Male (%)",2008,Asia,47,32
-"Raised blood cholesterold, Female (%)",2008,Asia,47,35
+"Raised blood cholesterol, Female (%)",2008,Asia,47,35
 "Adult overweight and obesity, Male (%)",2014,Asia,47,28
 "Adult overweight and obesity, Female (%)",2014,Asia,47,30
 "Adult obesity, Male (%)",2014,Asia,47,6
@@ -3828,7 +3828,7 @@ Population classification of iodine status,1996-2001,Europe,28,Optimal iodine nu
 "Raised blood glucose, Male (%)",2014,Europe,40,7
 "Raised blood glucose, Female (%)",2014,Europe,40,6
 "Raised blood cholesterol, Male (%)",2008,Europe,40,57
-"Raised blood cholesterold, Female (%)",2008,Europe,40,55
+"Raised blood cholesterol, Female (%)",2008,Europe,40,55
 "Adult overweight and obesity, Male (%)",2014,Europe,40,63
 "Adult overweight and obesity, Female (%)",2014,Europe,40,52
 "Adult obesity, Male (%)",2014,Europe,40,21
@@ -3980,7 +3980,7 @@ Population classification of iodine status,1996-2001,LAC,20,Risk of iodine-induc
 "Raised blood glucose, Male (%)",2014,LAC,33,9
 "Raised blood glucose, Female (%)",2014,LAC,33,10
 "Raised blood cholesterol, Male (%)",2008,LAC,33,42
-"Raised blood cholesterold, Female (%)",2008,LAC,33,45
+"Raised blood cholesterol, Female (%)",2008,LAC,33,45
 "Adult overweight and obesity, Male (%)",2014,LAC,33,57
 "Adult overweight and obesity, Female (%)",2014,LAC,33,58
 "Adult obesity, Male (%)",2014,LAC,33,19
@@ -4132,7 +4132,7 @@ Population classification of iodine status,1996-2001,N.America,1,Risk of iodine-
 "Raised blood glucose, Male (%)",2014,N.America,2,8
 "Raised blood glucose, Female (%)",2014,N.America,2,6
 "Raised blood cholesterol, Male (%)",2008,N.America,2,53
-"Raised blood cholesterold, Female (%)",2008,N.America,2,54
+"Raised blood cholesterol, Female (%)",2008,N.America,2,54
 "Adult overweight and obesity, Male (%)",2014,N.America,2,72
 "Adult overweight and obesity, Female (%)",2014,N.America,2,63
 "Adult obesity, Male (%)",2014,N.America,2,33
@@ -4284,7 +4284,7 @@ Population classification of iodine status,1996-2001,Oceania,4,Mild iodine defic
 "Raised blood glucose, Male (%)",2014,Oceania,14,9
 "Raised blood glucose, Female (%)",2014,Oceania,14,8
 "Raised blood cholesterol, Male (%)",2008,Oceania,13,51
-"Raised blood cholesterold, Female (%)",2008,Oceania,13,51
+"Raised blood cholesterol, Female (%)",2008,Oceania,13,51
 "Adult overweight and obesity, Male (%)",2014,Oceania,14,63
 "Adult overweight and obesity, Female (%)",2014,Oceania,14,58
 "Adult obesity, Male (%)",2014,Oceania,14,25

@@ -26,17 +26,20 @@
 <image top="0" left="0" width="892" height="155" path="./" variable="False" src="CountryProfileFrontGFX.png"/>
 <text top="39" left="44" width="28" height="17" font="5"><b>2017</b></text>
 <text top="36" left="73" width="4" height="22" font="6"> </text>
-<text top="39" left="77" width="178" height="17" font="7">NUTRITION REGION PROFILE</text>
+<text top="39" left="77" width="178" height="17" font="7" replace="regionBool">NUTRITION REGION PROFILE</text>
 <text top="115" left="587" width="131" height="14" font="7"><link href="http://www.globalnutritionreport.org">www.globalnutritionreport.org</link></text>
-<text top="45" left="39" width="362" height="72" font="2" replace="country" shrink="True">Eastern Africa</text>
+<text top="45" left="39" width="362" height="72" font="2" replace="region" shrink="True">Eastern Africa</text>
 <!-- Row 1 -->
 <text top="148" left="0" width="241" height="18" font="3">ECONOMICS AND DEMOGRAPHY</text>
 
 <!-- Table 1 -->
 <text top="174" left="42" width="151" height="18" font="6">Poverty rates and GDP</text>
 <table top="201" left="42" widths="130,45,55" height="130" data="table1"/>
-<text top="357" left="43" width="104" height="11" font="9"><i>Source: World Bank 2017.</i></text>
-<text top="368" left="43" width="150" height="11" font="9"><i>Note: PPP = purchasing power parity.</i></text>
+<text top="337" left="43" width="104" height="11" font="9"><i>Source: World Bank 2017.</i></text>
+<text top="348" left="43" width="150" height="11" font="9"><i>Note: PPP: purchasing power parity.</i></text>
+<text top="370" left="43" width="150" height="11" font="9"><i>Indicators show number of countries (n)</i></text>
+<text top="381" left="43" width="150" height="11" font="9"><i>included in analysis in brackets.</i></text>
+
 
 <line x1="290" x2="290" y1="175" y2="390" on="1" off="3" color="grey"></line>
 
@@ -65,7 +68,7 @@
 <text top="647" left="47" width="212" height="11" font="9"><i>Note: Percentage data are population-weighted means.</i></text>
 
 <!-- Table 5 -->
-<table top="453" left="465" widths="241,80,80" heights="20,37.5,37.5,37.5,37.5" height="170" data="table5"/>
+<table top="453" left="465" widths="241,80,80" heights="20,30,30,30,30,30" height="170" data="table5"/>
 
 <!-- Row 3 -->
 <text top="683" left="0" width="329" height="18" font="3">ADOLESCENT AND ADULT NUTRITION STATUS</text>
@@ -80,28 +83,28 @@
 
 <!-- Table 7 -->
 <text top="716" left="415" width="225" height="18" font="6">Micronutrient status of population</text>
-<table top="752" left="415" heights="20,15,15,25,105" height="165" data="table7" widths="250,115,50"></table>
+<table top="752" left="415" heights="20,15,15,25,105" height="165" data="table7" widths="285,115,50"></table>
 <text top="920" left="418" width="229" height="11" font="9"><i>Source: WHO 2017;<super>1</super> Stevens et al. 2015;<super>2</super> WHO 2004.<super>3</super></i></text>
 
 <!-- Chart 5 -->
-<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related noncommunicable </text>
+<text top="887" left="42" width="337" height="16" font="15">Metabolic risk factors for diet-related non-communicable </text>
 <text top="903" left="42" width="108" height="16" font="15">diseases (%)</text>
 <image top="930" left="36" width="330" height="140" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c5.png"/>
-<text top="1085" left="40" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
-
+<text top="1074" left="40" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
+<text top="1085" left="40" width="80" height="11" font="9" replace="c5note"><i>Note: n=17. Data are population-weighted means.</i></text>
 <!-- Chart 6 -->
-<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity, 2014 (%)</text>
+<text top="942" left="416" width="316" height="16" font="15">Prevalence of adult overweight and obesity (%), 2014</text>
 <image top="969" left="416" width="400" height="90" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c6.png"/>
 <text top="1075" left="414" width="80" height="11" font="9"><i>Source: WHO 2017 and NCD Risk Factor Collaboration 2017.</i></text>
-<text top="1085" left="414" width="118" height="11" font="9"><i>Note: BMI: body mass index.</i></text>
+<text top="1085" left="414" width="118" height="11" font="9" replace="c6note"><i>Note: BMI: body mass index. n=17. Data are population-weighted means.</i></text>
 
 <!-- Table 8 -->
 <image top="1100" left="0" width="892" height="160" path="./" variable="False" src="double_footer.png"/>
-<text top="1100" left="44" width="552" height="16" font="4">PROGRESS AGAINST GLOBAL NUTRITION TARGETS 2017</text>
+<text top="1100" left="44" width="552" height="16" font="4" replace="progressYear">PROGRESS AGAINST GLOBAL NUTRITION TARGETS 2017</text>
 <table data="table8" top="1122" left="54" widths="165,165,165,165,130" height="30"></table>
 <table data="table8a" top="1172" left="113" widths="165,165,165,165" height="30"></table>
 <text top="1210" left="44" width="530" height="11" font="8"><para><i>Source:  UNICEF/WHO/World Bank Group Joint Child Malnutrition Estimates 2017, WHO 2017, Stevens GA et al 2013, and NCD Risk Factor Collaboration 2017.</i></para></text>
-<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Some targets are excluded from analysis as data needs further strengthening or methodological work before they can be used: low birth weight, adolescent obesity,</i></text>
+<text top="1221" left="44" width="585" height="11" font="8"><i>Notes: Some targets are excluded from analysis as data needs further strengthening or methodological work before it can be used, these are: low birth weight, adolescent obesity,</i></text>
 <text top="1232" left="44" width="557" height="11" font="8"><i>hypertension and salt intake. See Global Nutrition Report 2017, Appendix 1 for more information. EBF: exclusive breastfeeding; NA: not available; WRA: women of reproductive age.</i></text>
 </page>
 <page number="2" position="absolute" top="0" left="0" height="1262" width="892">
@@ -110,7 +113,7 @@
 	
 <image top="-30" left="0" width="892" height="134" path="./" variable="False" src="CountryProfileBackGFX.png"/>
 
-<text top="0" left="39" width="362" height="72" font="2" replace="country" shrink="True">Mozambique</text>
+<text top="0" left="39" width="362" height="72" font="2" replace="region" shrink="True">Mozambique</text>
 
 <!--Row 1-->
 <text top="91" left="0" width="329" height="18" font="3">INTERVENTION COVERAGE AND CHILD-FEEDING PRACTICES</text>
@@ -118,21 +121,22 @@
 <text top="135" left="36" width="133" height="15" font="6">Continuum of care (%)</text>
 <image top="160" left="36" width="400" height="200" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c7.png"/>
 <text top="373" left="36" width="32" height="10" font="9"><i>Source: UNICEF 2016;<super>1</super> UN Population Division 2017.<super>2</super></i></text>
+<text top="383" left="36" width="32" height="10" font="9"><i>Note: Data are population-weighted means.</i></text>
 
 
 <line x1="460" x2="460" y1="130" y2="390" on="1" off="3" color="grey"></line>
 
 <!--Table 9-->
 <text top="135" left="475" width="160" height="15" font="6">Intervention coverage (%)</text>
-<table top="155" left="475" height="100" data="table9" widths="270,57.5,57.5"></table>
-<text top="256" left="475" width="32" height="10" font="9"><i>Source: UNICEF/Coverage Monitoring Network/ACF International 2012;<super>1</super> UNICEF 2016;<super>2</super> WHO</i></text>
-<text top="267" left="475" width="321" height="10" font="9"><i>2016.<super>3</super> Note: Geographical coverage is defined as the % of physical facilities that provide inter-</i></text>
-<text top="277" left="475" width="28" height="10" font="9"><i>vention. Full coverage is defined as the % of children that receive the full intervention (two doses).</i></text>
+<table top="155" left="475" height="100" data="table9" widths="267.5,57.5,60"></table>
+<text top="256" left="475" width="32" height="10" font="9"><i>Source: UNICEF/Coverage Monitoring Network/ACF International 2012;<super>1</super> UNICEF 2016;<super>2</super> WHO 2016.<super>3</super></i></text>
+<text top="267" left="475" width="321" height="10" font="9"><i>Note: Geographical coverage is defined as the % of physical facilities that provide intervention.</i></text>
+<text top="277" left="475" width="28" height="10" font="9"><i>Full coverage is defined as the % of children that receive the full intervention (two doses).</i></text>
 <text top="287" left="475" width="28" height="10" font="9"><i>DTP3: 3 doses of combined diphtheria/tetanus/pertussis vaccine; ORS: oral rehydration salts.</i></text>
 <!--Table 10-->
-<text top="301" left="475" width="326" height="15" font="6">Infant and young-child feeding practices (% 6–23 months)</text>
-<table top="321" left="475" height="40" data="table10" widths="180,77.5,77.5"></table>
-<text top="373" left="475" width="76" height="10" font="9"><i>Source: UNICEF 2016.</i></text>
+<text top="301" left="475" width="326" height="15" font="6">Infant and young-child feeding practices (% 0–23 months)</text>
+<table top="321" left="475" height="60" data="table10" widths="267.5,57.5,60"></table>
+<text top="383" left="475" width="76" height="10" font="9"><i>Source: UNICEF 2016.</i></text>
 
 <!--Row 2-->
 <text top="401" left="0" width="329" height="18" font="3">UNDERLYING DETERMINANTS</text>
@@ -145,43 +149,52 @@
 <image top="460" left="186" width="150" height="200" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c9e.png"/>
 <image top="460" left="36" width="300" height="200" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c9.png"/>
 <text top="667" left="36" width="28" height="10" font="9"><i>Source: FAOSTAT 2015;<super>1</super> FAOSTAT 2014.<super>2</super></i></text>
+<text top="677" left="36" width="28" height="10" font="9" replace="c9note"><i>Note: n is between 7 and 12 depending on the indicator and year.</i></text>
 
 <line x1="375" x2="375" y1="440" y2="680" on="1" off="3" color="grey"></line>
 
 <!--Table 11-->
 <text top="441" left="386" width="183" height="15" font="6">Gender-related determinants</text>
-<table top="461" left="380" height="60" data="table11" widths="350,52.5,52.5"></table>
+<table top="461" left="380" height="60" data="table11" widths="350,52.5,60"></table>
 <text top="526" left="386" width="32" height="10" font="9"><i>Source: UNICEF 2016;<super>1</super> UNDP 2016;<super>2</super>  UNESCO Institute for Statistics 2017.<super>3</super></i></text>
 <text top="537" left="386" width="152" height="10" font="9">Note:  *0: low inequality,  1: high  inequality.</text>
 <!--Table 12-->
 <text top="561" left="386" width="236" height="15" font="6">Population density of health workers</text>
 <text top="576" left="386" width="96" height="15" font="6">per 1,000 people</text>
-<table top="596" left="380" height="60" data="table12" widths="350,52.5,52.5"></table>
+<table top="596" left="380" height="60" data="table12" widths="350,52.5,60"></table>
 <text top="667" left="386" width="67" height="10" font="9">Source: WHO 2017.</text>
 
 <!--Row 3-->
 <!--Chart 11-->
-<text top="711" left="54" width="229" height="15" font="6">Improved drinking water coverage (%)</text>
-<image top="735" left="54" width="200" height="170" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c11.png"/>
+<text top="692" left="54" width="229" height="15" font="6">Improved drinking water coverage (%)</text>
+<image top="725" left="54" width="200" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c11.png"/>
 <text top="912" left="54" width="114" height="10" font="9"><i>Source: WHO/UNICEF Joint Monitoring Programme 2017.</i></text>
 <text top="923" left="54" width="196" height="10" font="9"><i>Note: Due to rounding, numbers might not add up to 100.</i></text>
+<text top="933" left="54" width="196" height="10" font="9" replace="c11note"><i>n is between 16 and 18 depending on the indicator and year.</i></text>
+
 <!--Chart 12-->
-<text top="711" left="316" width="201" height="15" font="6">Improved sanitation coverage (%)</text>
-<image top="735" left="316" width="200" height="170" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c12.png"/>
-<text top="912" left="316" width="114" height="10" font="9"><i>Source: WHO/UNICEF Joint Monitoring Programme 2017.</i></text>
-<text top="923" left="316" width="196" height="10" font="9"><i>Note: Due to rounding, numbers might not add up to 100.</i></text>
+<text top="692" left="325" width="201" height="15" font="6">Improved sanitation coverage (%)</text>
+<image top="725" left="325" width="200" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c12.png"/>
+<text top="912" left="325" width="114" height="10" font="9"><i>Source: WHO/UNICEF Joint Monitoring Programme 2017.</i></text>
+<text top="923" left="325" width="196" height="10" font="9"><i>Note: Due to rounding, numbers might not add up to 100.</i></text>
+<text top="933" left="325" width="196" height="10" font="9" replace="c12note"><i>n is between 16 and 18 depending on the indicator and year.</i></text>
+
 <!--Chart 13-->
 <text top="692" left="595" width="177" height="15" font="6">Government expenditures (%)</text>
-<image top="725" left="595" width="220" height="190" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c13.png"/>
-<text top="921" left="595" width="68" height="10" font="9"><i>Source: IFPRI 2015.</i></text>
+<image top="725" left="595" width="200" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c13.png"/>
+<text top="912" left="595" width="68" height="10" font="9"><i>Source: IFPRI 2015.</i></text>
+<text top="923" left="595" width="68" height="10" font="9" replace="c13note"><i>Note: n is between 9 and 10 depending on the indicator and year.</i></text>
+
 
 <!--Row 4-->
 <text top="950" left="0" width="329" height="18" font="3">FINANCIAL RESOURCES AND POLICY, LEGISLATION, AND INSTITUTIONAL ARRANGEMENTS</text>
 <!--Chart 14-->
 <text top="989" left="36" width="212" height="15" font="6">Scaling Up Nutrition (SUN) country</text>
-<text top="1004" left="36" width="242" height="15" font="6">institutional transformations, 2017 (%)</text>
+<text top="1004" left="36" width="242" height="15" font="6">institutional transformations (%), 2017</text>
 <image top="1030" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c14.png"/>
-<text top="1210" left="36" width="65" height="10" font="9"><i>Source: SUN 2017.</i></text>
+<text top="1200" left="36" width="65" height="10" font="9"><i>Source: SUN 2017.</i></text>
+<text top="1210" left="36" width="65" height="10" font="9"><i>Note: Data are population-weighted means from</i></text>
+<text top="1220" left="36" width="65" height="10" font="9" replace="c14note"><i>12 SUN member countries.</i></text>
 
 <line x1="300" x2="300" y1="990" y2="1220" on="1" off="3" color="grey"></line>
 
@@ -201,9 +214,9 @@
 <text top="1135" left="665" width="67" height="10" font="9"><i>Source: WHO 2015.</i></text>
 <text top="1145" left="665" width="145" height="10" font="9"><i>Note:  NCDs: non-communicable  diseases.</i></text>
 
-<text top="1222" left="36" width="150" height="14" font="24"><i>For complete source information: </i></text>
-<text top="1222" left="186" width="254" height="14" font="25"><link href="http://globalnutritionreport.org/the-report/technical-notes"><i>http://globalnutritionreport.org/the-report/technical-notes</i></link></text>
-<text top="1222" left="627" width="230" height="14" font="24"><i>© 2017 Development Initiatives Poverty Research Ltd.</i></text>
+<text top="1232" left="36" width="150" height="14" font="24"><i>For complete source information: </i></text>
+<text top="1232" left="186" width="254" height="14" font="25"><link href="http://globalnutritionreport.org/the-report/technical-notes"><i>http://globalnutritionreport.org/the-report/technical-notes</i></link></text>
+<text top="1232" left="627" width="230" height="14" font="24"><i>© 2017 Development Initiatives Poverty Research Ltd.</i></text>
 
 </page>
 </pdf2xml>

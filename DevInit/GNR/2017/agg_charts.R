@@ -265,7 +265,7 @@ c14indicators <- c(
 ####End setup####
 ####Loop####
 #Don't forget to set year, maybe scale exemptions for Global
-regions <- c("Eastern Africa")
+# regions <- c("Australia and New Zealand")
 
 for(this.region in regions){
   message(this.region)
@@ -355,8 +355,11 @@ for(this.region in regions){
   c7data$valpos[5] <- NA
   c7data$value[5] <- metNeed
   c7data$superscript <- c(1,1,1,1,2)
-  c7data$sspos <- c(0.45,0.44,0.68,0.53,0.51)
-  c7data$label <- paste0(c7data$indicator," ",c7data$year," (n = ",c7data$n,")")
+  n.adj <- nchar(c7data$n)/100
+  c7data$sspos <- c(0.41,0.40,0.64,0.50,0.47)+n.adj
+  c7data$label <- paste0(c7data$indicator," ",c7data$year," (n=",c7data$n,")")
+  c7data$vallab[which(is.na(c7data$value))] <- "No data"
+  c7data$valpos[which(is.na(c7data$value))] <- 0
   c7data <- data.frame(rbindlist(list(c7data,metNeedFrame),fill=TRUE))
 
   c7missing <- sum(is.na(c7data$value))
@@ -416,6 +419,12 @@ for(this.region in regions){
     c9b.max <- max(c9b.data$value,na.rm=TRUE)
     c9c.max <- max(c9c.data$value,na.rm=TRUE)
     if(nrow(c9a.data)!=0){
+      uniqueYears <- length(unique(c9a.data$year))
+      if(uniqueYears>1){
+        barWidth = 0.9
+      }else{
+        barWidth = 0.5
+      }
       c9a <- ggplot(c9a.data,aes(year,value,fill=variable)) +
         geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
         geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
@@ -449,8 +458,14 @@ for(this.region in regions){
       c9a.missing <- TRUE
     }
     if(nrow(c9b.data)!=0){
+      uniqueYears <- length(unique(c9b.data$year))
+      if(uniqueYears>1){
+        barWidth = 0.9
+      }else{
+        barWidth = 0.5
+      }
       c9b <- ggplot(c9b.data,aes(year,value,fill=variable)) +
-        geom_bar(position="dodge",stat="identity",color="transparent",show.legend=FALSE) +
+        geom_bar(position="dodge",stat="identity",color="transparent",width=barWidth,show.legend=FALSE) +
         geom_point(alpha=0.0,shape=22,size=12,color="transparent") +
         scale_fill_manual(
           labels=c(bquote(atop('Availability of fruit and' ^ 1,'vegetables (grams)')))
@@ -616,10 +631,15 @@ for(this.region in regions){
                    ,valid = sum(!is.na(value),na.rm=TRUE))
   c13data <- subset(c13data,valid>=1)
   if(nrow(c13data)>0){
-    
+    uniqueYears <- length(unique(c13data$year))
+    if(uniqueYears>1){
+      barWidth = 0.7
+    }else{
+      barWidth = 0.4
+    }
     
     c13 <- ggplot(c13data,aes(year,value,fill=indicator)) +
-      geom_bar(stat="identity",width=0.7,color="transparent") +
+      geom_bar(stat="identity",width=barWidth,color="transparent") +
       scale_fill_manual(
         labels=names(c13values)
         ,values=quintileFillValues
@@ -660,7 +680,9 @@ for(this.region in regions){
     )
   c14data$ypos= c(5:1)
   c14data$color=c(yellow,orange,purple,blue,grey)
-  if(nrow(c14data)==0){
+  
+  na.c14 <- sum(is.na(c14data$value))
+  if(nrow(c14data)==0 | na.c14==5 ){
     c14 <- no.data
   }else{
     c14max = 100
