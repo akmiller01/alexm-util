@@ -327,7 +327,7 @@ def safeFormat(x,commas=False,precision=0):
         if not isinstance(x,numbers.Number):
             return replaceDash(x)
         if precision == 0:
-            x = int(x)
+            x = int(round(x,precision))
         else:
             x = round(x,precision)
         if commas:

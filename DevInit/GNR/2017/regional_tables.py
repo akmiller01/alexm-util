@@ -35,22 +35,40 @@ def replaceDash(x):
     y = re.sub(r"((?:^|[^{])\d+)-(\d+[^}])",u"\\1\u2013\\2", x)
     return y
 missingVals = [" ",".","","Insufficient data to make assessment"]
-def safeFormat(x,commas=False,precision=0):
+def safeFormat(x,commas=False,precision=0,zero=False):
     if pd.isnull(x):
-        return "NA"
+        if zero:
+            return "0"
+        else:
+            return "NA"
     elif x in missingVals:
-        return "NA"
+        if zero:
+            return "0"
+        else:
+            return "NA"
     else:
+        try:
+            x = float(x)
+        except:
+            x = x
         if not isinstance(x,numbers.Number):
             return replaceDash(x)
         if precision == 0:
-            x = int(x)
+            x = int(round(x,precision))
         else:
             x = round(x,precision)
         if commas:
             return format(x,",")
         else:
             return x
+        
+def safeFloat(x):
+    if pd.isnull(x):
+        return 0
+    try:
+        return float(x)
+    except:
+        return 0
     
 
 #Read a CSV to make this data?
@@ -153,7 +171,8 @@ dataDictionary["Eastern Africa"]["c9note"] = "<i>Note: n is between 7 and 12 dep
 dataDictionary["Eastern Africa"]["c11note"] = "<i>n is between 16 and 18 depending on the indicator and year.</i>"
 dataDictionary["Eastern Africa"]["c12note"] = "<i>n is between 16 and 18 depending on the indicator and year.</i>"
 dataDictionary["Eastern Africa"]["c13note"] = "<i>Note: n is between 9 and 10 depending on the indicator and year.</i>"
-dataDictionary["Eastern Africa"]["c14note"] = "<i>12 SUN member countries.</i>"
+dataDictionary["Eastern Africa"]["c14note1"] = "<i>Note: Data are population-weighted means from</i>"
+dataDictionary["Eastern Africa"]["c14note2"] = "<i>12 SUN member countries.</i>"
 dataDictionary["Eastern Africa"]["progressYear"] = "PROGRESS AGAINST GLOBAL NUTRITION TARGETS 2017"
 
 dataDictionary["Global"] = copy.deepcopy(dataDictionary["Eastern Africa"])
@@ -185,42 +204,6 @@ dataDictionary["Europe"] = copy.deepcopy(dataDictionary["Eastern Africa"])
 dataDictionary["LAC"] = copy.deepcopy(dataDictionary["Eastern Africa"])
 dataDictionary["N.America"] = copy.deepcopy(dataDictionary["Eastern Africa"])
 dataDictionary["Oceania"] = copy.deepcopy(dataDictionary["Eastern Africa"])
-
-
-def replaceDash(x):
-    x = str(x)
-    y = re.sub(r"((?:^|[^{])\d+)-(\d+[^}])",u"\\1\u2013\\2", x)
-    return y
-missingVals = [" ",".","","Insufficient data to make assessment"]
-def safeFormat(x,commas=False,precision=0):
-    if pd.isnull(x):
-        return "NA"
-    elif x in missingVals:
-        return "NA"
-    else:
-        try:
-            x = float(x)
-        except:
-            x = x
-        if not isinstance(x,numbers.Number):
-            return replaceDash(x)
-        if precision == 0:
-            x = int(x)
-        else:
-            x = round(x,precision)
-        if commas:
-            return format(x,",")
-        else:
-            return x
-        
-def safeFloat(x):
-    if pd.isnull(x):
-        return 0
-    try:
-        return float(x)
-    except:
-        return 0
-
 
 dat = pd.read_csv("agg_long.csv")
 agg_key = {
@@ -267,16 +250,16 @@ for region in dataDictionary.keys():
     row2 = regionDat.loc[(regionDat.indicator=="Poverty rates $1.90")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Poverty rates $3.10")].iloc[0]
     dataDictionary[region]["table1"] = [
-        [Paragraph("GDP per capita (PPP$) (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"],True),safeFormat(row1["year"])]
-        ,["$1.90/day (%) (n={})".format(safeFormat(row2["n"])),safeFormat(row2["value"]),safeFormat(row2["year"])]
-        ,["$3.10/day (%) (n={})".format(safeFormat(row3["n"])),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        [Paragraph("GDP per capita (PPP$) (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"],True),safeFormat(row1["year"])]
+        ,["$1.90/day (%) (n={})".format(safeFormat(row2["n"],False,0,True)),safeFormat(row2["value"]),safeFormat(row2["year"])]
+        ,["$3.10/day (%) (n={})".format(safeFormat(row3["n"],False,0,True)),safeFormat(row3["value"]),safeFormat(row3["year"])]
         ]
     # dataDictionary["Eastern Africa"]["table2"] = [
     #     [Paragraph("Under five mortality rate (deaths per 1,000 live births) (n=18)",style=greyParaStyle),"61",safeFormat(2015)]
     #     ]
     row1 = regionDat.loc[(regionDat.indicator=="Under-5 mortality rate (deaths per 1000 live births)")].iloc[0]
     dataDictionary[region]["table2"] = [
-        [Paragraph("Under five mortality rate (deaths per 1,000 live births) (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        [Paragraph("Under five mortality rate (deaths per 1,000 live births) (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
         ]
     # dataDictionary["Eastern Africa"]["table3"] = [
     #     ["Population (thousands) (n=18)","420,907",safeFormat(2017)]
@@ -289,10 +272,10 @@ for region in dataDictionary.keys():
     row3 = regionDat.loc[(regionDat.indicator=="Urban population (%)")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator==">65 population (%)")].iloc[0]
     dataDictionary[region]["table3"] = [
-        ["Population (thousands) (n={})".format(safeFormat(row1["n"])),safeFormat(row1["value"],True),safeFormat(row1["year"])]
-        ,[Paragraph("Under-5 population (thousands) (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"],True),safeFormat(row2["year"])]
-        ,["Urban (%) (n={})".format(safeFormat(row3["n"])),safeFormat(row3["value"]),safeFormat(row3["year"])]
-        ,[">65 years (%) (n={})".format(safeFormat(row4["n"])),safeFormat(row4["value"]),safeFormat(row4["year"])]
+        ["Population (thousands) (n={})".format(safeFormat(row1["n"],False,0,True)),safeFormat(row1["value"],True),safeFormat(row1["year"])]
+        ,[Paragraph("Under-5 population (thousands) (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"],True),safeFormat(row2["year"])]
+        ,["Urban (%) (n={})".format(safeFormat(row3["n"],False,0,True)),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        ,[">65 years (%) (n={})".format(safeFormat(row4["n"],False,0,True)),safeFormat(row4["value"]),safeFormat(row4["year"])]
         ]
     # dataDictionary["Eastern Africa"]["table4"] = [
     #     ["Number of children under 5 affected (millions)","",""]
@@ -305,9 +288,9 @@ for region in dataDictionary.keys():
     row3 = regionDat.loc[(regionDat.indicator=="Overweight (millions)")].iloc[0]
     dataDictionary[region]["table4"] = [
         ["Number of children under 5 affected (millions)","",""]
-        ,[Paragraph("Stunting<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"],True),safeFormat(row1["year"])]
-        ,[Paragraph("Wasting<super>1</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"],True),safeFormat(row2["year"])]
-        ,[Paragraph("Overweight<super>1</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"],True),safeFormat(row3["year"])]
+        ,[Paragraph("Stunting<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"],True),safeFormat(row1["year"])]
+        ,[Paragraph("Wasting<super>1</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"],True),safeFormat(row2["year"])]
+        ,[Paragraph("Overweight<super>1</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"],True),safeFormat(row3["year"])]
         ]
     # dataDictionary["Eastern Africa"]["table5"] = [
     #     ["Percentage of children under 5 affected","",""]
@@ -324,11 +307,11 @@ for region in dataDictionary.keys():
     row5 = regionDat.loc[(regionDat.indicator=="Low birth weight (%)")].iloc[0]
     dataDictionary[region]["table5"] = [
         ["Percentage of children under 5 affected","",""]
-        ,[Paragraph("Stunting<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
-        ,[Paragraph("Wasting<super>1</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
-        ,[Paragraph("Severe Wasting<super>1</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
-        ,[Paragraph("Overweight<super>1</super> (n={})".format(safeFormat(row4["n"])),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
-        ,[Paragraph("Low birth weight<super>2</super> (n={})".format(safeFormat(row5["n"])),style=greyParaStyle),safeFormat(row5["value"]),safeFormat(row5["year"])]
+        ,[Paragraph("Stunting<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        ,[Paragraph("Wasting<super>1</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
+        ,[Paragraph("Severe Wasting<super>1</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        ,[Paragraph("Overweight<super>1</super> (n={})".format(safeFormat(row4["n"],False,0,True)),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
+        ,[Paragraph("Low birth weight<super>2</super> (n={})".format(safeFormat(row5["n"],False,0,True)),style=greyParaStyle),safeFormat(row5["value"]),safeFormat(row5["year"])]
         ]
     # dataDictionary["Eastern Africa"]["table6"] = [
     #     [Paragraph("Adolescent overweight<super>1</super> (n=0)",style=greyParaStyle),"NA",safeFormat("NA")]
@@ -341,10 +324,10 @@ for region in dataDictionary.keys():
     row3 = regionDat.loc[(regionDat.indicator=="Women of reproductive age, thinness (%)")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="Women of reproductive age, short stature (%)")].iloc[0]
     dataDictionary[region]["table6"] = [
-        [Paragraph("Adolescent overweight<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
-        ,[Paragraph("Adolescent obesity<super>1</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
-        ,[Paragraph("Women of reproductive age, thinness<super>2</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
-        ,[Paragraph("Women of reproductive age, short stature<super>2</super> (n={})".format(safeFormat(row4["n"])),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
+        [Paragraph("Adolescent overweight<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        ,[Paragraph("Adolescent obesity<super>1</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
+        ,[Paragraph("Women of reproductive age, thinness<super>2</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        ,[Paragraph("Women of reproductive age, short stature<super>2</super> (n={})".format(safeFormat(row4["n"],False,0,True)),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table7"] = [
     #     [Paragraph("Women of reproductive age with anaemia<super>1</super> (n=18)",style=greyParaStyle),"",""]
@@ -359,11 +342,11 @@ for region in dataDictionary.keys():
     row4 = regionDat.loc[(regionDat.indicator=="Vitamin A deficiency in children 6-59 months (%)")].iloc[0]
     row5 = regionDat.loc[(regionDat.indicator=="Population classification of iodine status")].iloc[0]
     dataDictionary[region]["table7"] = [
-        [Paragraph("Women of reproductive age with anaemia<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),"",""]
+        [Paragraph("Women of reproductive age with anaemia<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),"",""]
         ,["Total population affected (thousands)",safeFormat(row2["value"],True),safeFormat(row2["year"])]
         ,["Total population affected (%)",safeFormat(row3["value"]),safeFormat(row3["year"])]
-        ,[Paragraph(u"Vitamin A deficiency in children 6\u201359 months old (%)<super>2</super> (n={})".format(safeFormat(row4["n"])),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
-        ,[Paragraph(u"Population classification of iodine nutrition (age group 5\u201319 years)<super>3</super> (n={})".format(safeFormat(row5["n"])),style=greyParaStyle),Paragraph(safeFormat(row5["value"]),style=greyParaStyle),safeFormat(row5["year"])]
+        ,[Paragraph(u"Vitamin A deficiency in children 6\u201359 months old (%)<super>2</super> (n={})".format(safeFormat(row4["n"],False,0,True)),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
+        ,[Paragraph(u"Population classification of iodine nutrition (age group 5\u201319 years)<super>3</super> (n={})".format(safeFormat(row5["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row5["value"]),style=greyParaStyle),safeFormat(row5["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table8"] = [
     #     [
@@ -494,11 +477,11 @@ for region in dataDictionary.keys():
     row4 = regionDat.loc[(regionDat.indicator=="Immunization coverage (DTP3)")].iloc[0]
     row5 = regionDat.loc[(regionDat.indicator=="Iodized salt consumption")].iloc[0]
     dataDictionary[region]["table9"] = [
-        [Paragraph("Severe acute malnutrition, geographic coverage<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
-        ,[Paragraph("Vitamin A supplementation, full coverage<super>2</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
-        ,[Paragraph("Children under 5 with diarrhoea receiving ORS<super>2</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
-        ,[Paragraph("Immunization coverage, DTP3<super>3</super> (n={})".format(safeFormat(row4["n"])),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
-        ,[Paragraph("Iodized salt consumption<super>2</super> (n={})".format(safeFormat(row5["n"])),style=greyParaStyle),safeFormat(row5["value"]),safeFormat(row5["year"])]
+        [Paragraph("Severe acute malnutrition, geographic coverage<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        ,[Paragraph("Vitamin A supplementation, full coverage<super>2</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
+        ,[Paragraph("Children under 5 with diarrhoea receiving ORS<super>2</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        ,[Paragraph("Immunization coverage, DTP3<super>3</super> (n={})".format(safeFormat(row4["n"],False,0,True)),style=greyParaStyle),safeFormat(row4["value"]),safeFormat(row4["year"])]
+        ,[Paragraph("Iodized salt consumption<super>2</super> (n={})".format(safeFormat(row5["n"],False,0,True)),style=greyParaStyle),safeFormat(row5["value"]),safeFormat(row5["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table10"] = [
     #     [Paragraph(u"Exclusive breastfeeding 0\u20135 months (n=11)",style=greyParaStyle),"9",safeFormat("2010-2016")]
@@ -509,9 +492,9 @@ for region in dataDictionary.keys():
     row2 = regionDat.loc[(regionDat.indicator=="Minimum acceptable diet 6-23 months (%)")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Minimum dietary diversity 6-23 months (%)")].iloc[0]
     dataDictionary[region]["table10"] = [
-        [Paragraph(u"Exclusive breastfeeding 0\u20135 months (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
-        ,[Paragraph(u"Minimum acceptable diet 6\u201323 months (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
-        ,[Paragraph(u"Minimum dietary diversity 6\u201323 months (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        [Paragraph(u"Exclusive breastfeeding 0\u20135 months (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        ,[Paragraph(u"Minimum acceptable diet 6\u201323 months (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"]),safeFormat(row2["year"])]
+        ,[Paragraph(u"Minimum dietary diversity 6\u201323 months (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table11"] = [
     #     [Paragraph("Early childbearing: births by age 18 (%)<super>1</super> (n=14)",style=greyParaStyle),"33",safeFormat("2011")]
@@ -522,9 +505,9 @@ for region in dataDictionary.keys():
     row2 = regionDat.loc[(regionDat.indicator=="Gender Inequality Index (score)")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Female secondary education enrolment rate")].iloc[0]
     dataDictionary[region]["table11"] = [
-        [Paragraph("Early childbearing: births by age 18 (%)<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
-        ,[Paragraph("Gender Inequality Index (score*)<super>2</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),safeFormat(row2["value"],False,2),safeFormat(row2["year"])]
-        ,[Paragraph("Female secondary education enrolment rate (%)<super>3</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
+        [Paragraph("Early childbearing: births by age 18 (%)<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),safeFormat(row1["value"]),safeFormat(row1["year"])]
+        ,[Paragraph("Gender Inequality Index (score*)<super>2</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),safeFormat(row2["value"],False,2),safeFormat(row2["year"])]
+        ,[Paragraph("Female secondary education enrolment rate (%)<super>3</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),safeFormat(row3["value"]),safeFormat(row3["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table12"] = [
     #     ["Physicians (n=17)","0.08",safeFormat("2001-2005")]
@@ -535,9 +518,9 @@ for region in dataDictionary.keys():
     row2 = regionDat.loc[(regionDat.indicator=="Nurses and midwives")].iloc[0]
     row3 = regionDat.loc[(regionDat.indicator=="Community health workers")].iloc[0]
     dataDictionary[region]["table12"] = [
-        ["Physicians (n={})".format(safeFormat(row1["n"])),safeFormat(row1["value"],False,2),safeFormat(row1["year"])]
-        ,["Nurses and midwives (n={})".format(safeFormat(row2["n"])),safeFormat(row2["value"],False,2),safeFormat(row2["year"])]
-        ,["Community health workers (n={})".format(safeFormat(row3["n"])),safeFormat(row3["value"],False,2),safeFormat(row3["year"])]
+        ["Physicians (n={})".format(safeFormat(row1["n"],False,0,True)),safeFormat(row1["value"],False,2),safeFormat(row1["year"])]
+        ,["Nurses and midwives (n={})".format(safeFormat(row2["n"],False,0,True)),safeFormat(row2["value"],False,2),safeFormat(row2["year"])]
+        ,["Community health workers (n={})".format(safeFormat(row3["n"],False,0,True)),safeFormat(row3["value"],False,2),safeFormat(row3["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table13"] = [
     #     [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>1</super> (n=18)",style=greyParaStyle),Paragraph("Full provisions in law",style=greyCenterParaStyle),safeFormat("2016")]
@@ -550,17 +533,17 @@ for region in dataDictionary.keys():
     row3 = regionDat.loc[(regionDat.indicator=="Maternity protection (Convention 183)")].iloc[0]
     row4 = regionDat.loc[(regionDat.indicator=="Wheat fortification legislation ")].iloc[0]
     dataDictionary[region]["table13"] = [
-        [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>1</super> (n={})".format(safeFormat(row1["n"])),style=greyParaStyle),Paragraph(safeFormat(row1["value"]),style=greyCenterParaStyle),safeFormat(row1["year"])]
-        ,[Paragraph("Extent of constitutional right to food<super>2</super> (n={})".format(safeFormat(row2["n"])),style=greyParaStyle),Paragraph(safeFormat(row2["value"]),style=greyCenterParaStyle),safeFormat(row2["year"])]
-        ,[Paragraph("Maternity Protection Convention 183<super>3</super> (n={})".format(safeFormat(row3["n"])),style=greyParaStyle),Paragraph(safeFormat(row3["value"]),style=greyCenterParaStyle),safeFormat(row3["year"])]
-        ,[Paragraph("Wheat fortification legislation<super>4</super> (n={})".format(safeFormat(row4["n"])),style=greyParaStyle),Paragraph(safeFormat(row4["value"]),style=greyCenterParaStyle),safeFormat(row4["year"])]
+        [Paragraph("National implementation of the International Code of Marketing of Breast-milk Substitutes<super>1</super> (n={})".format(safeFormat(row1["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row1["value"]),style=greyCenterParaStyle),safeFormat(row1["year"])]
+        ,[Paragraph("Extent of constitutional right to food<super>2</super> (n={})".format(safeFormat(row2["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row2["value"]),style=greyCenterParaStyle),safeFormat(row2["year"])]
+        ,[Paragraph("Maternity Protection Convention 183<super>3</super> (n={})".format(safeFormat(row3["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row3["value"]),style=greyCenterParaStyle),safeFormat(row3["year"])]
+        ,[Paragraph("Wheat fortification legislation<super>4</super> (n={})".format(safeFormat(row4["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row4["value"]),style=greyCenterParaStyle),safeFormat(row4["year"])]
     ]
     # dataDictionary["Eastern Africa"]["table14"] = [
     #     [Paragraph("All major NCDs (n=15)",style=greyParaStyle),Paragraph("No/Yes",style=greyParaStyle),safeFormat("2015")]
     # ]
     row = regionDat.loc[(regionDat.indicator=="Existence of evidence-based national guidelines/protocols/standards for the management of major NCDs through a primary care approach")].iloc[0]
     dataDictionary[region]["table14"] = [
-        [Paragraph("All major NCDs (n={})".format(safeFormat(row["n"])),style=greyParaStyle),Paragraph("No/Yes",style=greyParaStyle),safeFormat(row["year"])]
+        [Paragraph("All major NCDs (n={})".format(safeFormat(row["n"],False,0,True)),style=greyParaStyle),Paragraph(safeFormat(row["value"]),style=greyParaStyle),safeFormat(row["year"])]
     ]
     # 
     # dataDictionary["Eastern Africa"]["c5note"] = "<i>Note: n=17. Data are population-weighted means.</i>"
@@ -572,10 +555,16 @@ for region in dataDictionary.keys():
     # dataDictionary["Eastern Africa"]["c14note"] = "<i>12 SUN member countries.</i>"
     # dataDictionary["Eastern Africa"]["progressYear"] = "PROGRESS AGAINST GLOBAL NUTRITION TARGETS 2017"
     row = regionDat.loc[(regionDat.indicator=="Raised blood pressure, Male (%)")].iloc[0]
-    dataDictionary[region]["c5note"] = "<i>Note: n={}. Data are population-weighted means.</i>".format(safeFormat(row["n"]))
+    if safeFormat(row["n"])!="NA":
+        dataDictionary[region]["c5note"] = "<i>Note: n={}. Data are population-weighted means.</i>".format(safeFormat(row["n"]))
+    else:
+        dataDictionary[region]["c5note"] = ""
     
     row = regionDat.loc[(regionDat.indicator=="Adult overweight and obesity, Male (%)")].iloc[0]
-    dataDictionary[region]["c6note"] = "<i>Note: BMI: body mass index. n={}. Data are population-weighted means.</i>".format(safeFormat(row["n"]))
+    if safeFormat(row["n"])!="NA":
+        dataDictionary[region]["c6note"] = "<i>Note: BMI: body mass index. n={}. Data are population-weighted means.</i>".format(safeFormat(row["n"]))
+    else:
+        dataDictionary[region]["c6note"] = ""
     
     c9indicators = [
         "Undernourishment (%)"
@@ -621,7 +610,7 @@ for region in dataDictionary.keys():
         ,"Sanitation.Unimproved"
         ,"Sanitation.Open defecation"
     ]
-    rows = regionDat[regionDat['indicator'].isin(c9indicators)]
+    rows = regionDat[regionDat['indicator'].isin(c12indicators)]
     validRows = rows[pd.notnull(rows['value'])]
     if len(validRows)>0:
         nmin = safeFormat(min(validRows["n"]))
@@ -639,7 +628,7 @@ for region in dataDictionary.keys():
         ,"Health"
         ,"Social protection"
     ]
-    rows = regionDat[regionDat['indicator'].isin(c9indicators)]
+    rows = regionDat[regionDat['indicator'].isin(c13indicators)]
     validRows = rows[pd.notnull(rows['value'])]
     if len(validRows)>0:
         nmin = safeFormat(min(validRows["n"]))
@@ -652,8 +641,12 @@ for region in dataDictionary.keys():
          dataDictionary[region]["c13note"] = ""
     
     row = regionDat.loc[(regionDat.indicator=="Bringing people into a shared space for action (%)")].iloc[0]
-    dataDictionary[region]["c14note"] = "<i>{} SUN member countries.</i>".format(safeFormat(row["n"]))
-    
+    if safeFormat(row["n"])!="NA":
+        dataDictionary[region]["c14note2"] = "<i>{} SUN member countries.</i>".format(safeFormat(row["n"]))
+    else:
+        dataDictionary[region]["c14note1"] = ""
+        dataDictionary[region]["c14note2"] = ""
+
     if region=='Global':
         progressYear = 2014
     else:

@@ -120,6 +120,18 @@ safeFormat <- function(vec){
   return(results)
 }
 
+notNAformat <- function(xVec){
+  results <- c()
+  for(x in xVec){
+    if(is.na(x)){
+      results <- c(results,0)
+    }else{
+      results <- c(results,x)
+    }
+  }
+  return(results)
+}
+
 ###Indicator setup####
 c5indicators <- c(
   "Raised blood pressure, Male (%)"      
@@ -357,7 +369,7 @@ for(this.region in regions){
   c7data$superscript <- c(1,1,1,1,2)
   n.adj <- nchar(c7data$n)/100
   c7data$sspos <- c(0.41,0.40,0.64,0.50,0.47)+n.adj
-  c7data$label <- paste0(c7data$indicator," ",c7data$year," (n=",c7data$n,")")
+  c7data$label <- paste0(c7data$indicator," ",c7data$year," (n=",notNAformat(c7data$n),")")
   c7data$vallab[which(is.na(c7data$value))] <- "No data"
   c7data$valpos[which(is.na(c7data$value))] <- 0
   c7data <- data.frame(rbindlist(list(c7data,metNeedFrame),fill=TRUE))
@@ -576,7 +588,7 @@ for(this.region in regions){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c11data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c11data,value>3),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c11values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 12
   c12data <- subset(regiondat,indicator %in% c12indicators)
@@ -616,7 +628,7 @@ for(this.region in regions){
       ,legend.background = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key = element_rect(fill = "transparent", colour = "transparent")
       ,legend.key.size = unit(2.2,"lines")
-    ) + geom_text(data=subset(c12data,value>1),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
+    ) + geom_text(data=subset(c12data,value>3),size=10,aes(y=pos,label=safeFormat(value),color=indicator),show.legend=FALSE) +
     scale_color_manual(breaks=names(c12values),values=c(black,black,white,black,black),drop=FALSE)
   #Chart 13
   c13data <- subset(regiondat,indicator %in% c13indicators)

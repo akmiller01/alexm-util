@@ -191,10 +191,10 @@
 <!--Chart 14-->
 <text top="989" left="36" width="212" height="15" font="6">Scaling Up Nutrition (SUN) country</text>
 <text top="1004" left="36" width="242" height="15" font="6">institutional transformations (%), 2017</text>
-<image top="1030" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c14.png"/>
+<image top="1025" left="36" width="260" height="180" path="C:/Users/Alex/Documents/Data/GNR/Aggregate profiles/" variable="True" src="c14.png"/>
 <text top="1200" left="36" width="65" height="10" font="9"><i>Source: SUN 2017.</i></text>
-<text top="1210" left="36" width="65" height="10" font="9"><i>Note: Data are population-weighted means from</i></text>
-<text top="1220" left="36" width="65" height="10" font="9" replace="c14note"><i>12 SUN member countries.</i></text>
+<text top="1210" left="36" width="65" height="10" font="9" replace="c14note1"><i>Note: Data are population-weighted means from</i></text>
+<text top="1220" left="36" width="65" height="10" font="9" replace="c14note2"><i>12 SUN member countries.</i></text>
 
 <line x1="300" x2="300" y1="990" y2="1220" on="1" off="3" color="grey"></line>
 
