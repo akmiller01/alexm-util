@@ -12,6 +12,7 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.fonts import addMapping
 from regional_tables import dataDictionary, tableStyles
 import pdb
+from PIL import Image as PILImage
 # import sys
 # reload(sys)
 # sys.setdefaultencoding("utf-8")
@@ -34,7 +35,7 @@ class ReportMaker(object):
         self.styles = getSampleStyleSheet()
         self.e = ElementTree.parse(xml_file).getroot()
         self.width, self.height =  int(self.e.getchildren()[0].get("width")), int(self.e.getchildren()[0].get("height"))
-        self.c = canvas.Canvas(pdf_file, pagesize=(self.width,self.height))
+        self.c = canvas.Canvas(pdf_file, pagesize=(self.width,self.height),pageCompression=1)
         self.fonts = {}
         for page in self.e.findall("page"):
             for fontspec in page.findall("fontspec"):
@@ -59,9 +60,15 @@ class ReportMaker(object):
             for image in page.findall("image"):
                 if image.get("variable")=="True":
                     src = image.get("path")+self.region+"/"+image.get("src")
+                    dest = image.get("path")+self.region+"/reduced_"+image.get("src")
+                    pilImg = PILImage.open(src)
+                    size = (pilImg.size[0]/1.5,pilImg.size[1]/1.5)
+                    pilImg.thumbnail(size,PILImage.NEAREST)
+                    pilImg.save(dest,optimize=True)
                 else:
                     src = image.get("path")+image.get("src")
-                logo = Image(src)
+                    dest = src
+                logo = Image(dest)
                 logo.drawHeight = int(image.get("height"))
                 logo.drawWidth = int(image.get("width"))
                 logo.wrapOn(self.c, self.width, self.height)

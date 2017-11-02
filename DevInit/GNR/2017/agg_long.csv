@@ -22,7 +22,7 @@ Adolescent obesity (%),2003-2014,Global,61,4
 Women of reproductive age with anaemia (000),2016,Global,186,610973
 Women of reproductive age with anaemia (%),2016,Global,186,33
 Vitamin A deficiency in children 6-59 months (%),2013,Global,133,25
-Population classification of iodine status,1996-2001,Global,125,Moderate iodine deficieny to optimal iodine nutrition
+Population classification of iodine status,1996-2001,Global,125,Moderate iodine deficiency to optimal iodine nutrition
 "Raised blood pressure, Male (%)",2015,Global,189,25
 "Raised blood pressure, Female (%)",2015,Global,189,21
 "Raised blood glucose, Male (%)",2014,Global,189,9
@@ -478,7 +478,7 @@ Adolescent obesity (%),2003-2014,Central America,0,
 Women of reproductive age with anaemia (000),2016,Central America,8,7366
 Women of reproductive age with anaemia (%),2016,Central America,8,16
 Vitamin A deficiency in children 6-59 months (%),2013,Central America,8,10
-Population classification of iodine status,1996-2001,Central America,8,Risk of iodine-induced hyperthyroidism
+Population classification of iodine status,1996-2001,Central America,8,Risk of iodine-induced hyperthyroidism within 5-10 years following introduction of iodized salt in susceptible groups
 "Raised blood pressure, Male (%)",2015,Central America,8,22
 "Raised blood pressure, Female (%)",2015,Central America,8,18
 "Raised blood glucose, Male (%)",2014,Central America,8,10
@@ -934,7 +934,7 @@ Adolescent obesity (%),2003-2014,Eastern Asia,2,6
 Women of reproductive age with anaemia (000),2016,Eastern Asia,5,105716
 Women of reproductive age with anaemia (%),2016,Eastern Asia,5,26
 Vitamin A deficiency in children 6-59 months (%),2013,Eastern Asia,2,4
-Population classification of iodine status,1996-2001,Eastern Asia,2,Risk of iodine induced hyperthyroidism
+Population classification of iodine status,1996-2001,Eastern Asia,2,Risk of iodine-induced hyperthyroidism within 5-10 years following introduction of iodized salt in susceptible groups
 "Raised blood pressure, Male (%)",2015,Eastern Asia,5,21
 "Raised blood pressure, Female (%)",2015,Eastern Asia,5,16
 "Raised blood glucose, Male (%)",2014,Eastern Asia,5,10
@@ -1846,7 +1846,7 @@ Adolescent obesity (%),2003-2014,Northern America,0,
 Women of reproductive age with anaemia (000),2016,Northern America,2,10567
 Women of reproductive age with anaemia (%),2016,Northern America,2,13
 Vitamin A deficiency in children 6-59 months (%),2013,Northern America,0,
-Population classification of iodine status,1996-2001,Northern America,1,Risk of iodine induced hyperthyroidism
+Population classification of iodine status,1996-2001,Northern America,1,Risk of iodine-induced hyperthyroidism within 5-10 years following introduction of iodized salt in susceptible groups
 "Raised blood pressure, Male (%)",2015,Northern America,2,15
 "Raised blood pressure, Female (%)",2015,Northern America,2,11
 "Raised blood glucose, Male (%)",2014,Northern America,2,8
@@ -2302,7 +2302,7 @@ Adolescent obesity (%),2003-2014,South America,0,
 Women of reproductive age with anaemia (000),2016,South America,12,26878
 Women of reproductive age with anaemia (%),2016,South America,12,24
 Vitamin A deficiency in children 6-59 months (%),2013,South America,12,11
-Population classification of iodine status,1996-2001,South America,9,Risk of adverse health consequences
+Population classification of iodine status,1996-2001,South America,9,"Risk of adverse health consequences (iodine induced hyperthyroidism, auto-immune thyroid diseases)"
 "Raised blood pressure, Male (%)",2015,South America,12,25
 "Raised blood pressure, Female (%)",2015,South America,12,18
 "Raised blood glucose, Male (%)",2014,South America,12,8
@@ -4126,7 +4126,7 @@ Adolescent obesity (%),2003-2014,N.America,,
 Women of reproductive age with anaemia (000),2016,N.America,2,1544
 Women of reproductive age with anaemia (%),2016,N.America,2,13
 Vitamin A deficiency in children 6-59 months (%),2013,N.America,,
-Population classification of iodine status,1996-2001,N.America,1,Risk of iodine-induced hyperthyroidism
+Population classification of iodine status,1996-2001,N.America,1,Risk of iodine-induced hyperthyroidism within 5-10 years following introduction of iodized salt in susceptible groups
 "Raised blood pressure, Male (%)",2015,N.America,2,15
 "Raised blood pressure, Female (%)",2015,N.America,2,11
 "Raised blood glucose, Male (%)",2014,N.America,2,8
