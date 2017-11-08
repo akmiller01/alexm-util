@@ -726,7 +726,7 @@ for(this.country in countries){
         ,legend.key.size = unit(2.5,"lines")
       ) + geom_text(size=10,aes(label=vallab,y=valpos),hjust=-0.2,color="#443e42") +
       geom_text(size=10,aes(label=label,y=1,x=ypos+0.25),hjust=0,vjust=0,color="#443e42") +
-      geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.25+ss.y.adj),hjust=0,vjust=0,color="#443e42") +
+      # geom_text(size=7,aes(label=superscript,y=sspos,x=ypos+0.25+ss.y.adj),hjust=0,vjust=0,color="#443e42") +
       coord_flip()
   }
   #Chart 8
