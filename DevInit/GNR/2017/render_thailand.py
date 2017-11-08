@@ -10,7 +10,7 @@ from xml.etree import ElementTree
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.fonts import addMapping
-from tables import dataDictionary, tableStyles
+from tables_thailand import dataDictionary, tableStyles
 import pdb
 import re
 from PIL import Image as PILImage
@@ -198,6 +198,6 @@ if __name__ == "__main__":
     # doc.createDocument()
     # doc.savePDF()
     country = "Thailand"
-    doc = ReportMaker("Yugo.pdf","template_thailand.xml",country)
+    doc = ReportMaker("Thailand_2016.pdf","template_thailand.xml",country)
     doc.createDocument()
     doc.savePDF()
