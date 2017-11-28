@@ -1,29 +1,29 @@
-donorname,id
-Australia,AU
-Austria,AT
-Belgium,BE
-Canada,CA
-Czech Republic,CZ
-Denmark,DK
-Finland,FI
-France,FR
-Germany,DE
-Greece,GR
-Iceland,IS
-Ireland,IE
-Italy,IT
-Japan,JP
-Korea,KR
-Luxembourg,LU
-Netherlands,NL
-New Zealand,NZ
-Norway,NO
-Poland,PL
-Portugal,PT
-Slovak Republic,SK
-Slovenia,SI
-Spain,ES
-Sweden,SE
-Switzerland,CH
-United Kingdom,GB
-United States,US
+donorname,id,iso3c
+Australia,AU,AUS
+Austria,AT,AUT
+Belgium,BE,BEL
+Canada,CA,CAN
+Czech Republic,CZ,CZE
+Denmark,DK,DNK
+Finland,FI,FIN
+France,FR,FRA
+Germany,DE,DEU
+Greece,GR,GRC
+Iceland,IS,ISL
+Ireland,IE,IRL
+Italy,IT,ITA
+Japan,JP,JPN
+Korea,KR,KOR
+Luxembourg,LU,LUX
+Netherlands,NL,NLD
+New Zealand,NZ,NZL
+Norway,NO,NOR
+Poland,PL,POL
+Portugal,PT,PRT
+Slovak Republic,SK,SVK
+Slovenia,SI,SVN
+Spain,ES,ESP
+Sweden,SE,SWE
+Switzerland,CH,CHE
+United Kingdom,GB,GBR
+United States,US,USA
