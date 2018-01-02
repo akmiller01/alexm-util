@@ -2,8 +2,30 @@ library(readr)
 library(treemap)
 library(data.table)
 library(WDI)
+library(Cairo)
 
 setwd("C:/Users/Alex/Documents/Data/IDC")
+
+colorRef <- list("red"="#e84439")
+colorRef <- c(colorRef,"orange"="#eb642b")
+colorRef <- c(colorRef,"yellow"="#f49b21")
+colorRef <- c(colorRef,"pink"="#c2135b")
+colorRef <- c(colorRef,"purple"="#893f90")
+colorRef <- c(colorRef,"blue"="#0089cc")
+colorRef <- c(colorRef,"green"="#109e68")
+colorRef <- c(colorRef,"grey"="#6a6569")
+colorRef <- c(colorRef,"white"="#FFFFFF")
+colorRef <- c(colorRef,"black"="#000000")
+
+diColourScale7 <- scale_colour_manual(values=c(
+  colorRef[[1]]
+  ,colorRef[[2]]
+  ,colorRef[[3]]
+  ,colorRef[[4]]
+  ,colorRef[[5]]
+  ,colorRef[[6]]
+  ,colorRef[[7]]
+  ))
 
 pop <- WDI(country="all","SP.POP.TOTL",extra=TRUE,start=2000,end=2015)
 keep <- c("iso3c","region","income")
@@ -12,7 +34,8 @@ setnames(meta,"iso3c","wb.iso3c")
 
 oda <- read_csv("TABLE2A_27112017150311239.csv")
 all_recip <- unique(oda$Recipient)
-
+unspec <- subset(oda,Recipient %in% c("Developing countries, unspecified","Part I Unallocated by income") & Year==2015)
+regional <- subset(oda,grepl("regional",Recipient) & Year==2015 & Donor=="United Kingdom")
 totals <- subset(oda,Recipient=="All Recipients, Total")
 
 multilats <- c(
@@ -112,16 +135,17 @@ dat$PovGap <- dat$PovGap*100
 dat$poorpop <- dat$poorpop*1000000
 
 library(ggplot2)
-percent <- ggplot(dat,aes(x=HeadCount*100,y=PovGap,size=Value,colour=region,label=Recipient)) + geom_point(alpha=0.5) +
+percent <- ggplot(dat,aes(x=HeadCount*100,y=PovGap,label=Recipient)) + geom_point(aes(,size=Value,colour=region),alpha=0.5) +
+  diColourScale7 +
   labs(x="Percent of population in extreme poverty"
        ,y="Depth of extreme poverty"
        ,size="UK bilateral ODA (millions)"
        ,colour="Region") +
-  theme_bw() + scale_size(range=c(1,10))
-# +
-# geom_text(aes(label=ifelse(UK.Bilateral.ODA>334745686,as.character(name),'')),hjust=0,vjust=1)
+  theme_bw() + scale_size(range=c(1,10)) +
+  geom_text(aes(label=ifelse(Value>300,as.character(Recipient),'')),hjust=0,vjust=1)
 require(scales)
-labeled <- ggplot(dat,aes(y=poorpop,x=PovGap,size=Value,colour=region)) + geom_point(alpha=0.5) +
+labeled <- ggplot(dat,aes(y=poorpop,x=PovGap)) + geom_point(aes(size=Value,colour=region),alpha=0.5) +
+  diColourScale7 +
   labs(y="Population in extreme poverty"
        ,x="Depth of extreme poverty"
        ,size="UK bilateral ODA (millions)"
@@ -131,6 +155,7 @@ labeled <- ggplot(dat,aes(y=poorpop,x=PovGap,size=Value,colour=region)) + geom_p
   geom_text(aes(label=ifelse(Value>300,as.character(Recipient),'')),hjust=0,vjust=1)
 
 unlabeled <- ggplot(dat,aes(y=poorpop,x=PovGap,size=Value,colour=region)) + geom_point(alpha=0.5) +
+  diColourScale7 +
   labs(y="Population in extreme poverty"
        ,x="Depth of extreme poverty"
        ,size="UK bilateral ODA (millions)"
@@ -276,6 +301,11 @@ dfid_bubble <- ggplot(dat,aes(y=poorpop,x=PovGap,size=Value,colour=region)) + ge
   theme_bw() + scale_size(range=c(1,15)) + scale_y_log10(labels = comma)
 
 ggsave("DFID_Bubble.png",dfid_bubble,width=10,height=6)
+
+ggsave("dfid_bubble.svg",dfid_bubble,width=10,height=6)
+ggsave("unlabeled_bubble.svg",unlabeled,width=10,height=6)
+ggsave("labeled_bubble.svg",labeled,width=10,height=6)
+
 
 # dat <- subset(dat,Value>0)
 # 
