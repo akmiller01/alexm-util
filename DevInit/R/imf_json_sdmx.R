@@ -28,6 +28,7 @@ for(dataflow in dataflows){
   dataflowNames[[dataflow$KeyFamilyRef$KeyFamilyID]] = dataflow$Name$`#text`
 }
 
+for(i in 1:length(dataflows)){message(i," ",dataflows[[i]]$Name$`#text`)}
 
 dataflow = dataflows[[20]]
 ds_url <- paste0(ds_base_url,dataflow$KeyFamilyRef$KeyFamilyID)
@@ -48,7 +49,7 @@ for(codelistID in codelistIDs){
   codelists[[codelistID$`@id`]] <- cl
 }
 
-cd_url <- paste0(cd_base_url,dataflow$KeyFamilyRef$KeyFamilyID,"/A..S1311B.XDC.W0_S1_G1?startPeriod=2016&endPeriod=2016")
+cd_url <- paste0(cd_base_url,dataflow$KeyFamilyRef$KeyFamilyID,"/A..S1311B.XDC.W0_S1_G1?startPeriod=2014&endPeriod=2016")
 # http://dataservices.imf.org/REST/SDMX_JSON.svc/CompactData/{database ID}/{frequency}.{item1 from
 #   dimension1}+{item2 from dimension1}+{item N from dimension1}.{item1 from
 #     dimension2}+{item2 from dimension2}+{item M from dimension2}?startPeriod={start
@@ -58,15 +59,29 @@ Sys.sleep(1)
 cd <- fromJSON(cdContent)
 
 country.id <- c()
+revenue.year <- c()
 country.revenue <- c()
 for(series in cd$CompactData$DataSet$Series){
-  if("Obs" %in% names(series)){
-    if("@OBS_VALUE" %in% names(series$Obs)){
-      country.id <- c(country.id,series$`@REF_AREA`)
+  ref <- series$`@REF_AREA`
+  obsFlat <- FALSE
+  for(obs in series$Obs){
+    if(typeof(obs)=="list"){
+      if(typeof(obs$`@OBS_VALUE`)=="character"){
+        country.id <- c(country.id,ref)
+        revenue.year <- c(revenue.year,obs$`@TIME_PERIOD`)
+        country.revenue <- c(country.revenue,obs$`@OBS_VALUE`) 
+      }
+    }else if(typeof(obs)=="character"){
+      obsFlat <- TRUE
+    }
+  }
+  if(obsFlat){
+    if(typeof(series$Obs$`@OBS_VALUE`)=="character"){
+      country.id <- c(country.id,ref)
+      revenue.year <- c(revenue.year,series$Obs$`@TIME_PERIOD`)
       country.revenue <- c(country.revenue,series$Obs$`@OBS_VALUE`)
     }
   }
 }
-df <- data.frame(country.id,country.revenue)
-df$year <- 2016
-write.csv(df,"sdmx_revenue_2016.csv",row.names=FALSE)
+df <- data.frame(country.id,revenue.year,country.revenue)
+write.csv(df,"sdmx_revenue_1416.csv",row.names=FALSE)
