@@ -168,7 +168,7 @@ rm(list.of.packages,new.packages,imfCD,imfDS)
 
 ### How to source this package:
 
-#source("C:/path/to/file/imf_sdmx_func.R")
+#source("https://raw.githubusercontent.com/akmiller01/alexm-util/master/DevInit/R/imf_sdmx_func.R")
 
 ### Help docs:
 
