@@ -143,6 +143,8 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
   return(full.df)
 }
 
+rm(list.of.packages,new.packages,imfCD,imfDS)
+
 ### How to use:
 
 #1. Get db.keys from imfDB function
@@ -159,7 +161,7 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
 # Leave a blank string for wildcard filters. In the above example "A..S1311B" is filtering wildcard for
 # the second dimension (ref_area)
 
-### How to use intermediate functions (not for users):
+### How to use intermediate functions (not exported, check source):
 
 # gfsrDS <- imfDS("GFSR")
 # cd <- imfCD("GFSR","A..S1311B.XDC.W0_S1_G1","2014","2016")
