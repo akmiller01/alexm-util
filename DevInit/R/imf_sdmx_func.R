@@ -1,9 +1,6 @@
-#Help docs:
-# http://datahelp.imf.org/knowledgebase/articles/788715-data-services-how-to-get-the-code-of-a-dataset-an
-# http://datahelp.imf.org/knowledgebase/articles/667681-using-json-restful-web-service
-# http://dataservices.imf.org/REST/SDMX_JSON.svc/help
-# http://datahelp.imf.org/knowledgebase/articles/937155-how-to-query-large-datasets-with-data-services
-
+list.of.packages <- c("RCurl", "rjson","data.table")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
 library(RCurl)
 library(rjson)
