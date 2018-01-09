@@ -174,8 +174,8 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
   }
   
   full.df <- rbindlist(dfList,fill=TRUE)
-  #Reorder the value columns if at least 2
-  if(sum(grepl("value.",names(full.df)))>1){
+  #Reorder the value columns if at least 2 and we're counting years
+  if(sum(grepl("value.",names(full.df)))>1 & substr(params,1,1)=="A"){
     valueOrder <- order(as.numeric(substr(names(full.df)[which(substr(names(full.df),1,6)=="value.")],7,10)))
     names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)] <- names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)][valueOrder]
   }
