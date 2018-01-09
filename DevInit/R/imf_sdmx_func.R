@@ -107,20 +107,20 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
   
   cd <- imfCD(db.key,params,startPeriod,endPeriod)
   series <- cd$CompactData$DataSet$Series
-  # Each element is like a row, except it can contain more than one observation
-  for(element in series){
+  # Special case for series being a single list
+  if("@FREQ" %in% names(series)){
     df <- data.frame(db.key)
-    for(var in names(element)){
+    for(var in names(series)){
       # For those not named "obs" we can assign them to vars right away
       if(var!="Obs"){
-        value = element[[var]]
+        value = series[[var]]
         if(typeof(value)=="character"){
-          df[[var]] <- element[[var]]
+          df[[var]] <- series[[var]]
         }
-      # Otherwise, we need to check whether "Obs" is a list of observations,
-      # or a list containing the attributes of one observation
+        # Otherwise, we need to check whether "Obs" is a list of observations,
+        # or a list containing the attributes of one observation
       }else{
-        obs = element[[var]]
+        obs = series[[var]]
         single.ob <- FALSE
         for(ob in obs){
           if(typeof(ob)=="list"){
@@ -138,8 +138,47 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
     }
     dfList[[dfIndex]] <- df
     dfIndex = dfIndex + 1
+  }else{
+    # Each element is like a row, except it can contain more than one observation
+    for(element in series){
+      df <- data.frame(db.key)
+      for(var in names(element)){
+        # For those not named "obs" we can assign them to vars right away
+        if(var!="Obs"){
+          value = element[[var]]
+          if(typeof(value)=="character"){
+            df[[var]] <- element[[var]]
+          }
+          # Otherwise, we need to check whether "Obs" is a list of observations,
+          # or a list containing the attributes of one observation
+        }else{
+          obs = element[[var]]
+          single.ob <- FALSE
+          for(ob in obs){
+            if(typeof(ob)=="list"){
+              multivar <- paste0("value.",ob$`@TIME_PERIOD`)
+              df[[multivar]] <- ob$`@OBS_VALUE`
+            }else{
+              single.ob <- TRUE
+            }
+          }
+          if(single.ob){
+            multivar <- paste0("value.",obs$`@TIME_PERIOD`)
+            df[[multivar]] <- obs$`@OBS_VALUE`
+          }
+        }
+      }
+      dfList[[dfIndex]] <- df
+      dfIndex = dfIndex + 1
+    }
   }
+  
   full.df <- rbindlist(dfList,fill=TRUE)
+  #Reorder the value columns if at least 2
+  if(sum(grepl("value.",names(full.df)))>1){
+    valueOrder <- order(as.numeric(substr(names(full.df)[which(substr(names(full.df),1,6)=="value.")],7,10)))
+    names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)] <- names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)][valueOrder]
+  }
   return(full.df)
 }
 
@@ -152,7 +191,7 @@ rm(list.of.packages,new.packages)
 #2. Use db.key from step 1 to find codelist using imfCL function
 # gfsrCL <- imfCL("GFSR")
 #3. Use codelist dimensions from step 2 to construct parameters for imfDF function
-# gfsrDF <- imfDF("GFSR","A..S1311B.XDC.W0_S1_G1","2014","2016")
+# gfsrDF <- imfDF("GFSR","A..S1311B.XDC.W0_S1_G1","2000","2017")
 
 ### How to construct imfDF params argument:
 
