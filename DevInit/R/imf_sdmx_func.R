@@ -143,7 +143,7 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
   return(full.df)
 }
 
-rm(list.of.packages,new.packages,imfCD,imfDS)
+rm(list.of.packages,new.packages)
 
 ### How to use:
 
