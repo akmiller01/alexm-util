@@ -1,10 +1,11 @@
-list.of.packages <- c("RCurl", "rjson","data.table")
+list.of.packages <- c("RCurl", "rjson","data.table","reshape")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 
 library(RCurl)
 library(rjson)
 library(data.table)
+library(reshape)
 
 imfDB <- function(){
   user_agent = "di-imf-rsdmx/0.0.1"
@@ -101,7 +102,7 @@ imfCD <- function(db.key,params="",startPeriod="",endPeriod=""){
   return(cd)
 }
 
-imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
+imfDF <- function(db.key,params="",startPeriod="",endPeriod="",reorder=TRUE,reshape=TRUE){
   dfList <- list()
   dfIndex <- 1
   
@@ -173,11 +174,14 @@ imfDF <- function(db.key,params="",startPeriod="",endPeriod=""){
     }
   }
   
-  full.df <- rbindlist(dfList,fill=TRUE)
+  full.df <- data.frame(rbindlist(dfList,fill=TRUE))
   #Reorder the value columns if at least 2 and we're counting years
-  if(sum(grepl("value.",names(full.df)))>1 & substr(params,1,1)=="A"){
+  if(sum(grepl("value.",names(full.df)))>1 & substr(params,1,1)=="A" & reorder){
     valueOrder <- order(as.numeric(substr(names(full.df)[which(substr(names(full.df),1,6)=="value.")],7,10)))
-    names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)] <- names(full.df)[(length(full.df)+1-length(valueOrder)):length(full.df)][valueOrder]
+    full.df[,(length(full.df)+1-length(valueOrder)):length(full.df)] <- full.df[,(length(full.df)+1-length(valueOrder)):length(full.df)][,valueOrder]
+  }
+  if(reshape){
+    full.df <- reshape(full.df,idvar="X.REF_AREA",timevar="year",direction="long",varying=names(full.df)[which(substr(names(full.df),1,6)=="value.")])
   }
   return(full.df)
 }
