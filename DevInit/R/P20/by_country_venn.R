@@ -245,6 +245,10 @@ all.venn.joined$iso2 <- unfactor(all.venn.joined$iso2)
 # all.venn.joined$iso2[which(all.venn.joined$filename=="world")] <- "WD"
 # all.venn.joined$year[which(all.venn.joined$filename=="world")] <- weighted.mean(all.venn.joined$year,all.venn.joined$pop,na.rm=TRUE)
 
+setwd("C:/git/alexm-util/DevInit/P20-vis/venn/")
+
+write.csv(all.venn.joined,"all.venn.joined2.unrounded.csv",row.names=FALSE,na="")
+
 all.venn.joined <- transform(all.venn.joined,
                              x = round(x*100)
                              ,y = round(y*100)
