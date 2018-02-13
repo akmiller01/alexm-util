@@ -55,7 +55,7 @@ while url_valid:
         xml2df = XML2DataFrame(xml_data)
         xml_dataframe = xml2df.process_data()
         dataframes.append(xml_dataframe)
-        nStart += 100
+        nStart += int(params["maxhits"])
     except requests.exceptions.RequestException as e:
         print e
         url_valid = False
