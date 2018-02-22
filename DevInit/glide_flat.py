@@ -30,10 +30,12 @@ base_url = "http://www.glidenumber.net/glide/xmlglideset.jsp?"
 params = {
     "sortby" : "0"
     ,"fromyear" : "1998"
+    ,"frommonth": "01"
+    ,"fromday": "01"
     ,"toyear" : "2017"
     ,"tomonth" : "12"
     ,"today" : "31"
-    ,"maxhits" : "100"
+    ,"maxhits" : "1000000"
 }
 param_string = ""
 for key in params.keys():
@@ -45,24 +47,31 @@ for key in params.keys():
 url = base_url+param_string
 url_valid = True
 nStart = 0
-dataframes = []
-while url_valid:
-    print nStart
-    try:
-        paginated_url = url + "&nStart={}".format(nStart)
-        response = requests.get(paginated_url)
-        xml_data = response.content
-        xml2df = XML2DataFrame(xml_data)
-        xml_dataframe = xml2df.process_data()
-        dataframes.append(xml_dataframe)
-        nStart += int(params["maxhits"])
-    except requests.exceptions.RequestException as e:
-        print e
-        url_valid = False
-        
-try:
-    dataset = pd.concat(dataframes)
-    dataset.to_csv("C:/Users/Alex/Documents/Data/glide_1998_2017.csv")
-except ValueError as e: 
-    print e
-    
+# Pagination not working :(
+# dataframes = []
+# while url_valid:
+#     print nStart
+#     try:
+#         paginated_url = url + "&nStart={}".format(nStart)
+#         response = requests.get(paginated_url)
+#         xml_data = response.content
+#         xml2df = XML2DataFrame(xml_data)
+#         xml_dataframe = xml2df.process_data()
+#         dataframes.append(xml_dataframe)
+#         nStart += int(params["maxhits"])
+#     except requests.exceptions.RequestException as e:
+#         print e
+#         url_valid = False
+#         
+# try:
+#     dataset = pd.concat(dataframes)
+#     dataset.to_csv("C:/Users/Alex/Documents/Data/glide_1998_2017.csv")
+# except ValueError as e: 
+#     print e
+
+paginated_url = url + "&nStart={}".format(nStart)
+response = requests.get(paginated_url)
+xml_data = response.content
+xml2df = XML2DataFrame(xml_data)
+xml_dataframe = xml2df.process_data()
+xml_dataframe.to_csv("C:/Users/Alex/Documents/Data/glide_1998_2017.csv",index=False) 

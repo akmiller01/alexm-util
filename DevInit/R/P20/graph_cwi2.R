@@ -5,7 +5,7 @@ library(WDI)
 library(rCharts)
 library(plyr)
 
-load("D:/Documents/Data/MICSmeta/cwi_final.RData")
+load("C:/Users/Alex/Desktop/data/MICSmeta/cwi_final.RData")
 # wd <- "D:/Documents/Data/DHSmeta"
 # setwd(wd)
 # cwi <- read.csv("global_cwi.csv",na.strings="",as.is=TRUE)
@@ -35,7 +35,7 @@ cwi$iso2[which(cwi$iso2=="MB")] <- "MD"
 cwi$iso2[which(cwi$iso2=="NM")] <- "NA"
 cwi$iso2[which(cwi$iso2=="NI")] <- "NE"
 
-mics_isos <- read.csv("D:/Documents/Data/MICSmeta/isos.csv")
+mics_isos <- read.csv("C:/Users/Alex/Desktop/data/MICSmeta/isos.csv")
 
 mics.cwi <- join(
   mics.cwi
@@ -52,7 +52,7 @@ data <- data.frame(data)
 
 data$year <- NULL
 
-all.years <- read.csv("D:/Documents/Data/MICSmeta/all.years.csv")
+all.years <- read.csv("C:/Users/Alex/Desktop/data/MICSmeta/all.years.csv")
 
 data <- join(
   data

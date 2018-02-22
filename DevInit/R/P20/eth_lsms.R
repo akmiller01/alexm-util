@@ -3,7 +3,7 @@ library(data.table)
 library(plyr)
 library(Hmisc)
 
-wd <- "D:/Documents/Data/LSMSauto/ETH_2011_ERSS_v02_M_STATA"
+wd <- "C:/Users/Alex/Desktop/data/LSMSauto/ETH_2011_ERSS_v02_M_STATA"
 
 setwd(wd)
 
@@ -83,6 +83,8 @@ nn$urban[which(nn$rural==0)] <- 1
 
 nn.wealth <- wealth(nn,catvars,numvars,"urban")
 plot(log(pcexpppp)~wealth,data=nn.wealth)
+
+write.csv(nn.wealth,"C:/Users/Alex/Documents/Data/coding_p20/eth_wealth.csv",na="",row.names=FALSE)
 
 library(ggplot2)
 

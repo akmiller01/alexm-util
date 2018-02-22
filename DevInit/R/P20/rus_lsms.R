@@ -6,7 +6,7 @@ library(varhandle)
 
 source("C:/git/alexm-util/DevInit/R/p20/wealth_pca.R")
 
-wd <- "D:/Documents/Data/LSMS/"
+wd <- "C:/Users/Alex/Desktop/data/LSMS/"
 setwd(wd)
 
 hh <- read.dta("RUS_2014/hh2014w.dta")
@@ -108,6 +108,17 @@ iw = round(weighted.mean(wealth.dat$ipoor&wealth.dat$wpoor,wealth.dat$hhwgt_w,na
 we = round(weighted.mean(wealth.dat$wpoor&wealth.dat$epoor,wealth.dat$hhwgt_w,na.rm=TRUE)*100,2)
 
 eiw = round(weighted.mean(wealth.dat$epoor&wealth.dat$ipoor&wealth.dat$wpoor,wealth.dat$hhwgt_w,na.rm=TRUE)*100,2)
+
+df <- data.frame(
+  expenditure_poor = e,
+  income_poor = i,
+  wealth_poor = w,
+  expenditure_and_income = ei,
+  income_and_wealth = iw,
+  wealth_and_expenditure = we,
+  expenditure_income_and_wealth = eiw
+)
+write.csv(df,"C:/Users/Alex/Documents/Data/coding_p20/russia_venn.csv",na="",row.names=FALSE)
 
 # install.packages('VennDiagram')
 library(VennDiagram)

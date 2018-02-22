@@ -2,10 +2,10 @@ library(plyr)
 library(data.table)
 library(ggplot2)
 
-wd <- "D:/Documents/Data/PovCal/text"
+wd <- "C:/Users/Alex/Desktop/data/PovCal/text"
 setwd(wd)
 
-mpi <- read.csv("D:/Documents/P20_small_wealth_multiples/mpi.csv",as.is=TRUE)
+mpi <- read.csv("C:/Users/Alex/Desktop/data/P20_small_wealth_multiples/mpi.csv",as.is=TRUE)
 
 gdpList <- list()
 gdpIndex <- 1
@@ -37,7 +37,7 @@ for(i in 1:length(txts)){
 
 gdp <- rbindlist(gdpList)
 
-wd <- "D:/Documents/Data"
+wd <- "C:/Users/Alex/Desktop/data/"
 setwd(wd)
 
 data <- read.csv("total_dist.csv",as.is=TRUE)
@@ -60,7 +60,7 @@ long$P <- long$P*long$gdpperdiem
 # 
 # load("D:/Documents/P20_small_wealth_multiples/povcaldata.RData")
 
-wd <- "D:/Documents/Data"
+wd <- "C:/Users/Alex/Desktop/data/Data"
 setwd(wd)
 
 iso3s <- unique(long$iso3)
@@ -79,7 +79,7 @@ for(i in 1:length(iso3s)){
   incomes <- data.frame(y.prime)
   names(incomes) <- c("income")
   
-  pic.file <- paste0("D:/Documents/P20_small_wealth_multiples/individual_povcal/",iso3,".jpg")
+  pic.file <- paste0("C:/Users/Alex/Desktop/data/P20_small_wealth_multiples/individual_povcal/",iso3,".jpg")
   d <- ggplot(incomes,aes(x=income)) + geom_density(aes(fill=1,colour=1),alpha=0.3)
   
   this.mpi <- subset(mpi,iso==iso3)$hc
@@ -116,6 +116,6 @@ all.data <- all.data[order(-all.data$hc),]
 all.data$iso3 <- factor(all.data$iso3,levels=unique(all.data$iso3))
 all.plot <- ggplot(all.data,aes(x=income)) + geom_density(aes(fill=1,colour=1),alpha=0.3) + geom_vline(aes(xintercept=vline.cut)) + xlim(-3,3) + facet_wrap(~iso3,ncol=5) + theme_bw() + theme(legend.position="none") + labs(x="Adj. income",y="Density")
 
-ggsave(filename="D:/Documents/P20_small_wealth_multiples/aggregate/all.povcal.pdf",plot=all.plot,width=8,height=30,units="in",limitsize=FALSE)
-ggsave(filename="D:/Documents/P20_small_wealth_multiples/aggregate/all.povcal.alpha.pdf",plot=all.plot.alpha,width=8,height=30,units="in",limitsize=FALSE)
+ggsave(filename="C:/Users/Alex/Desktop/data/P20_small_wealth_multiples/aggregate/all.povcal.pdf",plot=all.plot,width=8,height=30,units="in",limitsize=FALSE)
+ggsave(filename="C:/Users/Alex/Desktop/data/P20_small_wealth_multiples/aggregate/all.povcal.alpha.pdf",plot=all.plot.alpha,width=8,height=30,units="in",limitsize=FALSE)
 

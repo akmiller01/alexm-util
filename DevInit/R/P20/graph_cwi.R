@@ -5,7 +5,7 @@ library(WDI)
 library(rCharts)
 library(plyr)
 
-setwd("D:/Documents/Data/DHSmeta")
+setwd("C:/Users/Alex/Desktop/data/DHSmeta")
 
 indicator <- "NY.GNP.PCAP.PP.KD"
 
