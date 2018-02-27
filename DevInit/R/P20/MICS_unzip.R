@@ -1,4 +1,5 @@
-wd <- "C:/Users/Alex/Documents/Data/P20/MICS/"
+# wd <- "C:/Users/Alex/Documents/Data/P20/MICS/"
+wd <- "C:/Users/Alex/Desktop/data/MICSauto/"
 setwd(wd)
 
 filenames <- list.files(wd, pattern="*.zip",ignore.case=TRUE)
@@ -27,7 +28,8 @@ for(i in 2:length(dirs)){
         }
       }
       else{
-        dirToCreate <- paste0("C:/Users/Alex/Documents/Data/P20/MICS_readmes/",basename(dir))
+        # dirToCreate <- paste0("C:/Users/Alex/Documents/Data/P20/MICS_readmes/",basename(dir))
+        dirToCreate <- paste("C:/Users/Alex/Desktop/data/MICS_readmes/",basename(dir))
         if(!file_test(op="-d", dirToCreate)){
           dir.create(dirToCreate)
         }
@@ -80,7 +82,8 @@ for(i in 2:length(dirs)){
 
 ###Let's write some CSVs
 
-wd <- "C:/Users/Alex/Documents/Data/P20/MICS"
+# wd <- "C:/Users/Alex/Documents/Data/P20/MICS"
+wd <- "C:/Users/Alex/Desktop/data/MICSauto/"
 setwd(wd)
 
 library(foreign)

@@ -1,0 +1,352 @@
+code_desc,code_val,dim_code,dim_name
+Units,0,CL_UNIT_MULT,Scale
+Hundreds,2,CL_UNIT_MULT,Scale
+Thousands,3,CL_UNIT_MULT,Scale
+Millions,6,CL_UNIT_MULT,Scale
+Billions,9,CL_UNIT_MULT,Scale
+Trillions,12,CL_UNIT_MULT,Scale
+Quadrillionths,N15,CL_UNIT_MULT,Scale
+Hundred Trillionths,N14,CL_UNIT_MULT,Scale
+Ten Trillionths,N13,CL_UNIT_MULT,Scale
+Trillionths,N12,CL_UNIT_MULT,Scale
+Hundred Billionths,N11,CL_UNIT_MULT,Scale
+Ten Billionths,N10,CL_UNIT_MULT,Scale
+Billionths,N9,CL_UNIT_MULT,Scale
+Hundred Millionths,N8,CL_UNIT_MULT,Scale
+Ten Millionths,N7,CL_UNIT_MULT,Scale
+Millionths,N6,CL_UNIT_MULT,Scale
+Hundred Thousandths,N5,CL_UNIT_MULT,Scale
+Ten Thousandths,N4,CL_UNIT_MULT,Scale
+Thousandths,N3,CL_UNIT_MULT,Scale
+Hundredths,N2,CL_UNIT_MULT,Scale
+Tenths,N1,CL_UNIT_MULT,Scale
+Tens,1,CL_UNIT_MULT,Scale
+Ten Thousands,4,CL_UNIT_MULT,Scale
+Hundred Thousands,5,CL_UNIT_MULT,Scale
+Ten Millions,7,CL_UNIT_MULT,Scale
+Hundred Millions,8,CL_UNIT_MULT,Scale
+Ten Billions,10,CL_UNIT_MULT,Scale
+Hundred Billions,11,CL_UNIT_MULT,Scale
+Ten Trillions,13,CL_UNIT_MULT,Scale
+Hundred Trillions,14,CL_UNIT_MULT,Scale
+Quadrillions,15,CL_UNIT_MULT,Scale
+Annual,A,CL_FREQ,Frequency
+Bi-annual,B,CL_FREQ,Frequency
+Quarterly,Q,CL_FREQ,Frequency
+Monthly,M,CL_FREQ,Frequency
+Daily,D,CL_FREQ,Frequency
+Weekly,W,CL_FREQ,Frequency
+Afghanistan,AF,CL_AREA_GFSR,Geographical Areas
+Albania,AL,CL_AREA_GFSR,Geographical Areas
+Algeria,DZ,CL_AREA_GFSR,Geographical Areas
+Angola,AO,CL_AREA_GFSR,Geographical Areas
+Anguilla,AI,CL_AREA_GFSR,Geographical Areas
+Antigua and Barbuda,AG,CL_AREA_GFSR,Geographical Areas
+Argentina,AR,CL_AREA_GFSR,Geographical Areas
+Armenia,AM,CL_AREA_GFSR,Geographical Areas
+Aruba,AW,CL_AREA_GFSR,Geographical Areas
+Australia,AU,CL_AREA_GFSR,Geographical Areas
+Austria,AT,CL_AREA_GFSR,Geographical Areas
+Azerbaijan,AZ,CL_AREA_GFSR,Geographical Areas
+Bahamas,BS,CL_AREA_GFSR,Geographical Areas
+Bahrain,BH,CL_AREA_GFSR,Geographical Areas
+Bangladesh,BD,CL_AREA_GFSR,Geographical Areas
+Barbados,BB,CL_AREA_GFSR,Geographical Areas
+Belarus,BY,CL_AREA_GFSR,Geographical Areas
+Belgium,BE,CL_AREA_GFSR,Geographical Areas
+Belize,BZ,CL_AREA_GFSR,Geographical Areas
+Benin,BJ,CL_AREA_GFSR,Geographical Areas
+Bhutan,BT,CL_AREA_GFSR,Geographical Areas
+Bolivia,BO,CL_AREA_GFSR,Geographical Areas
+Bosnia and Herzegovina,BA,CL_AREA_GFSR,Geographical Areas
+Botswana,BW,CL_AREA_GFSR,Geographical Areas
+Brazil,BR,CL_AREA_GFSR,Geographical Areas
+Brunei Darussalam,BN,CL_AREA_GFSR,Geographical Areas
+Bulgaria,BG,CL_AREA_GFSR,Geographical Areas
+Burkina Faso,BF,CL_AREA_GFSR,Geographical Areas
+Burundi,BI,CL_AREA_GFSR,Geographical Areas
+Cape Verde,CV,CL_AREA_GFSR,Geographical Areas
+Cambodia,KH,CL_AREA_GFSR,Geographical Areas
+Cameroon,CM,CL_AREA_GFSR,Geographical Areas
+Canada,CA,CL_AREA_GFSR,Geographical Areas
+Cayman Islands,KY,CL_AREA_GFSR,Geographical Areas
+Central African Republic,CF,CL_AREA_GFSR,Geographical Areas
+Chad,TD,CL_AREA_GFSR,Geographical Areas
+Chile,CL,CL_AREA_GFSR,Geographical Areas
+"Hong Kong, China",HK,CL_AREA_GFSR,Geographical Areas
+Macao,MO,CL_AREA_GFSR,Geographical Areas
+China,CN,CL_AREA_GFSR,Geographical Areas
+Colombia,CO,CL_AREA_GFSR,Geographical Areas
+Comoros,KM,CL_AREA_GFSR,Geographical Areas
+"Congo, the Democratic Republic of the",CD,CL_AREA_GFSR,Geographical Areas
+Congo,CG,CL_AREA_GFSR,Geographical Areas
+Cook Islands,CK,CL_AREA_GFSR,Geographical Areas
+Costa Rica,CR,CL_AREA_GFSR,Geographical Areas
+Côte d'Ivoire,CI,CL_AREA_GFSR,Geographical Areas
+Croatia,HR,CL_AREA_GFSR,Geographical Areas
+Curacao & St. Maarten,1C_355,CL_AREA_GFSR,Geographical Areas
+Cyprus,CY,CL_AREA_GFSR,Geographical Areas
+Czech Republic,CZ,CL_AREA_GFSR,Geographical Areas
+Denmark,DK,CL_AREA_GFSR,Geographical Areas
+Djibouti,DJ,CL_AREA_GFSR,Geographical Areas
+Dominica,DM,CL_AREA_GFSR,Geographical Areas
+Dominican Republic,DO,CL_AREA_GFSR,Geographical Areas
+Ecuador,EC,CL_AREA_GFSR,Geographical Areas
+Egypt,EG,CL_AREA_GFSR,Geographical Areas
+El Salvador,SV,CL_AREA_GFSR,Geographical Areas
+Equatorial Guinea,GQ,CL_AREA_GFSR,Geographical Areas
+Eritrea,ER,CL_AREA_GFSR,Geographical Areas
+Estonia,EE,CL_AREA_GFSR,Geographical Areas
+Ethiopia,ET,CL_AREA_GFSR,Geographical Areas
+Euro area (Member States and Institutions of the Euro Area) changing composition,U2,CL_AREA_GFSR,Geographical Areas
+Fiji,FJ,CL_AREA_GFSR,Geographical Areas
+Finland,FI,CL_AREA_GFSR,Geographical Areas
+France,FR,CL_AREA_GFSR,Geographical Areas
+Gabon,GA,CL_AREA_GFSR,Geographical Areas
+Gambia,GM,CL_AREA_GFSR,Geographical Areas
+Georgia,GE,CL_AREA_GFSR,Geographical Areas
+Germany,DE,CL_AREA_GFSR,Geographical Areas
+Ghana,GH,CL_AREA_GFSR,Geographical Areas
+Greece,GR,CL_AREA_GFSR,Geographical Areas
+Grenada,GD,CL_AREA_GFSR,Geographical Areas
+Guatemala,GT,CL_AREA_GFSR,Geographical Areas
+Guinea,GN,CL_AREA_GFSR,Geographical Areas
+Guinea-Bissau,GW,CL_AREA_GFSR,Geographical Areas
+Guyana,GY,CL_AREA_GFSR,Geographical Areas
+Haiti,HT,CL_AREA_GFSR,Geographical Areas
+Honduras,HN,CL_AREA_GFSR,Geographical Areas
+Hungary,HU,CL_AREA_GFSR,Geographical Areas
+Iceland,IS,CL_AREA_GFSR,Geographical Areas
+India,IN,CL_AREA_GFSR,Geographical Areas
+Indonesia,ID,CL_AREA_GFSR,Geographical Areas
+"Iran, Islamic Republic of",IR,CL_AREA_GFSR,Geographical Areas
+Iraq,IQ,CL_AREA_GFSR,Geographical Areas
+Ireland,IE,CL_AREA_GFSR,Geographical Areas
+Israel,IL,CL_AREA_GFSR,Geographical Areas
+Italy,IT,CL_AREA_GFSR,Geographical Areas
+Jamaica,JM,CL_AREA_GFSR,Geographical Areas
+Japan,JP,CL_AREA_GFSR,Geographical Areas
+Jordan,JO,CL_AREA_GFSR,Geographical Areas
+Kazakhstan,KZ,CL_AREA_GFSR,Geographical Areas
+Kenya,KE,CL_AREA_GFSR,Geographical Areas
+Kiribati,KI,CL_AREA_GFSR,Geographical Areas
+"Korea, Republic of",KR,CL_AREA_GFSR,Geographical Areas
+Kosovo,XK,CL_AREA_GFSR,Geographical Areas
+Kuwait,KW,CL_AREA_GFSR,Geographical Areas
+Kyrgyzstan,KG,CL_AREA_GFSR,Geographical Areas
+Lao People`s Democratic Republic,LA,CL_AREA_GFSR,Geographical Areas
+Latvia,LV,CL_AREA_GFSR,Geographical Areas
+Lebanon,LB,CL_AREA_GFSR,Geographical Areas
+Lesotho,LS,CL_AREA_GFSR,Geographical Areas
+Liberia,LR,CL_AREA_GFSR,Geographical Areas
+Libya,LY,CL_AREA_GFSR,Geographical Areas
+Lithuania,LT,CL_AREA_GFSR,Geographical Areas
+Luxembourg,LU,CL_AREA_GFSR,Geographical Areas
+"Macedonia, The Former Yugoslav Republic of",MK,CL_AREA_GFSR,Geographical Areas
+Madagascar,MG,CL_AREA_GFSR,Geographical Areas
+Malawi,MW,CL_AREA_GFSR,Geographical Areas
+Malaysia,MY,CL_AREA_GFSR,Geographical Areas
+Maldives,MV,CL_AREA_GFSR,Geographical Areas
+Mali,ML,CL_AREA_GFSR,Geographical Areas
+Malta,MT,CL_AREA_GFSR,Geographical Areas
+Marshall islands,MH,CL_AREA_GFSR,Geographical Areas
+Mauritania,MR,CL_AREA_GFSR,Geographical Areas
+Mauritius,MU,CL_AREA_GFSR,Geographical Areas
+Mexico,MX,CL_AREA_GFSR,Geographical Areas
+"Micronesia, Federated States of",FM,CL_AREA_GFSR,Geographical Areas
+"Moldova, Republic of",MD,CL_AREA_GFSR,Geographical Areas
+Monaco,MC,CL_AREA_GFSR,Geographical Areas
+Mongolia,MN,CL_AREA_GFSR,Geographical Areas
+Montenegro,ME,CL_AREA_GFSR,Geographical Areas
+Montserrat,MS,CL_AREA_GFSR,Geographical Areas
+Morocco,MA,CL_AREA_GFSR,Geographical Areas
+Mozambique,MZ,CL_AREA_GFSR,Geographical Areas
+Myanmar,MM,CL_AREA_GFSR,Geographical Areas
+Namibia,NA,CL_AREA_GFSR,Geographical Areas
+Nauru,NR,CL_AREA_GFSR,Geographical Areas
+Nepal,NP,CL_AREA_GFSR,Geographical Areas
+Netherlands,NL,CL_AREA_GFSR,Geographical Areas
+Netherlands Antilles,AN,CL_AREA_GFSR,Geographical Areas
+New Zealand,NZ,CL_AREA_GFSR,Geographical Areas
+Nicaragua,NI,CL_AREA_GFSR,Geographical Areas
+Niger,NE,CL_AREA_GFSR,Geographical Areas
+Nigeria,NG,CL_AREA_GFSR,Geographical Areas
+Norway,NO,CL_AREA_GFSR,Geographical Areas
+Oman,OM,CL_AREA_GFSR,Geographical Areas
+Pakistan,PK,CL_AREA_GFSR,Geographical Areas
+Palau,PW,CL_AREA_GFSR,Geographical Areas
+Panama,PA,CL_AREA_GFSR,Geographical Areas
+Papua New Guinea,PG,CL_AREA_GFSR,Geographical Areas
+Paraguay,PY,CL_AREA_GFSR,Geographical Areas
+Peru,PE,CL_AREA_GFSR,Geographical Areas
+Philippines,PH,CL_AREA_GFSR,Geographical Areas
+Poland,PL,CL_AREA_GFSR,Geographical Areas
+Portugal,PT,CL_AREA_GFSR,Geographical Areas
+Qatar,QA,CL_AREA_GFSR,Geographical Areas
+Romania,RO,CL_AREA_GFSR,Geographical Areas
+Russian Federation,RU,CL_AREA_GFSR,Geographical Areas
+Rwanda,RW,CL_AREA_GFSR,Geographical Areas
+Samoa,WS,CL_AREA_GFSR,Geographical Areas
+San Marino,SM,CL_AREA_GFSR,Geographical Areas
+Sao Tome and Principe,ST,CL_AREA_GFSR,Geographical Areas
+Saudi Arabia,SA,CL_AREA_GFSR,Geographical Areas
+Senegal,SN,CL_AREA_GFSR,Geographical Areas
+Serbia and Montenegro,CS,CL_AREA_GFSR,Geographical Areas
+Serbia,RS,CL_AREA_GFSR,Geographical Areas
+Seychelles,SC,CL_AREA_GFSR,Geographical Areas
+Sierra Leone,SL,CL_AREA_GFSR,Geographical Areas
+Singapore,SG,CL_AREA_GFSR,Geographical Areas
+Slovakia,SK,CL_AREA_GFSR,Geographical Areas
+Slovenia,SI,CL_AREA_GFSR,Geographical Areas
+Solomon Islands,SB,CL_AREA_GFSR,Geographical Areas
+Somalia,SO,CL_AREA_GFSR,Geographical Areas
+South Africa,ZA,CL_AREA_GFSR,Geographical Areas
+South Sudan,SS,CL_AREA_GFSR,Geographical Areas
+Spain,ES,CL_AREA_GFSR,Geographical Areas
+Sri Lanka,LK,CL_AREA_GFSR,Geographical Areas
+Saint Kitts and Nevis,KN,CL_AREA_GFSR,Geographical Areas
+Saint Lucia,LC,CL_AREA_GFSR,Geographical Areas
+Saint Vincent and the Grenadines,VC,CL_AREA_GFSR,Geographical Areas
+Sudan,SD,CL_AREA_GFSR,Geographical Areas
+Suriname,SR,CL_AREA_GFSR,Geographical Areas
+Swaziland,SZ,CL_AREA_GFSR,Geographical Areas
+Sweden,SE,CL_AREA_GFSR,Geographical Areas
+Switzerland,CH,CL_AREA_GFSR,Geographical Areas
+Syrian Arab Republic,SY,CL_AREA_GFSR,Geographical Areas
+Tajikistan,TJ,CL_AREA_GFSR,Geographical Areas
+"Tanzania, United Republic of",TZ,CL_AREA_GFSR,Geographical Areas
+Thailand,TH,CL_AREA_GFSR,Geographical Areas
+Timor-Leste,TL,CL_AREA_GFSR,Geographical Areas
+Togo,TG,CL_AREA_GFSR,Geographical Areas
+Tonga,TO,CL_AREA_GFSR,Geographical Areas
+Trinidad and Tobago,TT,CL_AREA_GFSR,Geographical Areas
+Tunisia,TN,CL_AREA_GFSR,Geographical Areas
+Turkey,TR,CL_AREA_GFSR,Geographical Areas
+Turkmenistan,TM,CL_AREA_GFSR,Geographical Areas
+Tuvalu,TV,CL_AREA_GFSR,Geographical Areas
+Uganda,UG,CL_AREA_GFSR,Geographical Areas
+Ukraine,UA,CL_AREA_GFSR,Geographical Areas
+United Arab Emirates,AE,CL_AREA_GFSR,Geographical Areas
+United Kingdom,GB,CL_AREA_GFSR,Geographical Areas
+United States,US,CL_AREA_GFSR,Geographical Areas
+Uruguay,UY,CL_AREA_GFSR,Geographical Areas
+Uzbekistan,UZ,CL_AREA_GFSR,Geographical Areas
+Vanuatu,VU,CL_AREA_GFSR,Geographical Areas
+"Venezuela, Bolivarian Republic",VE,CL_AREA_GFSR,Geographical Areas
+Viet Nam,VN,CL_AREA_GFSR,Geographical Areas
+"Palestine, State of",PS,CL_AREA_GFSR,Geographical Areas
+Yemen Arab Rep.,1C_473,CL_AREA_GFSR,Geographical Areas
+Yemen,YE,CL_AREA_GFSR,Geographical Areas
+Zambia,ZM,CL_AREA_GFSR,Geographical Areas
+Zimbabwe,ZW,CL_AREA_GFSR,Geographical Areas
+AAA,1C_AAA,CL_AREA_GFSR,Geographical Areas
+All Countries,1C_ALLC,CL_AREA_GFSR,Geographical Areas
+All Countries and Country Groups,1C_ALL,CL_AREA_GFSR,Geographical Areas
+All Countries for Dissemination,1C_All_Countries_for_Dissemination,CL_AREA_GFSR,Geographical Areas
+All Countries for Dissemination - Online,1C_Al_Countries_for_Dissemination_Online,CL_AREA_GFSR,Geographical Areas
+All Countries for Dissemination - Print,1C_GFSY_2014_Country_Pages,CL_AREA_GFSR,Geographical Areas
+All Country Groups,1C_ALLG,CL_AREA_GFSR,Geographical Areas
+Template I,1C_Template_I,CL_AREA_GFSR,Geographical Areas
+Template II,1C_Template_II,CL_AREA_GFSR,Geographical Areas
+Template III,1C_Template_III,CL_AREA_GFSR,Geographical Areas
+Template IV,1C_Template_IV,CL_AREA_GFSR,Geographical Areas
+Budgetary central government,S1311B,CL_SECTOR_GFSR,Sector
+Central government (excl. social security funds),S1311,CL_SECTOR_GFSR,Sector
+Central government (incl. social security funds),S1321,CL_SECTOR_GFSR,Sector
+Extrabudgetary central government,S13112,CL_SECTOR_GFSR,Sector
+General government,S13,CL_SECTOR_GFSR,Sector
+Local governments,S1313,CL_SECTOR_GFSR,Sector
+Social security funds,S1314,CL_SECTOR_GFSR,Sector
+State governments,S1312,CL_SECTOR_GFSR,Sector
+Domestic currency,XDC,CL_UNIT_GFSR,Unit
+Percent of GDP,XDC_R_B1GQ,CL_UNIT_GFSR,Unit
+Customs & other import duties,W0_S1_G1151,CL_INDICATOR_GFSR,Indicator
+Dividend revenue,W0_S1_G1412,CL_INDICATOR_GFSR,Indicator
+Excise taxes,W0_S1_G1142,CL_INDICATOR_GFSR,Indicator
+General taxes on goods & services,W0_S1_G1141,CL_INDICATOR_GFSR,Indicator
+Grants in cash,W0_S1_G1M13A,CL_INDICATOR_GFSR,Indicator
+Grants in kind,W0_S1_G1M13B,CL_INDICATOR_GFSR,Indicator
+Grants revenue,W0_S1_G13,CL_INDICATOR_GFSR,Indicator
+Grants revenue from foreign govts,W1_S13_G13,CL_INDICATOR_GFSR,Indicator
+Grants revenue from foreign govts: capital,W1_S13_G13K,CL_INDICATOR_GFSR,Indicator
+Grants revenue from foreign govts: current,W1_S13_G13C,CL_INDICATOR_GFSR,Indicator
+Grants revenue from int orgs,1A_S1_G13,CL_INDICATOR_GFSR,Indicator
+Grants revenue from int orgs: capital,1A_S1_G13K,CL_INDICATOR_GFSR,Indicator
+Grants revenue from int orgs: current,1A_S1_G13C,CL_INDICATOR_GFSR,Indicator
+Grants revenue from other gen govt,W2_S13_G13,CL_INDICATOR_GFSR,Indicator
+Grants revenue from other gen govt: capital,W2_S13_G13K,CL_INDICATOR_GFSR,Indicator
+Grants revenue from other gen govt: current,W2_S13_G13C,CL_INDICATOR_GFSR,Indicator
+Imputed social contributions revenue,W0_S1_G1223,CL_INDICATOR_GFSR,Indicator
+Interest revenue,W0_S1_G1411,CL_INDICATOR_GFSR,Indicator
+Interest revenue from nonresidents,W1_S1_G1411,CL_INDICATOR_GFSR,Indicator
+Interest revenue from other gen govt,W2_S13_G1411,CL_INDICATOR_GFSR,Indicator
+Interest revenue from residents other than gen govt,W2_S1W_G1411,CL_INDICATOR_GFSR,Indicator
+Other recurrent taxes on property,W0_S1_G1136,CL_INDICATOR_GFSR,Indicator
+Other revenue,W0_S1_G14,CL_INDICATOR_GFSR,Indicator
+Other social contributions revenue,W0_S1_G122,CL_INDICATOR_GFSR,Indicator
+Other social contributions revenue: employees,W0_S1_G1221,CL_INDICATOR_GFSR,Indicator
+Other social contributions revenue: employers,W0_S1_G1222,CL_INDICATOR_GFSR,Indicator
+Other taxes n.e.c.,W0_S1_G116,CL_INDICATOR_GFSR,Indicator
+Other taxes on goods & services,W0_S1_G1146,CL_INDICATOR_GFSR,Indicator
+Other taxes on int trade & transactions,W0_S1_G1156,CL_INDICATOR_GFSR,Indicator
+Property income from investment income disbursements,W0_S1_G1414,CL_INDICATOR_GFSR,Indicator
+Property income revenue,W0_S1_G141,CL_INDICATOR_GFSR,Indicator
+Recurrent taxes on immovable property,W0_S1_G1131,CL_INDICATOR_GFSR,Indicator
+Recurrent taxes on net wealth,W0_S1_G1132,CL_INDICATOR_GFSR,Indicator
+Reinvested earnings on FDI,W0_S1_G1416,CL_INDICATOR_GFSR,Indicator
+Rent revenue,W0_S1_G1415,CL_INDICATOR_GFSR,Indicator
+Revenue,W0_S1_G1,CL_INDICATOR_GFSR,Indicator
+Revenue from  NI & SGS: capital claims,W0_S1_G1452,CL_INDICATOR_GFSR,Indicator
+Revenue from  NI & SGS: current claims,W0_S1_G14513,CL_INDICATOR_GFSR,Indicator
+Revenue from  NI & SGS: fees,W0_S1_G14512,CL_INDICATOR_GFSR,Indicator
+Revenue from  NI & SGS: premiums,W0_S1_G14511,CL_INDICATOR_GFSR,Indicator
+"Revenue from  NI & SGS: premiums, fees & claims",W0_S1_G145,CL_INDICATOR_GFSR,Indicator
+"Revenue from  NI & SGS: premiums, fees & current claims",W0_S1_G1451,CL_INDICATOR_GFSR,Indicator
+Revenue from administrative fees,W0_S1_G1422,CL_INDICATOR_GFSR,Indicator
+"Revenue from fines, penalties & forfeits",W0_S1_G143,CL_INDICATOR_GFSR,Indicator
+Revenue from imputed sales of goods & services,W0_S1_G1424,CL_INDICATOR_GFSR,Indicator
+Revenue from other current transfers: not subsidies,W0_S1_G14412,CL_INDICATOR_GFSR,Indicator
+Revenue from other current transfers: subsidies,W0_S1_G14411,CL_INDICATOR_GFSR,Indicator
+Revenue from other transfers,W0_S1_G144,CL_INDICATOR_GFSR,Indicator
+Revenue from other transfers: capital,W00_S1W_G1442,CL_INDICATOR_GFSR,Indicator
+Revenue from other transfers: current,W0_S1_G1441,CL_INDICATOR_GFSR,Indicator
+Revenue from sales of goods & services,W0_S1_G142,CL_INDICATOR_GFSR,Indicator
+Revenue from sales of market establishments,W0_S1_G1421,CL_INDICATOR_GFSR,Indicator
+Revenue from sales of nonmarket establishments,W0_S1_G1423,CL_INDICATOR_GFSR,Indicator
+Sales taxes,W0_S1_G11412,CL_INDICATOR_GFSR,Indicator
+Self/non-employed social contributions revenue,W0_S1_G1213,CL_INDICATOR_GFSR,Indicator
+Social contributions,W0_S1_G12,CL_INDICATOR_GFSR,Indicator
+Social security contributions revenue,W0_S1_G121,CL_INDICATOR_GFSR,Indicator
+Social security contributions revenue: employers,W0_S1_G1212,CL_INDICATOR_GFSR,Indicator
+Social security contributions: revenue employees,W0_S1_G1211,CL_INDICATOR_GFSR,Indicator
+Tax revenue,W0_S1_G11,CL_INDICATOR_GFSR,Indicator
+Taxes in the form of capital levies on property,W0_S1_G1135,CL_INDICATOR_GFSR,Indicator
+Taxes in the form of profits of fiscal monopolies,W0_S1_G1143,CL_INDICATOR_GFSR,Indicator
+"Taxes on estate, inheritance, & gifts",W0_S1_G1133,CL_INDICATOR_GFSR,Indicator
+Taxes on exchange profits,W0_S1_G1154,CL_INDICATOR_GFSR,Indicator
+Taxes on exports,W0_S1_G1152,CL_INDICATOR_GFSR,Indicator
+Taxes on financial & capital transactions,W0_S1_G11414,CL_INDICATOR_GFSR,Indicator
+Taxes on foreign exchange ,W0_S1_G1155,CL_INDICATOR_GFSR,Indicator
+Taxes on goods & services,W0_S1_G114,CL_INDICATOR_GFSR,Indicator
+"Taxes on income, profits, & capital gains",W0_S1_G111,CL_INDICATOR_GFSR,Indicator
+"Taxes on income, profits, & capital gains: corporations",W0_S1_G1112,CL_INDICATOR_GFSR,Indicator
+"Taxes on income, profits, & capital gains: individuals",W0_S1_G1111,CL_INDICATOR_GFSR,Indicator
+"Taxes on income, profits, & capital gains: other",W0_S1_G1113,CL_INDICATOR_GFSR,Indicator
+Taxes on int trade & transactions,W0_S1_G115,CL_INDICATOR_GFSR,Indicator
+Taxes on payroll & workforce,W0_S1_G112,CL_INDICATOR_GFSR,Indicator
+Taxes on profits of export/import monopolies,W0_S1_G1153,CL_INDICATOR_GFSR,Indicator
+Taxes on property,W0_S1_G113,CL_INDICATOR_GFSR,Indicator
+Taxes on specific services,W0_S1_G1144,CL_INDICATOR_GFSR,Indicator
+Taxes on use of/permission to use goods,W0_S1_G1145,CL_INDICATOR_GFSR,Indicator
+Taxes on use of/permission to use goods: other,W0_S1_G11452,CL_INDICATOR_GFSR,Indicator
+Taxes on use of/permission to use goods: vehicles,W0_S1_G11451,CL_INDICATOR_GFSR,Indicator
+Turnover & general taxes on goods & services,W0_S1_G11413,CL_INDICATOR_GFSR,Indicator
+Unallocable social contributions revenue,W0_S1_G1214,CL_INDICATOR_GFSR,Indicator
+Value-added taxes,W0_S1_G11411,CL_INDICATOR_GFSR,Indicator
+Withdrawals of income from quasi-corporations,W0_S1_G1413,CL_INDICATOR_GFSR,Indicator
+Annual,P1Y,CL_TIME_FORMAT,Time format
+Bi-annual,P6M,CL_TIME_FORMAT,Time format
+Quarterly,P3M,CL_TIME_FORMAT,Time format
+Monthly,P1M,CL_TIME_FORMAT,Time format
+Weekly,P7D,CL_TIME_FORMAT,Time format
+Daily,P1D,CL_TIME_FORMAT,Time format
