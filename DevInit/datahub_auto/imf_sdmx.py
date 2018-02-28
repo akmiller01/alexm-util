@@ -137,8 +137,8 @@ def imfDF(db_key,params="",startPeriod=None,endPeriod=None):
     
 # dbs = imfDB()
 # ds = imfDS("MCDREO")
-codelist = imfCL("GFSR")
-pd.DataFrame(codelist).to_csv("GFSR_codelist.csv",index=False,encoding="utf8")
+# codelist = imfCL("GFSR")
+# pd.DataFrame(codelist).to_csv("GFSR_codelist.csv",index=False,encoding="utf8")
 # cd = imfCD("GFSR","A..S1311B.XDC.W0_S1_G1","2014","2016")
-df = imfDF("GFSR","A..S1311B.XDC.W0_S1_G1","2014","2016")
-df.to_csv("GFSR.csv",index=False)
+# df = imfDF("GFSR","A..S1311B.XDC.W0_S1_G1","2014","2016")
+# df.to_csv("GFSR.csv",index=False)
