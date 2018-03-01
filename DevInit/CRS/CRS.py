@@ -10,17 +10,16 @@ import codecs
 import subprocess
 import csv
 import pdb
+from progressbar import ProgressBar
 
 
 #Parse Options
 parser = OptionParser()
-parser.add_option("-i", "--input", dest="input", default="D:/CRS/",
+parser.add_option("-i", "--input", dest="input", default="C:\\Users\\Alex\\Documents\\Data\\CRS\\",
                 help="Input folder.", metavar="FOLDER")
-parser.add_option("-o", "--output", dest="output", default="D:/CRS/",
+parser.add_option("-o", "--output", dest="output", default="C:\\Users\\Alex\\Documents\\Data\\CRS\\",
                 help="Output folder.", metavar="FILE")
-parser.add_option("-d", "--download", dest="download", default=False,
-                help="Re-download?", metavar="BOOLEAN")
-parser.add_option("-u", "--unzip", dest="unzip", default=True,
+parser.add_option("-u", "--unzip", dest="unzip", default=False,
                 help="Re-unzip?", metavar="BOOLEAN")
 (options, args) = parser.parse_args()
 
@@ -71,51 +70,26 @@ class Recoder(object):
         return self._stream.close()
 
 def unzip(source_filename, dest_dir):
-    with zipfile.ZipFile(source_filename) as zf:
-        for member in zf.infolist():
-            # Path traversal defense copied from
-            # http://hg.python.org/cpython/file/tip/Lib/http/server.py#l789
-            words = member.filename.split('/')
-            path = dest_dir
-            for word in words[:-1]:
-                drive, word = os.path.splitdrive(word)
-                head, word = os.path.split(word)
-                if word in (os.curdir, os.pardir, ''): continue
-                path = os.path.join(path, word)
-            zf.extract(member, path)
+    zip_ref = zipfile.ZipFile(source_filename,'r')
+    zip_ref.extractall(dest_dir)
+    zip_ref.close()
             
-syms = ['\\', '|', '/', '-']
-bs = '\b'
-spinIndex = 0
-def spin():
-    global spinIndex
-    spinIndex = 0 if spinIndex>3 else spinIndex
-    sym = syms[spinIndex]
-    sys.stdout.write("\b%s" % sym)
-    sys.stdout.flush()
-    spinIndex+=1
-
-#Re-download?
-if options.download==True:
-    print "Re-downloading zip files to "+options.input
-    print subprocess.check_output(["node","downloadCRS.js",options.input])
-
 #Find .zip in folder
-paths = glob.glob(options.input+"/*.zip")
+paths = glob.glob(options.input+"*.zip")
 
 #Iterate through paths and unzip
 if options.unzip==True:
     for inPath in paths:
         filename = os.path.basename(inPath)
         print "Extracting "+filename
-        # unzip(inPath,options.input)
-        #os.remove(inPath)
+        unzip(inPath,options.input)
 
 #Find .txt in folder
 txtpaths = glob.glob(options.input+"/*.txt")
 
 #Iterate through paths and re-encode and replace nul
 for inPath in txtpaths:
+    pbar = ProgressBar()
     filename = os.path.basename(inPath)
     name, extension = os.path.splitext(filename)
     print "Reading "+filename
@@ -129,8 +103,7 @@ for inPath in txtpaths:
         outPath = options.output+name+".csv"
         with open(outPath, 'wb') as fw:
             writer = csv.writer(fw,delimiter=",",quotechar="\"")
-            for line in sr:
-                spin()
+            for line in pbar(sr):
                 row = line.replace("\x00","").replace("\x1a","'").split("|")[0:-1]
                 writer.writerow(map(uni,row))
     os.remove(inPath)
