@@ -30,7 +30,8 @@ all.entities <- ddw("reference.di_entity")
 userDat <- function(data,basename){
   #Read Data
   names <- colnames(data)
-  fwd = paste0(wd,basename)
+  formatted_basename = gsub("_","-",strsplit(basename,".",fixed=TRUE)[[1]][2],fixed=TRUE)
+  fwd = paste0(wd,formatted_basename)
   
   #Add country names
   entities <- all.entities[c("id","name")]
@@ -104,12 +105,12 @@ userDat <- function(data,basename){
   dir.create(cwd)
   
   #Create workbook
-  wb <- createWorkbook(basename)
+  wb <- createWorkbook(formatted_basename)
   
   #Start notes sheet/csv
   concept = concepts[which(concepts$id==basename),]
   notesList <- c(
-    paste("Name:",basename)
+    paste("Name:",formatted_basename)
     ,paste("Description:",concept$description)
     ,paste("Units of measure:",concept$uom)
     ,paste("Source:",concept[,"source"])
@@ -133,7 +134,7 @@ userDat <- function(data,basename){
   addWorksheet(wb,"Notes")
   
   #Copy the data
-  write.csv(data,paste0(cwd,"/",basename,".csv"),row.names=FALSE,na="")
+  write.csv(data,paste0(cwd,"/",formatted_basename,".csv"),row.names=FALSE,na="")
   addWorksheet(wb,"Data")
   writeData(wb,sheet="Data",data,colNames=TRUE,rowNames=FALSE)    
   
@@ -158,7 +159,7 @@ userDat <- function(data,basename){
     )
     addWorksheet(wb,"Data-wide-value")
     writeData(wb,sheet="Data-wide-value",wdata,colNames=TRUE,rowNames=FALSE)  
-    write.csv(wdata,paste(cwd,"/",basename,"-wide-value",".csv",sep=""),row.names=FALSE,na="")
+    write.csv(wdata,paste(cwd,"/",formatted_basename,"-wide-value",".csv",sep=""),row.names=FALSE,na="")
   }
   #Wide for original-value
   if("di_id" %in% names & "year" %in% names & "original_value" %in% names)  {
@@ -181,7 +182,7 @@ userDat <- function(data,basename){
     )
     addWorksheet(wb,"Data-wide-original-value")
     writeData(wb,sheet="Data-wide-original-value",wdata,colNames=TRUE,rowNames=FALSE)  
-    write.csv(wdata,paste(cwd,"/",basename,"-wide-original-value",".csv",sep=""),row.names=FALSE,na="")
+    write.csv(wdata,paste(cwd,"/",formatted_basename,"-wide-original-value",".csv",sep=""),row.names=FALSE,na="")
   }
   
   #Reference
@@ -220,8 +221,8 @@ userDat <- function(data,basename){
   )
   notesDf <- data.frame(notesList)
   writeData(wb,sheet="Notes",notesDf,colNames=FALSE,rowNames=FALSE)  
-  write.table(notesDf,paste0(cwd,"/",basename,"-notes",".csv"),col.names=FALSE,row.names=FALSE,na="",sep=",")
-  saveWorkbook(wb, paste0(basename,".xlsx"), overwrite = TRUE)
+  write.table(notesDf,paste0(cwd,"/",formatted_basename,"-notes",".csv"),col.names=FALSE,row.names=FALSE,na="",sep=",")
+  saveWorkbook(wb, paste0(formatted_basename,".xlsx"), overwrite = TRUE)
   
   #Go back to user-data folder
   setwd(wd)
@@ -246,3 +247,5 @@ for(id in unique(concepts$id)){
     userDat(dat,id)
   }
 }
+
+dbDisconnect(con)

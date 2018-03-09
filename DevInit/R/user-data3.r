@@ -76,10 +76,10 @@ print("")
 # Install packages (in a temporary location) that you need and don't already have
 # Make sure that the folder where you want to install the packages exists first
 # If it does not the installation will bail
-# In this case: ~/user-data-test/packages
+# In this case: C:/git/digital-platform/packages
 # install.packages(
 #   c("reshape", "openxlsx")
-#   , lib = "~/user-data-test/packages"
+#   , lib = "C:/git/digital-platform/packages"
 #   # UK, University of Bristol
 #   , repos = "https://www.stats.bris.ac.uk/R/"
 # )
@@ -91,10 +91,10 @@ print("")
 
 # Load and attach the add-on packages that you need
 library("openxlsx"
-        # , lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE
+        # , lib.loc = "C:/git/digital-platform/packages", warn.conflicts = TRUE
         )
 library("reshape"
-        # , lib.loc = "~/user-data-test/packages", warn.conflicts = TRUE
+        # , lib.loc = "C:/git/digital-platform/packages", warn.conflicts = TRUE
         )
 
 ###############################################################################
@@ -103,7 +103,7 @@ library("reshape"
 
 # Specify the working directory i.e., the directory where the .csv data files are
 # You will use the .csv data files in this directory to populate the 'user-data' folder
-wd <- "~/user-data-test/user-data"
+wd <- "C:/git/digital-platform/user-data"
 print("")
 print( paste( "Working directory:                                     ", wd, sep = "" ) )
 print("")
@@ -153,7 +153,7 @@ unlink(
 # This means that further down the line you have to put in a check
 # to make sure that files that are not listed in the control file concepts.csv do not get processed
 absolute_file_name <- list.files(
-  "~/user-data-test/country-year"
+  "C:/git/digital-platform/country-year"
   , pattern = "*.csv"
   , full.names = TRUE
   , recursive = TRUE
@@ -172,13 +172,13 @@ exclusions <- (
 )
 absolute_file_name <- absolute_file_name[!exclusions]
 # Specify the reference directory i.e., the directory where the reference .csv data files are
-reference_file_location = "~/user-data-test/reference/"
+reference_file_location = "C:/git/digital-platform/reference/"
 print("")
 print( paste( "Working reference directory:                           ", reference_file_location, sep = "" ) )
 print("")
 
 # Specify the control file location
-control_file = "~/user-data-test/concepts.csv"
+control_file = "C:/git/digital-platform/concepts.csv"
 print("")
 print( paste( "Control file:                                          ", control_file, sep = "" ) )
 print("")
@@ -416,7 +416,7 @@ for ( i in 1:length( absolute_file_name ) ) {
     # 42 = i after ...country-year/
     # nchar( absolute_file_name[ i ] ) = length of absolute_file_name
     # - 4 = get rid of the '.csv'
-    relative_file_name = substr( absolute_file_name[ i ], 41, nchar( absolute_file_name[ i ] ) - 4 )
+    relative_file_name = substr( absolute_file_name[ i ], 38, nchar( absolute_file_name[ i ] ) - 4 )
     print("")
     print( paste( "Relative file name:                                    ", relative_file_name, ".csv", sep = "" ) )
     print("")
@@ -428,6 +428,7 @@ for ( i in 1:length( absolute_file_name ) ) {
     # The tru file names comes after the last instance of '/'
     # So we want to match anything that comes after the last instance of '/'
     file_name = substr( relative_file_name, regexpr( pattern = "[^/]*$", relative_file_name ), nchar( relative_file_name ) )
+    file_name = gsub("_","-",file_name)
     print("")
     print( paste( "File name:                                             ", file_name, ".csv", sep = "") )
     print("")
