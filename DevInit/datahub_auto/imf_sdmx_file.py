@@ -65,11 +65,23 @@ def parseSDMX(xml):
                         
             output.append(data)
     full_df = pd.DataFrame(output)
-    pdb.set_trace()
-    return(full_df)
+    full_df.to_csv("IMFWEO.csv",index=False,encoding="utf-8")
 
 def parseSDMXd(xsd):
-    pdb.set_trace()
+    output = []
+    schema = xmltodict.parse(xsd)
+    simpleTypes = schema['xs:schema']['xs:simpleType']
+    for simpleType in simpleTypes:
+        name = simpleType["@name"]
+        if "xs:enumeration" in simpleType["xs:restriction"].keys():
+            enumerations = simpleType["xs:restriction"]["xs:enumeration"]
+            for enumeration in enumerations:
+                value = enumeration["@value"]
+                text = enumeration["xs:annotation"]["xs:documentation"]["#text"]
+                obj = {"name":name,"value":value,"text":text}
+                output.append(obj)
+    schema_df = pd.DataFrame(output)
+    schema_df.to_csv("IMFWEO_codebook.csv",index=False,encoding="latin1")
     
 if __name__=="__main__":
 
