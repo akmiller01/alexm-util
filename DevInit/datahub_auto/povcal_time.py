@@ -1,8 +1,7 @@
 import requests
 import re
 import pandas as pd
-from progressbar import ProgressBar
-pbar = ProgressBar()
+import pdb
 
 url = "http://iresearch.worldbank.org/PovcalNet/PovcalNetAPI.ashx"
 params = {
@@ -186,32 +185,24 @@ params = {
     "Countries":"all",
     "GroupedBy":"WB",
     "PovertyLine":"1.9",
-    "YearSelected":"2013",
+    "YearSelected":",".join([str(elm) for elm in range(1993,2014)]),
     "format":"js"
 }
-agg_results = []
-smy_results = []
-for pl in pbar(range(1,501)):
-    params["PovertyLine"] = str(pl/100.0)
-    response = requests.post(url=url,params=params)
-    
-    raw_content = str(response.content)
-    
-    agg = re.findall('aggrItem\((.*?)\)',raw_content)
-    smy = re.findall('smyItem\((.*?)\)',raw_content)
-    
-    agg_format = "[{}]".format(",".join(["[{}]".format(row) for row in agg])).replace("\\","")
-    smy_format = "[{}]".format(",".join(["[{}]".format(row) for row in smy])).replace("\\","")
-    
-    agg_data_temp = pd.read_json(agg_format)
-    agg_data_temp.columns = ["RequestYear","RegionTitle","RegionCID","PovertyLine","Mean","H","PG","P2","Populations"]
-    smy_data_temp = pd.read_json(smy_format)
-    smy_data_temp.columns = ["isConsolidated","displayMode","useMicroData","CountryCode","CountryName","RegionCID","CoverageType","RequestYear","DataType","PPP","PovertyLine","Mean","H","PG","P2","watts","gini","median","mld","pol","rmed","rmhalf","ris","IA","Populations","DataYear","SvyInfoID","PPPStatus","Deciles","Unknown"]
-    agg_results.append(agg_data_temp)
-    smy_results.append(smy_data_temp)
-    
-agg_data = pd.concat(agg_results)
-smy_data = pd.concat(smy_results)
+
+response = requests.post(url=url,params=params)
+
+raw_content = str(response.content)
+
+agg = re.findall('aggrItem\((.*?)\)',raw_content)
+smy = re.findall('smyItem\((.*?)\)',raw_content)
+
+agg_format = "[{}]".format(",".join(["[{}]".format(row) for row in agg])).replace("\\","")
+smy_format = "[{}]".format(",".join(["[{}]".format(row) for row in smy])).replace("\\","")
+
+agg_data = pd.read_json(agg_format)
+agg_data.columns = ["RequestYear","RegionTitle","RegionCID","PovertyLine","Mean","H","PG","P2","Populations"]
+smy_data = pd.read_json(smy_format)
+smy_data.columns = ["isConsolidated","displayMode","useMicroData","CountryCode","CountryName","RegionCID","CoverageType","RequestYear","DataType","PPP","PovertyLine","Mean","H","PG","P2","watts","gini","median","mld","pol","rmed","rmhalf","ris","IA","Populations","DataYear","SvyInfoID","PPPStatus","Deciles","Unknown"]
     
 smy_data["Deciles"] = smy_data["Deciles"].map(lambda x: [l for l in x] if x is not None else [None]*10)
 decile_df = pd.DataFrame(smy_data["Deciles"].tolist())
@@ -219,5 +210,5 @@ decile_df.columns = ["Decile1","Decile2","Decile3","Decile4","Decile5","Decile6"
 smy_data = smy_data.drop("Deciles",axis=1)
 smy_data = smy_data.join(decile_df,how="outer")   
 
-agg_data.to_csv("C:/Users/Alex/Documents/Data/pcn_auto2/agg.csv",index=False)
-smy_data.to_csv("C:/Users/Alex/Documents/Data/pcn_auto2/smy.csv",index=False)
+agg_data.to_csv("C:/Users/Alex/Documents/Data/pcn_auto2/agg_time.csv",index=False)
+smy_data.to_csv("C:/Users/Alex/Documents/Data/pcn_auto2/smy_time.csv",index=False)
