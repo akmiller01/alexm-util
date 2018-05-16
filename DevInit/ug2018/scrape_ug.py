@@ -11,7 +11,8 @@ import pandas as pd
 from operator import itemgetter
 import glob
 from itertools import groupby
-from collections import defaultdict
+import numpy as np
+from PIL import Image
 
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="input", default="C:/Users/Alex/Documents/Data/Uganda2018",
@@ -76,9 +77,6 @@ def main():
     #Requires Poppler for windows in your path
     #http://blog.alivate.com.au/poppler-windows/
     paths = glob.glob(options.input+"/*.pdf")
-    datasets = []
-    #for i in range(1):
-    #    path = paths[i]
     for path in paths:
         basename = os.path.basename(path)
         inputname, inputextension = os.path.splitext(basename)
@@ -86,77 +84,74 @@ def main():
         xmlpath = pdftoxml(path,False)
         root = lxml.etree.parse(xmlpath).getroot()
         pages = list(root)
-        output = []
         pageLen = len(pages)
-        #Cascade these down...
-        vote = ""
         for i in range(0,pageLen):
+            pageData = []
             page = pages[i]
             elLen = len(page)
+            textLen = 0
+            pageTexts = []
+            try:
+                pageWidth = int(page.attrib['width'])
+                pageHeight = int(page.attrib['height'])
+            except:
+                continue
+            overlap_columns = pageWidth*[0]
+            overlap_rows = pageHeight*[0]
             for j in range(0,elLen):
                 el = page[j]
                 if el.tag == "text":
+                    textLen += 1
                     left = int(el.attrib['left'])
-                    right = int(el.attrib['left'])+int(el.attrib['width'])
+                    width = int(el.attrib['width'])
+                    right = left + width
                     top = int(el.attrib['top'])
-                    #Scrape all page text by going backwards and forwards...
-                    pageTexts = []
-                    unique_bounds_dict = defaultdict(lambda: 0)
-                    textObj = {"left":roundx(left),"right":roundx(right),"top":roundx(top),"text":trytext(el)}
+                    height = int(el.attrib['height'])
+                    bottom = top + height
+                    #Measure overlap
+                    for k in range(left,right+1):
+                        overlap_columns[k] += 1
+                    for k in range(top,bottom+1):
+                        overlap_rows[k] += 1
+                    textObj = {"left":left,"right":right,"top":top,"bottom":bottom,"width":width,"text":trytext(el)}
                     pageTexts.append(textObj)
-                    unique_bounds_dict[",".join([str(textObj['left']),str(textObj['right'])])] += 1
-                    #Backwards
-                    prev = el.getprevious()
-                    while prev is not None and prev.tag == "text":
-                        left = int(prev.attrib['left'])
-                        right = int(prev.attrib['left'])+int(prev.attrib['width'])
-                        top = int(prev.attrib['top'])
-                        textObj = {"left":roundx(left),"right":roundx(right),"top":roundx(top),"text":trytext(prev)}
-                        pageTexts.append(textObj)
-                        unique_bounds_dict[",".join([str(textObj['left']),str(textObj['right'])])] += 1
-                        prev = prev.getprevious()
-                    #Forwards
-                    nxt = el.getnext()
-                    while nxt is not None and nxt.tag == "text":
-                        left = int(nxt.attrib['left'])
-                        right = int(nxt.attrib['left'])+int(nxt.attrib['width'])
-                        top = int(nxt.attrib['top'])
-                        textObj = {"left":roundx(left),"right":roundx(right),"top":roundx(top),"text":trytext(nxt)}
-                        pageTexts.append(textObj)
-                        unique_bounds_dict[",".join([str(textObj['left']),str(textObj['right'])])] += 1
-                        nxt = nxt.getnext()
-                    unique_bounds = [[int(bound) for bound in bounds_str.split(",")] for bounds_str in unique_bounds_dict.keys()]
-                    if i==5:
-                        pdb.set_trace()
-                    # max_columns = max(unique_lefts.values())
-                    # if max_columns < 3:
-                    #     #Not a table
-                    #     continue
-                    # #Might be a table
-                    # cellvals = operator.itemgetter('top','left')
-                    # pageTexts.sort(key=cellvals)
-                    # rowvals = operator.itemgetter('top')
-                    # colvals = operator.itemgetter('left')
-                    # table_matrix = []
-                    # #Appears at least twice
-                    # orphan_lefts = { k:v for k, v in unique_lefts.items() if v<2 }
-                    # unique_lefts = { k:v for k, v in unique_lefts.items() if v>=2 }
-                    # for k,v in groupby(pageTexts,key=rowvals):
-                    #     row = list(v)
-                    #     row_lefts = [str(item['left']) for item in row]
-                    #     left_diffs = list(set(unique_lefts) - set(row_lefts))
-                    #     for left_diff in left_diffs:
-                    #         missing_left = int(left_diff)
-                    #         obj = {"left":missing_left,"text":""}
-                    #         row.append(obj)
-                    #     for orphan_left in orphan_lefts:
-                    #         o_left = int(orphan_left)
-                    #         row[:] = [d for d in row if d.get('left')!=o_left]
-                    #     row.sort(key=colvals)
-                    #     row_texts = [item['text'] for item in row]
-                    #     table_matrix.append(row_texts)
-                    # df = pd.DataFrame(table_matrix)
-                    # df.to_csv(options.output+str(i)+".csv", sep='\t',encoding="utf-16")
+            if textLen > 0:
+                col_array = np.array(overlap_columns)
+                row_array = np.array(overlap_rows)
+                rescaled_col = (100.0 / col_array.max() * (col_array - col_array.min()))
+                rescaled_row = (100.0 / row_array.max() * (row_array - row_array.min()))
+                col_ws = np.where(rescaled_col<10)[0]
+                row_ws = np.where(rescaled_row<10)[0]
+                column_starts = col_ws[np.where(np.ediff1d(col_ws)>10)[0]]
+                column_ends = col_ws[np.where(np.ediff1d(col_ws)>10)[0]+1]
+                row_starts = row_ws[np.where(np.ediff1d(row_ws)>1)[0]]
+                row_ends = row_ws[np.where(np.ediff1d(row_ws)>1)[0]+1]
+                if len(column_starts) >= 3:
+                    for r in range(0,len(row_starts)):
+                        r_start = row_starts[r]
+                        r_end = row_ends[r]
+                        matching_row = [el for el in pageTexts if (roundx(el['top'])>=roundx(r_start) and roundx(el['bottom'])<=roundx(r_end))]
+                        data_row = []
+                        for c in range(0,len(column_starts)):
+                            if c-1>=0:
+                                c_start = column_ends[c-1]
+                                real_c_start = column_starts[c]
+                            else:
+                                c_start = column_starts[c]
+                                real_c_start = c_start
+                            try:
+                                c_end = column_starts[c+1]
+                                real_c_end = column_ends[c]
+                            except IndexError:
+                                c_end = column_ends[c]
+                                real_c_end = c_end
+                            matching_text = [el['text'] for el in matching_row if (roundx(el['left'])>=roundx(c_start) and roundx(el['right'])<=roundx(c_end) and el['text']!="-")]
+                            overlapping_text = [el['text'] for el in matching_row if (el['left']<real_c_start and el['right']>real_c_end and el['text']!="-" and el['width']>50)]
+                            dedup = list(set(overlapping_text+matching_text))
+                            cell_text = " ".join(dedup)
+                            data_row.append(cell_text)
+                        pageData.append(data_row)
+                    pd.DataFrame(pageData).to_csv(options.output+inputname+"-"+str(i+1)+".csv",index=False,header=False,sep="\t",encoding="utf-16")
     sys.stdout.write("\n")
     print("Done.")
 
