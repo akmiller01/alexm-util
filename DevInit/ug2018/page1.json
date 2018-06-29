@@ -1,0 +1,2374 @@
+[{
+  'bottom': 44,
+  'left': 78,
+  'top': 31,
+  'text': 'Federal Republic of Nigeria',
+  'width': 142,
+  'right': 220
+}, {
+  'bottom': 44,
+  'left': 388,
+  'top': 31,
+  'text': ' 2016 APPROPRIATION ACT',
+  'width': 137,
+  'right': 525
+}, {
+  'bottom': 69,
+  'left': 80,
+  'top': 56,
+  'text': 'Federal Government of Nigeria',
+  'width': 164,
+  'right': 244
+}, {
+  'bottom': 83,
+  'left': 80,
+  'top': 70,
+  'text': 'SUMMARY BY MDAs',
+  'width': 102,
+  'right': 182
+}, {
+  'bottom': 102,
+  'left': 86,
+  'top': 89,
+  'text': 'NO CODE',
+  'width': 58,
+  'right': 144
+}, {
+  'bottom': 103,
+  'left': 186,
+  'top': 90,
+  'text': 'MDA',
+  'width': 25,
+  'right': 211
+}, {
+  'bottom': 96,
+  'left': 423,
+  'top': 83,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 457
+}, {
+  'bottom': 110,
+  'left': 409,
+  'top': 97,
+  'text': 'PERSONNEL',
+  'width': 59,
+  'right': 468
+}, {
+  'bottom': 96,
+  'left': 508,
+  'top': 83,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 542
+}, {
+  'bottom': 110,
+  'left': 495,
+  'top': 97,
+  'text': 'OVERHEAD',
+  'width': 57,
+  'right': 552
+}, {
+  'bottom': 96,
+  'left': 594,
+  'top': 83,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 628
+}, {
+  'bottom': 110,
+  'left': 580,
+  'top': 97,
+  'text': 'RECURRENT',
+  'width': 58,
+  'right': 638
+}, {
+  'bottom': 103,
+  'left': 661,
+  'top': 90,
+  'text': 'TOTAL CAPITAL',
+  'width': 76,
+  'right': 737
+}, {
+  'bottom': 96,
+  'left': 773,
+  'top': 83,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 807
+}, {
+  'bottom': 110,
+  'left': 755,
+  'top': 97,
+  'text': 'ALLOCATION',
+  'width': 67,
+  'right': 822
+}, {
+  'bottom': 122,
+  'left': 91,
+  'top': 109,
+  'text': '1.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 122,
+  'left': 114,
+  'top': 109,
+  'text': '0521',
+  'width': 24,
+  'right': 138
+}, {
+  'bottom': 122,
+  'left': 186,
+  'top': 109,
+  'text': 'FEDERAL MINISTRY OF HEALTH',
+  'width': 151,
+  'right': 337
+}, {
+  'bottom': 122,
+  'left': 402,
+  'top': 109,
+  'text': '217,472,115,158 3,940,432,929 221,412,548,087 28,650,342,987 250,062,891,075',
+  'width': 430,
+  'right': 832
+}, {
+  'bottom': 136,
+  'left': 399,
+  'top': 123,
+  'text': '217,472,115,158 3,940,432,929 221,412,548,087 28,650,342,987 250,062,891,075',
+  'width': 433,
+  'right': 832
+}, {
+  'bottom': 149,
+  'left': 80,
+  'top': 136,
+  'text': 'SUMMARY BY FUNDS',
+  'width': 105,
+  'right': 185
+}, {
+  'bottom': 169,
+  'left': 86,
+  'top': 156,
+  'text': 'NO CODE',
+  'width': 58,
+  'right': 144
+}, {
+  'bottom': 169,
+  'left': 186,
+  'top': 156,
+  'text': 'FUND',
+  'width': 28,
+  'right': 214
+}, {
+  'bottom': 162,
+  'left': 773,
+  'top': 149,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 807
+}, {
+  'bottom': 177,
+  'left': 755,
+  'top': 164,
+  'text': 'ALLOCATION',
+  'width': 67,
+  'right': 822
+}, {
+  'bottom': 189,
+  'left': 91,
+  'top': 176,
+  'text': '1.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 189,
+  'left': 114,
+  'top': 176,
+  'text': '021',
+  'width': 18,
+  'right': 132
+}, {
+  'bottom': 189,
+  'left': 186,
+  'top': 176,
+  'text': 'MAIN ENVELOP - PERSONNEL',
+  'width': 149,
+  'right': 335
+}, {
+  'bottom': 189,
+  'left': 752,
+  'top': 176,
+  'text': '217,472,115,158',
+  'width': 80,
+  'right': 832
+}, {
+  'bottom': 203,
+  'left': 91,
+  'top': 190,
+  'text': '2.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 203,
+  'left': 114,
+  'top': 190,
+  'text': '022',
+  'width': 18,
+  'right': 132
+}, {
+  'bottom': 203,
+  'left': 186,
+  'top': 190,
+  'text': 'MAIN ENVELOP - OVERHEAD',
+  'width': 146,
+  'right': 332
+}, {
+  'bottom': 203,
+  'left': 764,
+  'top': 190,
+  'text': '3,940,432,929',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 216,
+  'left': 91,
+  'top': 203,
+  'text': '3.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 216,
+  'left': 114,
+  'top': 203,
+  'text': '031',
+  'width': 18,
+  'right': 132
+}, {
+  'bottom': 217,
+  'left': 186,
+  'top': 204,
+  'text': 'CAPITAL DEVELOPMENT FUND MAIN',
+  'width': 184,
+  'right': 370
+}, {
+  'bottom': 216,
+  'left': 758,
+  'top': 203,
+  'text': '28,650,342,987',
+  'width': 74,
+  'right': 832
+}, {
+  'bottom': 230,
+  'left': 749,
+  'top': 217,
+  'text': '250,062,891,075',
+  'width': 82,
+  'right': 831
+}, {
+  'bottom': 244,
+  'left': 80,
+  'top': 231,
+  'text': 'FEDERAL MINISTRY OF HEALTH',
+  'width': 150,
+  'right': 230
+}, {
+  'bottom': 263,
+  'left': 86,
+  'top': 250,
+  'text': 'NO CODE',
+  'width': 58,
+  'right': 144
+}, {
+  'bottom': 264,
+  'left': 186,
+  'top': 251,
+  'text': 'MDA',
+  'width': 25,
+  'right': 211
+}, {
+  'bottom': 257,
+  'left': 423,
+  'top': 244,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 457
+}, {
+  'bottom': 271,
+  'left': 409,
+  'top': 258,
+  'text': 'PERSONNEL',
+  'width': 59,
+  'right': 468
+}, {
+  'bottom': 257,
+  'left': 508,
+  'top': 244,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 542
+}, {
+  'bottom': 271,
+  'left': 495,
+  'top': 258,
+  'text': 'OVERHEAD',
+  'width': 57,
+  'right': 552
+}, {
+  'bottom': 257,
+  'left': 594,
+  'top': 244,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 628
+}, {
+  'bottom': 271,
+  'left': 580,
+  'top': 258,
+  'text': 'RECURRENT',
+  'width': 58,
+  'right': 638
+}, {
+  'bottom': 264,
+  'left': 661,
+  'top': 251,
+  'text': 'TOTAL CAPITAL',
+  'width': 76,
+  'right': 737
+}, {
+  'bottom': 257,
+  'left': 773,
+  'top': 244,
+  'text': 'TOTAL ',
+  'width': 34,
+  'right': 807
+}, {
+  'bottom': 271,
+  'left': 755,
+  'top': 258,
+  'text': 'ALLOCATION',
+  'width': 67,
+  'right': 822
+}, {
+  'bottom': 283,
+  'left': 91,
+  'top': 270,
+  'text': '1.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 283,
+  'left': 114,
+  'top': 270,
+  'text': '0521001001 FEDERAL MINISTRY OF HEALTH - HQTRS',
+  'width': 266,
+  'right': 380
+}, {
+  'bottom': 283,
+  'left': 414,
+  'top': 270,
+  'text': '4,685,718,570',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 283,
+  'left': 501,
+  'top': 270,
+  'text': '375,727,274',
+  'width': 59,
+  'right': 560
+}, {
+  'bottom': 283,
+  'left': 585,
+  'top': 270,
+  'text': '5,061,445,844',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 283,
+  'left': 671,
+  'top': 270,
+  'text': '5,214,252,356',
+  'width': 68,
+  'right': 739
+}, {
+  'bottom': 283,
+  'left': 758,
+  'top': 270,
+  'text': '10,275,698,200',
+  'width': 74,
+  'right': 832
+}, {
+  'bottom': 304,
+  'left': 91,
+  'top': 291,
+  'text': '2.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 304,
+  'left': 114,
+  'top': 291,
+  'text': '0521002001 NATIONAL HEALTH INSURANCE SCHEME',
+  'width': 274,
+  'right': 388
+}, {
+  'bottom': 304,
+  'left': 476,
+  'top': 291,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 304,
+  'left': 555,
+  'top': 291,
+  'text': '0',
+  'width': 6,
+  'right': 561
+}, {
+  'bottom': 304,
+  'left': 647,
+  'top': 291,
+  'text': '0',
+  'width': 6,
+  'right': 653
+}, {
+  'bottom': 304,
+  'left': 680,
+  'top': 291,
+  'text': '129,698,109',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 304,
+  'left': 773,
+  'top': 291,
+  'text': '129,698,109',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 331,
+  'left': 91,
+  'top': 318,
+  'text': '3.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 331,
+  'left': 114,
+  'top': 318,
+  'text': '0521003001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 324,
+  'left': 186,
+  'top': 311,
+  'text': 'NATIONAL PRIMARY HEALTH CARE ',
+  'width': 176,
+  'right': 362
+}, {
+  'bottom': 338,
+  'left': 186,
+  'top': 325,
+  'text': 'DEVELOPMENT AGENCY',
+  'width': 125,
+  'right': 311
+}, {
+  'bottom': 331,
+  'left': 414,
+  'top': 318,
+  'text': '1,846,613,471',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 331,
+  'left': 501,
+  'top': 318,
+  'text': '204,124,742',
+  'width': 59,
+  'right': 560
+}, {
+  'bottom': 331,
+  'left': 585,
+  'top': 318,
+  'text': '2,050,738,213 15,694,635,719',
+  'width': 154,
+  'right': 739
+}, {
+  'bottom': 331,
+  'left': 758,
+  'top': 318,
+  'text': '17,745,373,932',
+  'width': 74,
+  'right': 832
+}, {
+  'bottom': 358,
+  'left': 91,
+  'top': 345,
+  'text': '4.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 358,
+  'left': 114,
+  'top': 345,
+  'text': '0521005001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 351,
+  'left': 186,
+  'top': 338,
+  'text': 'NATIONAL ARBOVIRUS AND VECTOR ',
+  'width': 188,
+  'right': 374
+}, {
+  'bottom': 366,
+  'left': 186,
+  'top': 353,
+  'text': 'RESEARCH',
+  'width': 53,
+  'right': 239
+}, {
+  'bottom': 358,
+  'left': 428,
+  'top': 345,
+  'text': '91,384,747',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 358,
+  'left': 513,
+  'top': 345,
+  'text': '1,569,080',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 358,
+  'left': 600,
+  'top': 345,
+  'text': '92,953,827',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 358,
+  'left': 686,
+  'top': 345,
+  'text': '17,660,207',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 358,
+  'left': 773,
+  'top': 345,
+  'text': '110,614,033',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 385,
+  'left': 91,
+  'top': 372,
+  'text': '5.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 385,
+  'left': 114,
+  'top': 372,
+  'text': '0521006001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 378,
+  'left': 186,
+  'top': 365,
+  'text': 'RADIOGRAPHERS REGISTRATION ',
+  'width': 167,
+  'right': 353
+}, {
+  'bottom': 393,
+  'left': 186,
+  'top': 380,
+  'text': 'BOARD',
+  'width': 37,
+  'right': 223
+}, {
+  'bottom': 385,
+  'left': 423,
+  'top': 372,
+  'text': '204,605,566',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 385,
+  'left': 513,
+  'top': 372,
+  'text': '3,762,246',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 385,
+  'left': 594,
+  'top': 372,
+  'text': '208,367,812',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 385,
+  'left': 686,
+  'top': 372,
+  'text': '17,207,750',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 385,
+  'left': 773,
+  'top': 372,
+  'text': '225,575,562',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 412,
+  'left': 91,
+  'top': 399,
+  'text': '6.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 412,
+  'left': 114,
+  'top': 399,
+  'text': '0521007001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 405,
+  'left': 186,
+  'top': 392,
+  'text': 'DENTAL TECHNOLOGY REGISTRATION ',
+  'width': 195,
+  'right': 381
+}, {
+  'bottom': 420,
+  'left': 186,
+  'top': 407,
+  'text': 'BOARD',
+  'width': 37,
+  'right': 223
+}, {
+  'bottom': 412,
+  'left': 423,
+  'top': 399,
+  'text': '104,887,080',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 412,
+  'left': 513,
+  'top': 399,
+  'text': '1,362,297',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 412,
+  'left': 594,
+  'top': 399,
+  'text': '106,249,377',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 412,
+  'left': 686,
+  'top': 399,
+  'text': '34,272,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 412,
+  'left': 773,
+  'top': 399,
+  'text': '140,521,377',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 440,
+  'left': 91,
+  'top': 427,
+  'text': '7.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 440,
+  'left': 114,
+  'top': 427,
+  'text': '0521008001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 432,
+  'left': 186,
+  'top': 419,
+  'text': 'HEALTH RECORDS REGISTRATION ',
+  'width': 170,
+  'right': 356
+}, {
+  'bottom': 447,
+  'left': 186,
+  'top': 434,
+  'text': 'BOARD',
+  'width': 37,
+  'right': 223
+}, {
+  'bottom': 440,
+  'left': 423,
+  'top': 427,
+  'text': '116,589,713',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 440,
+  'left': 513,
+  'top': 427,
+  'text': '1,468,172',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 440,
+  'left': 594,
+  'top': 427,
+  'text': '118,057,885',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 440,
+  'left': 686,
+  'top': 427,
+  'text': '20,160,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 440,
+  'left': 773,
+  'top': 427,
+  'text': '138,217,885',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 467,
+  'left': 91,
+  'top': 454,
+  'text': '8.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 467,
+  'left': 114,
+  'top': 454,
+  'text': '0521009001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 460,
+  'left': 186,
+  'top': 447,
+  'text': 'OPTOMETRIST AND DISPENSING ',
+  'width': 163,
+  'right': 349
+}, {
+  'bottom': 474,
+  'left': 186,
+  'top': 461,
+  'text': 'OPTICIANS BOARD OF NIGERIA',
+  'width': 159,
+  'right': 345
+}, {
+  'bottom': 467,
+  'left': 423,
+  'top': 454,
+  'text': '183,721,513',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 467,
+  'left': 513,
+  'top': 454,
+  'text': '1,485,282',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 467,
+  'left': 594,
+  'top': 454,
+  'text': '185,206,795',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 467,
+  'left': 686,
+  'top': 454,
+  'text': '20,261,500',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 467,
+  'left': 773,
+  'top': 454,
+  'text': '205,468,295',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 494,
+  'left': 91,
+  'top': 481,
+  'text': '9.',
+  'width': 9,
+  'right': 100
+}, {
+  'bottom': 494,
+  'left': 114,
+  'top': 481,
+  'text': '0521010001',
+  'width': 59,
+  'right': 173
+}, {
+  'bottom': 487,
+  'left': 186,
+  'top': 474,
+  'text': 'COMMUNITY HEALTH PRACTITONERS ',
+  'width': 190,
+  'right': 376
+}, {
+  'bottom': 502,
+  'left': 186,
+  'top': 489,
+  'text': 'REGISTRATION BOARD',
+  'width': 113,
+  'right': 299
+}, {
+  'bottom': 494,
+  'left': 428,
+  'top': 481,
+  'text': '68,440,480',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 494,
+  'left': 513,
+  'top': 481,
+  'text': '1,681,838',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 494,
+  'left': 600,
+  'top': 481,
+  'text': '70,122,318',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 494,
+  'left': 686,
+  'top': 481,
+  'text': '14,345,352',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 494,
+  'left': 779,
+  'top': 481,
+  'text': '84,467,670',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 514,
+  'left': 87,
+  'top': 501,
+  'text': '10. 0521011001 NURSING AND MIDWIFERY COUNCIL',
+  'width': 284,
+  'right': 371
+}, {
+  'bottom': 514,
+  'left': 423,
+  'top': 501,
+  'text': '262,776,904',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 514,
+  'left': 513,
+  'top': 501,
+  'text': '2,760,856',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 514,
+  'left': 594,
+  'top': 501,
+  'text': '265,537,760',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 514,
+  'left': 686,
+  'top': 501,
+  'text': '14,364,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 514,
+  'left': 773,
+  'top': 501,
+  'text': '279,901,760',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 535,
+  'left': 87,
+  'top': 522,
+  'text': '11. 0521012001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 528,
+  'left': 186,
+  'top': 515,
+  'text': 'PHARMACIST COUNCIL OF NIGERIA ',
+  'width': 185,
+  'right': 371
+}, {
+  'bottom': 542,
+  'left': 186,
+  'top': 529,
+  'text': 'COUNCIL',
+  'width': 49,
+  'right': 235
+}, {
+  'bottom': 535,
+  'left': 423,
+  'top': 522,
+  'text': '569,829,434',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 535,
+  'left': 513,
+  'top': 522,
+  'text': '8,144,348',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 535,
+  'left': 594,
+  'top': 522,
+  'text': '577,973,782',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 535,
+  'left': 686,
+  'top': 522,
+  'text': '13,774,600',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 535,
+  'left': 773,
+  'top': 522,
+  'text': '591,748,382',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 562,
+  'left': 87,
+  'top': 549,
+  'text': '12. 0521013001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 555,
+  'left': 186,
+  'top': 542,
+  'text': 'MEDICAL AND DENTAL COUNCIL OF ',
+  'width': 189,
+  'right': 375
+}, {
+  'bottom': 570,
+  'left': 186,
+  'top': 557,
+  'text': 'NIGERIA',
+  'width': 43,
+  'right': 229
+}, {
+  'bottom': 562,
+  'left': 423,
+  'top': 549,
+  'text': '183,968,632',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 562,
+  'left': 513,
+  'top': 549,
+  'text': '9,738,446',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 562,
+  'left': 594,
+  'top': 549,
+  'text': '193,707,078',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 562,
+  'left': 686,
+  'top': 549,
+  'text': '12,768,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 562,
+  'left': 773,
+  'top': 549,
+  'text': '206,475,078',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 596,
+  'left': 87,
+  'top': 583,
+  'text': '13. 0521014001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 589,
+  'left': 186,
+  'top': 576,
+  'text': 'NATIONAL AGENCY FOR FOOD AND ',
+  'width': 190,
+  'right': 376
+}, {
+  'bottom': 603,
+  'left': 186,
+  'top': 590,
+  'text': 'DRUG ADMINISTRATION AND CONTROL',
+  'width': 202,
+  'right': 388
+}, {
+  'bottom': 596,
+  'left': 414,
+  'top': 583,
+  'text': '4,707,949,794',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 596,
+  'left': 513,
+  'top': 583,
+  'text': '7,207,650',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 596,
+  'left': 585,
+  'top': 583,
+  'text': '4,715,157,444',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 596,
+  'left': 686,
+  'top': 583,
+  'text': '14,364,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 596,
+  'left': 764,
+  'top': 583,
+  'text': '4,729,521,444',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 630,
+  'left': 87,
+  'top': 617,
+  'text': '14. 0521015001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 623,
+  'left': 186,
+  'top': 610,
+  'text': 'MEDICAL REHABILITATION THERAPY ',
+  'width': 181,
+  'right': 367
+}, {
+  'bottom': 638,
+  'left': 186,
+  'top': 625,
+  'text': 'BOARD',
+  'width': 37,
+  'right': 223
+}, {
+  'bottom': 630,
+  'left': 423,
+  'top': 617,
+  'text': '143,998,637',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 630,
+  'left': 507,
+  'top': 617,
+  'text': '29,404,448',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 630,
+  'left': 594,
+  'top': 617,
+  'text': '173,403,085',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 630,
+  'left': 686,
+  'top': 617,
+  'text': '13,330,450',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 630,
+  'left': 773,
+  'top': 617,
+  'text': '186,733,535',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 657,
+  'left': 87,
+  'top': 644,
+  'text': '15. 0521016001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 650,
+  'left': 186,
+  'top': 637,
+  'text': 'FEDERAL SCHOOL OF DENTAL ',
+  'width': 155,
+  'right': 341
+}, {
+  'bottom': 665,
+  'left': 186,
+  'top': 652,
+  'text': 'TECHNOLOGY AND THERAPY, ENUGU',
+  'width': 191,
+  'right': 377
+}, {
+  'bottom': 657,
+  'left': 423,
+  'top': 644,
+  'text': '352,983,216',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 657,
+  'left': 507,
+  'top': 644,
+  'text': '44,257,433',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 657,
+  'left': 594,
+  'top': 644,
+  'text': '397,240,649',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 657,
+  'left': 680,
+  'top': 644,
+  'text': '107,851,896',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 657,
+  'left': 773,
+  'top': 644,
+  'text': '505,092,544',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 684,
+  'left': 87,
+  'top': 671,
+  'text': '16. 0521017001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 677,
+  'left': 186,
+  'top': 664,
+  'text': 'ENVIRONMENTAL HEALTH OFFICERS ',
+  'width': 184,
+  'right': 370
+}, {
+  'bottom': 692,
+  'left': 186,
+  'top': 679,
+  'text': 'TUTORS-IBADAN',
+  'width': 80,
+  'right': 266
+}, {
+  'bottom': 684,
+  'left': 428,
+  'top': 671,
+  'text': '22,474,444',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 684,
+  'left': 513,
+  'top': 671,
+  'text': '8,465,012',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 684,
+  'left': 600,
+  'top': 671,
+  'text': '30,939,456',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 684,
+  'left': 692,
+  'top': 671,
+  'text': '7,000,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 684,
+  'left': 779,
+  'top': 671,
+  'text': '37,939,456',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 705,
+  'left': 87,
+  'top': 692,
+  'text': '17. 0521018001 NURSE TUTOR TRAINING - ENUGU',
+  'width': 264,
+  'right': 351
+}, {
+  'bottom': 705,
+  'left': 428,
+  'top': 692,
+  'text': '16,059,374',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 705,
+  'left': 513,
+  'top': 692,
+  'text': '1,572,851',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 705,
+  'left': 600,
+  'top': 692,
+  'text': '17,632,225',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 705,
+  'left': 692,
+  'top': 692,
+  'text': '7,000,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 705,
+  'left': 779,
+  'top': 692,
+  'text': '24,632,225',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 725,
+  'left': 87,
+  'top': 712,
+  'text': '18. 0521019001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 718,
+  'left': 186,
+  'top': 705,
+  'text': 'NURSE TUTOR PROGRAMME AKOKA ',
+  'width': 185,
+  'right': 371
+}, {
+  'bottom': 733,
+  'left': 186,
+  'top': 720,
+  'text': 'LAGOS',
+  'width': 37,
+  'right': 223
+}, {
+  'bottom': 725,
+  'left': 428,
+  'top': 712,
+  'text': '92,191,268',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 725,
+  'left': 513,
+  'top': 712,
+  'text': '1,536,813',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 725,
+  'left': 600,
+  'top': 712,
+  'text': '93,728,081',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 725,
+  'left': 692,
+  'top': 712,
+  'text': '7,000,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 725,
+  'left': 773,
+  'top': 712,
+  'text': '100,728,081',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 746,
+  'left': 87,
+  'top': 733,
+  'text': '19. 0521020001 NURSE TUTOR TRAINNING KADUNA',
+  'width': 273,
+  'right': 360
+}, {
+  'bottom': 746,
+  'left': 428,
+  'top': 733,
+  'text': '38,211,602',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 746,
+  'left': 513,
+  'top': 733,
+  'text': '1,685,016',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 746,
+  'left': 600,
+  'top': 733,
+  'text': '39,896,618',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 746,
+  'left': 686,
+  'top': 733,
+  'text': '16,800,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 746,
+  'left': 779,
+  'top': 733,
+  'text': '56,696,618',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 759,
+  'left': 87,
+  'top': 746,
+  'text': '20. 0521021001 NURSE TUTOR TRAINNING IBADAN',
+  'width': 268,
+  'right': 355
+}, {
+  'bottom': 759,
+  'left': 428,
+  'top': 746,
+  'text': '18,345,204',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 759,
+  'left': 513,
+  'top': 746,
+  'text': '1,572,852',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 759,
+  'left': 600,
+  'top': 746,
+  'text': '19,918,056',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 759,
+  'left': 692,
+  'top': 746,
+  'text': '4,732,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 759,
+  'left': 779,
+  'top': 746,
+  'text': '24,650,056',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 780,
+  'left': 87,
+  'top': 767,
+  'text': '21. 0521022001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 773,
+  'left': 186,
+  'top': 760,
+  'text': 'NATIONAL POST GRADUATE MEDICAL ',
+  'width': 194,
+  'right': 380
+}, {
+  'bottom': 787,
+  'left': 186,
+  'top': 774,
+  'text': 'COLLEGE OF NIGERIA-IJANIKIN LAGOS',
+  'width': 197,
+  'right': 383
+}, {
+  'bottom': 780,
+  'left': 423,
+  'top': 767,
+  'text': '216,229,504',
+  'width': 59,
+  'right': 482
+}, {
+  'bottom': 780,
+  'left': 507,
+  'top': 767,
+  'text': '15,834,657',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 780,
+  'left': 594,
+  'top': 767,
+  'text': '232,064,161',
+  'width': 59,
+  'right': 653
+}, {
+  'bottom': 780,
+  'left': 686,
+  'top': 767,
+  'text': '20,000,000',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 780,
+  'left': 773,
+  'top': 767,
+  'text': '252,064,161',
+  'width': 59,
+  'right': 832
+}, {
+  'bottom': 800,
+  'left': 87,
+  'top': 787,
+  'text': '22. 0521023001 NHETC, LAGOS',
+  'width': 175,
+  'right': 262
+}, {
+  'bottom': 800,
+  'left': 476,
+  'top': 787,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 800,
+  'left': 513,
+  'top': 787,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 800,
+  'left': 606,
+  'top': 787,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 653
+}, {
+  'bottom': 800,
+  'left': 733,
+  'top': 787,
+  'text': '0',
+  'width': 6,
+  'right': 739
+}, {
+  'bottom': 800,
+  'left': 785,
+  'top': 787,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 832
+}, {
+  'bottom': 814,
+  'left': 87,
+  'top': 801,
+  'text': '23. 0521023002 NHETC, MAIDUGURI',
+  'width': 199,
+  'right': 286
+}, {
+  'bottom': 814,
+  'left': 476,
+  'top': 801,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 814,
+  'left': 513,
+  'top': 801,
+  'text': '1,768,951',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 814,
+  'left': 606,
+  'top': 801,
+  'text': '1,768,951',
+  'width': 47,
+  'right': 653
+}, {
+  'bottom': 814,
+  'left': 733,
+  'top': 801,
+  'text': '0',
+  'width': 6,
+  'right': 739
+}, {
+  'bottom': 814,
+  'left': 785,
+  'top': 801,
+  'text': '1,768,951',
+  'width': 47,
+  'right': 832
+}, {
+  'bottom': 828,
+  'left': 87,
+  'top': 815,
+  'text': '24. 0521023003 NHETC, ZARIA',
+  'width': 168,
+  'right': 255
+}, {
+  'bottom': 828,
+  'left': 476,
+  'top': 815,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 828,
+  'left': 513,
+  'top': 815,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 828,
+  'left': 606,
+  'top': 815,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 653
+}, {
+  'bottom': 828,
+  'left': 733,
+  'top': 815,
+  'text': '0',
+  'width': 6,
+  'right': 739
+}, {
+  'bottom': 828,
+  'left': 785,
+  'top': 815,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 832
+}, {
+  'bottom': 841,
+  'left': 87,
+  'top': 828,
+  'text': '25. 0521023004 NHETC, ENUGU',
+  'width': 176,
+  'right': 263
+}, {
+  'bottom': 841,
+  'left': 476,
+  'top': 828,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 841,
+  'left': 513,
+  'top': 828,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 841,
+  'left': 606,
+  'top': 828,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 653
+}, {
+  'bottom': 841,
+  'left': 733,
+  'top': 828,
+  'text': '0',
+  'width': 6,
+  'right': 739
+}, {
+  'bottom': 841,
+  'left': 785,
+  'top': 828,
+  'text': '1,592,056',
+  'width': 47,
+  'right': 832
+}, {
+  'bottom': 862,
+  'left': 87,
+  'top': 849,
+  'text': '26. 0521024001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 855,
+  'left': 186,
+  'top': 842,
+  'text': "PHC TUTORS PROGRAMME,'UCH-",
+  'width': 170,
+  'right': 356
+}, {
+  'bottom': 869,
+  'left': 186,
+  'top': 856,
+  'text': 'IBADAN',
+  'width': 39,
+  'right': 225
+}, {
+  'bottom': 862,
+  'left': 428,
+  'top': 849,
+  'text': '18,910,548',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 862,
+  'left': 513,
+  'top': 849,
+  'text': '1,461,955',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 862,
+  'left': 600,
+  'top': 849,
+  'text': '20,372,503',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 862,
+  'left': 692,
+  'top': 849,
+  'text': '6,352,500',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 862,
+  'left': 779,
+  'top': 849,
+  'text': '26,725,003',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 889,
+  'left': 87,
+  'top': 876,
+  'text': '27. 0521024002',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 882,
+  'left': 186,
+  'top': 869,
+  'text': 'PHC TUTORS PROGRAMME,KADUNA ',
+  'width': 188,
+  'right': 374
+}, {
+  'bottom': 896,
+  'left': 186,
+  'top': 883,
+  'text': 'POLYTECHNIC',
+  'width': 73,
+  'right': 259
+}, {
+  'bottom': 889,
+  'left': 476,
+  'top': 876,
+  'text': '0',
+  'width': 6,
+  'right': 482
+}, {
+  'bottom': 889,
+  'left': 513,
+  'top': 876,
+  'text': '2,359,392',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 889,
+  'left': 606,
+  'top': 876,
+  'text': '2,359,392',
+  'width': 47,
+  'right': 653
+}, {
+  'bottom': 889,
+  'left': 692,
+  'top': 876,
+  'text': '7,000,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 889,
+  'left': 785,
+  'top': 876,
+  'text': '9,359,392',
+  'width': 47,
+  'right': 832
+}, {
+  'bottom': 916,
+  'left': 87,
+  'top': 903,
+  'text': '28. 0521025001',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 909,
+  'left': 186,
+  'top': 896,
+  'text': 'COMMUNITY HEALTH TUTOR ',
+  'width': 146,
+  'right': 332
+}, {
+  'bottom': 924,
+  'left': 186,
+  'top': 911,
+  'text': 'PROGRAMME UCH',
+  'width': 98,
+  'right': 284
+}, {
+  'bottom': 916,
+  'left': 428,
+  'top': 903,
+  'text': '22,579,965',
+  'width': 53,
+  'right': 481
+}, {
+  'bottom': 916,
+  'left': 513,
+  'top': 903,
+  'text': '1,614,483',
+  'width': 47,
+  'right': 560
+}, {
+  'bottom': 916,
+  'left': 600,
+  'top': 903,
+  'text': '24,194,448',
+  'width': 53,
+  'right': 653
+}, {
+  'bottom': 916,
+  'left': 692,
+  'top': 903,
+  'text': '6,615,000',
+  'width': 47,
+  'right': 739
+}, {
+  'bottom': 916,
+  'left': 779,
+  'top': 903,
+  'text': '30,809,448',
+  'width': 53,
+  'right': 832
+}, {
+  'bottom': 943,
+  'left': 87,
+  'top': 930,
+  'text': '29. 0521026001 UNIVERSITY COLLEGE HOSPITAL IBADAN',
+  'width': 300,
+  'right': 387
+}, {
+  'bottom': 943,
+  'left': 414,
+  'top': 930,
+  'text': '8,835,879,106',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 943,
+  'left': 507,
+  'top': 930,
+  'text': '99,715,497',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 943,
+  'left': 585,
+  'top': 930,
+  'text': '8,935,594,603',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 943,
+  'left': 680,
+  'top': 930,
+  'text': '116,200,000',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 943,
+  'left': 764,
+  'top': 930,
+  'text': '9,051,794,603',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 971,
+  'left': 87,
+  'top': 958,
+  'text': '30. 0521026002 LAGOS UNIVERSITY TEACHING HOSPITAL',
+  'width': 302,
+  'right': 389
+}, {
+  'bottom': 971,
+  'left': 414,
+  'top': 958,
+  'text': '5,882,453,947',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 971,
+  'left': 507,
+  'top': 958,
+  'text': '97,430,437',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 971,
+  'left': 585,
+  'top': 958,
+  'text': '5,979,884,384',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 971,
+  'left': 680,
+  'top': 958,
+  'text': '130,399,724',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 971,
+  'left': 764,
+  'top': 958,
+  'text': '6,110,284,108',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 998,
+  'left': 87,
+  'top': 985,
+  'text': '31. 0521026003',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 990,
+  'left': 186,
+  'top': 977,
+  'text': 'AHMADU BELLO UNIVERSITY TEACHING ',
+  'width': 200,
+  'right': 386
+}, {
+  'bottom': 1005,
+  'left': 186,
+  'top': 992,
+  'text': 'HOSPITAL',
+  'width': 48,
+  'right': 234
+}, {
+  'bottom': 998,
+  'left': 414,
+  'top': 985,
+  'text': '6,129,889,088',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 998,
+  'left': 507,
+  'top': 985,
+  'text': '76,736,228',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 998,
+  'left': 585,
+  'top': 985,
+  'text': '6,206,625,316',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 998,
+  'left': 680,
+  'top': 985,
+  'text': '145,470,021',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 998,
+  'left': 764,
+  'top': 985,
+  'text': '6,352,095,337',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1025,
+  'left': 87,
+  'top': 1012,
+  'text': '32. 0521026004',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1018,
+  'left': 186,
+  'top': 1005,
+  'text': 'UNIVERSITY OF NIGERIA TEACHING ',
+  'width': 178,
+  'right': 364
+}, {
+  'bottom': 1032,
+  'left': 186,
+  'top': 1019,
+  'text': 'HOSPITAL, ENUGU',
+  'width': 91,
+  'right': 277
+}, {
+  'bottom': 1025,
+  'left': 414,
+  'top': 1012,
+  'text': '8,420,243,504',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1025,
+  'left': 507,
+  'top': 1012,
+  'text': '78,289,108',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1025,
+  'left': 585,
+  'top': 1012,
+  'text': '8,498,532,612',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1025,
+  'left': 680,
+  'top': 1012,
+  'text': '122,268,108',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1025,
+  'left': 764,
+  'top': 1012,
+  'text': '8,620,800,721',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1052,
+  'left': 87,
+  'top': 1039,
+  'text': '33. 0521026005',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1045,
+  'left': 186,
+  'top': 1032,
+  'text': 'UNIVERSITY OF BENIN TEACHING ',
+  'width': 167,
+  'right': 353
+}, {
+  'bottom': 1060,
+  'left': 186,
+  'top': 1047,
+  'text': 'HOSPITAL',
+  'width': 48,
+  'right': 234
+}, {
+  'bottom': 1052,
+  'left': 414,
+  'top': 1039,
+  'text': '5,845,479,264',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1052,
+  'left': 507,
+  'top': 1039,
+  'text': '65,909,399',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1052,
+  'left': 585,
+  'top': 1039,
+  'text': '5,911,388,663',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1052,
+  'left': 680,
+  'top': 1039,
+  'text': '105,151,196',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1052,
+  'left': 764,
+  'top': 1039,
+  'text': '6,016,539,859',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1079,
+  'left': 87,
+  'top': 1066,
+  'text': '34. 0521026006',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1072,
+  'left': 186,
+  'top': 1059,
+  'text': 'OBAFEMI AWOLOWO UNIVERSITY ',
+  'width': 172,
+  'right': 358
+}, {
+  'bottom': 1087,
+  'left': 186,
+  'top': 1074,
+  'text': 'TEACHING HOSPITAL',
+  'width': 105,
+  'right': 291
+}, {
+  'bottom': 1079,
+  'left': 414,
+  'top': 1066,
+  'text': '7,569,849,825',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1079,
+  'left': 507,
+  'top': 1066,
+  'text': '97,811,122',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1079,
+  'left': 585,
+  'top': 1066,
+  'text': '7,667,660,947',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1079,
+  'left': 680,
+  'top': 1066,
+  'text': '102,451,999',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1079,
+  'left': 764,
+  'top': 1066,
+  'text': '7,770,112,946',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1106,
+  'left': 87,
+  'top': 1093,
+  'text': '35. 0521026007',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1099,
+  'left': 186,
+  'top': 1086,
+  'text': 'UNIVERSITY OF ILORIN TEACHING ',
+  'width': 170,
+  'right': 356
+}, {
+  'bottom': 1114,
+  'left': 186,
+  'top': 1101,
+  'text': 'HOSPITAL, ILORIN',
+  'width': 88,
+  'right': 274
+}, {
+  'bottom': 1106,
+  'left': 414,
+  'top': 1093,
+  'text': '6,053,559,085',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1106,
+  'left': 507,
+  'top': 1093,
+  'text': '58,071,265',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1106,
+  'left': 585,
+  'top': 1093,
+  'text': '6,111,630,350',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1106,
+  'left': 686,
+  'top': 1093,
+  'text': '94,576,827',
+  'width': 53,
+  'right': 739
+}, {
+  'bottom': 1106,
+  'left': 764,
+  'top': 1093,
+  'text': '6,206,207,177',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1127,
+  'left': 87,
+  'top': 1114,
+  'text': '36. 0521026008 JOS UNIVERSITY TEACHING HOSPITAL',
+  'width': 285,
+  'right': 372
+}, {
+  'bottom': 1127,
+  'left': 414,
+  'top': 1114,
+  'text': '5,641,238,751',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1127,
+  'left': 507,
+  'top': 1114,
+  'text': '67,622,773',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1127,
+  'left': 585,
+  'top': 1114,
+  'text': '5,708,861,524',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1127,
+  'left': 680,
+  'top': 1114,
+  'text': '125,102,460',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1127,
+  'left': 764,
+  'top': 1114,
+  'text': '5,833,963,984',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1147,
+  'left': 87,
+  'top': 1134,
+  'text': '37. 0521026009',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1140,
+  'left': 186,
+  'top': 1127,
+  'text': 'UNIVERSITY OF PORT-HARCOURT ',
+  'width': 168,
+  'right': 354
+}, {
+  'bottom': 1155,
+  'left': 186,
+  'top': 1142,
+  'text': 'TEACHING HOSPITAL',
+  'width': 105,
+  'right': 291
+}, {
+  'bottom': 1147,
+  'left': 414,
+  'top': 1134,
+  'text': '6,138,180,645',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1147,
+  'left': 507,
+  'top': 1134,
+  'text': '71,067,078',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1147,
+  'left': 585,
+  'top': 1134,
+  'text': '6,209,247,723',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1147,
+  'left': 680,
+  'top': 1134,
+  'text': '102,829,024',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1147,
+  'left': 764,
+  'top': 1134,
+  'text': '6,312,076,747',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1174,
+  'left': 87,
+  'top': 1161,
+  'text': '38. 0521026010',
+  'width': 86,
+  'right': 173
+}, {
+  'bottom': 1167,
+  'left': 186,
+  'top': 1154,
+  'text': 'UNIVERSITY OF CALABAR TEACHING ',
+  'width': 185,
+  'right': 371
+}, {
+  'bottom': 1182,
+  'left': 186,
+  'top': 1169,
+  'text': 'HOSPITAL',
+  'width': 48,
+  'right': 234
+}, {
+  'bottom': 1174,
+  'left': 414,
+  'top': 1161,
+  'text': '6,120,837,184',
+  'width': 68,
+  'right': 482
+}, {
+  'bottom': 1174,
+  'left': 507,
+  'top': 1161,
+  'text': '93,108,013',
+  'width': 53,
+  'right': 560
+}, {
+  'bottom': 1174,
+  'left': 585,
+  'top': 1161,
+  'text': '6,213,945,197',
+  'width': 68,
+  'right': 653
+}, {
+  'bottom': 1174,
+  'left': 680,
+  'top': 1161,
+  'text': '103,523,925',
+  'width': 59,
+  'right': 739
+}, {
+  'bottom': 1174,
+  'left': 764,
+  'top': 1161,
+  'text': '6,317,469,122',
+  'width': 68,
+  'right': 832
+}, {
+  'bottom': 1204,
+  'left': 78,
+  'top': 1191,
+  'text': 'NATIONAL ASSEMBLY',
+  'width': 107,
+  'right': 185
+}, {
+  'bottom': 1204,
+  'left': 454,
+  'top': 1191,
+  'text': '1',
+  'width': 6,
+  'right': 460
+}, {
+  'bottom': 1204,
+  'left': 699,
+  'top': 1191,
+  'text': ' 2016 APPROPRIATION ACT',
+  'width': 137,
+  'right': 836
+}]
