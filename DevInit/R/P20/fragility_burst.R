@@ -3,19 +3,21 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
 
-dat = WDI("NY.GDP.PCAP.KD",country="all",start=2016,end=2016)
-dat = dat[order(dat$NY.GDP.PCAP.KD),]
-dat = dat[1:50,]
+set.seed(12345)
 
+dat = WDI("NY.GDP.PCAP.KD",country="all",start=2016,end=2016,extra=T)
 pc = WDI("NY.GDP.PCAP.CD",country="all",start=2016,end=2016)
 dat = merge(dat,pc)
 ppp =  WDI("NY.GDP.PCAP.PP.CD",country="all",start=2016,end=2016)
 dat = merge(dat,ppp)
+dat = subset(dat,complete.cases(dat) & capital!="")
+dat = dat[sample(0:nrow(dat),50,replace=T),]
+dat = dat[order(-dat$NY.GDP.PCAP.KD),]
 dat$value = 1
 dat$ymax = cumsum(dat$value)
 dat$ymin = c(0,head(dat$ymax,n=-1))
 y.maximum = max(dat$ymax)
-gap = 1.3
+gap = 1.33
 angle.step = 360/(y.maximum*gap)
 angle.start = 90
 angle.end = (angle.step*nrow(dat)*(gap-1))-(360-angle.start)
