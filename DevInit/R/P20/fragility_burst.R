@@ -3,9 +3,14 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
 
-dat = WDI("NY.GDP.MKTP.KD",country="all",start=2016,end=2016)
-dat = dat[order(dat$NY.GDP.MKTP.KD),]
+dat = WDI("NY.GDP.PCAP.KD",country="all",start=2016,end=2016)
+dat = dat[order(dat$NY.GDP.PCAP.KD),]
 dat = dat[1:50,]
+
+pc = WDI("NY.GDP.PCAP.CD",country="all",start=2016,end=2016)
+dat = merge(dat,pc)
+ppp =  WDI("NY.GDP.PCAP.PP.CD",country="all",start=2016,end=2016)
+dat = merge(dat,ppp)
 dat$value = 1
 dat$ymax = cumsum(dat$value)
 dat$ymin = c(0,head(dat$ymax,n=-1))
@@ -24,11 +29,21 @@ angle.dat$vjusts = 0
 angle.dat$hjusts[which(angle.dat$angles < -90)] = 1
 angle.dat$vjusts[which(angle.dat$angles < -90)] = 1
 angle.dat$angles[which(angle.dat$angles < -90)] = angle.dat$angles[which(angle.dat$angles < -90)] + 180
-ggplot(dat,aes(xmax=2,xmin=1,ymin=ymin,ymax=ymax,fill=NY.GDP.MKTP.KD)) +
-  geom_rect(color="white") +
+labels = c(
+  "Constant 2010 US$",
+  "Current US$",
+  "Current international $"
+  )
+positions = c(1.5,0.5,-0.5)
+label.dat = data.frame(labels,positions,y.maximum)
+ggplot(dat,aes(ymin=ymin,ymax=ymax)) +
+  geom_rect(aes(xmax=2,xmin=1,fill=NY.GDP.PCAP.KD),color="white") +
+  geom_rect(aes(xmax=1,xmin=0,fill=NY.GDP.PCAP.CD),color="white") +
+  geom_rect(aes(xmax=0,xmin=-1,fill=NY.GDP.PCAP.PP.CD),color="white") +
   geom_text(data=angle.dat,aes(x=2.1,y=ymax,label=country,hjust=hjusts,vjust=vjusts,angle=angles)) +
+  geom_text(data=label.dat,aes(x=positions,y=0,label=labels,ymin=1,ymax=1),hjust=1) + 
   coord_polar(theta="y") +
-  xlim(c(-3,4)) +
+  xlim(c(-4,4)) +
   ylim(c(0,y.maximum*gap)) +
   theme(
     axis.title=element_blank(),
@@ -37,5 +52,6 @@ ggplot(dat,aes(xmax=2,xmin=1,ymin=ymin,ymax=ymax,fill=NY.GDP.MKTP.KD)) +
     axis.line = element_blank(),
     panel.grid=element_blank(),
     plot.background = element_blank(),
-    panel.background = element_blank()
+    panel.background = element_blank(),
+    legend.title=element_blank()
   )
