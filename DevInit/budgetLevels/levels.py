@@ -209,12 +209,12 @@ for sheet in sheets:
                 if budgetDict[yearType]!="":
                     flatData.append(item)
 
-#Build hierarchical data.
-#def similar(a,b):
+# #Build hierarchical data.
+# def similar(a,b):
 #    return SequenceMatcher(None,a,b).ratio()
 # parentModel = []
 # for item in flatData:
-#     if item['l6']!="":
+#     if item['l6']!="" and item['l6'] is not None:
 #         obja = {}
 #         obja['name'] = item['l6']
 #         obja['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']+"#"+item['l2']+"#"+item['l3']+"#"+item['l4']+"#"+item['l5']+"#"+item['l6']
@@ -263,7 +263,7 @@ for sheet in sheets:
 #         obj6['parent'] = ""
 #         obj6['value'] = ""
 #         parentModel.append(obj6)
-#     elif item['l5']!="":
+#     elif item['l5']!="" and item['l5'] is not None:
 #         obj0 = {}
 #         obj0['name'] = item['l5']
 #         obj0['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']+"#"+item['l2']+"#"+item['l3']+"#"+item['l4']+"#"+item['l5']
@@ -306,7 +306,7 @@ for sheet in sheets:
 #         obj6['parent'] = ""
 #         obj6['value'] = ""
 #         parentModel.append(obj6)
-#     elif item['l4']!="":
+#     elif item['l4']!="" and item['l4'] is not None:
 #         obj1 = {}
 #         obj1['name'] = item['l4']
 #         obj1['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']+"#"+item['l2']+"#"+item['l3']+"#"+item['l4']
@@ -343,7 +343,7 @@ for sheet in sheets:
 #         obj6['parent'] = ""
 #         obj6['value'] = ""
 #         parentModel.append(obj6)
-#     elif item['l3']!="":
+#     elif item['l3']!="" and item['l3'] is not None:
 #         obj2 = {}
 #         obj2['name'] = item['l3']
 #         obj2['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']+"#"+item['l2']+"#"+item['l3']
@@ -374,7 +374,7 @@ for sheet in sheets:
 #         obj6['parent'] = ""
 #         obj6['value'] = ""
 #         parentModel.append(obj6)
-#     elif item['l2']!="":
+#     elif item['l2']!="" and item['l2'] is not None:
 #         obj3 = {}
 #         obj3['name'] = item['l2']
 #         obj3['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']+"#"+item['l2']
@@ -399,7 +399,7 @@ for sheet in sheets:
 #         obj6['parent'] = ""
 #         obj6['value'] = ""
 #         parentModel.append(obj6)
-#     elif item['l1']!="":
+#     elif item['l1']!="" and item['l1'] is not None:
 #         obj4 = {}
 #         obj4['name'] = item['l1']
 #         obj4['id'] = item['country']+"#"+str(int(item['year']))+"#"+item['l1']
@@ -477,8 +477,8 @@ for sheet in sheets:
 #                 del child['value']
 #
 # sys.stdout.write("Building tree... This can take a while....")
-#buildTree("",hierData['children'])
-sys.stdout.write('\nDone.\n')
+# buildTree("",hierData['children'])
+# sys.stdout.write('\nDone.\n')
 
 #Output results
 print('Writing CSV...')
