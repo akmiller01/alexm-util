@@ -4,7 +4,7 @@ if(length(new.packages)) install.packages(new.packages)
 
 require(RPostgreSQL)
 
-cred <- readLines("C:/Users/Alex/Documents/ddw.txt")
+cred <- readLines("~/ddw.txt")
 
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv
@@ -49,3 +49,4 @@ ddw <- function(schemaTable){
 rm(cred,drv,list.of.packages,new.packages)
 
 # dat <- dlTableIfExists(con,"fact.population_total")
+dbDisconnect(con)
