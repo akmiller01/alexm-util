@@ -49,4 +49,4 @@ ddw <- function(schemaTable){
 rm(cred,drv,list.of.packages,new.packages)
 
 # dat <- dlTableIfExists(con,"fact.population_total")
-dbDisconnect(con)
+# dbDisconnect(con)
