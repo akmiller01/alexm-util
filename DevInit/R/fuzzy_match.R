@@ -17,7 +17,7 @@ substrmatchmatrix = function(x, y){
   return(res)
 }
 
-fdict = function(x, y, max.attempts = 3, min.dist = 0){
+fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
   u_x = unique(x)
   u_y = unique(y)
   u_x_matches = c()
