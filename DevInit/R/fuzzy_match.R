@@ -3,10 +3,6 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
 
-load("/home/alex/Downloads/dat.Rdata")
-x = ihsn$nation
-y = meta3$Short.Name
-
 substr_match = function(x, y){
   if(grepl(x,y,ignore.case=T,useBytes=T) | grepl(y,x,ignore.case=T,useBytes=T)){return(T)}
   return(F)
@@ -74,5 +70,3 @@ fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
   }
   return(data.frame(x=u_x,y=u_x_matches))
 }
-
-dict = fuzzy(x,y)
