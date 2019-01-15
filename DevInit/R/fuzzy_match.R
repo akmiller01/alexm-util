@@ -1,4 +1,4 @@
-list.of.packages <- c("stringdist")
+list.of.packages <- c("stringdist","stringr")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
@@ -18,14 +18,23 @@ substrmatchmatrix = function(x, y){
 }
 
 fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
-  u_x = unique(x)
-  u_y = unique(y)
+  if(is.factor(x)){
+    u_x = unique(as.character(x))
+  }else{
+    u_x = unique(x)
+  }
+  if(is.factor(y)){
+    u_y = unique(as.character(y))
+  }else{
+    u_y = unique(y)
+  }
   u_x_matches = c()
-  dist_mat = stringdistmatrix(u_x, u_y)
+  dist_mat = stringdistmatrix(str_to_lower(u_x), str_to_lower(u_y),useBytes=T)
   substr_mat = substrmatchmatrix(u_x, u_y)
   no_matches = colSums(dist_mat==0)==0
   # Each row represents one obs of x, with each col representing distances to y
   for(i in 1:nrow(dist_mat)){
+    u_x_match = NA
     row = dist_mat[i,]
     row_min = min(row)
     # Exact match, add it and move on
@@ -52,7 +61,6 @@ fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
       }else{
         # Then try all string distance matches
         attempt = 1
-        u_x_match = NA
         row.df = data.frame(dist=row,index=c(1:length(row)))
         row.df = row.df[no_matches,]
         row.df = row.df[order(row.df$dist),]
