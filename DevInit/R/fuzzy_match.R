@@ -3,31 +3,23 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
 
-substr_matches = function(x, y){
+load("/home/alex/Downloads/dat.Rdata")
+x = ihsn$nation
+y = meta3$Short.Name
+
+substr_match = function(x, y){
   if(grepl(x,y,ignore.case=T,useBytes=T) | grepl(y,x,ignore.case=T,useBytes=T)){return(T)}
   return(F)
 }
-substr_matches = Vectorize(substr_matches)
+substr_match = Vectorize(substr_match)
 
 substrmatchmatrix = function(x, y){
-  res = matrix(,nrow=length(x),ncol=length(y))
-  for(i in 1:length(y)){
-    res[,i] = substr_matches(x,y[i])
-  }
-  return(res)
+  return(outer(x, y, substr_match))
 }
 
 fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
-  if(is.factor(x)){
-    u_x = unique(as.character(x))
-  }else{
-    u_x = unique(x)
-  }
-  if(is.factor(y)){
-    u_y = unique(as.character(y))
-  }else{
-    u_y = unique(y)
-  }
+  u_x = unique(as.character(x))
+  u_y = unique(as.character(y))
   u_x_matches = c()
   dist_mat = stringdistmatrix(str_to_lower(u_x), str_to_lower(u_y),useBytes=T)
   substr_mat = substrmatchmatrix(u_x, u_y)
@@ -82,3 +74,5 @@ fuzzy = function(x, y, max.attempts = 3, min.dist = 0){
   }
   return(data.frame(x=u_x,y=u_x_matches))
 }
+
+dict = fuzzy(x,y)
