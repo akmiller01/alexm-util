@@ -6,7 +6,7 @@ lapply(list.of.packages, require, character.only=T)
 all_xlsx = list.files(path="S:/",pattern="*.xlsx",recursive=T,ignore.case=T,full.names=T)
 all_xls = list.files(path="S:/",pattern="*.xls",recursive=T,ignore.case=T,full.names=T)
 
-tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls))
+pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls))
 
 linked.xlsx = function(xlsx.file){
   tmp = tempdir()
