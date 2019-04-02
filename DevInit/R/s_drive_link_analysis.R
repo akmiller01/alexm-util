@@ -3,8 +3,13 @@ new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
 
+setwd("C:/Users/leightonj/Documents")
+
 all_xlsx = list.files(path="S:/",pattern="*.xlsx",recursive=T,ignore.case=T,full.names=T)
 all_xls = list.files(path="S:/",pattern="*.xls",recursive=T,ignore.case=T,full.names=T)
+
+save(all_xlsx,all_xls,file="s_drive_analysis_files.RData")
+# load("s_drive_analysis_files.RData") # You can uncomment this on subsequent runs, and comment out the save and `list.files` lines instead
 
 pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls))
 
@@ -40,6 +45,8 @@ for(xlsx.file in all_xlsx){
   link_list[[link_index]] = data.frame(filename=xlsx.file,linked=linked.xlsx(xlsx.file))
   link_index = link_index + 1
 }
+
+save(link_list,file="s_drive_xlsx_list.RData")
 
 for(xls.file in all_xls){
   setTkProgressBar(pb, link_index, label=xls.file)
