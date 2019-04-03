@@ -1,4 +1,4 @@
-list.of.packages <- c("data.table","tcltk","XML","xlsx")
+list.of.packages <- c("data.table","tcltk","XML","xlsx","tools")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
@@ -10,6 +10,8 @@ setwd("C:/Users/leightonj/Documents")
 # 
 # save(all_xlsx,all_xls,file="s_drive_analysis_files.RData")
 load("s_drive_analysis_files.RData")
+all_xls = subset(all_xls, file_ext(enc2utf8(all_xls))=="xls")
+all_xlsx = subset(all_xlsx, file_ext(enc2utf8(all_xlsx))=="xlsx")
 
 pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls), width=600)
 
@@ -42,7 +44,7 @@ link_index = 1
 
 for(xlsx.file in all_xlsx){
   setTkProgressBar(pb, link_index, label=xlsx.file)
-  xlsx_is_linked = tryCatch({return(linked.xlsx(xlsx.file))},error={return(NA)})
+  xlsx_is_linked = tryCatch({linked.xlsx(xlsx.file)},error={NA})
   link_list[[link_index]] = data.frame(filename=xlsx.file,linked=xlsx_is_linked)
   link_index = link_index + 1
 }
@@ -51,7 +53,7 @@ save(link_list,file="s_drive_xlsx_list.RData")
 
 for(xls.file in all_xls){
   setTkProgressBar(pb, link_index, label=xls.file)
-  xls_is_linked = tryCatch({return(linked.xls(xls.file))},error={return(NA)})
+  xls_is_linked = tryCatch({linked.xls(xls.file)},error={NA})
   link_list[[link_index]] = data.frame(filename=xls.file,linked=xls_is_linked)
   link_index = link_index + 1
 }
