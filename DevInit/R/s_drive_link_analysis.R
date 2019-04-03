@@ -5,11 +5,11 @@ lapply(list.of.packages, require, character.only=T)
 
 setwd("C:/Users/leightonj/Documents")
 
-all_xlsx = list.files(path="S:/",pattern="*.xlsx",recursive=T,ignore.case=T,full.names=T)
-all_xls = list.files(path="S:/",pattern="*.xls",recursive=T,ignore.case=T,full.names=T)
-
-save(all_xlsx,all_xls,file="s_drive_analysis_files.RData")
-# load("s_drive_analysis_files.RData") # You can uncomment this on subsequent runs, and comment out the save and `list.files` lines instead
+# all_xlsx = list.files(path="S:/",pattern="*.xlsx",recursive=T,ignore.case=T,full.names=T)
+# all_xls = list.files(path="S:/",pattern="*.xls",recursive=T,ignore.case=T,full.names=T)
+# 
+# save(all_xlsx,all_xls,file="s_drive_analysis_files.RData")
+load("s_drive_analysis_files.RData")
 
 pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls))
 
@@ -42,7 +42,8 @@ link_index = 1
 
 for(xlsx.file in all_xlsx){
   setTkProgressBar(pb, link_index, label=xlsx.file)
-  link_list[[link_index]] = data.frame(filename=xlsx.file,linked=linked.xlsx(xlsx.file))
+  xlsx_is_linked = tryCatch({return(linked.xlsx(xlsx.file))},error={return(NA)})
+  link_list[[link_index]] = data.frame(filename=xlsx.file,linked=xlsx_is_linked)
   link_index = link_index + 1
 }
 
@@ -50,7 +51,8 @@ save(link_list,file="s_drive_xlsx_list.RData")
 
 for(xls.file in all_xls){
   setTkProgressBar(pb, link_index, label=xls.file)
-  link_list[[link_index]] = data.frame(filename=xls.file,linked=linked.xls(xls.file))
+  xls_is_linked = tryCatch({return(linked.xls(xls.file))},error={return(NA)})
+  link_list[[link_index]] = data.frame(filename=xls.file,linked=xls_is_linked)
   link_index = link_index + 1
 }
 
