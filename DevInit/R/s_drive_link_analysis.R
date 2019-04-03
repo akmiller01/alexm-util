@@ -11,7 +11,7 @@ setwd("C:/Users/leightonj/Documents")
 # save(all_xlsx,all_xls,file="s_drive_analysis_files.RData")
 load("s_drive_analysis_files.RData")
 
-pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls))
+pb = tkProgressBar(title="S drive link analysis", min=0, max = length(all_xlsx)+length(all_xls), width=600)
 
 linked.xlsx = function(xlsx.file){
   tmp = tempdir()
