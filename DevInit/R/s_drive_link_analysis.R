@@ -44,7 +44,7 @@ link_index = 1
 
 for(xlsx.file in all_xlsx){
   setTkProgressBar(pb, link_index, label=xlsx.file)
-  xlsx_is_linked = tryCatch({linked.xlsx(xlsx.file)},error={NA})
+  xlsx_is_linked = tryCatch({linked.xlsx(xlsx.file)},error=function(e){NA})
   link_list[[link_index]] = data.frame(filename=xlsx.file,linked=xlsx_is_linked)
   link_index = link_index + 1
 }
@@ -53,7 +53,7 @@ save(link_list,file="s_drive_xlsx_list.RData")
 
 for(xls.file in all_xls){
   setTkProgressBar(pb, link_index, label=xls.file)
-  xls_is_linked = tryCatch({linked.xls(xls.file)},error={NA})
+  xls_is_linked = tryCatch({linked.xls(xls.file)},error=function(e){NA})
   link_list[[link_index]] = data.frame(filename=xls.file,linked=xls_is_linked)
   link_index = link_index + 1
 }
