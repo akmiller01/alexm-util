@@ -59,8 +59,8 @@ data.list = list()
 data.index = 1
 errs = c()
 
-pb = txtProgressBar(min=1, max=length(ext), style=3)
-for(i in 1:length(ext)){
+pb = txtProgressBar(min=1, max=nrow(ext), style=3)
+for(i in 1:nrow(ext)){
   svy = ext[i,"C0"]
   year = ext[i,"DataYear"]
   msg_lbl = paste(svy,year)
