@@ -14,12 +14,12 @@ remap_cov = function(x){
 }
 remap_cov = Vectorize(remap_cov)
 
-povcal_smy = function(pl=1.9,group.by="WB"){
+povcal_svy = function(pl=1.9,group.by="WB"){
   url = "http://iresearch.worldbank.org/PovcalNet/PovcalNetAPI.ashx?"
   params = list(
     "Countries"="all",
     "PovertyLine"=as.character(pl),
-    "RefYears"="all",
+    "SurveyYears"="all",
     "Display"="C",
     "GroupedBy"=group.by,
     "format"="csv"
@@ -49,32 +49,32 @@ povcal_dist = function(C0="AGO_3",Y0=2015){
   }
 }
 
-ext = povcal_smy()
+ext = povcal_svy()
 ext$svy_code = remap_cov(ext$CoverageType)
 ext = subset(ext,!is.na(svy_code))
 ext$C0 = paste(ext$CountryCode,ext$svy_code,sep="_")
-svys = unique(ext$C0)
-years = unique(ext$RequestYear)
 
 
 data.list = list()
 data.index = 1
 errs = c()
-for(year in years){
-  for(svy in svys){
-    message(year," ",svy)
-    dist.tmp = tryCatch({povcal_dist(svy, year)},error=function(e){return(NULL)})
-    if(!is.null(dist.tmp)){
-      dist.tmp$svy = svy
-      dist.tmp$year = year
-      data.list[[data.index]] = dist.tmp
-      data.index = data.index + 1
-    }else{
-      err_key = paste(svy,year,sep="_")
-      message("Error on ", err_key)
-      errs = c(errs, err_key)
-    }
+
+pb = txtProgressBar(min=1, max=length(ext))
+for(i in 1:length(ext)){
+  svy = ext[i,"C0"]
+  year = ext[i,"DataYear"]
+  msg_lbl = paste(svy,year)
+  setTxtProgressBar(pb, i, label=msg_lbl)
+  dist.tmp = tryCatch({povcal_dist(svy, year)},error=function(e){return(NULL)})
+  if(!is.null(dist.tmp)){
+    dist.tmp$svy = svy
+    dist.tmp$year = year
+    data.list[[data.index]] = dist.tmp
+    data.index = data.index + 1
+  }else{
+    errs = c(errs, msg_lbl)
   }
 }
+close(pb)
 
 all_dist = rbindlist(data.list)
