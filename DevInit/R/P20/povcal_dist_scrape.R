@@ -62,7 +62,7 @@ data.index = 1
 for(year in years){
   for(svy in svys){
     message(year," ",svy)
-    dist.tmp = povcal_dist(svy, year)
+    dist.tmp = tryCatch({povcal_dist(svy, year)},error=function(e){return(F)})
     if(dist.tmp!=FALSE){
       dist.tmp$svy = svy
       dist.tmp$year = year
