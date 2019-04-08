@@ -45,7 +45,7 @@ povcal_dist = function(C0="AGO_3",Y0=2015){
     df = read.table(text=txt_table, header=F, col.names=c("i","P", "L"))
     return(df)
   }else{
-    return(FALSE)
+    return(NULL)
   }
 }
 
@@ -59,15 +59,20 @@ years = unique(ext$RequestYear)
 
 data.list = list()
 data.index = 1
+errs = c()
 for(year in years){
   for(svy in svys){
     message(year," ",svy)
-    dist.tmp = tryCatch({povcal_dist(svy, year)},error=function(e){return(F)})
-    if(dist.tmp!=FALSE){
+    dist.tmp = tryCatch({povcal_dist(svy, year)},error=function(e){return(NULL)})
+    if(!is.null(dist.tmp)){
       dist.tmp$svy = svy
       dist.tmp$year = year
       data.list[[data.index]] = dist.tmp
       data.index = data.index + 1
+    }else{
+      err_key = paste(svy,year,sep="_")
+      message("Error on ", err_key)
+      errs = c(errs, err_key)
     }
   }
 }
