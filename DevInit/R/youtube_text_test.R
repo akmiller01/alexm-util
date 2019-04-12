@@ -10,7 +10,8 @@ extract_subs = function(youtube_url, language_code="en"){
   py_cmd = "youtube_transcript_api"
   py_args = c(vid, "--language", language_code, "--json")
   result_json = system2(command=py_cmd, args=py_args, stdout=T)
-  result_json_concat = paste(result_json, collapse=" ")
+  result_json_trim = trimws(result_json)
+  result_json_concat = paste(result_json_trim, collapse="")
   result = data.frame(fromJSON(txt=result_json_concat)[[1]])
   return(result)
 }
