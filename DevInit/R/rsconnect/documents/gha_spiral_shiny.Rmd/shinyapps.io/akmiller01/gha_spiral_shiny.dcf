@@ -1,0 +1,12 @@
+name: gha_spiral_shiny
+title: gha_spiral_shiny
+username:
+account: akmiller01
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1771550
+bundleId: 2780011
+url: https://akmiller01.shinyapps.io/gha_spiral_shiny/
+when: 1581006064.45908
+asMultiple: FALSE
+asStatic: FALSE
