@@ -3,7 +3,7 @@ library(data.table)
 library(plotly)
 library(ggplot2)
 
-wd <- "D:/Documents/Data/PovCal_Increment"
+wd <- "/media/alex/Windows/Users/Alex/Desktop/data/PovCal_Increment"
 setwd(wd)
 
 # header <- c(
@@ -37,12 +37,15 @@ total <- subset(regions,region=="Total of 6 regions")
 
 #Remove implausible values
 total <- total[!c(13637,22839),]
-years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
-for(i in years){
-  filename <- paste("years_all/pcn",i,"csv",sep=".")
-  write.csv(subset(total,year==i),filename,row.names=FALSE,na="")
-}
+# years <- c(2013, 2012, 2011, 2010, 2008, 2005, 2002, 1999, 1996, 1993, 1990, 1987, 1984, 1981)
+# for(i in years){
+#   filename <- paste("years_all/pcn",i,"csv",sep=".")
+#   write.csv(subset(total,year==i),filename,row.names=FALSE,na="")
+# }
 total$log.pl <- log(total$pl)
+total = total[order(total$year,total$pl),]
+total[,"delta.poor":=c(NA, diff(.SD$poor)),by=year]
+# plot_ly(subset(total,pl<10),x= ~year,y= ~pl,z= ~delta.poor) %>% add_markers()
 plot_ly(total,x= ~year,y= ~log.pl,z= ~poor) %>% add_markers()
 # plotly_POST(filename = "poverty-over-time")
 plot_ly(subset(total,pl<20),x= ~year,y= ~pl,z= ~poor) %>% add_markers()

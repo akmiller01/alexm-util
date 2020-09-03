@@ -1,4 +1,4 @@
-source("C:/git/alexm-util/DevInit/R/imf_sdmx_func.R")
+source("~/git/alexm-util/DevInit/R/imf_sdmx_func.R")
 
 cl <- imfCL("GFSR")
 
